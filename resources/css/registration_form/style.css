@@ -1,0 +1,24 @@
+body {
+    /* padding:0;
+    margin:0; */
+    /* overflow:hidden; */
+	/* height: 600px; */
+    overflow-x: hidden;
+    height: 100vh;
+}
+canvas {
+    padding:0;
+    margin:0;
+}
+div.btnbg {
+    position:absolute;
+    width: 100%;
+    left:0;
+    top:0;
+}
+
+/* .viraj{
+    width: 100%;
+    overflow: scroll;
+    background-color: blue;
+} */

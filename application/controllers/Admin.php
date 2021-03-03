@@ -3,9 +3,9 @@ class Admin extends CI_Controller
 {
 	public function index()
 	{
-		$this->load->view('partials/header_admin');
-		$this->load->view('home_admin');
-		$this->load->view('partials/footer_admin');
+		$this->load->view('admin_panel/header');
+		$this->load->view('admin_panel/home');
+		$this->load->view('admin_panel/footer');
 	}
 
 	public function test()
