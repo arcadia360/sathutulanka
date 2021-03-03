@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>CodePen - A Pen by Anand Davaasuren</title>
+	<title>Sathutu Lanka | User Registration</title>
 	<link rel="stylesheet" href="<?php echo base_url('resources/css/registration_form/style.css') ?>">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
