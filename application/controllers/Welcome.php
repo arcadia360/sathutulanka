@@ -22,4 +22,16 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome');
 	}
+
+	public function ChangeLanguage($LanguageID,$url){
+		if (!isset($_SESSION['user_id']) || !empty($_SESSION['user_id'])) {  // If Fresh User
+			$logged_in_sess = array(
+				'language_id' => $LanguageID // 1 - English, 2 - Sinhala, 3 - Tamil
+			);
+			$this->session->set_userdata($logged_in_sess);
+			redirect(base_url($url), 'refresh');
+		}else{
+			echo 'ddddd';
+		}
+	}
 }
