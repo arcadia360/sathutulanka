@@ -29,10 +29,3 @@
 </head>
 
 <body>
-	<?php
-	function loadLangFile()
-	{
-		$ini_array = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . "/sathutulanka/resources/lang/en.ini");
-		return $ini_array;
-	}
-	?>
