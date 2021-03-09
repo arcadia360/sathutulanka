@@ -1,20 +1,16 @@
-<?php
-$ini_array = loadLangFile();
-?>
-
 <canvas id="sakura"></canvas>
 <div class="btnbg" style="padding-top: 30px;">
 	<!-- Container Area Start -->
 	<div class="container" style="z-index: 1;">
 		<div class="row">
 			<div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
-				<h3 class="text-center text-inverse"><?php echo $ini_array['PhysicalStatus']; ?></h3>
+				<h3 class="text-center text-inverse">Physical Status</h3>
 				<hr>
 				<form class="container" id="needs-validation" novalidate>
 					<div class="row">
 						<div class="col-lg-6 col-sm-6 col-12">
 							<div class="form-group">
-								<label class="text-inverse" for="validationCustom01"><?php echo $ini_array['motherTounge']; ?></label>
+								<label class="text-inverse" for="validationCustom01">Mother Tounge</label>
 								<input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="First Name" required>
 							</div>
 						</div>
