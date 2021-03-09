@@ -1,6 +1,6 @@
-    <!-- sakura shader -->
-    <script id="sakura_point_vsh" type="x-shader/x_vertex">
-    	uniform mat4 uProjection;
+<!-- sakura shader -->
+<script id="sakura_point_vsh" type="x-shader/x_vertex">
+	uniform mat4 uProjection;
 uniform mat4 uModelview;
 uniform vec3 uResolution;
 uniform vec3 uOffset;
@@ -91,8 +91,8 @@ void main(void) {
     distancefade = min(1.0, exp((uFade.x - pdist) * 0.69315 / uFade.y));
 }
 </script>
-    <script id="sakura_point_fsh" type="x-shader/x_fragment">
-    	#ifdef GL_ES
+<script id="sakura_point_fsh" type="x-shader/x_fragment">
+	#ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -163,9 +163,9 @@ void main(void) {
     gl_FragColor = vec4(col * 0.5, alpha);
 }
 </script>
-    <!-- effects -->
-    <script id="fx_common_vsh" type="x-shader/x_vertex">
-    	uniform vec3 uResolution;
+<!-- effects -->
+<script id="fx_common_vsh" type="x-shader/x_vertex">
+	uniform vec3 uResolution;
 attribute vec2 aPosition;
 
 varying vec2 texCoord;
@@ -177,8 +177,8 @@ void main(void) {
     screenCoord = aPosition.xy * vec2(uResolution.z, 1.0);
 }
 </script>
-    <script id="bg_fsh" type="x-shader/x_fragment">
-    	#ifdef GL_ES
+<script id="bg_fsh" type="x-shader/x_fragment">
+	#ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -197,8 +197,8 @@ void main(void) {
     gl_FragColor = vec4(col * 0.5, 1.0);
 }
 </script>
-    <script id="fx_brightbuf_fsh" type="x-shader/x_fragment">
-    	#ifdef GL_ES
+<script id="fx_brightbuf_fsh" type="x-shader/x_fragment">
+	#ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -213,8 +213,8 @@ void main(void) {
     gl_FragColor = vec4(col.rgb * 2.0 - vec3(0.5), 1.0);
 }
 </script>
-    <script id="fx_dirblur_r4_fsh" type="x-shader/x_fragment">
-    	#ifdef GL_ES
+<script id="fx_dirblur_r4_fsh" type="x-shader/x_fragment">
+	#ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -234,9 +234,9 @@ void main(void) {
     gl_FragColor = col / 5.0;
 }
 </script>
-    <!-- effect fragment shader template -->
-    <script id="fx_common_fsh" type="x-shader/x_fragment">
-    	#ifdef GL_ES
+<!-- effect fragment shader template -->
+<script id="fx_common_fsh" type="x-shader/x_fragment">
+	#ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -250,9 +250,9 @@ void main(void) {
     gl_FragColor = texture2D(uSrc, texCoord);
 }
 </script>
-    <!-- post processing -->
-    <script id="pp_final_vsh" type="x-shader/x_vertex">
-    	uniform vec3 uResolution;
+<!-- post processing -->
+<script id="pp_final_vsh" type="x-shader/x_vertex">
+	uniform vec3 uResolution;
 attribute vec2 aPosition;
 varying vec2 texCoord;
 varying vec2 screenCoord;
@@ -262,8 +262,8 @@ void main(void) {
     screenCoord = aPosition.xy * vec2(uResolution.z, 1.0);
 }
 </script>
-    <script id="pp_final_fsh" type="x-shader/x_fragment">
-    	#ifdef GL_ES
+<script id="pp_final_fsh" type="x-shader/x_fragment">
+	#ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -284,12 +284,12 @@ void main(void) {
     gl_FragColor.a = 1.0;
 }
 </script>
-    <!-- partial -->
+<!-- partial -->
 
 
 
-    <script src="<?php echo base_url('resources/js/registration_form/script.js') ?>"></script>
+<script src="<?php echo base_url('resources/js/registration_form/script.js') ?>"></script>
 
-    </body>
+</body>
 
-    </html>
+</html>
