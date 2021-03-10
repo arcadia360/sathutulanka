@@ -80,11 +80,11 @@ class Admin_Controller extends MY_Controller
 		$session_data = $this->session->userdata();
 
 		if ($session_data['language_id'] == 1) { // English
-			$this->lang->load('en', 'Sinhala');
+			$this->lang->load('en', 'English');
 		} else if ($session_data['language_id'] == 2) { // Sinhala
 			$this->lang->load('si', 'Sinhala');
 		} else if ($session_data['language_id'] == 3) { // Tamil
-			$this->lang->load('ta', 'Sinhala');
+			$this->lang->load('ta', 'Tamil');
 		}
 
 		$this->load->view('registration/header', $this->data);
