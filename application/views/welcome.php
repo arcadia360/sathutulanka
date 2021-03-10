@@ -17,7 +17,7 @@
                     $url = $url . $this->uri->segment($i + 1) . "/";
                 }
 
-                echo base_url("Welcome/ChangeLanguage/1/" . $url); ?>">English</a>
+                echo base_url("Welcome/ChangeLanguage/1/".$url); ?>">English</a>
     <a href="<?php
                 $url = "";
                 for ($i = 0; $i < count($this->uri->segment_array()); $i++) {
