@@ -20,10 +20,18 @@ class Registration extends CI_Controller
 		$this->load->view('registration/physical_status');
 		$this->load->view('registration/footer');
 	}
-	public function langTest()
+
+	public function addBackground()
 	{
 		$this->load->helper('language');
 		$this->lang->load('si', 'Sinhala');
+		$this->load->view('user_registration/header');
+		$this->load->view('user_registration/background');
+		$this->load->view('user_registration/footer');
+	}
+	public function langTest()
+	{
+
 		echo lang('hello');
 		$this->load->view('registration/header');
 		$this->load->view('registration/physical_status');
