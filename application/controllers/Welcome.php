@@ -20,6 +20,13 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		if (!isset($_SESSION['language_id']) || !empty($_SESSION['language_id'])) {  // If Fresh User
+			$logged_in_sess = array(
+				'language_id' => 1 // 1 - English, 2 - Sinhala, 3 - Tamil
+			);
+			$this->session->set_userdata($logged_in_sess);
+		} 
+		
 		$this->load->view('welcome');
 	}
 
