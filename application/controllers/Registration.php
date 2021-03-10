@@ -31,7 +31,8 @@ class Registration extends Admin_Controller
 	}
 	public function langTest()
 	{
-
+		$this->load->helper('language');
+		$this->lang->load('si', 'Sinhala');
 		echo lang('hello');
 		$this->load->view('registration/header');
 		$this->load->view('registration/physical_status');

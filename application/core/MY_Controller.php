@@ -64,10 +64,21 @@ class Admin_Controller extends MY_Controller
 	{
 		$this->data['page_title']=$title." | K N C";
 
-		$this->load->view('partials/header',$this->data);
+		$this->load->helper('language');
+
+		$session_data = $this->session->userdata();
+
+		if ($session_data['language_id'] == 1) { // English
+			$this->lang->load('en', 'English');
+		} else if ($session_data['language_id'] == 2) { // Sinhala
+			$this->lang->load('si', 'Sinhala');
+		} else if ($session_data['language_id'] == 3) { // Tamil
+			$this->lang->load('ta', 'Tamil');
+		}
+
+		// $this->load->view('partials/header',$this->data);
 		$this->load->view('partials/navbar');
-		$this->load->view('partials/sidebar');
-		$this->load->view($page);
+		// $this->load->view($page);
 		$this->load->view('partials/footer');
 	}
 
