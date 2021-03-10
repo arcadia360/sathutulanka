@@ -1,5 +1,5 @@
 <?php
-class Registration extends CI_Controller
+class Registration extends Admin_Controller
 {
 	public function index()
 	{
