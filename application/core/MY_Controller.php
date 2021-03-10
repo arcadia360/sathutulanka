@@ -60,7 +60,7 @@ class Admin_Controller extends MY_Controller
 		}
 	}
 
-	public function render_template($page = null,$title, $data = array())
+	public function render_template($page = null,$title, $data = array()) // For Registerd User
 	{
 		$this->data['page_title']=$title." | K N C";
 
@@ -69,6 +69,27 @@ class Admin_Controller extends MY_Controller
 		$this->load->view('partials/sidebar');
 		$this->load->view($page);
 		$this->load->view('partials/footer');
+	}
+
+	public function render_template_registration($page = null, $title, $data = array()) // For Registration User
+	{
+		$this->data['page_title'] = $title . " | K N C";
+
+		$this->load->helper('language');
+
+		$session_data = $this->session->userdata();
+
+		if ($session_data['language_id'] == 1) { // English
+			$this->lang->load('en', 'Sinhala');
+		} else if ($session_data['language_id'] == 2) { // Sinhala
+			$this->lang->load('si', 'Sinhala');
+		} else if ($session_data['language_id'] == 3) { // Tamil
+			$this->lang->load('ta', 'Sinhala');
+		}
+
+		$this->load->view('registration/header', $this->data);
+		$this->load->view($page);
+		$this->load->view('registration/footer');
 	}
 
 	// public function company_currency()
