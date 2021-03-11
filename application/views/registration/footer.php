@@ -1,6 +1,9 @@
 <!-- sakura shader -->
+<script>
+    $(".ErrMsg").fadeOut(7000, 'swing');
+</script>
 <script id="sakura_point_vsh" type="x-shader/x_vertex">
-	uniform mat4 uProjection;
+    uniform mat4 uProjection;
 uniform mat4 uModelview;
 uniform vec3 uResolution;
 uniform vec3 uOffset;
@@ -92,7 +95,7 @@ void main(void) {
 }
 </script>
 <script id="sakura_point_fsh" type="x-shader/x_fragment">
-	#ifdef GL_ES
+    #ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -165,7 +168,7 @@ void main(void) {
 </script>
 <!-- effects -->
 <script id="fx_common_vsh" type="x-shader/x_vertex">
-	uniform vec3 uResolution;
+    uniform vec3 uResolution;
 attribute vec2 aPosition;
 
 varying vec2 texCoord;
@@ -178,7 +181,7 @@ void main(void) {
 }
 </script>
 <script id="bg_fsh" type="x-shader/x_fragment">
-	#ifdef GL_ES
+    #ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -198,7 +201,7 @@ void main(void) {
 }
 </script>
 <script id="fx_brightbuf_fsh" type="x-shader/x_fragment">
-	#ifdef GL_ES
+    #ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -214,7 +217,7 @@ void main(void) {
 }
 </script>
 <script id="fx_dirblur_r4_fsh" type="x-shader/x_fragment">
-	#ifdef GL_ES
+    #ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -236,7 +239,7 @@ void main(void) {
 </script>
 <!-- effect fragment shader template -->
 <script id="fx_common_fsh" type="x-shader/x_fragment">
-	#ifdef GL_ES
+    #ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
@@ -252,7 +255,7 @@ void main(void) {
 </script>
 <!-- post processing -->
 <script id="pp_final_vsh" type="x-shader/x_vertex">
-	uniform vec3 uResolution;
+    uniform vec3 uResolution;
 attribute vec2 aPosition;
 varying vec2 texCoord;
 varying vec2 screenCoord;
@@ -263,7 +266,7 @@ void main(void) {
 }
 </script>
 <script id="pp_final_fsh" type="x-shader/x_fragment">
-	#ifdef GL_ES
+    #ifdef GL_ES
 //precision mediump float;
 precision highp float;
 #endif
