@@ -8,7 +8,8 @@ class Registration extends Admin_Controller
 		$this->load->view('registration/footer');
 	}
 
-	public function CreateAccount(){
+	public function CreateAccount()
+	{
 		// $this->load->view('registration/header');
 		$this->load->view('registration/create_account');
 		// $this->load->view('registration/footer');
@@ -23,11 +24,14 @@ class Registration extends Admin_Controller
 
 	public function addBackground()
 	{
-		$this->load->helper('language');
-		$this->lang->load('si', 'Sinhala');
-		$this->load->view('user_registration/header');
-		$this->load->view('user_registration/background');
-		$this->load->view('user_registration/footer');
+		// $this->load->helper('language');
+		// $this->lang->load('si', 'Sinhala');
+		// $this->load->view('user_registration/header');
+		// $this->load->view('user_registration/background');
+		// $this->load->view('user_registration/footer');
+
+
+		$this->render_template_registration('registration/background', 'Add Background Details', NULL);
 	}
 	public function langTest()
 	{
