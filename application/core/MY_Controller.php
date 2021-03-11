@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class MY_Controller extends CI_Controller
 {
@@ -8,22 +8,21 @@ class MY_Controller extends CI_Controller
 	}
 }
 
-class Admin_Controller extends MY_Controller 
+class Admin_Controller extends MY_Controller
 {
 	var $permission = array();
 	var $isAdmin = FALSE;
 
-	public function __construct() 
+	public function __construct()
 	{
-		parent::__construct(); 
+		parent::__construct();
 
 		$group_data = array();
-		if(empty($this->session->userdata('logged_in'))) {
+		if (empty($this->session->userdata('logged_in'))) {
 
 			$session_data = array('logged_in' => FALSE);
 			$this->session->set_userdata($session_data);
-		}
-		else {
+		} else {
 			$user_id = $this->session->userdata('user_id');
 			$this->load->model('model_auth');
 			$group_data = $this->model_auth->getUserGroupByUserId($user_id);
@@ -32,22 +31,18 @@ class Admin_Controller extends MY_Controller
 				$this->isAdmin = TRUE;
 				$this->data['isAdmin'] = TRUE;
 				$this->data['user_permission'] = array();
-			}else{
+			} else {
 				$this->data['isAdmin'] = FALSE;
 				$this->data['user_permission'] = unserialize($group_data['vcPermission']);
 				$this->permission = unserialize($group_data['vcPermission']);
 			}
-
-
-
-			
 		}
 	}
 
 	public function logged_in()
 	{
 		$session_data = $this->session->userdata();
-		if($session_data['logged_in'] == TRUE) {
+		if ($session_data['logged_in'] == TRUE) {
 			redirect('dashboard', 'refresh');
 		}
 	}
@@ -55,23 +50,12 @@ class Admin_Controller extends MY_Controller
 	public function not_logged_in()
 	{
 		$session_data = $this->session->userdata();
-		if($session_data['logged_in'] == FALSE) {
+		if ($session_data['logged_in'] == FALSE) {
 			redirect('auth/login', 'refresh');
 		}
 	}
 
-	public function render_template($page = null,$title, $data = array()) // For Registerd User
-	{
-		$this->data['page_title']=$title." | K N C";
-
-		$this->load->view('partials/header',$this->data);
-		$this->load->view('partials/navbar');
-		$this->load->view('partials/sidebar');
-		$this->load->view($page);
-		$this->load->view('partials/footer');
-	}
-
-	public function render_template_registration($page = null, $title, $data = array()) // For Registration User
+	public function render_template($page = null, $title, $data = array()) // For Registerd User
 	{
 		$this->data['page_title'] = $title . " | K N C";
 
@@ -87,6 +71,30 @@ class Admin_Controller extends MY_Controller
 			$this->lang->load('ta', 'Tamil');
 		}
 
+		// $this->load->view('partials/header',$this->data);
+		$this->load->view('partials/navbar');
+		// $this->load->view($page);
+		$this->load->view('partials/footer');
+	}
+
+	public function render_template_registration($page = null, $title, $data = array()) // For Registration User
+	{
+		$this->data['page_title'] = $title . " | K N C";
+
+		$this->load->helper('language');
+
+		$session_data = $this->session->userdata();
+
+		// if ($session_data['language_id'] == 1) { // English
+		// 	$this->lang->load('en', 'English');
+		// } else if ($session_data['language_id'] == 2) { // Sinhala
+		// 	$this->lang->load('si', 'Sinhala');
+		// } else if ($session_data['language_id'] == 3) { // Tamil
+		// 	$this->lang->load('ta', 'Tamil');
+		// }
+
+		$this->lang->load('si', 'Sinhala');
+
 		$this->load->view('registration/header', $this->data);
 		$this->load->view($page);
 		$this->load->view('registration/footer');
@@ -97,7 +105,7 @@ class Admin_Controller extends MY_Controller
 	// 	$this->load->model('model_company');
 	// 	$company_currency = $this->model_company->getCompanyData(1);
 	// 	$currencies = $this->currency();
-			
+
 	// 	$currency = '';
 	// 	foreach ($currencies as $key => $value) {
 	// 		if($key == $company_currency['currency']) {
@@ -109,7 +117,7 @@ class Admin_Controller extends MY_Controller
 
 	// }
 
-	
+
 	// public function currency()
 	// {
 	// 	return $currency_symbols = array(
