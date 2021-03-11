@@ -12,19 +12,19 @@
     <a href="">Login</a>
     <a href="">Register</a>
     <a href="<?php
-                $url = "";
+                $url = "Welcome";
                 for ($i = 0; $i < count($this->uri->segment_array()); $i++) {
                     $url = $url . $this->uri->segment($i + 1) . "/";
                 }
 
-                echo base_url("Welcome/ChangeLanguage/1/".$url); ?>">English</a>
+                echo base_url("Welcome/ChangeLanguage/1/".$url.""); ?>">English</a>
     <a href="<?php
-                $url = "";
+                $url = "Welcome";
                 for ($i = 0; $i < count($this->uri->segment_array()); $i++) {
                     $url = $url . $this->uri->segment($i + 1) . "/";
                 }
 
-                echo base_url("Welcome/ChangeLanguage/2/" . $url); ?>">සිංහල</a>
+                echo base_url("Welcome/ChangeLanguage/2/". $url.""); ?>">සිංහල</a>
     <?php
     // $this->session->sess_destroy();
     if (isset($_SESSION['language_id'])) {

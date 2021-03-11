@@ -57,7 +57,7 @@ class Admin_Controller extends MY_Controller
 
 	public function render_template($page = null, $title, $data = array()) // For Registerd User
 	{
-		$this->data['page_title'] = $title . " | K N C";
+		$this->data['page_title'] = $title . " | Satutu Lanka";
 
 		$this->load->helper('language');
 
@@ -72,14 +72,14 @@ class Admin_Controller extends MY_Controller
 		}
 
 		// $this->load->view('partials/header',$this->data);
-		$this->load->view('partials/navbar');
+		$this->load->view('partials/navbar',$this->data);
 		// $this->load->view($page);
 		$this->load->view('partials/footer');
 	}
 
 	public function render_template_registration($page = null, $title, $data = array()) // For Registration User
 	{
-		$this->data['page_title'] = $title . " | K N C";
+		$this->data['page_title'] = $title . " | Satutu Lanka";
 
 		$this->load->helper('language');
 
