@@ -1,0 +1,31 @@
+.round-symbol{
+  /* width: 30px;
+  height: 30px;
+  background-color: yellow; */
+  height: 40px;
+  width: 45px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.body-size{
+  width: 50px;
+}
+.margin-0-auto{
+  margin:0 auto;
+}
+.text-al-center{
+  text-align: center;
+}
+.veryFair{ background-color: rgb(248, 235, 219);}
+.fair{ background-color: rgb(231, 188, 159);}
+.lightBrown{ background-color: rgb(201, 127, 98);}
+.darkBrown{ background-color: rgb(142, 85, 63);}
+.blackBrown{ background-color: rgb(151, 90, 67);}
