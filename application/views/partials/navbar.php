@@ -5,12 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?= $page_title ?></title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-
-
 
 </head>
 
@@ -18,7 +15,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-        <a class="navbar-brand" href="#">Sathutu Lanka</a>
+        <a class="navbar-brand" href="#">Title</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,25 +37,21 @@
             <!-- <a class="nav-link" href=""><?= lang('login'); ?></a> -->
             <?php
 
+            $url = "";
+            for ($i = 0; $i < count($this->uri->segment_array()); $i++) {
+                $url = $url . $this->uri->segment($i + 1) . "/";
+            }
+
+            if ($url == "") {
+                $url = "Welcome";
+            }
             if ($_SESSION['language_id'] == 1) { // Current Language - English
             ?>
-                <a class="nav-link" href="<?php
-                                            $url = "";
-                                            for ($i = 0; $i < count($this->uri->segment_array()); $i++) {
-                                                $url = $url . $this->uri->segment($i + 1) . "/";
-                                            }
-
-                                            echo base_url("Welcome/ChangeLanguage/2/Welcome"); ?>">සිංහල</a>
+                <a class="nav-link" href="<?= base_url("Welcome/ChangeLanguage/2/" . $url); ?>">සිංහල</a>
             <?php
             } else if ($_SESSION['language_id'] == 2) { // Current Language - Sinhala
             ?>
-                <a class="nav-link" href="<?php
-                                            $url = "";
-                                            for ($i = 0; $i < count($this->uri->segment_array()); $i++) {
-                                                $url = $url . $this->uri->segment($i + 1) . "/";
-                                            }
-
-                                            echo base_url("Welcome/ChangeLanguage/1/Welcome"); ?>">English</a>
+                <a class="nav-link" href="<?= base_url("Welcome/ChangeLanguage/1/" . $url); ?>">English</a>
             <?php
             }
             ?>
@@ -71,18 +64,52 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h4 class="modal-title" id="exampleModalLabel">Welcome to Login</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <div class="row">
+                        <div class="card card-body" style="border: none;">
+
+                            <form id="submitForm" action="/login" method="post" data-parsley-validate="" data-parsley-errors-messages-disabled="true" novalidate="" _lpchecked="1"><input type="hidden" name="_csrf" value="7635eb83-1f95-4b32-8788-abec2724a9a4">
+                                <div class="form-group required">
+                                    <lSabel for="username">Email / Phone</lSabel>
+                                    <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
+                                </div>
+                                <div class="form-group required">
+                                    <label class="d-flex flex-row align-items-center" for="password">Password</label>
+                                    <input type="password" class="form-control" required="" id="password" name="password" value="">
+                                </div>
+                                <div class="form-group mt-4 mb-4">
+                                   
+                                        <div class="col-12">
+                                        <div class="row">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me" data-parsley-multiple="remember-me">
+                                            <label class="custom-control-label" for="remember-me">Remember me</label>
+                                        </div>
+                                            <a class="ml-auto border-link small-xl" href="/forget-password">Forget Password?</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group pt-1">
+                                    <button class="btn btn-primary btn-block" type="submit">Sign In</button>
+                                </div>
+                            </form>
+                            <p class="small-xl pt-3 text-center">
+                                <span class="text-muted">Not a member?</span>
+                                <a href="/signup">Register Free</a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
+                <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
