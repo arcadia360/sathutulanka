@@ -1,7 +1,4 @@
 <!-- sakura shader -->
-<script>
-    $(".ErrMsg").fadeOut(7000, 'swing');
-</script>
 <script id="sakura_point_vsh" type="x-shader/x_vertex">
     uniform mat4 uProjection;
 uniform mat4 uModelview;
