@@ -6,9 +6,9 @@ class Registration extends Admin_Controller
 	{
 		parent::__construct();
 
-		header("Cache-Control: no-cache, must-revalidate"); // HTTP 1.1.
-		header("Pragma: no-cache"); // HTTP 1.0.
-		header("Expires: 0"); // Proxies.
+		// header("Cache-Control: no-cache, must-revalidate"); // HTTP 1.1.
+		// header("Pragma: no-cache"); // HTTP 1.0.
+		// header("Expires: 0"); // Proxies.
 	}
 
 	public function index()
@@ -35,29 +35,53 @@ class Registration extends Admin_Controller
 	}
 	public function addPhysicalStatus()
 	{
-		$this->load->library('form_validation');
+
+
+		// $this->load->library('form_validation');
+		// $this->form_validation->set_rules('height', 'Height', 'required');
+		// $this->form_validation->set_rules('weight', 'Weight', 'required');
+		// $this->form_validation->set_rules('bodyShape', 'Body Shape', 'required');
+		// $this->form_validation->set_rules('skinColor', 'Skin Color', 'required');
+		// $this->form_validation->set_rules('disability', 'Disability', 'required');
+		// $this->form_validation->set_rules('bloodGroup', 'Blood Group', 'required');
+		// $this->form_validation->set_rules('healthInfo', 'Blood Group', 'required');
+
+		// if ($this->form_validation->run() == FALSE) {
+		// 	$this->session->set_flashdata('flashValidationErr', 1);
+		// 	$this->physicalStatus();
+		// } else {
+		// 	$this->load->model('Model_registration');
+		// 	$result =  $this->Model_registration->savePhysicalStatus();
+		// 	if ($result) {
+		// 		$this->session->set_flashdata('flashValidationErr', 0);
+		// 		$this->residence();
+		// 	} else {
+		// 		$this->session->set_flashdata('flashError', 'Failed to Save Record!');
+		// 		$this->physicalStatus();
+		// 	}
+		// }
+
+		$response = array();
+
 		$this->form_validation->set_rules('height', 'Height', 'required');
 		$this->form_validation->set_rules('weight', 'Weight', 'required');
-		$this->form_validation->set_rules('bodyShape', 'Body Shape', 'required');
-		$this->form_validation->set_rules('skinColor', 'Skin Color', 'required');
-		$this->form_validation->set_rules('disability', 'Disability', 'required');
-		$this->form_validation->set_rules('bloodGroup', 'Blood Group', 'required');
-		$this->form_validation->set_rules('healthInfo', 'Blood Group', 'required');
 
-		if ($this->form_validation->run() == FALSE) {
-			$this->session->set_flashdata('flashValidationErr', 1);
-			$this->physicalStatus();
-		} else {
+		if ($this->form_validation->run() == TRUE) {
 			$this->load->model('Model_registration');
-			$result =  $this->Model_registration->savePhysicalStatus();
-			if ($result) {
-				$this->session->set_flashdata('flashValidationErr', 0);
-				$this->residence();
+			$result = $this->Model_registration->savePhysicalStatus();
+			if ($result == true) {
+				$response['success'] = true;
 			} else {
-				$this->session->set_flashdata('flashError', 'Failed to Save Record!');
-				$this->physicalStatus();
+				$response['success'] = false;
+				$response['messages'] = 'Error in the database while adding physical status. Please contact service provider.';
+			}
+		} else {
+			$response['success'] = false;
+			foreach ($_POST as $key => $value) {
+				$response['messages'][$key] = form_error($key);
 			}
 		}
+		echo json_encode($response);
 	}
 
 	public function background()
