@@ -1,3 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;600&display=swap');
 body {
-    background-color: #d73333;
+    font-family: 'Raleway', sans-serif !important;
+    color: #2C3E50 !important;
+}
+
+.bg-red {
+    /* background-color: #d73333; */
+    background-color: #b52b4a;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+/* Input Fields */
+
+input {
+    outline: none;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    /* border: 2px solid #d73333; */
+    outline: 1px solid #d73333;
+    border: 1px solid transparent;
+}
+
+input[type="checkbox"]:checked+label:before {
+    background: #d73333 !important;
+}
+
+/* Model */
+
+.modal-content, .modal-header {
+    border-radius: 0 !important;
+}
+
+.angle-div {
+    background-color: #b52b4a;
+    height: 100px;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 36%, 0 100%);
 }

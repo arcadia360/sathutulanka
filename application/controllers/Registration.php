@@ -13,9 +13,13 @@ class Registration extends Admin_Controller
 
 	public function index()
 	{
-		$this->load->view('registration/header');
-		$this->load->view('registration/sample');
-		$this->load->view('registration/footer');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/sample');
+		// $this->load->view('registration/footer');
+
+		// $this->load->view('registration/header');
+		$this->load->view('registration/create_account');
+		// $this->load->view('registration/footer');
 	}
 
 	public function CreateAccount()
@@ -70,6 +74,11 @@ class Registration extends Admin_Controller
 
 		$this->render_template_registration('registration/background', 'Add Background Details', NULL);
 	}
+
+	public function Verification(){
+		$this->load->view('registration/otp_verification');
+	}
+
 	public function langTest()
 	{
 

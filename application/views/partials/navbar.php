@@ -6,36 +6,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $page_title ?></title>
-
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <!-- Bootstrap 4.0 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo base_url('resources/css/common.css')?>">
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="<?= base_url('resources/css/common.css') ?>">
+    <!-- Navbar CSS -->
+    <link rel="stylesheet" href="<?= base_url('resources/css/navbar.css') ?>">
 
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg bg-red">
 
-        <a class="navbar-brand" href="#">Sathutu Lanka</a>
+        <a class="navbar-brand" href="#">
+            <?php
+            if ($_SESSION['language_id'] == 1) { // Current Language - English
+            ?>
+                <img class="img-fluid navbar-logo" src="<?= base_url('resources/images/navbar-logo-en.png') ?>" alt="Sathutu Lanka">
+            <?php
+            } else if ($_SESSION['language_id'] == 2) { // Current Language - Sinhala
+            ?>
+                <img class="img-fluid navbar-logo" src="<?= base_url('resources/images/navbar-logo-si.png') ?>" alt="සතුටු ලංකා">
+            <?php
+            }
+            ?>
+
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
+                <!-- <li class="nav-item active">
                     <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
-                </li> 
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Disabled</a>
-                </li>
+                </li> -->
             </ul>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn btn-login" data-toggle="modal" data-target="#exampleModal">
                 <?= lang('login'); ?>
             </button>
-            <!-- <a class="nav-link" href=""><?= lang('login'); ?></a> -->
             <?php
 
             $url = "";
@@ -48,11 +65,11 @@
             }
             if ($_SESSION['language_id'] == 1) { // Current Language - English
             ?>
-                <a class="nav-link" href="<?= base_url("Welcome/ChangeLanguage/2/" . $url); ?>">සිංහල</a>
+                <a class="nav-link btn-lang" href="<?= base_url("Welcome/ChangeLanguage/2/" . $url); ?>">සිංහල</a>
             <?php
             } else if ($_SESSION['language_id'] == 2) { // Current Language - Sinhala
             ?>
-                <a class="nav-link" href="<?= base_url("Welcome/ChangeLanguage/1/" . $url); ?>">English</a>
+                <a class="nav-link btn-lang" href="<?= base_url("Welcome/ChangeLanguage/1/" . $url); ?>">English</a>
             <?php
             }
             ?>
@@ -60,14 +77,18 @@
         </div>
     </nav>
 
+
+    <!-- <div class="angle-div ">dd</div> -->
+
+
     <!-- Login Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="exampleModalLabel">Welcome to Login</h4>
+                    <h4 class="modal-title" id="exampleModalLabel"><?= lang('welcome_to_login') ?></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <h4><i class="fas fa-times"></i></h4>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -76,33 +97,33 @@
 
                             <form id="submitForm" action="/login" method="post" data-parsley-validate="" data-parsley-errors-messages-disabled="true" novalidate="" _lpchecked="1"><input type="hidden" name="_csrf" value="7635eb83-1f95-4b32-8788-abec2724a9a4">
                                 <div class="form-group required">
-                                    <lSabel for="username">Email / Phone</lSabel>
+                                    <lSabel for="username"><?= lang('email_phone') ?></lSabel>
                                     <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
                                 </div>
                                 <div class="form-group required">
-                                    <label class="d-flex flex-row align-items-center" for="password">Password</label>
+                                    <label class="d-flex flex-row align-items-center" for="password"><?= lang('password') ?></label>
                                     <input type="password" class="form-control" required="" id="password" name="password" value="">
                                 </div>
                                 <div class="form-group mt-4 mb-4">
-                                   
-                                        <div class="col-12">
+
+                                    <div class="col-12">
                                         <div class="row">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me" data-parsley-multiple="remember-me">
-                                            <label class="custom-control-label" for="remember-me">Remember me</label>
-                                        </div>
-                                            <a class="ml-auto border-link small-xl" href="/forget-password">Forget Password?</a>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me" data-parsley-multiple="remember-me">
+                                                <label class="custom-control-label lbl-remember-me" for="remember-me" style="cursor: pointer !important;"><?= lang('remember_me') ?></label>
+                                            </div>
+                                            <a class="ml-auto btn-forget-password" href="/forget-password"><?= lang('forget_password') ?></a>
                                         </div>
                                     </div>
 
                                 </div>
                                 <div class="form-group pt-1">
-                                    <button class="btn btn-primary btn-block" type="submit">Sign In</button>
+                                    <button class="btn btn-block btn-signin" type="submit"><?= lang('sign_in') ?></button>
                                 </div>
                             </form>
                             <p class="small-xl pt-3 text-center">
-                                <span class="text-muted">Not a member?</span>
-                                <a href="/signup">Register Free</a>
+                                <span class="text-muted"><?= lang('not_a_member') ?></span>
+                                <a class="btn-register-free" href="<?= base_url('Registration') ?>"><?= lang('register_free') ?></a>
                             </p>
                         </div>
                     </div>
