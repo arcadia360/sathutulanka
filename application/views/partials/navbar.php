@@ -123,7 +123,7 @@
                             </form>
                             <p class="small-xl pt-3 text-center">
                                 <span class="text-muted"><?= lang('not_a_member') ?></span>
-                                <a class="btn-register-free" href="/signup"><?= lang('register_free') ?></a>
+                                <a class="btn-register-free" href="<?= base_url('Registration') ?>"><?= lang('register_free') ?></a>
                             </p>
                         </div>
                     </div>
