@@ -19,7 +19,8 @@ class Model_registration extends CI_Model
       'intSkinColourID' => $this->input->post('skinColor'),
       'isDisability' => $this->input->post('disability'),
       'vcBloodGroup' => $this->input->post('bloodGroup'),
-      'isHealthInfo' => $this->input->post('healthInfo')
+      'isHealthInfo' => $this->input->post('healthInfo'),
+      'intNoOfSubmitedForm' => 2
     );
     $this->db->where('intUserID', $id);
     $this->db->update('user', $data);
