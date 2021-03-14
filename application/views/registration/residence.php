@@ -112,7 +112,7 @@
           <hr>
           <div class="row">
             <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-              <button class="btn btn-info" style="width: 150px;">Back</button>
+              <button class="btn btn-info" style="width: 150px;" id="btnBack" type="button">Back</button>
             </div>
             <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
               <button class="btn btn-info" style="width: 150px;" type="submit">Continue</button>
@@ -124,3 +124,9 @@
   </div>
   <!-- Container Area End -->
 </div>
+
+<script>
+  $('#btnBack').click(function() {
+    window.location.href = "<?php echo base_url('Registration/physicalStatus') ?>";
+  });
+</script>
