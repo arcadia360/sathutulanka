@@ -35,36 +35,11 @@ class Registration extends Admin_Controller
 	}
 	public function addPhysicalStatus()
 	{
-
-
-		// $this->load->library('form_validation');
-		// $this->form_validation->set_rules('height', 'Height', 'required');
-		// $this->form_validation->set_rules('weight', 'Weight', 'required');
-		// $this->form_validation->set_rules('bodyShape', 'Body Shape', 'required');
-		// $this->form_validation->set_rules('skinColor', 'Skin Color', 'required');
-		// $this->form_validation->set_rules('disability', 'Disability', 'required');
-		// $this->form_validation->set_rules('bloodGroup', 'Blood Group', 'required');
-		// $this->form_validation->set_rules('healthInfo', 'Blood Group', 'required');
-
-		// if ($this->form_validation->run() == FALSE) {
-		// 	$this->session->set_flashdata('flashValidationErr', 1);
-		// 	$this->physicalStatus();
-		// } else {
-		// 	$this->load->model('Model_registration');
-		// 	$result =  $this->Model_registration->savePhysicalStatus();
-		// 	if ($result) {
-		// 		$this->session->set_flashdata('flashValidationErr', 0);
-		// 		$this->residence();
-		// 	} else {
-		// 		$this->session->set_flashdata('flashError', 'Failed to Save Record!');
-		// 		$this->physicalStatus();
-		// 	}
-		// }
-
 		$response = array();
 
 		$this->form_validation->set_rules('height', 'Height', 'required');
 		$this->form_validation->set_rules('weight', 'Weight', 'required');
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 
 		if ($this->form_validation->run() == TRUE) {
 			$this->load->model('Model_registration');
