@@ -26,8 +26,14 @@ class Registration extends Admin_Controller
 		}
 
 		$ProvidingInformationType = $this->Model_registration->getProvidingInformationType($session_data['language_id']);
+		$MaritalStatus = $this->Model_registration->getMaritalStatus($session_data['language_id']);
+		$MarriageType = $this->Model_registration->getMarriageType($session_data['language_id']);
+		$NoofChildren = $this->Model_registration->getNoofChildren($session_data['language_id']);
 
 		$this->data['ProvidingInformationType_data'] = $ProvidingInformationType;
+		$this->data['MaritalStatus_data'] = $MaritalStatus;
+		$this->data['MarriageType_data'] = $MarriageType;
+		$this->data['NoofChildren_data'] = $NoofChildren;
 
 		$this->load->view('registration/create_account',$this->data);
 	}
