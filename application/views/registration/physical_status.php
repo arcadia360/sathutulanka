@@ -16,49 +16,49 @@
 				?>
 				<form method="post" action="<?= base_url('Registration/addPhysicalStatus') ?>" id="addPyysicalStatus">
 					<div class="row">
-						<div class="col-lg-6 col-sm-12 col-12">
+						<div class="col-lg-12 col-sm-12 col-12">
 							<div class="form-group">
 								<label class="text-inverse" for="validationCustom01"><?= lang('height') ?></label>
 								<select class="custom-select d-block form-control" name="height" id="height">
 									<option value=""><?= lang('select') ?></option>
-									<option value=" 134">4'5" - 134cm </option>
-									<option value=" 137">4'6" - 137cm </option>
-									<option value=" 139">4'7" - 139cm </option>
-									<option value=" 142">4'8" - 142cm </option>
-									<option value=" 149">4'9" - 149cm </option>
-									<option value=" 150"> 4'10" - 150cm </option>
-									<option value=" 151"> 4'11" - 151cm </option>
-									<option value=" 152">5'0" - 152cm </option>
-									<option value=" 154">5'1" - 154cm </option>
-									<option value=" 157">5'2" - 157cm </option>
-									<option value=" 160">5'3" - 160cm </option>
-									<option value=" 162">5'4" - 162cm </option>
-									<option value=" 165">5'5" - 165cm </option>
-									<option value=" 167">5'6" - 167cm </option>
-									<option value=" 170">5'7" - 170cm </option>
-									<option value=" 172">5'8" - 172cm </option>
-									<option value=" 175">5'9" - 175cm </option>
-									<option value=" 177"> 5'10" - 177cm </option>
-									<option value=" 180"> 5'11" - 180cm </option>
-									<option value=" 182">6'0" - 182cm </option>
-									<option value=" 185">6'1" - 185cm </option>
-									<option value=" 187">6'2" - 187cm </option>
-									<option value=" 190">6'3" - 190cm </option>
-									<option value=" 193">6'4" - 193cm </option>
-									<option value=" 195">6'5" - 195cm </option>
-									<option value=" 198">6'6" - 198cm </option>
-									<option value=" 200">6'7" - 200cm </option>
-									<option value=" 203">6'8" - 203cm </option>
-									<option value=" 205">6'9" - 205cm </option>
-									<option value=" 208"> 6'10" - 208cm </option>
-									<option value=" 210"> 6'11" - 210cm </option>
-									<option value=" 213">7'0" - 213cm </option>
+									<option value="134">4'5" - 134cm </option>
+									<option value="137">4'6" - 137cm </option>
+									<option value="139">4'7" - 139cm </option>
+									<option value="142">4'8" - 142cm </option>
+									<option value="149">4'9" - 149cm </option>
+									<option value="150"> 4'10" - 150cm </option>
+									<option value="151"> 4'11" - 151cm </option>
+									<option value="152">5'0" - 152cm </option>
+									<option value="154">5'1" - 154cm </option>
+									<option value="157">5'2" - 157cm </option>
+									<option value="160">5'3" - 160cm </option>
+									<option value="162">5'4" - 162cm </option>
+									<option value="165">5'5" - 165cm </option>
+									<option value="167">5'6" - 167cm </option>
+									<option value="170">5'7" - 170cm </option>
+									<option value="172">5'8" - 172cm </option>
+									<option value="175">5'9" - 175cm </option>
+									<option value="177"> 5'10" - 177cm </option>
+									<option value="180"> 5'11" - 180cm </option>
+									<option value="182">6'0" - 182cm </option>
+									<option value="185">6'1" - 185cm </option>
+									<option value="187">6'2" - 187cm </option>
+									<option value="190">6'3" - 190cm </option>
+									<option value="193">6'4" - 193cm </option>
+									<option value="195">6'5" - 195cm </option>
+									<option value="198">6'6" - 198cm </option>
+									<option value="200">6'7" - 200cm </option>
+									<option value="203">6'8" - 203cm </option>
+									<option value="205">6'9" - 205cm </option>
+									<option value="208"> 6'10" - 208cm </option>
+									<option value="210"> 6'11" - 210cm </option>
+									<option value="213">7'0" - 213cm </option>
 								</select>
 							</div>
 						</div>
-						<div class="col-lg-6 col-12">
+						<div class="col-lg-12 col-12">
 							<div class="form-group">
-								<label class="text-inverse" for="validationCustom02"><?= lang('weight') ?></label>
+								<label class="text-inverse" for="validationCustom02"><?= lang('weight') . " (" . lang('weightScale') . ")" ?></label>
 								<select class="custom-select d-block form-control" id="weight" name="weight">
 									<option value=""><?= lang('select') ?></option>
 									<option value="30-35"> 30 - 35 </option>
@@ -180,7 +180,7 @@
 									</div>
 									<div class="col-1"></div>
 									<!-- end skin colour -->
-									<div class="col-lg-6 col-sm-12 col-12">
+									<div class="col-lg-12 col-sm-12 col-12">
 										<div class="form-group">
 											<label class="text-inverse" for="validationCustom01"><?= lang('disability') ?></label>
 											<select class="custom-select d-block form-control" id="disability" name="disability" required>
@@ -191,7 +191,7 @@
 											</select>
 										</div>
 									</div>
-									<div class="col-lg-6 col-sm-12 col-12">
+									<div class="col-lg-12 col-sm-12 col-12">
 										<div class="form-group">
 											<label class="text-inverse" for="validationCustom01"><?= lang('bloodGroup') ?></label>
 											<select class="custom-select d-block form-control" id="bloodGroup" name="bloodGroup" required>
@@ -209,7 +209,7 @@
 										</div>
 									</div>
 
-									<div class="col-lg-6 col-sm-12 col-12">
+									<div class="col-lg-12 col-sm-12 col-12">
 										<div class="form-group">
 											<label class="text-inverse" for="validationCustom01"><?= lang('healthInfo') ?></label>
 											<select class="custom-select d-block form-control" id="healthInfo" name="healthInfo" required>
@@ -235,7 +235,6 @@
 	</div>
 	<!-- Container Area End -->
 </div>
-
 <script>
 	$('#btnSubmit').click(function() {
 		var isBodySapeSelected = $("input[name=bodyShape]").is(":checked");
@@ -244,23 +243,25 @@
 		if (jQuery.trim($("#height").val()).length == 0) {
 			toastr["error"]("<?= lang('heightErr') ?>");
 			$("#height").focus();
-			// } else if (jQuery.trim($("#weight").val()).length == 0) {
-			// 	toastr["error"]("<?= lang('weightErr') ?>");
-			// 	$("#weight").focus();
-			// } else if (!isBodySapeSelected) {
-			// 	toastr["error"]("<?= lang('bodyTypetErr') ?>");
-			// } else if (!isSkinColorSelected) {
-			// 	toastr["error"]("<?= lang('skinColorErr') ?>");
-			// } else if (jQuery.trim($("#disability").val()).length == 0) {
-			// 	toastr["error"]("<?= lang('disabilityErr') ?>");
-			// 	$("#disability").focus();
-			// } else if (jQuery.trim($("#bloodGroup").val()).length == 0) {
-			// 	toastr["error"]("<?= lang('bloodGroupErr') ?>");
-			// 	$("#bloodGroup").focus();
-			// } else if (jQuery.trim($("#healthInfo").val()).length == 0) {
-			// 	toastr["error"]("<?= lang('healthInfoErr') ?>");
-			// 	$("#healthInfo").focus();
-		} else {
+		}
+		//  else if (jQuery.trim($("#weight").val()).length == 0) {
+		// 	toastr["error"]("<?= lang('weightErr') ?>");
+		// 	$("#weight").focus();
+		// } else if (!isBodySapeSelected) {
+		// 	toastr["error"]("<?= lang('bodyTypetErr') ?>");
+		// } else if (!isSkinColorSelected) {
+		// 	toastr["error"]("<?= lang('skinColorErr') ?>");
+		// } else if (jQuery.trim($("#disability").val()).length == 0) {
+		// 	toastr["error"]("<?= lang('disabilityErr') ?>");
+		// 	$("#disability").focus();
+		// } else if (jQuery.trim($("#bloodGroup").val()).length == 0) {
+		// 	toastr["error"]("<?= lang('bloodGroupErr') ?>");
+		// 	$("#bloodGroup").focus();
+		// } else if (jQuery.trim($("#healthInfo").val()).length == 0) {
+		// 	toastr["error"]("<?= lang('healthInfoErr') ?>");
+		// 	$("#healthInfo").focus();
+		// } 
+		else {
 			var form = $("#addPyysicalStatus");
 			$.ajax({
 				type: form.attr('method'),

@@ -8,10 +8,12 @@
         <hr>
         <form class="container" id="needs-validation" novalidate>
           <div class="row">
-            <div class="col-lg-6 col-sm-6 col-12">
+            <div class="col-12">
               <div class="form-group">
-                <label class="text-inverse" for="validationCustom01">First Name</label>
-                <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="First Name" required>
+                <label class="text-inverse" for="validationCustom01"><?= lang('liveAnotherCountry') ?></label>
+                <select class="custom-select d-block form-control" id="country" name="bloodGroup">
+
+                </select>
               </div>
             </div>
             <div class="col-lg-6 col-sm-6 col-12">
@@ -123,10 +125,38 @@
     </div>
   </div>
   <!-- Container Area End -->
+
 </div>
 
 <script>
-  $('#btnBack').click(function() {
-    window.location.href = "<?php echo base_url('Registration/physicalStatus') ?>";
+  $(function() {
+
+    loadCountries();
+    $('#btnBack').click(function() {
+      window.location.href = "<?php echo base_url('Registration/physicalStatus') ?>";
+    });
+
+    function loadCountries() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/LoadCountries',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          var html = '';
+          var i;
+          html += '<option value = 0><?= lang('select'); ?></option>';
+          for (i = 0; i < data.length; i++) {
+            html += '<option value=' + data[i].intCountryId + ' >' + data[i].vcCountry_si + '</option>';
+          }
+          $('#country').html(html);
+          $('#country').val(0);
+
+        },
+        error: function() {
+          alert('failed to load product categories');
+        }
+      });
+    }
   });
 </script>
