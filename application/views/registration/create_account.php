@@ -135,7 +135,7 @@
             100% {
                 width: 0;
             } */
-        }
+        /* } */
     </style>
 </head>
 
@@ -408,15 +408,10 @@
                     <div class="col-md-12 pt-4">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Providing Information</p>
                         <select class="custom-select d-block form-control" name="provide_infor" id="provide_infor">
-                            <option value="">Select</option>
-                            <option value="390">Self</option>
-                            <option value="391">Parents</option>
-                            <option value="392">Guardian</option>
-                            <option value="393">Relative</option>
-                            <option value="394">Brother</option>
-                            <option value="395">Sister</option>
-                            <option value="396">Friend</option>
-                            <option value="397">Mentioned in writing</option>
+                            <option value="0" selected hidden>Select</option>
+                            <?php foreach ($ProvidingInformationType_data as $k => $v) { ?>
+                                <option value="<?= $v['intProvidingInformationTypeID'] ?>"><?= $v['vcProvidingInformationType'] ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="col-md-12 pt-4">
