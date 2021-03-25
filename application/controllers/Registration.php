@@ -33,16 +33,18 @@ class Registration extends Admin_Controller
 	{
 		$this->render_template_registration('registration/physical_status', 'Add Background Details', NULL);
 	}
-	public function residence()
-	{
-		$this->render_template_registration('registration/residence', 'Add Background Details', NULL);
-	}
+
 	public function addPhysicalStatus()
 	{
 		$response = array();
 
 		$this->form_validation->set_rules('height', 'Height', 'required');
 		$this->form_validation->set_rules('weight', 'Weight', 'required');
+		$this->form_validation->set_rules('bodyShape', 'Body Shape', 'required');
+		$this->form_validation->set_rules('skinColor', 'Skin Color', 'required');
+		$this->form_validation->set_rules('disability', 'Disability', 'required');
+		$this->form_validation->set_rules('bloodGroup', 'Blood Group', 'required');
+		$this->form_validation->set_rules('healthInfo', 'Health Info', 'required');
 		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 
 		if ($this->form_validation->run() == TRUE) {
@@ -63,19 +65,30 @@ class Registration extends Admin_Controller
 		echo json_encode($response);
 	}
 
+	public function residence()
+	{
+		$this->render_template_registration('registration/residence', 'Add Background Details', NULL);
+	}
+
+	public function LoadCountries()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->loadCountries();
+		if ($result) {
+			echo json_encode($result);
+		} else {
+			echo json_encode($result);
+		}
+	}
+
 	public function background()
 	{
-		// $this->load->helper('language');
-		// $this->lang->load('si', 'Sinhala');
-		// $this->load->view('user_registration/header');
-		// $this->load->view('user_registration/background');
-		// $this->load->view('user_registration/footer');
-
-
 		$this->render_template_registration('registration/background', 'Add Background Details', NULL);
 	}
 
-	public function Verification(){
+	public function Verification()
+	{
 		$this->load->view('registration/otp_verification');
 	}
 
