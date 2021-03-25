@@ -30,4 +30,14 @@ class Model_registration extends CI_Model
       return false;
     }
   }
+
+  public function loadCountries()
+  {
+    $query = $this->db->query("SELECT * FROM country");
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
 }
