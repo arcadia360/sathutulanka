@@ -12,6 +12,8 @@
 
 
     <style rel="stylesheet">
+        @import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+
         .agreement_label,
         .agreement_label a {
             color: #000000 !important;
@@ -87,55 +89,15 @@
                 opacity: 0;
             }
         }
-/* 
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
         .title {
-            text-transform: uppercase;
-            font-family: 'gilroy', sans-serif;
-            font-weight: bold;
-            letter-spacing: 5px;
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: transparent;
-            font-size: 2em;
+            left: 10%;
+            font-size: 1.5em;
+            font-family: 'Bad Script', cursive;
+            color: #FFFFFF;
         }
-
-        .title::before {
-            content: "Let's Set Up Your Profile Free, To Find Your Love..";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            color: #000;
-            overflow: hidden;
-            border-right: 1px solid #000;
-            white-space: nowrap;
-            animation: type 5s infinite;
-        }
-
-        @keyframes type {
-            0% {
-                width: 0;
-            }
-
-            50% {
-                width: 100%;
-            }
-
-            100% {
-                width: 0;
-            } */
-        /* } */
     </style>
 </head>
 
@@ -150,7 +112,7 @@
             <div class="slider"></div>
             <div class="slider"></div>
 
-            <adeola class="title">Let's Set Up Your Profile Free, To Find Your Love..</adeola>
+            <p class="title">Let's Set Up Your Profile <span style="font-size: 3em;">Free</span>,<br>To Find Your Love..</p>
             <!-- </div> -->
         </div>
         <div class="col-lg-4 col-md-5 col-sm-12 side-form">
@@ -417,9 +379,9 @@
                     <div class="col-md-12 pt-4">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Gender</p>
                         <select class="custom-select d-block form-control" name="gender" id="gender">
-                        <option value="0" selected hidden><?= lang('select') ?></option>
-                                <option value="1"><?= lang('male') ?></option>
-                                <option value="2"><?= lang('female') ?></option>
+                            <option value="0" selected hidden><?= lang('select') ?></option>
+                            <option value="1"><?= lang('male') ?></option>
+                            <option value="2"><?= lang('female') ?></option>
                         </select>
                     </div>
 
@@ -543,7 +505,7 @@
                     <div class="col-md-12 pt-4">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Marital Status</p>
                         <select class="custom-select d-block form-control" name="marital_status" id="marital_status" onchange="getMarryDetails(this)">
-                        <option value="0" selected hidden><?= lang('select') ?></option>
+                            <option value="0" selected hidden><?= lang('select') ?></option>
                             <?php foreach ($MaritalStatus_data as $k => $v) { ?>
                                 <option value="<?= $v['intMaritalStatusID'] ?>"><?= $v['vcMaritalStatus'] ?></option>
                             <?php } ?>
@@ -552,7 +514,7 @@
                     <div class="col-md-12 pt-4 childrenDiv">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Number of Children</p>
                         <select class="custom-select d-block form-control" name="num_of_child" id="num_of_child">
-                        <option value="0" selected hidden><?= lang('select') ?></option>
+                            <option value="0" selected hidden><?= lang('select') ?></option>
                             <?php foreach ($NoofChildren_data as $k => $v) { ?>
                                 <option value="<?= $v['intNoOfChildrenID'] ?>"><?= $v['vcNoOfChildren'] ?></option>
                             <?php } ?>
@@ -562,7 +524,7 @@
                     <div class="col-md-12 pt-4">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Marry By</p>
                         <select class="custom-select d-block form-control" name="marry_by" id="marry_by">
-                        <option value="0" selected hidden><?= lang('select') ?></option>
+                            <option value="0" selected hidden><?= lang('select') ?></option>
                             <?php foreach ($MarriageType_data as $k => $v) { ?>
                                 <option value="<?= $v['intMarriageTypeID'] ?>"><?= $v['vcMarriageType'] ?></option>
                             <?php } ?>
