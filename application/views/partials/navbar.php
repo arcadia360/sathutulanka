@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="<?= base_url('resources/css/common.css') ?>">
     <!-- Navbar CSS -->
     <link rel="stylesheet" href="<?= base_url('resources/css/navbar.css') ?>">
-
-</head>
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" </head>
 
 <body>
 
@@ -121,9 +121,11 @@
                                     <button class="btn btn-block btn-signin" type="submit"><?= lang('sign_in') ?></button>
                                 </div>
                             </form>
-                            <p class="small-xl pt-3 text-center">
+                            <p class="small-xl text-center">
                                 <span class="text-muted"><?= lang('not_a_member') ?></span>
-                                <a class="btn-register-free" href="<?= base_url('Registration') ?>"><?= lang('register_free') ?></a>
+                                <a class="btn-register-free" href="<?= base_url('Registration') ?>">
+                                    <h5 class="animate__animated animate__pulse animate__infinite m-auto"><?= lang('register_free') ?></h5>
+                                </a>
                             </p>
                         </div>
                     </div>
