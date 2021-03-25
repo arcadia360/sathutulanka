@@ -22,8 +22,8 @@
 
 .btn-login:hover {
     background-color: #FFFFFF !important;
-    color: #d73333;
-    border: 2px solid #d73333;
+    color: #b52b4a;
+    border: 2px solid #b52b4a;
     border-radius: 0;
 }
 
@@ -69,4 +69,9 @@
 .btn-register-free {
     color: #b52b4a;
     font-weight: 600;
+}
+
+.btn-register-free:hover {
+    text-decoration: none !important;
+    color: #b52b4a;
 }
