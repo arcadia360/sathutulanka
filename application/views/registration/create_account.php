@@ -159,9 +159,9 @@
             <form class="ajax-submit" action="#" method="post" id="submitForm" autocomplete="off">
                 <input type="hidden" name="_token" value="QprnXEt5Y7iU48fAVpK0VqUiea4uSzgk9LyIq5AV">
                 <div class="px-3 py-3 home-main-search-bgcolor reg_form" style="overflow: scroll;height:100vh;">
-                    <h4 class="px-3"><?= lang('create_your_account') ?> Create Your Account</h4>
+                    <h4 class="px-3"><?= lang('create_your_account') ?></h4>
                     <div class="col-md-12 pt-3">
-                        <input type="text" class="form-control form-padding red-color" name="short_name" id="short_name" placeholder="<?= lang('short_name') ?> Short Name" autcomplete="false" value="">
+                        <input type="text" class="form-control form-padding red-color" name="short_name" id="short_name" placeholder="<?= lang('short_name') ?>" autcomplete="false" value="">
                     </div>
                     <!-- country codes (ISO 3166) and Dial codes. -->
                     <div class="col-md-12 pt-3">
