@@ -96,6 +96,12 @@ class Registration extends Admin_Controller
 		$this->render_template_registration('registration/education', 'Education', NULL);
 	}
 
+	public function personal_assets()
+	{
+		$this->render_template_registration('registration/personal_assets', 'Personal Assets', NULL);
+	}
+
+
 	public function LoadCountries()
 	{
 		$result = '';
