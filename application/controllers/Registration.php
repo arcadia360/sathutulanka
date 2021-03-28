@@ -107,6 +107,11 @@ class Registration extends Admin_Controller
 	}
 
 
+	public function after_marriage()
+	{
+		$this->render_template_registration('registration/after_marriage', 'After Marriage', NULL);
+	}
+
 	public function LoadCountries()
 	{
 		$result = '';
