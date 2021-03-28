@@ -4,13 +4,13 @@
   <div class="container" style="z-index: 1;">
     <div class="row">
       <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
-        <h3 class="text-center text-inverse"><?= lang('background') ?></h3>
+        <h3 class="text-center text-inverse title"><?= lang('background') ?></h3>
         <hr>
         <form class="container" id="needs-validation" novalidate>
           <div class="row">
             <div class="col-12">
               <div class="form-group">
-                <label class="text-inverse" for="validationCustom01"><?= lang('motherTongue') ?></label>
+                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('motherTongue') ?></label>
                 <select class="custom-select d-block form-control" id="motherTongue" name="motherTongue">
                   <option value="0"><?= lang('select') ?></option>
                   <option value="sinhala"><?= lang('sinhala') ?></option>
@@ -25,7 +25,7 @@
           <div class="row">
             <div class="col-12">
               <div class="form-group">
-                <label class="text-inverse" for="validationCustom01"><?= lang('ethnicity') ?></label>
+                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('ethnicity') ?></label>
                 <select class="custom-select d-block form-control" id="ethnicity" name="ethnicity">
                   <option value="0"><?= lang('select') ?></option>
                   <option value="Sinhalese"><?= lang('Sinhalese') ?></option>
@@ -43,7 +43,7 @@
           <div class="row">
             <div class="col-12">
               <div class="form-group">
-                <label class="text-inverse" for="validationCustom01"><?= lang('religion') ?></label>
+                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('religion') ?></label>
                 <select class="custom-select d-block form-control" id="religion" name="religion">
                   <option value="0"><?= lang('select') ?></option>
                   <option value="buddhist"><?= lang('buddhist') ?></option>
@@ -60,7 +60,7 @@
           <div class="row">
             <div class="col-12">
               <div class="form-group">
-                <label class="text-inverse" for="validationCustom01"><?= lang('caste') ?></label>
+                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('caste') ?></label>
                 <select class="custom-select d-block form-control" id="caste" name="caste">
                   <option value="0"><?= lang('select') ?></option>
                   <option value="">Select 1</option>
@@ -74,7 +74,7 @@
           <div class="row">
             <div class="col-12">
               <div class="form-group">
-                <label class="text-inverse" for="validationCustom01"><?= lang('subCast') ?></label>
+                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('subCast') ?></label>
                 <select class="custom-select d-block form-control" id="subCast" name="subCast">
                   <option value="0"><?= lang('select') ?></option>
                   <option value="">Select 1</option>
@@ -88,7 +88,7 @@
 
           <div class="row">
             <div class="col-12">
-              <label class="text-inverse" for="validationCustom01"><?= lang('policeReport') ?></label>
+              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('policeReport') ?></label>
               <div class="row">
                 <div class="col-6">
                   <label class="custom-control custom-radio">
