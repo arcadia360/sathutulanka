@@ -57,18 +57,7 @@
 	<nav class="navbar navbar-expand-lg bg-red">
 
 		<a class="navbar-brand" href="#">
-			<?php
-			if ($_SESSION['language_id'] == 1) { // Current Language - English
-			?>
-				<img class="img-fluid navbar-logo" src="<?= base_url('resources/images/navbar-logo-en.png') ?>" alt="Sathutu Lanka">
-			<?php
-			} else if ($_SESSION['language_id'] == 2) { // Current Language - Sinhala
-			?>
-				<img class="img-fluid navbar-logo" src="<?= base_url('resources/images/navbar-logo-si.png') ?>" alt="සතුටු ලංකා">
-			<?php
-			}
-			?>
-
+			<img class="img-fluid navbar-logo" src="<?= base_url('resources/images/navbar-logo-en.png') ?>" alt="Sathutu Lanka">
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
 			<i class="fas fa-bars"></i>
