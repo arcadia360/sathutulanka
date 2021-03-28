@@ -371,9 +371,9 @@
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Providing Information</p>
                         <select class="custom-select d-block form-control" name="provide_infor" id="provide_infor">
                             <option value="0" selected hidden><?= lang('select') ?></option>
-                            <?php foreach ($ProvidingInformationType_data as $k => $v) { ?>
+                            <!-- <?php foreach ($ProvidingInformationType_data as $k => $v) { ?>
                                 <option value="<?= $v['intProvidingInformationTypeID'] ?>"><?= $v['vcProvidingInformationType'] ?></option>
-                            <?php } ?>
+                            <?php } ?> -->
                         </select>
                     </div>
                     <div class="col-md-12 pt-4">
@@ -506,18 +506,18 @@
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Marital Status</p>
                         <select class="custom-select d-block form-control" name="marital_status" id="marital_status" onchange="getMarryDetails(this)">
                             <option value="0" selected hidden><?= lang('select') ?></option>
-                            <?php foreach ($MaritalStatus_data as $k => $v) { ?>
+                            <!-- <?php foreach ($MaritalStatus_data as $k => $v) { ?>
                                 <option value="<?= $v['intMaritalStatusID'] ?>"><?= $v['vcMaritalStatus'] ?></option>
-                            <?php } ?>
+                            <?php } ?> -->
                         </select>
                     </div>
                     <div class="col-md-12 pt-4 childrenDiv">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Number of Children</p>
                         <select class="custom-select d-block form-control" name="num_of_child" id="num_of_child">
                             <option value="0" selected hidden><?= lang('select') ?></option>
-                            <?php foreach ($NoofChildren_data as $k => $v) { ?>
+                            <!-- <?php foreach ($NoofChildren_data as $k => $v) { ?>
                                 <option value="<?= $v['intNoOfChildrenID'] ?>"><?= $v['vcNoOfChildren'] ?></option>
-                            <?php } ?>
+                            <?php } ?> -->
                         </select>
                         </select>
                     </div>
@@ -525,9 +525,9 @@
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Marry By</p>
                         <select class="custom-select d-block form-control" name="marry_by" id="marry_by">
                             <option value="0" selected hidden><?= lang('select') ?></option>
-                            <?php foreach ($MarriageType_data as $k => $v) { ?>
+                            <!-- <?php foreach ($MarriageType_data as $k => $v) { ?>
                                 <option value="<?= $v['intMarriageTypeID'] ?>"><?= $v['vcMarriageType'] ?></option>
-                            <?php } ?>
+                            <?php } ?> -->
                         </select>
                     </div>
 
