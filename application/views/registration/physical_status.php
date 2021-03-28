@@ -4,7 +4,7 @@
 	<div class="container" style="z-index: 1;">
 		<div class="row">
 			<div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
-				<h3 class="text-center text-inverse"><?= lang('physicalStatus') ?></h3>
+				<h3 class="text-center text-inverse font-weight-bold title"><?= lang('physicalStatus') ?></h3>
 				<hr>
 
 				<?php
@@ -18,7 +18,7 @@
 					<div class="row">
 						<div class="col-lg-12 col-sm-12 col-12">
 							<div class="form-group">
-								<label class="text-inverse" for="validationCustom01"><?= lang('height') ?></label>
+								<label class="text-inverse font-weight-bold font-weight-bold" for="validationCustom01"><?= lang('height') ?></label>
 								<select class="custom-select d-block form-control" name="height" id="height">
 									<option value=""><?= lang('select') ?></option>
 									<option value="134">4'5" - 134cm </option>
@@ -58,7 +58,7 @@
 						</div>
 						<div class="col-lg-12 col-12">
 							<div class="form-group">
-								<label class="text-inverse" for="validationCustom02"><?= lang('weight') . " (" . lang('weightScale') . ")" ?></label>
+								<label class="text-inverse font-weight-bold" for="validationCustom02"><?= lang('weight') . " (" . lang('weightScale') . ")" ?></label>
 								<select class="custom-select d-block form-control" id="weight" name="weight">
 									<option value=""><?= lang('select') ?></option>
 									<option value="30-35"> 30 - 35 </option>
@@ -87,7 +87,7 @@
 					<div class="row">
 						<div class="col-lg-12 col-12">
 							<div class="form-group">
-								<label class="text-inverse" for="inputEmail4" id="bodyShapeLabel"><?= lang('bodyShape') ?></label> <br>
+								<label class="text-inverse font-weight-bold" for="inputEmail4" id="bodyShapeLabel"><?= lang('bodyShape') ?></label> <br>
 								<div class="row">
 									<div class="col-4 d-flex align-items-center">
 										<img class="img-thumbnail margin-0-auto body-size" src="<?= base_url('resources/images/slim.png') ?>" alt="slim image">
@@ -120,7 +120,7 @@
 						<!-- skin colour -->
 						<div class="col-lg-12 col-12">
 							<div class="form-group">
-								<label class="text-inverse" for="inputEmail4"><?= lang('skinColour') ?></label> <br>
+								<label class="text-inverse font-weight-bold" for="inputEmail4"><?= lang('skinColour') ?></label> <br>
 								<div class="row">
 									<div class="col-1"></div>
 									<div class="col-2">
@@ -182,7 +182,7 @@
 									<!-- end skin colour -->
 									<div class="col-lg-12 col-sm-12 col-12">
 										<div class="form-group">
-											<label class="text-inverse" for="validationCustom01"><?= lang('disability') ?></label>
+											<label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('disability') ?></label>
 											<select class="custom-select d-block form-control" id="disability" name="disability" required>
 												<option value=""><?= lang('select') ?></option>
 												<option value="0"><?= lang('noDisability') ?></option>
@@ -193,7 +193,7 @@
 									</div>
 									<div class="col-lg-12 col-sm-12 col-12">
 										<div class="form-group">
-											<label class="text-inverse" for="validationCustom01"><?= lang('bloodGroup') ?></label>
+											<label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('bloodGroup') ?></label>
 											<select class="custom-select d-block form-control" id="bloodGroup" name="bloodGroup" required>
 												<option value=""><?= lang('select') ?></option>
 												<option value="A+">A+</option>
@@ -211,7 +211,7 @@
 
 									<div class="col-lg-12 col-sm-12 col-12">
 										<div class="form-group">
-											<label class="text-inverse" for="validationCustom01"><?= lang('healthInfo') ?></label>
+											<label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('healthInfo') ?></label>
 											<select class="custom-select d-block form-control" id="healthInfo" name="healthInfo" required>
 												<option value=""><?= lang('select') ?></option>
 												<option value="0"><?= lang('noHealthIssues') ?></option>
