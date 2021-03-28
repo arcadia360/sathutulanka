@@ -86,6 +86,12 @@ class Registration extends Admin_Controller
 		$this->render_template_registration('registration/residence', 'Add Residence Details', NULL);
 	}
 
+	public function WhoAmI()
+	{
+		// $this->load->view('registration/header');
+		$this->load->view('registration/who_am_i');
+	}
+
 	public function LoadCountries()
 	{
 		$result = '';
