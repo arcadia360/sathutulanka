@@ -298,7 +298,7 @@
     });
 
     $('#btnSubmit').click(function() {
-      window.location.href = "<?php echo base_url('Registration/lifeStyle') ?>";
+      window.location.href = "<?php echo base_url('Registration/WhoAmI') ?>";
     });
 
   });

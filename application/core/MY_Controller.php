@@ -93,8 +93,8 @@ class Admin_Controller extends MY_Controller
 		// 	$this->lang->load('ta', 'Tamil');
 		// }
 
-		// $this->lang->load('en', 'English');
-		$this->lang->load('si', 'Sinhala');
+		$this->lang->load('en', 'English');
+		// $this->lang->load('si', 'Sinhala');
 
 		$this->load->view('registration/header', $this->data);
 		$this->load->view($page);
