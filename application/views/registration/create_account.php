@@ -158,7 +158,7 @@
         <div class="col-lg-4 col-md-5 col-sm-12 side-form">
             <form class="ajax-submit" action="#" method="post" id="submitForm" autocomplete="off">
                 <input type="hidden" name="_token" value="QprnXEt5Y7iU48fAVpK0VqUiea4uSzgk9LyIq5AV">
-                <div class="px-3 py-3 home-main-search-bgcolor reg_form" style="overflow: scroll;height:100vh;">
+                <div class="px-3 py-3 home-main-search-bgcolor reg_form" style="overflow: scroll; height:90vh;">
                     <h4 class="px-3"><?= lang('create_your_account') ?></h4>
                     <div class="col-md-12 pt-3">
                         <input type="text" class="form-control form-padding red-color" name="short_name" id="short_name" placeholder="<?= lang('short_name') ?>" autcomplete="false" value="">
@@ -579,7 +579,8 @@
                         </p>
                     </div>
                     <div class="col-md-12 text-center pt-3 pb-2">
-                        <button type="submit" class="btn btn-primary btn-block gill-sans-mt-regular-font home-search-btn p20 home-search-letter-spacing sbmitBtn">&nbsp;CONTINUE&nbsp;</button>
+                        <a href="<?= base_url()?>" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp;</a>
+                        <!-- <button type="submit" class="btn btn-primary btn-block gill-sans-mt-regular-font home-search-btn p20 home-search-letter-spacing sbmitBtn">&nbsp;CONTINUE&nbsp;</button> -->
                     </div>
 
 
