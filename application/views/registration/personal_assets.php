@@ -289,23 +289,77 @@
                         </div>
                     </div>
 
+                    <div class="col-md-12 pt-4">
 
 
+                        <p class="p20 text-uppercase_ text-dark gill-sans-mt-regular-font mb-2"><span class="text-uppercase">Ownership of Assets</span></p>
 
-                    <hr>
-                    <div class="row">
-                        <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-                            <button class="btn btn-info" style="width: 150px;" id="btnBack" type="button">Back</button>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-                            <button class="btn btn-info" style="width: 150px;" type="button" id="btnSubmit">CONTINUE</button>
+
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <div class=" col-md-12 px-0">
+                                    <label class="containerBoxx">
+                                        <input type="radio" name="ownership_of_asset" value="710">
+
+                                        <span class="checkmarkBoxx"></span>
+                                    </label>
+                                </div>
+                                <p class="p20 gray-color-4 gill-sans-mt-regular-font ml-40 mb-0">Parent</p>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class=" col-md-12 px-0">
+                                    <label class="containerBoxx">
+                                        <input type="radio" name="ownership_of_asset" value="712">
+
+                                        <span class="checkmarkBoxx"></span>
+                                    </label>
+                                </div>
+                                <p class="p20 gray-color-4 gill-sans-mt-regular-font ml-40 mb-0">Self</p>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class=" col-md-12 px-0">
+                                    <label class="containerBoxx">
+                                        <input type="radio" name="ownership_of_asset" value="711">
+
+                                        <span class="checkmarkBoxx"></span>
+                                    </label>
+                                </div>
+                                <p class="p20 gray-color-4 gill-sans-mt-regular-font ml-40 mb-0">Under Parent and me</p>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class=" col-md-12 px-0">
+                                    <label class="containerBoxx">
+                                        <input checked type="radio" name="ownership_of_asset" value="713">
+
+                                        <span class="checkmarkBoxx"></span>
+                                    </label>
+                                </div>
+                                <p class="p20 gray-color-4 gill-sans-mt-regular-font ml-40 mb-0">Ask ((My Story))</p>
+                            </div>
                         </div>
                     </div>
-                </form>
+
+         
+
+
+            <hr>
+            <div class="row">
+                <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
+                    <button class="btn btn-info" style="width: 150px;" id="btnBack" type="button">Back</button>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
+                    <button class="btn btn-info" style="width: 150px;" type="button" id="btnSubmit">CONTINUE</button>
+                </div>
             </div>
+            </form>
         </div>
     </div>
-    <!-- Container Area End -->
+</div>
+<!-- Container Area End -->
 
 </div>
 <script>
