@@ -25,23 +25,24 @@ class Registration extends Admin_Controller
 			$this->lang->load('ta', 'Tamil');
 		}
 
-		$ProvidingInformationType = $this->Model_registration->getProvidingInformationType($session_data['language_id']);
-		$MaritalStatus = $this->Model_registration->getMaritalStatus($session_data['language_id']);
-		$MarriageType = $this->Model_registration->getMarriageType($session_data['language_id']);
-		$NoofChildren = $this->Model_registration->getNoofChildren($session_data['language_id']);
+		// $ProvidingInformationType = $this->Model_registration->getProvidingInformationType($session_data['language_id']);
+		// $MaritalStatus = $this->Model_registration->getMaritalStatus($session_data['language_id']);
+		// $MarriageType = $this->Model_registration->getMarriageType($session_data['language_id']);
+		// $NoofChildren = $this->Model_registration->getNoofChildren($session_data['language_id']);
 
-		$this->data['ProvidingInformationType_data'] = $ProvidingInformationType;
-		$this->data['MaritalStatus_data'] = $MaritalStatus;
-		$this->data['MarriageType_data'] = $MarriageType;
-		$this->data['NoofChildren_data'] = $NoofChildren;
+		// $this->data['ProvidingInformationType_data'] = $ProvidingInformationType;
+		// $this->data['MaritalStatus_data'] = $MaritalStatus;
+		// $this->data['MarriageType_data'] = $MarriageType;
+		// $this->data['NoofChildren_data'] = $NoofChildren;
 
-		$this->load->view('registration/create_account', $this->data);
+		$this->load->view('registration/create_account',$this->data);
 	}
 
 	public function CreateAccount()
 	{
 		// $this->load->view('registration/header');
 		$this->load->view('registration/create_account');
+	
 	}
 
 	public function physicalStatus()
@@ -107,11 +108,6 @@ class Registration extends Admin_Controller
 		$this->render_template_registration('registration/lifeStyle', 'Add Life Style Details', NULL);
 	}
 
-	public function education()
-	{
-		$this->render_template_registration('registration/education', 'Add educationife Style Details', NULL);
-	}
-
 	public function Verification()
 	{
 		$this->load->view('registration/otp_verification');
@@ -125,4 +121,5 @@ class Registration extends Admin_Controller
 		$this->load->view('registration/sample');
 		$this->load->view('registration/footer');
 	}
+	
 }
