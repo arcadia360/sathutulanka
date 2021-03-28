@@ -12,6 +12,8 @@
 
 
     <style rel="stylesheet">
+        @import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+
         .agreement_label,
         .agreement_label a {
             color: #000000 !important;
@@ -87,54 +89,14 @@
                 opacity: 0;
             }
         }
-/* 
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
         .title {
-            text-transform: uppercase;
-            font-family: 'gilroy', sans-serif;
-            font-weight: bold;
-            letter-spacing: 5px;
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: transparent;
-            font-size: 2em;
-        }
-
-        .title::before {
-            content: "Let's Set Up Your Profile Free, To Find Your Love..";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            color: #000;
-            overflow: hidden;
-            border-right: 1px solid #000;
-            white-space: nowrap;
-            animation: type 5s infinite;
-        }
-
-        @keyframes type {
-            0% {
-                width: 0;
-            }
-
-            50% {
-                width: 100%;
-            }
-
-            100% {
-                width: 0;
-            } */
+            left: 10%;
+            font-size: 1.5em;
+            font-family: 'Bad Script', cursive;
+            color: #FFFFFF;
         }
     </style>
 </head>
@@ -150,16 +112,16 @@
             <div class="slider"></div>
             <div class="slider"></div>
 
-            <adeola class="title">Let's Set Up Your Profile Free, To Find Your Love..</adeola>
+            <p class="title">Let's Set Up Your Profile <span style="font-size: 3em;">Free</span>,<br>To Find Your Love..</p>
             <!-- </div> -->
         </div>
         <div class="col-lg-4 col-md-5 col-sm-12 side-form">
             <form class="ajax-submit" action="#" method="post" id="submitForm" autocomplete="off">
                 <input type="hidden" name="_token" value="QprnXEt5Y7iU48fAVpK0VqUiea4uSzgk9LyIq5AV">
                 <div class="px-3 py-3 home-main-search-bgcolor reg_form" style="overflow: scroll;height:100vh;">
-                    <h4 class="px-3">Create Your Account</h4>
+                    <h4 class="px-3"><?= lang('create_your_account') ?></h4>
                     <div class="col-md-12 pt-3">
-                        <input type="text" class="form-control form-padding red-color" name="short_name" id="short_name" placeholder="Short Name" autcomplete="false" value="">
+                        <input type="text" class="form-control form-padding red-color" name="short_name" id="short_name" placeholder=<?= lang('short_name') ?> autcomplete="false" value="">
                     </div>
                     <!-- country codes (ISO 3166) and Dial codes. -->
                     <div class="col-md-12 pt-3">
@@ -408,23 +370,18 @@
                     <div class="col-md-12 pt-4">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Providing Information</p>
                         <select class="custom-select d-block form-control" name="provide_infor" id="provide_infor">
-                            <option value="">Select</option>
-                            <option value="390">Self</option>
-                            <option value="391">Parents</option>
-                            <option value="392">Guardian</option>
-                            <option value="393">Relative</option>
-                            <option value="394">Brother</option>
-                            <option value="395">Sister</option>
-                            <option value="396">Friend</option>
-                            <option value="397">Mentioned in writing</option>
+                            <option value="0" selected hidden><?= lang('select') ?></option>
+                            <?php foreach ($ProvidingInformationType_data as $k => $v) { ?>
+                                <option value="<?= $v['intProvidingInformationTypeID'] ?>"><?= $v['vcProvidingInformationType'] ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="col-md-12 pt-4">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Gender</p>
                         <select class="custom-select d-block form-control" name="gender" id="gender">
-                            <option value="">Select</option>
-                            <option value="398">Male</option>
-                            <option value="399">Female</option>
+                            <option value="0" selected hidden><?= lang('select') ?></option>
+                            <option value="1"><?= lang('male') ?></option>
+                            <option value="2"><?= lang('female') ?></option>
                         </select>
                     </div>
 
@@ -548,35 +505,29 @@
                     <div class="col-md-12 pt-4">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Marital Status</p>
                         <select class="custom-select d-block form-control" name="marital_status" id="marital_status" onchange="getMarryDetails(this)">
-                            <option value="">Select</option>
-                            <option value="1">Never Married</option>
-                            <option value="2">Divorced </option>
-                            <option value="532">Awaiting Divorce </option>
-                            <option value="533">Separated ( not Legally)</option>
-                            <option value="534">Widowed</option>
-                            <option value="535">Annulled</option>
-                            <option value="536">Divorced Only at Engagement</option>
-                            <option value="538">Virginity Problem</option>
+                            <option value="0" selected hidden><?= lang('select') ?></option>
+                            <?php foreach ($MaritalStatus_data as $k => $v) { ?>
+                                <option value="<?= $v['intMaritalStatusID'] ?>"><?= $v['vcMaritalStatus'] ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="col-md-12 pt-4 childrenDiv">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Number of Children</p>
                         <select class="custom-select d-block form-control" name="num_of_child" id="num_of_child">
-                            <option value="">Select</option>
-                            <option value="839">No</option>
-                            <option value="840">1</option>
-                            <option value="841">2</option>
-                            <option value="842">3</option>
-                            <option value="843">3+</option>
-                            <option value="844">Not Staying Together</option>
+                            <option value="0" selected hidden><?= lang('select') ?></option>
+                            <?php foreach ($NoofChildren_data as $k => $v) { ?>
+                                <option value="<?= $v['intNoOfChildrenID'] ?>"><?= $v['vcNoOfChildren'] ?></option>
+                            <?php } ?>
+                        </select>
                         </select>
                     </div>
                     <div class="col-md-12 pt-4">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Marry By</p>
                         <select class="custom-select d-block form-control" name="marry_by" id="marry_by">
-                            <option value="">Select</option>
-                            <option value="836">Proposal</option>
-                            <option value="837">Love</option>
+                            <option value="0" selected hidden><?= lang('select') ?></option>
+                            <?php foreach ($MarriageType_data as $k => $v) { ?>
+                                <option value="<?= $v['intMarriageTypeID'] ?>"><?= $v['vcMarriageType'] ?></option>
+                            <?php } ?>
                         </select>
                     </div>
 

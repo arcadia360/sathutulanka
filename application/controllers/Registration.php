@@ -5,7 +5,7 @@ class Registration extends Admin_Controller
 	public function __construct()
 	{
 		parent::__construct();
-
+		$this->load->model('Model_registration');
 		// header("Cache-Control: no-cache, must-revalidate"); // HTTP 1.1.
 		// header("Pragma: no-cache"); // HTTP 1.0.
 		// header("Expires: 0"); // Proxies.
@@ -13,20 +13,36 @@ class Registration extends Admin_Controller
 
 	public function index()
 	{
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/sample');
-		// $this->load->view('registration/footer');
+		$this->load->helper('language');
 
-		// $this->load->view('registration/header');
-		$this->load->view('registration/create_account');
-		// $this->load->view('registration/footer');
+		$session_data = $this->session->userdata();
+
+		if ($session_data['language_id'] == 1) { // English
+			$this->lang->load('en', 'English');
+		} else if ($session_data['language_id'] == 2) { // Sinhala
+			$this->lang->load('si', 'Sinhala');
+		} else if ($session_data['language_id'] == 3) { // Tamil
+			$this->lang->load('ta', 'Tamil');
+		}
+
+		$ProvidingInformationType = $this->Model_registration->getProvidingInformationType($session_data['language_id']);
+		$MaritalStatus = $this->Model_registration->getMaritalStatus($session_data['language_id']);
+		$MarriageType = $this->Model_registration->getMarriageType($session_data['language_id']);
+		$NoofChildren = $this->Model_registration->getNoofChildren($session_data['language_id']);
+
+		$this->data['ProvidingInformationType_data'] = $ProvidingInformationType;
+		$this->data['MaritalStatus_data'] = $MaritalStatus;
+		$this->data['MarriageType_data'] = $MarriageType;
+		$this->data['NoofChildren_data'] = $NoofChildren;
+
+		$this->load->view('registration/create_account',$this->data);
 	}
 
 	public function CreateAccount()
 	{
 		// $this->load->view('registration/header');
 		$this->load->view('registration/create_account');
-		// $this->load->view('registration/footer');
+	
 	}
 
 	public function physicalStatus()
@@ -105,4 +121,5 @@ class Registration extends Admin_Controller
 		$this->load->view('registration/sample');
 		$this->load->view('registration/footer');
 	}
+	
 }
