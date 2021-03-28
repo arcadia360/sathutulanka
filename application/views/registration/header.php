@@ -18,7 +18,7 @@
 	<style>
 		.main-section {
 			padding: 15px;
-			background: #f1f1f1;
+			background: #FFFFFF;
 		}
 
 		.custom-file-control::after {
@@ -27,6 +27,14 @@
 
 		.custom-file-control::before {
 			content: "Browse";
+		}
+
+		.title {
+			background-color: #37474f;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			color: #FFFFFF;
+			margin: 0 !important;
 		}
 	</style>
 
