@@ -35,14 +35,13 @@ class Registration extends Admin_Controller
 		$this->data['MarriageType_data'] = $MarriageType;
 		$this->data['NoofChildren_data'] = $NoofChildren;
 
-		$this->load->view('registration/create_account',$this->data);
+		$this->load->view('registration/create_account', $this->data);
 	}
 
 	public function CreateAccount()
 	{
 		// $this->load->view('registration/header');
 		$this->load->view('registration/create_account');
-	
 	}
 
 	public function physicalStatus()
@@ -108,6 +107,11 @@ class Registration extends Admin_Controller
 		$this->render_template_registration('registration/lifeStyle', 'Add Life Style Details', NULL);
 	}
 
+	public function education()
+	{
+		$this->render_template_registration('registration/education', 'Add educationife Style Details', NULL);
+	}
+
 	public function Verification()
 	{
 		$this->load->view('registration/otp_verification');
@@ -121,5 +125,4 @@ class Registration extends Admin_Controller
 		$this->load->view('registration/sample');
 		$this->load->view('registration/footer');
 	}
-	
 }
