@@ -96,11 +96,20 @@ class Registration extends Admin_Controller
 		$this->render_template_registration('registration/education', 'Education', NULL);
 	}
 
+<<<<<<< HEAD
 	public function career()
 	{
 		$this->render_template_registration('registration/career', 'career', NULL);
 	}
 
+=======
+	public function personal_assets()
+	{
+		$this->render_template_registration('registration/personal_assets', 'Personal Assets', NULL);
+	}
+
+
+>>>>>>> 8e947a891dc3e9b194c0200d5de0ed5be4cf6bc4
 	public function LoadCountries()
 	{
 		$result = '';
