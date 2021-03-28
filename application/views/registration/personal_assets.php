@@ -4,7 +4,7 @@
     <div class="container" style="z-index: 1;">
         <div class="row">
             <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
-                <h3 class="text-center text-inverse"><?= lang('lifeStyle') ?></h3>
+                <h3 class="text-center text-inverse title">Personal Assets</h3>
                 <hr>
                 <form class="container" id="needs-validation" novalidate>
 
