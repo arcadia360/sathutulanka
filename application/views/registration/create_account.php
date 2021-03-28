@@ -9,7 +9,10 @@
 
     <link rel="stylesheet" href="<?php echo base_url('resources/css/registration_form/style.css') ?>">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="<?= base_url('resources/css/common.css') ?>">
+    <!-- Navbar CSS -->
+    <link rel="stylesheet" href="<?= base_url('resources/css/navbar.css') ?>">
 
     <style rel="stylesheet">
         @import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
@@ -103,6 +106,43 @@
 
 <body>
 
+    <nav class="navbar navbar-expand-lg bg-red">
+
+        <a class="navbar-brand" href="#">
+            <?php
+            if ($_SESSION['language_id'] == 1) { // Current Language - English
+            ?>
+                <img class="img-fluid navbar-logo" src="<?= base_url('resources/images/navbar-logo-en.png') ?>" alt="Sathutu Lanka">
+            <?php
+            } else if ($_SESSION['language_id'] == 2) { // Current Language - Sinhala
+            ?>
+                <img class="img-fluid navbar-logo" src="<?= base_url('resources/images/navbar-logo-si.png') ?>" alt="සතුටු ලංකා">
+            <?php
+            }
+            ?>
+
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                <!-- <li class="nav-item active">
+                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Disabled</a>
+                </li> -->
+            </ul>
+
+            <a class="nav-link btn-lang" href="">සිංහල</a>
+
+        </div>
+    </nav>
+
     <!-- <div class="container"> -->
     <div class="row">
         <div class="col-lg-8 col-md-7 d-none d-md-block d-lg-block">
@@ -121,7 +161,7 @@
                 <div class="px-3 py-3 home-main-search-bgcolor reg_form" style="overflow: scroll;height:100vh;">
                     <h4 class="px-3"><?= lang('create_your_account') ?></h4>
                     <div class="col-md-12 pt-3">
-                        <input type="text" class="form-control form-padding red-color" name="short_name" id="short_name" placeholder=<?= lang('short_name') ?> autcomplete="false" value="">
+                        <input type="text" class="form-control form-padding red-color" name="short_name" id="short_name" placeholder="<?= lang('short_name') ?>" autcomplete="false" value="">
                     </div>
                     <!-- country codes (ISO 3166) and Dial codes. -->
                     <div class="col-md-12 pt-3">
