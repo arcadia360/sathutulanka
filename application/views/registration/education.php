@@ -101,6 +101,7 @@
               </div>
             </div>
           </div>
+
           <hr>
           <div class="row">
             <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
@@ -121,13 +122,12 @@
 <script>
   $(function() {
 
-    loadCountries();
     $('#btnBack').click(function() {
       window.location.href = "<?php echo base_url('Registration/WhoAmI') ?>";
     });
 
     $('#btnSubmit').click(function() {
-      // window.location.href = "<?php echo base_url('Registration/background') ?>";
+      window.location.href = "<?php echo base_url('Registration/career') ?>";
     });
   });
 </script>
