@@ -4,14 +4,14 @@
   <div class="container" style="z-index: 1;">
     <div class="row">
       <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
-        <h3 class="text-center text-inverse"><?= lang('lifeStyle') ?></h3>
+        <h3 class="text-center text-inverse title"><?= lang('lifeStyle') ?></h3>
         <hr>
         <form class="container" id="needs-validation" novalidate>
 
           <div class="row">
             <div class="col-6">
               <div class="form-group">
-                <label class="text-inverse" for="validationCustom01"><?= lang('diet') ?></label>
+                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('diet') ?></label>
               </div>
             </div>
             <div class="col-6">
@@ -27,7 +27,7 @@
 
           <div class="row">
             <div class="col-12">
-              <label class="text-inverse" for="validationCustom01"><?= lang('drink') ?></label>
+              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('drink') ?></label>
               <div class="row">
                 <div class="col-4">
                   <label class="custom-control custom-radio">
@@ -56,7 +56,7 @@
 
           <div class="row">
             <div class="col-12">
-              <label class="text-inverse" for="validationCustom01"><?= lang('smoke') ?></label>
+              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('smoke') ?></label>
               <div class="row">
                 <div class="col-4">
                   <label class="custom-control custom-radio">
@@ -85,7 +85,7 @@
 
           <div class="row">
             <div class="col-12">
-              <label class="text-inverse" for="validationCustom01"><?= lang('languagesSpeak') ?></label>
+              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('languagesSpeak') ?></label>
               <div class="row">
                 <div class="col-3">
                   <div class="form-group">
@@ -129,7 +129,7 @@
 
           <div class="row">
             <div class="col-12">
-              <label class="text-inverse" for="validationCustom01"><?= lang('dressAndMakeup') ?></label>
+              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('dressAndMakeup') ?></label>
               <div class="row">
                 <div class="col-6">
                   <label class="custom-control custom-radio">
@@ -167,7 +167,7 @@
 
           <div class="row">
             <div class="col-12">
-              <label class="text-inverse" for="validationCustom01"><?= lang('usedToTravel') ?></label>
+              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('usedToTravel') ?></label>
               <div class="row">
                 <div class="col-4">
                   <label class="custom-control custom-radio">
@@ -196,7 +196,7 @@
 
           <div class="row">
             <div class="col-12">
-              <label class="text-inverse" for="validationCustom01"><?= lang('CallTtParents') ?></label>
+              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('CallTtParents') ?></label>
               <div class="row">
                 <div class="col-6">
                   <label class="custom-control custom-radio">
@@ -218,7 +218,7 @@
 
           <div class="row">
             <div class="col-12">
-              <label class="text-inverse" for="validationCustom01"><?= lang('customs') ?></label>
+              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('customs') ?></label>
               <div class="row">
                 <div class="col-4">
                   <label class="custom-control custom-radio">
@@ -247,7 +247,7 @@
 
           <div class="row">
             <div class="col-12">
-              <label class="text-inverse" for="validationCustom01"><?= lang('LiveIn') ?></label>
+              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('LiveIn') ?></label>
               <div class="row">
                 <div class="col-4">
                   <label class="custom-control custom-radio">

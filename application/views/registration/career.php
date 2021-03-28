@@ -4,16 +4,16 @@
   <div class="container" style="z-index: 1;">
     <div class="row">
       <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
-        <!-- <h3 class="text-center text-inverse"><?= lang('residance') ?></h3> -->
-        <h3 class="text-center text-inverse">Career</h3>
+        <!-- <h3 class="text-center text-inverse font-weight-bold"><?= lang('residance') ?></h3> -->
+        <h3 class="text-center text-inverse title">Career</h3>
         <hr>
         <form class="container" id="needs-validation" novalidate>
 
           <div class="row">
             <div class="col-6">
               <div class="form-group">
-                <!-- <label class="text-inverse" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
-                <label class="text-inverse" for="validationCustom01">WORKING WITH</label>
+                <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
+                <label class="text-inverse font-weight-bold" for="validationCustom01">WORKING WITH</label>
               </div>
             </div>
             <div class="col-6">
@@ -37,8 +37,8 @@
           <div class="row">
             <div class="col-6">
               <div class="form-group">
-                <!-- <label class="text-inverse" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
-                <label class="text-inverse" for="validationCustom01">WORKING AS</label>
+                <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
+                <label class="text-inverse font-weight-bold" for="validationCustom01">WORKING AS</label>
               </div>
             </div>
             <div class="col-6">
@@ -345,8 +345,8 @@
           <div class="row">
             <div class="col-6">
               <div class="form-group">
-                <!-- <label class="text-inverse" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
-                <label class="text-inverse" for="validationCustom01">WORKING LOCATION</label>
+                <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
+                <label class="text-inverse font-weight-bold" for="validationCustom01">WORKING LOCATION</label>
               </div>
             </div>
             <div class="col-6">
@@ -387,8 +387,8 @@
           <div class="row">
             <div class="col-6">
               <div class="form-group">
-                <!-- <label class="text-inverse" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
-                <label class="text-inverse" for="validationCustom01">DESCRIBE CAREER</label>
+                <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
+                <label class="text-inverse font-weight-bold" for="validationCustom01">DESCRIBE CAREER</label>
               </div>
             </div>
             <div class="col-6">

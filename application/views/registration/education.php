@@ -4,16 +4,16 @@
   <div class="container" style="z-index: 1;">
     <div class="row">
       <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
-        <!-- <h3 class="text-center text-inverse"><?= lang('residance') ?></h3> -->
-        <h3 class="text-center text-inverse">Education</h3>
+        <!-- <h3 class="text-center text-inverse font-weight-bold"><?= lang('residance') ?></h3> -->
+        <h3 class="text-center text-inverse title">Education</h3>
         <hr>
         <form class="container" id="needs-validation" novalidate>
 
           <div class="row">
             <div class="col-6">
               <div class="form-group">
-                <!-- <label class="text-inverse" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
-                <label class="text-inverse" for="validationCustom01">Education Level</label>
+                <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
+                <label class="text-inverse font-weight-bold" for="validationCustom01">Education Level</label>
               </div>
             </div>
             <div class="col-6">
@@ -43,8 +43,8 @@
           <div class="row">
             <div class="col-6">
               <div class="form-group">
-                <!-- <label class="text-inverse" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
-                <label class="text-inverse" for="validationCustom01">Education Field</label>
+                <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
+                <label class="text-inverse font-weight-bold" for="validationCustom01">Education Field</label>
               </div>
             </div>
             <div class="col-6">
@@ -91,8 +91,8 @@
           <div class="row">
             <div class="col-6">
               <div class="form-group">
-                <!-- <label class="text-inverse" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
-                <label class="text-inverse" for="validationCustom01">School/ University</label>
+                <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
+                <label class="text-inverse font-weight-bold" for="validationCustom01">School/ University</label>
               </div>
             </div>
             <div class="col-6">

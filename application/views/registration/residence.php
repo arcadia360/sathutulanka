@@ -4,14 +4,14 @@
   <div class="container" style="z-index: 1;">
     <div class="row">
       <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
-        <h3 class="text-center text-inverse"><?= lang('residance') ?></h3>
+        <h3 class="text-center text-inverse title"><?= lang('residance') ?></h3>
         <hr>
         <form class="container" id="needs-validation" novalidate>
 
           <div class="row">
             <div class="col-12">
               <div class="form-group">
-                <label class="text-inverse" for="validationCustom01"><?= lang('liveAnotherCountry') ?></label>
+                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveAnotherCountry') ?></label>
                 <select class="custom-select d-block form-control" id="country" name="bloodGroup">
 
                 </select>
@@ -22,7 +22,7 @@
           <div class="row">
             <div class="col-6">
               <div class="form-group">
-                <label class="text-inverse" for="validationCustom01"><?= lang('liveInSriLanka') ?></label>
+                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label>
               </div>
             </div>
             <div class="col-6">
@@ -65,7 +65,7 @@
           <div class="row">
             <div class="col-12">
               <div class="form-group">
-                <label class="text-inverse" for="validationCustom01"><?= lang('AddressofSriLanka') ?></label>
+                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('AddressofSriLanka') ?></label>
                 <input type="text" class=" d-block form-control">
               </div>
             </div>
@@ -73,7 +73,7 @@
 
           <div class="row">
             <div class="col-12">
-              <label class="text-inverse" for="validationCustom01"><?= lang('ownershipOfTheAddress') ?></label>
+              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('ownershipOfTheAddress') ?></label>
               <div class="row">
                 <div class="col-6">
                   <label class="custom-control custom-radio">
@@ -96,7 +96,7 @@
           <div class="row">
             <div class="col-6">
               <div class="form-group">
-                <label class="text-inverse" for="validationCustom01"><?= lang('nativeDistrict') ?></label>
+                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('nativeDistrict') ?></label>
               </div>
             </div>
             <div class="col-6">
