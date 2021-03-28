@@ -89,7 +89,7 @@ class Registration extends Admin_Controller
 	public function WhoAmI()
 	{
 		// $this->load->view('registration/header');
-		$this->load->view('registration/who_am_i');
+		$this->render_template_registration('registration/who_am_i', 'Who Am I', NULL);
 	}
 
 	public function LoadCountries()
