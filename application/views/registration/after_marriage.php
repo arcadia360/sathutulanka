@@ -1,10 +1,10 @@
 <canvas id="sakura"></canvas>
-<div class="btnbg" style="padding-top: 30px;">
+<div class="btnbg" style="padding-top: 100px;">
     <!-- Container Area Start -->
     <div class="container" style="z-index: 1;">
         <div class="row">
             <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
-            <h3 class="text-center text-inverse title">After Marriage</h3>
+                <h3 class="text-center text-inverse title">After Marriage</h3>
                 <hr>
 
                 <div class="col-md-12">

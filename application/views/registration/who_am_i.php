@@ -42,10 +42,7 @@
         <div class="row">
             <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
                 <h3 class="text-center text-inverse title">Who Am I</h3>
-<<<<<<< HEAD
-=======
                 <button class="btn btn-info" style="width: 150px; margin-bottom:20px; float:right;" type="button" id="btnSubmit">Skip this step &nbsp; <i class="fas fa-forward"></i></button>
->>>>>>> 2767556fe1762ff0407c8f77764b43d49c1d57da
                 <form class="container" id="needs-validation" novalidate>
                     <div class="row">
                         <div class="col-12">
