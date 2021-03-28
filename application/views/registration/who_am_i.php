@@ -36,7 +36,7 @@
 </style>
 
 <canvas id="sakura"></canvas>
-<div class="btnbg" style="padding-top: 30px;">
+<div class="btnbg" style="padding-top: 100px;">
     <!-- Container Area Start -->
     <div class="container" style="z-index: 1;">
         <div class="row">
@@ -710,7 +710,7 @@
     <!-- Container Area End -->
 
 </div>
-
+<!-- 
 <script>
     var slider = document.getElementById("rangeOpennessToExperience");
     var output = document.getElementById("demo");
@@ -720,7 +720,7 @@
     slider.oninput = function() {
         output.innerHTML = this.value;
     }
-</script>
+</script> -->
 
 <!-- <script>
     $(function() {
