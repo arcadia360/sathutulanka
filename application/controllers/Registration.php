@@ -35,7 +35,7 @@ class Registration extends Admin_Controller
 		// $this->data['MarriageType_data'] = $MarriageType;
 		// $this->data['NoofChildren_data'] = $NoofChildren;
 
-		$this->load->view('registration/create_account', $this->data);
+		$this->load->view('registration/create_account');
 	}
 
 	public function CreateAccount()
