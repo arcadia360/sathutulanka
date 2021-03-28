@@ -5,6 +5,8 @@
 	<meta charset="UTF-8">
 	<title>Sathutu Lanka | User Registration</title>
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 	<!-- Bootstrap 4.0 -->
@@ -18,7 +20,6 @@
 
 
 	<link rel="stylesheet" href="<?php echo base_url('resources/css/registration_form/style.css') ?>">
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> -->
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"> -->
 	<!-- DK CSS -->
 	<link rel="stylesheet" href="<?= base_url('resources/css/common_dk.css') ?>">
