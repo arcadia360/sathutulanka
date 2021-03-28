@@ -7,6 +7,7 @@
         <h3 class="text-center text-inverse"><?= lang('residance') ?></h3>
         <hr>
         <form class="container" id="needs-validation" novalidate>
+
           <div class="row">
             <div class="col-12">
               <div class="form-group">
@@ -17,6 +18,98 @@
               </div>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="text-inverse" for="validationCustom01"><?= lang('liveInSriLanka') ?></label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <select class="custom-select d-block form-control" id="#" name="#">
+                  <option value="0"><?= lang('select') ?></option>
+                  <option value="">Select 1</option>
+                  <option value="">Select 2</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <select class="custom-select d-block form-control" id="#" name="#">
+                  <option value="0"><?= lang('select') ?></option>
+                  <option value="">Select 1</option>
+                  <option value="">Select 2</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <select class="custom-select d-block form-control" id="#" name="#">
+                  <option value="0"><?= lang('select') ?></option>
+                  <option value="">Select 1</option>
+                  <option value="">Select 2</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label class="text-inverse" for="validationCustom01"><?= lang('AddressofSriLanka') ?></label>
+                <input type="text" class=" d-block form-control">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <label class="text-inverse" for="validationCustom01"><?= lang('ownershipOfTheAddress') ?></label>
+              <div class="row">
+                <div class="col-6">
+                  <label class="custom-control custom-radio">
+                    <input id="ownershipOfTheAddress" name="ownershipOfTheAddress" type="radio" class="custom-control-input" value="ownPlace">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('ownPlace') ?></span>
+                  </label>
+                </div>
+                <div class="col-6">
+                  <label class="custom-control custom-radio">
+                    <input id="ownershipOfTheAddress" name="ownershipOfTheAddress" type="radio" class="custom-control-input" value="notOwnPlace">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('notOwnPlace') ?></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="text-inverse" for="validationCustom01"><?= lang('nativeDistrict') ?></label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <select class="custom-select d-block form-control" id="#" name="#">
+                  <option value="0"><?= lang('select') ?></option>
+                  <option value="">Select 1</option>
+                  <option value="">Select 2</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
           <hr>
           <div class="row">
             <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">

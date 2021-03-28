@@ -82,6 +82,7 @@
               </div>
             </div>
           </div>
+
           <div class="row">
             <div class="col-12">
               <label class="text-inverse" for="validationCustom01"><?= lang('languagesSpeak') ?></label>
@@ -121,6 +122,153 @@
                       <span class="custom-control-description"><?= lang('other') ?></span>
                     </label>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <label class="text-inverse" for="validationCustom01"><?= lang('dressAndMakeup') ?></label>
+              <div class="row">
+                <div class="col-6">
+                  <label class="custom-control custom-radio">
+                    <input id="dressAndMakeup" name="dressAndMakeup" type="radio" class="custom-control-input" value="1">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('traditional') ?></span>
+                  </label>
+                </div>
+                <div class="col-6">
+                  <label class="custom-control custom-radio">
+                    <input id="dressAndMakeup" name="dressAndMakeup" type="radio" class="custom-control-input" value="2">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('modern') ?></span>
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <label class="custom-control custom-radio">
+                    <input id="dressAndMakeup" name="dressAndMakeup" type="radio" class="custom-control-input" value="1">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('mixofTraditionalAndModern') ?></span>
+                  </label>
+                </div>
+                <div class="col-6">
+                  <label class="custom-control custom-radio">
+                    <input id="dressAndMakeup" name="dressAndMakeup" type="radio" class="custom-control-input" value="2">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('shortDresses') ?></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <label class="text-inverse" for="validationCustom01"><?= lang('usedToTravel') ?></label>
+              <div class="row">
+                <div class="col-4">
+                  <label class="custom-control custom-radio">
+                    <input id="usedToTravel" name="usedToTravel" type="radio" class="custom-control-input" value="1">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('public') ?></span>
+                  </label>
+                </div>
+                <div class="col-4">
+                  <label class="custom-control custom-radio">
+                    <input id="usedToTravel" name="usedToTravel" type="radio" class="custom-control-input" value="2">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('private') ?></span>
+                  </label>
+                </div>
+                <div class="col-4">
+                  <label class="custom-control custom-radio">
+                    <input id="usedToTravel" name="usedToTravel" type="radio" class="custom-control-input" value="3">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('publicAndPrivate') ?></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <label class="text-inverse" for="validationCustom01"><?= lang('CallTtParents') ?></label>
+              <div class="row">
+                <div class="col-6">
+                  <label class="custom-control custom-radio">
+                    <input id="CallTtParents" name="CallTtParents" type="radio" class="custom-control-input" value="1">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('traditional') . " " . lang('CallTtParentsT') ?></span>
+                  </label>
+                </div>
+                <div class="col-6">
+                  <label class="custom-control custom-radio">
+                    <input id="CallTtParents" name="CallTtParents" type="radio" class="custom-control-input" value="2">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('modern') . " " . lang('CallTtParentsM') ?></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <label class="text-inverse" for="validationCustom01"><?= lang('customs') ?></label>
+              <div class="row">
+                <div class="col-4">
+                  <label class="custom-control custom-radio">
+                    <input id="customs" name="customs" type="radio" class="custom-control-input" value="1">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('respect') ?></span>
+                  </label>
+                </div>
+                <div class="col-4">
+                  <label class="custom-control custom-radio">
+                    <input id="customs" name="customs" type="radio" class="custom-control-input" value="2">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('littleRespect') ?></span>
+                  </label>
+                </div>
+                <div class="col-4">
+                  <label class="custom-control custom-radio">
+                    <input id="customs" name="customs" type="radio" class="custom-control-input" value="3">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('noRespect') ?></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <label class="text-inverse" for="validationCustom01"><?= lang('LiveIn') ?></label>
+              <div class="row">
+                <div class="col-4">
+                  <label class="custom-control custom-radio">
+                    <input id="LiveIn" name="LiveIn" type="radio" class="custom-control-input" value="1">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('normalHouse') ?></span>
+                  </label>
+                </div>
+                <div class="col-4">
+                  <label class="custom-control custom-radio">
+                    <input id="LiveIn" name="LiveIn" type="radio" class="custom-control-input" value="2">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('semiLuxuryHouse') ?></span>
+                  </label>
+                </div>
+                <div class="col-4">
+                  <label class="custom-control custom-radio">
+                    <input id="LiveIn" name="LiveIn" type="radio" class="custom-control-input" value="3">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('luxuryHouse') ?></span>
+                  </label>
                 </div>
               </div>
             </div>
