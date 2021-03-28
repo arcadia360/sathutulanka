@@ -67,7 +67,7 @@ class Registration extends Admin_Controller
 
 	public function residence()
 	{
-		$this->render_template_registration('registration/residence', 'Add Background Details', NULL);
+		$this->render_template_registration('registration/residence', 'Add Residence Details', NULL);
 	}
 
 	public function LoadCountries()
@@ -87,17 +87,22 @@ class Registration extends Admin_Controller
 		$this->render_template_registration('registration/background', 'Add Background Details', NULL);
 	}
 
+	public function lifeStyle()
+	{
+		$this->render_template_registration('registration/lifeStyle', 'Add Life Style Details', NULL);
+	}
+
 	public function Verification()
 	{
 		$this->load->view('registration/otp_verification');
 	}
 
-	public function langTest()
+	public function sample()
 	{
 
 		echo lang('hello');
 		$this->load->view('registration/header');
-		$this->load->view('registration/physical_status');
+		$this->load->view('registration/sample');
 		$this->load->view('registration/footer');
 	}
 }
