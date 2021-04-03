@@ -39,7 +39,12 @@ class Model_registration extends CI_Model
 
   public function loadCountries()
   {
-    $query = $this->db->query("SELECT * FROM country");
+
+    $this->db->select('*');
+    $this->db->from('country');
+    $this->db->where('intCountryId !=', 1);
+    $query = $this->db->get();
+
     if ($query->num_rows() > 0) {
       return $query->result();
     } else {
