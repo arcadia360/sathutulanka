@@ -10,88 +10,91 @@
 
           <div class="row">
             <div class="col-12">
-              <div class="form-group">
-                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveAnotherCountry') ?></label>
-                <select class="custom-select d-block form-control" id="country" name="bloodGroup">
-
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-6">
-              <div class="form-group">
-                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="form-group">
-                <select class="custom-select d-block form-control" id="#" name="#">
-                  <option value="0"><?= lang('select') ?></option>
-                  <option value="">Select 1</option>
-                  <option value="">Select 2</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6">
-            </div>
-            <div class="col-6">
-              <div class="form-group">
-                <select class="custom-select d-block form-control" id="#" name="#">
-                  <option value="0"><?= lang('select') ?></option>
-                  <option value="">Select 1</option>
-                  <option value="">Select 2</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6">
-            </div>
-            <div class="col-6">
-              <div class="form-group">
-                <select class="custom-select d-block form-control" id="#" name="#">
-                  <option value="0"><?= lang('select') ?></option>
-                  <option value="">Select 1</option>
-                  <option value="">Select 2</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-12">
-              <div class="form-group">
-                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('AddressofSriLanka') ?></label>
-                <input type="text" class=" d-block form-control">
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-12">
-              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('ownershipOfTheAddress') ?></label>
+              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveIn') ?></label>
               <div class="row">
                 <div class="col-6">
                   <label class="custom-control custom-radio">
-                    <input id="ownershipOfTheAddress" name="ownershipOfTheAddress" type="radio" class="custom-control-input" value="ownPlace">
+                    <input id="LiveInSriLanka" name="liveIn" type="radio" class="custom-control-input" value="<?= lang('sriLanka') ?>">
                     <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('ownPlace') ?></span>
+                    <span class="custom-control-description"><?= lang('sriLanka') ?></span>
                   </label>
                 </div>
                 <div class="col-6">
                   <label class="custom-control custom-radio">
-                    <input id="ownershipOfTheAddress" name="ownershipOfTheAddress" type="radio" class="custom-control-input" value="notOwnPlace">
+                    <input id="LiveInOverSeas" name="liveIn" type="radio" class="custom-control-input" value="<?= lang('overSeas') ?>">
                     <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('notOwnPlace') ?></span>
+                    <span class="custom-control-description"><?= lang('overSeas') ?></span>
                   </label>
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="row ifOvereSeas">
+            <div class="col-12">
+              <div class="form-group">
+                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('Country') ?></label>
+                <select class="custom-select d-block form-control" id="country" name="country">
+
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="ifLiveInSriLanka">
+            <!-- ifLveInSriLanka -->
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <select class="custom-select d-block form-control" id="#" name="#">
+                    <option value="0"><?= lang('select') ?></option>
+                    <option value="">Select 1</option>
+                    <option value="">Select 2</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <select class="custom-select d-block form-control" id="#" name="#">
+                    <option value="0"><?= lang('select') ?></option>
+                    <option value="">Select 1</option>
+                    <option value="">Select 2</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <select class="custom-select d-block form-control" id="#" name="#">
+                    <option value="0"><?= lang('select') ?></option>
+                    <option value="">Select 1</option>
+                    <option value="">Select 2</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('AddressofSriLanka') . "    " ?> <span style="font-weight: 100;color: #FF9800;">(Will not publish.Office purpose only)</span> </label>
+                  <input type="text" class=" d-block form-control">
+                </div>
+              </div>
+            </div>
+          </div><!-- end ifLveInSriLanka -->
 
           <div class="row">
             <div class="col-6">
@@ -161,5 +164,18 @@
         }
       });
     }
+
+    $("#LiveInOverSeas").click(function() {
+      $(".ifLiveInSriLanka").hide();
+      $(".ifOvereSeas").show();
+    });
+
+    $("#LiveInSriLanka").click(function() {
+      $(".ifLiveInSriLanka").show();
+      $(".ifOvereSeas").hide();
+      $("#country").val('0');
+
+    });
+
   });
 </script>
