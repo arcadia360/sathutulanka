@@ -124,6 +124,38 @@ class Registration extends Admin_Controller
 		}
 	}
 
+	public function loadDistricts()
+	{
+		$html = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->loadDistricts();
+
+		$this->load->helper('language');
+
+		$session_data = $this->session->userdata();
+
+		// if ($session_data['language_id'] == 1) { // English
+		$this->lang->load('en', 'English');
+		// } else if ($session_data['language_id'] == 2) { // Sinhala
+		// $this->lang->load('si', 'Sinhala');
+		// } else if ($session_data['language_id'] == 3) { // Tamil
+		// 	$this->lang->load('ta', 'Tamil');
+		// }
+		if ($result) {
+			foreach ($result as $district) {
+				$districName = lang($district->vcDistrictName);
+
+				$html .= "<option value=" . $district->IntDistrictId . " >" . $districName  . "</option>";
+			}
+
+
+
+			echo json_encode($html);
+		} else {
+			// echo json_encode($result);
+		}
+	}
+
 	public function background()
 	{
 		$this->render_template_registration('registration/background', 'Add Background Details', NULL);
