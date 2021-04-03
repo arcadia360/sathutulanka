@@ -51,10 +51,10 @@
               </div>
               <div class="col-6">
                 <div class="form-group">
-                  <select class="custom-select d-block form-control" id="#" name="#">
-                    <option value="0"><?= lang('select') ?></option>
+                  <select class="custom-select d-block form-control" id="district" name="district">
+                    <!-- <option value="0"><?= lang('select') ?></option>
                     <option value="">Select 1</option>
-                    <option value="">Select 2</option>
+                    <option value="">Select 2</option> -->
                   </select>
                 </div>
               </div>
@@ -134,6 +134,7 @@
   $(function() {
 
     loadCountries();
+    loadDistricts();
     $('#btnBack').click(function() {
       window.location.href = "<?php echo base_url('Registration/physicalStatus') ?>";
     });
@@ -161,6 +162,24 @@
         },
         error: function() {
           alert('failed to load countries');
+        }
+      });
+    }
+
+    function loadDistricts() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/loadDistricts',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          // console.log('hiiii' + data)
+          $('#district').html(data);
+          // $('#district').val(0);
+
+        },
+        error: function() {
+          alert('failed to load districts');
         }
       });
     }
