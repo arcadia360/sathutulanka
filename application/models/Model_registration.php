@@ -52,6 +52,21 @@ class Model_registration extends CI_Model
     }
   }
 
+  public function loadDistricts()
+  {
+
+    $this->db->select('*');
+    $this->db->from('district');
+    $this->db->order_by('vcDistrictName', 'asc');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
   public function getProvidingInformationType($language_id)
   {
     if ($language_id == 1) { // English
