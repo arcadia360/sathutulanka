@@ -177,6 +177,6 @@ class Registration extends Admin_Controller
 		echo lang('hello');
 		$this->load->view('registration/header');
 		$this->load->view('registration/sample');
-		$this->load->view('registration/footer');
+		$this->load->view('registration/footer');git
 	}
 }
