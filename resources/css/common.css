@@ -21,12 +21,12 @@ input {
 
 input[type=text]:focus, input[type=password]:focus {
     /* border: 2px solid #d73333; */
-    outline: 1px solid #d73333;
+    outline: 1px solid #b52b4a;
     border: 1px solid transparent;
 }
 
 input[type="checkbox"]:checked+label:before {
-    background: #d73333 !important;
+    background: #b52b4a !important;
 }
 
 /* Model */
@@ -40,4 +40,16 @@ input[type="checkbox"]:checked+label:before {
     height: 100px;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 36%, 0 100%);
+}
+
+/* Main-Slider */
+
+.main-slider-area {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: black;
+    height: calc(100vh - 66px);
+}
+
 }
