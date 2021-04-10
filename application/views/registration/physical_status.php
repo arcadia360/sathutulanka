@@ -241,27 +241,28 @@
 		var isSkinColorSelected = $("input[name=skinColor]").is(":checked");
 
 		if (jQuery.trim($("#height").val()).length == 0) {
-			toastr["error"]("<?= lang('heightErr') ?>");
+			toastr["error"]("<?= lang('heightErr') ?>")
+			toastr.options = {
+				"positionClass": "toast-bottom-right"
+			}
 			$("#height").focus();
-		}
-		//  else if (jQuery.trim($("#weight").val()).length == 0) {
-		// 	toastr["error"]("<?= lang('weightErr') ?>");
-		// 	$("#weight").focus();
-		// } else if (!isBodySapeSelected) {
-		// 	toastr["error"]("<?= lang('bodyTypetErr') ?>");
-		// } else if (!isSkinColorSelected) {
-		// 	toastr["error"]("<?= lang('skinColorErr') ?>");
-		// } else if (jQuery.trim($("#disability").val()).length == 0) {
-		// 	toastr["error"]("<?= lang('disabilityErr') ?>");
-		// 	$("#disability").focus();
-		// } else if (jQuery.trim($("#bloodGroup").val()).length == 0) {
-		// 	toastr["error"]("<?= lang('bloodGroupErr') ?>");
-		// 	$("#bloodGroup").focus();
-		// } else if (jQuery.trim($("#healthInfo").val()).length == 0) {
-		// 	toastr["error"]("<?= lang('healthInfoErr') ?>");
-		// 	$("#healthInfo").focus();
-		// } 
-		else {
+		} else if (jQuery.trim($("#weight").val()).length == 0) {
+			toastr["error"]("<?= lang('weightErr') ?>");
+			$("#weight").focus();
+		} else if (!isBodySapeSelected) {
+			toastr["error"]("<?= lang('bodyTypetErr') ?>");
+		} else if (!isSkinColorSelected) {
+			toastr["error"]("<?= lang('skinColorErr') ?>");
+		} else if (jQuery.trim($("#disability").val()).length == 0) {
+			toastr["error"]("<?= lang('disabilityErr') ?>");
+			$("#disability").focus();
+		} else if (jQuery.trim($("#bloodGroup").val()).length == 0) {
+			toastr["error"]("<?= lang('bloodGroupErr') ?>");
+			$("#bloodGroup").focus();
+		} else if (jQuery.trim($("#healthInfo").val()).length == 0) {
+			toastr["error"]("<?= lang('healthInfoErr') ?>");
+			$("#healthInfo").focus();
+		} else {
 			var form = $("#addPyysicalStatus");
 			$.ajax({
 				type: form.attr('method'),
