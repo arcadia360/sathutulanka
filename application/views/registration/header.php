@@ -20,7 +20,7 @@
 
 
 	<link rel="stylesheet" href="<?php echo base_url('resources/css/registration_form/style.css') ?>">
-	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 	<!-- DK CSS -->
 	<link rel="stylesheet" href="<?= base_url('resources/css/common_dk.css') ?>">
 
