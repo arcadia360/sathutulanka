@@ -10,7 +10,7 @@
 
           <div class="row">
             <div class="col-12">
-              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveIn') ?></label>
+              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('currentlyLiveIn') ?></label>
               <div class="row">
                 <div class="col-6">
                   <label class="custom-control custom-radio">
@@ -64,23 +64,8 @@
               </div>
               <div class="col-6">
                 <div class="form-group">
-                  <select class="custom-select d-block form-control" id="#" name="#">
-                    <option value="0"><?= lang('select') ?></option>
-                    <option value="">Select 1</option>
-                    <option value="">Select 2</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-6">
-              </div>
-              <div class="col-6">
-                <div class="form-group">
-                  <select class="custom-select d-block form-control" id="#" name="#">
-                    <option value="0"><?= lang('select') ?></option>
-                    <option value="">Select 1</option>
-                    <option value="">Select 2</option>
+                  <select class="custom-select d-block form-control" id="city" name="city">
+
                   </select>
                 </div>
               </div>
@@ -104,10 +89,8 @@
             </div>
             <div class="col-6">
               <div class="form-group">
-                <select class="custom-select d-block form-control" id="#" name="#">
-                  <option value="0"><?= lang('select') ?></option>
-                  <option value="">Select 1</option>
-                  <option value="">Select 2</option>
+                <select class="custom-select d-block form-control" id="nativeDistrict" name="nativeDistrict">
+
                 </select>
               </div>
             </div>
@@ -133,6 +116,7 @@
 <script>
   $(function() {
 
+    $(".ifOvereSeas").hide();
     loadCountries();
     loadDistricts();
     $('#btnBack').click(function() {
@@ -158,7 +142,6 @@
           }
           $('#country').html(html);
           $('#country').val(0);
-
         },
         error: function() {
           alert('failed to load countries');
@@ -173,16 +156,46 @@
         async: false,
         dataType: 'json',
         success: function(data) {
-          // console.log('hiiii' + data)
-          $('#district').html(data);
-          // $('#district').val(0);
-
+          if (!data) {
+            toastr["error"]("<?= lang('district') . ' ' . lang('dataCannotRetrieve') ?>");
+          } else {
+            $('#district').html(data);;
+            $('#district').val(0);
+            $('#nativeDistrict').html(data);;
+            $('#nativeDistrict').val(0);
+          }
         },
         error: function() {
-          alert('failed to load districts');
+          toastr["error"]("<?= lang('district') . ' ' . lang('dataCannotRetrieve') . ' Connection Err' ?>");
         }
       });
     }
+
+    //load city list
+    $('#district').change(function() {
+      var districtID = $('#district').val()
+      console.log(districtID);
+      $.ajax({
+        type: 'POST',
+        url: '<?php echo base_url(); ?>Registration/loadCities',
+        async: false,
+        dataType: 'json',
+        data: {
+          'districtID': districtID
+        },
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("<?= lang('city') . ' ' . lang('dataCannotRetrieve') ?>");
+          } else {
+            $('#city').html(data);;
+            $('#city').val(0);
+          }
+        },
+        error: function() {
+          toastr["error"]("<?= lang('city') . ' ' . lang('dataCannotRetrieve') . ' Connection Err' ?>");
+        }
+      });
+    });
 
     $("#LiveInOverSeas").click(function() {
       $(".ifLiveInSriLanka").hide();
