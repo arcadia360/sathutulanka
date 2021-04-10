@@ -126,33 +126,55 @@ class Registration extends Admin_Controller
 
 	public function loadDistricts()
 	{
-		$html = '';
 		$this->load->model('Model_registration');
 		$result = $this->Model_registration->loadDistricts();
-
-		$this->load->helper('language');
-
-		$session_data = $this->session->userdata();
-
-		// if ($session_data['language_id'] == 1) { // English
-		$this->lang->load('en', 'English');
-		// } else if ($session_data['language_id'] == 2) { // Sinhala
-		// $this->lang->load('si', 'Sinhala');
-		// } else if ($session_data['language_id'] == 3) { // Tamil
-		// 	$this->lang->load('ta', 'Tamil');
-		// }
-		if ($result) {
-			foreach ($result as $district) {
-				$districName = lang($district->vcDistrictName);
-
-				$html .= "<option value=" . $district->IntDistrictId . " >" . $districName  . "</option>";
-			}
-
-
-
-			echo json_encode($html);
+		if (!$result) {
+			return false;
 		} else {
-			// echo json_encode($result);
+			$this->load->helper('language');
+			// $session_data = $this->session->userdata();
+			// if ($session_data['language_id'] == 1) { // English
+			// $this->lang->load('en', 'English');
+			// } else if ($session_data['language_id'] == 2) { // Sinhala
+			$this->lang->load('si', 'Sinhala');
+			// } else if ($session_data['language_id'] == 3) { // Tamil
+			// 	$this->lang->load('ta', 'Tamil');
+			// }
+			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
+			if ($result) {
+				foreach ($result as $district) {
+					$districName = lang($district->vcDistrictName);
+					$html .= "<option value=" . $district->IntDistrictId . " >" . $districName  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function loadCities()
+	{
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->loadCities();
+		if (!$result) {
+			return false;
+		} else {
+			$this->load->helper('language');
+			// $session_data = $this->session->userdata();
+			// if ($session_data['language_id'] == 1) { // English
+			// $this->lang->load('en', 'English');
+			// } else if ($session_data['language_id'] == 2) { // Sinhala
+			$this->lang->load('si', 'Sinhala');
+			// } else if ($session_data['language_id'] == 3) { // Tamil
+			// 	$this->lang->load('ta', 'Tamil');
+			// }
+			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
+			if ($result) {
+				foreach ($result as $cities) {
+					$districName = lang($cities->vcCityName);
+					$html .= "<option value=" . $cities->intCityId . " >" . $districName  . "</option>";
+				}
+				echo json_encode($html);
+			}
 		}
 	}
 
@@ -177,6 +199,6 @@ class Registration extends Admin_Controller
 		echo lang('hello');
 		$this->load->view('registration/header');
 		$this->load->view('registration/sample');
-		$this->load->view('registration/footer');git
+		$this->load->view('registration/footer');
 	}
 }
