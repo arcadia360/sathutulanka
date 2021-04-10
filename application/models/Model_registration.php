@@ -67,6 +67,23 @@ class Model_registration extends CI_Model
     }
   }
 
+  public function loadCities()
+  {
+    $districtID = $this->input->post('districtID');
+    $this->db->select('*');
+    $this->db->from('city');
+    // $this->db->where('intDistrictId =', $this->input->post('districtID'));
+    $this->db->where('intDistrictId =', $districtID);
+    $this->db->order_by('vcCityName', 'asc');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
   public function getProvidingInformationType($language_id)
   {
     if ($language_id == 1) { // English
