@@ -20,9 +20,8 @@
               <div class="form-group">
                 <select class="custom-select d-block form-control" id="#" name="#">
                   <option value="0"><?= lang('select') ?></option>
-                  <option value="0"><?= lang('select') ?></option>
                   <option value="634">Doctorate</option>
-                  <option value="635" selected="">Masters</option>
+                  <option value="635">Masters</option>
                   <option value="636">Honors Degree</option>
                   <option value="637">Bachelor</option>
                   <option value="639">Associate degree</option>
