@@ -63,22 +63,23 @@
                 <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('caste') ?></label>
                 <select class="custom-select d-block form-control" id="caste" name="caste">
                   <option value="0"><?= lang('select') ?></option>
-                  <option value="">Select 1</option>
-                  <option value="">Select 2</option>
+                  <option value="1">Select 1</option>
+                  <option value="2">Select 2</option>
                   <option value="mentionedInMyStory"><?= lang('mentionedInMyStory') ?></option>
+                  <option value="disregardTheCaste"><?= lang('disregardTheCaste') ?></option>
                 </select>
               </div>
             </div>
           </div>
 
-          <div class="row">
+          <div class="row" id="sub-caste-div">
             <div class="col-12">
               <div class="form-group">
                 <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('subCast') ?></label>
                 <select class="custom-select d-block form-control" id="subCast" name="subCast">
                   <option value="0"><?= lang('select') ?></option>
-                  <option value="">Select 1</option>
-                  <option value="">Select 2</option>
+                  <option value="1">Select 1</option>
+                  <option value="2">Select 2</option>
                   <option value="mentionedInMyStory"><?= lang('mentionedInMyStory') ?></option>
                 </select>
               </div>
@@ -127,12 +128,24 @@
 <script>
   $(function() {
 
+    $('#sub-caste-div').hide();
+
     $('#btnBack').click(function() {
       window.location.href = "<?php echo base_url('Registration/residence') ?>";
     });
 
     $('#btnSubmit').click(function() {
       window.location.href = "<?php echo base_url('Registration/lifeStyle') ?>";
+    });
+
+    $('#caste').change(function() {
+      var caste = $('#caste').val();
+      console.log(caste);
+      if (caste == 0 || caste == 'mentionedInMyStory' || caste == 'disregardTheCaste') {
+        $('#sub-caste-div').hide();
+      } else {
+        $('#sub-caste-div').show();
+      }
     });
 
   });
