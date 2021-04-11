@@ -18,8 +18,9 @@
               <div class="form-group">
                 <select class="custom-select d-block form-control" id="diet" name="diet">
                   <option value="0"><?= lang('select') ?></option>
-                  <option value="">Select 1</option>
-                  <option value="">Select 2</option>
+                  <option value="veg"><?= lang('veg') ?></option>
+                  <option value="NonVeg"><?= lang('NonVeg') ?></option>
+                  <option value="OccasionallyNonVeg"><?= lang('OccasionallyNonVeg') ?></option>
                 </select>
               </div>
             </div>
@@ -29,25 +30,32 @@
             <div class="col-12">
               <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('drink') ?></label>
               <div class="row">
-                <div class="col-4">
+                <div class="col-3">
                   <label class="custom-control custom-radio">
                     <input id="drink" name="drink" type="radio" class="custom-control-input" value="1">
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description"><?= lang('no') ?></span>
                   </label>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                   <label class="custom-control custom-radio">
                     <input id="drink" name="drink" type="radio" class="custom-control-input" value="2">
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description"><?= lang('yes') ?></span>
                   </label>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                   <label class="custom-control custom-radio">
                     <input id="drink" name="drink" type="radio" class="custom-control-input" value="3">
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description"><?= lang('duringFunction') ?></span>
+                  </label>
+                </div>
+                <div class="col-3">
+                  <label class="custom-control custom-radio">
+                    <input id="drink" name="drink" type="radio" class="custom-control-input" value="3">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('stopped') ?></span>
                   </label>
                 </div>
               </div>
@@ -58,25 +66,32 @@
             <div class="col-12">
               <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('smoke') ?></label>
               <div class="row">
-                <div class="col-4">
+                <div class="col-3">
                   <label class="custom-control custom-radio">
                     <input id="smoke" name="smoke" type="radio" class="custom-control-input" value="1">
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description"><?= lang('no') ?></span>
                   </label>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                   <label class="custom-control custom-radio">
                     <input id="smoke" name="smoke" type="radio" class="custom-control-input" value="2">
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description"><?= lang('yes') ?></span>
                   </label>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                   <label class="custom-control custom-radio">
                     <input id="smoke" name="smoke" type="radio" class="custom-control-input" value="3">
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description"><?= lang('duringFunction') ?></span>
+                  </label>
+                </div>
+                <div class="col-3">
+                  <label class="custom-control custom-radio">
+                    <input id="smoke" name="smoke" type="radio" class="custom-control-input" value="3">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description"><?= lang('stopped') ?></span>
                   </label>
                 </div>
               </div>
