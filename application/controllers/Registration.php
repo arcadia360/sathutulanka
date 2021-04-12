@@ -190,7 +190,8 @@ class Registration extends Admin_Controller
 
 	public function Verification()
 	{
-		$this->load->view('registration/otp_verification');
+		// $this->load->view('registration/otp_verification');
+		$this->render_template_registration('registration/otp_verification', 'OTP Verification', NULL);
 	}
 
 	public function sample()
