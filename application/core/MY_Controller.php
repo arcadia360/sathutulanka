@@ -73,7 +73,7 @@ class Admin_Controller extends MY_Controller
 
 		// $this->load->view('partials/header',$this->data);
 		$this->load->view('partials/navbar', $this->data);
-		// $this->load->view($page);
+		$this->load->view($page);
 		$this->load->view('partials/footer');
 	}
 
