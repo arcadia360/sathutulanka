@@ -70,16 +70,16 @@
                 </div>
               </div>
             </div>
-
-            <div class="row">
-              <div class="col-12">
-                <div class="form-group">
-                  <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('AddressofSriLanka') . "    " ?> <span style="font-weight: 100;color: #FF9800;">(Will not publish.Office purpose only)</span> </label>
-                  <input type="text" class=" d-block form-control">
-                </div>
+          </div><!-- end ifLveInSriLanka -->
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('AddressofSriLanka') . "    " ?> <span style="font-weight: 100;color: #FF9800;">(Will not publish.Office purpose only)</span> </label>
+                <input type="text" class=" d-block form-control">
               </div>
             </div>
-          </div><!-- end ifLveInSriLanka -->
+          </div>
+
 
           <div class="row">
             <div class="col-6">
