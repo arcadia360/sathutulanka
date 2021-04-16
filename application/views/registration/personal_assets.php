@@ -366,7 +366,7 @@
     $(function() {
 
         $('#btnBack').click(function() {
-            window.location.href = "<?php echo base_url('Registration/background') ?>";
+            window.location.href = "<?php echo base_url('Registration/career') ?>";
         });
 
         $('#btnSubmit').click(function() {
@@ -374,4 +374,4 @@
         });
 
     });
-</script>
+</script> 
