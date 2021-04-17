@@ -38,11 +38,7 @@ class Registration extends Admin_Controller
 		$this->load->view('registration/create_account');
 	}
 
-	public function CreateAccount()
-	{
-		// $this->load->view('registration/header');
-		$this->load->view('registration/create_account');
-	}
+
 
 	public function physicalStatus()
 	{
@@ -188,10 +184,55 @@ class Registration extends Admin_Controller
 		$this->render_template_registration('registration/lifeStyle', 'Add Life Style Details', NULL);
 	}
 
-	public function Verification()
+	public function createAccount()
 	{
-		// $this->load->view('registration/otp_verification');
-		$this->render_template_registration('registration/otp_verification', 'OTP Verification', NULL);
+
+		$email = $this->input->post('email');
+		$random_EmailCode = "";
+		$random_EmailCode = substr(md5(uniqid(rand(), true)), 16, 16);
+
+		$response = $this->Model_registration->saveCreateAccount($email, $random_EmailCode);
+		$this->Model_registration->sendVerificatinEmail($email, $random_EmailCode);
+
+		if ($response['success'] == true) {
+
+			$this->load->view('registration/create_account');
+		} else {
+		}
+	}
+
+	public function EmailVerification($verificationText = NULL)
+	{
+		$response = array();
+
+		$userData = $this->Model_registration->getUserDate($verificationText);
+		$noRecords = $this->Model_registration->verifyEmailAddress($verificationText);
+		$noRecordsendOTP = 0;
+		if ($noRecords > 0) {
+			$error = array('success' => "Email Verified Successfully!");
+			if ($userData['intOTPSentCount'] != 1) {
+				$noRecordsendOTP = $this->Model_registration->sendOTP($verificationText, false);
+			}
+			if ($noRecordsendOTP > 0) {
+				$this->render_template_registration('registration/otp_verification', 'OTP Verification', NULL);
+			} else {
+
+				$this->render_template_registration('registration/otp_verification', 'OTP Verification', NULL);
+			}
+		} else {
+			$error = array('error' => "Sorry Unable to Verify Your Email!");
+			$this->load->view('registration/create_account');
+		}
+		$data['errormsg'] = $error;
+	}
+
+	public function otpResend($verificationText = NULL)
+	{
+	    // var_dump($verificationText);
+		// $this->render_template_registration('Registration/otp_verification', 'OTP Verification', NULL);
+		$response['messages'] = $verificationText;
+
+		echo json_encode($response);
 	}
 
 	public function sample()
