@@ -279,11 +279,12 @@
     $(function() {
 
         $('#btnBack').click(function() {
-            window.location.href = "<?php echo base_url('Registration/background') ?>";
+            window.location.href = "<?php echo base_url('Registration/family') ?>";
         });
 
         $('#btnSubmit').click(function() {
-            window.location.href = "<?php echo base_url('Registration/lifeStyle') ?>";
+            // window.location.href = "<?php echo base_url('Registration/horoscope') ?>";
+            alert('futher forms not developed yet');
         });
 
     });
