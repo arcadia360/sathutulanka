@@ -156,8 +156,7 @@
             <!-- </div> -->
         </div>
         <div class="col-lg-4 col-md-5 col-sm-12 side-form">
-            <form class="ajax-submit" action="#" method="post" id="submitForm" autocomplete="off">
-                <input type="hidden" name="_token" value="QprnXEt5Y7iU48fAVpK0VqUiea4uSzgk9LyIq5AV">
+            <form method="post" action="<?= base_url('Registration/createAccount') ?>" id="submitForm">
                 <div class="px-3 py-3 home-main-search-bgcolor reg_form" style="overflow: scroll; height:90vh;">
                     <h4 class="px-3"><?= lang('create_your_account') ?></h4>
                     <div class="col-md-12 pt-3">
@@ -166,7 +165,7 @@
                     <!-- country codes (ISO 3166) and Dial codes. -->
                     <div class="col-md-12 pt-3">
                         <!-- <div class="form-group"> -->
-                        <select class="custom-select d-block form-control" id="bloodGroup" name="bloodGroup">
+                        <select class="custom-select d-block form-control" id="country_code" name="country_code">
                             <option value="">Country Codes</option>
                             <option data-countryCode="LK" value="94">Sri Lanka (+94)</option>
                             <option data-countryCode="SA" value="966">Saudi Arabia (+966)</option>
@@ -410,18 +409,26 @@
                     <div class="col-md-12 pt-4">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Providing Information</p>
                         <select class="custom-select d-block form-control" name="provide_infor" id="provide_infor">
-                            <option value="0" selected hidden><?= lang('select') ?></option>
+                            <option value="0"><?= lang('select') ?></option>
                             <!-- <?php foreach ($ProvidingInformationType_data as $k => $v) { ?>
                                 <option value="<?= $v['intProvidingInformationTypeID'] ?>"><?= $v['vcProvidingInformationType'] ?></option>
                             <?php } ?> -->
+                            <option value="self"><?= lang('self') ?></option>
+                            <option value="parents"><?= lang('parents') ?></option>
+                            <option value="guardian"><?= lang('guardian') ?></option>
+                            <option value="relative"><?= lang('relative') ?></option>
+                            <option value="brother"><?= lang('brother') ?></option>
+                            <option value="sister"><?= lang('sister') ?></option>
+                            <option value="friend"><?= lang('friend') ?></option>
+                            <option value="mentioned in writing"><?= lang('mentioned in writing') ?></option>
                         </select>
                     </div>
                     <div class="col-md-12 pt-4">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Gender</p>
                         <select class="custom-select d-block form-control" name="gender" id="gender">
-                            <option value="0" selected hidden><?= lang('select') ?></option>
-                            <option value="1"><?= lang('male') ?></option>
-                            <option value="2"><?= lang('female') ?></option>
+                            <option value="0" ><?= lang('select') ?></option>
+                            <option value="male"><?= lang('male') ?></option>
+                            <option value="female"><?= lang('female') ?></option>
                         </select>
                     </div>
 
@@ -545,29 +552,44 @@
                     <div class="col-md-12 pt-4">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Marital Status</p>
                         <select class="custom-select d-block form-control" name="marital_status" id="marital_status" onchange="getMarryDetails(this)">
-                            <option value="0" selected hidden><?= lang('select') ?></option>
+                            <option value="0"><?= lang('select') ?></option>
                             <!-- <?php foreach ($MaritalStatus_data as $k => $v) { ?>
                                 <option value="<?= $v['intMaritalStatusID'] ?>"><?= $v['vcMaritalStatus'] ?></option>
                             <?php } ?> -->
+                            <option value="never married"><?= lang('never married') ?></option>
+                            <option value="divorced"><?= lang('divorced') ?></option>
+                            <option value="awaiting divorce"><?= lang('awaiting divorce') ?></option>
+                            <option value="separated (not legally)"><?= lang('separated (not legally)') ?></option>
+                            <option value="widowed"><?= lang('widowed') ?></option>
+                            <option value="annulled"><?= lang('annulled') ?></option>
+                            <option value="divorced only at engagement"><?= lang('divorced only at engagement') ?></option>
+                            <option value="virginity problem"><?= lang('virginity problem') ?></option>
                         </select>
                     </div>
                     <div class="col-md-12 pt-4 childrenDiv">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Number of Children</p>
                         <select class="custom-select d-block form-control" name="num_of_child" id="num_of_child">
-                            <option value="0" selected hidden><?= lang('select') ?></option>
+                            <option value="0"><?= lang('select') ?></option>
                             <!-- <?php foreach ($NoofChildren_data as $k => $v) { ?>
                                 <option value="<?= $v['intNoOfChildrenID'] ?>"><?= $v['vcNoOfChildren'] ?></option>
                             <?php } ?> -->
+                            <option value="No">No</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="3+">3+</option>
                         </select>
                         </select>
                     </div>
                     <div class="col-md-12 pt-4">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Marry By</p>
                         <select class="custom-select d-block form-control" name="marry_by" id="marry_by">
-                            <option value="0" selected hidden><?= lang('select') ?></option>
+                            <option value="0"><?= lang('select') ?></option>
                             <!-- <?php foreach ($MarriageType_data as $k => $v) { ?>
                                 <option value="<?= $v['intMarriageTypeID'] ?>"><?= $v['vcMarriageType'] ?></option>
                             <?php } ?> -->
+                            <option value="proposal">Proposal</option>
+                            <option value="love">Love</option>
                         </select>
                     </div>
 
@@ -579,7 +601,8 @@
                         </p>
                     </div>
                     <div class="col-md-12 text-center pt-3 pb-2">
-                        <a href="<?= base_url()?>" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp;</a>
+                        <!-- <a href="<?= base_url()?>" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp;</a> -->
+                        <button type="submit" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp;</a>
                         <!-- <button type="submit" class="btn btn-primary btn-block gill-sans-mt-regular-font home-search-btn p20 home-search-letter-spacing sbmitBtn">&nbsp;CONTINUE&nbsp;</button> -->
                     </div>
 
