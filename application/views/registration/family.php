@@ -146,6 +146,54 @@
           </div>
 
           <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
+                <label class="text-inverse font-weight-bold" for="validationCustom01">Father Status</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <select class="custom-select d-block form-control" id="district" name="district">
+                  <option value="0"><?= lang('select') ?></option>
+                  <option value="726" selected="">Employed</option>
+                  <option value="727">Business</option>
+                  <option value="728">Retired</option>
+                  <option value="729">Not Employed</option>
+                  <option value="730">Passed away</option>
+                  <option value="731">Seperated</option>
+                  <option value="732">Sick</option>
+                  <option value="733">Mentioned in the writing box (Below)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
+                <label class="text-inverse font-weight-bold" for="validationCustom01">Mother Status</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <select class="custom-select d-block form-control" id="district" name="district">
+                  <option value="0"><?= lang('select') ?></option>
+                  <option value="726" selected="">Employed</option>
+                  <option value="727">Business</option>
+                  <option value="728">Retired</option>
+                  <option value="729">Not Employed</option>
+                  <option value="730">Passed away</option>
+                  <option value="731">Seperated</option>
+                  <option value="732">Sick</option>
+                  <option value="733">Mentioned in the writing box (Below)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
             <div class="col-12">
               <div class="form-group">
                 <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
@@ -179,7 +227,7 @@
 
 <script>
   $(function() {
-
+    loadDistricts();
     $('#btnBack').click(function() {
       window.location.href = "<?php echo base_url('Registration/education') ?>";
     });
@@ -187,5 +235,27 @@
     $('#btnSubmit').click(function() {
       window.location.href = "<?php echo base_url('Registration/personalAssets') ?>";
     });
+
+    function loadDistricts() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/loadDistricts',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("<?= lang('district') . ' ' . lang('dataCannotRetrieve') ?>");
+          } else {
+            $('#district').html(data);;
+            $('#district').val(0);
+          }
+        },
+        error: function() {
+          toastr["error"]("<?= lang('district') . ' ' . lang('dataCannotRetrieve') . ' Connection Err' ?>");
+        }
+      });
+    }
+
+
   });
 </script>
