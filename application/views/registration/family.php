@@ -5,7 +5,7 @@
     <div class="row">
       <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
         <!-- <h3 class="text-center text-inverse font-weight-bold"><?= lang('residance') ?></h3> -->
-        <h3 class="text-center text-inverse title">Career</h3>
+        <h3 class="text-center text-inverse title">Family</h3>
         <hr>
         <form class="container" id="needs-validation" novalidate>
 
@@ -229,11 +229,11 @@
   $(function() {
     loadDistricts();
     $('#btnBack').click(function() {
-      window.location.href = "<?php echo base_url('Registration/education') ?>";
+      window.location.href = "<?php echo base_url('Registration/personalAssets') ?>";
     });
 
     $('#btnSubmit').click(function() {
-      window.location.href = "<?php echo base_url('Registration/personalAssets') ?>";
+      window.location.href = "<?php echo base_url('Registration/afterMarriage') ?>";
     });
 
     function loadDistricts() {
