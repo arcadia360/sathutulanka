@@ -97,11 +97,15 @@ class Registration extends Admin_Controller
 		$this->render_template_registration('registration/career', 'career', NULL);
 	}
 
-	public function personal_assets()
+	public function personalAssets()
 	{
 		$this->render_template_registration('registration/personal_assets', 'Personal Assets', NULL);
 	}
 
+	public function family()
+	{
+		$this->render_template_registration('registration/family', 'Family', NULL);
+	}
 
 	public function after_marriage()
 	{

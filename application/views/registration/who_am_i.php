@@ -44,7 +44,7 @@
                 <h3 class="text-center text-inverse title">Who Am I</h3>
                 <div class="row">
                     <div class="container">
-                        <button class="btn btn-info" style="width: 150px; margin-bottom:20px; float:right;" type="button" id="btnSubmit">Skip this step &nbsp; <i class="fas fa-forward"></i></button>
+                        <button class="btn btn-info" style="width: 150px; margin-bottom:20px; float:right;" type="button" id="btnSkip">Skip this step &nbsp; <i class="fas fa-forward"></i></button>
                     </div>
                 </div>
                 <form class="container" id="needs-validation" novalidate>
@@ -714,8 +714,26 @@
     <!-- Container Area End -->
 
 </div>
-<!-- 
+
 <script>
+    $(function() {
+
+        $('#btnBack').click(function() {
+            window.location.href = "<?php echo base_url('Registration/lifeStyle') ?>";
+        });
+
+        $('#btnSubmit').click(function() {
+            window.location.href = "<?php echo base_url('Registration/education') ?>";
+        });
+
+        $('#btnSkip').click(function() {
+            window.location.href = "<?php echo base_url('Registration/education') ?>";
+
+        });
+
+    });
+</script>
+<!-- <script>
     var slider = document.getElementById("rangeOpennessToExperience");
     var output = document.getElementById("demo");
     output.innerHTML = slider.value; // Display the default slider value
@@ -724,7 +742,7 @@
     slider.oninput = function() {
         output.innerHTML = this.value;
     }
-</script> -->
+</script> --> -->
 
 <!-- <script>
     $(function() {
@@ -761,4 +779,4 @@
             });
         }
     });
-</script> -->
+</script>

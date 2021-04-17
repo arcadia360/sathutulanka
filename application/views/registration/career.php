@@ -424,7 +424,7 @@
     });
 
     $('#btnSubmit').click(function() {
-      // window.location.href = "<?php echo base_url('Registration/background') ?>";
+      window.location.href = "<?php echo base_url('Registration/personalAssets') ?>";
     });
   });
 </script>
