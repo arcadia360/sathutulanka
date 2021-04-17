@@ -14,6 +14,9 @@
         border-radius: 0;
     }
 </style>
+<script>
+    var base_url = "<?php echo base_url(); ?>";
+</script>
 <div class="container-fluid" style="background-color: white; height:500px;">
 
     <div class="col-md-6 offset-md-3 col-sm-12 text-center" style="background-color: white; margin-top: 20px;">
@@ -44,9 +47,89 @@
         </div>
         <div class="row">
             <p style="width: 100%; text-align: center; margin-top: 30px;">Didn't receive the code?</p>
-            <a href="" style="width: 100%; text-align: center; margin-top: 30px;">Send code again</a>
+            <input type="hidden" id="EmailVerificationCode" name="EmailVerificationCode" value="ABC">
+            <a href="#" id="otpResend" style="width: 100%; text-align: center; margin-top: 30px;">Send code again</a>
             <a href="" style="width: 100%; text-align: center;">Change phone number</a>
         </div>
     </div>
 </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        // $("button").click(function() {
+        //     $("a")[0].click();
+        // })
+        // // $("#linkOtpResend").click(function() {
+        // //     
+        // // });
+
+        $("#otpResend").click(function() {
+            // alert("Handler for .click() called.");
+            var EmailVerificationCode = $("#EmailVerificationCode").val();
+            // alert(EmailVerificationCode);
+            if (EmailVerificationCode) {
+                console.log('in ajax');
+                $.ajax({
+                    url: base_url + 'registration/otpResend/' + EmailVerificationCode,
+                    type: 'post',
+                    dataType: 'json',
+                    async: true,
+                    success: function(response) {
+
+                        alert(response.messages);
+                    },
+                    error: function(xhr, status, error) {
+                        //var err = eval("(" + xhr.responseText + ")");
+                        alert(xhr.responseText);
+                    }
+                });
+            }
+
+        });
+
+        // document.getElementById("otpResend").addEventListener("click", myFunction);
+
+        // function myFunction() {
+        //     var EmailVerificationCode = $("#EmailVerificationCode").val();
+        //     alert(EmailVerificationCode);
+        //     if (EmailVerificationCode > 0) {
+        //         $.ajax({
+        //             url: base_url + 'registration/otpResend/' + EmailVerificationCode,
+        //             type: 'post',
+        //             dataType: 'json',   
+        //             async: true,
+        //             success: function(response) {
+
+        //                 alert(response.messages);
+        //             },
+        //             error: function(xhr, status, error) {
+        //                 //var err = eval("(" + xhr.responseText + ")");
+        //                 alert(xhr.responseText);
+        //             }
+        //         });
+        //     }
+        // }
+
+
+    });
+
+    // function doSomething() {
+    //     var EmailVerificationCode = $("#EmailVerificationCode").val();
+    //     if (EmailVerificationCode > 0) {
+    //         $.ajax({
+    //             url: base_url + 'request/'otpResend/' + EmailVerificationCode,
+    //             type: 'post',
+    //             dataType: 'json',
+    //             success: function(response) {
+
+    //                 alert("yaaa");
+    //             },
+    //             error: function(xhr, status, error) {
+    //                 //var err = eval("(" + xhr.responseText + ")");
+    //                 alert(xhr.responseText);
+    //             }
+    //         });
+    //     }
+    // }
+</script>
