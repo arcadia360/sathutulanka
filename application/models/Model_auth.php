@@ -82,13 +82,13 @@ class Model_auth extends CI_Model
 		}
 	}
 
-	public function getUserGroupByUserId($user_id)
-	{
-		$sql = "SELECT U.intUserID,U.isAdmin,UG.intUserGroupID,UG.vcGroupName,UG.vcPermission FROM User AS U
-				INNER JOIN UserGroup AS UG ON U.intUserGroupID = UG.intUSerGroupID WHERE U.intUserID = ?";
-		$query = $this->db->query($sql, array($user_id));
-		$result = $query->row_array();
+	// public function getUserGroupByUserId($user_id)
+	// {
+	// 	$sql = "SELECT U.intUserID,U.isAdmin,UG.intUserGroupID,UG.vcGroupName,UG.vcPermission FROM User AS U
+	// 			INNER JOIN UserGroup AS UG ON U.intUserGroupID = UG.intUSerGroupID WHERE U.intUserID = ?";
+	// 	$query = $this->db->query($sql, array($user_id));
+	// 	$result = $query->row_array();
 
-		return $result;
-	}
+	// 	return $result;
+	// }
 }
