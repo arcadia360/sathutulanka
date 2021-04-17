@@ -107,7 +107,7 @@ class Registration extends Admin_Controller
 		$this->render_template_registration('registration/family', 'Family', NULL);
 	}
 
-	public function after_marriage()
+	public function afterMarriage()
 	{
 		$this->render_template_registration('registration/after_marriage', 'After Marriage', NULL);
 	}
@@ -232,7 +232,7 @@ class Registration extends Admin_Controller
 
 	public function otpResend($verificationText = NULL)
 	{
-	    // var_dump($verificationText);
+		// var_dump($verificationText);
 		// $this->render_template_registration('Registration/otp_verification', 'OTP Verification', NULL);
 		$response['messages'] = $verificationText;
 
