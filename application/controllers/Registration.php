@@ -212,16 +212,22 @@ class Registration extends Admin_Controller
 		$userData = $this->Model_registration->getUserDate($verificationText);
 		$noRecords = $this->Model_registration->verifyEmailAddress($verificationText);
 		$noRecordsendOTP = 0;
+		$data['verificationText'] = $verificationText;
+		$data['vcMobileNo'] = $userData['Without94'];
+	
 		if ($noRecords > 0) {
 			$error = array('success' => "Email Verified Successfully!");
-			if ($userData['intOTPSentCount'] != 1) {
+			if ($userData['intOTPSentCount'] == 0) {
 				$noRecordsendOTP = $this->Model_registration->sendOTP($verificationText, false);
 			}
 			if ($noRecordsendOTP > 0) {
-				$this->render_template_registration('registration/otp_verification', 'OTP Verification', NULL);
+				$this->load->view('registration/header');
+				$this->load->view('registration/otp_verification', $data);
+				$this->load->view('registration/footer');
 			} else {
-
-				$this->render_template_registration('registration/otp_verification', 'OTP Verification', NULL);
+				$this->load->view('registration/header');
+				$this->load->view('registration/otp_verification', $data);
+				$this->load->view('registration/footer');
 			}
 		} else {
 			$error = array('error' => "Sorry Unable to Verify Your Email!");
@@ -234,8 +240,21 @@ class Registration extends Admin_Controller
 	{
 		// var_dump($verificationText);
 		// $this->render_template_registration('Registration/otp_verification', 'OTP Verification', NULL);
-		$response['messages'] = $verificationText;
+		
+		$userData = $this->Model_registration->getUserDate($verificationText);
 
+		if ($userData['intOTPSentCount'] == 3) {
+			$response['messages'] = "Can't Send More than 3 text messages, Please Contact Sathutu Lanka";
+		}
+		else{
+			$noRecordsendOTP = $this->Model_registration->sendOTP($verificationText, true);
+			if ($noRecordsendOTP > 0) {
+				$response['messages'] = "Sent Successfully";
+			} else {
+	
+				$response['messages'] = "Sent error";
+			}
+		}
 		echo json_encode($response);
 	}
 
