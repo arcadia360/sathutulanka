@@ -17,7 +17,7 @@ class Model_registration extends CI_Model
     $fromWeight = $weightsArray[0];
     $toWeight = $weightsArray[1];
 
-    $id = 1;
+    $id = 18;
 
     $data = array(
       'intHeight' => $this->input->post('height'),
@@ -29,6 +29,16 @@ class Model_registration extends CI_Model
       'vcBloodGroup' => $this->input->post('bloodGroup'),
       'isHealthInfo' => $this->input->post('healthInfo'),
       'intNoOfSubmitedForm' => 2
+
+      // 'intHeight' => 1,
+      // 'intWeightFrom' => 1,
+      // 'intWeightTo' => 1,
+      // 'intBodyTypeID' => 1,
+      // 'intSkinColourID' => 1,
+      // 'isDisability' => 1,
+      // 'vcBloodGroup' => 'fff',
+      // 'isHealthInfo' => 1,
+      // 'intNoOfSubmitedForm' => 2
     );
     $this->db->where('intUserID', $id);
     $this->db->update('user', $data);
@@ -476,7 +486,7 @@ class Model_registration extends CI_Model
 
   public function getUserDate($verificationText)
   {
-    $sql = "SELECT concat('94',SUBSTRING(vcMobileNo,2,10)) AS vcMobileNo,RE.vcOTP,U.intUserID, RE.intOTPSentCount FROM user AS U
+    $sql = "SELECT concat('94',SUBSTRING(vcMobileNo,2,10)) AS vcMobileNo,vcMobileNo AS Without94,RE.vcOTP,U.intUserID, RE.intOTPSentCount FROM user AS U
     INNER JOIN registerverification AS RE ON U.intUserID = RE.intUserID
     WHERE RE.vcEmailCode =  ? ";
     $query = $this->db->query($sql, array($verificationText));
