@@ -157,6 +157,7 @@
         </div>
         <div class="col-lg-4 col-md-5 col-sm-12 side-form">
             <form method="post" action="<?= base_url('Registration/createAccount') ?>" id="submitForm">
+            <!-- <form method="post" action="<?= base_url('Registration/physicalStatus') ?>" id="submitForm"> -->
                 <div class="px-3 py-3 home-main-search-bgcolor reg_form" style="overflow: scroll; height:90vh;">
                     <h4 class="px-3"><?= lang('create_your_account') ?></h4>
                     <div class="col-md-12 pt-3">
@@ -426,7 +427,7 @@
                     <div class="col-md-12 pt-4">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Gender</p>
                         <select class="custom-select d-block form-control" name="gender" id="gender">
-                            <option value="0" ><?= lang('select') ?></option>
+                            <option value="0"><?= lang('select') ?></option>
                             <option value="male"><?= lang('male') ?></option>
                             <option value="female"><?= lang('female') ?></option>
                         </select>
@@ -566,7 +567,7 @@
                             <option value="virginity problem"><?= lang('virginity problem') ?></option>
                         </select>
                     </div>
-                    <div class="col-md-12 pt-4 childrenDiv">
+                    <div class="col-md-12 pt-4 childrenDiv" id="Div_num_of_child">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Number of Children</p>
                         <select class="custom-select d-block form-control" name="num_of_child" id="num_of_child">
                             <option value="0"><?= lang('select') ?></option>
@@ -601,9 +602,9 @@
                         </p>
                     </div>
                     <div class="col-md-12 text-center pt-3 pb-2">
-                        <!-- <a href="<?= base_url()?>" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp;</a> -->
+                        <!-- <a href="<?= base_url() ?>" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp;</a> -->
                         <button type="submit" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp;</a>
-                        <!-- <button type="submit" class="btn btn-primary btn-block gill-sans-mt-regular-font home-search-btn p20 home-search-letter-spacing sbmitBtn">&nbsp;CONTINUE&nbsp;</button> -->
+                            <!-- <button type="submit" class="btn btn-primary btn-block gill-sans-mt-regular-font home-search-btn p20 home-search-letter-spacing sbmitBtn">&nbsp;CONTINUE&nbsp;</button> -->
                     </div>
 
 
@@ -614,10 +615,31 @@
     <!-- </div> -->
 
 
-
 </body>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+    // $(function() {
+    //     // $('#divorced')
+    //     $('#marital_status').change(function() {
+
+    //     });
+    // });
+
+    $(document).ready(function() {
+        $('#Div_num_of_child').hide();
+        $('#marital_status').change(function() {
+            var mStatus = $('#marital_status').val();
+            if (mStatus == 'divorced') {
+                $('#Div_num_of_child').show();
+            } else {
+                $('#Div_num_of_child').hide();
+            }
+        });
+    });
+</script>
 
 </html>
