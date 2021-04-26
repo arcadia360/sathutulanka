@@ -413,7 +413,7 @@ class Model_registration extends CI_Model
     date_default_timezone_set('Asia/Colombo');
     $nowDateTime = date('Y-m-d h:i:s');
 
-    $sql = "UPDATE registerverification SET IsEmailVerified = 1 , dtEmailVerifiedDate = '$nowDateTime'  WHERE vcEmailCode = ?";
+    $sql = "UPDATE registerverification SET IsEmailVerified = 1 , dtEmailVerifiedDate = '$nowDateTime'  WHERE vcEmailCode = ? AND (IsOTPVerified IS NULL OR IsOTPVerified = 0)";
     $this->db->query($sql, array($verificationText));
     return $this->db->affected_rows();
   }
@@ -491,6 +491,32 @@ class Model_registration extends CI_Model
     WHERE RE.vcEmailCode =  ? ";
     $query = $this->db->query($sql, array($verificationText));
     return $query->row_array();
+  }
+
+  public function upDateMobileNumber($mobile_no,$emailVerificationCode)
+  {
+    if ($mobile_no) {
+      $sql = "UPDATE  user as U
+      INNER JOIN registerverification as V on U.intUserID = V.intUserID
+      SET U.vcMobileNo ='$mobile_no'
+      WHERE V.vcEmailCode = ?";
+      $this->db->query($sql, array($emailVerificationCode));
+      return $this->db->affected_rows();
+    }
+  }
+
+  public function otpVerification($otpNumber,$emailVerificationCode)
+  {
+    date_default_timezone_set('Asia/Colombo');
+    $nowDateTime = date('Y-m-d h:i:s');
+    if ($otpNumber) {
+      $sql = "UPDATE  user as U
+      INNER JOIN registerverification as V on U.intUserID = V.intUserID
+      SET V.IsOTPVerified = 1 , V.dtOTPVerifiedDate = '$nowDateTime' , U.intUserAccountStatusTypeID = 2
+      WHERE vcOTP = ? AND V.vcEmailCode = ?";
+      $this->db->query($sql, array($otpNumber,$emailVerificationCode));
+      return $this->db->affected_rows();
+    }
   }
 
 }
