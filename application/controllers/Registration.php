@@ -212,11 +212,11 @@ class Registration extends Admin_Controller
 		$userData = $this->Model_registration->getUserDate($verificationText);
 		$noRecords = $this->Model_registration->verifyEmailAddress($verificationText);
 		$noRecordsendOTP = 0;
-		$data['verificationText'] = $verificationText;
-		$data['vcMobileNo'] = $userData['Without94'];
 	
 		if ($noRecords > 0) {
-			$error = array('success' => "Email Verified Successfully!");
+			$data['verificationText'] = $verificationText;
+			$data['vcMobileNo'] = $userData['Without94'];
+
 			if ($userData['intOTPSentCount'] == 0) {
 				$noRecordsendOTP = $this->Model_registration->sendOTP($verificationText, false);
 			}
@@ -233,7 +233,7 @@ class Registration extends Admin_Controller
 			$error = array('error' => "Sorry Unable to Verify Your Email!");
 			$this->load->view('registration/create_account');
 		}
-		$data['errormsg'] = $error;
+		// $data['errormsg'] = $error;
 	}
 
 	public function otpResend($verificationText = NULL)
@@ -245,15 +245,55 @@ class Registration extends Admin_Controller
 
 		if ($userData['intOTPSentCount'] == 3) {
 			$response['messages'] = "Can't Send More than 3 text messages, Please Contact Sathutu Lanka";
+			$response['success'] = false;
 		}
 		else{
 			$noRecordsendOTP = $this->Model_registration->sendOTP($verificationText, true);
 			if ($noRecordsendOTP > 0) {
 				$response['messages'] = "Sent Successfully";
+				$response['success'] = true;
 			} else {
 	
 				$response['messages'] = "Sent error";
+				$response['success'] = false;
 			}
+		}
+		echo json_encode($response);
+	}
+
+	public function fetchUserDate($EmailVerificationCode)
+	{
+		if ($EmailVerificationCode) {
+			$data = $this->Model_registration->getUserDate($EmailVerificationCode);
+			echo json_encode($data);
+		}
+
+		return false;
+	}
+
+	public function otpVerification($otpNumber,$emailVerificationCode)
+	{
+		$noRecord = $this->Model_registration->otpVerification($otpNumber,$emailVerificationCode);
+		if ($noRecord > 0) {
+			$response['messages'] = "Verification Successfully";
+			$response['success'] = true;
+		} else {
+			$response['messages'] = "Please Enter Valid OTP Code";
+			$response['success'] = false;
+		}
+		echo json_encode($response);
+	}
+
+	public function upDateMobileNumber($mobile_no,$emailVerificationCode)
+	{
+		$noRecord = $this->Model_registration->upDateMobileNumber($mobile_no,$emailVerificationCode);
+		if ($noRecord > 0) {
+			$response['messages'] = "Update Successfully";
+			$response['success'] = true;
+		} else {
+
+			$response['messages'] = "Update error";
+			$response['success'] = false;
 		}
 		echo json_encode($response);
 	}
