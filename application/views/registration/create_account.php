@@ -14,6 +14,17 @@
     <!-- Navbar CSS -->
     <link rel="stylesheet" href="<?= base_url('resources/css/navbar.css') ?>">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
     <style rel="stylesheet">
         @import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
 
@@ -157,11 +168,11 @@
         </div>
         <div class="col-lg-4 col-md-5 col-sm-12 side-form">
             <form method="post" action="<?= base_url('Registration/createAccount') ?>" id="submitForm">
-            <!-- <form method="post" action="<?= base_url('Registration/physicalStatus') ?>" id="submitForm"> -->
+                <!-- <form method="post" action="<?= base_url('Registration/physicalStatus') ?>" id="submitForm"> -->
                 <div class="px-3 py-3 home-main-search-bgcolor reg_form" style="overflow: scroll; height:90vh;">
                     <h4 class="px-3"><?= lang('create_your_account') ?></h4>
                     <div class="col-md-12 pt-3">
-                        <input type="text" class="form-control form-padding red-color" name="short_name" id="short_name" placeholder="<?= lang('short_name') ?>" autcomplete="false" value="">
+                        <input type="text" class="form-control form-padding red-color" name="short_name" id="shortName" placeholder="<?= lang('short_name') ?>" autcomplete="false">
                     </div>
                     <!-- country codes (ISO 3166) and Dial codes. -->
                     <div class="col-md-12 pt-3">
@@ -603,11 +614,9 @@
                     </div>
                     <div class="col-md-12 text-center pt-3 pb-2">
                         <!-- <a href="<?= base_url() ?>" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp;</a> -->
-                        <button type="submit" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp;</a>
+                        <button type="button" id="btnSubmit" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp;</a>
                             <!-- <button type="submit" class="btn btn-primary btn-block gill-sans-mt-regular-font home-search-btn p20 home-search-letter-spacing sbmitBtn">&nbsp;CONTINUE&nbsp;</button> -->
                     </div>
-
-
             </form>
 
         </div>
@@ -617,19 +626,10 @@
 
 </body>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 
 <script>
-    // $(function() {
-    //     // $('#divorced')
-    //     $('#marital_status').change(function() {
-
-    //     });
-    // });
-
-    $(document).ready(function() {
+     $(function () { //ready
         $('#Div_num_of_child').hide();
         $('#marital_status').change(function() {
             var mStatus = $('#marital_status').val();
@@ -639,6 +639,66 @@
                 $('#Div_num_of_child').hide();
             }
         });
+
+
+        $('#btnSubmit').click(function() {
+            toastr["error"]("Please Enter Name");
+            // alert("ddddd");
+
+            // if (jQuery.trim($("#short_name").val()).length == 0) {
+            //     toastr["error"]("Please Enter Name");
+            //     $("#short_name").focus();
+            // }
+
+            // if (jQuery.trim($("#shortName").val()).length == 0) {
+            //     toastr["error"]("Please Enter Name");
+            // }
+
+
+            //  else if ($("#country_code :selected").val() == 0) {
+            //     toastr["error"]("Please Select Country Code");
+            //     $("#country_code").focus();
+            // } else if (jQuery.trim($("#mobile_no").val()).length == 0) {
+            //     toastr["error"]("Please Enter Mobile No");
+            //     $("#mobile_no").focus();
+            // } else if (jQuery.trim($("#password").val()).length == 0) {
+            //     toastr["error"]("Please Enter Password");
+            //     $("#password").focus();
+            // } else if (jQuery.trim($("#password_confirmation").val()).length == 0) {
+            //     toastr["error"]("Please Confirmation Password");
+            //     $("#password_confirmation").focus();
+            // } else {
+
+            //     var form = $("#submitForm");
+            //     $.ajax({
+            //         type: form.attr('method'),
+            //         url: form.attr('action'),
+            //         data: form.serialize(),
+            //         dataType: 'json',
+            //         success: function(response) {
+            //             if (response.success == true) {
+            //                 swal("Successfully!", response.messages, "success");
+            //             } else {
+            //                 if (response.messages instanceof Object) {
+            //                     $.each(response.messages, function(index, value) {
+            //                         var id = $("#" + index);
+            //                         id.closest('.form-group')
+            //                             .removeClass('has-error')
+            //                             .removeClass('has-success')
+            //                             .addClass(value.length > 0 ? 'has-error' : 'has-success');
+            //                         id.after(value);
+            //                     });
+            //                 } else {
+            //                     toastr["error"](response.messages);
+            //                     $(button).prop('disabled', false);
+            //                 }
+            //             }
+
+            //         }
+            //     });
+            // }
+        });
+
     });
 </script>
 
