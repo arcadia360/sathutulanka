@@ -6,15 +6,14 @@
       <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
         <h3 class="text-center text-inverse title"><?= lang('residance') ?></h3>
         <hr>
-        <form class="container" id="needs-validation" novalidate>
-
+        <form method="post" action="<?= base_url('Registration/addResidenceDetails') ?>" id="addResidenceDetails">
           <div class="row">
             <div class="col-12">
               <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('currentlyLiveIn') ?></label>
               <div class="row">
                 <div class="col-6">
                   <label class="custom-control custom-radio">
-                    <input id="LiveInSriLanka" name="liveIn" type="radio" class="custom-control-input" value="<?= lang('sriLanka') ?>">
+                    <input id="LiveInSriLanka" name="liveIn" type="radio" class="custom-control-input" value="<?= lang('sriLanka') ?>" checked>
                     <span class="custom-control-indicator"></span>
                     <span class="custom-control-description"><?= lang('sriLanka') ?></span>
                   </label>
@@ -75,7 +74,7 @@
             <div class="col-12">
               <div class="form-group">
                 <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('AddressofSriLanka') . "    " ?> <span style="font-weight: 100;color: #FF9800;">(Will not publish.Office purpose only)</span> </label>
-                <input type="text" class=" d-block form-control">
+                <input type="text" class=" d-block form-control" name="AddressofSriLanka" id="AddressofSriLanka">
               </div>
             </div>
           </div>
@@ -124,9 +123,70 @@
     });
 
     $('#btnSubmit').click(function() {
-      window.location.href = "<?php echo base_url('Registration/background') ?>";
+      var liveIn = $("input[name=liveIn]").is(":checked");
+      var LiveInSriLanka = $("#LiveInSriLanka").is(":checked");
+      var LiveInOverSeas = $("#LiveInOverSeas").is(":checked");
+
+      if (!liveIn) {
+        toastr["error"]("Please select currently live in");
+      } else if (LiveInSriLanka && $('#district').val() == 0) {
+        $("#district").focus();
+        toastr["error"]("Please select district");
+      } else if (LiveInSriLanka && $('#city').val() == 0) {
+        $("#city").focus();
+        toastr["error"]("Please select city");
+      } else if (LiveInOverSeas && $('#country').val() == 0) {
+        $("#country").focus();
+        toastr["error"]("Please select country");
+      } else if (jQuery.trim($("#AddressofSriLanka").val()).length == 0) {
+        toastr["error"]("Please provide address of Sri Lanka");
+      } else if ($('#nativeDistrict').val() == 0) {
+        $("#nativeDistrict").focus();
+        toastr["error"]("Please select native district");
+      } else {
+        {
+          var form = $("#addResidenceDetails");
+          $.ajax({
+            type: form.attr('method'),
+            url: form.attr('action'),
+            data: form.serialize(),
+            dataType: 'json',
+            success: function(response) {
+              if (response.success == true) {
+                swal({
+                  title: 'Success!',
+                  text: "Residence details saved successfully!",
+                  type: 'success',
+                  confirmButtonText: 'OK'
+                }).then(() => {
+                  window.location.href = "<?= base_url('Registration/background') ?>";
+                });
+
+
+              } else {
+                if (response.messages instanceof Object) {
+                  $.each(response.messages, function(index, value) {
+                    var id = $("#" + index);
+                    id.closest('.form-group')
+                      .removeClass('has-error')
+                      .removeClass('has-success')
+                      .addClass(value.length > 0 ? 'has-error' : 'has-success');
+                    id.after(value);
+                  });
+                } else {
+                  toastr["error"](response.messages);
+                  $(button).prop('disabled', false);
+                }
+              }
+
+            }
+          });
+        }
+      }
+      // window.location.href = "<?php echo base_url('Registration/background') ?>";
     });
 
+    //load countries
     function loadCountries() {
       $.ajax({
         type: 'ajax',
@@ -134,14 +194,12 @@
         async: false,
         dataType: 'json',
         success: function(data) {
-          var html = '';
-          var i;
-          html += '<option value = 0><?= lang('select'); ?></option>';
-          for (i = 0; i < data.length; i++) {
-            html += '<option value=' + data[i].intCountryId + ' >' + data[i].vcCountry_si + '</option>';
+          if (!data) {
+            toastr["error"]("<?= lang('district') . ' ' . lang('dataCannotRetrieve') ?>");
+          } else {
+            $('#country').html(data);;
+            $('#country').val(0);
           }
-          $('#country').html(html);
-          $('#country').val(0);
         },
         error: function() {
           alert('failed to load countries');
@@ -174,7 +232,6 @@
     //load city list
     $('#district').change(function() {
       var districtID = $('#district').val()
-      console.log(districtID);
       $.ajax({
         type: 'POST',
         url: '<?php echo base_url(); ?>Registration/loadCities',
