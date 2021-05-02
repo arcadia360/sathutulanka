@@ -271,7 +271,14 @@
 				dataType: 'json',
 				success: function(response) {
 					if (response.success == true) {
-						window.location.href = "<?= base_url('Registration/residence') ?>";
+						swal({
+							title: 'Success!',
+							text: "Physical details saved successfully!",
+							type: 'success',
+							confirmButtonText: 'OK'
+						}).then(() => {
+							window.location.href = "<?= base_url('Registration/residence') ?>";
+						});
 					} else {
 						if (response.messages instanceof Object) {
 							$.each(response.messages, function(index, value) {
