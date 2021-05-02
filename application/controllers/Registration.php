@@ -81,6 +81,34 @@ class Registration extends Admin_Controller
 		$this->render_template_registration('registration/residence', 'Add Residence Details', NULL);
 	}
 
+	public function addResidenceDetails()
+	{
+		$response = array();
+
+		$this->form_validation->set_rules('liveIn', 'Currently Live In', 'required');
+		$this->form_validation->set_rules('AddressofSriLanka', 'Address of Sri Lanka', 'required');
+		$this->form_validation->set_rules('nativeDistrict', 'Native District', 'required');
+
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+		if ($this->form_validation->run() == TRUE) {
+			$this->load->model('Model_registration');
+			$result = $this->Model_registration->saveResidenceDetails();
+			if ($result == true) {
+				$response['success'] = true;
+			} else {
+				$response['success'] = false;
+				$response['messages'] = 'Error in the database while adding residence details. Please contact system administrator.';
+			}
+		} else {
+			$response['success'] = false;
+			foreach ($_POST as $key => $value) {
+				$response['messages'][$key] = form_error($key);
+			}
+		}
+		echo json_encode($response);
+	}
+
 	public function WhoAmI()
 	{
 		// $this->load->view('registration/header');
@@ -117,10 +145,26 @@ class Registration extends Admin_Controller
 		$result = '';
 		$this->load->model('Model_registration');
 		$result = $this->Model_registration->loadCountries();
-		if ($result) {
-			echo json_encode($result);
+		if (!$result) {
+			return false;
 		} else {
-			echo json_encode($result);
+			$this->load->helper('language');
+			// $session_data = $this->session->userdata();
+			// if ($session_data['language_id'] == 1) { // English
+			$this->lang->load('en', 'English');
+			// } else if ($session_data['language_id'] == 2) { // Sinhala
+			// $this->lang->load('si', 'Sinhala');
+			// } else if ($session_data['language_id'] == 3) { // Tamil
+			// 	$this->lang->load('ta', 'Tamil');
+			// }
+			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
+			if ($result) {
+				foreach ($result as $country) {
+					$countryName = lang($country->vcCountry);
+					$html .= "<option value=" . $country->intCountryId . " >" . $countryName  . "</option>";
+				}
+				echo json_encode($html);
+			}
 		}
 	}
 
@@ -134,9 +178,9 @@ class Registration extends Admin_Controller
 			$this->load->helper('language');
 			// $session_data = $this->session->userdata();
 			// if ($session_data['language_id'] == 1) { // English
-			// $this->lang->load('en', 'English');
+			$this->lang->load('en', 'English');
 			// } else if ($session_data['language_id'] == 2) { // Sinhala
-			$this->lang->load('si', 'Sinhala');
+			// $this->lang->load('si', 'Sinhala');
 			// } else if ($session_data['language_id'] == 3) { // Tamil
 			// 	$this->lang->load('ta', 'Tamil');
 			// }
@@ -161,9 +205,9 @@ class Registration extends Admin_Controller
 			$this->load->helper('language');
 			// $session_data = $this->session->userdata();
 			// if ($session_data['language_id'] == 1) { // English
-			// $this->lang->load('en', 'English');
+			$this->lang->load('en', 'English');
 			// } else if ($session_data['language_id'] == 2) { // Sinhala
-			$this->lang->load('si', 'Sinhala');
+			// $this->lang->load('si', 'Sinhala');
 			// } else if ($session_data['language_id'] == 3) { // Tamil
 			// 	$this->lang->load('ta', 'Tamil');
 			// }
@@ -212,7 +256,7 @@ class Registration extends Admin_Controller
 		$userData = $this->Model_registration->getUserDate($verificationText);
 		$noRecords = $this->Model_registration->verifyEmailAddress($verificationText);
 		$noRecordsendOTP = 0;
-	
+
 		if ($noRecords > 0) {
 			$data['verificationText'] = $verificationText;
 			$data['vcMobileNo'] = $userData['Without94'];
@@ -240,20 +284,19 @@ class Registration extends Admin_Controller
 	{
 		// var_dump($verificationText);
 		// $this->render_template_registration('Registration/otp_verification', 'OTP Verification', NULL);
-		
+
 		$userData = $this->Model_registration->getUserDate($verificationText);
 
 		if ($userData['intOTPSentCount'] == 3) {
 			$response['messages'] = "Can't Send More than 3 text messages, Please Contact Sathutu Lanka";
 			$response['success'] = false;
-		}
-		else{
+		} else {
 			$noRecordsendOTP = $this->Model_registration->sendOTP($verificationText, true);
 			if ($noRecordsendOTP > 0) {
 				$response['messages'] = "Sent Successfully";
 				$response['success'] = true;
 			} else {
-	
+
 				$response['messages'] = "Sent error";
 				$response['success'] = false;
 			}
@@ -271,9 +314,9 @@ class Registration extends Admin_Controller
 		return false;
 	}
 
-	public function otpVerification($otpNumber,$emailVerificationCode)
+	public function otpVerification($otpNumber, $emailVerificationCode)
 	{
-		$noRecord = $this->Model_registration->otpVerification($otpNumber,$emailVerificationCode);
+		$noRecord = $this->Model_registration->otpVerification($otpNumber, $emailVerificationCode);
 		if ($noRecord > 0) {
 			$response['messages'] = "Verification Successfully";
 			$response['success'] = true;
@@ -284,9 +327,9 @@ class Registration extends Admin_Controller
 		echo json_encode($response);
 	}
 
-	public function upDateMobileNumber($mobile_no,$emailVerificationCode)
+	public function upDateMobileNumber($mobile_no, $emailVerificationCode)
 	{
-		$noRecord = $this->Model_registration->upDateMobileNumber($mobile_no,$emailVerificationCode);
+		$noRecord = $this->Model_registration->upDateMobileNumber($mobile_no, $emailVerificationCode);
 		if ($noRecord > 0) {
 			$response['messages'] = "Update Successfully";
 			$response['success'] = true;
