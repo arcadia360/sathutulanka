@@ -36,6 +36,9 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <!-- end DK -->
 
+    <!-- sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <style rel="stylesheet">
         @import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
 
@@ -183,7 +186,7 @@
                 <div class="px-3 py-3 home-main-search-bgcolor reg_form" style="overflow: scroll; height:90vh;">
                     <h4 class="px-3"><?= lang('create_your_account') ?></h4>
                     <div class="col-md-12 pt-3">
-                        <input type="text" class="form-control form-padding red-color" name="short_name" id="shortName" placeholder="<?= lang('short_name') ?>" autcomplete="false">
+                        <input type="text" class="form-control form-padding red-color" name="short_name" id="short_name" placeholder="<?= lang('short_name') ?>" autcomplete="false">
                     </div>
                     <!-- country codes (ISO 3166) and Dial codes. -->
                     <div class="col-md-12 pt-3">
@@ -416,7 +419,7 @@
 
 
                     <div class="col-md-12 pt-3">
-                        <input type="text" class="form-control form-padding red-color" name="mobile_no" id="mobile_no" placeholder="Mobile No" value="">
+                        <input type="text" class="form-control form-padding red-color only-decimal" onKeyPress="if(this.value.length==10) return false;" name="mobile_no" id="mobile_no" placeholder="Mobile No" value="">
                     </div>
 
                     <div class="col-md-12 pt-3">
@@ -460,113 +463,19 @@
 
                         <div class="col-md-4">
                             <select class="custom-select d-block form-control" name="birth_day" id="birth_day">
-                                <option value="">Day</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
+                                <option value="0">Day</option>
                             </select>
                         </div>
 
                         <div class="col-md-4">
                             <select class="custom-select d-block form-control" name="birth_month" id="birth_month">
-                                <option value="">Month</option>
-                                <option value="01">January</option>
-                                <option value="02">February</option>
-                                <option value="03">March</option>
-                                <option value="04">April</option>
-                                <option value="05">May</option>
-                                <option value="06">June</option>
-                                <option value="07">July</option>
-                                <option value="08">August</option>
-                                <option value="09">September</option>
-                                <option value="10">October</option>
-                                <option value="11">November</option>
-                                <option value="12">December</option>
+                                <option value="0">Month</option>
                             </select>
                         </div>
 
                         <div class="col-md-4">
                             <select class="custom-select d-block form-control" name="birth_year" id="birth_year">
-                                <option value="">Year</option>
-                                <option value="2003">2003</option>
-                                <option value="2002">2002</option>
-                                <option value="2001">2001</option>
-                                <option value="2000">2000</option>
-                                <option value="1999">1999</option>
-                                <option value="1998">1998</option>
-                                <option value="1997">1997</option>
-                                <option value="1996">1996</option>
-                                <option value="1995">1995</option>
-                                <option value="1994">1994</option>
-                                <option value="1993">1993</option>
-                                <option value="1992">1992</option>
-                                <option value="1991">1991</option>
-                                <option value="1990">1990</option>
-                                <option value="1989">1989</option>
-                                <option value="1988">1988</option>
-                                <option value="1987">1987</option>
-                                <option value="1986">1986</option>
-                                <option value="1985">1985</option>
-                                <option value="1984">1984</option>
-                                <option value="1983">1983</option>
-                                <option value="1982">1982</option>
-                                <option value="1981">1981</option>
-                                <option value="1980">1980</option>
-                                <option value="1979">1979</option>
-                                <option value="1978">1978</option>
-                                <option value="1977">1977</option>
-                                <option value="1976">1976</option>
-                                <option value="1975">1975</option>
-                                <option value="1974">1974</option>
-                                <option value="1973">1973</option>
-                                <option value="1972">1972</option>
-                                <option value="1971">1971</option>
-                                <option value="1970">1970</option>
-                                <option value="1969">1969</option>
-                                <option value="1968">1968</option>
-                                <option value="1967">1967</option>
-                                <option value="1966">1966</option>
-                                <option value="1965">1965</option>
-                                <option value="1964">1964</option>
-                                <option value="1963">1963</option>
-                                <option value="1962">1962</option>
-                                <option value="1961">1961</option>
-                                <option value="1960">1960</option>
-                                <option value="1959">1959</option>
-                                <option value="1958">1958</option>
-                                <option value="1957">1957</option>
-                                <option value="1956">1956</option>
-                                <option value="1955">1955</option>
-                                <option value="1954">1954</option>
-                                <option value="1953">1953</option>
+                                <option value="0">Year</option>
                             </select>
                         </div>
                     </div>
@@ -574,7 +483,7 @@
 
                     <div class="col-md-12 pt-4">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Marital Status</p>
-                        <select class="custom-select d-block form-control" name="marital_status" id="marital_status" onchange="getMarryDetails(this)">
+                        <select class="custom-select d-block form-control" name="marital_status" id="marital_status">
                             <option value="0"><?= lang('select') ?></option>
                             <!-- <?php foreach ($MaritalStatus_data as $k => $v) { ?>
                                 <option value="<?= $v['intMaritalStatusID'] ?>"><?= $v['vcMaritalStatus'] ?></option>
@@ -618,14 +527,14 @@
 
                     <div class="col-md-12 pt-4">
                         <p class="mb-0 p14 text-white text-center agreement_label">
-                            <input type="checkbox" class="agreement_check" autocomplete="off" name="agreement">
+                            <input type="checkbox" class="agreement_check" autocomplete="off" id="agreement" name="agreement">
                             By Clicking Continue Button You Accept Our <br>
                             <a style="color:#284d98 !important; text-decoration: underline;" href="#" data-toggle="modal" data-target="#termsConditionsModal"> Term And Condition And Privacy Policy</a>
                         </p>
                     </div>
                     <div class="col-md-12 text-center pt-3 pb-2">
                         <!-- <a href="<?= base_url() ?>" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp;</a> -->
-                        <button type="button" id="btnSubmit" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp;</a>
+                        <button type="button" name="btnSubmit" id="btnSubmit" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp;</a>
                             <!-- <button type="submit" class="btn btn-primary btn-block gill-sans-mt-regular-font home-search-btn p20 home-search-letter-spacing sbmitBtn">&nbsp;CONTINUE&nbsp;</button> -->
                     </div>
             </form>
@@ -641,6 +550,74 @@
 
 <script>
     $(function() { //ready
+
+        $('.only-decimal').keypress(function(event) {
+            return isNumber(event, this)
+        });
+
+
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        let qntYears = 20;
+        let selectYear = $("#birth_year");
+        let selectMonth = $("#birth_month");
+        let selectDay = $("#birth_day");
+        let currentYear = new Date().getFullYear();
+
+        let ageEndYear = currentYear - 17;
+        let ageStartingYear = ageEndYear - 50;
+
+
+        for (ageStartingYear; ageStartingYear < ageEndYear; ageStartingYear++) {
+            let date = new Date(ageStartingYear);
+            let yearElem = document.createElement("option");
+            yearElem.value = ageStartingYear
+            yearElem.textContent = ageStartingYear;
+            selectYear.append(yearElem);
+           
+        }
+
+    
+        for (var m = 0; m < 12; m++) {
+            let month = monthNames[m];
+            let monthElem = document.createElement("option");
+            monthElem.value = m;
+            monthElem.textContent = month;
+            selectMonth.append(monthElem);
+        }
+
+        var d = new Date();
+        var month = d.getMonth();
+        var year = d.getFullYear();
+        var day = d.getDate();
+
+        // console.log(ageEndYear);
+        // selectYear.val(eeee);
+        selectYear.on("change", AdjustDays);
+        selectMonth.val(month);
+        selectMonth.on("change", AdjustDays);
+
+        AdjustDays();
+        selectDay.val(day)
+
+        function AdjustDays() {
+            var year = selectYear.val();
+            var month = parseInt(selectMonth.val()) + 1;
+            selectDay.empty();
+
+            //get the last day, so the number of days in that month
+            var days = new Date(year, month, 0).getDate();
+
+            //lets create the days of that month
+            for (var d = 1; d <= days; d++) {
+                var dayElem = document.createElement("option");
+                dayElem.value = d;
+                dayElem.textContent = d;
+                selectDay.append(dayElem);
+            }
+        }
+
         $('#Div_num_of_child').hide();
         $('#marital_status').change(function() {
             var mStatus = $('#marital_status').val();
@@ -651,64 +628,113 @@
             }
         });
 
-
         $('#btnSubmit').click(function() {
-            toastr["error"]("Please Enter Name");
-            // alert("ddddd");
 
-            // if (jQuery.trim($("#short_name").val()).length == 0) {
-            //     toastr["error"]("Please Enter Name");
-            //     $("#short_name").focus();
-            // }
+            // $birth_day = $("#birth_year").val() + $("#birth_month").val() + $("#birth_day").val();
 
-            // if (jQuery.trim($("#shortName").val()).length == 0) {
-            //     toastr["error"]("Please Enter Name");
-            // }
+            // alert($birth_day);
 
+            // console.log(jQuery.trim($("#password").val()));
 
-            //  else if ($("#country_code :selected").val() == 0) {
-            //     toastr["error"]("Please Select Country Code");
-            //     $("#country_code").focus();
-            // } else if (jQuery.trim($("#mobile_no").val()).length == 0) {
-            //     toastr["error"]("Please Enter Mobile No");
-            //     $("#mobile_no").focus();
-            // } else if (jQuery.trim($("#password").val()).length == 0) {
-            //     toastr["error"]("Please Enter Password");
-            //     $("#password").focus();
-            // } else if (jQuery.trim($("#password_confirmation").val()).length == 0) {
-            //     toastr["error"]("Please Confirmation Password");
-            //     $("#password_confirmation").focus();
-            // } else {
+            var isAgreementCheck = $("input[name=agreement]").is(":checked");
+            const length = $("#mobile_no").val().length;
 
-            //     var form = $("#submitForm");
-            //     $.ajax({
-            //         type: form.attr('method'),
-            //         url: form.attr('action'),
-            //         data: form.serialize(),
-            //         dataType: 'json',
-            //         success: function(response) {
-            //             if (response.success == true) {
-            //                 swal("Successfully!", response.messages, "success");
-            //             } else {
-            //                 if (response.messages instanceof Object) {
-            //                     $.each(response.messages, function(index, value) {
-            //                         var id = $("#" + index);
-            //                         id.closest('.form-group')
-            //                             .removeClass('has-error')
-            //                             .removeClass('has-success')
-            //                             .addClass(value.length > 0 ? 'has-error' : 'has-success');
-            //                         id.after(value);
-            //                     });
-            //                 } else {
-            //                     toastr["error"](response.messages);
-            //                     $(button).prop('disabled', false);
-            //                 }
-            //             }
+            if (jQuery.trim($("#short_name").val()).length == 0) {
+                toastr["error"]("Please Enter Name");
+                $("#short_name").focus();
+            } else if ($("#country_code :selected").val() == 0) {
+                toastr["error"]("Please Select Country Code");
+                $("#country_code").focus();
+            } else if (jQuery.trim($("#mobile_no").val()).length == 0) {
+                toastr["error"]("Please Enter Mobile No");
+                $("#mobile_no").focus();
+            } else if (length != 10) {
+                toastr["error"]("Please Valid Mobile No");
+                $("#mobile_no").focus();
+            } else if (jQuery.trim($("#password").val()).length == 0) {
+                toastr["error"]("Please Enter Password");
+                $("#password").focus();
+            } else if (jQuery.trim($("#password_confirmation").val()).length == 0) {
+                toastr["error"]("Please Enter Confirmation Password");
+                $("#password_confirmation").focus();
+            } else if (jQuery.trim($("#password").val()) != jQuery.trim($("#password_confirmation").val())) {
+                toastr["error"]("Password and confirm password do not match");
+                $("#password_confirmation").focus();
+            } else if (jQuery.trim($("#email").val()).length == 0) {
+                toastr["error"]("Please Enter Email");
+                $("#email").focus();
+            } else if ($("#provide_infor :selected").val() == 0) {
+                toastr["error"]("Please Select Providing Information");
+                $("#provide_infor").focus();
+            } else if ($("#gender :selected").val() == 0) {
+                toastr["error"]("Please Select Gender");
+                $("#gender").focus();
 
-            //         }
-            //     });
-            // }
+            } else if ($("#marital_status :selected").val() == 0) {
+                toastr["error"]("Please Select Marital Status");
+                $("#marital_status").focus();
+            } else if ($("#marry_by :selected").val() == 0) {
+                toastr["error"]("Please Select Marry By");
+                $("#marry_by").focus();
+            } else if (!isAgreementCheck) {
+                toastr["error"]("Please Check Term And Condition And Privacy Policy");
+                $("#agreement_check").focus();
+            } else {
+                var mStatus = $('#marital_status').val();
+                if (mStatus == 'divorced') {
+                    if ($("#num_of_child :selected").val() == 0) {
+                        toastr["error"]("Please Select num of child");
+                        $("#num_of_child").focus();
+                        return;
+                    }
+                }
+
+                var form = $("#submitForm");
+                $("#btnSubmit").prop('disabled', true);
+
+                $.ajax({
+                    type: form.attr('method'),
+                    url: form.attr('action'),
+                    data: form.serialize(),
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.success == true) {
+                            swal("Successfully!", response.messages, "success")
+                                .then((value) => {
+                                    window.location.href = "<?= base_url() ?>"
+                                });
+                        } else {
+                            if (response.messages instanceof Object) {
+                                $.each(response.messages, function(index, value) {
+                                    var id = $("#" + index);
+                                    id.closest('.form-group')
+                                        .removeClass('has-error')
+                                        .removeClass('has-success')
+                                        .addClass(value.length > 0 ? 'has-error' : 'has-success');
+                                    id.after(value);
+                                    $("#btnSubmit").prop('disabled', false)
+                                });
+                            } else {
+                                toastr["error"](response.messages);
+                                $("#btnSubmit").prop('disabled', false)
+                            }
+                        }
+
+                    }
+                });
+            }
         });
+
+        function isNumber(evt, element) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (
+                (charCode != 46 || $(element).val().indexOf('.') != -1) && // “.” CHECK DOT, AND ONLY ONE.
+                (charCode < 48 || charCode > 57) &&
+                (charCode != 13)) {
+                return false;
+            }
+            return true;
+        }
 
     });
 </script>
