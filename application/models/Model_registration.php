@@ -9,6 +9,11 @@ class Model_registration extends CI_Model
     $this->email->set_mailtype("html");
   }
 
+  //-----------------------------------
+  //DK
+  //-----------------------------------
+
+  //Physical Status
   public function savePhysicalStatus()
   {
     $weight = $this->input->post('weight');
@@ -49,6 +54,7 @@ class Model_registration extends CI_Model
     }
   }
 
+  //Residence
   public function loadCountries()
   {
 
@@ -96,6 +102,30 @@ class Model_registration extends CI_Model
     }
   }
 
+  public function saveResidenceDetails()
+  {
+    $id = 18;
+
+    $data = array(
+      'vcCurrentlyLiveIn' => $this->input->post('liveIn'),
+      'intCityIdIfLiveInSL' => $this->input->post('city'),
+      'intCountryId' => $this->input->post('country'),
+      'vcAddOfSriLanka' => $this->input->post('AddressofSriLanka'),
+      'intNativeDistrictId' => $this->input->post('nativeDistrict'),
+      'intNoOfSubmitedForm' => 3
+    );
+    $this->db->where('intUserID', $id);
+    $this->db->update('user', $data);
+    if ($this->db->affected_rows() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  //-----------------------------------
+  //END DK
+  //-----------------------------------
 
   //-----------------------------------
   //Create Account - Ramod
@@ -424,7 +454,7 @@ class Model_registration extends CI_Model
     return $this->db->affected_rows();
   }
 
-  public function sendOTP($verificationText,$ReSend)
+  public function sendOTP($verificationText, $ReSend)
   {
     date_default_timezone_set('Asia/Colombo');
     $nowDateTime = date('Y-m-d h:i:s');
@@ -449,9 +479,9 @@ class Model_registration extends CI_Model
         "messages": [
         {
         "clientRef": "0934345",
-        "number": "'. $mobileNO .'",
+        "number": "' . $mobileNO . '",
         "mask": "SL Marriage",
-        "text": "Your OTP code is '. $otpCode .'. Please insert your code in the form to complete your Sathutu Lanka registration.",
+        "text": "Your OTP code is ' . $otpCode . '. Please insert your code in the form to complete your Sathutu Lanka registration.",
         "campaignName":"Test campaign001"
         }
         ]
@@ -479,15 +509,11 @@ class Model_registration extends CI_Model
       $sql = "UPDATE registerverification SET vcOTP = $otpCode , dtOTPSentDate = '$nowDateTime' , IsOTPVerified = 0 , intOTPSentCount =  '$otpResend'  WHERE vcEmailCode = ?";
       $this->db->query($sql, array($verificationText));
       return $this->db->affected_rows();
-    }
-    else
-    {
+    } else {
       $sql = "UPDATE registerverification SET vcOTP = $otpCode , dtOTPSentDate = '$nowDateTime' , IsOTPVerified = 0 , intOTPSentCount = 1 WHERE vcEmailCode = ?";
       $this->db->query($sql, array($verificationText));
       return $this->db->affected_rows();
     }
-
-  
   }
 
   public function getUserDate($verificationText)
@@ -499,7 +525,7 @@ class Model_registration extends CI_Model
     return $query->row_array();
   }
 
-  public function upDateMobileNumber($mobile_no,$emailVerificationCode)
+  public function upDateMobileNumber($mobile_no, $emailVerificationCode)
   {
     if ($mobile_no) {
       $sql = "UPDATE  user as U
@@ -511,7 +537,7 @@ class Model_registration extends CI_Model
     }
   }
 
-  public function otpVerification($otpNumber,$emailVerificationCode)
+  public function otpVerification($otpNumber, $emailVerificationCode)
   {
     date_default_timezone_set('Asia/Colombo');
     $nowDateTime = date('Y-m-d h:i:s');
@@ -520,9 +546,8 @@ class Model_registration extends CI_Model
       INNER JOIN registerverification as V on U.intUserID = V.intUserID
       SET V.IsOTPVerified = 1 , V.dtOTPVerifiedDate = '$nowDateTime' , U.intUserAccountStatusTypeID = 2
       WHERE vcOTP = ? AND V.vcEmailCode = ?";
-      $this->db->query($sql, array($otpNumber,$emailVerificationCode));
+      $this->db->query($sql, array($otpNumber, $emailVerificationCode));
       return $this->db->affected_rows();
     }
   }
-
 }
