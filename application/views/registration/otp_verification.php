@@ -186,8 +186,10 @@
                         async: true,
                         success: function(response) {
                             if (response.success === true) {
-                                swal("Successfully!", response.messages, "success");
-                                window.location.href = "<?= base_url('Registration/physicalStatus') ?>";
+                                swal("Successfully!", response.messages, "success")
+                                .then((value) => {
+                                    window.location.href = "<?= base_url('Registration/physicalStatus') ?>"
+                                });
                             } else {
                                 swal("Error!", response.messages, "error");
                             }
