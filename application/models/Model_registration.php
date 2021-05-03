@@ -113,6 +113,12 @@ class Model_registration extends CI_Model
   {
     $this->db->trans_begin();
 
+    $year =  $this->input->post('birth_year');
+    $month =  $this->input->post('birth_month');
+    $day =  $this->input->post('birth_day');
+   
+    $bDate = $year."-".$month."-".$day;
+
     $data = array(
       'vcNickName' => $this->input->post('short_name'),
       'vcCountryCode' => $this->input->post('country_code'),
@@ -121,7 +127,7 @@ class Model_registration extends CI_Model
       'vcEmail' =>  $this->input->post('email'),
       'vcProvidingInformationType' => $this->input->post('provide_infor'),
       'vcGender' => $this->input->post('gender'),
-      // 'dtDOB' => $this->input->post('birth_day'),
+      'dtDOB' => $bDate,
       'vcMaritalStatus' => $this->input->post('marital_status'),
       'vcNoOfChildren' => $this->input->post('num_of_child'),
       'intUserAccountStatusTypeID' => 1,
@@ -370,7 +376,7 @@ class Model_registration extends CI_Model
                                 <w:anchorlock/>
                                 <center style="color:#ffffff;font-family:sans-serif;font-size:15px;">Verify Email</center>
                               </v:roundrect><![endif]-->
-                              <p>http://localhost:8012/sathutulanka/Registration/EmailVerification/' . $random_EmailCode . '<p>
+                              <p>'.base_url().'Registration/EmailVerification/' . $random_EmailCode . '<p>
                                
                               </div>
                             </td>
