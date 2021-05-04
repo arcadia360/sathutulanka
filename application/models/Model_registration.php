@@ -22,7 +22,7 @@ class Model_registration extends CI_Model
     $fromWeight = $weightsArray[0];
     $toWeight = $weightsArray[1];
 
-    $id = 18;
+    $uid = 18;
 
     $data = array(
       'intHeight' => $this->input->post('height'),
@@ -45,7 +45,7 @@ class Model_registration extends CI_Model
       // 'isHealthInfo' => 1,
       // 'intNoOfSubmitedForm' => 2
     );
-    $this->db->where('intUserID', $id);
+    $this->db->where('intUserID', $uid);
     $this->db->update('user', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
@@ -104,7 +104,7 @@ class Model_registration extends CI_Model
 
   public function saveResidenceDetails()
   {
-    $id = 18;
+    $uid = 18;
 
     $data = array(
       'vcCurrentlyLiveIn' => $this->input->post('liveIn'),
@@ -114,7 +114,7 @@ class Model_registration extends CI_Model
       'intNativeDistrictId' => $this->input->post('nativeDistrict'),
       'intNoOfSubmitedForm' => 3
     );
-    $this->db->where('intUserID', $id);
+    $this->db->where('intUserID', $uid);
     $this->db->update('user', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
@@ -123,6 +123,105 @@ class Model_registration extends CI_Model
     }
   }
 
+  public function saveBackgroundDetails()
+  {
+    $uid = 18;
+    $subCasteID = null;
+    $CasteID = $this->input->post('caste');
+    if ($CasteID == 1) {
+      $subCasteID = 1;
+    } else if ($CasteID == 2) {
+      $subCasteID = 2;
+    } else {
+      $subCasteID = $this->input->post('subCaste');
+    }
+    $data = array(
+      'vcMotherTounge' => $this->input->post('motherTongue'),
+      'vcEthnicity' => $this->input->post('ethnicity'),
+      'vcReligion' => $this->input->post('religion'),
+      'intSubCasteId' => $subCasteID,
+      'isPoliceReportCanProvide' => $this->input->post('policeReport'),
+      'intNoOfSubmitedForm' => 4
+    );
+    $this->db->where('intUserID', $uid);
+    $this->db->update('user', $data);
+    if ($this->db->affected_rows() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public function loadCaste()
+  {
+
+    $this->db->select('*');
+    $this->db->from('caste');
+    $this->db->order_by('intCasteId', 'asc');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function loadSubCaste()
+  {
+    $subCaste = $this->input->post('casteID');
+    $this->db->select('*');
+    $this->db->from('sub_Caste');
+    $this->db->where('intCasteId =', $subCaste);
+    $this->db->order_by('intSubCasteId', 'asc');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function saveLifeStyleDetails()
+  {
+    $uid = 18;
+
+    $languages = $this->input->post('language');
+    $dataUserTb = array(
+      'vcDiet' => $this->input->post('diet'),
+      'vcDrink' => $this->input->post('drink'),
+      'vcSmoke' => $this->input->post('smoke'),
+      'vcDressAndMakeup' => $this->input->post('dressAndMakeup'),
+      'vcUsedToTravel' => $this->input->post('usedToTravel'),
+      'vcCalToParent' => $this->input->post('CallTtParents'),
+      'vcCustoms' => $this->input->post('customs'),
+      'vcLiveIn' => $this->input->post('LiveIn'),
+      'intNoOfSubmitedForm' => 5
+    );
+
+    $this->db->trans_begin();
+
+    $this->db->where('intUserID', $uid);
+    $this->db->update('user', $dataUserTb);
+
+    //insert languages speak
+    for ($i = 0; $i < count($languages); $i++) {
+      $dataLanguageSpeakTb = array(
+        'vcLanguage' => $languages[$i],
+        'intUserId' => $uid
+      );
+      $this->db->insert('language_speak', $dataLanguageSpeakTb);
+    }
+
+    if ($this->db->trans_status() === FALSE) {
+      $this->db->trans_rollback();
+      return false;
+    } else {
+      $this->db->trans_commit();
+      return true;
+    }
+  }
   //-----------------------------------
   //END DK
   //-----------------------------------
