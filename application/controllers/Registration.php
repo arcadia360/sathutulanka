@@ -227,9 +227,105 @@ class Registration extends Admin_Controller
 		$this->render_template_registration('registration/background', 'Add Background Details', NULL);
 	}
 
+	public function loadCaste()
+	{
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->loadCaste();
+		if (!$result) {
+			return false;
+		} else {
+			$this->load->helper('language');
+			$this->lang->load('en', 'English');
+			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
+			if ($result) {
+				foreach ($result as $caste) {
+					$CasteName = $caste->vcCasteName;
+					$html .= "<option value=" . $caste->intCasteId . " >" . $CasteName  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function loadSubCaste()
+	{
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->loadSubCaste();
+		if (!$result) {
+			return false;
+		} else {
+			$this->load->helper('language');
+			$this->lang->load('en', 'English');
+			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
+			if ($result) {
+				foreach ($result as $subCaste) {
+					$subCasteName = $subCaste->vcSubCasteName;
+					$html .= "<option value=" . $subCaste->intSubCasteId . " >" . $subCasteName  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function addBackgroundDetails()
+	{
+		$response = array();
+
+		$this->form_validation->set_rules('motherTongue', 'Mother Tongue', 'required');
+		$this->form_validation->set_rules('ethnicity', 'Ethnicity', 'required');
+		$this->form_validation->set_rules('religion', 'Religion', 'required');
+
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+		if ($this->form_validation->run() == TRUE) {
+			$this->load->model('Model_registration');
+			$result = $this->Model_registration->saveBackgroundDetails();
+			if ($result == true) {
+				$response['success'] = true;
+			} else {
+				$response['success'] = false;
+				$response['messages'] = 'Error in the database while adding background details. Please contact system administrator.';
+			}
+		} else {
+			$response['success'] = false;
+			foreach ($_POST as $key => $value) {
+				$response['messages'][$key] = form_error($key);
+			}
+		}
+		echo json_encode($response);
+	}
+
 	public function lifeStyle()
 	{
 		$this->render_template_registration('registration/lifeStyle', 'Add Life Style Details', NULL);
+	}
+
+	public function addLifeStyleDetails()
+	{
+		$response = array();
+
+		$this->form_validation->set_rules('diet', 'Diet', 'required');
+		$this->form_validation->set_rules('drink', 'Drink', 'required');
+		$this->form_validation->set_rules('LiveIn', 'Live In', 'required');
+
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+		if ($this->form_validation->run() == TRUE) {
+			$this->load->model('Model_registration');
+			$result = $this->Model_registration->saveLifeStyleDetails();
+			if ($result == true) {
+				$response['success'] = true;
+			} else {
+				$response['success'] = false;
+				$response['messages'] = 'Error in the database while adding life style details. Please contact system administrator.';
+			}
+		} else {
+			$response['success'] = false;
+			foreach ($_POST as $key => $value) {
+				$response['messages'][$key] = form_error($key);
+			}
+		}
+		echo json_encode($response);
 	}
 
 	public function createAccount()
