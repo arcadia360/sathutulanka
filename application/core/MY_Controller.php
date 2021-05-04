@@ -23,19 +23,19 @@ class Admin_Controller extends MY_Controller
 			$session_data = array('logged_in' => FALSE);
 			$this->session->set_userdata($session_data);
 		} else {
-			$user_id = $this->session->userdata('user_id');
-			$this->load->model('model_auth');
-			$group_data = $this->model_auth->getUserGroupByUserId($user_id);
+			// $user_id = $this->session->userdata('user_id');
+			// $this->load->model('model_auth');
+			// $group_data = $this->model_auth->getUserGroupByUserId($user_id);
 
-			if ($group_data["isAdmin"] == 1) {
-				$this->isAdmin = TRUE;
-				$this->data['isAdmin'] = TRUE;
-				$this->data['user_permission'] = array();
-			} else {
-				$this->data['isAdmin'] = FALSE;
-				$this->data['user_permission'] = unserialize($group_data['vcPermission']);
-				$this->permission = unserialize($group_data['vcPermission']);
-			}
+			// if ($group_data["isAdmin"] == 1) {
+			// 	$this->isAdmin = TRUE;
+			// 	$this->data['isAdmin'] = TRUE;
+			// 	$this->data['user_permission'] = array();
+			// } else {
+			// 	$this->data['isAdmin'] = FALSE;
+			// 	$this->data['user_permission'] = unserialize($group_data['vcPermission']);
+			// 	$this->permission = unserialize($group_data['vcPermission']);
+			// }
 		}
 	}
 

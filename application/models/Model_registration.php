@@ -242,6 +242,12 @@ class Model_registration extends CI_Model
   {
     $this->db->trans_begin();
 
+    $year =  $this->input->post('birth_year');
+    $month =  $this->input->post('birth_month');
+    $day =  $this->input->post('birth_day');
+   
+    $bDate = $year."-".$month."-".$day;
+
     $data = array(
       'vcNickName' => $this->input->post('short_name'),
       'vcCountryCode' => $this->input->post('country_code'),
@@ -250,7 +256,7 @@ class Model_registration extends CI_Model
       'vcEmail' =>  $this->input->post('email'),
       'vcProvidingInformationType' => $this->input->post('provide_infor'),
       'vcGender' => $this->input->post('gender'),
-      // 'dtDOB' => $this->input->post('birth_day'),
+      'dtDOB' => $bDate,
       'vcMaritalStatus' => $this->input->post('marital_status'),
       'vcNoOfChildren' => $this->input->post('num_of_child'),
       'intUserAccountStatusTypeID' => 1,
@@ -499,7 +505,7 @@ class Model_registration extends CI_Model
                                 <w:anchorlock/>
                                 <center style="color:#ffffff;font-family:sans-serif;font-size:15px;">Verify Email</center>
                               </v:roundrect><![endif]-->
-                              <p>http://localhost:8012/sathutulanka/Registration/EmailVerification/' . $random_EmailCode . '<p>
+                              <p>'.base_url().'Registration/EmailVerification/' . $random_EmailCode . '<p>
                                
                               </div>
                             </td>
@@ -542,7 +548,7 @@ class Model_registration extends CI_Model
     date_default_timezone_set('Asia/Colombo');
     $nowDateTime = date('Y-m-d h:i:s');
 
-    $sql = "UPDATE registerverification SET IsEmailVerified = 1 , dtEmailVerifiedDate = '$nowDateTime'  WHERE vcEmailCode = ? AND (IsOTPVerified IS NULL OR IsOTPVerified = 0)";
+    $sql = "UPDATE registerverification R INNER JOIN user as U on R.intUserID = U.intUserID SET R.IsEmailVerified = 1 , U.intUserAccountStatusTypeID = 2, dtEmailVerifiedDate = '$nowDateTime'  WHERE R.vcEmailCode = ? AND (R.IsOTPVerified IS NULL OR R.IsOTPVerified = 0)";
     $this->db->query($sql, array($verificationText));
     return $this->db->affected_rows();
   }
@@ -611,19 +617,19 @@ class Model_registration extends CI_Model
 
   public function getUserDate($verificationText)
   {
-    $sql = "SELECT concat('94',SUBSTRING(vcMobileNo,2,10)) AS vcMobileNo,vcMobileNo AS Without94,RE.vcOTP,U.intUserID, RE.intOTPSentCount FROM user AS U
+    $sql = "SELECT concat(U.vcCountryCode,vcMobileNo) AS vcMobileNo,vcMobileNo AS Without94,RE.vcOTP,U.intUserID,U.vcEmail,RE.vcEmailCode, RE.intOTPSentCount,U.vcCountryCode FROM user AS U
     INNER JOIN registerverification AS RE ON U.intUserID = RE.intUserID
     WHERE RE.vcEmailCode =  ? ";
     $query = $this->db->query($sql, array($verificationText));
     return $query->row_array();
   }
 
-  public function upDateMobileNumber($mobile_no, $emailVerificationCode)
+  public function upDateMobileNumber($mobile_no, $emailVerificationCode, $countryCode)
   {
     if ($mobile_no) {
       $sql = "UPDATE  user as U
       INNER JOIN registerverification as V on U.intUserID = V.intUserID
-      SET U.vcMobileNo ='$mobile_no'
+      SET U.vcMobileNo ='$mobile_no', U.vcCountryCode = '$countryCode'
       WHERE V.vcEmailCode = ?";
       $this->db->query($sql, array($emailVerificationCode));
       return $this->db->affected_rows();
@@ -637,7 +643,7 @@ class Model_registration extends CI_Model
     if ($otpNumber) {
       $sql = "UPDATE  user as U
       INNER JOIN registerverification as V on U.intUserID = V.intUserID
-      SET V.IsOTPVerified = 1 , V.dtOTPVerifiedDate = '$nowDateTime' , U.intUserAccountStatusTypeID = 2
+      SET V.IsOTPVerified = 1 , V.dtOTPVerifiedDate = '$nowDateTime' , U.intUserAccountStatusTypeID = 3
       WHERE vcOTP = ? AND V.vcEmailCode = ?";
       $this->db->query($sql, array($otpNumber, $emailVerificationCode));
       return $this->db->affected_rows();

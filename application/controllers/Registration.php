@@ -335,14 +335,33 @@ class Registration extends Admin_Controller
 		$random_EmailCode = "";
 		$random_EmailCode = substr(md5(uniqid(rand(), true)), 16, 16);
 
-		$response = $this->Model_registration->saveCreateAccount($email, $random_EmailCode);
-		$this->Model_registration->sendVerificatinEmail($email, $random_EmailCode);
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.vcEmail]');
 
-		if ($response['success'] == true) {
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 
-			$this->load->view('registration/create_account');
-		} else {
+		
+		// $this->Model_registration->sendVerificatinEmail($email, $random_EmailCode);
+		if ($this->form_validation->run() == TRUE) {
+			$response = $this->Model_registration->saveCreateAccount($email, $random_EmailCode);
+			if ($response['success'] == true) {
+				$userData = $this->Model_registration->getUserDate($random_EmailCode);
+				// $this->Model_registration->sendVerificatinEmail($email, $random_EmailCode);
+				$response['email'] = $userData['vcEmail'];
+				$response['verificationText'] = $userData['vcEmailCode'];
+				$response['messages'] = "Please Check Your Email";
+				$response['success'] = true;
+			} else {
+				$response['messages'] = "Sent error";
+				$response['success'] = false;
+			}
+		}else{
+			$response['success'] = false;
+			foreach ($_POST as $key => $value) {
+				$response['messages'][$key] = form_error($key);
+			}
 		}
+	
+		echo json_encode($response);
 	}
 
 	public function EmailVerification($verificationText = NULL)
@@ -356,6 +375,7 @@ class Registration extends Admin_Controller
 		if ($noRecords > 0) {
 			$data['verificationText'] = $verificationText;
 			$data['vcMobileNo'] = $userData['Without94'];
+			$data['vcCountryCode'] = $userData['vcCountryCode'];
 
 			if ($userData['intOTPSentCount'] == 0) {
 				$noRecordsendOTP = $this->Model_registration->sendOTP($verificationText, false);
@@ -371,9 +391,23 @@ class Registration extends Admin_Controller
 			}
 		} else {
 			$error = array('error' => "Sorry Unable to Verify Your Email!");
+			$this->load->helper('language');
+			$session_data = $this->session->userdata();
+			if ($session_data['language_id'] == 1) { // English
+				$this->lang->load('en', 'English');
+			} else if ($session_data['language_id'] == 2) { // Sinhala
+				$this->lang->load('si', 'Sinhala');
+			} else if ($session_data['language_id'] == 3) { // Tamil
+				$this->lang->load('ta', 'Tamil');
+			}
 			$this->load->view('registration/create_account');
 		}
 		// $data['errormsg'] = $error;
+	}
+
+	public function sendEmail($email,$random_EmailCode)
+	{
+		$this->Model_registration->sendVerificatinEmail($email, $random_EmailCode);
 	}
 
 	public function otpResend($verificationText = NULL)
@@ -384,12 +418,12 @@ class Registration extends Admin_Controller
 		$userData = $this->Model_registration->getUserDate($verificationText);
 
 		if ($userData['intOTPSentCount'] == 3) {
-			$response['messages'] = "Can't Send More than 3 text messages, Please Contact Sathutu Lanka";
+			$response['messages'] = "Can't Send More than 3 text messages, Please Contact Us !";
 			$response['success'] = false;
 		} else {
 			$noRecordsendOTP = $this->Model_registration->sendOTP($verificationText, true);
 			if ($noRecordsendOTP > 0) {
-				$response['messages'] = "Sent Successfully";
+				$response['messages'] = "Sent Successfully !";
 				$response['success'] = true;
 			} else {
 
@@ -410,28 +444,29 @@ class Registration extends Admin_Controller
 		return false;
 	}
 
+	
 	public function otpVerification($otpNumber, $emailVerificationCode)
 	{
 		$noRecord = $this->Model_registration->otpVerification($otpNumber, $emailVerificationCode);
 		if ($noRecord > 0) {
-			$response['messages'] = "Verification Successfully";
+			$response['messages'] = "Verification Successfully, Please Re-Login Here !";
 			$response['success'] = true;
 		} else {
-			$response['messages'] = "Please Enter Valid OTP Code";
+			$response['messages'] = "Please Enter Valid OTP Code !";
 			$response['success'] = false;
 		}
 		echo json_encode($response);
 	}
 
-	public function upDateMobileNumber($mobile_no, $emailVerificationCode)
+	public function upDateMobileNumber($mobile_no, $emailVerificationCode, $countryCode)
 	{
-		$noRecord = $this->Model_registration->upDateMobileNumber($mobile_no, $emailVerificationCode);
+		$noRecord = $this->Model_registration->upDateMobileNumber($mobile_no, $emailVerificationCode, $countryCode);
 		if ($noRecord > 0) {
-			$response['messages'] = "Update Successfully";
+			$response['messages'] = "Update Successfully !";
 			$response['success'] = true;
 		} else {
 
-			$response['messages'] = "Update error";
+			$response['messages'] = "Nothing To Change !";
 			$response['success'] = false;
 		}
 		echo json_encode($response);
