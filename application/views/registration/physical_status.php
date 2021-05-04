@@ -241,10 +241,7 @@
 		var isSkinColorSelected = $("input[name=skinColor]").is(":checked");
 
 		if (jQuery.trim($("#height").val()).length == 0) {
-			toastr["error"]("<?= lang('heightErr') ?>")
-			toastr.options = {
-				"positionClass": "toast-bottom-right"
-			}
+			toastr["error"]("<?= lang('heightErr') ?>");
 			$("#height").focus();
 		} else if (jQuery.trim($("#weight").val()).length == 0) {
 			toastr["error"]("<?= lang('weightErr') ?>");
