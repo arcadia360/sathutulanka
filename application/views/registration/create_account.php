@@ -38,7 +38,9 @@
 
     <!-- sweetalert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+    <script>
+        var base_url = "<?php echo base_url(); ?>";
+    </script>
     <style rel="stylesheet">
         @import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
 
@@ -191,7 +193,7 @@
                     <!-- country codes (ISO 3166) and Dial codes. -->
                     <div class="col-md-12 pt-3">
                         <!-- <div class="form-group"> -->
-                        <select class="custom-select d-block form-control" id="country_code" name="country_code">
+                        <select class="custom-select d-block form-control" id="country_code" name="country_code">  
                             <option value="">Country Codes</option>
                             <option data-countryCode="LK" value="94">Sri Lanka (+94)</option>
                             <option data-countryCode="SA" value="966">Saudi Arabia (+966)</option>
@@ -419,7 +421,7 @@
 
 
                     <div class="col-md-12 pt-3">
-                        <input type="text" class="form-control form-padding red-color only-decimal" onKeyPress="if(this.value.length==10) return false;" name="mobile_no" id="mobile_no" placeholder="Mobile No" value="">
+                        <input type="text" class="form-control form-padding red-color only-decimal" name="mobile_no" id="mobile_no" placeholder="Mobile No">
                     </div>
 
                     <div class="col-md-12 pt-3">
@@ -429,7 +431,7 @@
                         <input type="password" class="form-control form-padding red-color" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" autcomplete="false">
                     </div>
                     <div class="col-md-12 pt-3">
-                        <input type="email" class="form-control form-padding red-color" name="email" id="email" placeholder="Your Email" autocomplete="false" value="">
+                        <input type="email" class="form-control form-padding red-color" name="email" id="email" placeholder="Your Email" autocomplete="false">
                     </div>
 
                     <div class="col-md-12 pt-4">
@@ -458,7 +460,7 @@
                         </select>
                     </div>
 
-                    <p class="p20 yellow-color gill-sans-mt-regular-font mb-2 ml-3 pt-4">Date Of Birth</p>
+                    <p class="p20 yellow-color gill-sans-mt-regular-font mb-2 ml-3 pt-4">Date Of Birth</p>  
                     <div class="row mx-0 mr-4">
 
                         <div class="col-md-4">
@@ -534,8 +536,41 @@
                     </div>
                     <div class="col-md-12 text-center pt-3 pb-2">
                         <!-- <a href="<?= base_url() ?>" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp;</a> -->
-                        <button type="button" name="btnSubmit" id="btnSubmit" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp;</a>
-                            <!-- <button type="submit" class="btn btn-primary btn-block gill-sans-mt-regular-font home-search-btn p20 home-search-letter-spacing sbmitBtn">&nbsp;CONTINUE&nbsp;</button> -->
+                        <button type="button" name="btnContinue" id="btnContinue" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp; </button>
+                        <!-- </a> -->
+
+                        <!-- Button trigger modal -->
+                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Launch demo modal
+                        </button> -->
+
+                        <!-- <button type="submit" class="btn btn-primary btn-block gill-sans-mt-regular-font home-search-btn p20 home-search-letter-spacing sbmitBtn">&nbsp;CONTINUE&nbsp;</button> -->
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="contactNoVerifyModal" tabindex="-1" role="dialog" aria-labelledby="contactNoVerifyModal" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <!-- <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div> -->
+                                <div class="modal-body">
+                                    We will be verifying the phone number:
+                                    <br>
+                                    <!-- <strong>+94 0713922146</strong> -->
+                                    <input type="text" id="country_code_view" name="country_code_view" style="border: 0px none;">
+                                    <br>
+                                    Is this OK, or would you like to edit the number?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" name="btnEdit" id="btnEdit" class="btn btn-light" data-dismiss="modal">Edit</button>
+                                    <button type="button" name="btnSaveUser" id="btnSaveUser" class="btn" style="background-color: #b52b4a; color:#FFFFFF;">&nbsp;&nbsp;OK&nbsp;&nbsp;</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
             </form>
 
@@ -575,10 +610,10 @@
             yearElem.value = ageStartingYear
             yearElem.textContent = ageStartingYear;
             selectYear.append(yearElem);
-           
+
         }
 
-    
+
         for (var m = 0; m < 12; m++) {
             let month = monthNames[m];
             let monthElem = document.createElement("option");
@@ -592,19 +627,21 @@
         var year = d.getFullYear();
         var day = d.getDate();
 
+
         // console.log(ageEndYear);
         // selectYear.val(eeee);
         selectYear.on("change", AdjustDays);
-        selectMonth.val(month);
+        selectMonth.val(0);
         selectMonth.on("change", AdjustDays);
 
         AdjustDays();
-        selectDay.val(day)
+
 
         function AdjustDays() {
             var year = selectYear.val();
             var month = parseInt(selectMonth.val()) + 1;
-            selectDay.empty();
+            // selectDay.empty();
+            selectDay.val(0)
 
             //get the last day, so the number of days in that month
             var days = new Date(year, month, 0).getDate();
@@ -628,7 +665,7 @@
             }
         });
 
-        $('#btnSubmit').click(function() {
+        $('#btnContinue').click(function() {
 
             // $birth_day = $("#birth_year").val() + $("#birth_month").val() + $("#birth_day").val();
 
@@ -640,90 +677,84 @@
             const length = $("#mobile_no").val().length;
 
             if (jQuery.trim($("#short_name").val()).length == 0) {
-                toastr["error"]("Please Enter Name");
+                toastr["error"]("Please Enter Name !");
                 $("#short_name").focus();
             } else if ($("#country_code :selected").val() == 0) {
-                toastr["error"]("Please Select Country Code");
+                toastr["error"]("Please Select Country Code !");
                 $("#country_code").focus();
             } else if (jQuery.trim($("#mobile_no").val()).length == 0) {
-                toastr["error"]("Please Enter Mobile No");
+                toastr["error"]("Please Enter Mobile No !");
                 $("#mobile_no").focus();
-            } else if (length != 10) {
+
+            } else if (jQuery.trim($("#country_code").val()) == 94 && length != 9) {
                 toastr["error"]("Please Valid Mobile No");
                 $("#mobile_no").focus();
+
             } else if (jQuery.trim($("#password").val()).length == 0) {
-                toastr["error"]("Please Enter Password");
+                toastr["error"]("Please Enter Password !");
                 $("#password").focus();
             } else if (jQuery.trim($("#password_confirmation").val()).length == 0) {
-                toastr["error"]("Please Enter Confirmation Password");
+                toastr["error"]("Please Enter Confirmation Password !");
                 $("#password_confirmation").focus();
             } else if (jQuery.trim($("#password").val()) != jQuery.trim($("#password_confirmation").val())) {
-                toastr["error"]("Password and confirm password do not match");
+                toastr["error"]("Password and confirm password do not match !");
                 $("#password_confirmation").focus();
             } else if (jQuery.trim($("#email").val()).length == 0) {
-                toastr["error"]("Please Enter Email");
+                toastr["error"]("Please Enter Email !");
                 $("#email").focus();
             } else if ($("#provide_infor :selected").val() == 0) {
-                toastr["error"]("Please Select Providing Information");
+                toastr["error"]("Please Select Providing Information !");
                 $("#provide_infor").focus();
             } else if ($("#gender :selected").val() == 0) {
-                toastr["error"]("Please Select Gender");
+                toastr["error"]("Please Select Gender !");
                 $("#gender").focus();
 
+            } else if ($("#birth_year :selected").val() == 0) {
+                toastr["error"]("Please Select Birth Year !");
+                $("#birth_year").focus();
+
+            } else if ($("#birth_month :selected").val() == 0) {
+                toastr["error"]("Please Select Birth Moth !");
+                $("#birth_month").focus();
+
+            } else if ($("#birth_day :selected").val() == 0) {
+                toastr["error"]("Please Select Birth Day !");
+                $("#birth_day").focus();
+
             } else if ($("#marital_status :selected").val() == 0) {
-                toastr["error"]("Please Select Marital Status");
+                toastr["error"]("Please Select Marital Status !");
                 $("#marital_status").focus();
             } else if ($("#marry_by :selected").val() == 0) {
-                toastr["error"]("Please Select Marry By");
+                toastr["error"]("Please Select Marry By !");
                 $("#marry_by").focus();
             } else if (!isAgreementCheck) {
-                toastr["error"]("Please Check Term And Condition And Privacy Policy");
+                toastr["error"]("Please Check Term And Condition And Privacy Policy !");
                 $("#agreement_check").focus();
             } else {
                 var mStatus = $('#marital_status').val();
                 if (mStatus == 'divorced') {
                     if ($("#num_of_child :selected").val() == 0) {
-                        toastr["error"]("Please Select num of child");
+                        toastr["error"]("Please Select number of children !");
                         $("#num_of_child").focus();
                         return;
                     }
                 }
 
-                var form = $("#submitForm");
-                $("#btnSubmit").prop('disabled', true);
+                $("#country_code_view").val("+" + jQuery.trim($("#country_code").val()) + " " + jQuery.trim($("#mobile_no").val()));
+                $('#contactNoVerifyModal').modal('show');
 
-                $.ajax({
-                    type: form.attr('method'),
-                    url: form.attr('action'),
-                    data: form.serialize(),
-                    dataType: 'json',
-                    success: function(response) {
-                        if (response.success == true) {
-                            swal("Successfully!", response.messages, "success")
-                                .then((value) => {
-                                    window.location.href = "<?= base_url() ?>"
-                                });
-                        } else {
-                            if (response.messages instanceof Object) {
-                                $.each(response.messages, function(index, value) {
-                                    var id = $("#" + index);
-                                    id.closest('.form-group')
-                                        .removeClass('has-error')
-                                        .removeClass('has-success')
-                                        .addClass(value.length > 0 ? 'has-error' : 'has-success');
-                                    id.after(value);
-                                    $("#btnSubmit").prop('disabled', false)
-                                });
-                            } else {
-                                toastr["error"](response.messages);
-                                $("#btnSubmit").prop('disabled', false)
-                            }
-                        }
-
-                    }
-                });
             }
         });
+
+        $('#btnSaveUser').click(function() {
+            saveUser()
+        });
+
+        $('#btnEdit').click(function() {
+            $('#contactNoVerifyModal').modal('hide');
+            $("#mobile_no").focus();
+        });
+
 
         function isNumber(evt, element) {
             var charCode = (evt.which) ? evt.which : event.keyCode
@@ -737,6 +768,57 @@
         }
 
     });
+
+    function saveUser() {
+        var form = $("#submitForm");
+        $("#btnSaveUser").prop('disabled', true);
+        $('#contactNoVerifyModal').modal('hide');
+
+        $.ajax({
+            type: form.attr('method'),
+            url: form.attr('action'),
+            data: form.serialize(),
+            dataType: 'json',
+            success: function(response) {
+                if (response.success == true) {
+                    swal("Successfully !", response.messages, "success")
+                        .then((value) => {
+                            window.location.href = "<?= base_url() ?>"
+                        });
+                    sendEmail(response.email, response.verificationText);
+                } else {
+                    if (response.messages instanceof Object) {
+                        $.each(response.messages, function(index, value) {
+                            var id = $("#" + index);
+                            id.closest('.form-group')
+                                .removeClass('has-error')
+                                .removeClass('has-success')
+                                .addClass(value.length > 0 ? 'has-error' : 'has-success');
+                            id.after(value);
+                            $('#contactNoVerifyModal').modal('hide')
+                            $("#btnSaveUser").prop('disabled', false)
+                        });
+                    } else {
+                        toastr["error"](response.messages);
+                        $("#btnSaveUser").prop('disabled', false)
+                    }
+                }
+
+            }
+        });
+    }
+
+    function sendEmail(email, verificationText) {
+        $.ajax({
+            async: false,
+            url: base_url + 'registration/sendEmail/' + email + '/' + verificationText,
+            success: function(response) {},
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("Status: " + textStatus);
+                alert("Error: " + errorThrown);
+            }
+        });
+    }
 </script>
 
 </html>
