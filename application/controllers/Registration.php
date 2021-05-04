@@ -248,7 +248,10 @@ class Registration extends Admin_Controller
 		if ($this->form_validation->run() == TRUE) {
 			$response = $this->Model_registration->saveCreateAccount($email, $random_EmailCode);
 			if ($response['success'] == true) {
-				$this->Model_registration->sendVerificatinEmail($email, $random_EmailCode);
+				$userData = $this->Model_registration->getUserDate($random_EmailCode);
+				// $this->Model_registration->sendVerificatinEmail($email, $random_EmailCode);
+				$response['email'] = $userData['vcEmail'];
+				$response['verificationText'] = $userData['vcEmailCode'];
 				$response['messages'] = "Please Check Your Email";
 				$response['success'] = true;
 			} else {
@@ -262,7 +265,6 @@ class Registration extends Admin_Controller
 			}
 		}
 	
-
 		echo json_encode($response);
 	}
 
@@ -277,6 +279,7 @@ class Registration extends Admin_Controller
 		if ($noRecords > 0) {
 			$data['verificationText'] = $verificationText;
 			$data['vcMobileNo'] = $userData['Without94'];
+			$data['vcCountryCode'] = $userData['vcCountryCode'];
 
 			if ($userData['intOTPSentCount'] == 0) {
 				$noRecordsendOTP = $this->Model_registration->sendOTP($verificationText, false);
@@ -306,6 +309,11 @@ class Registration extends Admin_Controller
 		// $data['errormsg'] = $error;
 	}
 
+	public function sendEmail($email,$random_EmailCode)
+	{
+		$this->Model_registration->sendVerificatinEmail($email, $random_EmailCode);
+	}
+
 	public function otpResend($verificationText = NULL)
 	{
 		// var_dump($verificationText);
@@ -314,12 +322,12 @@ class Registration extends Admin_Controller
 		$userData = $this->Model_registration->getUserDate($verificationText);
 
 		if ($userData['intOTPSentCount'] == 3) {
-			$response['messages'] = "Can't Send More than 3 text messages, Please Contact Sathutu Lanka";
+			$response['messages'] = "Can't Send More than 3 text messages, Please Contact Us !";
 			$response['success'] = false;
 		} else {
 			$noRecordsendOTP = $this->Model_registration->sendOTP($verificationText, true);
 			if ($noRecordsendOTP > 0) {
-				$response['messages'] = "Sent Successfully";
+				$response['messages'] = "Sent Successfully !";
 				$response['success'] = true;
 			} else {
 
@@ -340,28 +348,29 @@ class Registration extends Admin_Controller
 		return false;
 	}
 
+	
 	public function otpVerification($otpNumber, $emailVerificationCode)
 	{
 		$noRecord = $this->Model_registration->otpVerification($otpNumber, $emailVerificationCode);
 		if ($noRecord > 0) {
-			$response['messages'] = "Verification Successfully";
+			$response['messages'] = "Verification Successfully, Please Re-Login Here !";
 			$response['success'] = true;
 		} else {
-			$response['messages'] = "Please Enter Valid OTP Code";
+			$response['messages'] = "Please Enter Valid OTP Code !";
 			$response['success'] = false;
 		}
 		echo json_encode($response);
 	}
 
-	public function upDateMobileNumber($mobile_no, $emailVerificationCode)
+	public function upDateMobileNumber($mobile_no, $emailVerificationCode, $countryCode)
 	{
-		$noRecord = $this->Model_registration->upDateMobileNumber($mobile_no, $emailVerificationCode);
+		$noRecord = $this->Model_registration->upDateMobileNumber($mobile_no, $emailVerificationCode, $countryCode);
 		if ($noRecord > 0) {
-			$response['messages'] = "Update Successfully";
+			$response['messages'] = "Update Successfully !";
 			$response['success'] = true;
 		} else {
 
-			$response['messages'] = "Nothing To Change";
+			$response['messages'] = "Nothing To Change !";
 			$response['success'] = false;
 		}
 		echo json_encode($response);
