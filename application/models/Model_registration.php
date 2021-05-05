@@ -222,6 +222,69 @@ class Model_registration extends CI_Model
       return true;
     }
   }
+
+  public function saveEducationDetails()
+  {
+    $uid = 18;
+
+    $data = array(
+      'vcEducationLevel' => $this->input->post('EducationLevel'),
+      'vcEducationField' => $this->input->post('EducationField'),
+      'vcSclUniDescription' => $this->input->post('vcSclUniDescription'),
+      'intNoOfSubmitedForm' => 4
+    );
+    $this->db->where('intUserID', $uid);
+    $this->db->update('user', $data);
+    if ($this->db->affected_rows() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public function loadWorkingWith()
+  {
+    $this->db->select('*');
+    $this->db->from('working_with');
+    $this->db->order_by('intWorkingWithId', 'DESC');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function loadWorkingAsMainCat()
+  {
+    $this->db->select('*');
+    $this->db->from('working_as_main_cat');
+    $this->db->order_by('vcWorkingAsMainCat', 'ASC');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function loadWorkingAsSubCat()
+  {
+    $WorkingAsMainCatId = $this->input->post('WorkingAsMainCatId');
+    $this->db->select('*');
+    $this->db->from('working_as_sub_cat');
+    $this->db->where('intWorkinAsMainCat =', $WorkingAsMainCatId);
+    $this->db->order_by('vcWorkingAsSubCatl', 'asc');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
   //-----------------------------------
   //END DK
   //-----------------------------------
@@ -245,8 +308,8 @@ class Model_registration extends CI_Model
     $year =  $this->input->post('birth_year');
     $month =  $this->input->post('birth_month');
     $day =  $this->input->post('birth_day');
-   
-    $bDate = $year."-".$month."-".$day;
+
+    $bDate = $year . "-" . $month . "-" . $day;
 
     $data = array(
       'vcNickName' => $this->input->post('short_name'),
@@ -505,7 +568,7 @@ class Model_registration extends CI_Model
                                 <w:anchorlock/>
                                 <center style="color:#ffffff;font-family:sans-serif;font-size:15px;">Verify Email</center>
                               </v:roundrect><![endif]-->
-                              <p>'.base_url().'Registration/EmailVerification/' . $random_EmailCode . '<p>
+                              <p>' . base_url() . 'Registration/EmailVerification/' . $random_EmailCode . '<p>
                                
                               </div>
                             </td>
