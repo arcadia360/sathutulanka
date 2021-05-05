@@ -224,7 +224,7 @@
           }
         },
         error: function() {
-          toastr["error"]("<?= lang('district') . ' ' . lang('dataCannotRetrieve') . ' Connection Err' ?>");
+          toastr["error"]("<?= lang('district') . ' ' . lang('dataCannotRetrieve') . ' Connection error' ?>");
         }
       });
     }
@@ -249,7 +249,7 @@
           }
         },
         error: function() {
-          toastr["error"]("<?= lang('city') . ' ' . lang('dataCannotRetrieve') . ' Connection Err' ?>");
+          toastr["error"]("<?= lang('city') . ' ' . lang('dataCannotRetrieve') . ' Connection error' ?>");
         }
       });
     });
