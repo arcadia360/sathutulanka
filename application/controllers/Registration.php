@@ -38,8 +38,8 @@ class Registration extends Admin_Controller
 		$this->load->view('registration/create_account');
 	}
 
-
-
+	// ---------------------------------------------------------------------------------------------------------------------------
+	//DK section Start
 	public function physicalStatus()
 	{
 		$this->render_template_registration('registration/physical_status', 'Add Background Details', NULL);
@@ -119,10 +119,101 @@ class Registration extends Admin_Controller
 	{
 		$this->render_template_registration('registration/education', 'Education', NULL);
 	}
+	public function addEducationDetails()
+	{
+		$response = array();
+
+		$this->form_validation->set_rules('EducationLevel', 'Education Level', 'required');
+		$this->form_validation->set_rules('EducationField', 'Education Field', 'required');
+		$this->form_validation->set_rules('SchoolUniversityDescription', 'School University Description', 'max_length[250]');
+
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+		if ($this->form_validation->run() == TRUE) {
+			$this->load->model('Model_registration');
+			$result = $this->Model_registration->saveEducationDetails();
+			if ($result == true) {
+				$response['success'] = true;
+			} else {
+				$response['success'] = false;
+				$response['messages'] = 'Error in the database while adding education details. Please contact system administrator.';
+			}
+		} else {
+			$response['success'] = false;
+			foreach ($_POST as $key => $value) {
+				$response['messages'][$key] = form_error($key);
+			}
+		}
+		echo json_encode($response);
+	}
 
 	public function career()
 	{
 		$this->render_template_registration('registration/career', 'career', NULL);
+	}
+
+	// Load working with data to career details form
+	public function loadWorkingWith()
+	{
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->loadWorkingWith();
+		if (!$result) {
+			return false;
+		} else {
+			$this->load->helper('language');
+			$this->lang->load('en', 'English');
+
+			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
+			if ($result) {
+				foreach ($result as $workingWith) {
+					$workingWIthName = $workingWith->vcWorkingWith;
+					$html .= "<option value=" . $workingWith->intWorkingWithId . " >" . $workingWIthName  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+	// Load working as main category data to career details form
+	public function loadWorkingAsMainCat()
+	{
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->loadWorkingAsMainCat();
+		if (!$result) {
+			return false;
+		} else {
+			$this->load->helper('language');
+			$this->lang->load('en', 'English');
+
+			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
+			if ($result) {
+				foreach ($result as $workingAs) {
+					$workingAsName = $workingAs->vcWorkingAsMainCat;
+					$html .= "<option value=" . $workingAs->intWorkingAsMainCatId . " >" . $workingAsName  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+	// Load working as sub category data to career details form
+	public function loadWorkingAsSubCat()
+	{
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->loadWorkingAsSubCat();
+		if (!$result) {
+			return false;
+		} else {
+			$this->load->helper('language');
+			$this->lang->load('en', 'English');
+
+			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
+			if ($result) {
+				foreach ($result as $WorkingAsSubCat) {
+					$WorkingAsSubCatName = $WorkingAsSubCat->vcWorkingAsSubCatl;
+					$html .= "<option value=" . $WorkingAsSubCat->intWorkingAsSubCatId . " >" . $WorkingAsSubCatName  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
 	}
 
 	public function personalAssets()
@@ -328,6 +419,10 @@ class Registration extends Admin_Controller
 		echo json_encode($response);
 	}
 
+
+	// end dk section
+	// ---------------------------------------------------------------------------------------------------------------------------
+
 	public function createAccount()
 	{
 
@@ -339,7 +434,7 @@ class Registration extends Admin_Controller
 
 		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 
-		
+
 		// $this->Model_registration->sendVerificatinEmail($email, $random_EmailCode);
 		if ($this->form_validation->run() == TRUE) {
 			$response = $this->Model_registration->saveCreateAccount($email, $random_EmailCode);
@@ -354,13 +449,13 @@ class Registration extends Admin_Controller
 				$response['messages'] = "Sent error";
 				$response['success'] = false;
 			}
-		}else{
+		} else {
 			$response['success'] = false;
 			foreach ($_POST as $key => $value) {
 				$response['messages'][$key] = form_error($key);
 			}
 		}
-	
+
 		echo json_encode($response);
 	}
 
@@ -405,7 +500,7 @@ class Registration extends Admin_Controller
 		// $data['errormsg'] = $error;
 	}
 
-	public function sendEmail($email,$random_EmailCode)
+	public function sendEmail($email, $random_EmailCode)
 	{
 		$this->Model_registration->sendVerificatinEmail($email, $random_EmailCode);
 	}
@@ -444,7 +539,7 @@ class Registration extends Admin_Controller
 		return false;
 	}
 
-	
+
 	public function otpVerification($otpNumber, $emailVerificationCode)
 	{
 		$noRecord = $this->Model_registration->otpVerification($otpNumber, $emailVerificationCode);
