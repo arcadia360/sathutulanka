@@ -7,7 +7,8 @@
         <!-- <h3 class="text-center text-inverse font-weight-bold"><?= lang('residance') ?></h3> -->
         <h3 class="text-center text-inverse title">Education</h3>
         <hr>
-        <form class="container" id="needs-validation" novalidate>
+        <form method="post" action="<?= base_url('Registration/addEducationDetails') ?>" id="addEducationDetails">
+
 
           <div class="row">
             <div class="col-6">
@@ -18,22 +19,22 @@
             </div>
             <div class="col-6">
               <div class="form-group">
-                <select class="custom-select d-block form-control" id="#" name="#">
+                <select class="custom-select d-block form-control" id="EducationLevel" name="EducationLevel">
                   <option value="0"><?= lang('select') ?></option>
-                  <option value="634">Doctorate</option>
-                  <option value="635">Masters</option>
-                  <option value="636">Honors Degree</option>
-                  <option value="637">Bachelor</option>
-                  <option value="639">Associate degree</option>
-                  <option value="638">Undergraduate</option>
-                  <option value="640">Diploma</option>
-                  <option value="641">National collage of education</option>
-                  <option value="642">Vocational and training education</option>
-                  <option value="643">Certificates</option>
-                  <option value="644">Up to A/L</option>
-                  <option value="645">Up to O/L</option>
-                  <option value="646">Less than O/L</option>
-                  <option value="647">Mentioned in the writing box (Education)</option>
+                  <option value="Doctorate">Doctorate</option>
+                  <option value="Masters">Masters</option>
+                  <option value="Honors Degree">Honors Degree</option>
+                  <option value="Bachelor">Bachelor</option>
+                  <option value="Associate degree">Associate degree</option>
+                  <option value="Undergraduate">Undergraduate</option>
+                  <option value="Diploma">Diploma</option>
+                  <option value="National collage of education">National collage of education</option>
+                  <option value="Vocational and training education">Vocational and training education</option>
+                  <option value="Certificates">Certificates</option>
+                  <option value="Up to A/L">Up to A/L</option>
+                  <option value="Up to O/L">Up to O/L</option>
+                  <option value="Less than O/L">Less than O/L</option>
+                  <option value="Mentioned in the writing box (Education)">Mentioned in the writing box (Education)</option>
                 </select>
               </div>
             </div>
@@ -48,40 +49,41 @@
             </div>
             <div class="col-6">
               <div class="form-group">
-                <select class="custom-select d-block form-control" id="#" name="#">
-                  <option value="976" selected="">Administration</option>
-                  <option value="977">Arts</option>
-                  <option value="978">Agriculture</option>
-                  <option value="979">Construction</option>
-                  <option value="980">Commerce and Management</option>
-                  <option value="648">Education and Training</option>
-                  <option value="649">Engineering</option>
-                  <option value="981">Food</option>
-                  <option value="982">Fisheries</option>
-                  <option value="983">Forestry</option>
-                  <option value="984">Finance</option>
-                  <option value="985">Health and welfare</option>
-                  <option value="986">Human Personal Services</option>
-                  <option value="987">Hospitality Services</option>
-                  <option value="988">History</option>
-                  <option value="989">Information and Communication Technology</option>
-                  <option value="990">Journalism and Information</option>
-                  <option value="991">Languages</option>
-                  <option value="992">Low</option>
-                  <option value="994">Logistics Services</option>
-                  <option value="995">Mathematics and Statistics</option>
-                  <option value="996">Manufacturing and Processing</option>
-                  <option value="997">Marketing, Sales and Services</option>
-                  <option value="998">Natural Sciences</option>
-                  <option value="999">Philosophy</option>
-                  <option value="1000">Religion</option>
-                  <option value="1001">Physical Sciences</option>
-                  <option value="1002">Social Sciences</option>
-                  <option value="1003">Shipping</option>
-                  <option value="1004">Security Services</option>
-                  <option value="1005">Transport Distribution</option>
-                  <option value="1006">Veterinary</option>
-                  <option value="1007">Mentioned in the writing box (Below)</option>
+                <select class="custom-select d-block form-control" id="EducationField" name="EducationField">
+                  <option value="0"><?= lang('select') ?></option>
+                  <option value="Administration">Administration</option>
+                  <option value="Arts">Arts</option>
+                  <option value="Agriculture">Agriculture</option>
+                  <option value="Construction">Construction</option>
+                  <option value="Commerce and Management">Commerce and Management</option>
+                  <option value="Education and Training">Education and Training</option>
+                  <option value="Engineering">Engineering</option>
+                  <option value="Food">Food</option>
+                  <option value="Fisheries">Fisheries</option>
+                  <option value="Forestry">Forestry</option>
+                  <option value="Finance">Finance</option>
+                  <option value="Health and welfare">Health and welfare</option>
+                  <option value="Human Personal Services">Human Personal Services</option>
+                  <option value="Hospitality Services">Hospitality Services</option>
+                  <option value="History">History</option>
+                  <option value="Information and Communication Technology">Information and Communication Technology</option>
+                  <option value="Journalism and Information">Journalism and Information</option>
+                  <option value="Languages">Languages</option>
+                  <option value="Low">Low</option>
+                  <option value="Logistics Services">Logistics Services</option>
+                  <option value="Mathematics and Statistics">Mathematics and Statistics</option>
+                  <option value="Manufacturing and Processing">Manufacturing and Processing</option>
+                  <option value="Marketing, Sales and Services">Marketing, Sales and Services</option>
+                  <option value="Natural Sciences">Natural Sciences</option>
+                  <option value="Philosophy">Philosophy</option>
+                  <option value="Religion">Religion</option>
+                  <option value="Physical Sciences">Physical Sciences</option>
+                  <option value="Social Sciences">Social Sciences</option>
+                  <option value="Shipping">Shipping</option>
+                  <option value="Security Services">Security Services</option>
+                  <option value="Transport Distribution">Transport Distribution</option>
+                  <option value="Veterinary">Veterinary</option>
+                  <option value="Mentioned in the writing box (Below)">Mentioned in the writing box (Below)</option>
                 </select>
               </div>
             </div>
@@ -91,12 +93,12 @@
             <div class="col-6">
               <div class="form-group">
                 <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
-                <label class="text-inverse font-weight-bold" for="validationCustom01">School/ University</label>
+                <label class="text-inverse font-weight-bold" for="validationCustom01">School/ University (Description)</label>
               </div>
             </div>
             <div class="col-6">
               <div class="form-group">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                <textarea class="form-control" id="vcSclUniDescription" name="vcSclUniDescription" rows="5"></textarea>
               </div>
             </div>
           </div>
@@ -104,7 +106,7 @@
           <hr>
           <div class="row">
             <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-              <button class="btn btn-info" style="width: 150px;" id="btnBack" type="button">Back</button>
+              <button class="btn btn-info" style="width: 150px;" id="btnBack" type="button">BACK</button>
             </div>
             <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
               <button class="btn btn-info" style="width: 150px;" type="button" id="btnSubmit">CONTINUE</button>
@@ -126,7 +128,51 @@
     });
 
     $('#btnSubmit').click(function() {
-      window.location.href = "<?php echo base_url('Registration/career') ?>";
+      if ($('#EducationLevel').val() == 0) {
+        toastr["error"]("Please select Education Level");
+        $("#EducationLevel").focus();
+      } else if ($('#EducationField').val() == 0) {
+        toastr["error"]("Please select Education Field");
+        $("#EducationField").focus();
+      } else if ($('#vcSclUniDescription').val() == "") {
+        toastr["error"]("Please select School University Description");
+        $("#vcSclUniDescription").focus();
+      } else {
+        var form = $("#addEducationDetails");
+        $.ajax({
+          type: form.attr('method'),
+          url: form.attr('action'),
+          data: form.serialize(),
+          dataType: 'json',
+          success: function(response) {
+            if (response.success == true) {
+              swal({
+                title: 'Success!',
+                text: "Education details saved successfully!",
+                type: 'success',
+                confirmButtonText: 'OK'
+              }).then(() => {
+                window.location.href = "<?php echo base_url('Registration/career') ?>";
+              });
+            } else {
+              if (response.messages instanceof Object) {
+                $.each(response.messages, function(index, value) {
+                  var id = $("#" + index);
+                  id.closest('.form-group')
+                    .removeClass('has-error')
+                    .removeClass('has-success')
+                    .addClass(value.length > 0 ? 'has-error' : 'has-success');
+                  id.after(value);
+                });
+              } else {
+                toastr["error"](response.messages);
+                $(button).prop('disabled', false);
+              }
+            }
+          }
+        });
+      }
+
     });
   });
 </script>
