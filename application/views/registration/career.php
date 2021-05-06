@@ -7,13 +7,14 @@
         <!-- <h3 class="text-center text-inverse font-weight-bold"><?= lang('residance') ?></h3> -->
         <h3 class="text-center text-inverse title">Career</h3>
         <hr>
-        <form class="container" id="needs-validation" novalidate>
+        <form method="post" action="<?= base_url('Registration/addcareerDetails') ?>" id="addcareerDetails">
+
 
           <div class="row">
             <div class="col-6">
               <div class="form-group">
                 <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
-                <label class="text-inverse font-weight-bold" for="validationCustom01">WORKING WITH</label>
+                <label class="text-inverse font-weight-bold" for="validationCustom01">Working With</label>
               </div>
             </div>
             <div class="col-6">
@@ -62,16 +63,16 @@
             </div>
             <div class="col-6">
               <div class="form-group">
-                <select class="custom-select d-block form-control" id="#" name="#">
+                <select class="custom-select d-block form-control" id="workingLocation" name="workingLocation">
                   <option value="0"><?= lang('select') ?></option>
                   <option value="Out Side Sri Lanka">Out Side Sri Lanka</option>
-                  <option value="In Sri Lanka" selected="">In Sri Lanka</option>
+                  <option value="In Sri Lanka">In Sri Lanka</option>
                 </select>
               </div>
             </div>
           </div>
 
-          <div class="row">
+          <div class="row" id="ifWorkingLocationSL">
             <div class="col-6">
 
             </div>
@@ -100,7 +101,7 @@
             </div>
             <div class="col-6">
               <div class="form-group">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                <textarea class="form-control" id="describeCareer" rows="5" name="describeCareer"></textarea>
               </div>
             </div>
           </div>
@@ -132,8 +133,65 @@
     });
 
     $('#btnSubmit').click(function() {
+      if ($('#workingWith').val() == 0) {
+        toastr["error"]("Please select working with");
+        $("#workingWith").focus();
+      } else if ($('#WorkingAsMainCat').val() == 0) {
+        toastr["error"]("Please select working as main category");
+        $("#WorkingAsMainCat").focus();
+      } else if ($('#workingAsSubCat').val() == 0) {
+        toastr["error"]("Please select working as sub category");
+        $("#workingAsSubCat").focus();
+      } else if ($('#workingLocation').val() == 0) {
+        toastr["error"]("Please select working location");
+        $("#workingLocation").focus();
+      } else if ($('#workingLocation').val() == "In Sri Lanka" && $('#district').val() == 0) {
+        toastr["error"]("Please select working district");
+        $("#district").focus();
+      } else if ($('#workingLocation').val() == "In Sri Lanka" && $('#city').val() == 0) {
+        toastr["error"]("Please select working city");
+        $("#city").focus();
+      } else if ($('#describeCareer').val() == 0) {
+        toastr["error"]("Please describe career");
+        $("#describeCareer").focus();
+      } else {
+        var form = $("#addcareerDetails");
+        $.ajax({
+          type: form.attr('method'),
+          url: form.attr('action'),
+          data: form.serialize(),
+          dataType: 'json',
+          success: function(response) {
+            if (response.success == true) {
+              swal({
+                title: 'Success!',
+                text: "Career details saved successfully!",
+                type: 'success',
+                confirmButtonText: 'OK'
+              }).then(() => {
+                window.location.href = "<?php echo base_url('Registration/personalAssets') ?>";
+              });
 
-      // window.location.href = "<?php echo base_url('Registration/personalAssets') ?>";
+
+            } else {
+              if (response.messages instanceof Object) {
+                $.each(response.messages, function(index, value) {
+                  var id = $("#" + index);
+                  id.closest('.form-group')
+                    .removeClass('has-error')
+                    .removeClass('has-success')
+                    .addClass(value.length > 0 ? 'has-error' : 'has-success');
+                  id.after(value);
+                });
+              } else {
+                toastr["error"](response.messages);
+                $(button).prop('disabled', false);
+              }
+            }
+
+          }
+        });
+      }
     });
 
     function loadWorkingWith() {
@@ -245,6 +303,16 @@
           toastr["error"]("<?= lang('city') . ' ' . lang('dataCannotRetrieve') . ' Connection error' ?>");
         }
       });
+    });
+
+    $('#workingLocation').change(function() {
+      if ($('#workingLocation').val() != "In Sri Lanka") {
+        $('#ifWorkingLocationSL').hide();
+        $('#district').val(0);
+        $('#city').val(0);
+      } else {
+        $('#ifWorkingLocationSL').show();
+      }
     });
 
   });
