@@ -98,7 +98,7 @@ class Registration extends Admin_Controller
 				$response['success'] = true;
 			} else {
 				$response['success'] = false;
-				$response['messages'] = 'Error in the database while adding residence details. Please contact system administrator.';
+				$response['messages'] = 'Error in the database while saving residence details. Please contact system administrator.';
 			}
 		} else {
 			$response['success'] = false;
@@ -136,7 +136,7 @@ class Registration extends Admin_Controller
 				$response['success'] = true;
 			} else {
 				$response['success'] = false;
-				$response['messages'] = 'Error in the database while adding education details. Please contact system administrator.';
+				$response['messages'] = 'Error in the database while saving education details. Please contact system administrator.';
 			}
 		} else {
 			$response['success'] = false;
@@ -215,10 +215,67 @@ class Registration extends Admin_Controller
 			}
 		}
 	}
+	public function addcareerDetails()
+	{
+		$response = array();
+
+		$this->form_validation->set_rules('workingWith', 'Working With', 'required');
+		$this->form_validation->set_rules('WorkingAsMainCat', 'Working as main category', 'required');
+		$this->form_validation->set_rules('workingAsSubCat', 'working as sub category', 'required');
+		$this->form_validation->set_rules('workingLocation', 'working location', 'required');
+		$this->form_validation->set_rules('describeCareer', 'describe career', 'max_length[250]');
+
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+		if ($this->form_validation->run() == TRUE) {
+			$this->load->model('Model_registration');
+			$result = $this->Model_registration->saveCareerDetails();
+			if ($result == true) {
+				$response['success'] = true;
+			} else {
+				$response['success'] = false;
+				$response['messages'] = 'Error in the database while saving career details. Please contact system administrator.';
+			}
+		} else {
+			$response['success'] = false;
+			foreach ($_POST as $key => $value) {
+				$response['messages'][$key] = form_error($key);
+			}
+		}
+		echo json_encode($response);
+	}
 
 	public function personalAssets()
 	{
 		$this->render_template_registration('registration/personal_assets', 'Personal Assets', NULL);
+	}
+
+	public function addPersonalAssestDetails()
+	{
+		$response = array();
+
+		$this->form_validation->set_rules('monthlyIncome', 'Monthly income', 'required');
+		$this->form_validation->set_rules('assetValue', 'Asset value', 'required');
+		$this->form_validation->set_rules('OwnershipOfAssets', 'ownership of assets', 'required');
+
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+		if ($this->form_validation->run() == TRUE) {
+			$this->load->model('Model_registration');
+			$result = $this->Model_registration->savePersonalAssestDetailss();
+			if ($result == true) {
+				$response['success'] = true;
+			} else {
+				$response['success'] = false;
+				$response['messages'] = 'Error in the database while saving personal assets details. Please contact system administrator.';
+			}
+		} else {
+			$response['success'] = false;
+			foreach ($_POST as $key => $value) {
+				$response['messages'][$key] = form_error($key);
+			}
+		}
+		echo json_encode($response);
 	}
 
 	public function family()
@@ -375,7 +432,7 @@ class Registration extends Admin_Controller
 				$response['success'] = true;
 			} else {
 				$response['success'] = false;
-				$response['messages'] = 'Error in the database while adding background details. Please contact system administrator.';
+				$response['messages'] = 'Error in the database while saving background details. Please contact system administrator.';
 			}
 		} else {
 			$response['success'] = false;
@@ -408,7 +465,7 @@ class Registration extends Admin_Controller
 				$response['success'] = true;
 			} else {
 				$response['success'] = false;
-				$response['messages'] = 'Error in the database while adding life style details. Please contact system administrator.';
+				$response['messages'] = 'Error in the database while saving life style details. Please contact system administrator.';
 			}
 		} else {
 			$response['success'] = false;
