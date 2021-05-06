@@ -231,7 +231,7 @@ class Model_registration extends CI_Model
       'vcEducationLevel' => $this->input->post('EducationLevel'),
       'vcEducationField' => $this->input->post('EducationField'),
       'vcSclUniDescription' => $this->input->post('vcSclUniDescription'),
-      'intNoOfSubmitedForm' => 4
+      'intNoOfSubmitedForm' => 7
     );
     $this->db->where('intUserID', $uid);
     $this->db->update('user', $data);
@@ -285,6 +285,73 @@ class Model_registration extends CI_Model
       return false;
     }
   }
+
+  public function saveCareerDetails()
+  {
+    $uid = 18;
+
+    $data = array(
+      'intWorkingWithId' => $this->input->post('workingWith'),
+      'intWorkingAsSubCatId' => $this->input->post('workingAsSubCat'),
+      'vcWorkingLocation' => $this->input->post('workingLocation'),
+      'intCityIdWorkingIn' => $this->input->post('city'),
+      'vcDescribeCareer' => $this->input->post('describeCareer'),
+      'intNoOfSubmitedForm' => 8
+    );
+
+    $this->db->where('intUserID', $uid);
+    $this->db->update('user', $data);
+    if ($this->db->affected_rows() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public function savePersonalAssestDetailss()
+  {
+    $uid = 18;
+    $incomeRoute = $this->input->post('incomeRoute');
+    $assestRoute = $this->input->post('assestRoute');
+
+    $data = array(
+      'vcMonthlyIncome' => $this->input->post('monthlyIncome'),
+      'vcAssetValue' => $this->input->post('assetValue'),
+      'vcOwnershipOfAssets' => $this->input->post('OwnershipOfAssets'),
+      'intNoOfSubmitedForm' => 9
+    );
+
+    $this->db->trans_begin();
+
+    //insert monthly income route data
+    for ($i = 0; $i < count($incomeRoute); $i++) {
+      $dataincomeRouteTb = array(
+        'vcMonthlyIncomeRoute' => $incomeRoute[$i],
+        'intUserId' => $uid
+      );
+      $this->db->insert('monthly_income_routes', $dataincomeRouteTb);
+    }
+
+    //insert asset route data
+    for ($i = 0; $i < count($assestRoute); $i++) {
+      $datainassestRouteTb = array(
+        'vcAssetRoute' => $assestRoute[$i],
+        'intUserId' => $uid
+      );
+      $this->db->insert('asset_routes', $datainassestRouteTb);
+    }
+
+    $this->db->where('intUserID', $uid);
+    $this->db->update('user', $data);
+    if ($this->db->trans_status() === FALSE) {
+      $this->db->trans_rollback();
+      return false;
+    } else {
+      $this->db->trans_commit();
+      return true;
+    }
+  }
+
   //-----------------------------------
   //END DK
   //-----------------------------------
