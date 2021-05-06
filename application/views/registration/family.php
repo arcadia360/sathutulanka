@@ -27,17 +27,17 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-6">
+            <div class="col-lg-6 col-md-6 col-12">
               <div class="form-group">
                 <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
                 <label class="text-inverse font-weight-bold" for="validationCustom01">Photos of assets, home and family members</label>
               </div>
             </div>
-            <div class="col-6">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile">
-                <label class="custom-file-label" for="customFile">Choose file</label>
-              </div>
+            <div class="col-lg-6 col-md-6 col-12">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-light" data-toggle="modal" data-target="#familyPhoto">
+                Upload <i class="fas fa-upload"></i>
+              </button>
             </div>
           </div>
 
@@ -211,7 +211,7 @@
           <hr>
           <div class="row">
             <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-              <button class="btn btn-info" style="width: 150px;" id="btnBack" type="button">Back</button>
+              <button class="btn btn-info" style="width: 150px;" id="btnBack" type="button">BACK</button>
             </div>
             <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
               <button class="btn btn-info" style="width: 150px;" type="button" id="btnSubmit">CONTINUE</button>
@@ -222,6 +222,38 @@
     </div>
   </div>
   <!-- Container Area End -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="familyPhoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Upload Images</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="col-lg-6 col-sm-6 col-12">
+            <div class="form-group">
+              <label class="custom-file">
+                <input type="file" id="file" class="form-control custom-file-input" required>
+                <span class="custom-file-control"></span>
+                <div class="invalid-feedback">
+                  Please selected any File.
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 </div>
 
