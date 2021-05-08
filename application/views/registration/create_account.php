@@ -658,10 +658,10 @@
         $('#Div_num_of_child').hide();
         $('#marital_status').change(function() {
             var mStatus = $('#marital_status').val();
-            if (mStatus == 'divorced') {
-                $('#Div_num_of_child').show();
-            } else {
+            if (mStatus == 'never married') {
                 $('#Div_num_of_child').hide();
+            } else {
+                $('#Div_num_of_child').show();
             }
         });
 
@@ -732,7 +732,7 @@
                 $("#agreement_check").focus();
             } else {
                 var mStatus = $('#marital_status').val();
-                if (mStatus == 'divorced') {
+                if (mStatus != 'never married') {
                     if ($("#num_of_child :selected").val() == 0) {
                         toastr["error"]("Please Select number of children !");
                         $("#num_of_child").focus();
