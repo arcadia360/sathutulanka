@@ -1,6 +1,4 @@
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;600&display=swap');
-
     body {
         /* margin-top:20px; */
         color: #1a202c;
