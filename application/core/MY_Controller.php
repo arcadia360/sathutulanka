@@ -61,6 +61,15 @@ class Admin_Controller extends MY_Controller
 
 		$this->load->helper('language');
 
+		// Temp 2021-05-08 ViRAJ
+		if (!isset($_SESSION['language_id']) || empty($_SESSION['language_id'])) {  // If Fresh User
+			$logged_in_sess = array(
+				'language_id' => 1 // 1 - English, 2 - Sinhala, 3 - Tamil
+			);
+			$this->session->set_userdata($logged_in_sess);
+		} 
+		// END Temp
+
 		$session_data = $this->session->userdata();
 
 		if ($session_data['language_id'] == 1) { // English

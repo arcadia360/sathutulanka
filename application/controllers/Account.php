@@ -19,8 +19,18 @@ class Account extends Admin_Controller{
 		$this->data['userData'] = $userData;
 
 		$this->render_template('account/my_account', 'My Account',  $this->data);
+	}
 
-		
+	public function AllSingles()
+	{
+
+		// $user_id = $this->session->userdata('user_id');
+		// $user_id = 18;
+		// $userData = $this->Model_account->getUserDate($user_id);
+
+		// $this->data['userData'] = $userData;
+
+		$this->render_template('account/all_singles', 'All Singles',  null);
 	}
 
 }
