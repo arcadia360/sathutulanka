@@ -7,8 +7,9 @@
         <!-- <h3 class="text-center text-inverse font-weight-bold"><?= lang('residance') ?></h3> -->
         <h3 class="text-center text-inverse title">Family</h3>
         <hr>
-        <form class="container" id="needs-validation" novalidate>
+        <!-- <form class="container" id="needs-validation" novalidate> -->
 
+        <form class="form-horizontal" id="submit1" novalidate>
           <div class="row">
             <div class="col-6">
               <div class="form-group">
@@ -26,6 +27,7 @@
               </div>
             </div>
           </div>
+
           <div class="row">
             <div class="col-lg-6 col-md-6 col-12">
               <div class="form-group">
@@ -113,7 +115,6 @@
               </div>
             </div>
           </div>
-
 
           <div class="row">
             <div class="col-12">
@@ -207,14 +208,13 @@
             </div>
           </div>
 
-
           <hr>
           <div class="row">
             <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
               <button class="btn btn-info" style="width: 150px;" id="btnBack" type="button">BACK</button>
             </div>
             <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-              <button class="btn btn-info" style="width: 150px;" type="button" id="btnSubmit">CONTINUE</button>
+              <button class="btn btn-info" style="width: 150px;" type="submit" id="btnSubmit">CONTINUE</button>
             </div>
           </div>
         </form>
@@ -222,7 +222,6 @@
     </div>
   </div>
   <!-- Container Area End -->
-
   <!-- Modal -->
   <div class="modal fade" id="familyPhoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -233,40 +232,128 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          <div class="col-lg-6 col-sm-6 col-12">
-            <div class="form-group">
-              <label class="custom-file">
-                <input type="file" id="file" class="form-control custom-file-input" required>
-                <span class="custom-file-control"></span>
-                <div class="invalid-feedback">
-                  Please selected any File.
-                </div>
-              </label>
+        <form class="form-horizontal" id="submit">
+          <div class="modal-body">
+            <div class="col-12">
+              <div class="form-group">
+                <!-- Image tages for show 5 selecting images  -->
+                <table>
+                  <tr>
+                    <td><img class="img-thumbnail imgUpload" src="" alt="" id="img1"></td>
+                    <td>
+                      <div class="form-group">
+                        <label class="custom-file">
+                          <input type="file" id="file1" name="file1" class="form-control custom-file-input" required>
+                          <span class="custom-file-control"></span>
+                          <div class="invalid-feedback">
+                            Please selected any File.
+                          </div>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><img class="img-thumbnail imgUpload" src="" alt="" id="img2"></td>
+                    <td>
+                      <div class="form-group">
+                        <label class="custom-file">
+                          <input type="file" id="file2" name="file2" class="form-control custom-file-input" required>
+                          <span class="custom-file-control"></span>
+                          <div class="invalid-feedback">
+                            Please selected any File.
+                          </div>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><img class="img-thumbnail imgUpload" src="" alt="" id="img3"></td>
+                    <td>
+                      <div class="form-group">
+                        <label class="custom-file">
+                          <input type="file" id="file3" name="file3" class="form-control custom-file-input" required>
+                          <span class="custom-file-control"></span>
+                          <div class="invalid-feedback">
+                            Please selected any File.
+                          </div>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><img class="img-thumbnail imgUpload" src="" alt="" id="img4"></td>
+                    <td>
+                      <div class="form-group">
+                        <label class="custom-file">
+                          <input type="file" id="file4" name="file4" class="form-control custom-file-input" required>
+                          <span class="custom-file-control"></span>
+                          <div class="invalid-feedback">
+                            Please selected any File.
+                          </div>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><img class="img-thumbnail imgUpload" src="" alt="" id="img5"></td>
+                    <td>
+                      <div class="form-group">
+                        <label class="custom-file">
+                          <input type="file" id="file5" name="file5" class="form-control custom-file-input" required>
+                          <span class="custom-file-control"></span>
+                          <div class="invalid-feedback">
+                            Please selected any File.
+                          </div>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+
+              </div>
             </div>
+
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+            <button class="btn btn-success" id="btn_upload" type="Btnsubmit">Upload</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-
+  <!-- Modal End -->
 
 </div>
 
 <script>
   $(function() {
+
     loadDistricts();
     $('#btnBack').click(function() {
       window.location.href = "<?php echo base_url('Registration/personalAssets') ?>";
     });
 
-    $('#btnSubmit').click(function() {
-      window.location.href = "<?php echo base_url('Registration/afterMarriage') ?>";
+    // $('#btnSubmit').click(function() {
+    //   window.location.href = "<?php echo base_url('Registration/afterMarriage') ?>";
+    // });
+
+    $('#submit').submit(function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: '<?php echo base_url(); ?>Registration/imageUpload',
+        type: "post",
+        data: new FormData(this),
+        processData: false,
+        contentType: false,
+        cache: false,
+        async: false,
+        success: function(data) {
+          alert(data);
+        }
+      });
     });
+
 
     function loadDistricts() {
       $.ajax({
@@ -288,6 +375,79 @@
       });
     }
 
+    // image select and view
+    $(".imgUpload").hide();
+
+    $("#file1").change(function(e) {
+      $('#img1').removeAttr("src");
+      $('#img1').hide();
+      for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
+        var file = e.originalEvent.srcElement.files[i];
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          $('#img1').attr("src", reader.result);
+          $('#img1').show();
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    $("#file2").change(function(e) {
+      $('#img2').removeAttr("src");
+      $('#img2').hide();
+      for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
+        var file = e.originalEvent.srcElement.files[i];
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          $('#img2').attr("src", reader.result);
+          $('#img2').show();
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    $("#file3").change(function(e) {
+      $('#img3').removeAttr("src");
+      $('#img3').hide();
+      for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
+        var file = e.originalEvent.srcElement.files[i];
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          $('#img3').attr("src", reader.result);
+          $('#img3').show();
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    $("#file4").change(function(e) {
+      $('#img4').removeAttr("src");
+      $('#img4').hide();
+      for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
+        var file = e.originalEvent.srcElement.files[i];
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          $('#img4').attr("src", reader.result);
+          $('#img4').show();
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    $("#file5").change(function(e) {
+      $('#img5').removeAttr("src");
+      $('#img5').hide();
+      for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
+        var file = e.originalEvent.srcElement.files[i];
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          $('#img5').attr("src", reader.result);
+          $('#img5').show();
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+    // end image select and view
 
   });
 </script>

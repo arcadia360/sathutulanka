@@ -283,6 +283,64 @@ class Registration extends Admin_Controller
 		$this->render_template_registration('registration/family', 'Family', NULL);
 	}
 
+	public function imageUpload()
+	{
+		$imgName = array();
+
+		$config['upload_path'] = "./assets/images";
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['encrypt_name'] = TRUE;
+
+		$this->load->library('upload', $config);
+
+		if ($this->input->post('file1')) {
+			$result = true;
+		}
+
+		if ($this->upload->do_upload("file1")) {
+			$data = array('upload_data' => $this->upload->data());
+
+			$img4 = $this->input->post('file1');
+			$image = $data['upload_data']['file_name'];
+			// $result = $this->m_upload->simpan_upload($judul, $image);
+			// $imgName['']
+			$result = true;
+		}
+		if ($this->upload->do_upload("file2")) {
+			$data = array('upload_data' => $this->upload->data());
+
+			$img4 = $this->input->post('file2');
+			$image = $data['upload_data']['file_name'];
+			// $result = $this->m_upload->simpan_upload($judul, $image);
+			$result = true;
+		}
+		if ($this->upload->do_upload("file3")) {
+			$data = array('upload_data' => $this->upload->data());
+
+			$img4 = $this->input->post('file3');
+			$image = $data['upload_data']['file_name'];
+			// $result = $this->m_upload->simpan_upload($judul, $image);
+			$result = true;
+		}
+		if ($this->upload->do_upload("file4")) {
+			$data = array('upload_data' => $this->upload->data());
+
+			$img4 = $this->input->post('file4');
+			$image = $data['upload_data']['file_name'];
+			// $result = $this->m_upload->simpan_upload($judul, $image);
+			$result = true;
+		}
+		if ($this->upload->do_upload("file5")) {
+			$data = array('upload_data' => $this->upload->data());
+
+			$img5 = $this->input->post('file5');
+			$image = $data['upload_data']['file_name'];
+			// $result = $this->m_upload->simpan_upload($judul, $image);
+			$result = true;
+		}
+		echo json_decode($result);
+	}
+
 	public function afterMarriage()
 	{
 		$this->render_template_registration('registration/after_marriage', 'After Marriage', NULL);
