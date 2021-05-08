@@ -44,6 +44,9 @@
     <style rel="stylesheet">
         @import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
 
+        body{
+            background-color: #FFFFFF !important;
+        }
         .agreement_label,
         .agreement_label a {
             color: #000000 !important;
