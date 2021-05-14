@@ -68,6 +68,8 @@ class Registration extends Admin_Controller
 			$result = $this->Model_registration->savePhysicalStatus();
 			if ($result == true) {
 				$response['success'] = true;
+				$session_data = array('no_of_submitted_form' => 2);
+				$this->session->set_userdata($session_data);
 			} else {
 				$response['success'] = false;
 				$response['messages'] = 'Error in the database while adding physical status. Please contact service provider.';
@@ -89,30 +91,30 @@ class Registration extends Admin_Controller
 
 	public function addResidenceDetails()
 	{
-		$response = array();
+		// $response = array();
 
-		$this->form_validation->set_rules('liveIn', 'Currently Live In', 'required');
-		$this->form_validation->set_rules('AddressofSriLanka', 'Address of Sri Lanka', 'required');
-		$this->form_validation->set_rules('nativeDistrict', 'Native District', 'required');
+		// $this->form_validation->set_rules('liveIn', 'Currently Live In', 'required');
+		// $this->form_validation->set_rules('AddressofSriLanka', 'Address of Sri Lanka', 'required');
+		// $this->form_validation->set_rules('nativeDistrict', 'Native District', 'required');
 
-		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+		// $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 
-		if ($this->form_validation->run() == TRUE) {
-			$this->load->model('Model_registration');
-			$result = $this->Model_registration->saveResidenceDetails();
-			if ($result == true) {
-				$response['success'] = true;
-			} else {
-				$response['success'] = false;
-				$response['messages'] = 'Error in the database while saving residence details. Please contact system administrator.';
-			}
-		} else {
-			$response['success'] = false;
-			foreach ($_POST as $key => $value) {
-				$response['messages'][$key] = form_error($key);
-			}
-		}
-		echo json_encode($response);
+		// if ($this->form_validation->run() == TRUE) {
+		// 	$this->load->model('Model_registration');
+		$result = $this->Model_registration->saveResidenceDetails();
+		// 	if ($result == true) {
+		// 		$response['success'] = true;
+		// 	} else {
+		// 		$response['success'] = false;
+		// 		$response['messages'] = 'Error in the database while saving residence details. Please contact system administrator.';
+		// 	}
+		// } else {
+		// 	$response['success'] = false;
+		// 	foreach ($_POST as $key => $value) {
+		// 		$response['messages'][$key] = form_error($key);
+		// 	}
+		// }
+		// echo json_encode($response);
 	}
 
 	public function WhoAmI()
