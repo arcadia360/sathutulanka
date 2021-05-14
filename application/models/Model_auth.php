@@ -44,7 +44,7 @@ class Model_auth extends CI_Model
 	{
 		if ($email && $password) {
 			$sql = "SELECT 
-						M.intUserID,
+						M.intMemberID,
 						M.vcNickName,
 						M.vcPassword,
 						M.vcEmail,
