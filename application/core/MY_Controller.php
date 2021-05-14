@@ -37,13 +37,16 @@ class Admin_Controller extends MY_Controller
 			// 	$this->permission = unserialize($group_data['vcPermission']);
 			// }
 		}
+
+		// $this->CheckANdRedirectNextForm();
 	}
 
 	public function logged_in()
 	{
 		$session_data = $this->session->userdata();
 		if ($session_data['logged_in'] == TRUE) {
-			redirect('dashboard', 'refresh');
+			// redirect('dashboard', 'refresh');
+			$this->CheckANdRedirectNextForm();
 		}
 	}
 
@@ -51,12 +54,13 @@ class Admin_Controller extends MY_Controller
 	{
 		$session_data = $this->session->userdata();
 		if ($session_data['logged_in'] == FALSE) {
-			redirect('auth/login', 'refresh');
+			redirect(base_url("Welcome"), 'refresh');
 		}
 	}
 
 	public function render_template($page = null, $title, $data = array()) // For Registerd User
 	{
+
 		$this->data['page_title'] = $title . " | Satutu Lanka";
 
 		$this->load->helper('language');
@@ -67,7 +71,7 @@ class Admin_Controller extends MY_Controller
 				'language_id' => 1 // 1 - English, 2 - Sinhala, 3 - Tamil
 			);
 			$this->session->set_userdata($logged_in_sess);
-		} 
+		}
 		// END Temp
 
 		$session_data = $this->session->userdata();
@@ -88,6 +92,7 @@ class Admin_Controller extends MY_Controller
 
 	public function render_template_registration($page = null, $title, $data = array()) // For Registration User
 	{
+
 		$this->data['page_title'] = $title . " | Satutu Lanka";
 
 		$this->load->helper('language');
@@ -108,6 +113,52 @@ class Admin_Controller extends MY_Controller
 		$this->load->view('registration/header', $this->data);
 		$this->load->view($page);
 		$this->load->view('registration/footer');
+	}
+
+	public function CheckAndRedirectNextForm($formNo = NULL)
+	{
+
+		if ($this->session->userdata('user_id')) {
+			if ($this->session->userdata('group_id') == 1) { 	// Free Account
+				$lastSubmittedFormNo = $this->session->userdata('no_of_submitted_form');
+
+				if ($formNo > $lastSubmittedFormNo || $formNo == 0) {
+
+					if ($lastSubmittedFormNo == 1) {
+						redirect(base_url("Registration/physicalStatus"), 'refresh');
+					} else if ($lastSubmittedFormNo == 2) {
+						redirect(base_url("Registration/residence"), 'refresh');
+					} else if ($lastSubmittedFormNo == 3) {
+						redirect(base_url("Registration/background"), 'refresh');
+					} else if ($lastSubmittedFormNo == 4) {
+						redirect(base_url("Registration/lifeStyle"), 'refresh');
+					} else if ($lastSubmittedFormNo == 5) {
+						redirect(base_url("Registration/WhoAmI"), 'refresh');
+					} else if ($lastSubmittedFormNo == 6) {
+						redirect(base_url("Registration/education"), 'refresh');
+					} else if ($lastSubmittedFormNo == 7) {
+						redirect(base_url("Registration/career"), 'refresh');
+					} else if ($lastSubmittedFormNo == 8) {
+						redirect(base_url("Registration/personalAssets"), 'refresh');
+					} else if ($lastSubmittedFormNo == 9) {
+						redirect(base_url("Registration/family"), 'refresh');
+					} else if ($lastSubmittedFormNo == 10) {
+						// redirect(base_url("Registration/PhysicalStatus"), 'refresh');
+					} else if ($lastSubmittedFormNo == 11) {
+						// redirect(base_url("Registration/PhysicalStatus"), 'refresh');
+					} else if ($lastSubmittedFormNo == 12) {
+						// redirect(base_url("Registration/PhysicalStatus"), 'refresh');
+					} else if ($lastSubmittedFormNo == 13) {
+						// redirect(base_url("Registration/PhysicalStatus"), 'refresh');
+					} else if ($lastSubmittedFormNo == 14) {
+						// redirect(base_url("Registration/PhysicalStatus"), 'refresh');
+					}
+					
+				}
+			}
+		} else {
+			redirect(base_url("Welcome"), 'refresh');
+		}
 	}
 
 	// public function company_currency()

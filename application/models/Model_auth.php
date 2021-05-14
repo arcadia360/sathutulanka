@@ -28,7 +28,7 @@ class Model_auth extends CI_Model
 	public function check_username($username)
 	{
 		if ($username) {
-			$sql = 'SELECT * FROM User WHERE vcUserName = ?';
+			$sql = 'SELECT * FROM User WHERE vcEmail = ?';
 			$query = $this->db->query($sql, array($username));
 			$result = $query->num_rows();
 			return ($result == 1) ? true : false;
@@ -44,24 +44,19 @@ class Model_auth extends CI_Model
 		if($email && $password) {
 			$sql = "SELECT 
 						U.intUserID,
-						U.vcUserName,
+						U.vcNickName,
 						U.vcPassword,
-						U.vcFullName,
 						U.vcEmail,
-						U.vcContactNo,
-						U.dtCreatedDate,
-						U.vcCreatedUser,
-						U.IsActive,
-						U.intBranchID,
 						UG.intUserGroupID,
 						UG.vcGroupName,
-						B.IsMainBranch
+						U.intNoOfSubmitedForm,
+						U.vcGender,
+						1 AS IsActive		
 					FROM 
 						User AS U
 						INNER JOIN UserGroup AS UG ON U.intUserGroupID = UG.intUserGroupID
-						INNER JOIN Branch AS B ON U.intBranchID = B.intBranchID
 					WHERE 
-						U.vcUserName = ?";
+						U.vcEmail = ?";
 						
 			$query = $this->db->query($sql, array($email));
 

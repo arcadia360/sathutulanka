@@ -1,5 +1,5 @@
-<canvas id="sakura"></canvas>
-<div class="btnbg" style="padding-top: 100px;">
+<!-- <canvas id="sakura"></canvas> -->
+<div class="btnbg" style="padding-top: 10px;">
 	<!-- Container Area Start -->
 	<div class="container" style="z-index: 1;">
 		<div class="row">
