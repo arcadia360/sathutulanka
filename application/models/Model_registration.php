@@ -17,34 +17,50 @@ class Model_registration extends CI_Model
   public function savePhysicalStatus()
   {
     $weight = $this->input->post('weight');
-    // arrange from weight and to wight
+    // // arrange from weight and to wight
     $weightsArray = explode("-", $weight);
     $fromWeight = $weightsArray[0];
     $toWeight = $weightsArray[1];
 
     $uid = 18;
 
-    $data = array(
-      'intHeight' => $this->input->post('height'),
-      'intWeightFrom' => $fromWeight,
-      'intWeightTo' => $toWeight,
-      'intBodyTypeID' => $this->input->post('bodyShape'),
-      'intSkinColourID' => $this->input->post('skinColor'),
-      'isDisability' => $this->input->post('disability'),
-      'vcBloodGroup' => $this->input->post('bloodGroup'),
-      'isHealthInfo' => $this->input->post('healthInfo'),
-      'intNoOfSubmitedForm' => 2
+    $NoOfSubmitedForm = null;
+    $data = array();
 
-      // 'intHeight' => 1,
-      // 'intWeightFrom' => 1,
-      // 'intWeightTo' => 1,
-      // 'intBodyTypeID' => 1,
-      // 'intSkinColourID' => 1,
-      // 'isDisability' => 1,
-      // 'vcBloodGroup' => 'fff',
-      // 'isHealthInfo' => 1,
-      // 'intNoOfSubmitedForm' => 2
-    );
+    $this->db->select('intNoOfSubmitedForm');
+    $this->db->from('user');
+    $this->db->where('intUserID', $uid);
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      $row = $query->row_array();
+      $NoOfSubmitedForm = $row['intNoOfSubmitedForm'];
+    }
+
+    if ($NoOfSubmitedForm > 2) {
+      $data = array(
+        'intHeight' => $this->input->post('height'),
+        'intWeightFrom' => $fromWeight,
+        'intWeightTo' => $toWeight,
+        'intBodyTypeID' => $this->input->post('bodyShape'),
+        'intSkinColourID' => $this->input->post('skinColor'),
+        'isDisability' => $this->input->post('disability'),
+        'vcBloodGroup' => $this->input->post('bloodGroup'),
+        'isHealthInfo' => $this->input->post('healthInfo')
+      );
+    } else {
+      $data = array(
+        'intHeight' => $this->input->post('height'),
+        'intWeightFrom' => $fromWeight,
+        'intWeightTo' => $toWeight,
+        'intBodyTypeID' => $this->input->post('bodyShape'),
+        'intSkinColourID' => $this->input->post('skinColor'),
+        'isDisability' => $this->input->post('disability'),
+        'vcBloodGroup' => $this->input->post('bloodGroup'),
+        'isHealthInfo' => $this->input->post('healthInfo'),
+        'intNoOfSubmitedForm' => 2
+      );
+    }
+
     $this->db->where('intUserID', $uid);
     $this->db->update('user', $data);
     if ($this->db->affected_rows() > 0) {
@@ -54,13 +70,13 @@ class Model_registration extends CI_Model
     }
   }
 
-  //Residence
+  //residance details
   public function loadCountries()
   {
 
     $this->db->select('*');
     $this->db->from('country');
-    $this->db->where('intCountryId !=', 1);
+    // $this->db->where('intCountryId !=', 1);
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
@@ -69,7 +85,6 @@ class Model_registration extends CI_Model
       return false;
     }
   }
-
   public function loadDistricts()
   {
 
@@ -106,14 +121,36 @@ class Model_registration extends CI_Model
   {
     $uid = 18;
 
-    $data = array(
-      'vcCurrentlyLiveIn' => $this->input->post('liveIn'),
-      'intCityIdIfLiveInSL' => $this->input->post('city'),
-      'intCountryId' => $this->input->post('country'),
-      'vcAddOfSriLanka' => $this->input->post('AddressofSriLanka'),
-      'intNativeDistrictId' => $this->input->post('nativeDistrict'),
-      'intNoOfSubmitedForm' => 3
-    );
+    $NoOfSubmitedForm = null;
+    $data = array();
+
+    $this->db->select('intNoOfSubmitedForm');
+    $this->db->from('user');
+    $this->db->where('intUserID', $uid);
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      $row = $query->row_array();
+      $NoOfSubmitedForm = $row['intNoOfSubmitedForm'];
+    }
+
+    if ($NoOfSubmitedForm > 3) {
+      $data = array(
+        'vcCurrentlyLiveIn' => $this->input->post('liveIn'),
+        'intCityIdIfLiveInSL' => $this->input->post('city'),
+        'intCountryId' => $this->input->post('country'),
+        'vcAddOfSriLanka' => $this->input->post('AddressofSriLanka'),
+        'intNativeDistrictId' => $this->input->post('nativeDistrict')
+      );
+    } else {
+      $data = array(
+        'vcCurrentlyLiveIn' => $this->input->post('liveIn'),
+        'intCityIdIfLiveInSL' => $this->input->post('city'),
+        'intCountryId' => $this->input->post('country'),
+        'vcAddOfSriLanka' => $this->input->post('AddressofSriLanka'),
+        'intNativeDistrictId' => $this->input->post('nativeDistrict'),
+        'intNoOfSubmitedForm' => 3
+      );
+    }
     $this->db->where('intUserID', $uid);
     $this->db->update('user', $data);
     if ($this->db->affected_rows() > 0) {
@@ -135,14 +172,37 @@ class Model_registration extends CI_Model
     } else {
       $subCasteID = $this->input->post('subCaste');
     }
-    $data = array(
-      'vcMotherTounge' => $this->input->post('motherTongue'),
-      'vcEthnicity' => $this->input->post('ethnicity'),
-      'vcReligion' => $this->input->post('religion'),
-      'intSubCasteId' => $subCasteID,
-      'isPoliceReportCanProvide' => $this->input->post('policeReport'),
-      'intNoOfSubmitedForm' => 4
-    );
+
+    $NoOfSubmitedForm = null;
+    $data = array();
+
+    $this->db->select('intNoOfSubmitedForm');
+    $this->db->from('user');
+    $this->db->where('intUserID', $uid);
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      $row = $query->row_array();
+      $NoOfSubmitedForm = $row['intNoOfSubmitedForm'];
+    }
+
+    if ($NoOfSubmitedForm > 4) {
+      $data = array(
+        'vcMotherTounge' => $this->input->post('motherTongue'),
+        'vcEthnicity' => $this->input->post('ethnicity'),
+        'vcReligion' => $this->input->post('religion'),
+        'intSubCasteId' => $subCasteID,
+        'isPoliceReportCanProvide' => $this->input->post('policeReport')
+      );
+    } else {
+      $data = array(
+        'vcMotherTounge' => $this->input->post('motherTongue'),
+        'vcEthnicity' => $this->input->post('ethnicity'),
+        'vcReligion' => $this->input->post('religion'),
+        'intSubCasteId' => $subCasteID,
+        'isPoliceReportCanProvide' => $this->input->post('policeReport'),
+        'intNoOfSubmitedForm' => 4
+      );
+    }
     $this->db->where('intUserID', $uid);
     $this->db->update('user', $data);
     if ($this->db->affected_rows() > 0) {
@@ -188,17 +248,43 @@ class Model_registration extends CI_Model
     $uid = 18;
 
     $languages = $this->input->post('language');
-    $dataUserTb = array(
-      'vcDiet' => $this->input->post('diet'),
-      'vcDrink' => $this->input->post('drink'),
-      'vcSmoke' => $this->input->post('smoke'),
-      'vcDressAndMakeup' => $this->input->post('dressAndMakeup'),
-      'vcUsedToTravel' => $this->input->post('usedToTravel'),
-      'vcCalToParent' => $this->input->post('CallTtParents'),
-      'vcCustoms' => $this->input->post('customs'),
-      'vcLiveIn' => $this->input->post('LiveIn'),
-      'intNoOfSubmitedForm' => 5
-    );
+
+    $NoOfSubmitedForm = null;
+    $dataUserTb = array();
+
+    $this->db->select('intNoOfSubmitedForm');
+    $this->db->from('user');
+    $this->db->where('intUserID', $uid);
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      $row = $query->row_array();
+      $NoOfSubmitedForm = $row['intNoOfSubmitedForm'];
+    }
+
+    if ($NoOfSubmitedForm > 5) {
+      $dataUserTb = array(
+        'vcDiet' => $this->input->post('diet'),
+        'vcDrink' => $this->input->post('drink'),
+        'vcSmoke' => $this->input->post('smoke'),
+        'vcDressAndMakeup' => $this->input->post('dressAndMakeup'),
+        'vcUsedToTravel' => $this->input->post('usedToTravel'),
+        'vcCalToParent' => $this->input->post('CallTtParents'),
+        'vcCustoms' => $this->input->post('customs'),
+        'vcLiveIn' => $this->input->post('LiveIn')
+      );
+    } else {
+      $dataUserTb = array(
+        'vcDiet' => $this->input->post('diet'),
+        'vcDrink' => $this->input->post('drink'),
+        'vcSmoke' => $this->input->post('smoke'),
+        'vcDressAndMakeup' => $this->input->post('dressAndMakeup'),
+        'vcUsedToTravel' => $this->input->post('usedToTravel'),
+        'vcCalToParent' => $this->input->post('CallTtParents'),
+        'vcCustoms' => $this->input->post('customs'),
+        'vcLiveIn' => $this->input->post('LiveIn'),
+        'intNoOfSubmitedForm' => 5
+      );
+    }
 
     $this->db->trans_begin();
 
@@ -227,12 +313,34 @@ class Model_registration extends CI_Model
   {
     $uid = 18;
 
-    $data = array(
-      'vcEducationLevel' => $this->input->post('EducationLevel'),
-      'vcEducationField' => $this->input->post('EducationField'),
-      'vcSclUniDescription' => $this->input->post('vcSclUniDescription'),
-      'intNoOfSubmitedForm' => 7
-    );
+
+    $NoOfSubmitedForm = null;
+    $data = array();
+
+    $this->db->select('intNoOfSubmitedForm');
+    $this->db->from('user');
+    $this->db->where('intUserID', $uid);
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      $row = $query->row_array();
+      $NoOfSubmitedForm = $row['intNoOfSubmitedForm'];
+    }
+
+    if ($NoOfSubmitedForm > 7) {
+      $data = array(
+        'vcEducationLevel' => $this->input->post('EducationLevel'),
+        'vcEducationField' => $this->input->post('EducationField'),
+        'vcSclUniDescription' => $this->input->post('vcSclUniDescription')
+      );
+    } else {
+      $data = array(
+        'vcEducationLevel' => $this->input->post('EducationLevel'),
+        'vcEducationField' => $this->input->post('EducationField'),
+        'vcSclUniDescription' => $this->input->post('vcSclUniDescription'),
+        'intNoOfSubmitedForm' => 7
+      );
+    }
+
     $this->db->where('intUserID', $uid);
     $this->db->update('user', $data);
     if ($this->db->affected_rows() > 0) {
@@ -290,14 +398,36 @@ class Model_registration extends CI_Model
   {
     $uid = 18;
 
-    $data = array(
-      'intWorkingWithId' => $this->input->post('workingWith'),
-      'intWorkingAsSubCatId' => $this->input->post('workingAsSubCat'),
-      'vcWorkingLocation' => $this->input->post('workingLocation'),
-      'intCityIdWorkingIn' => $this->input->post('city'),
-      'vcDescribeCareer' => $this->input->post('describeCareer'),
-      'intNoOfSubmitedForm' => 8
-    );
+    $NoOfSubmitedForm = null;
+    $data = array();
+
+    $this->db->select('intNoOfSubmitedForm');
+    $this->db->from('user');
+    $this->db->where('intUserID', $uid);
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      $row = $query->row_array();
+      $NoOfSubmitedForm = $row['intNoOfSubmitedForm'];
+    }
+
+    if ($NoOfSubmitedForm > 8) {
+      $data = array(
+        'intWorkingWithId' => $this->input->post('workingWith'),
+        'intWorkingAsSubCatId' => $this->input->post('workingAsSubCat'),
+        'vcWorkingLocation' => $this->input->post('workingLocation'),
+        'intCityIdWorkingIn' => $this->input->post('city'),
+        'vcDescribeCareer' => $this->input->post('describeCareer')
+      );
+    } else {
+      $data = array(
+        'intWorkingWithId' => $this->input->post('workingWith'),
+        'intWorkingAsSubCatId' => $this->input->post('workingAsSubCat'),
+        'vcWorkingLocation' => $this->input->post('workingLocation'),
+        'intCityIdWorkingIn' => $this->input->post('city'),
+        'vcDescribeCareer' => $this->input->post('describeCareer'),
+        'intNoOfSubmitedForm' => 8
+      );
+    }
 
     $this->db->where('intUserID', $uid);
     $this->db->update('user', $data);
@@ -314,12 +444,34 @@ class Model_registration extends CI_Model
     $incomeRoute = $this->input->post('incomeRoute');
     $assestRoute = $this->input->post('assestRoute');
 
-    $data = array(
-      'vcMonthlyIncome' => $this->input->post('monthlyIncome'),
-      'vcAssetValue' => $this->input->post('assetValue'),
-      'vcOwnershipOfAssets' => $this->input->post('OwnershipOfAssets'),
-      'intNoOfSubmitedForm' => 9
-    );
+    $NoOfSubmitedForm = null;
+    $data = array();
+
+    $this->db->select('intNoOfSubmitedForm');
+    $this->db->from('user');
+    $this->db->where('intUserID', $uid);
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      $row = $query->row_array();
+      $NoOfSubmitedForm = $row['intNoOfSubmitedForm'];
+    }
+
+    if ($NoOfSubmitedForm > 9) {
+      $data = array(
+        'vcMonthlyIncome' => $this->input->post('monthlyIncome'),
+        'vcAssetValue' => $this->input->post('assetValue'),
+        'vcOwnershipOfAssets' => $this->input->post('OwnershipOfAssets')
+      );
+    } else {
+      $data = array(
+        'vcMonthlyIncome' => $this->input->post('monthlyIncome'),
+        'vcAssetValue' => $this->input->post('assetValue'),
+        'vcOwnershipOfAssets' => $this->input->post('OwnershipOfAssets'),
+        'intNoOfSubmitedForm' => 9
+      );
+    }
+
+
 
     $this->db->trans_begin();
 
