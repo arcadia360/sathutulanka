@@ -35,7 +35,7 @@
     }
 </style>
 
-<canvas id="sakura"></canvas>
+
 <div class="btnbg" style="padding-top: 100px;">
     <!-- Container Area Start -->
     <div class="container" style="z-index: 1;">
