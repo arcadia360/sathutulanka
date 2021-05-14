@@ -54,7 +54,6 @@ class Auth extends Admin_Controller
                         // }
 
                         $this->CheckAndRedirectNextForm();
-
                     } else {
                         $this->data['errors'] = 'Your account has been deactivated. Please contact administrator !';
                         $this->load->view(base_url("Welcome"), $this->data);
@@ -81,6 +80,4 @@ class Auth extends Admin_Controller
         $this->session->sess_destroy();
         redirect(base_url("Welcome"), 'refresh');
     }
-
-
 }
