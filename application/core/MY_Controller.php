@@ -119,7 +119,7 @@ class Admin_Controller extends MY_Controller
 	{
 
 		if ($this->session->userdata('user_id')) {
-			if ($this->session->userdata('group_id') == 1) { 	// Free Account
+			if ($this->session->userdata('member_account_status_id') == 3) { 	// Email Verification Pending
 				$lastSubmittedFormNo = $this->session->userdata('no_of_submitted_form');
 
 				if ($formNo > $lastSubmittedFormNo || $formNo == 0) {
