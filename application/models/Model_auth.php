@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Model_auth extends CI_Model
 {
@@ -10,10 +10,10 @@ class Model_auth extends CI_Model
 	/* 
 		This function checks if the email exists in the database
 	*/
-	public function check_email($email) 
+	public function check_email($email)
 	{
-		if($email) {
-			$sql = 'SELECT * FROM User WHERE vcEmail = ?';
+		if ($email) {
+			$sql = 'SELECT * FROM member WHERE vcEmail = ?';
 			$query = $this->db->query($sql, array($email));
 			$result = $query->num_rows();
 			return ($result == 1) ? true : false;
@@ -23,12 +23,12 @@ class Model_auth extends CI_Model
 	}
 
 	/* 
-		This function checks if the user name exists in the database
+		This function checks if the member name exists in the database
 	*/
 	public function check_username($username)
 	{
 		if ($username) {
-			$sql = 'SELECT * FROM User WHERE vcEmail = ?';
+			$sql = 'SELECT * FROM member WHERE vcEmail = ?';
 			$query = $this->db->query($sql, array($username));
 			$result = $query->num_rows();
 			return ($result == 1) ? true : false;
@@ -38,10 +38,11 @@ class Model_auth extends CI_Model
 	}
 
 	/* 
-		This function checks if the user name and password matches with the database
+		This function checks if the member name and password matches with the database
 	*/
-	public function login($email, $password) {
-		if($email && $password) {
+	public function login($email, $password)
+	{
+		if ($email && $password) {
 			$sql = "SELECT 
 						U.intUserID,
 						U.vcNickName,
@@ -53,25 +54,23 @@ class Model_auth extends CI_Model
 						U.vcGender,
 						1 AS IsActive		
 					FROM 
-						User AS U
+						member AS U
 						INNER JOIN UserGroup AS UG ON U.intUserGroupID = UG.intUserGroupID
 					WHERE 
 						U.vcEmail = ?";
-						
+
 			$query = $this->db->query($sql, array($email));
 
-			if($query->num_rows() == 1) {
+			if ($query->num_rows() == 1) {
 				$result = $query->row_array();
 
 				$hash_password = password_verify($password, $result['vcPassword']);
-				if($hash_password === true) {
-					return $result;	
-				}
-				else {
+				if ($hash_password === true) {
+					return $result;
+				} else {
 					return false;
-				}				
-			}
-			else {
+				}
+			} else {
 				return false;
 			}
 		}
@@ -79,7 +78,7 @@ class Model_auth extends CI_Model
 
 	// public function getUserGroupByUserId($user_id)
 	// {
-	// 	$sql = "SELECT U.intUserID,U.isAdmin,UG.intUserGroupID,UG.vcGroupName,UG.vcPermission FROM User AS U
+	// 	$sql = "SELECT U.intUserID,U.isAdmin,UG.intUserGroupID,UG.vcGroupName,UG.vcPermission FROM member AS U
 	// 			INNER JOIN UserGroup AS UG ON U.intUserGroupID = UG.intUSerGroupID WHERE U.intUserID = ?";
 	// 	$query = $this->db->query($sql, array($user_id));
 	// 	$result = $query->row_array();
