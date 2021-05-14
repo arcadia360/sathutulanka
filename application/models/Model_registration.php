@@ -8,28 +8,26 @@ class Model_registration extends CI_Model
     $this->load->library('email');
     $this->email->set_mailtype("html");
   }
-
   //-----------------------------------
   //DK
   //-----------------------------------
-
+  private $uid = $this->session->userdata('member_id');
   //Physical Status
   public function savePhysicalStatus()
   {
     $weight = $this->input->post('weight');
-    // // arrange from weight and to wight
+
+    // arrange from weight and to wight
     $weightsArray = explode("-", $weight);
     $fromWeight = $weightsArray[0];
     $toWeight = $weightsArray[1];
-
-    $uid = 18;
 
     $NoOfSubmitedForm = null;
     $data = array();
 
     $this->db->select('intNoOfSubmitedForm');
     $this->db->from('member');
-    $this->db->where('intUserID', $uid);
+    $this->db->where('intUserID', $this->uid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       $row = $query->row_array();
@@ -61,7 +59,7 @@ class Model_registration extends CI_Model
       );
     }
 
-    $this->db->where('intUserID', $uid);
+    $this->db->where('intUserID', $this->uid);
     $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
@@ -119,14 +117,13 @@ class Model_registration extends CI_Model
 
   public function saveResidenceDetails()
   {
-    $uid = 18;
 
     $NoOfSubmitedForm = null;
     $data = array();
 
     $this->db->select('intNoOfSubmitedForm');
     $this->db->from('member');
-    $this->db->where('intUserID', $uid);
+    $this->db->where('intUserID', $this->uid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       $row = $query->row_array();
@@ -151,7 +148,7 @@ class Model_registration extends CI_Model
         'intNoOfSubmitedForm' => 3
       );
     }
-    $this->db->where('intUserID', $uid);
+    $this->db->where('intUserID', $this->uid);
     $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
@@ -162,7 +159,6 @@ class Model_registration extends CI_Model
 
   public function saveBackgroundDetails()
   {
-    $uid = 18;
     $subCasteID = null;
     $CasteID = $this->input->post('caste');
     if ($CasteID == 1) {
@@ -178,7 +174,7 @@ class Model_registration extends CI_Model
 
     $this->db->select('intNoOfSubmitedForm');
     $this->db->from('member');
-    $this->db->where('intUserID', $uid);
+    $this->db->where('intUserID', $this->uid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       $row = $query->row_array();
@@ -203,7 +199,7 @@ class Model_registration extends CI_Model
         'intNoOfSubmitedForm' => 4
       );
     }
-    $this->db->where('intUserID', $uid);
+    $this->db->where('intUserID', $this->uid);
     $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
@@ -245,8 +241,6 @@ class Model_registration extends CI_Model
 
   public function saveLifeStyleDetails()
   {
-    $uid = 18;
-
     $languages = $this->input->post('language');
 
     $NoOfSubmitedForm = null;
@@ -254,7 +248,7 @@ class Model_registration extends CI_Model
 
     $this->db->select('intNoOfSubmitedForm');
     $this->db->from('member');
-    $this->db->where('intUserID', $uid);
+    $this->db->where('intUserID', $this->uid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       $row = $query->row_array();
@@ -288,14 +282,14 @@ class Model_registration extends CI_Model
 
     $this->db->trans_begin();
 
-    $this->db->where('intUserID', $uid);
+    $this->db->where('intUserID', $this->uid);
     $this->db->update('member', $dataUserTb);
 
     //insert languages speak
     for ($i = 0; $i < count($languages); $i++) {
       $dataLanguageSpeakTb = array(
         'vcLanguage' => $languages[$i],
-        'intUserId' => $uid
+        'intUserId' => $this->uid
       );
       $this->db->insert('language_speak', $dataLanguageSpeakTb);
     }
@@ -311,15 +305,12 @@ class Model_registration extends CI_Model
 
   public function saveEducationDetails()
   {
-    $uid = 18;
-
-
     $NoOfSubmitedForm = null;
     $data = array();
 
     $this->db->select('intNoOfSubmitedForm');
     $this->db->from('member');
-    $this->db->where('intUserID', $uid);
+    $this->db->where('intUserID', $this->uid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       $row = $query->row_array();
@@ -341,7 +332,7 @@ class Model_registration extends CI_Model
       );
     }
 
-    $this->db->where('intUserID', $uid);
+    $this->db->where('intUserID', $this->uid);
     $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
@@ -396,14 +387,12 @@ class Model_registration extends CI_Model
 
   public function saveCareerDetails()
   {
-    $uid = 18;
-
     $NoOfSubmitedForm = null;
     $data = array();
 
     $this->db->select('intNoOfSubmitedForm');
     $this->db->from('member');
-    $this->db->where('intUserID', $uid);
+    $this->db->where('intUserID', $this->uid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       $row = $query->row_array();
@@ -429,7 +418,7 @@ class Model_registration extends CI_Model
       );
     }
 
-    $this->db->where('intUserID', $uid);
+    $this->db->where('intUserID', $this->uid);
     $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
@@ -440,7 +429,6 @@ class Model_registration extends CI_Model
 
   public function savePersonalAssestDetailss()
   {
-    $uid = 18;
     $incomeRoute = $this->input->post('incomeRoute');
     $assestRoute = $this->input->post('assestRoute');
 
@@ -449,7 +437,7 @@ class Model_registration extends CI_Model
 
     $this->db->select('intNoOfSubmitedForm');
     $this->db->from('member');
-    $this->db->where('intUserID', $uid);
+    $this->db->where('intUserID', $this->uid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       $row = $query->row_array();
@@ -479,7 +467,7 @@ class Model_registration extends CI_Model
     for ($i = 0; $i < count($incomeRoute); $i++) {
       $dataincomeRouteTb = array(
         'vcMonthlyIncomeRoute' => $incomeRoute[$i],
-        'intUserId' => $uid
+        'intUserId' => $this->uid
       );
       $this->db->insert('monthly_income_routes', $dataincomeRouteTb);
     }
@@ -488,12 +476,12 @@ class Model_registration extends CI_Model
     for ($i = 0; $i < count($assestRoute); $i++) {
       $datainassestRouteTb = array(
         'vcAssetRoute' => $assestRoute[$i],
-        'intUserId' => $uid
+        'intUserId' => $this->uid
       );
       $this->db->insert('asset_routes', $datainassestRouteTb);
     }
 
-    $this->db->where('intUserID', $uid);
+    $this->db->where('intUserID', $this->uid);
     $this->db->update('member', $data);
     if ($this->db->trans_status() === FALSE) {
       $this->db->trans_rollback();
