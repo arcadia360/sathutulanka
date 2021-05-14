@@ -54,7 +54,7 @@ class Model_auth extends CI_Model
 						M.vcGender,
 						1 AS IsActive		
 					FROM 
-						Member AS U
+						Member AS M
 						INNER JOIN MemberAccountStatus AS MAS ON M.intMemberAccountStatusID = MAS.intMemberAccountStatusID
 					WHERE 
 						M.vcEmail = ?";
