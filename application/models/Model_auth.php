@@ -13,7 +13,7 @@ class Model_auth extends CI_Model
 	public function check_email($email) 
 	{
 		if($email) {
-			$sql = 'SELECT * FROM User WHERE vcEmail = ?';
+			$sql = 'SELECT * FROM Member WHERE vcEmail = ?';
 			$query = $this->db->query($sql, array($email));
 			$result = $query->num_rows();
 			return ($result == 1) ? true : false;
@@ -28,7 +28,7 @@ class Model_auth extends CI_Model
 	public function check_username($username)
 	{
 		if ($username) {
-			$sql = 'SELECT * FROM User WHERE vcEmail = ?';
+			$sql = 'SELECT * FROM Member WHERE vcEmail = ?';
 			$query = $this->db->query($sql, array($username));
 			$result = $query->num_rows();
 			return ($result == 1) ? true : false;
@@ -43,20 +43,20 @@ class Model_auth extends CI_Model
 	public function login($email, $password) {
 		if($email && $password) {
 			$sql = "SELECT 
-						U.intUserID,
-						U.vcNickName,
-						U.vcPassword,
-						U.vcEmail,
-						UG.intUserGroupID,
-						UG.vcGroupName,
-						U.intNoOfSubmitedForm,
-						U.vcGender,
+						M.intMemberID,
+						M.vcNickName,
+						M.vcPassword,
+						M.vcEmail,
+						MA.intMemberAccountStatusID,
+						MA.vcMemberAccountStatus,
+						M.intNoOfSubmitedForm,
+						M.vcGender,
 						1 AS IsActive		
 					FROM 
-						User AS U
-						INNER JOIN UserGroup AS UG ON U.intUserGroupID = UG.intUserGroupID
+						Member AS M
+						INNER JOIN MemberAccountStatus AS MA ON M.intMemberAccountStatusID = MA.intMemberAccountStatusID
 					WHERE 
-						U.vcEmail = ?";
+						M.vcEmail = ?";
 						
 			$query = $this->db->query($sql, array($email));
 

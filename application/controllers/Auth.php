@@ -35,25 +35,25 @@ class Auth extends Admin_Controller
                 if ($login) {
                     if ($login['IsActive'] == 1) {
                         $logged_in_sess = array(
-                            'user_id' => $login['intUserID'],
+                            'member_id' => $login['intMemberID'],
                             'nick_name' => $login['vcNickName'],
                             'email' => $login['vcEmail'],
-                            'group_id' => $login['intUserGroupID'],
-                            'group_name' => $login['vcGroupName'],
+                            'member_account_status_id' => $login['intMemberAccountStatusID'],
+                            'member_account_name' => $login['vcMemberAccountStatus'],
                             'no_of_submitted_form'  => $login['intNoOfSubmitedForm'],
                             'gender'  => $login['vcGender'],
                             'language_id' => 1,
                             'logged_in' => TRUE
                         );
 
-                        $this->session->set_userdata($logged_in_sess);
-
-                        // Not Complete Redirect Pages
-                        // if ($login['intNoOfSubmitedForm'] == 1) {
-                        //     redirect(base_url("Registration/PhysicalStatus"), 'refresh');
-                        // }
-
-                        $this->CheckAndRedirectNextForm();
+                        if ($login['intMemberAccountStatusID'] == 1) { // Email Verification Pending
+                            $this->data['errors'] = 'Your email verification has been pending !';
+                        } else if ($login['intMemberAccountStatusID'] == 2) { // OTP Verification Pending
+                            $this->data['errors'] = 'Your OTP verification has been pending !';
+                        } else if ($login['intMemberAccountStatusID'] == 3) { // Member Details Pending
+                            $this->session->set_userdata($logged_in_sess);
+                            $this->CheckAndRedirectNextForm();
+                        }
 
                     } else {
                         $this->data['errors'] = 'Your account has been deactivated. Please contact administrator !';
@@ -81,6 +81,4 @@ class Auth extends Admin_Controller
         $this->session->sess_destroy();
         redirect(base_url("Welcome"), 'refresh');
     }
-
-
 }
