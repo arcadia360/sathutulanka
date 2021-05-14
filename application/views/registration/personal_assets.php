@@ -46,7 +46,7 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input language routeIncome" name="incomeRoute[]" value=">Rent/Lease">
+                                            <input type="checkbox" class="custom-control-input language routeIncome" name="incomeRoute[]" value="Rent/Lease">
                                             <span class="custom-control-indicator"></span>
                                             <span class="custom-control-description">Rent/Lease</span>
                                         </label>
@@ -79,7 +79,7 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input language routeIncome" name="incomeRoute[]" value=">Business">
+                                            <input type="checkbox" class="custom-control-input language routeIncome" name="incomeRoute[]" value="Business">
                                             <span class="custom-control-indicator"></span>
                                             <span class="custom-control-description">Business</span>
                                         </label>

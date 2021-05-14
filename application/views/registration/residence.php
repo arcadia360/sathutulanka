@@ -10,36 +10,12 @@
           <div class="row">
             <div class="col-12">
               <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('currentlyLiveIn') ?></label>
-              <div class="row">
-                <div class="col-6">
-                  <label class="custom-control custom-radio">
-                    <input id="LiveInSriLanka" name="liveIn" type="radio" class="custom-control-input" value="<?= lang('sriLanka') ?>" checked>
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('sriLanka') ?></span>
-                  </label>
-                </div>
-                <div class="col-6">
-                  <label class="custom-control custom-radio">
-                    <input id="LiveInOverSeas" name="liveIn" type="radio" class="custom-control-input" value="<?= lang('overSeas') ?>">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('overSeas') ?></span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row ifOvereSeas">
-            <div class="col-12">
               <div class="form-group">
-                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('Country') ?></label>
                 <select class="custom-select d-block form-control" id="country" name="country">
-
                 </select>
               </div>
             </div>
           </div>
-
           <div class="ifLiveInSriLanka">
             <!-- ifLveInSriLanka -->
             <div class="row">
@@ -49,6 +25,7 @@
                 </div>
               </div>
               <div class="col-6">
+                <label class="text-inverse font-weight-bold">District</label>
                 <div class="form-group">
                   <select class="custom-select d-block form-control" id="district" name="district">
                     <!-- <option value="0"><?= lang('select') ?></option>
@@ -62,6 +39,7 @@
               <div class="col-6">
               </div>
               <div class="col-6">
+                <label class="text-inverse font-weight-bold">City</label>
                 <div class="form-group">
                   <select class="custom-select d-block form-control" id="city" name="city">
 
@@ -115,7 +93,6 @@
 <script>
   $(function() {
 
-    $(".ifOvereSeas").hide();
     loadCountries();
     loadDistricts();
     $('#btnBack').click(function() {
@@ -123,26 +100,40 @@
     });
 
     $('#btnSubmit').click(function() {
-      var liveIn = $("input[name=liveIn]").is(":checked");
+      // var liveIn = $("input[name=liveIn]").is(":checked");
       var LiveInSriLanka = $("#LiveInSriLanka").is(":checked");
       var LiveInOverSeas = $("#LiveInOverSeas").is(":checked");
 
-      if (!liveIn) {
+      // if (!liveIn) {
+      //   toastr["error"]("Please select currently live in");
+      // } else 
+      // if (LiveInSriLanka && $('#district').val() == 0) {
+      //   $("#district").focus();
+      //   toastr["error"]("Please select district");
+      // } else if (LiveInSriLanka && $('#city').val() == 0) {
+      //   $("#city").focus();
+      //   toastr["error"]("Please select city");
+      // } else if (LiveInOverSeas && $('#country').val() == 0) {
+      //   $("#country").focus();
+      //   toastr["error"]("Please select country");
+      // } else if (jQuery.trim($("#AddressofSriLanka").val()).length == 0) {
+      //   toastr["error"]("Please provide address of Sri Lanka");
+      // } else if ($('#nativeDistrict').val() == 0) {
+      //   $("#nativeDistrict").focus();
+      //   toastr["error"]("Please select native district");
+      // }
+
+      if ($('#country').val() == 0) {
+        $("#country").focus();
         toastr["error"]("Please select currently live in");
-      } else if (LiveInSriLanka && $('#district').val() == 0) {
+      } else if ($('#district').val() == 0) {
         $("#district").focus();
         toastr["error"]("Please select district");
-      } else if (LiveInSriLanka && $('#city').val() == 0) {
+      } else if ($('#city').val() == 0) {
         $("#city").focus();
         toastr["error"]("Please select city");
-      } else if (LiveInOverSeas && $('#country').val() == 0) {
-        $("#country").focus();
-        toastr["error"]("Please select country");
       } else if (jQuery.trim($("#AddressofSriLanka").val()).length == 0) {
         toastr["error"]("Please provide address of Sri Lanka");
-      } else if ($('#nativeDistrict').val() == 0) {
-        $("#nativeDistrict").focus();
-        toastr["error"]("Please select native district");
       } else {
         {
           var form = $("#addResidenceDetails");
@@ -253,18 +244,5 @@
         }
       });
     });
-
-    $("#LiveInOverSeas").click(function() {
-      $(".ifLiveInSriLanka").hide();
-      $(".ifOvereSeas").show();
-    });
-
-    $("#LiveInSriLanka").click(function() {
-      $(".ifLiveInSriLanka").show();
-      $(".ifOvereSeas").hide();
-      $("#country").val('0');
-
-    });
-
   });
 </script>

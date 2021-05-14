@@ -70,17 +70,15 @@
                             <!-- style="display:block !important;" -->
                             <thead>
                                 <tr>
-                                    <th>Issue No</th>
-                                    <th>Customer Name</th>
-                                    <th>Issue Date</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Mobile</th>
+                                    <th>Gender</th>
+                                    <th>Date Of Birth</th>
+                                    <th>Marital Status</th>
                                     <th>Created Date</th>
-                                    <th>Created User</th>
-                                    <th>Payment Type</th>
-                                    <th>Sub Total</th>
-                                    <th>Discount</th>
-                                    <th>Grand Total</th>
-                                    <th>Remark</th>
-                                    <th>Payment Status</th>
+                                    <th>Added Days</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
