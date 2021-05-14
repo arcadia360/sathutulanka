@@ -5,23 +5,15 @@ class Welcome extends Admin_Controller {
 
 	public function index()
 	{
-		if (!isset($_SESSION['language_id']) || empty($_SESSION['language_id'])) {  // If Fresh User
-			$logged_in_sess = array(
-				'language_id' => 1 // 1 - English, 2 - Sinhala, 3 - Tamil
-			);
-			$this->session->set_userdata($logged_in_sess);
-		} 
+		// $this->CheckAndRedirectNextForm();
 
-		// $this->load->view('welcome');
-		// $this->session->sess_destroy();
+		if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {  // If Fresh User
+			$this->render_template('welcome', 'W E L C O M E', null);
+		} else{
+			$this->CheckAndRedirectNextForm();
+		}
 
 
-// if (!isset($_SESSION['language_id']) || empty($_SESSION['language_id'])) {  // If Fresh User
-
-// echo "AAA";
-// }
-
-		$this->render_template('welcome', 'W E L C O M E', null);
 	}
 
 	public function ChangeLanguage($LanguageID,$url){

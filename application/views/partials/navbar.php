@@ -40,29 +40,50 @@
         </button>
         <div class="collapse navbar-collapse" id="userNavbarItems">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
-                <li class="nav-item active" style="background-color: #A12744;">
-                    <a class="nav-link" href="#">&nbsp;My&nbsp;Account&nbsp;</a>
-                </li>
-                <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">&nbsp;Singles&nbsp;</a>
-                </li>
-                <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">&nbsp;Suggesitions&nbsp;</a>
-                </li>
-                <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">&nbsp;Notifications&nbsp;</a>
-                </li>
-                <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">&nbsp;Discussions&nbsp;</a>
-                </li>
+                <?php
+                if (isset($_SESSION['user_id']) || !empty($_SESSION['user_id'])) { 
+                ?>
+                    <li class="nav-item active" style="background-color: #A12744;">
+                        <a class="nav-link" href="#">&nbsp;My&nbsp;Account&nbsp;</a>
+                    </li>
+                    <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">&nbsp;Singles&nbsp;</a>
+                    </li>
+                    <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">&nbsp;Suggesitions&nbsp;</a>
+                    </li>
+                    <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">&nbsp;Notifications&nbsp;</a>
+                    </li>
+                    <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">&nbsp;Discussions&nbsp;</a>
+                    </li>
+                <?php
+                }
+                ?>
+
             </ul>
-            <button type="button" class="btn btn-login" data-toggle="modal" data-target="#exampleModal">
-                <?= lang('login'); ?>
-            </button>
+            <?php
+            if ($_SESSION['logged_in'] == TRUE) {
+            ?>
+                <!-- <button type="button" class="btn btn-login" data-toggle="modal" data-target="#exampleModal">LOG OUT </button> -->
+                <a href="<?= base_url('Auth/logout') ?>" class="btn btn-login">
+                    Logout
+                </a>
+            <?php
+            } else {
+            ?>
+                <button type="button" class="btn btn-login" data-toggle="modal" data-target="#exampleModal">
+                    <?= lang('login'); ?>
+                </button>
+            <?php
+            }
+            ?>
+
             <?php
 
             $url = "";
@@ -105,7 +126,7 @@
                     <div class="row">
                         <div class="card card-body" style="border: none;">
 
-                            <form id="submitForm" action="/login" method="post" data-parsley-validate="" data-parsley-errors-messages-disabled="true" novalidate="" _lpchecked="1"><input type="hidden" name="_csrf" value="7635eb83-1f95-4b32-8788-abec2724a9a4">
+                            <form id="submitForm" action="<?= base_url("Auth/login") ?>" method="post" data-parsley-validate="" data-parsley-errors-messages-disabled="true" novalidate="" _lpchecked="1"><input type="hidden" name="_csrf" value="7635eb83-1f95-4b32-8788-abec2724a9a4">
                                 <div class="form-group required">
                                     <lSabel for="username"><?= lang('email_phone') ?></lSabel>
                                     <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
@@ -148,10 +169,10 @@
         </div>
     </div>
 
-</body>
+    <!-- </body>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-</html>
+</html> -->

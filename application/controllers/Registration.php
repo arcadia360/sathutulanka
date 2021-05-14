@@ -17,6 +17,10 @@ class Registration extends Admin_Controller
 
 		$session_data = $this->session->userdata();
 
+		if ($this->session->userdata('user_id')) {
+			$this->CheckAndRedirectNextForm(0);
+		}
+
 		if ($session_data['language_id'] == 1) { // English
 			$this->lang->load('en', 'English');
 		} else if ($session_data['language_id'] == 2) { // Sinhala
@@ -42,7 +46,8 @@ class Registration extends Admin_Controller
 	//DK section Start
 	public function physicalStatus()
 	{
-		$this->render_template_registration('registration/physical_status', 'Add Background Details', NULL);
+		$this->CheckAndRedirectNextForm(1);
+		$this->render_template_registration('registration/physical_status', 'Add Physical Details', NULL);
 	}
 
 	public function addPhysicalStatus()
@@ -78,6 +83,7 @@ class Registration extends Admin_Controller
 
 	public function residence()
 	{
+		$this->CheckAndRedirectNextForm(2);
 		$this->render_template_registration('registration/residence', 'Add Residence Details', NULL);
 	}
 
@@ -111,12 +117,13 @@ class Registration extends Admin_Controller
 
 	public function WhoAmI()
 	{
-		// $this->load->view('registration/header');
+		$this->CheckAndRedirectNextForm();
 		$this->render_template_registration('registration/who_am_i', 'Who Am I', NULL);
 	}
 
 	public function education()
 	{
+		$this->CheckAndRedirectNextForm();
 		$this->render_template_registration('registration/education', 'Education', NULL);
 	}
 	public function addEducationDetails()
@@ -149,6 +156,7 @@ class Registration extends Admin_Controller
 
 	public function career()
 	{
+		$this->CheckAndRedirectNextForm();
 		$this->render_template_registration('registration/career', 'career', NULL);
 	}
 
@@ -247,6 +255,7 @@ class Registration extends Admin_Controller
 
 	public function personalAssets()
 	{
+		$this->CheckAndRedirectNextForm();
 		$this->render_template_registration('registration/personal_assets', 'Personal Assets', NULL);
 	}
 
@@ -280,6 +289,7 @@ class Registration extends Admin_Controller
 
 	public function family()
 	{
+		$this->CheckAndRedirectNextForm();
 		$this->render_template_registration('registration/family', 'Family', NULL);
 	}
 
@@ -343,6 +353,7 @@ class Registration extends Admin_Controller
 
 	public function afterMarriage()
 	{
+		$this->CheckAndRedirectNextForm();
 		$this->render_template_registration('registration/after_marriage', 'After Marriage', NULL);
 	}
 
@@ -430,6 +441,7 @@ class Registration extends Admin_Controller
 
 	public function background()
 	{
+		$this->CheckAndRedirectNextForm(3);
 		$this->render_template_registration('registration/background', 'Add Background Details', NULL);
 	}
 
@@ -503,6 +515,7 @@ class Registration extends Admin_Controller
 
 	public function lifeStyle()
 	{
+		$this->CheckAndRedirectNextForm();
 		$this->render_template_registration('registration/lifeStyle', 'Add Life Style Details', NULL);
 	}
 

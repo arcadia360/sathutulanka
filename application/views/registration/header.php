@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
 
-	<link rel="stylesheet" href="<?php echo base_url('resources/css/registration_form/style.css') ?>">
+	<!-- <link rel="stylesheet" href="<?php echo base_url('resources/css/registration_form/style.css') ?>"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 	<!-- DK CSS -->
 	<link rel="stylesheet" href="<?= base_url('resources/css/common_dk.css') ?>">
@@ -79,8 +79,10 @@
                     <a class="nav-link" href="#">Disabled</a>
                 </li> -->
 			</ul>
-
-			<a class="nav-link btn-lang" href="">සිංහල</a>
+			<a href="<?= base_url('Auth/logout') ?>" class="btn btn-login">
+				Logout
+			</a>
+			<!-- <a class="nav-link btn-lang" href="">සිංහල</a> -->
 
 		</div>
 	</nav>
