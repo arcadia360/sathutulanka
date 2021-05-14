@@ -28,7 +28,7 @@ class Model_registration extends CI_Model
     $data = array();
 
     $this->db->select('intNoOfSubmitedForm');
-    $this->db->from('user');
+    $this->db->from('member');
     $this->db->where('intUserID', $uid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
@@ -62,7 +62,7 @@ class Model_registration extends CI_Model
     }
 
     $this->db->where('intUserID', $uid);
-    $this->db->update('user', $data);
+    $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
     } else {
@@ -125,7 +125,7 @@ class Model_registration extends CI_Model
     $data = array();
 
     $this->db->select('intNoOfSubmitedForm');
-    $this->db->from('user');
+    $this->db->from('member');
     $this->db->where('intUserID', $uid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
@@ -152,7 +152,7 @@ class Model_registration extends CI_Model
       );
     }
     $this->db->where('intUserID', $uid);
-    $this->db->update('user', $data);
+    $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
     } else {
@@ -177,7 +177,7 @@ class Model_registration extends CI_Model
     $data = array();
 
     $this->db->select('intNoOfSubmitedForm');
-    $this->db->from('user');
+    $this->db->from('member');
     $this->db->where('intUserID', $uid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
@@ -204,7 +204,7 @@ class Model_registration extends CI_Model
       );
     }
     $this->db->where('intUserID', $uid);
-    $this->db->update('user', $data);
+    $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
     } else {
@@ -253,7 +253,7 @@ class Model_registration extends CI_Model
     $dataUserTb = array();
 
     $this->db->select('intNoOfSubmitedForm');
-    $this->db->from('user');
+    $this->db->from('member');
     $this->db->where('intUserID', $uid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
@@ -289,7 +289,7 @@ class Model_registration extends CI_Model
     $this->db->trans_begin();
 
     $this->db->where('intUserID', $uid);
-    $this->db->update('user', $dataUserTb);
+    $this->db->update('member', $dataUserTb);
 
     //insert languages speak
     for ($i = 0; $i < count($languages); $i++) {
@@ -318,7 +318,7 @@ class Model_registration extends CI_Model
     $data = array();
 
     $this->db->select('intNoOfSubmitedForm');
-    $this->db->from('user');
+    $this->db->from('member');
     $this->db->where('intUserID', $uid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
@@ -342,7 +342,7 @@ class Model_registration extends CI_Model
     }
 
     $this->db->where('intUserID', $uid);
-    $this->db->update('user', $data);
+    $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
     } else {
@@ -402,7 +402,7 @@ class Model_registration extends CI_Model
     $data = array();
 
     $this->db->select('intNoOfSubmitedForm');
-    $this->db->from('user');
+    $this->db->from('member');
     $this->db->where('intUserID', $uid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
@@ -430,7 +430,7 @@ class Model_registration extends CI_Model
     }
 
     $this->db->where('intUserID', $uid);
-    $this->db->update('user', $data);
+    $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
     } else {
@@ -448,7 +448,7 @@ class Model_registration extends CI_Model
     $data = array();
 
     $this->db->select('intNoOfSubmitedForm');
-    $this->db->from('user');
+    $this->db->from('member');
     $this->db->where('intUserID', $uid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
@@ -494,7 +494,7 @@ class Model_registration extends CI_Model
     }
 
     $this->db->where('intUserID', $uid);
-    $this->db->update('user', $data);
+    $this->db->update('member', $data);
     if ($this->db->trans_status() === FALSE) {
       $this->db->trans_rollback();
       return false;
@@ -546,7 +546,7 @@ class Model_registration extends CI_Model
       'intNoOfSubmitedForm' => 1,
     );
 
-    $this->db->insert('user', $data);
+    $this->db->insert('member', $data);
     $userID = $this->db->insert_id();
 
     $data = array(
@@ -584,7 +584,7 @@ class Model_registration extends CI_Model
     $this->email->from('geekfortechnologycom@gmail.com', "Admin Team");
     $this->email->to($email);
     $this->email->subject("Sathutulanka Email Verification");
-    // $this->email->message("Dear User,\nPlease click on below URL or paste into your browser to verify your Email Address\n\n http://localhost:8012/sathutulanka/Registration/VerificatinEmail/" . $random_EmailCode . "\n" . "\n\nThanks\nAdmin Team");
+    // $this->email->message("Dear member,\nPlease click on below URL or paste into your browser to verify your Email Address\n\n http://localhost:8012/sathutulanka/Registration/VerificatinEmail/" . $random_EmailCode . "\n" . "\n\nThanks\nAdmin Team");
     $message = "";
     $message = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml">
@@ -830,7 +830,7 @@ class Model_registration extends CI_Model
     date_default_timezone_set('Asia/Colombo');
     $nowDateTime = date('Y-m-d h:i:s');
 
-    $sql = "UPDATE registerverification R INNER JOIN user as U on R.intUserID = U.intUserID SET R.IsEmailVerified = 1 , U.intUserAccountStatusTypeID = 2, dtEmailVerifiedDate = '$nowDateTime'  WHERE R.vcEmailCode = ? AND (R.IsOTPVerified IS NULL OR R.IsOTPVerified = 0)";
+    $sql = "UPDATE registerverification R INNER JOIN member as U on R.intUserID = U.intUserID SET R.IsEmailVerified = 1 , U.intUserAccountStatusTypeID = 2, dtEmailVerifiedDate = '$nowDateTime'  WHERE R.vcEmailCode = ? AND (R.IsOTPVerified IS NULL OR R.IsOTPVerified = 0)";
     $this->db->query($sql, array($verificationText));
     return $this->db->affected_rows();
   }
@@ -874,7 +874,7 @@ class Model_registration extends CI_Model
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $headers = [
       'Content-Type: application/json',
-      'USER: ' . $username,
+      'member: ' . $username,
       'DIGEST: ' . $digest,
       'CREATED: ' . $now
     ];
@@ -899,7 +899,7 @@ class Model_registration extends CI_Model
 
   public function getUserDate($verificationText)
   {
-    $sql = "SELECT concat(U.vcCountryCode,vcMobileNo) AS vcMobileNo,vcMobileNo AS Without94,RE.vcOTP,U.intUserID,U.vcEmail,RE.vcEmailCode, RE.intOTPSentCount,U.vcCountryCode FROM user AS U
+    $sql = "SELECT concat(U.vcCountryCode,vcMobileNo) AS vcMobileNo,vcMobileNo AS Without94,RE.vcOTP,U.intUserID,U.vcEmail,RE.vcEmailCode, RE.intOTPSentCount,U.vcCountryCode FROM member AS U
     INNER JOIN registerverification AS RE ON U.intUserID = RE.intUserID
     WHERE RE.vcEmailCode =  ? ";
     $query = $this->db->query($sql, array($verificationText));
@@ -909,7 +909,7 @@ class Model_registration extends CI_Model
   public function upDateMobileNumber($mobile_no, $emailVerificationCode, $countryCode)
   {
     if ($mobile_no) {
-      $sql = "UPDATE  user as U
+      $sql = "UPDATE  member as U
       INNER JOIN registerverification as V on U.intUserID = V.intUserID
       SET U.vcMobileNo ='$mobile_no', U.vcCountryCode = '$countryCode'
       WHERE V.vcEmailCode = ?";
@@ -923,7 +923,7 @@ class Model_registration extends CI_Model
     date_default_timezone_set('Asia/Colombo');
     $nowDateTime = date('Y-m-d h:i:s');
     if ($otpNumber) {
-      $sql = "UPDATE  user as U
+      $sql = "UPDATE  member as U
       INNER JOIN registerverification as V on U.intUserID = V.intUserID
       SET V.IsOTPVerified = 1 , V.dtOTPVerifiedDate = '$nowDateTime' , U.intUserAccountStatusTypeID = 3
       WHERE vcOTP = ? AND V.vcEmailCode = ?";
