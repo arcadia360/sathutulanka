@@ -118,7 +118,7 @@ class Admin_Controller extends MY_Controller
 	public function CheckAndRedirectNextForm($formNo = NULL)
 	{
 
-		if ($this->session->userdata('user_id')) {
+		if ($this->session->userdata('member_id')) {
 			if ($this->session->userdata('member_account_status_id') == 3) { 	// Email Verification Pending
 				$lastSubmittedFormNo = $this->session->userdata('no_of_submitted_form');
 
