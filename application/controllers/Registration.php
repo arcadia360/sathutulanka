@@ -93,7 +93,6 @@ class Registration extends Admin_Controller
 	{
 		$response = array();
 
-		$this->form_validation->set_rules('liveIn', 'Currently Live In', 'required');
 		$this->form_validation->set_rules('AddressofSriLanka', 'Address of Sri Lanka', 'required');
 		$this->form_validation->set_rules('nativeDistrict', 'Native District', 'required');
 
@@ -104,6 +103,8 @@ class Registration extends Admin_Controller
 			$result = $this->Model_registration->saveResidenceDetails();
 			if ($result == true) {
 				$response['success'] = true;
+				$session_data = array('no_of_submitted_form' => 3);
+				$this->session->set_userdata($session_data);
 			} else {
 				$response['success'] = false;
 				$response['messages'] = 'Error in the database while saving residence details. Please contact system administrator.';
