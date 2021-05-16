@@ -135,7 +135,6 @@ class Model_registration extends CI_Model
 
     if ($NoOfSubmitedForm > 3) {
       $data = array(
-        // 'vcCurrentlyLiveIn' => $this->input->post('liveIn'),
         'intCityIdIfLiveInSL' => $this->input->post('city'),
         'intCountryId' => $this->input->post('country'),
         'vcAddOfSriLanka' => $this->input->post('AddressofSriLanka'),
@@ -143,7 +142,6 @@ class Model_registration extends CI_Model
       );
     } else {
       $data = array(
-        // 'vcCurrentlyLiveIn' => $this->input->post('liveIn'),
         'intCityIdIfLiveInSL' => $this->input->post('city'),
         'intCountryId' => $this->input->post('country'),
         'vcAddOfSriLanka' => $this->input->post('AddressofSriLanka'),
@@ -154,14 +152,9 @@ class Model_registration extends CI_Model
     $this->db->where('intMemberID', $uid);
     $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
-      // return true;
-      // var_dump($this->db->error());
-
-
+      return true;
     } else {
-      // return false;
-      // echo $uid;
-      var_dump($data);
+      return false;
     }
   }
 
