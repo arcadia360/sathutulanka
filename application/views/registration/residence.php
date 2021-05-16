@@ -173,7 +173,6 @@
           });
         }
       }
-      // window.location.href = "<?php echo base_url('Registration/background') ?>";
     });
 
     //load countries
