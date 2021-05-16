@@ -25,11 +25,11 @@
             <?php
             if ($_SESSION['language_id'] == 1) { // Current Language - English
             ?>
-                <img class="img-fluid navbar-logo" src="<?= base_url('resources/images/navbar-logo-en.png') ?>" alt="Sathutu Lanka">
+                <img class="navbar-logo" src="<?= base_url('resources/images/navbar-logo-en.png') ?>" alt="Sathutu Lanka">
             <?php
             } else if ($_SESSION['language_id'] == 2) { // Current Language - Sinhala
             ?>
-                <img class="img-fluid navbar-logo" src="<?= base_url('resources/images/navbar-logo-si.png') ?>" alt="සතුටු ලංකා">
+                <img class="navbar-logo" src="<?= base_url('resources/images/navbar-logo-si.png') ?>" alt="සතුටු ලංකා">
             <?php
             }
             ?>

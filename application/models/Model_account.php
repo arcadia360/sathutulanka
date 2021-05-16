@@ -9,8 +9,38 @@ class Model_account extends CI_Model
 
   public function getUserDate($UserID)
   {
-    $sql = "SELECT intUserID, vcNickName, vcCountryCode, vcMobileNo, vcPassword, vcEmail, vcProvidingInformationType, vcGender, dtDOB, vcMaritalStatus, vcNoOfChildren, intUserAccountStatusTypeID, vcMarriageType, intNoOfSubmitedForm, intHeight, intWeightFrom, intWeightTo, intBodyTypeID, intSkinColourID, isDisability, vcBloodGroup, isHealthInfo, vcMotherTounge, vcEthnicity, vcReligion, isPoliceReportCanProvide
-      FROM member WHERE intUserID =   ? ";
+    $sql = "
+          SELECT 
+            intMemberID, 
+            vcNickName, 
+            vcCountryCode, 
+            vcMobileNo, 
+            vcPassword, 
+            vcEmail, 
+            vcProvidingInformationType, 
+            vcGender, 
+            dtDOB, 
+            vcMaritalStatus, 
+            vcNoOfChildren, 
+            intMemberAccountStatusID, 
+            vcMarriageType, 
+            intNoOfSubmitedForm, 
+            intHeight, 
+            intWeightFrom, 
+            intWeightTo, 
+            intBodyTypeID, 
+            intSkinColourID, 
+            isDisability, 
+            vcBloodGroup, 
+            isHealthInfo, 
+            vcMotherTounge, 
+            vcEthnicity, vcReligion, 
+            isPoliceReportCanProvide
+          FROM 
+            Member 
+          WHERE 
+            intMemberID =   ? ";
+
     $query = $this->db->query($sql, array($UserID));
     return $query->row_array();
   }

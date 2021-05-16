@@ -33,4 +33,16 @@ class Account extends Admin_Controller{
 		$this->render_template('account/all_singles', 'All Singles',  null);
 	}
 
+	public function MatchProfile()
+	{
+
+		// $user_id = $this->session->userdata('user_id');
+		// $user_id = 18;
+		// $userData = $this->Model_account->getUserDate($user_id);
+
+		// $this->data['userData'] = $userData;
+
+		$this->render_template('account/match_profile', 'Match Profile',  null);
+	}
+
 }
