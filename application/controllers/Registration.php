@@ -620,7 +620,7 @@ class Registration extends Admin_Controller
 		$random_EmailCode = "";
 		$random_EmailCode = substr(md5(uniqid(rand(), true)), 16, 16);
 
-		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.vcEmail]');
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[member.vcEmail]');
 
 		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 
