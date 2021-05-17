@@ -503,6 +503,51 @@ class Model_registration extends CI_Model
       return true;
     }
   }
+  public function saveFamilyDetailss()
+  {
+    $uid = $this->session->userdata('member_id');
+
+    $this->db->select('intNoOfSubmitedForm');
+    $this->db->from('member');
+    $this->db->where('intMemberID', $uid);
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      $row = $query->row_array();
+      $NoOfSubmitedForm = $row['intNoOfSubmitedForm'];
+    }
+
+    if ($NoOfSubmitedForm > 10) {
+      $data = array(
+        'intFamilyLocationID' => $this->input->post('district'),
+        'vcFamilyType' => $this->input->post('Family-Type'),
+        'vcFamilyValues' => $this->input->post('Family-Values'),
+        'vcFamilyClass' => $this->input->post('Family-Class'),
+        'vcFamilyCulture' => $this->input->post('Family-Culture'),
+        'vcFatherStatus' => $this->input->post('Father-Status'),
+        'vcMotherStatus' => $this->input->post('Mother-Status'),
+        'vcFamilyDetails' => $this->input->post('Add-Family-Details')
+      );
+    } else {
+      $data = array(
+        'intFamilyLocationID' => $this->input->post('district'),
+        'vcFamilyType' => $this->input->post('Family-Type'),
+        'vcFamilyValues' => $this->input->post('Family-Values'),
+        'vcFamilyClass' => $this->input->post('Family-Class'),
+        'vcFamilyCulture' => $this->input->post('Family-Culture'),
+        'vcFatherStatus' => $this->input->post('Father-Status'),
+        'vcMotherStatus' => $this->input->post('Mother-Status'),
+        'vcFamilyDetails' => $this->input->post('Add-Family-Details'),
+        'intNoOfSubmitedForm' => 10
+      );
+    }
+    $this->db->where('intMemberID', $uid);
+    $this->db->update('member', $data);
+    if ($this->db->affected_rows() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   //-----------------------------------
   //END DK
