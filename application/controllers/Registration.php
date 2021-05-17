@@ -134,7 +134,7 @@ class Registration extends Admin_Controller
 
 	public function WhoAmI()
 	{
-		$this->CheckAndRedirectNextForm();
+		$this->CheckAndRedirectNextForm(5);
 		$this->render_template_registration('registration/who_am_i', 'Who Am I', NULL);
 
 		// $this->load->helper('language');
@@ -146,14 +146,14 @@ class Registration extends Admin_Controller
 
 	public function education()
 	{
-		$this->CheckAndRedirectNextForm();
-		$this->render_template_registration('registration/education', 'Education', NULL);
+		// $this->CheckAndRedirectNextForm();
+		// $this->render_template_registration('registration/education', 'Education', NULL);
 
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/education');
-		// $this->load->view('registration/footer');
+		$this->load->helper('language');
+		$this->lang->load('en', 'English');
+		$this->load->view('registration/header');
+		$this->load->view('registration/education');
+		$this->load->view('registration/footer');
 	}
 	public function addEducationDetails()
 	{
@@ -185,14 +185,14 @@ class Registration extends Admin_Controller
 
 	public function career()
 	{
-		$this->CheckAndRedirectNextForm();
-		$this->render_template_registration('registration/career', 'career', NULL);
+		// $this->CheckAndRedirectNextForm();
+		// $this->render_template_registration('registration/career', 'career', NULL);
 
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/career');
-		// $this->load->view('registration/footer');
+		$this->load->helper('language');
+		$this->lang->load('en', 'English');
+		$this->load->view('registration/header');
+		$this->load->view('registration/career');
+		$this->load->view('registration/footer');
 	}
 
 	// Load working with data to career details form
@@ -287,14 +287,14 @@ class Registration extends Admin_Controller
 
 	public function personalAssets()
 	{
-		$this->CheckAndRedirectNextForm();
-		$this->render_template_registration('registration/personal_assets', 'Personal Assets', NULL);
+		// $this->CheckAndRedirectNextForm();
+		// $this->render_template_registration('registration/personal_assets', 'Personal Assets', NULL);
 
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/personal_assets');
-		// $this->load->view('registration/footer');
+		$this->load->helper('language');
+		$this->lang->load('en', 'English');
+		$this->load->view('registration/header');
+		$this->load->view('registration/personal_assets');
+		$this->load->view('registration/footer');
 	}
 
 	public function addPersonalAssestDetails()
@@ -327,84 +327,53 @@ class Registration extends Admin_Controller
 
 	public function family()
 	{
-		$this->CheckAndRedirectNextForm();
-		$this->render_template_registration('registration/family', 'Family', NULL);
+		// $this->CheckAndRedirectNextForm();
+		// $this->render_template_registration('registration/family', 'Family', NULL);
 
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/family');
-		// $this->load->view('registration/footer');
+		$this->load->helper('language');
+		$this->lang->load('en', 'English');
+		$this->load->view('registration/header');
+		$this->load->view('registration/family');
+		$this->load->view('registration/footer');
 	}
 
-	public function imageUpload()
+	public function addFamilyDetails()
 	{
-		$imgName = array();
+		$response = array();
 
-		$config['upload_path'] = "./assets/images";
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['encrypt_name'] = TRUE;
+		$this->form_validation->set_rules('district', 'Family Location', 'required');
+		$this->form_validation->set_rules('Add-Family-Details', 'Add Family Details', 'required');
 
-		$this->load->library('upload', $config);
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 
-		if ($this->input->post('file1')) {
-			$result = true;
+		if ($this->form_validation->run() == TRUE) {
+			$this->load->model('Model_registration');
+			$result = $this->Model_registration->saveFamilyDetailss();
+			if ($result == true) {
+				$response['success'] = true;
+			} else {
+				$response['success'] = false;
+				$response['messages'] = 'Error in the database while saving family details. Please contact system administrator.';
+			}
+		} else {
+			$response['success'] = false;
+			foreach ($_POST as $key => $value) {
+				$response['messages'][$key] = form_error($key);
+			}
 		}
-
-		if ($this->upload->do_upload("file1")) {
-			$data = array('upload_data' => $this->upload->data());
-
-			$img4 = $this->input->post('file1');
-			$image = $data['upload_data']['file_name'];
-			// $result = $this->m_upload->simpan_upload($judul, $image);
-			// $imgName['']
-			$result = true;
-		}
-		if ($this->upload->do_upload("file2")) {
-			$data = array('upload_data' => $this->upload->data());
-
-			$img4 = $this->input->post('file2');
-			$image = $data['upload_data']['file_name'];
-			// $result = $this->m_upload->simpan_upload($judul, $image);
-			$result = true;
-		}
-		if ($this->upload->do_upload("file3")) {
-			$data = array('upload_data' => $this->upload->data());
-
-			$img4 = $this->input->post('file3');
-			$image = $data['upload_data']['file_name'];
-			// $result = $this->m_upload->simpan_upload($judul, $image);
-			$result = true;
-		}
-		if ($this->upload->do_upload("file4")) {
-			$data = array('upload_data' => $this->upload->data());
-
-			$img4 = $this->input->post('file4');
-			$image = $data['upload_data']['file_name'];
-			// $result = $this->m_upload->simpan_upload($judul, $image);
-			$result = true;
-		}
-		if ($this->upload->do_upload("file5")) {
-			$data = array('upload_data' => $this->upload->data());
-
-			$img5 = $this->input->post('file5');
-			$image = $data['upload_data']['file_name'];
-			// $result = $this->m_upload->simpan_upload($judul, $image);
-			$result = true;
-		}
-		echo json_decode($result);
+		echo json_encode($response);
 	}
 
 	public function afterMarriage()
 	{
-		$this->CheckAndRedirectNextForm();
-		$this->render_template_registration('registration/after_marriage', 'After Marriage', NULL);
+		// $this->CheckAndRedirectNextForm();
+		// $this->render_template_registration('registration/after_marriage', 'After Marriage', NULL);
 
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/after_marriage');
-		// $this->load->view('registration/footer');
+		$this->load->helper('language');
+		$this->lang->load('en', 'English');
+		$this->load->view('registration/header');
+		$this->load->view('registration/after_marriage');
+		$this->load->view('registration/footer');
 	}
 
 	public function LoadCountries()
@@ -491,14 +460,14 @@ class Registration extends Admin_Controller
 
 	public function background()
 	{
-		$this->CheckAndRedirectNextForm(3);
-		$this->render_template_registration('registration/background', 'Add Background Details', NULL);
+		// $this->CheckAndRedirectNextForm(3);
+		// $this->render_template_registration('registration/background', 'Add Background Details', NULL);
 
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/background');
-		// $this->load->view('registration/footer');
+		$this->load->helper('language');
+		$this->lang->load('en', 'English');
+		$this->load->view('registration/header');
+		$this->load->view('registration/background');
+		$this->load->view('registration/footer');
 	}
 
 	public function loadCaste()
@@ -556,6 +525,8 @@ class Registration extends Admin_Controller
 			$result = $this->Model_registration->saveBackgroundDetails();
 			if ($result == true) {
 				$response['success'] = true;
+				$session_data = array('no_of_submitted_form' => 4);
+				$this->session->set_userdata($session_data);
 			} else {
 				$response['success'] = false;
 				$response['messages'] = 'Error in the database while saving background details. Please contact system administrator.';
@@ -571,14 +542,14 @@ class Registration extends Admin_Controller
 
 	public function lifeStyle()
 	{
-		$this->CheckAndRedirectNextForm(4);
-		$this->render_template_registration('registration/lifeStyle', 'Add Life Style Details', NULL);
+		// $this->CheckAndRedirectNextForm(4);
+		// $this->render_template_registration('registration/lifeStyle', 'Add Life Style Details', NULL);
 
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/lifeStyle');
-		// $this->load->view('registration/footer');
+		$this->load->helper('language');
+		$this->lang->load('en', 'English');
+		$this->load->view('registration/header');
+		$this->load->view('registration/lifeStyle');
+		$this->load->view('registration/footer');
 	}
 
 	public function addLifeStyleDetails()
@@ -596,6 +567,8 @@ class Registration extends Admin_Controller
 			$result = $this->Model_registration->saveLifeStyleDetails();
 			if ($result == true) {
 				$response['success'] = true;
+				$session_data = array('no_of_submitted_form' => 5);
+				$this->session->set_userdata($session_data);
 			} else {
 				$response['success'] = false;
 				$response['messages'] = 'Error in the database while saving life style details. Please contact system administrator.';

@@ -1,272 +1,206 @@
-<div class="btnbg" style="padding-top: 100px;">
+<div class="btnbg" style="padding-top: 10px;">
     <!-- Container Area Start -->
     <div class="container" style="z-index: 1;">
         <div class="row">
             <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
                 <h3 class="text-center text-inverse title">After Marriage</h3>
-                <hr>
+                <!-- <hr> -->
 
-                <div class="col-md-12">
 
-                    <p class="p20 text-dark gill-sans-mt-regular-font mb-2"><span class="text-uppercase">Prefer to Live</span></p>
+                <!-- dk start -->
+                <form method="post" action="<?= base_url('Registration/addFamilyDetails') ?>" id="addFamilyDetails">
+                    <div class="row">
+                        <div class="col-12">
+                            <label class="text-inverse font-weight-bold" for="validationCustom01">Preffer to Live</label>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="custom-control custom-radio">
+                                        <input name="Family-Type" id="familyTypeJoin" type="radio" class="custom-control-input" value="Join">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">In my home</span>
+                                    </label>
+                                </div>
+                                <div class="col-4">
+                                    <label class="custom-control custom-radio">
+                                        <input name="Family-Type" id="familyTypeNotJoin" type="radio" class="custom-control-input" value="Not join">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">In my parent's home</span>
+                                    </label>
+                                </div>
+                                <div class="col-4">
+                                    <label class="custom-control custom-radio">
+                                        <input name="Family-Type" id="familyTypeNotJoin" type="radio" class="custom-control-input" value="Not join">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">As partner wish</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="custom-control custom-radio">
+                                        <input name="Family-Type" id="familyTypeJoin" type="radio" class="custom-control-input" value="Join">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Separated other place</span>
+                                    </label>
+                                </div>
+                                <div class="col-4">
+                                    <label class="custom-control custom-radio">
+                                        <input name="Family-Type" id="familyTypeNotJoin" type="radio" class="custom-control-input" value="Not join">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Outside of Sri lanka</span>
+                                    </label>
+                                </div>
+                                <div class="col-4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-                                    <input type="radio" name="prefer_to_live" value="739">
-
-
-                                    <span class="checkmark"></span>
-                                </label>
+                        <div class="col-12">
+                            <label class="text-inverse font-weight-bold" for="validationCustom01">Help Family</label>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="custom-control custom-radio">
+                                        <input name="HelpFamily" type="radio" class="custom-control-input" value="yes">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Yes</span>
+                                    </label>
+                                </div>
+                                <div class="col-4">
+                                    <label class="custom-control custom-radio">
+                                        <input name="HelpFamily" type="radio" class="custom-control-input" value="Care of parents">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Care of parents</span>
+                                    </label>
+                                </div>
+                                <div class="col-4">
+                                    <label class="custom-control custom-radio">
+                                        <input name="HelpFamily" type="radio" class="custom-control-input" value="No need much help">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">No need much help</span>
+                                    </label>
+                                </div>
                             </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">In my home</p>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-                                    <input type="radio" name="prefer_to_live" value="740">
-
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">In my parent&#039;s home</p>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-                                    <input checked type="radio" name="prefer_to_live" value="741">
-
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">As partner wish</p>
-                        </div>
-                        <div class="col-md-6">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-                                    <input type="radio" name="prefer_to_live" value="742">
-
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">Separated other place </p>
-                        </div>
-                        <div class="col-md-6">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-                                    <input type="radio" name="prefer_to_live" value="743">
-
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">Outside of Sri lanka</p>
                         </div>
                     </div>
-                </div>
-
-
-                <div class="col-md-12 pt-4">
-
-                    <p class="p20 text-dark gill-sans-mt-regular-font mb-2"><span class="text-uppercase">Help Family</span></p>
-
 
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-                                    <input checked type="radio" name="help_family" value="744">
-
-                                    <span class="checkmark"></span>
-                                </label>
+                        <div class="col-12">
+                            <label class="text-inverse font-weight-bold" for="validationCustom01">Job</label>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="custom-control custom-radio">
+                                        <input name="Job" type="radio" class="custom-control-input" value="Good to continue">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Good to continue</span>
+                                    </label>
+                                </div>
+                                <div class="col-4">
+                                    <label class="custom-control custom-radio">
+                                        <input name="Job" type="radio" class="custom-control-input" value="As partner wish">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">As partner wish</span>
+                                    </label>
+                                </div>
+                                <div class="col-4">
+                                    <label class="custom-control custom-radio">
+                                        <input name="Job" type="radio" class="custom-control-input" value="Cannot stop">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Cannot stop</span>
+                                    </label>
+                                </div>
                             </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">Yes</p>
-                        </div>
-                        <div class="col-md-4">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-                                    <input type="radio" name="help_family" value="745">
-
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">Care of parents</p>
-                        </div>
-                        <div class="col-md-4">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-
-                                    <input type="radio" name="help_family" value="746">
-
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">No need much help</p>
                         </div>
                     </div>
-                </div>
-
-
-
-                <div class="col-md-12 pt-4">
-
-                    <p class="p20 text-dark gill-sans-mt-regular-font mb-2"><span class="text-uppercase">Job</span></p>
-
 
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-                                    <input checked type="radio" name="after_marriage_job" value="747">
-
-                                    <span class="checkmark"></span>
-                                </label>
+                        <div class="col-12">
+                            <label class="text-inverse font-weight-bold" for="validationCustom01">Education</label>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="custom-control custom-radio">
+                                        <input name="Job" type="radio" class="custom-control-input" value="Good to continue">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Good to continue</span>
+                                    </label>
+                                </div>
+                                <div class="col-4">
+                                    <label class="custom-control custom-radio">
+                                        <input name="Job" type="radio" class="custom-control-input" value="As partner wish">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">As partner wish</span>
+                                    </label>
+                                </div>
+                                <div class="col-4">
+                                    <label class="custom-control custom-radio">
+                                        <input name="Job" type="radio" class="custom-control-input" value="Cannot stop">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Cannot stop</span>
+                                    </label>
+                                </div>
                             </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">Good to continue</p>
-                        </div>
-                        <div class="col-md-4">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-
-                                    <input type="radio" name="after_marriage_job" value="748">
-
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">As partner wish</p>
-                        </div>
-                        <div class="col-md-4">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-
-                                    <input type="radio" name="after_marriage_job" value="749">
-
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">Cannot stop</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-12 pt-4">
-
-                    <p class="p20 text-dark gill-sans-mt-regular-font mb-2"><span class="text-uppercase">Education</span></p>
-
 
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-
-                                    <input type="radio" name="after_marriage_education" value="750">
-
-
-                                    <span class="checkmark"></span>
-                                </label>
+                        <div class="col-12">
+                            <label class="text-inverse font-weight-bold" for="validationCustom01">Children Likes</label>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label class="custom-control custom-radio">
+                                        <input name="ChildrenLikes" type="radio" class="custom-control-input" value="no">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">No</span>
+                                    </label>
+                                </div>
+                                <div class="col-3">
+                                    <label class="custom-control custom-radio">
+                                        <input name="ChildrenLikes" type="radio" class="custom-control-input" value="1">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">1</span>
+                                    </label>
+                                </div>
+                                <div class="col-3">
+                                    <label class="custom-control custom-radio">
+                                        <input name="ChildrenLikes" type="radio" class="custom-control-input" value="2">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">2</span>
+                                    </label>
+                                </div>
+                                <div class="col-3">
+                                    <label class="custom-control custom-radio">
+                                        <input name="ChildrenLikes" type="radio" class="custom-control-input" value="over 2">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Over 2</span>
+                                    </label>
+                                </div>
                             </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">Good to continue</p>
-                        </div>
-                        <div class="col-md-4">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-                                    <input checked type="radio" name="after_marriage_education" value="751">
-
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">As partner wish</p>
-                        </div>
-                        <div class="col-md-4">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-                                    <input type="radio" name="after_marriage_education" value="752">
-
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">Cannot stop</p>
                         </div>
                     </div>
-                </div>
-
-
-
-                <div class="col-md-12 pt-4">
-
-                    <p class="p20 text-dark gill-sans-mt-regular-font mb-2"><span class="text-uppercase">Children Likes</span></p>
-
 
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-                                    <input checked type="radio" name="children_likes" value="753">
-
-                                    <span class="checkmark"></span>
-                                </label>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="text-inverse font-weight-bold" for="validationCustom01">Other Needs</label>
                             </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">No</p>
                         </div>
-                        <div class="col-md-6">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-                                    <input type="radio" name="children_likes" value="754">
-
-                                    <span class="checkmark"></span>
-                                </label>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <textarea class="form-control" id="Add-Family-Details" rows="5" name="Add-Family-Details"></textarea>
                             </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">1</p>
-                        </div>
-                        <div class="col-md-6">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-                                    <input type="radio" name="children_likes" value="755">
-
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">2</p>
-                        </div>
-                        <div class="col-md-6">
-                            <div class=" col-md-12 px-0">
-                                <label class="containersa">
-                                    <input type="radio" name="children_likes" value="756">
-
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p class="p20 text-dark gill-sans-mt-regular-font ml-40 mb-0 gray-color-4">Over 2</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-12 pt-4">
-                    <div class="col-md-12 px-0">
-
-                        <p class="p20 text-dark gill-sans-mt-regular-font mb-2"><span class="text-uppercase">Other Needs</span></p>
-
-
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
+                            <button class="btn btn-info" style="width: 150px;" id="btnBack" type="button">BACK</button>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
+                            <button class="btn btn-info" style="width: 150px;" type="button" id="btnSubmit">CONTINUE</button>
+                        </div>
                     </div>
-                    <div class="col-md-12 px-0">
-                        <textarea class="boxsizingBorder gray-color-4" name="after_marriage_other_needs" rows="6" cols="65" placeholder="Type Here..."></textarea>
-
-                    </div>
-                </div>
-
-
-                <hr>
-                <div class="row">
-                    <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-                        <button class="btn btn-info" style="width: 150px;" id="btnBack" type="button">Back</button>
-                    </div>
-                    <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-                        <button class="btn btn-info" style="width: 150px;" type="button" id="btnSubmit">CONTINUE</button>
-                    </div>
-                </div>
                 </form>
+                <!-- dk end -->
             </div>
         </div>
     </div>

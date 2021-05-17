@@ -1,4 +1,4 @@
-<div class="btnbg" style="padding-top: 100px;">
+<div class="btnbg" style="padding-top: 10px;">
     <!-- Container Area Start -->
     <div class="container" style="z-index: 1;">
         <div class="row">
@@ -211,7 +211,7 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input language assetRoutes" name="assestRoute[]" value=">Ask (My Story)">
+                                            <input type="checkbox" class="custom-control-input language assetRoutes" name="assestRoute[]" value="Ask (My Story)">
                                             <span class="custom-control-indicator"></span>
                                             <span class="custom-control-description">Ask (My Story)</span>
                                         </label>
@@ -323,14 +323,16 @@
                     dataType: 'json',
                     success: function(response) {
                         if (response.success == true) {
-                            swal({
-                                title: 'Success!',
-                                text: "Personal assets details saved successfully!",
-                                type: 'success',
-                                confirmButtonText: 'OK'
-                            }).then(() => {
-                                window.location.href = "<?php echo base_url('Registration/family') ?>";
-                            });
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Personal assets saved successfully!',
+                                showConfirmButton: false,
+                                timer: 2000
+                            }).then((result) => {
+                                if (result.dismiss === Swal.DismissReason.timer) {
+                                    window.location.href = "<?= base_url('Registration/family') ?>";
+                                }
+                            })
                         } else {
                             if (response.messages instanceof Object) {
                                 $.each(response.messages, function(index, value) {

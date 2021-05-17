@@ -1,4 +1,4 @@
-<div class="btnbg" style="padding-top: 100px;">
+<div class="btnbg" style="padding-top: 10px;">
   <!-- Container Area Start -->
   <div class="container" style="z-index: 1;">
     <div class="row">
@@ -24,86 +24,111 @@
               </div>
             </div>
           </div>
+          <div id="not-working-or-education">
+            <!-- if not working or education div start -->
+            <div id="working-as">
+              <!-- working-as div start -->
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
+                    <label class="text-inverse font-weight-bold" for="validationCustom01">Working As</label>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <select class="custom-select d-block form-control" id="WorkingAsMainCat" name="WorkingAsMainCat">
 
-          <div class="row">
-            <div class="col-6">
-              <div class="form-group">
-                <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
-                <label class="text-inverse font-weight-bold" for="validationCustom01">WORKING AS</label>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <select class="custom-select d-block form-control" id="workingAsSubCat" name="workingAsSubCat">
+
+                    </select>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-6">
-              <div class="form-group">
-                <select class="custom-select d-block form-control" id="WorkingAsMainCat" name="WorkingAsMainCat">
+            <!-- working-as div end -->
 
-                </select>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
+                  <label class="text-inverse font-weight-bold" for="validationCustom01">Working Location</label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <select class="custom-select d-block form-control" id="workingLocation" name="workingLocation">
+                    <option value="0"><?= lang('select') ?></option>
+                    <option value="Out Side Sri Lanka">Out Side Sri Lanka</option>
+                    <option value="In Sri Lanka">In Sri Lanka</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" id="ifWorkingLocationSL">
+              <div class="col-6">
+
+              </div>
+              <div class="col-3">
+                <div class="form-group">
+                  <select class="custom-select d-block form-control" id="district" name="district">
+
+                  </select>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="form-group">
+                  <select class="custom-select d-block form-control" id="city" name="city">
+
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" id="ifWorkingLocationOS">
+              <div class="col-6">
+
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <select class="custom-select d-block form-control" id="country" name="country">
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
+                  <label class="text-inverse font-weight-bold" for="validationCustom01">Describe Career</label>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <textarea class="form-control" id="describeCareer" rows="5" name="describeCareer"></textarea>
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="row">
-            <div class="col-6">
-            </div>
-            <div class="col-6">
-              <div class="form-group">
-                <select class="custom-select d-block form-control" id="workingAsSubCat" name="workingAsSubCat">
-
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-6">
-              <div class="form-group">
-                <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
-                <label class="text-inverse font-weight-bold" for="validationCustom01">WORKING LOCATION</label>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="form-group">
-                <select class="custom-select d-block form-control" id="workingLocation" name="workingLocation">
-                  <option value="0"><?= lang('select') ?></option>
-                  <option value="Out Side Sri Lanka">Out Side Sri Lanka</option>
-                  <option value="In Sri Lanka">In Sri Lanka</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="row" id="ifWorkingLocationSL">
-            <div class="col-6">
-
-            </div>
-            <div class="col-3">
-              <div class="form-group">
-                <select class="custom-select d-block form-control" id="district" name="district">
-
-                </select>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="form-group">
-                <select class="custom-select d-block form-control" id="city" name="city">
-
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-6">
-              <div class="form-group">
-                <!-- <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label> -->
-                <label class="text-inverse font-weight-bold" for="validationCustom01">DESCRIBE CAREER</label>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="form-group">
-                <textarea class="form-control" id="describeCareer" rows="5" name="describeCareer"></textarea>
-              </div>
-            </div>
-          </div>
+          <!-- not working or education div end -->
 
 
           <hr>
@@ -127,6 +152,43 @@
   $(function() {
     loadWorkingWith();
     loadWorkingAsMainCat();
+    loadCountries();
+    $('#ifWorkingLocationOS').hide();
+    $('#ifWorkingLocationSL').hide();
+
+    //load countries
+    function loadCountries() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/LoadCountries',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("<?= lang('district') . ' ' . lang('dataCannotRetrieve') ?>");
+          } else {
+            $('#country').html(data);;
+            $('#country').val(0);
+          }
+        },
+        error: function() {
+          alert('failed to load countries');
+        }
+      });
+    }
+
+    $('#workingWith').change(function() {
+      if ($('#workingWith').val() == 6 || $('#workingWith').val() == 7) {
+        $('#working-as').hide();
+        $('#not-working-or-education').show();
+      } else if ($('#workingWith').val() == 8 || $('#workingWith').val() == 9) {
+        $('#not-working-or-education').hide();
+      } else {
+        $('#working-as').show();
+        $('#not-working-or-education').show();
+      }
+    });
+
     $('#btnBack').click(function() {
       window.location.href = "<?php echo base_url('Registration/education') ?>";
     });
@@ -135,22 +197,32 @@
       if ($('#workingWith').val() == 0) {
         toastr["error"]("Please select working with");
         $("#workingWith").focus();
-      } else if ($('#WorkingAsMainCat').val() == 0) {
+
+      } else if ($('#workingWith').val() != 6 && $('#workingWith').val() != 7 && $('#workingWith').val() != 8 && ($('#workingWith').val() != 9) && $('#WorkingAsMainCat').val() == 0) {
         toastr["error"]("Please select working as main category");
         $("#WorkingAsMainCat").focus();
-      } else if ($('#workingAsSubCat').val() == 0) {
+
+      } else if ($("#WorkingAsMainCat").val() != 0 && $('#workingAsSubCat').val() == 0) {
         toastr["error"]("Please select working as sub category");
         $("#workingAsSubCat").focus();
-      } else if ($('#workingLocation').val() == 0) {
+
+      } else if ($('#workingWith').val() != 8 && $('#workingWith').val() != 9 && $('#workingLocation').val() == 0) {
         toastr["error"]("Please select working location");
         $("#workingLocation").focus();
+
       } else if ($('#workingLocation').val() == "In Sri Lanka" && $('#district').val() == 0) {
         toastr["error"]("Please select working district");
         $("#district").focus();
+
       } else if ($('#workingLocation').val() == "In Sri Lanka" && $('#city').val() == 0) {
         toastr["error"]("Please select working city");
         $("#city").focus();
-      } else if ($('#describeCareer').val() == 0) {
+
+      } else if ($('#workingLocation').val() == "Out Side Sri Lanka" && $('#country').val() == 0) {
+        toastr["error"]("Please select country");
+        $("#country").focus();
+
+      } else if ($("#workingLocation").val() != 0 && $('#describeCareer').val() == 0) {
         toastr["error"]("Please describe career");
         $("#describeCareer").focus();
       } else {
@@ -162,16 +234,16 @@
           dataType: 'json',
           success: function(response) {
             if (response.success == true) {
-              swal({
-                title: 'Success!',
-                text: "Career details saved successfully!",
-                type: 'success',
-                confirmButtonText: 'OK'
-              }).then(() => {
-                window.location.href = "<?php echo base_url('Registration/personalAssets') ?>";
-              });
-
-
+              Swal.fire({
+                icon: 'success',
+                title: 'Career details saved successfully!',
+                showConfirmButton: false,
+                timer: 2000
+              }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                  window.location.href = "<?= base_url('Registration/personalAssets') ?>";
+                }
+              })
             } else {
               if (response.messages instanceof Object) {
                 $.each(response.messages, function(index, value) {
@@ -305,12 +377,16 @@
     });
 
     $('#workingLocation').change(function() {
-      if ($('#workingLocation').val() != "In Sri Lanka") {
+      if ($('#workingLocation').val() == "In Sri Lanka") {
+        $('#ifWorkingLocationOS').hide();
+        $('#ifWorkingLocationSL').show();
+        $('#country').val(0);
+      }
+      if (($('#workingLocation').val() == "Out Side Sri Lanka")) {
+        $('#ifWorkingLocationOS').show();
         $('#ifWorkingLocationSL').hide();
         $('#district').val(0);
         $('#city').val(0);
-      } else {
-        $('#ifWorkingLocationSL').show();
       }
     });
 

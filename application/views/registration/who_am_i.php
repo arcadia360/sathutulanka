@@ -36,7 +36,7 @@
 </style>
 
 
-<div class="btnbg" style="padding-top: 100px;">
+<div class="btnbg" style="padding-top: 10px;">
     <!-- Container Area Start -->
     <div class="container" style="z-index: 1;">
         <div class="row">
