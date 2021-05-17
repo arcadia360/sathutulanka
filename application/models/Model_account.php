@@ -7,7 +7,7 @@ class Model_account extends CI_Model
     parent::__construct();
   }
 
-  public function getUserDate($UserID)
+  public function getMemberData($UserID)
   {
     $sql = "
           SELECT 
