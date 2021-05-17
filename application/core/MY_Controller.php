@@ -115,14 +115,14 @@ class Admin_Controller extends MY_Controller
 		$this->load->view('registration/footer');
 	}
 
-	public function CheckAndRedirectNextForm($formNo = NULL)
+	public function CheckAndRedirectNextForm($lastSubmitFormNo = NULL)
 	{
 
 		if ($this->session->userdata('member_id')) {
 			if ($this->session->userdata('member_account_status_id') == 3) { 	// Email Verification Pending
 				$lastSubmittedFormNo = $this->session->userdata('no_of_submitted_form');
 
-				if ($formNo > $lastSubmittedFormNo || $formNo == 0) {
+				if ($lastSubmitFormNo > $lastSubmittedFormNo || $lastSubmitFormNo == 0) {
 
 					if ($lastSubmittedFormNo == 1) {
 						redirect(base_url("Registration/physicalStatus"), 'refresh');
