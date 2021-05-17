@@ -146,6 +146,30 @@
     .like {
         color: #e91e63 !important;
     }
+
+
+    .btn-primary {
+        background-color: #b52b4a !important;
+        border-color: #b52b4a !important;
+        border-radius: 0 !important;
+        width: 100% !important;
+        font-weight: 600;
+    }
+
+    .btn-outline-primary {
+        color: #b52b4a !important;
+        border-color: #b52b4a !important;
+        /* border-left: 3px solid #b52b4a !important;
+        border-right: 3px solid #b52b4a !important; */
+        margin-top: 10px;
+        border-radius: 0 !important;
+        font-weight: 600;
+    }
+
+    .btn-outline-primary:hover {
+        color: #FFFFFF !important;
+        background-color: #b52b4a;
+    }
 </style>
 <div class="container">
     <div class="main-body">
@@ -161,7 +185,7 @@
         <!-- /Breadcrumb -->
 
         <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
@@ -178,8 +202,23 @@
                                 <p class="text-secondary mb-1">Software Engineer</p>
                                 <p class="badge-label"><span class="badge badge-premium">PREMIUM</span></p>
                                 <!-- <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p> -->
-                                <!-- <button class="btn btn-primary">Follow</button>
-                                <button class="btn btn-outline-primary">Message</button> -->
+                                <!-- <div class="row"> -->
+                                <button class="btn btn-primary col-12">Request</button>
+                                <!-- </div> -->
+                                <!-- <div class="row"> -->
+                                <button class="btn btn-outline-primary col-12">Block / Report</button>
+                                <!-- </div> -->
+                                <!-- <div class="row"> -->
+                                <button class="btn btn-outline-primary col-12">Expressing Interest</button>
+                                <!-- </div> -->
+                                <!-- <div class="row"> -->
+                                <button class="btn btn-outline-primary col-12"> Send Interest By Mail Or Post</button>
+                                <!-- </div> -->
+                                <!-- <div class="row"> -->
+                                <button class="btn btn-outline-primary col-12">Match Horoscope</button>
+                                <!-- </div> -->
+
+
                             </div>
                         </div>
                     </div>
@@ -188,21 +227,16 @@
                     <div class="wizard">
                         <nav class="list-group list-group-flush">
                             <a class="list-group-item active" href="#">
-                                <div>
-                                    <i class="fas fa-user mr-2"></i>Profile
-                                </div>
+                                <i class="fas fa-user mr-2"></i>Profile
                             </a>
                             <a class="list-group-item" href="#">
-                                <i class="fas fa-user-cog mr-2"></i>Privacy Settings
+                                <i class="fas fa-images mr-2"></i>Photos
                             </a>
                             <a class="list-group-item" href="#">
-                                <i class="fas fa-sliders-h mr-2"></i>Partnet Preference
+                                <i class="fas fa-video mr-2"></i>Videos
                             </a>
                             <a class="list-group-item" href="#">
-                                <i class="fas fa-user-check mr-2"></i>Trust Verify
-                            </a>
-                            <a class="list-group-item" href="#">
-                                <i class="fas fa-certificate mr-2"></i>Be Premium
+                                <i class="fas fa-sync-alt mr-2"></i>Match Me
                             </a>
                         </nav>
                     </div>
@@ -223,50 +257,107 @@
 
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                                     <div class="card-body">
-                                        <div class="row gutters">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <h4 style="background-color: #00838f; padding: 15px; color: #FFFFFF; border-radius: 30px; text-align: center;"><i class="fas fa-male"></i> His Details</h4>
+                                            </div>
+                                            <div class="col-6">
+                                                <h4 style="background-color: #f06292; padding: 15px; color: #FFFFFF; border-radius: 30px; text-align: center;"><i class="fas fa-female"></i> My Details</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="fullName">Short Name</label>
-                                                    <input type="text" class="form-control" id="shortName" value="<?= $userData['vcNickName'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
-                                                    <label for="eMail">Providing Information</label>
-                                                    <input type="text" class="form-control" id="providingInformation" value="<?= $userData['vcProvidingInformationType'] ?>" placeholder="N/A" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="phone">Gender</label>
-                                                    <input type="text" class="form-control" id="gender" value="<?= $userData['vcGender'] ?>" placeholder="N/A" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="website">Date Of Birth</label>
-                                                    <input type="text" class="form-control" id="bateOfBirth" value="<?= $userData['dtDOB'] ?>" placeholder="N/A" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="website">Marital Status</label>
-                                                    <input type="text" class="form-control" id="maritalStatus" value="<?= $userData['vcMaritalStatus'] ?>" placeholder="N/A" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="website">No Of Children(s)</label>
-                                                    <input type="text" class="form-control" id="noOfChildren" value="<?= $userData['vcNoOfChildren'] ?>" placeholder="N/A" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="website">Marry By</label>
-                                                    <input type="text" class="form-control" id="marryBy" value="<?= $userData['vcMarriageType'] ?>" placeholder="N/A" disabled>
+                                                    <label for="fullName">Short Name</label>
+                                                    <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="phone">Gender</label>
+                                                    <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="phone">Gender</label>
+                                                    <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="phone">Age</label>
+                                                    <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="phone">Age</label>
+                                                    <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="website">Marital Status</label>
+                                                    <input type="text" class="form-control" id="maritalStatus" value="" placeholder="N/A" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="website">Marital Status</label>
+                                                    <input type="text" class="form-control" id="maritalStatus" value="" placeholder="N/A" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="website">No Of Children(s)</label>
+                                                    <input type="text" class="form-control" id="noOfChildren" value="" placeholder="N/A" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="website">No Of Children(s)</label>
+                                                    <input type="text" class="form-control" id="noOfChildren" value="" placeholder="N/A" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="website">Marry By</label>
+                                                    <input type="text" class="form-control" id="marryBy" value="" placeholder="N/A" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <label for="website">Marry By</label>
+                                                    <input type="text" class="form-control" id="marryBy" value="" placeholder="N/A" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="website">Date Of Birth</label>
+                                                <input type="text" class="form-control" id="bateOfBirth" value="" placeholder="N/A" disabled>
+                                            </div>
+                                        </div> -->
+
+
+
                                     </div>
                                 </div>
                             </div>
@@ -281,46 +372,46 @@
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                     <div class="card-body">
                                         <div class="row gutters">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="fullName">Height</label>
-                                                    <input type="text" class="form-control" id="height" value="<?= $userData['intHeight'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="height" value="" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="eMail">Weight (KG)</label>
-                                                    <input type="text" class="form-control" id="weight" value="<?= $userData['intWeightFrom'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="weight" value="" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="phone">Body Shape</label>
-                                                    <input type="text" class="form-control" id="bodyShape" value="<?= $userData['vcNickName'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="bodyShape" value="" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Skin Color</label>
-                                                    <input type="text" class="form-control" id="skinColor" value="<?= $userData['vcNickName'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="skinColor" value="" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Disability</label>
-                                                    <input type="text" class="form-control" id="disability" value="<?= $userData['vcNickName'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="disability" value="" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Blood Group</label>
-                                                    <input type="text" class="form-control" id="bloodGroup" value="<?= $userData['vcBloodGroup'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="bloodGroup" value="" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Health Information</label>
-                                                    <input type="text" class="form-control" id="healthInformation" value="<?= $userData['vcNickName'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="healthInformation" value="" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -338,43 +429,43 @@
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                     <div class="card-body">
                                         <div class="row gutters">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="fullName">Height</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="eMail">Weight (KG)</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="phone">Body Shape</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Skin Color</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Disability</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Blood Group</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Health Information</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
@@ -395,37 +486,37 @@
                                 <div id="collapseBackground" class="collapse" aria-labelledby="headingBackground" data-parent="#accordion">
                                     <div class="card-body">
                                         <div class="row gutters">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="fullName">Mother Tonge</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="eMail">Ethnicity</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="phone">Religion</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Cast</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Su Cast</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Police Report</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
@@ -446,55 +537,55 @@
                                 <div id="collapseLifeStyle" class="collapse" aria-labelledby="headingLifeStyle" data-parent="#accordion">
                                     <div class="card-body">
                                         <div class="row gutters">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="fullName">Diet</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="eMail">Drink</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="phone">Smoke</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Languages, Speak</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Dress & Makeup</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Used to travel</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Call to parents</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Customs</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Live In</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
@@ -515,55 +606,55 @@
                                 <div id="collapseLifeStyle" class="collapse" aria-labelledby="headingLifeStyle" data-parent="#accordion">
                                     <div class="card-body">
                                         <!-- <div class="row gutters">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="fullName">Diet</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="eMail">Drink</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="phone">Smoke</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Languages, Speak</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Dress & Makeup</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Used to travel</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Call to parents</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Customs</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="website">Live In</label>
                                                     <input type="text" class="form-control" id="shortName" placeholder="N/A" disabled>
