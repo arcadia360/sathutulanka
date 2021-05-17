@@ -27,10 +27,7 @@
         font-weight: 600;
     }
 
-    .card-header:hover {
-        /* background-color: ; */
 
-    }
 
 
 
@@ -73,59 +70,6 @@
         content: '';
     }
 
-    /* 
-    body {
-        margin: 0;
-        padding-top: 40px;
-        color: #2e323c;
-        background: #f5f6fa;
-        position: relative;
-        height: 100%;
-    } */
-    /* 
-    .account-settings .user-profile {
-        margin: 0 0 1rem 0;
-        padding-bottom: 1rem;
-        text-align: center;
-    }
-
-    .account-settings .user-profile .user-avatar {
-        margin: 0 0 1rem 0;
-    }
-
-    .account-settings .user-profile .user-avatar img {
-        width: 90px;
-        height: 90px;
-        -webkit-border-radius: 100px;
-        -moz-border-radius: 100px;
-        border-radius: 100px;
-    }
-
-    .account-settings .user-profile h5.user-name {
-        margin: 0 0 0.5rem 0;
-    }
-
-    .account-settings .user-profile h6.user-email {
-        margin: 0;
-        font-size: 0.8rem;
-        font-weight: 400;
-        color: #9fa8b9;
-    }
-
-    .account-settings .about {
-        margin: 2rem 0 0 0;
-        text-align: center;
-    }
-
-    .account-settings .about h5 {
-        margin: 0 0 15px 0;
-        color: #007ae1;
-    }
-
-    .account-settings .about p {
-        font-size: 0.825rem;
-    } */
-
     .form-control {
         border: 1px solid #cfd1d8;
         -webkit-border-radius: 2px;
@@ -136,15 +80,73 @@
         color: #2e323c;
     }
 
-    /* 
-    .card {
-        background: #ffffff;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-        border: 0;
-        margin-bottom: 1rem;
+    .profile-pic {
+        object-fit: cover;
+        width: 200px;
+        height: 200px;
+
+        /* margin: 0 auto;
+        position: relative;
+        overflow: hidden; */
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border: 5px solid #FFFFFF;
+    }
+
+    /* .image-margin-circle {
+        border: 4px solid #b52b4a;
+        border-radius: 50%;
     } */
+
+    .profile-badge {
+        z-index: 1;
+        color: #2196f3;
+        /* font-size: 1.4em; */
+        /* position: absolute; */
+        left: 5px;
+    }
+
+    .badge-premium {
+        color: #212529;
+        background-color: #ffca28 !important;
+        text-transform: uppercase;
+    }
+
+    .badge-trustVerified {
+        color: #e8f5e9;
+        background-color: #2e7d32 !important;
+        text-transform: uppercase;
+    }
+
+    .badge-trustProving {
+        color: #FFFFFF;
+        background-color: #9ccc65 !important;
+        text-transform: uppercase;
+    }
+
+    .badge-notTrustVerified {
+        color: #FFFFFF;
+        background-color: #607d8b !important;
+        text-transform: uppercase;
+    }
+
+    .profile-heart {
+        z-index: 1;
+        color: #b0bec5;
+        font-size: 1.4em;
+        position: absolute;
+        right: 30px;
+        transition: 0.6s;
+    }
+
+    .profile-heart:hover {
+        color: #e91e63 !important;
+    }
+
+    .like {
+        color: #e91e63 !important;
+    }
+
 </style>
 <div class="container">
     <div class="main-body">
@@ -164,11 +166,19 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                            <!-- <div class="row">
+                                <a href="" class="profile-heart like"><i class="fas fa-heart"></i></a>
+                            </div> -->
+                            <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150"> -->
+                            <div class="image-margin-circle">
+                                <img src="https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg" class="profile-pic" />
+                                <!-- <img src="https://wallpapercave.com/wp/wp5047302.jpg" class="profile-pic" /> -->
+                            </div>
                             <div class="mt-3">
-                                <h4><?= $userData['vcNickName'] ?></h4>
-                                <p class="text-secondary mb-1">Full Stack Developer</p>
-                                <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                                <h4>Supun Ariyarathna <span class="profile-badge"><i class="fas fa-certificate"></i></span></h4>
+                                <p class="text-secondary mb-1">Software Engineer</p>
+                                <p class="badge-label"><span class="badge badge-premium">PREMIUM</span></p>
+                                <!-- <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p> -->
                                 <!-- <button class="btn btn-primary">Follow</button>
                                 <button class="btn btn-outline-primary">Message</button> -->
                             </div>
@@ -275,7 +285,7 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="fullName">Height</label>
-                                                    <input type="text" class="form-control" id="height"  value="<?= $userData['intHeight'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="height" value="<?= $userData['intHeight'] ?>" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
