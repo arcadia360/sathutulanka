@@ -47,7 +47,15 @@ class Registration extends Admin_Controller
 	public function physicalStatus()
 	{
 		$this->CheckAndRedirectNextForm(1);
+
 		$this->render_template_registration('registration/physical_status', 'Add Physical Details', NULL);
+
+
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/physical_status');
+		// $this->load->view('registration/footer');
 	}
 
 	public function addPhysicalStatus()
@@ -87,6 +95,12 @@ class Registration extends Admin_Controller
 	{
 		$this->CheckAndRedirectNextForm(2);
 		$this->render_template_registration('registration/residence', 'Add Residence Details', NULL);
+
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/residence');
+		// $this->load->view('registration/footer');
 	}
 
 	public function addResidenceDetails()
@@ -122,12 +136,24 @@ class Registration extends Admin_Controller
 	{
 		$this->CheckAndRedirectNextForm();
 		$this->render_template_registration('registration/who_am_i', 'Who Am I', NULL);
+
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/who_am_i');
+		// $this->load->view('registration/footer');
 	}
 
 	public function education()
 	{
 		$this->CheckAndRedirectNextForm();
 		$this->render_template_registration('registration/education', 'Education', NULL);
+
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/education');
+		// $this->load->view('registration/footer');
 	}
 	public function addEducationDetails()
 	{
@@ -161,6 +187,12 @@ class Registration extends Admin_Controller
 	{
 		$this->CheckAndRedirectNextForm();
 		$this->render_template_registration('registration/career', 'career', NULL);
+
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/career');
+		// $this->load->view('registration/footer');
 	}
 
 	// Load working with data to career details form
@@ -231,9 +263,6 @@ class Registration extends Admin_Controller
 		$response = array();
 
 		$this->form_validation->set_rules('workingWith', 'Working With', 'required');
-		$this->form_validation->set_rules('WorkingAsMainCat', 'Working as main category', 'required');
-		$this->form_validation->set_rules('workingAsSubCat', 'working as sub category', 'required');
-		$this->form_validation->set_rules('workingLocation', 'working location', 'required');
 		$this->form_validation->set_rules('describeCareer', 'describe career', 'max_length[250]');
 
 		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
@@ -260,6 +289,12 @@ class Registration extends Admin_Controller
 	{
 		$this->CheckAndRedirectNextForm();
 		$this->render_template_registration('registration/personal_assets', 'Personal Assets', NULL);
+
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/personal_assets');
+		// $this->load->view('registration/footer');
 	}
 
 	public function addPersonalAssestDetails()
@@ -294,6 +329,12 @@ class Registration extends Admin_Controller
 	{
 		$this->CheckAndRedirectNextForm();
 		$this->render_template_registration('registration/family', 'Family', NULL);
+
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/family');
+		// $this->load->view('registration/footer');
 	}
 
 	public function imageUpload()
@@ -358,6 +399,12 @@ class Registration extends Admin_Controller
 	{
 		$this->CheckAndRedirectNextForm();
 		$this->render_template_registration('registration/after_marriage', 'After Marriage', NULL);
+
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/after_marriage');
+		// $this->load->view('registration/footer');
 	}
 
 	public function LoadCountries()
@@ -446,6 +493,12 @@ class Registration extends Admin_Controller
 	{
 		$this->CheckAndRedirectNextForm(3);
 		$this->render_template_registration('registration/background', 'Add Background Details', NULL);
+
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/background');
+		// $this->load->view('registration/footer');
 	}
 
 	public function loadCaste()
@@ -518,8 +571,14 @@ class Registration extends Admin_Controller
 
 	public function lifeStyle()
 	{
-		$this->CheckAndRedirectNextForm();
+		$this->CheckAndRedirectNextForm(4);
 		$this->render_template_registration('registration/lifeStyle', 'Add Life Style Details', NULL);
+
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/lifeStyle');
+		// $this->load->view('registration/footer');
 	}
 
 	public function addLifeStyleDetails()
