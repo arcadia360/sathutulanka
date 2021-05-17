@@ -80,7 +80,7 @@
                 </li> -->
 			</ul>
 			<?php
-			if (isset($_SESSION['user_id']) || !empty($_SESSION['user_id'])) {
+			if ($_SESSION['logged_in'] == TRUE) {
 			?>
 				<a href="<?= base_url('Auth/logout') ?>" class="btn btn-login">
 					Logout
