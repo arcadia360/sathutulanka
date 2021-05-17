@@ -268,14 +268,16 @@
 				dataType: 'json',
 				success: function(response) {
 					if (response.success == true) {
-						swal({
-							title: 'Success!',
-							text: "Physical details saved successfully!",
-							type: 'success',
-							confirmButtonText: 'OK'
-						}).then(() => {
-							window.location.href = "<?= base_url('Registration/residence') ?>";
-						});
+						Swal.fire({
+							icon: 'success',
+							title: 'Physical details saved successfully!',
+							showConfirmButton: false,
+							timer: 2000
+						}).then((result) => {
+							if (result.dismiss === Swal.DismissReason.timer) {
+								window.location.href = "<?= base_url('Registration/residence') ?>";
+							}
+						})
 					} else {
 						if (response.messages instanceof Object) {
 							$.each(response.messages, function(index, value) {
