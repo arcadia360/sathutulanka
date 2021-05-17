@@ -4,6 +4,10 @@
 </head>
 
 <style>
+    body {
+        background-color: #FFFFFF !important;
+    }
+
     h3 {
         font-size: 1.5em;
     }
@@ -328,7 +332,7 @@
         $('#no3').on('keyup', function(e) {
             $("#no4").focus();
         });
-   
+
         $("#otpResend").click(function() {
             // alert("Handler for .click() called.");
             var EmailVerificationCode = $("#EmailVerificationCode").val();
