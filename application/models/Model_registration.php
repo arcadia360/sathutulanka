@@ -541,7 +541,7 @@ class Model_registration extends CI_Model
       'dtDOB' => $bDate,
       'vcMaritalStatus' => $this->input->post('marital_status'),
       'vcNoOfChildren' => $this->input->post('num_of_child'),
-      'intUserAccountStatusTypeID' => 1,
+      'intMemberAccountStatusID' => 1,
       'vcMarriageType' => $this->input->post('marry_by'),
       'intNoOfSubmitedForm' => 1,
     );
@@ -830,7 +830,7 @@ class Model_registration extends CI_Model
     date_default_timezone_set('Asia/Colombo');
     $nowDateTime = date('Y-m-d h:i:s');
 
-    $sql = "UPDATE registerverification R INNER JOIN member as U on R.intMemberID = U.intMemberID SET R.IsEmailVerified = 1 , U.intUserAccountStatusTypeID = 2, dtEmailVerifiedDate = '$nowDateTime'  WHERE R.vcEmailCode = ? AND (R.IsOTPVerified IS NULL OR R.IsOTPVerified = 0)";
+    $sql = "UPDATE registerverification R INNER JOIN member as U on R.intMemberID = U.intMemberID SET R.IsEmailVerified = 1 , U.intMemberAccountStatusID = 2, dtEmailVerifiedDate = '$nowDateTime'  WHERE R.vcEmailCode = ? AND (R.IsOTPVerified IS NULL OR R.IsOTPVerified = 0)";
     $this->db->query($sql, array($verificationText));
     return $this->db->affected_rows();
   }
@@ -874,7 +874,7 @@ class Model_registration extends CI_Model
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $headers = [
       'Content-Type: application/json',
-      'member: ' . $username,
+      'USER: ' . $username,
       'DIGEST: ' . $digest,
       'CREATED: ' . $now
     ];
@@ -925,7 +925,7 @@ class Model_registration extends CI_Model
     if ($otpNumber) {
       $sql = "UPDATE  member as U
       INNER JOIN registerverification as V on U.intMemberID = V.intMemberID
-      SET V.IsOTPVerified = 1 , V.dtOTPVerifiedDate = '$nowDateTime' , U.intUserAccountStatusTypeID = 3
+      SET V.IsOTPVerified = 1 , V.dtOTPVerifiedDate = '$nowDateTime' , U.intMemberAccountStatusID = 3
       WHERE vcOTP = ? AND V.vcEmailCode = ?";
       $this->db->query($sql, array($otpNumber, $emailVerificationCode));
       return $this->db->affected_rows();
