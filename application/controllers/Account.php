@@ -13,7 +13,7 @@ class Account extends Admin_Controller{
     public function MyAccount(){
 
 		$user_id = $this->session->userdata('user_id');
-		$user_id= 18;
+		// $user_id= 18;
 		$userData = $this->Model_account->getUserDate($user_id);
 
 		$this->data['userData'] = $userData;
