@@ -79,9 +79,15 @@
                     <a class="nav-link" href="#">Disabled</a>
                 </li> -->
 			</ul>
-			<a href="<?= base_url('Auth/logout') ?>" class="btn btn-login">
-				Logout
-			</a>
+			<?php
+			if (isset($_SESSION['user_id']) || !empty($_SESSION['user_id'])) {
+			?>
+				<a href="<?= base_url('Auth/logout') ?>" class="btn btn-login">
+					Logout
+				</a>
+			<?php
+			}
+			?>
 			<!-- <a class="nav-link btn-lang" href="">සිංහල</a> -->
 
 		</div>
