@@ -1,4 +1,4 @@
-<div class="btnbg" style="padding-top: 100px;">
+<div class="btnbg" style="padding-top: 10px;">
   <!-- Container Area Start -->
   <div class="container" style="z-index: 1;">
     <div class="row">
@@ -145,14 +145,16 @@
           dataType: 'json',
           success: function(response) {
             if (response.success == true) {
-              swal({
-                title: 'Success!',
-                text: "Education details saved successfully!",
-                type: 'success',
-                confirmButtonText: 'OK'
-              }).then(() => {
-                window.location.href = "<?php echo base_url('Registration/career') ?>";
-              });
+              Swal.fire({
+                icon: 'success',
+                title: 'Education details saved successfully!',
+                showConfirmButton: false,
+                timer: 2000
+              }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                  window.location.href = "<?= base_url('Registration/career') ?>";
+                }
+              })
             } else {
               if (response.messages instanceof Object) {
                 $.each(response.messages, function(index, value) {
