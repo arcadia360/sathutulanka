@@ -1,4 +1,4 @@
-<div class="btnbg" style="padding-top: 100px;">
+<div class="btnbg" style="padding-top: 10px;">
   <!-- Container Area Start -->
   <div class="container" style="z-index: 1;">
     <div class="row">
@@ -75,7 +75,7 @@
           <hr>
           <div class="row">
             <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-              <button class="btn btn-info" style="width: 150px;" id="btnBack" type="button">Back</button>
+              <button class="btn btn-info" style="width: 150px;" id="btnBack" type="button">BACK</button>
             </div>
             <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
               <button class="btn btn-info" style="width: 150px;" type="button" id="btnSubmit">CONTINUE</button>
@@ -143,16 +143,16 @@
             dataType: 'json',
             success: function(response) {
               if (response.success == true) {
-                swal({
-                  title: 'Success!',
-                  text: "Residence details saved successfully!",
-                  type: 'success',
-                  confirmButtonText: 'OK'
-                }).then(() => {
-                  window.location.href = "<?= base_url('Registration/background') ?>";
-                });
-
-
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Residance details saved successfully!',
+                  showConfirmButton: false,
+                  timer: 2000
+                }).then((result) => {
+                  if (result.dismiss === Swal.DismissReason.timer) {
+                    window.location.href = "<?= base_url('Registration/background') ?>";
+                  }
+                })
               } else {
                 if (response.messages instanceof Object) {
                   $.each(response.messages, function(index, value) {
