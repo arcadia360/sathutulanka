@@ -549,6 +549,48 @@ class Model_registration extends CI_Model
     }
   }
 
+  public function saveAfterMarriageDetails()
+  {
+    $uid = $this->session->userdata('member_id');
+
+    $this->db->select('intNoOfSubmitedForm');
+    $this->db->from('member');
+    $this->db->where('intMemberID', $uid);
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      $row = $query->row_array();
+      $NoOfSubmitedForm = $row['intNoOfSubmitedForm'];
+    }
+
+    if ($NoOfSubmitedForm > 11) {
+      $data = array(
+        'vcPrefferToLive' => $this->input->post('PrefferToLive'),
+        'vcHelpFamily' => $this->input->post('HelpFamily'),
+        'vcJobAfterMarriage' => $this->input->post('Job'),
+        'vcEducationAfterMarriage' => $this->input->post('Education'),
+        'vcChildrenLikes' => $this->input->post('ChildrenLikes'),
+        'vcOtherNeeds' => $this->input->post('OtherNeeds')
+      );
+    } else {
+      $data = array(
+        'vcPrefferToLive' => $this->input->post('PrefferToLive'),
+        'vcHelpFamily' => $this->input->post('HelpFamily'),
+        'vcJobAfterMarriage' => $this->input->post('Job'),
+        'vcEducationAfterMarriage' => $this->input->post('Education'),
+        'vcChildrenLikes' => $this->input->post('ChildrenLikes'),
+        'vcOtherNeeds' => $this->input->post('OtherNeeds'),
+        'intNoOfSubmitedForm' => 11
+      );
+    }
+    $this->db->where('intMemberID', $uid);
+    $this->db->update('member', $data);
+    if ($this->db->affected_rows() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   //-----------------------------------
   //END DK
   //-----------------------------------
@@ -887,7 +929,7 @@ class Model_registration extends CI_Model
 
     $digits = 4;
     $otpCode =  rand(pow(10, $digits - 1), pow(10, $digits) - 1);
-    $userData = $this->getUserDate($verificationText);
+    $userData = $this->getMemberData($verificationText);
     $mobileNO = 0;
     $mobileNO =   (int)$userData['vcMobileNo'];
     $otpResend = (int)$userData['intOTPSentCount'] + 1;
@@ -942,7 +984,7 @@ class Model_registration extends CI_Model
     }
   }
 
-  public function getUserDate($verificationText)
+  public function getMemberData($verificationText)
   {
     $sql = "SELECT concat(U.vcCountryCode,vcMobileNo) AS vcMobileNo,vcMobileNo AS Without94,RE.vcOTP,U.intMemberID,U.vcEmail,RE.vcEmailCode, RE.intOTPSentCount,U.vcCountryCode FROM member AS U
     INNER JOIN registerverification AS RE ON U.intMemberID = RE.intMemberID

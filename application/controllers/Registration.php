@@ -46,16 +46,16 @@ class Registration extends Admin_Controller
 	//DK section Start
 	public function physicalStatus()
 	{
-		$this->CheckAndRedirectNextForm(1);
+		// $this->CheckAndRedirectNextForm(1);
 
-		$this->render_template_registration('registration/physical_status', 'Add Physical Details', NULL);
+		// $this->render_template_registration('registration/physical_status', 'Add Physical Details', NULL);
 
 
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/physical_status');
-		// $this->load->view('registration/footer');
+		$this->load->helper('language');
+		$this->lang->load('en', 'English');
+		$this->load->view('registration/header');
+		$this->load->view('registration/physical_status');
+		$this->load->view('registration/footer');
 	}
 
 	public function addPhysicalStatus()
@@ -93,14 +93,14 @@ class Registration extends Admin_Controller
 
 	public function residence()
 	{
-		$this->CheckAndRedirectNextForm(2);
-		$this->render_template_registration('registration/residence', 'Add Residence Details', NULL);
+		// $this->CheckAndRedirectNextForm(2);
+		// $this->render_template_registration('registration/residence', 'Add Residence Details', NULL);
 
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/residence');
-		// $this->load->view('registration/footer');
+		$this->load->helper('language');
+		$this->lang->load('en', 'English');
+		$this->load->view('registration/header');
+		$this->load->view('registration/residence');
+		$this->load->view('registration/footer');
 	}
 
 	public function addResidenceDetails()
@@ -134,14 +134,14 @@ class Registration extends Admin_Controller
 
 	public function WhoAmI()
 	{
-		$this->CheckAndRedirectNextForm(5);
-		$this->render_template_registration('registration/who_am_i', 'Who Am I', NULL);
+		// $this->CheckAndRedirectNextForm(5);
+		// $this->render_template_registration('registration/who_am_i', 'Who Am I', NULL);
 
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/who_am_i');
-		// $this->load->view('registration/footer');
+		$this->load->helper('language');
+		$this->lang->load('en', 'English');
+		$this->load->view('registration/header');
+		$this->load->view('registration/who_am_i');
+		$this->load->view('registration/footer');
 	}
 
 	public function education()
@@ -376,6 +376,33 @@ class Registration extends Admin_Controller
 		$this->load->view('registration/footer');
 	}
 
+	public function addAfterMarriageDetails()
+	{
+		$response = array();
+
+		$this->form_validation->set_rules('PrefferToLive', 'Preffer to live', 'required');
+		$this->form_validation->set_rules('ChildrenLikes', 'Children Likes', 'required');
+
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+		if ($this->form_validation->run() == TRUE) {
+			$this->load->model('Model_registration');
+			$result = $this->Model_registration->saveAfterMarriageDetails();
+			if ($result == true) {
+				$response['success'] = true;
+			} else {
+				$response['success'] = false;
+				$response['messages'] = 'Error in the database while saving after marriage details. Please contact system administrator.';
+			}
+		} else {
+			$response['success'] = false;
+			foreach ($_POST as $key => $value) {
+				$response['messages'][$key] = form_error($key);
+			}
+		}
+		echo json_encode($response);
+	}
+
 	public function LoadCountries()
 	{
 		$result = '';
@@ -582,6 +609,18 @@ class Registration extends Admin_Controller
 		echo json_encode($response);
 	}
 
+	public function horoscope()
+	{
+		// $this->CheckAndRedirectNextForm(4);
+		// $this->render_template_registration('registration/lifeStyle', 'Add Life Style Details', NULL);
+
+		$this->load->helper('language');
+		$this->lang->load('en', 'English');
+		$this->load->view('registration/header');
+		$this->load->view('registration/horoscope');
+		$this->load->view('registration/footer');
+	}
+
 
 	// end dk section
 	// ---------------------------------------------------------------------------------------------------------------------------
@@ -602,7 +641,7 @@ class Registration extends Admin_Controller
 		if ($this->form_validation->run() == TRUE) {
 			$response = $this->Model_registration->saveCreateAccount($email, $random_EmailCode);
 			if ($response['success'] == true) {
-				$userData = $this->Model_registration->getUserDate($random_EmailCode);
+				$userData = $this->Model_registration->getMemberData($random_EmailCode);
 				// $this->Model_registration->sendVerificatinEmail($email, $random_EmailCode);
 				$response['email'] = $userData['vcEmail'];
 				$response['verificationText'] = $userData['vcEmailCode'];
@@ -626,7 +665,7 @@ class Registration extends Admin_Controller
 	{
 		$response = array();
 
-		$userData = $this->Model_registration->getUserDate($verificationText);
+		$userData = $this->Model_registration->getMemberData($verificationText);
 		$noRecords = $this->Model_registration->verifyEmailAddress($verificationText);
 		$noRecordsendOTP = 0;
 
@@ -673,7 +712,7 @@ class Registration extends Admin_Controller
 		// var_dump($verificationText);
 		// $this->render_template_registration('Registration/otp_verification', 'OTP Verification', NULL);
 
-		$userData = $this->Model_registration->getUserDate($verificationText);
+		$userData = $this->Model_registration->getMemberData($verificationText);
 
 		if ($userData['intOTPSentCount'] == 3) {
 			$response['messages'] = "Can't Send More than 3 text messages, Please Contact Us !";
@@ -695,7 +734,7 @@ class Registration extends Admin_Controller
 	public function fetchUserDate($EmailVerificationCode)
 	{
 		if ($EmailVerificationCode) {
-			$data = $this->Model_registration->getUserDate($EmailVerificationCode);
+			$data = $this->Model_registration->getMemberData($EmailVerificationCode);
 			echo json_encode($data);
 		}
 
