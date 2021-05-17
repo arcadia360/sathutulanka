@@ -12,11 +12,11 @@ class Account extends Admin_Controller{
 
     public function MyAccount(){
 
-		$user_id = $this->session->userdata('user_id');
+		$member_id = $this->session->userdata('member_id');
 		// $user_id= 18;
-		$userData = $this->Model_account->getUserDate($user_id);
+		$memberData = $this->Model_account->getMemberData($member_id);
 
-		$this->data['userData'] = $userData;
+		$this->data['memberData'] = $memberData;
 
 		$this->render_template('account/my_account', 'My Account',  $this->data);
 	}
