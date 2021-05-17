@@ -228,43 +228,43 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="fullName">Short Name</label>
-                                                    <input type="text" class="form-control" id="shortName" value="<?= $userData['vcNickName'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="shortName" value="<?= $memberData['vcNickName'] ?>" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="eMail">Providing Information</label>
-                                                    <input type="text" class="form-control" id="providingInformation" value="<?= $userData['vcProvidingInformationType'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="providingInformation" value="<?= $memberData['vcProvidingInformationType'] ?>" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="phone">Gender</label>
-                                                    <input type="text" class="form-control" id="gender" value="<?= $userData['vcGender'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="gender" value="<?= $memberData['vcGender'] ?>" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="website">Date Of Birth</label>
-                                                    <input type="text" class="form-control" id="bateOfBirth" value="<?= $userData['dtDOB'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="bateOfBirth" value="<?= $memberData['dtDOB'] ?>" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="website">Marital Status</label>
-                                                    <input type="text" class="form-control" id="maritalStatus" value="<?= $userData['vcMaritalStatus'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="maritalStatus" value="<?= $memberData['vcMaritalStatus'] ?>" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="website">No Of Children(s)</label>
-                                                    <input type="text" class="form-control" id="noOfChildren" value="<?= $userData['vcNoOfChildren'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="noOfChildren" value="<?= $memberData['vcNoOfChildren'] ?>" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="website">Marry By</label>
-                                                    <input type="text" class="form-control" id="marryBy" value="<?= $userData['vcMarriageType'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="marryBy" value="<?= $memberData['vcMarriageType'] ?>" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -285,43 +285,43 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="fullName">Height</label>
-                                                    <input type="text" class="form-control" id="height" value="<?= $userData['intHeight'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="height" value="<?= $memberData['intHeight'] ?>" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="eMail">Weight (KG)</label>
-                                                    <input type="text" class="form-control" id="weight" value="<?= $userData['intWeightFrom'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="weight" value="<?= $memberData['intWeightFrom'] ?>" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="phone">Body Shape</label>
-                                                    <input type="text" class="form-control" id="bodyShape" value="<?= $userData['vcNickName'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="bodyShape" value="<?= $memberData['vcNickName'] ?>" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="website">Skin Color</label>
-                                                    <input type="text" class="form-control" id="skinColor" value="<?= $userData['vcNickName'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="skinColor" value="<?= $memberData['vcNickName'] ?>" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="website">Disability</label>
-                                                    <input type="text" class="form-control" id="disability" value="<?= $userData['vcNickName'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="disability" value="<?= $memberData['vcNickName'] ?>" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="website">Blood Group</label>
-                                                    <input type="text" class="form-control" id="bloodGroup" value="<?= $userData['vcBloodGroup'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="bloodGroup" value="<?= $memberData['vcBloodGroup'] ?>" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="website">Health Information</label>
-                                                    <input type="text" class="form-control" id="healthInformation" value="<?= $userData['vcNickName'] ?>" placeholder="N/A" disabled>
+                                                    <input type="text" class="form-control" id="healthInformation" value="<?= $memberData['vcNickName'] ?>" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
                                         </div>
