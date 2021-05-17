@@ -414,6 +414,7 @@ class Model_registration extends CI_Model
         'intWorkingAsSubCatId' => $this->input->post('workingAsSubCat'),
         'vcWorkingLocation' => $this->input->post('workingLocation'),
         'intCityIdWorkingIn' => $this->input->post('city'),
+        'intWorkingCountryID' => $this->input->post('country'),
         'vcDescribeCareer' => $this->input->post('describeCareer')
       );
     } else {
@@ -422,6 +423,7 @@ class Model_registration extends CI_Model
         'intWorkingAsSubCatId' => $this->input->post('workingAsSubCat'),
         'vcWorkingLocation' => $this->input->post('workingLocation'),
         'intCityIdWorkingIn' => $this->input->post('city'),
+        'intWorkingCountryID' => $this->input->post('country'),
         'vcDescribeCareer' => $this->input->post('describeCareer'),
         'intNoOfSubmitedForm' => 8
       );
