@@ -152,6 +152,8 @@ class Admin_Controller extends MY_Controller
 						// redirect(base_url("Registration/PhysicalStatus"), 'refresh');
 					} else if ($lastSubmittedFormNo == 14) {
 						// redirect(base_url("Registration/PhysicalStatus"), 'refresh');
+					}else{
+						redirect(base_url("Welcome"), 'refresh');
 					}
 					
 				}
