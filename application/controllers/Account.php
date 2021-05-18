@@ -36,11 +36,11 @@ class Account extends Admin_Controller{
 	public function MatchProfile()
 	{
 
-		// $user_id = $this->session->userdata('user_id');
-		// $user_id = 18;
-		// $userData = $this->Model_account->getUserDate($user_id);
+		$member_id = $this->session->userdata('member_id');
+		// $user_id= 18;
+		$memberData = $this->Model_account->getMemberData($member_id);
 
-		// $this->data['userData'] = $userData;
+		$this->data['userData'] = $memberData;
 
 		$this->render_template('account/match_profile', 'Match Profile',  null);
 	}
