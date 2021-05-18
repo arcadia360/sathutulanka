@@ -47,10 +47,10 @@ class Auth extends Admin_Controller
                         );
 
                         if ($login['intMemberAccountStatusID'] == 1) { // Email Verification Pending
-                            $this->data['errors'] = 'Your email verification has been deactivated !';
+                            $this->session->set_flashdata('errors', 'Your email verification has been deactivated !');
                             $this->load->view(base_url("Welcome"), $this->data);
                         }else if ($login['intMemberAccountStatusID'] == 2) { // OTP Verification Pending
-                            $this->data['errors'] = 'Your OTP verification has been deactivated !';
+                            $this->session->set_flashdata('errors', 'Your OTP verification has been deactivated !');
                             $this->load->view(base_url("Welcome"), $this->data);
                         } else if ($login['intMemberAccountStatusID'] == 3) { // Member Details Pending
                             $this->session->set_userdata($logged_in_sess);
@@ -64,20 +64,20 @@ class Auth extends Admin_Controller
 
                        
                     } else {
-                        $this->data['errors'] = 'Your account has been deactivated. Please contact administrator !';
-                        $this->load->view(base_url("Welcome"), $this->data);
+                        $this->session->set_flashdata("errors", "Your account has been deactivated. Please contact administrator !");
+                        redirect(base_url("Welcome"), 'refresh');
                     }
                 } else {
-                    $this->data['errors'] = 'Incorrect user name / password !';
-                    $this->load->view(base_url("Welcome"), $this->data);
+                    $this->session->set_flashdata('errors', 'Incorrect user name / password !');
+                    redirect(base_url("Welcome"), 'refresh');
                 }
             } else {
-                $this->data['errors'] = 'User name does not exists !';
-                $this->load->view(base_url("Welcome"), $this->data);
+                $this->session->set_flashdata("errors", "User name does not exists !");
+                redirect(base_url("Welcome"), 'refresh');
             }
         } else {
             // false case
-            $this->load->view(base_url("Welcome"));
+            redirect(base_url("Welcome"), 'refresh');
         }
     }
 
