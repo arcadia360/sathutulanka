@@ -880,6 +880,42 @@ class Model_registration extends CI_Model
     }
   }
 
+  public function saveUploadedImageName($imgName, $imgType)
+  {
+    $userNameAndLastSubmitForm  = $this->getMidAndLastSubmitFrom();
+    $mid = $userNameAndLastSubmitForm['mid'];
+    $data = array(
+
+      'intImageName' => $imgName,
+      'vcImageType' => $imgType,
+      'intMID' => $mid
+
+    );
+    $this->db->insert('memberimage', $data);
+    if ($this->db->affected_rows() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadUploadedImages()
+  {
+    $userNameAndLastSubmitForm  = $this->getMidAndLastSubmitFrom();
+    $mid = $userNameAndLastSubmitForm['mid'];
+
+    $this->db->select('*');
+    $this->db->from('memberimage');
+    $this->db->where('intMID =', $mid);
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
   public function getMidAndLastSubmitFrom()
   {
     $mid = $this->session->userdata('member_id');
