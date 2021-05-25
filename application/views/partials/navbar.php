@@ -1,3 +1,6 @@
+<?php
+// defined('BASEPATH') or exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +11,7 @@
     <title><?= $page_title ?></title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
     <!-- Bootstrap 4.0 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Common CSS -->
@@ -16,6 +20,39 @@
     <link rel="stylesheet" href="<?= base_url('resources/css/navbar.css') ?>">
     <!-- Animate CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <!-- Swiper CSS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css'>
+    <link rel='stylesheet' href='<?= base_url('resources/css/swiper_style.css') ?>'>
+
+    <style>
+        #toast-container {
+            position: fixed;
+            z-index: 999999;
+            pointer-events: none;
+            right: 10px !important;
+
+        }
+
+        #toast-container>div {
+            -moz-box-shadow: 0 0 12px #000000 !important;
+            -webkit-box-shadow: 0 0 12px #000000 !important;
+            box-shadow: 0 0 12px #000000 !important;
+        }
+
+        #toast-container>.toast-error {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHOSURBVEhLrZa/SgNBEMZzh0WKCClSCKaIYOED+AAKeQQLG8HWztLCImBrYadgIdY+gIKNYkBFSwu7CAoqCgkkoGBI/E28PdbLZmeDLgzZzcx83/zZ2SSXC1j9fr+I1Hq93g2yxH4iwM1vkoBWAdxCmpzTxfkN2RcyZNaHFIkSo10+8kgxkXIURV5HGxTmFuc75B2RfQkpxHG8aAgaAFa0tAHqYFfQ7Iwe2yhODk8+J4C7yAoRTWI3w/4klGRgR4lO7Rpn9+gvMyWp+uxFh8+H+ARlgN1nJuJuQAYvNkEnwGFck18Er4q3egEc/oO+mhLdKgRyhdNFiacC0rlOCbhNVz4H9FnAYgDBvU3QIioZlJFLJtsoHYRDfiZoUyIxqCtRpVlANq0EU4dApjrtgezPFad5S19Wgjkc0hNVnuF4HjVA6C7QrSIbylB+oZe3aHgBsqlNqKYH48jXyJKMuAbiyVJ8KzaB3eRc0pg9VwQ4niFryI68qiOi3AbjwdsfnAtk0bCjTLJKr6mrD9g8iq/S/B81hguOMlQTnVyG40wAcjnmgsCNESDrjme7wfftP4P7SP4N3CJZdvzoNyGq2c/HWOXJGsvVg+RA/k2MC/wN6I2YA2Pt8GkAAAAASUVORK5CYII=) !important;
+            top: 70px !important;
+        }
+    </style>
+
+    <!-- <script type="text/javascript">
+        $(function() {
+            alert("dd");
+            // toastr["error"]("Please fill in all fields !");
+        });
+    </script> -->
 
 <body>
 
@@ -41,25 +78,35 @@
         <div class="collapse navbar-collapse" id="userNavbarItems">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                 <?php
-                if (isset($_SESSION['user_id']) || !empty($_SESSION['user_id'])) { 
+                if (isset($_SESSION['member_id']) || !empty($_SESSION['member_id'])) {
                 ?>
-                    <li class="nav-item active" style="background-color: #A12744;">
+                    <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "MyAccount") {
+                                            echo 'active';
+                                        } ?>">
                         <a class="nav-link" href="#">&nbsp;My&nbsp;Account&nbsp;</a>
                     </li>
                     <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
-                    <li class="nav-item">
+                    <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "AllSingles") {
+                                            echo 'active';
+                                        } ?>">
                         <a class="nav-link" href="#">&nbsp;Singles&nbsp;</a>
                     </li>
                     <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
-                    <li class="nav-item">
+                    <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Suggesitions") {
+                                            echo 'active';
+                                        } ?>">
                         <a class="nav-link" href="#">&nbsp;Suggesitions&nbsp;</a>
                     </li>
                     <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
-                    <li class="nav-item">
+                    <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Notifications") {
+                                            echo 'active';
+                                        } ?>">
                         <a class="nav-link" href="#">&nbsp;Notifications&nbsp;</a>
                     </li>
                     <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
-                    <li class="nav-item">
+                    <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Discussions") {
+                                            echo 'active';
+                                        } ?>">
                         <a class="nav-link" href="#">&nbsp;Discussions&nbsp;</a>
                     </li>
                 <?php
