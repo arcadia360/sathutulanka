@@ -211,7 +211,7 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input language assetRoutes" name="assestRoute[]" value=">Ask (My Story)">
+                                            <input type="checkbox" class="custom-control-input language assetRoutes" name="assestRoute[]" value="Ask (My Story)">
                                             <span class="custom-control-indicator"></span>
                                             <span class="custom-control-description">Ask (My Story)</span>
                                         </label>
