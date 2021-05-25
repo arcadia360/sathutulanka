@@ -9,6 +9,7 @@ class Registration extends Admin_Controller
 		// header("Cache-Control: no-cache, must-revalidate"); // HTTP 1.1.
 		// header("Pragma: no-cache"); // HTTP 1.0.
 		// header("Expires: 0"); // Proxies.
+		$this->not_logged_in();
 	}
 
 	public function index()
@@ -46,16 +47,16 @@ class Registration extends Admin_Controller
 	//DK section Start
 	public function physicalStatus()
 	{
-		// $this->CheckAndRedirectNextForm(1);
+		$this->CheckAndRedirectNextForm(1);
 
-		// $this->render_template_registration('registration/physical_status', 'Add Physical Details', NULL);
+		$this->render_template_registration('registration/physical_status', 'Add Physical Details', NULL);
 
 
-		$this->load->helper('language');
-		$this->lang->load('en', 'English');
-		$this->load->view('registration/header');
-		$this->load->view('registration/physical_status');
-		$this->load->view('registration/footer');
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/physical_status');
+		// $this->load->view('registration/footer');
 	}
 
 	public function addPhysicalStatus()
@@ -93,14 +94,14 @@ class Registration extends Admin_Controller
 
 	public function residence()
 	{
-		// $this->CheckAndRedirectNextForm(2);
-		// $this->render_template_registration('registration/residence', 'Add Residence Details', NULL);
+		$this->CheckAndRedirectNextForm(2);
+		$this->render_template_registration('registration/residence', 'Add Residence Details', NULL);
 
-		$this->load->helper('language');
-		$this->lang->load('en', 'English');
-		$this->load->view('registration/header');
-		$this->load->view('registration/residence');
-		$this->load->view('registration/footer');
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/residence');
+		// $this->load->view('registration/footer');
 	}
 
 	public function addResidenceDetails()
@@ -132,28 +133,190 @@ class Registration extends Admin_Controller
 		echo json_encode($response);
 	}
 
+	public function background()
+	{
+		$this->CheckAndRedirectNextForm(3);
+		$this->render_template_registration('registration/background', 'Add Background Details', NULL);
+
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/background');
+		// $this->load->view('registration/footer');
+	}
+
+	public function loadCaste()
+	{
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->loadCaste();
+		if (!$result) {
+			return false;
+		} else {
+			$this->load->helper('language');
+			$this->lang->load('en', 'English');
+			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
+			if ($result) {
+				foreach ($result as $caste) {
+					$CasteName = $caste->vcCasteName;
+					$html .= "<option value=" . $caste->intCasteId . " >" . $CasteName  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function loadSubCaste()
+	{
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->loadSubCaste();
+		if (!$result) {
+			return false;
+		} else {
+			$this->load->helper('language');
+			$this->lang->load('en', 'English');
+			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
+			if ($result) {
+				foreach ($result as $subCaste) {
+					$subCasteName = $subCaste->vcSubCasteName;
+					$html .= "<option value=" . $subCaste->intSubCasteId . " >" . $subCasteName  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function addBackgroundDetails()
+	{
+		$response = array();
+
+		$this->form_validation->set_rules('motherTongue', 'Mother Tongue', 'required');
+		$this->form_validation->set_rules('ethnicity', 'Ethnicity', 'required');
+		$this->form_validation->set_rules('religion', 'Religion', 'required');
+
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+		if ($this->form_validation->run() == TRUE) {
+			$this->load->model('Model_registration');
+			$result = $this->Model_registration->saveBackgroundDetails();
+			if ($result == true) {
+				$response['success'] = true;
+				$session_data = array('no_of_submitted_form' => 4);
+				$this->session->set_userdata($session_data);
+			} else {
+				$response['success'] = false;
+				$response['messages'] = 'Error in the database while saving background details. Please contact system administrator.';
+			}
+		} else {
+			$response['success'] = false;
+			foreach ($_POST as $key => $value) {
+				$response['messages'][$key] = form_error($key);
+			}
+		}
+		echo json_encode($response);
+	}
+
+	public function lifeStyle()
+	{
+		$this->CheckAndRedirectNextForm(4);
+		$this->render_template_registration('registration/lifeStyle', 'Add Life Style Details', NULL);
+
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/lifeStyle');
+		// $this->load->view('registration/footer');
+	}
+
+	public function addLifeStyleDetails()
+	{
+		$response = array();
+
+		$this->form_validation->set_rules('diet', 'Diet', 'required');
+		$this->form_validation->set_rules('drink', 'Drink', 'required');
+		$this->form_validation->set_rules('LiveIn', 'Live In', 'required');
+
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+		if ($this->form_validation->run() == TRUE) {
+			$this->load->model('Model_registration');
+			$result = $this->Model_registration->saveLifeStyleDetails();
+			if ($result == true) {
+				$response['success'] = true;
+				$session_data = array('no_of_submitted_form' => 5);
+				$this->session->set_userdata($session_data);
+			} else {
+				$response['success'] = false;
+				$response['messages'] = 'Error in the database while saving life style details. Please contact system administrator.';
+			}
+		} else {
+			$response['success'] = false;
+			foreach ($_POST as $key => $value) {
+				$response['messages'][$key] = form_error($key);
+			}
+		}
+		echo json_encode($response);
+	}
+
+
+
 	public function WhoAmI()
 	{
-		// $this->CheckAndRedirectNextForm(5);
-		// $this->render_template_registration('registration/who_am_i', 'Who Am I', NULL);
+		$this->CheckAndRedirectNextForm(5);
+		$this->render_template_registration('registration/who_am_i', 'Who Am I', NULL);
 
-		$this->load->helper('language');
-		$this->lang->load('en', 'English');
-		$this->load->view('registration/header');
-		$this->load->view('registration/who_am_i');
-		$this->load->view('registration/footer');
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/who_am_i');
+		// $this->load->view('registration/footer');
+	}
+
+	public function addWhoAmIDetails()
+	{
+		$response = array();
+
+		$this->form_validation->set_rules('EnrichmentHobies[]', 'enrichment hobies', 'required');
+		$this->form_validation->set_rules('Sports-Physicalactivities[]', 'sports physicalactivities', 'required');
+		$this->form_validation->set_rules('SocialActivities[]', 'social activities', 'required');
+		$this->form_validation->set_rules('CreatvieHobies[]', 'creatvie hobies', 'required');
+		$this->form_validation->set_rules('CollectingHobbies[]', 'collecting hobbies', 'required');
+		$this->form_validation->set_rules('outdoorHobies[]', 'outdoor hobies', 'required');
+		$this->form_validation->set_rules('domesticHobbies[]', 'domestic hobbies', 'required');
+
+
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+		if ($this->form_validation->run() == TRUE) {
+
+			$this->load->model('Model_registration');
+			$result = $this->Model_registration->saveWhoAmIDetails();
+			if ($result == true) {
+				$response['success'] = true;
+				$session_data = array('no_of_submitted_form' => 6);
+				$this->session->set_userdata($session_data);
+			} else {
+				$response['success'] = false;
+				$response['messages'] = 'Error in the database while saving who am I details. Please contact system administrator.';
+			}
+		} else {
+			$response['success'] = false;
+			foreach ($_POST as $key => $value) {
+				$response['messages'][$key] = form_error($key);
+			}
+		}
+		echo json_encode($response);
 	}
 
 	public function education()
 	{
-		// $this->CheckAndRedirectNextForm();
-		// $this->render_template_registration('registration/education', 'Education', NULL);
+		$this->CheckAndRedirectNextForm(6);
+		$this->render_template_registration('registration/education', 'Education', NULL);
 
-		$this->load->helper('language');
-		$this->lang->load('en', 'English');
-		$this->load->view('registration/header');
-		$this->load->view('registration/education');
-		$this->load->view('registration/footer');
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/education');
+		// $this->load->view('registration/footer');
 	}
 	public function addEducationDetails()
 	{
@@ -170,6 +333,8 @@ class Registration extends Admin_Controller
 			$result = $this->Model_registration->saveEducationDetails();
 			if ($result == true) {
 				$response['success'] = true;
+				$session_data = array('no_of_submitted_form' => 7);
+				$this->session->set_userdata($session_data);
 			} else {
 				$response['success'] = false;
 				$response['messages'] = 'Error in the database while saving education details. Please contact system administrator.';
@@ -185,14 +350,14 @@ class Registration extends Admin_Controller
 
 	public function career()
 	{
-		// $this->CheckAndRedirectNextForm();
-		// $this->render_template_registration('registration/career', 'career', NULL);
+		$this->CheckAndRedirectNextForm(7);
+		$this->render_template_registration('registration/career', 'career', NULL);
 
-		$this->load->helper('language');
-		$this->lang->load('en', 'English');
-		$this->load->view('registration/header');
-		$this->load->view('registration/career');
-		$this->load->view('registration/footer');
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/career');
+		// $this->load->view('registration/footer');
 	}
 
 	// Load working with data to career details form
@@ -272,6 +437,8 @@ class Registration extends Admin_Controller
 			$result = $this->Model_registration->saveCareerDetails();
 			if ($result == true) {
 				$response['success'] = true;
+				$session_data = array('no_of_submitted_form' => 8);
+				$this->session->set_userdata($session_data);
 			} else {
 				$response['success'] = false;
 				$response['messages'] = 'Error in the database while saving career details. Please contact system administrator.';
@@ -287,14 +454,14 @@ class Registration extends Admin_Controller
 
 	public function personalAssets()
 	{
-		// $this->CheckAndRedirectNextForm();
-		// $this->render_template_registration('registration/personal_assets', 'Personal Assets', NULL);
+		$this->CheckAndRedirectNextForm(8);
+		$this->render_template_registration('registration/personal_assets', 'Personal Assets', NULL);
 
-		$this->load->helper('language');
-		$this->lang->load('en', 'English');
-		$this->load->view('registration/header');
-		$this->load->view('registration/personal_assets');
-		$this->load->view('registration/footer');
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/personal_assets');
+		// $this->load->view('registration/footer');
 	}
 
 	public function addPersonalAssestDetails()
@@ -312,6 +479,8 @@ class Registration extends Admin_Controller
 			$result = $this->Model_registration->savePersonalAssestDetailss();
 			if ($result == true) {
 				$response['success'] = true;
+				$session_data = array('no_of_submitted_form' => 9);
+				$this->session->set_userdata($session_data);
 			} else {
 				$response['success'] = false;
 				$response['messages'] = 'Error in the database while saving personal assets details. Please contact system administrator.';
@@ -327,14 +496,14 @@ class Registration extends Admin_Controller
 
 	public function family()
 	{
-		// $this->CheckAndRedirectNextForm();
-		// $this->render_template_registration('registration/family', 'Family', NULL);
+		$this->CheckAndRedirectNextForm(9);
+		$this->render_template_registration('registration/family', 'Family', NULL);
 
-		$this->load->helper('language');
-		$this->lang->load('en', 'English');
-		$this->load->view('registration/header');
-		$this->load->view('registration/family');
-		$this->load->view('registration/footer');
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/family');
+		// $this->load->view('registration/footer');
 	}
 
 	public function addFamilyDetails()
@@ -351,6 +520,8 @@ class Registration extends Admin_Controller
 			$result = $this->Model_registration->saveFamilyDetailss();
 			if ($result == true) {
 				$response['success'] = true;
+				$session_data = array('no_of_submitted_form' => 10);
+				$this->session->set_userdata($session_data);
 			} else {
 				$response['success'] = false;
 				$response['messages'] = 'Error in the database while saving family details. Please contact system administrator.';
@@ -366,14 +537,14 @@ class Registration extends Admin_Controller
 
 	public function afterMarriage()
 	{
-		// $this->CheckAndRedirectNextForm();
-		// $this->render_template_registration('registration/after_marriage', 'After Marriage', NULL);
+		$this->CheckAndRedirectNextForm(10);
+		$this->render_template_registration('registration/after_marriage', 'After Marriage', NULL);
 
-		$this->load->helper('language');
-		$this->lang->load('en', 'English');
-		$this->load->view('registration/header');
-		$this->load->view('registration/after_marriage');
-		$this->load->view('registration/footer');
+		// $this->load->helper('language');
+		// $this->lang->load('en', 'English');
+		// $this->load->view('registration/header');
+		// $this->load->view('registration/after_marriage');
+		// $this->load->view('registration/footer');
 	}
 
 	public function addAfterMarriageDetails()
@@ -390,6 +561,8 @@ class Registration extends Admin_Controller
 			$result = $this->Model_registration->saveAfterMarriageDetails();
 			if ($result == true) {
 				$response['success'] = true;
+				$session_data = array('no_of_submitted_form' => 11);
+				$this->session->set_userdata($session_data);
 			} else {
 				$response['success'] = false;
 				$response['messages'] = 'Error in the database while saving after marriage details. Please contact system administrator.';
@@ -402,6 +575,192 @@ class Registration extends Admin_Controller
 		}
 		echo json_encode($response);
 	}
+
+	public function horoscopeDetails()
+	{
+		// $this->CheckAndRedirectNextForm(11);
+		// $this->render_template_registration('registration/horoscope', 'Horoscope', NULL);
+
+		$this->load->helper('language');
+		$this->lang->load('en', 'English');
+		$this->load->view('registration/header');
+		$this->load->view('registration/horoscope');
+		$this->load->view('registration/footer');
+	}
+	public function addHoroscopeDetails()
+	{
+		$response = array();
+
+		$this->form_validation->set_rules('matchingHoroscope', 'Matching Horoscope', 'required');
+		$this->form_validation->set_rules('Ganaya', 'Ganaya', 'required');
+		$this->form_validation->set_rules('Mercury', 'Mercury', 'required');
+
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+		if ($this->form_validation->run() == TRUE) {
+			$this->load->model('Model_registration');
+			$result = $this->Model_registration->saveHoroscopeDetails();
+			if ($result == true) {
+				$response['success'] = true;
+				$session_data = array('no_of_submitted_form' => 12);
+				$this->session->set_userdata($session_data);
+			} else {
+				$response['success'] = false;
+				$response['messages'] = 'Error in the database while saving horoscope details. Please contact system administrator.';
+			}
+		} else {
+			$response['success'] = false;
+			foreach ($_POST as $key => $value) {
+				$response['messages'][$key] = form_error($key);
+			}
+		}
+		echo json_encode($response);
+	}
+
+
+	public function myPhotosAndVideos()
+	{
+		// $this->CheckAndRedirectNextForm(12);
+		// $this->render_template_registration('registration/horoscope', 'Horoscope', NULL);
+
+		$this->load->helper('language');
+		$this->lang->load('en', 'English');
+		$this->load->view('registration/header');
+		$this->load->view('registration/my_photos_and_videos');
+		$this->load->view('registration/footer');
+	}
+
+	public function UploadMyPhotos()
+	{
+		$fileName = null;
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->getLastUploadedImageName();
+
+		if ($result['status']) {
+			$fileName = $result['lastUploadImageName'];
+			$fileName++;
+		} else {
+			$fileName = 1;
+		}
+
+		$folderName = $this->session->userdata('member_id');
+
+		$imagePath = "./resources/images/member/" . $folderName;
+
+		if (!is_dir($imagePath)) {
+			mkdir("./resources/images/member/" . $folderName);
+		}
+
+
+		$config['upload_path'] = $imagePath;
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['file_name'] = $fileName;
+
+		$this->load->library('upload', $config);
+
+		if ($this->upload->do_upload("file1")) {
+			$data = array('upload_data' => $this->upload->data());
+
+			$img4 = $this->input->post('file1');
+			$image = $data['upload_data']['file_name'];
+			$result = true;
+		}
+	}
+
+	public function AboutYourselfAndPartner()
+	{
+		// $this->CheckAndRedirectNextForm(13);
+		// $this->render_template_registration('registration/horoscope', 'Horoscope', NULL);
+		$this->load->helper('language');
+		$this->lang->load('en', 'English');
+		$this->load->view('registration/header');
+		$this->load->view('registration/about_yourself_and_partner');
+		$this->load->view('registration/footer');
+	}
+
+	public function AddAboutYourselfAndPartner()
+	{
+		$response = array();
+
+		$this->form_validation->set_rules('aboutYourSelfAndPartner', 'About yourself and partner', 'required|max_length[2500]');
+
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+		if ($this->form_validation->run() == TRUE) {
+			$this->load->model('Model_registration');
+			$result = $this->Model_registration->saveAboutYourselfAndPartner();
+			if ($result == true) {
+				$response['success'] = true;
+				$session_data = array('no_of_submitted_form' => 14);
+				$this->session->set_userdata($session_data);
+			} else {
+				$response['success'] = false;
+				$response['messages'] = 'Error in the database while saving about yourself and partner details. Please contact system administrator.';
+			}
+		} else {
+			$response['success'] = false;
+			foreach ($_POST as $key => $value) {
+				$response['messages'][$key] = form_error($key);
+			}
+		}
+		echo json_encode($response);
+	}
+
+	public function privacySettings()
+	{
+		// $this->CheckAndRedirectNextForm(13);
+		// $this->render_template_registration('registration/horoscope', 'Horoscope', NULL);
+		$this->load->helper('language');
+		$this->lang->load('en', 'English');
+		$this->load->view('registration/header');
+		$this->load->view('registration/privacy_settings');
+		$this->load->view('registration/footer');
+	}
+
+	public function AddPrivacySettings()
+	{
+		$response = array();
+
+		$this->form_validation->set_rules('MyPhotos', 'MyPhotos privacy', 'required');
+		$this->form_validation->set_rules('MyVideos', 'MyPhotos privacy', 'required');
+		$this->form_validation->set_rules('AssetsDetails', 'Assets Details privacy', 'required');
+		$this->form_validation->set_rules('FamilyDetails', 'Family Details privacy', 'required');
+		$this->form_validation->set_rules('Horoshcope', 'Horoshcope privacy', 'required');
+
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+		if ($this->form_validation->run() == TRUE) {
+			$this->load->model('Model_registration');
+			$result = $this->Model_registration->savePrivacySettings();
+			if ($result == true) {
+				$response['success'] = true;
+				$session_data = array('no_of_submitted_form' => 15);
+				$this->session->set_userdata($session_data);
+			} else {
+				$response['success'] = false;
+				$response['messages'] = 'Error in the database while saving privacy settings. Please contact system administrator.';
+			}
+		} else {
+			$response['success'] = false;
+			foreach ($_POST as $key => $value) {
+				$response['messages'][$key] = form_error($key);
+			}
+		}
+		echo json_encode($response);
+	}
+
+	public function partnerPreferences()
+	{
+
+		// $this->CheckAndRedirectNextForm(15);
+		// $this->render_template_registration('registration/partnerPreferences', 'Partner Preferences', NULL);
+		$this->load->helper('language');
+		$this->lang->load('en', 'English');
+		$this->load->view('registration/header');
+		$this->load->view('registration/partnerPreferences');
+		$this->load->view('registration/footer');
+	}
+
 
 	public function LoadCountries()
 	{
@@ -483,130 +842,6 @@ class Registration extends Admin_Controller
 				echo json_encode($html);
 			}
 		}
-	}
-
-	public function background()
-	{
-		// $this->CheckAndRedirectNextForm(3);
-		// $this->render_template_registration('registration/background', 'Add Background Details', NULL);
-
-		$this->load->helper('language');
-		$this->lang->load('en', 'English');
-		$this->load->view('registration/header');
-		$this->load->view('registration/background');
-		$this->load->view('registration/footer');
-	}
-
-	public function loadCaste()
-	{
-		$this->load->model('Model_registration');
-		$result = $this->Model_registration->loadCaste();
-		if (!$result) {
-			return false;
-		} else {
-			$this->load->helper('language');
-			$this->lang->load('en', 'English');
-			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
-			if ($result) {
-				foreach ($result as $caste) {
-					$CasteName = $caste->vcCasteName;
-					$html .= "<option value=" . $caste->intCasteId . " >" . $CasteName  . "</option>";
-				}
-				echo json_encode($html);
-			}
-		}
-	}
-
-	public function loadSubCaste()
-	{
-		$this->load->model('Model_registration');
-		$result = $this->Model_registration->loadSubCaste();
-		if (!$result) {
-			return false;
-		} else {
-			$this->load->helper('language');
-			$this->lang->load('en', 'English');
-			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
-			if ($result) {
-				foreach ($result as $subCaste) {
-					$subCasteName = $subCaste->vcSubCasteName;
-					$html .= "<option value=" . $subCaste->intSubCasteId . " >" . $subCasteName  . "</option>";
-				}
-				echo json_encode($html);
-			}
-		}
-	}
-
-	public function addBackgroundDetails()
-	{
-		$response = array();
-
-		$this->form_validation->set_rules('motherTongue', 'Mother Tongue', 'required');
-		$this->form_validation->set_rules('ethnicity', 'Ethnicity', 'required');
-		$this->form_validation->set_rules('religion', 'Religion', 'required');
-
-		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
-
-		if ($this->form_validation->run() == TRUE) {
-			$this->load->model('Model_registration');
-			$result = $this->Model_registration->saveBackgroundDetails();
-			if ($result == true) {
-				$response['success'] = true;
-				$session_data = array('no_of_submitted_form' => 4);
-				$this->session->set_userdata($session_data);
-			} else {
-				$response['success'] = false;
-				$response['messages'] = 'Error in the database while saving background details. Please contact system administrator.';
-			}
-		} else {
-			$response['success'] = false;
-			foreach ($_POST as $key => $value) {
-				$response['messages'][$key] = form_error($key);
-			}
-		}
-		echo json_encode($response);
-	}
-
-	public function lifeStyle()
-	{
-		// $this->CheckAndRedirectNextForm(4);
-		// $this->render_template_registration('registration/lifeStyle', 'Add Life Style Details', NULL);
-
-		$this->load->helper('language');
-		$this->lang->load('en', 'English');
-		$this->load->view('registration/header');
-		$this->load->view('registration/lifeStyle');
-		$this->load->view('registration/footer');
-	}
-
-	public function addLifeStyleDetails()
-	{
-		$response = array();
-
-		$this->form_validation->set_rules('diet', 'Diet', 'required');
-		$this->form_validation->set_rules('drink', 'Drink', 'required');
-		$this->form_validation->set_rules('LiveIn', 'Live In', 'required');
-
-		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
-
-		if ($this->form_validation->run() == TRUE) {
-			$this->load->model('Model_registration');
-			$result = $this->Model_registration->saveLifeStyleDetails();
-			if ($result == true) {
-				$response['success'] = true;
-				$session_data = array('no_of_submitted_form' => 5);
-				$this->session->set_userdata($session_data);
-			} else {
-				$response['success'] = false;
-				$response['messages'] = 'Error in the database while saving life style details. Please contact system administrator.';
-			}
-		} else {
-			$response['success'] = false;
-			foreach ($_POST as $key => $value) {
-				$response['messages'][$key] = form_error($key);
-			}
-		}
-		echo json_encode($response);
 	}
 
 	public function horoscope()
