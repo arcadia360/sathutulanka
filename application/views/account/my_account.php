@@ -7,9 +7,10 @@
 
     }
 
-    input[type="text"]:disabled {
+    /* .card-body input[type="text"]:disabled {
         background: #ffffff;
-    }
+        text-transform: capitalize;
+    } */
 
     label {
         font-family: 'Raleway', sans-serif !important;
@@ -26,9 +27,6 @@
         font-size: 0.9em !important;
         font-weight: 600;
     }
-
-
-
 
 
     .list-group-item.active:not(.disabled) {
@@ -146,7 +144,129 @@
     .like {
         color: #e91e63 !important;
     }
+</style>
+<style>
+    /* body {
+        font-family: Arial, Helvetica, sans-serif;
+    } */
 
+    .myImg {
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .myImg:hover {
+        opacity: 0.7;
+    }
+
+    .card-image img {
+        height: 300px !important;
+        object-fit: cover !important;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 99999;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.9);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content (image) */
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        border: 0 !important;
+    }
+
+    /* Caption of Modal Image */
+    #caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+        color: #ccc;
+        padding: 10px 0;
+        height: 150px;
+    }
+
+    /* Add Animation */
+    .modal-content,
+    #caption {
+        -webkit-animation-name: zoom;
+        -webkit-animation-duration: 0.6s;
+        animation-name: zoom;
+        animation-duration: 0.6s;
+    }
+
+    @-webkit-keyframes zoom {
+        from {
+            -webkit-transform: scale(0)
+        }
+
+        to {
+            -webkit-transform: scale(1)
+        }
+    }
+
+    @keyframes zoom {
+        from {
+            transform: scale(0)
+        }
+
+        to {
+            transform: scale(1)
+        }
+    }
+
+    /* The Close Button */
+    .closeViewer {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+        z-index: 99999;
+    }
+
+    .closeViewer:hover,
+    .closeViewer:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+
+
+
+    }
+
+    /* 100% Image Width on Smaller Screens */
+    @media only screen and (max-width: 700px) {
+        .modal-content {
+            width: 100%;
+        }
+    }
 </style>
 <div class="container">
     <div class="main-body">
@@ -166,18 +286,37 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <!-- <div class="row">
-                                <a href="" class="profile-heart like"><i class="fas fa-heart"></i></a>
-                            </div> -->
                             <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150"> -->
                             <div class="image-margin-circle">
                                 <img src="https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg" class="profile-pic" />
-                                <!-- <img src="https://wallpapercave.com/wp/wp5047302.jpg" class="profile-pic" /> -->
                             </div>
                             <div class="mt-3">
-                                <h4>Supun Ariyarathna <span class="profile-badge"><i class="fas fa-certificate"></i></span></h4>
-                                <p class="text-secondary mb-1">Software Engineer</p>
-                                <p class="badge-label"><span class="badge badge-premium">PREMIUM</span></p>
+                                <h4 class="nick-name"><?= $memberData['vcNickName'] ?>
+                                    <!-- <span class="profile-badge"><i class="fas fa-certificate"></i></span> -->
+                                </h4>
+                                <p class="text-secondary mb-1"><?= $memberData['vcWorkingAsSubCat_Customised'] ?></p>
+
+                                
+                                <?php
+                                if ($memberData['intMemberAccountTypeID'] == 1) { // Not Trust Verified
+                                ?>
+                                    <p class="badge-label"><span class="badge badge-notTrustVerified">Not Trust Verified</span></p>
+                                <?php
+                                } else if ($memberData['intMemberAccountTypeID'] == 2) { // Trust Proving
+                                ?>
+                                    <p class="badge-label"><span class="badge badge-trustProving">Trust Proving</span></p>
+                                <?php
+                                } else if ($memberData['intMemberAccountTypeID'] == 3) { // Trust Verified
+                                ?>
+                                    <p class="badge-label"><span class="badge badge-trustVerified">Trust Verified</span></p>
+                                <?php
+                                } else if ($memberData['intMemberAccountTypeID'] == 4) { // Premium
+                                ?>
+                                    <p class="badge-label"><span class="badge badge-premium">Premium</span></p>
+                                <?php
+                                }
+                                ?>
+
                                 <!-- <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p> -->
                                 <!-- <button class="btn btn-primary">Follow</button>
                                 <button class="btn btn-outline-primary">Message</button> -->
@@ -212,6 +351,65 @@
             <div class="col-md-8">
                 <div class="card mb-3">
                     <div class="card-body">
+                        <!-- Photo Slider - Start -->
+
+                        <main class="main">
+                            <div class="photo-container">
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="card-image">
+                                                <!-- <img id="myImg" onclick="viewImage(this)" src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/1.jpg" ?>" alt="Image Slider"> -->
+                                                <img class="myImg" onclick="viewImage(this)" src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/1.jpg" ?>" alt="Image Slider">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="card-image">
+                                                <img class="myImg" onclick="viewImage(this)" src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/2.jpg" ?>" alt="Image Slider">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="card-image">
+                                                <img class="myImg" onclick="viewImage(this)" src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/3.jpg" ?>" alt="Image Slider">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="card-image">
+                                                <img class="myImg" onclick="viewImage(this)" src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/4.jpg" ?>" alt="Image Slider">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="card-image">
+                                                <img class="myImg" onclick="viewImage(this)" src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/5.jpeg" ?>" alt="Image Slider">
+                                            </div>
+                                        </div>
+                                        <!-- <div class="swiper-slide">
+                                            <div class="card-image">
+                                                <img src="https://source.unsplash.com/1280x720/?flower" alt="Image Slider">
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <!-- Add Pagination -->
+                                    <div class="swiper-pagination"></div>
+                                    <!-- Add Scrollbar -->
+                                    <div class="swiper-button-next">
+                                        <i class="fas fa-chevron-circle-right arrow-icon"></i>
+                                    </div>
+                                    <div class="swiper-button-prev">
+                                        <i class="fas fa-chevron-circle-left arrow-icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+                            <span class="closeViewer">&times;</span>
+                            <img class="modal-content" id="img01">
+                            <!-- <div id="caption"></div> -->
+                        </div>
+
+                        <!-- Photo Slider - End -->
                         <div id="accordion">
                             <div class="card">
                                 <div class="card-header" id="headingOne">
@@ -227,7 +425,7 @@
                                         <div class="row gutters">
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
-                                                    <label for="fullName">Short Name</label>
+                                                    <label for="fullName">Nick Name</label>
                                                     <input type="text" class="form-control" id="shortName" value="<?= $memberData['vcNickName'] ?>" placeholder="N/A" disabled>
                                                 </div>
                                             </div>
@@ -641,3 +839,29 @@
         </div>
     </div>
 </div>
+
+<script>
+    function viewImage(element) {
+        var ele = element;
+        modal.style.display = "block";
+        modalImg.src = element.src;
+    }
+    var modal = document.getElementById("myModal");
+    // var img = document.getElementById("myImg");
+    var modalImg = document.getElementById("img01");
+    // var captionText = document.getElementById("caption");
+
+    // img.onclick = function() {
+    //     alert("dd");
+    //     modal.style.display = "block";
+    //     modalImg.src = this.src;
+    //     // captionText.innerHTML = this.alt;
+    // }
+
+    var span = document.getElementsByClassName("closeViewer")[0];
+
+    span.onclick = function() {
+        modal.style.display = "none";
+
+    }
+</script>
