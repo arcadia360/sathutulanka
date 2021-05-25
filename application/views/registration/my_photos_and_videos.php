@@ -20,6 +20,19 @@
               </div>
             </div>
           </div>
+
+          <table class="table">
+            <tr style="text-align: center;">
+            </tr>
+            <tbody id="loadimgtable" style="text-align: center;">
+
+            </tbody>
+          </table>
+
+          <div class="row" id="loadimgdiv">
+
+          </div>
+
           <hr>
           <div class="row">
             <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
@@ -35,9 +48,10 @@
   </div>
 </div>
 
+
 <script>
   $(function() {
-
+    viewUploadImages();
     $('#btnBack').click(function() {
       window.location.href = "<?php echo base_url('Registration/horoscope') ?>";
     });
@@ -57,10 +71,44 @@
         cache: false,
         async: false,
         success: function(data) {
-          alert(data);
+          Swal.fire({
+            icon: 'success',
+            title: 'image uploaded successfully!',
+            showConfirmButton: false,
+            timer: 2000
+          }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+              // window.location.href = "<?= base_url('Registration/education') ?>";
+
+            }
+          })
+        },
+        error: function() {
+          alert('internal error failed to view uploaded images');
         }
       });
     });
+
+    function viewUploadImages() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/LoadUploadedImages',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("failed to view uploaded images");
+          } else {
+            $('#loadimgdiv').html(data);;
+          }
+        },
+        error: function() {
+          alert('internal error failed to view uploaded images');
+        }
+      });
+    }
+
+
 
   });
 </script>
