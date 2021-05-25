@@ -380,6 +380,13 @@
                 $(button).prop('disabled', false);
               }
             }
+          },
+          error: function() {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Internal Server Error! Please contact system administrator.',
+            })
           }
         });
       }
