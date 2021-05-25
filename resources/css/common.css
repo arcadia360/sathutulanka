@@ -53,11 +53,34 @@ input[type="checkbox"]:checked+label:before {
     height: calc(100vh - 66px);
 }
 
-/* User Navbar */
+/* Member Navbar */
 
 #userNavbarItems ul li a {
     font-family: 'Raleway', sans-serif !important;
-    font-weight: 100 !important;
+    /* font-weight: 100 !important; */
     text-transform: uppercase;
     font-size: 0.8em !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+#userNavbarItems ul li a:hover { 
+    background-color: #A12744 !important;
+    border-radius: 20px !important;
+}
+
+#userNavbarItems .active {
+    background-color: #A12744 !important;
+    border-radius: 20px !important;
+}
+
+/* Profile  */
+
+.card-body input[type="text"]:disabled {
+    background: #ffffff;
+    text-transform: capitalize;
+}
+
+.nick-name {
+    text-transform: capitalize;
 }

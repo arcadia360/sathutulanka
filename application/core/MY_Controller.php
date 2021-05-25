@@ -152,11 +152,16 @@ class Admin_Controller extends MY_Controller
 						// redirect(base_url("Registration/PhysicalStatus"), 'refresh');
 					} else if ($lastSubmittedFormNo == 14) {
 						// redirect(base_url("Registration/PhysicalStatus"), 'refresh');
-					}else{
+					} else if ($lastSubmittedFormNo == 15) {
+						// redirect(base_url("Registration/PhysicalStatus"), 'refresh');
+					} else if ($lastSubmittedFormNo == 16) {
+						// redirect(base_url("Account/AllSingles"), 'refresh');
+					} else {
 						redirect(base_url("Welcome"), 'refresh');
 					}
-					
 				}
+			} else if ($this->session->userdata('member_account_status_id') == 4) { 	// Completed Account
+				redirect(base_url("Account/AllSingles"), 'refresh');
 			}
 		} else {
 			redirect(base_url("Welcome"), 'refresh');

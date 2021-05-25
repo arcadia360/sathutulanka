@@ -36,6 +36,7 @@ class Auth extends Admin_Controller
                     if ($login['IsActive'] == 1) {
                         $logged_in_sess = array(
                             'member_id' => $login['intMemberID'],
+                            'member_code' => $login['vcMemberCode'],
                             'nick_name' => $login['vcNickName'],
                             'email' => $login['vcEmail'],
                             'member_account_status_id' => $login['intMemberAccountStatusID'],
