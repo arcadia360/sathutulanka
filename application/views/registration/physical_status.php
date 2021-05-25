@@ -61,25 +61,25 @@
 								<label class="text-inverse font-weight-bold" for="validationCustom02"><?= lang('weight') . " (" . lang('weightScale') . ")" ?></label>
 								<select class="custom-select d-block form-control" id="weight" name="weight">
 									<option value=""><?= lang('select') ?></option>
-									<option value="30-35"> 30 - 35 </option>
-									<option value="35-40"> 35 - 40 </option>
-									<option value="40-45"> 40 - 45 </option>
-									<option value="45-50"> 45 - 50 </option>
-									<option value="50-55"> 50 - 55 </option>
-									<option value="55-60"> 55 - 60 </option>
-									<option value="60-65"> 60 - 65 </option>
-									<option value="65-70"> 65 - 70 </option>
-									<option value="70-75"> 70 - 75 </option>
-									<option value="75-80"> 75 - 80 </option>
-									<option value="80-85"> 80 - 85 </option>
-									<option value="85-90"> 85 - 90 </option>
-									<option value="90-95"> 90 - 95 </option>
-									<option value="95-100"> 95 - 100 </option>
-									<option value="100-105"> 100 - 105 </option>
-									<option value="105-110"> 105 - 110 </option>
-									<option value="110-115"> 110 - 115 </option>
-									<option value="115-120"> 115 - 120 </option>
-									<option value="120-250"> Over 120 </option>
+									<option value="30-34"> 30 - 34 </option>
+									<option value="35-39"> 35 - 39 </option>
+									<option value="40-44"> 40 - 44 </option>
+									<option value="45-49"> 45 - 49 </option>
+									<option value="50-54"> 50 - 54 </option>
+									<option value="55-59"> 55 - 59 </option>
+									<option value="60-64"> 60 - 64 </option>
+									<option value="65-69"> 65 - 69 </option>
+									<option value="70-74"> 70 - 74 </option>
+									<option value="75-79"> 75 - 79 </option>
+									<option value="80-84"> 80 - 84 </option>
+									<option value="85-89"> 85 - 89 </option>
+									<option value="90-94"> 90 - 94 </option>
+									<option value="95-99"> 95 - 99 </option>
+									<option value="100-104"> 100 - 104 </option>
+									<option value="105-109"> 105 - 109 </option>
+									<option value="110-114"> 110 - 114 </option>
+									<option value="115-119"> 115 - 119 </option>
+									<option value="120-250"> Over 119 </option>
 								</select>
 							</div>
 						</div>
@@ -233,7 +233,8 @@
 			</div>
 		</div>
 	</div>
-	<!-- Container Area End -->
+
+
 </div>
 <script>
 	$('#btnSubmit').click(function() {
