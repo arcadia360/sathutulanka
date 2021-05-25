@@ -4,6 +4,7 @@ class Account extends Admin_Controller{
     public function __construct()
 	{
 		parent::__construct();
+		$this->not_logged_in();
 		$this->load->model('Model_account');
 		// header("Cache-Control: no-cache, must-revalidate"); // HTTP 1.1.
 		// header("Pragma: no-cache"); // HTTP 1.0.
