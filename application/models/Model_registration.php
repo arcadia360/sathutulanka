@@ -22,14 +22,14 @@ class Model_registration extends CI_Model
     $fromWeight = $weightsArray[0];
     $toWeight = $weightsArray[1];
 
-    $uid = $this->session->userdata('member_id');
+    $mid = $this->session->userdata('member_id');
 
     $NoOfSubmitedForm = null;
     $data = array();
 
     $this->db->select('intNoOfSubmitedForm');
     $this->db->from('member');
-    $this->db->where('intMemberID', $uid);
+    $this->db->where('intMemberID', $mid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       $row = $query->row_array();
@@ -61,7 +61,7 @@ class Model_registration extends CI_Model
       );
     }
 
-    $this->db->where('intMemberID', $uid);
+    $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
@@ -119,14 +119,14 @@ class Model_registration extends CI_Model
 
   public function saveResidenceDetails()
   {
-    $uid = $this->session->userdata('member_id');
+    $mid = $this->session->userdata('member_id');
 
     $NoOfSubmitedForm = null;
     $data = array();
 
     $this->db->select('intNoOfSubmitedForm');
     $this->db->from('member');
-    $this->db->where('intMemberID', $uid);
+    $this->db->where('intMemberID', $mid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       $row = $query->row_array();
@@ -149,7 +149,7 @@ class Model_registration extends CI_Model
         'intNoOfSubmitedForm' => 3
       );
     }
-    $this->db->where('intMemberID', $uid);
+    $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
@@ -160,7 +160,7 @@ class Model_registration extends CI_Model
 
   public function saveBackgroundDetails()
   {
-    $uid = $this->session->userdata('member_id');
+    $mid = $this->session->userdata('member_id');
     $subCasteID = null;
     $CasteID = $this->input->post('caste');
     if ($CasteID == 1) {
@@ -176,7 +176,7 @@ class Model_registration extends CI_Model
 
     $this->db->select('intNoOfSubmitedForm');
     $this->db->from('member');
-    $this->db->where('intMemberID', $uid);
+    $this->db->where('intMemberID', $mid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       $row = $query->row_array();
@@ -201,7 +201,7 @@ class Model_registration extends CI_Model
         'intNoOfSubmitedForm' => 4
       );
     }
-    $this->db->where('intMemberID', $uid);
+    $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
@@ -243,16 +243,16 @@ class Model_registration extends CI_Model
 
   public function saveLifeStyleDetails()
   {
-    $uid = $this->session->userdata('member_id');
+    $mid = $this->session->userdata('member_id');
 
     $languages = $this->input->post('language');
 
     $NoOfSubmitedForm = null;
-    $dataUserTb = array();
+    $dataMemberTb  = array();
 
     $this->db->select('intNoOfSubmitedForm');
     $this->db->from('member');
-    $this->db->where('intMemberID', $uid);
+    $this->db->where('intMemberID', $mid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       $row = $query->row_array();
@@ -260,7 +260,7 @@ class Model_registration extends CI_Model
     }
 
     if ($NoOfSubmitedForm > 5) {
-      $dataUserTb = array(
+      $dataMemberTb  = array(
         'vcDiet' => $this->input->post('diet'),
         'vcDrink' => $this->input->post('drink'),
         'vcSmoke' => $this->input->post('smoke'),
@@ -271,7 +271,7 @@ class Model_registration extends CI_Model
         'vcLiveIn' => $this->input->post('LiveIn')
       );
     } else {
-      $dataUserTb = array(
+      $dataMemberTb  = array(
         'vcDiet' => $this->input->post('diet'),
         'vcDrink' => $this->input->post('drink'),
         'vcSmoke' => $this->input->post('smoke'),
@@ -286,14 +286,18 @@ class Model_registration extends CI_Model
 
     $this->db->trans_begin();
 
-    $this->db->where('intMemberID', $uid);
-    $this->db->update('member', $dataUserTb);
+    $this->db->where('intMemberID', $mid);
+    $this->db->update('member', $dataMemberTb);
 
     //insert languages speak
+    $querylanguage_speakExist   = $this->db->query("select * from language_speak where intMemberID ='$mid'"); //check whether record exist
+    if ($querylanguage_speakExist->num_rows() > 0) {
+      $this->db->delete('language_speak', array('intMemberID' => $mid)); //delete records if exist
+    }
     for ($i = 0; $i < count($languages); $i++) {
       $dataLanguageSpeakTb = array(
         'vcLanguage' => $languages[$i],
-        'intMemberID' => $uid
+        'intMemberID' => $mid
       );
       $this->db->insert('language_speak', $dataLanguageSpeakTb);
     }
@@ -307,9 +311,180 @@ class Model_registration extends CI_Model
     }
   }
 
+  public function saveWhoAmIDetails()
+  {
+    $mid = $this->session->userdata('member_id');
+
+    $NoOfSubmitedForm = null;
+
+    $this->db->select('intNoOfSubmitedForm');
+    $this->db->from('member');
+    $this->db->where('intMemberID', $mid);
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      $row = $query->row_array();
+      $NoOfSubmitedForm = $row['intNoOfSubmitedForm'];
+    }
+    if ($NoOfSubmitedForm > 6) {
+      $dataMemberTb  = array(
+        'intOpennessToExperience' => $this->input->post('OpennessToExperience'),
+        'intConscientiousness' => $this->input->post('conscientiousness'),
+        'intExtrovertPersonality' => $this->input->post('ExtrovertPersonality'),
+        'intIntrovertPersonality' => $this->input->post('IntrovertPersonality'),
+        'intAgreeableness' => $this->input->post('Agreeableness'),
+        'intNeuroticism' => $this->input->post('Neuroticism'),
+        'intFamilyBond' => $this->input->post('FamilyBond'),
+        'intMoney' => $this->input->post('money'),
+        'intReligious' => $this->input->post('Religious'),
+        'intPhysicallyActive' => $this->input->post('PhysicallyActive'),
+        'IntPolitics' => $this->input->post('Politics'),
+        'intKnowledge' => $this->input->post('Knowledge'),
+        'intLoveAffairs' => $this->input->post('LoveAffairs'),
+        'intimportanceVirginity' => $this->input->post('ImportanceOfVirginity')
+      );
+    } else {
+      $dataMemberTb  = array(
+        'intOpennessToExperience' => $this->input->post('OpennessToExperience'),
+        'intConscientiousness' => $this->input->post('conscientiousness'),
+        'intExtrovertPersonality' => $this->input->post('ExtrovertPersonality'),
+        'intIntrovertPersonality' => $this->input->post('IntrovertPersonality'),
+        'intAgreeableness' => $this->input->post('Agreeableness'),
+        'intNeuroticism' => $this->input->post('Neuroticism'),
+        'intFamilyBond' => $this->input->post('FamilyBond'),
+        'intMoney' => $this->input->post('money'),
+        'intReligious' => $this->input->post('Religious'),
+        'intPhysicallyActive' => $this->input->post('PhysicallyActive'),
+        'IntPolitics' => $this->input->post('Politics'),
+        'intKnowledge' => $this->input->post('Knowledge'),
+        'intLoveAffairs' => $this->input->post('LoveAffairs'),
+        'intimportanceVirginity' => $this->input->post('ImportanceOfVirginity'),
+        'intNoOfSubmitedForm' => 6
+      );
+    }
+    $this->db->trans_begin();
+
+    $this->db->where('intMemberID', $mid);
+    $this->db->update('member', $dataMemberTb);
+
+    // save Enrichment Hobies Start
+    $queryEnrichmentHobiesExist   = $this->db->query("select * from enrichment_hobbies where intMID ='$mid'"); //check whether record exist
+    if ($queryEnrichmentHobiesExist->num_rows() > 0) {
+      $this->db->delete('enrichment_hobbies', array('intMID' => $mid)); //delete records if exist
+    }
+    $EnrichmentHobies = $this->input->post('EnrichmentHobies');
+    for ($i = 0; $i < count($EnrichmentHobies); $i++) {
+      $dataEnrichmentHobbiesTB = array(
+        'intMID' => $mid,
+        'vcEnrichmentHobby' => $EnrichmentHobies[$i]
+      );
+      $this->db->insert('enrichment_hobbies', $dataEnrichmentHobbiesTB);
+    }
+    // save Enrichment Hobies END
+
+    // save Sports / Physical activities Start
+    $SportsPhysicalActivities = $this->input->post('Sports-Physicalactivities');
+    $querySportsPhysicalActivitiesExists  = $this->db->query("select * from sports_physical_activities where intMID ='$mid'");
+    if ($querySportsPhysicalActivitiesExists->num_rows() > 0) {
+      $this->db->delete('sports_physical_activities', array('intMID' => $mid));
+    }
+    for ($i = 0; $i < count($SportsPhysicalActivities); $i++) {
+
+      $dataSportsphysicalactivitiesTB = array(
+        'intMID' => $mid,
+        'vcSportsPhysicalActivities' => $SportsPhysicalActivities[$i]
+      );
+      $this->db->insert('sports_physical_activities', $dataSportsphysicalactivitiesTB);
+    }
+    // save Sports / Physical activities END
+
+    // save Social Activites Start
+    $SocialActivites = $this->input->post('SocialActivities');
+    $querySocialActivitesExists  = $this->db->query("select * from social_activities where intMID ='$mid'");
+    if ($querySocialActivitesExists->num_rows() > 0) {
+      $this->db->delete('social_activities', array('intMID' => $mid));
+    }
+    for ($i = 0; $i < count($SocialActivites); $i++) {
+      $dataSocialActivitesTB = array(
+        'intMID' => $mid,
+        'vcSocialActivities' => $SocialActivites[$i]
+      );
+      $this->db->insert('social_activities', $dataSocialActivitesTB);
+    }
+    // save Social Activites END
+
+    // save Creative Hobbies Start
+    $CreativeHobbies = $this->input->post('CreatvieHobies');
+    $queryCreativeHobbiesExists  = $this->db->query("select * from creative_hobbies where intMID ='$mid'");
+    if ($queryCreativeHobbiesExists->num_rows() > 0) {
+      $this->db->delete('creative_hobbies', array('intMID' => $mid));
+    }
+    for ($i = 0; $i < count($CreativeHobbies); $i++) {
+      $dataCreativeHobbiesTB = array(
+        'intMID' => $mid,
+        'vcCreativeHobbies' => $CreativeHobbies[$i]
+      );
+      $this->db->insert('creative_hobbies', $dataCreativeHobbiesTB);
+    }
+    // save Creative Hobbies END
+
+    // save Collecting Hobbies Start
+    $CollectingHobbies = $this->input->post('CollectingHobbies');
+    $queryCollectingHobbiesExists  = $this->db->query("select * from collecting_hobbies where intMID ='$mid'");
+    if ($queryCollectingHobbiesExists->num_rows() > 0) {
+      $this->db->delete('collecting_hobbies', array('intMID' => $mid));
+    }
+    for ($i = 0; $i < count($CollectingHobbies); $i++) {
+      $dataCollectingHobbiesTB = array(
+        'intMID' => $mid,
+        'vcCollectingHobby' => $CollectingHobbies[$i]
+      );
+      $this->db->insert('collecting_hobbies', $dataCollectingHobbiesTB);
+    }
+    // save Collecting Hobbies END
+
+    // save Outdoors hobbies Start
+    $OutdoorsHobbies = $this->input->post('outdoorHobies');
+    $queryOutdoorHobiesExists  = $this->db->query("select * from outdoor_hobies where intMID ='$mid'");
+    if ($queryOutdoorHobiesExists->num_rows() > 0) {
+      $this->db->delete('outdoor_hobies', array('intMID' => $mid));
+    }
+    for ($i = 0; $i < count($OutdoorsHobbies); $i++) {
+      $dataOutdoorHobiesTB = array(
+        'intMID' => $mid,
+        'vcOutdoorHobies' => $OutdoorsHobbies[$i]
+      );
+      $this->db->insert('outdoor_hobies', $dataOutdoorHobiesTB);
+    }
+    // save Outdoors hobbies END  
+
+
+    // save Domestic Hobbies Start
+    $DomesticHobbies = $this->input->post('domesticHobbies');
+    $queryDomesticHobbiesExists  = $this->db->query("select * from domestic_hobbies where intMID ='$mid'");
+    if ($queryDomesticHobbiesExists->num_rows() > 0) {
+      $this->db->delete('domestic_hobbies', array('intMID' => $mid));
+    }
+    for ($i = 0; $i < count($DomesticHobbies); $i++) {
+      $dataDomesticHobbiesTB = array(
+        'intMID' => $mid,
+        'vcdomesticHobbies' => $DomesticHobbies[$i]
+      );
+      $this->db->insert('domestic_hobbies', $dataDomesticHobbiesTB);
+    }
+    // save Domestic Hobbies END
+
+    if ($this->db->trans_status() === FALSE) {
+      $this->db->trans_rollback();
+      return false;
+    } else {
+      $this->db->trans_commit();
+      return true;
+    }
+  }
+
   public function saveEducationDetails()
   {
-    $uid = $this->session->userdata('member_id');
+    $mid = $this->session->userdata('member_id');
 
 
     $NoOfSubmitedForm = null;
@@ -317,7 +492,7 @@ class Model_registration extends CI_Model
 
     $this->db->select('intNoOfSubmitedForm');
     $this->db->from('member');
-    $this->db->where('intMemberID', $uid);
+    $this->db->where('intMemberID', $mid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       $row = $query->row_array();
@@ -339,7 +514,7 @@ class Model_registration extends CI_Model
       );
     }
 
-    $this->db->where('intMemberID', $uid);
+    $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
@@ -394,14 +569,14 @@ class Model_registration extends CI_Model
 
   public function saveCareerDetails()
   {
-    $uid = $this->session->userdata('member_id');
+    $mid = $this->session->userdata('member_id');
 
     $NoOfSubmitedForm = null;
     $data = array();
 
     $this->db->select('intNoOfSubmitedForm');
     $this->db->from('member');
-    $this->db->where('intMemberID', $uid);
+    $this->db->where('intMemberID', $mid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       $row = $query->row_array();
@@ -429,7 +604,7 @@ class Model_registration extends CI_Model
       );
     }
 
-    $this->db->where('intMemberID', $uid);
+    $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
@@ -440,7 +615,7 @@ class Model_registration extends CI_Model
 
   public function savePersonalAssestDetailss()
   {
-    $uid = $this->session->userdata('member_id');
+    $mid = $this->session->userdata('member_id');
     $incomeRoute = $this->input->post('incomeRoute');
     $assestRoute = $this->input->post('assestRoute');
 
@@ -449,7 +624,7 @@ class Model_registration extends CI_Model
 
     $this->db->select('intNoOfSubmitedForm');
     $this->db->from('member');
-    $this->db->where('intMemberID', $uid);
+    $this->db->where('intMemberID', $mid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       $row = $query->row_array();
@@ -476,24 +651,32 @@ class Model_registration extends CI_Model
     $this->db->trans_begin();
 
     //insert monthly income route data
+    $queryMonthlyIncomeRoutesExists  = $this->db->query("select * from monthly_income_routes where intMemberID ='$mid'");
+    if ($queryMonthlyIncomeRoutesExists->num_rows() > 0) {
+      $this->db->delete('monthly_income_routes', array('intMemberID' => $mid));
+    }
     for ($i = 0; $i < count($incomeRoute); $i++) {
       $dataincomeRouteTb = array(
         'vcMonthlyIncomeRoute' => $incomeRoute[$i],
-        'intMemberID' => $uid
+        'intMemberID' => $mid
       );
       $this->db->insert('monthly_income_routes', $dataincomeRouteTb);
     }
 
     //insert asset route data
+    $queryAssetRoutesExists  = $this->db->query("select * from asset_routes where intMemberID ='$mid'");
+    if ($queryAssetRoutesExists->num_rows() > 0) {
+      $this->db->delete('asset_routes', array('intMemberID' => $mid));
+    }
     for ($i = 0; $i < count($assestRoute); $i++) {
       $datainassestRouteTb = array(
         'vcAssetRoute' => $assestRoute[$i],
-        'intMemberID' => $uid
+        'intMemberID' => $mid
       );
       $this->db->insert('asset_routes', $datainassestRouteTb);
     }
 
-    $this->db->where('intMemberID', $uid);
+    $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
     if ($this->db->trans_status() === FALSE) {
       $this->db->trans_rollback();
@@ -505,11 +688,13 @@ class Model_registration extends CI_Model
   }
   public function saveFamilyDetailss()
   {
-    $uid = $this->session->userdata('member_id');
+    $mid = $this->session->userdata('member_id');
+
+    $NoOfSubmitedForm = null;
 
     $this->db->select('intNoOfSubmitedForm');
     $this->db->from('member');
-    $this->db->where('intMemberID', $uid);
+    $this->db->where('intMemberID', $mid);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       $row = $query->row_array();
@@ -540,7 +725,7 @@ class Model_registration extends CI_Model
         'intNoOfSubmitedForm' => 10
       );
     }
-    $this->db->where('intMemberID', $uid);
+    $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
@@ -551,16 +736,9 @@ class Model_registration extends CI_Model
 
   public function saveAfterMarriageDetails()
   {
-    $uid = $this->session->userdata('member_id');
-
-    $this->db->select('intNoOfSubmitedForm');
-    $this->db->from('member');
-    $this->db->where('intMemberID', $uid);
-    $query = $this->db->get();
-    if ($query->num_rows() > 0) {
-      $row = $query->row_array();
-      $NoOfSubmitedForm = $row['intNoOfSubmitedForm'];
-    }
+    $userNameAndLastSubmitForm  = $this->getMidAndLastSubmitFrom();
+    $mid = $userNameAndLastSubmitForm['mid'];
+    $NoOfSubmitedForm = $userNameAndLastSubmitForm['noOfSubmittedForm'];
 
     if ($NoOfSubmitedForm > 11) {
       $data = array(
@@ -582,7 +760,7 @@ class Model_registration extends CI_Model
         'intNoOfSubmitedForm' => 11
       );
     }
-    $this->db->where('intMemberID', $uid);
+    $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
     if ($this->db->affected_rows() > 0) {
       return true;
@@ -590,6 +768,162 @@ class Model_registration extends CI_Model
       return false;
     }
   }
+
+  public function saveHoroscopeDetails()
+  {
+    $userNameAndLastSubmitForm  = $this->getMidAndLastSubmitFrom();
+    $mid = $userNameAndLastSubmitForm['mid'];
+    $NoOfSubmitedForm = $userNameAndLastSubmitForm['noOfSubmittedForm'];
+
+    if ($NoOfSubmitedForm > 12) {
+      $data = array(
+        'vcMatchingHoroscope' => $this->input->post('matchingHoroscope'),
+        'vcZodiacSign' => $this->input->post('ZodiacSign'),
+        'vcGanaya' => $this->input->post('Ganaya'),
+        'vcNekatha' => $this->input->post('Nekatha'),
+        'intRavi' => $this->input->post('Ravi'),
+        'intMoon' => $this->input->post('Moon'),
+        'intMars' => $this->input->post('Mars'),
+        'intMercury' => $this->input->post('Mercury'),
+        'intJupiter' => $this->input->post('Jupiter'),
+        'intVenus' => $this->input->post('Venus'),
+        'intSaturn' => $this->input->post('Saturn'),
+        'intRahu' => $this->input->post('Rahu'),
+        'intKethu' => $this->input->post('Kethu'),
+        'vcPapaKendara' => $this->input->post('PapaKendara')
+      );
+    } else {
+      $data = array(
+        'vcMatchingHoroscope' => $this->input->post('matchingHoroscope'),
+        'vcZodiacSign' => $this->input->post('ZodiacSign'),
+        'vcGanaya' => $this->input->post('Ganaya'),
+        'vcNekatha' => $this->input->post('Nekatha'),
+        'intRavi' => $this->input->post('Ravi'),
+        'intMoon' => $this->input->post('Moon'),
+        'intMars' => $this->input->post('Mars'),
+        'intMercury' => $this->input->post('Mercury'),
+        'intJupiter' => $this->input->post('Jupiter'),
+        'intVenus' => $this->input->post('Venus'),
+        'intSaturn' => $this->input->post('Saturn'),
+        'intRahu' => $this->input->post('Rahu'),
+        'intKethu' => $this->input->post('Kethu'),
+        'vcPapaKendara' => $this->input->post('PapaKendara'),
+        'intNoOfSubmitedForm' => 12
+      );
+    }
+    $this->db->where('intMemberID', $mid);
+    $this->db->update('member', $data);
+    if ($this->db->affected_rows() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public function saveAboutYourselfAndPartner()
+  {
+    $userNameAndLastSubmitForm  = $this->getMidAndLastSubmitFrom();
+    $mid = $userNameAndLastSubmitForm['mid'];
+    $NoOfSubmitedForm = $userNameAndLastSubmitForm['noOfSubmittedForm'];
+
+    if ($NoOfSubmitedForm > 14) {
+      $data = array(
+        'vcAboutYourselfAndPartner' => $this->input->post('aboutYourSelfAndPartner')
+      );
+    } else {
+      $data = array(
+        'vcAboutYourselfAndPartner' => $this->input->post('aboutYourSelfAndPartner'),
+        'intNoOfSubmitedForm' => 14
+      );
+    }
+
+    $this->db->where('intMemberID', $mid);
+    $this->db->update('member', $data);
+    if ($this->db->affected_rows() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public function savePrivacySettings()
+  {
+    $userNameAndLastSubmitForm  = $this->getMidAndLastSubmitFrom();
+    $mid = $userNameAndLastSubmitForm['mid'];
+    $NoOfSubmitedForm = $userNameAndLastSubmitForm['noOfSubmittedForm'];
+
+    if ($NoOfSubmitedForm > 15) {
+      $data = array(
+        'intMyPhotosPrivacy' => $this->input->post('MyPhotos'),
+        'intMyVideosPrivacy' => $this->input->post('MyVideos'),
+        'intAssetsDetailsPrivacy' => $this->input->post('AssetsDetails'),
+        'intFamilyDetailsPrivacy' => $this->input->post('FamilyDetails'),
+        'intHoroscopeDetailsPrivacy' => $this->input->post('Horoshcope')
+      );
+    } else {
+      $data = array(
+        'intMyPhotosPrivacy' => $this->input->post('MyPhotos'),
+        'intMyVideosPrivacy' => $this->input->post('MyVideos'),
+        'intAssetsDetailsPrivacy' => $this->input->post('AssetsDetails'),
+        'intFamilyDetailsPrivacy' => $this->input->post('FamilyDetails'),
+        'intHoroscopeDetailsPrivacy' => $this->input->post('Horoshcope'),
+        'intNoOfSubmitedForm' => 15
+      );
+    }
+
+    $this->db->where('intMemberID', $mid);
+    $this->db->update('member', $data);
+    if ($this->db->affected_rows() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public function getMidAndLastSubmitFrom()
+  {
+    $mid = $this->session->userdata('member_id');
+
+    $userNameAndLastSubmitForm = array(
+      'mid' => $mid,
+      'noOfSubmittedForm' => null
+    );
+
+    $this->db->select('intNoOfSubmitedForm');
+    $this->db->from('member');
+    $this->db->where('intMemberID', $mid);
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      $row = $query->row_array();
+      $userNameAndLastSubmitForm['noOfSubmittedForm'] = $row['intNoOfSubmitedForm'];
+    }
+    return $userNameAndLastSubmitForm;
+  }
+
+  public function getLastUploadedImageName()
+  {
+    $mid = $this->session->userdata('member_id');
+
+    $result = array(
+      'status' => false,
+      'lastUploadImageName' => null
+    );
+
+    $this->db->select('intImageName');
+    $this->db->from('memberimage');
+    $this->db->where('intMID', $mid);
+    $this->db->order_by("intImageName", "desc");
+    $this->db->limit(1);
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      $row = $query->row_array();
+      $result['status'] = true;
+      $result['lastUploadImageName'] = $row['intImageName'];
+    }
+    return $result;
+  }
+
+
 
   //-----------------------------------
   //END DK
