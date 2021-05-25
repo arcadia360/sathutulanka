@@ -632,7 +632,6 @@ class Registration extends Admin_Controller
 
 	public function UploadMyPhotos()
 	{
-		$fileName = null;
 		$this->load->model('Model_registration');
 		$result = $this->Model_registration->getLastUploadedImageName();
 
@@ -643,15 +642,11 @@ class Registration extends Admin_Controller
 			$fileName = 1;
 		}
 
-		$folderName = $this->session->userdata('member_id');
-
+		$folderName = $this->session->userdata('member_code');
 		$imagePath = "./resources/images/member/" . $folderName;
-
 		if (!is_dir($imagePath)) {
 			mkdir("./resources/images/member/" . $folderName);
 		}
-
-
 		$config['upload_path'] = $imagePath;
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['file_name'] = $fileName;
@@ -661,9 +656,50 @@ class Registration extends Admin_Controller
 		if ($this->upload->do_upload("file1")) {
 			$data = array('upload_data' => $this->upload->data());
 
-			$img4 = $this->input->post('file1');
-			$image = $data['upload_data']['file_name'];
-			$result = true;
+			$imgName = $data['upload_data']['file_name'];
+			$imgType = $data['upload_data']['file_ext'];
+
+			// echo ($imageType);
+
+			$this->load->model('Model_registration');
+			$result = $this->Model_registration->saveUploadedImageName($imgName, $imgType);
+
+			if ($result == true) {
+				$response['success'] = true;
+				$session_data = array('no_of_submitted_form' => 12);
+				$this->session->set_userdata($session_data);
+			} else {
+				$response['success'] = false;
+				$response['messages'] = 'Error in the database while member images. Please contact system administrator.';
+			}
+		}
+	}
+
+	public function LoadUploadedImages()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadUploadedImages();
+		if (!$result) {
+			return false;
+		} else {
+			$this->load->helper('language');
+			$this->lang->load('en', 'English');
+			$html = null;
+			if ($result) {
+				$count = 1;
+				foreach ($result as $useriamges) {
+					$html .= "<div class='col-3 text-al-center' style='padding: 10px!important'>
+					<i class='far fa-times-circle'></i> <br>
+					<img class='img-thumbnail imgUpload' src=" . base_url('resources/images/member/68/' . $useriamges->intImageName . $useriamges->vcImageType) . "> <br>
+					<div class='text-al-center'>
+					<input name='MyPhotos' type='radio' value=" . $useriamges->intImageID . " id=img" . $useriamges->intImageID . "><br>
+					<label for=img" . $useriamges->intImageID . ">Profile picture</label>
+					</div>
+					</div>";
+				}
+				echo json_encode($html);
+			}
 		}
 	}
 
