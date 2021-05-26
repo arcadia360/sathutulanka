@@ -54,7 +54,9 @@ class Admin_Controller extends MY_Controller
 	{
 		$session_data = $this->session->userdata();
 		if ($session_data['logged_in'] == FALSE) {
-			redirect(base_url("Welcome"), 'refresh');
+			if (!($this->uri->segment(1) == "Registration" && $this->uri->segment(2) == "")) { 
+				redirect(base_url("Welcome"), 'refresh');
+			}
 		}
 	}
 
