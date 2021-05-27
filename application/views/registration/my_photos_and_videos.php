@@ -84,7 +84,7 @@
           })
         },
         error: function() {
-          alert('internal error failed to view uploaded images');
+          alert('internal error failed to uploaded image');
         }
       });
     });
