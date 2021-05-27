@@ -53,9 +53,12 @@ class Auth extends Admin_Controller
                         }else if ($login['intMemberAccountStatusID'] == 2) { // OTP Verification Pending
                             $this->session->set_flashdata('errors', 'Your OTP verification has been deactivated !');
                             $this->load->view(base_url("Welcome"), $this->data);
-                        } else if ($login['intMemberAccountStatusID'] == 3) { // Member Details Pending
+                        } else if ($login['intMemberAccountStatusID'] == 3) { // Not Completed Account
                             $this->session->set_userdata($logged_in_sess);
                             $this->CheckAndRedirectNextForm();
+                        } else if ($login['intMemberAccountStatusID'] == 4) { // Completed Account
+                            $this->session->set_userdata($logged_in_sess);
+                            redirect(base_url("Account/AllSingles"), 'refresh');
                         }
 
                         // Not Complete Redirect Pages
