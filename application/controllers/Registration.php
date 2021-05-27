@@ -672,7 +672,12 @@ class Registration extends Admin_Controller
 				$response['success'] = false;
 				$response['messages'] = 'Error in the database while member images. Please contact system administrator.';
 			}
+		} else {
+			$response['success'] = false;
+			$response['messages'] = 'Error while uploading image. Please contact system administrator.';
 		}
+
+		echo json_encode($response);
 	}
 
 	public function LoadUploadedImages()
@@ -688,10 +693,11 @@ class Registration extends Admin_Controller
 			$html = null;
 			if ($result) {
 				$count = 1;
+				$imgFolderName = $this->session->userdata('member_code');
 				foreach ($result as $useriamges) {
 					$html .= "<div class='col-3 text-al-center' style='padding: 10px!important'>
 					<i class='far fa-times-circle'></i> <br>
-					<img class='img-thumbnail imgUpload' src=" . base_url('resources/images/member/68/' . $useriamges->intImageName . $useriamges->vcImageType) . "> <br>
+					<img class='img-thumbnail imgUpload' src=" . base_url('resources/images/member/' . $imgFolderName . '/' . $useriamges->intImageName . $useriamges->vcImageType) . "> <br>
 					<div class='text-al-center'>
 					<input name='MyPhotos' type='radio' value=" . $useriamges->intImageID . " id=img" . $useriamges->intImageID . "><br>
 					<label for=img" . $useriamges->intImageID . ">Profile picture</label>
