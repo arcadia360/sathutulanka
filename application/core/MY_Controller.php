@@ -54,7 +54,7 @@ class Admin_Controller extends MY_Controller
 	{
 		$session_data = $this->session->userdata();
 		if ($session_data['logged_in'] == FALSE) {
-			if (!($this->uri->segment(1) == "Registration" && $this->uri->segment(2) == "")) { 
+			if (!($this->uri->segment(1) == "Registration" && $this->uri->segment(2) == "")) {
 				redirect(base_url("Welcome"), 'refresh');
 			}
 		}
@@ -121,48 +121,51 @@ class Admin_Controller extends MY_Controller
 	{
 
 		if ($this->session->userdata('member_id')) {
-			if ($this->session->userdata('member_account_status_id') == 3) { 	// Email Verification Pending
+
+			$AccountStatusID = $this->session->userdata('member_account_status_id');
+
+			if ($AccountStatusID == 3) { 	// Not Completed Account
+
 				$lastSubmittedFormNo = $this->session->userdata('no_of_submitted_form');
 
 				if ($lastSubmitFormNo > $lastSubmittedFormNo || $lastSubmitFormNo == 0) {
 
 					if ($lastSubmittedFormNo == 1) {
-						redirect(base_url("Registration/physicalStatus"), 'refresh');
+						redirect(base_url("Registration/PhysicalStatus"), 'refresh');
 					} else if ($lastSubmittedFormNo == 2) {
-						redirect(base_url("Registration/residence"), 'refresh');
+						redirect(base_url("Registration/Residence"), 'refresh');
 					} else if ($lastSubmittedFormNo == 3) {
-						redirect(base_url("Registration/background"), 'refresh');
+						redirect(base_url("Registration/Background"), 'refresh');
 					} else if ($lastSubmittedFormNo == 4) {
-						redirect(base_url("Registration/lifeStyle"), 'refresh');
+						redirect(base_url("Registration/LifeStyle"), 'refresh');
 					} else if ($lastSubmittedFormNo == 5) {
 						redirect(base_url("Registration/WhoAmI"), 'refresh');
 					} else if ($lastSubmittedFormNo == 6) {
-						redirect(base_url("Registration/education"), 'refresh');
+						redirect(base_url("Registration/Education"), 'refresh');
 					} else if ($lastSubmittedFormNo == 7) {
-						redirect(base_url("Registration/career"), 'refresh');
+						redirect(base_url("Registration/Career"), 'refresh');
 					} else if ($lastSubmittedFormNo == 8) {
-						redirect(base_url("Registration/personalAssets"), 'refresh');
+						redirect(base_url("Registration/PersonalAssets"), 'refresh');
 					} else if ($lastSubmittedFormNo == 9) {
-						redirect(base_url("Registration/family"), 'refresh');
+						redirect(base_url("Registration/Family"), 'refresh');
 					} else if ($lastSubmittedFormNo == 10) {
-						// redirect(base_url("Registration/PhysicalStatus"), 'refresh');
+						redirect(base_url("Registration/AfterMarriage"), 'refresh');
 					} else if ($lastSubmittedFormNo == 11) {
-						// redirect(base_url("Registration/PhysicalStatus"), 'refresh');
+						redirect(base_url("Registration/Horoscope"), 'refresh');
 					} else if ($lastSubmittedFormNo == 12) {
-						// redirect(base_url("Registration/PhysicalStatus"), 'refresh');
+						redirect(base_url("Registration/MyPhotosAndVideos"), 'refresh');
 					} else if ($lastSubmittedFormNo == 13) {
-						// redirect(base_url("Registration/PhysicalStatus"), 'refresh');
+						redirect(base_url("Registration/AboutYourSelfAndPartner"), 'refresh');
 					} else if ($lastSubmittedFormNo == 14) {
-						// redirect(base_url("Registration/PhysicalStatus"), 'refresh');
+						redirect(base_url("Registration/PrivacySettings"), 'refresh');
 					} else if ($lastSubmittedFormNo == 15) {
-						// redirect(base_url("Registration/PhysicalStatus"), 'refresh');
-					} else if ($lastSubmittedFormNo == 16) {
-						// redirect(base_url("Account/AllSingles"), 'refresh');
+						redirect(base_url("Registration/PartnerPreferences"), 'refresh');
 					} else {
-						redirect(base_url("Welcome"), 'refresh');
+						$this->session->set_flashdata('errors', 'Last submitted form redirection error, Please contact service provider !');
+						$this->load->view(base_url("Welcome"), $this->data);
 					}
 				}
-			} else if ($this->session->userdata('member_account_status_id') == 4) { 	// Completed Account
+			} else if ($AccountStatusID  == 4 || $AccountStatusID == 5 || $AccountStatusID ==6 || $AccountStatusID == 7) { 	// Completed Account / Account Review Pending / Account Reviewed / Account Review Rejected
 				redirect(base_url("Account/AllSingles"), 'refresh');
 			}
 		} else {
