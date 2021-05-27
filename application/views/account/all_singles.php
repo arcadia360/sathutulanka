@@ -131,13 +131,11 @@
          top: 10px;
      }
 
-     .profile-badge {
+     /* .profile-badge {
          z-index: 1;
          color: #2196f3;
-         /* font-size: 1.4em; */
-         /* position: absolute; */
          left: 5px;
-     }
+     } */
 
      .profile-card .profile-heart {
          z-index: 1;
@@ -156,11 +154,11 @@
          color: #e91e63 !important;
      }
 
-     .badge-premium {
+     /* .badge-premium {
          color: #212529;
          background-color: #ffca28 !important;
          text-transform: uppercase;
-     }
+     } */
 
      .badge-trustVerified {
          color: #e8f5e9;
@@ -186,6 +184,29 @@
          padding: 0 !important;
          position: relative;
          top: 10px;
+     }
+
+     .profile-card .premium_badge {
+         background-color: #ffca28;
+         position: absolute !important;
+         width: 100%;
+         font-size: 0.6em !important;
+         /* top: 1px !important; */
+         padding: 4px 0px 0px 0px !important;
+         margin: 0 !important;
+         font-weight: 600 !important;
+         z-index: 999999;
+     }
+
+     .profile-card .photo-count {
+         position: absolute;
+         width: 100%;
+         margin: 0 !important;
+         padding: 0 !important;
+         color: #FFFFFF;
+         /* background-color: red; */
+         bottom: 5px;
+         font-size: 0.7em !important;
      }
 
      @media (max-width: 768px) {
@@ -282,6 +303,8 @@
                  </div>
                  <div class="overlay">
                      <div class="card-img-block">
+                         <p class="premium_badge"><i class="fas fa-crown"></i> PREMIUM</p>
+                         <p class="photo-count"><i class="fas fa-camera"></i> 5</p>
                          <img src="https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg" />
                      </div>
                      <div class="card-body pt-0">
@@ -295,9 +318,10 @@
                                  <p class="text-right">For him</p>
                              </div>
                          </div>
-                         <h5 class="col-12 card-title">Supun Ariyarathna <span class="profile-badge"><i class="fas fa-certificate"></i></span></h5>
+                         <h5 class="col-12 card-title">Supun Ariyarathna</h5>
                          <h6 class="col-12 card-designation">Software Engineer</h6>
-                         <p class="badge-label"><span class="badge badge-premium">PREMIUM</span></p>
+                         <!-- <p class="badge-label"><span class="badge badge-premium">PREMIUM</span></p> -->
+                         <p class="badge-label"><span class="badge badge-trustVerified">Trust Verified</span></p>
                          <p class="card-text">24 Years, 4'5", Sinhalese, Christians, Never Married, Masters.</p>
                      </div>
                      <a href="#" class="btn btn-primary">Check Match</a>
@@ -328,7 +352,7 @@
                                  <p class="text-right">For her</p>
                              </div>
                          </div>
-                         <h5 class="col-12 card-title">Mishel <span class="profile-badge"><i class="fas fa-certificate"></i></span></h5>
+                         <h5 class="col-12 card-title">Mishel</h5>
                          <h6 class="col-12 card-designation">No Job</h6>
                          <p class="badge-label"><span class="badge badge-trustVerified">Trust Verified</span></p>
                          <p class="card-text">24 Years, 4'5", Sinhalese, Christians, Never Married, Masters.</p>

@@ -83,13 +83,13 @@
                     <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "MyAccount") {
                                             echo 'active';
                                         } ?>">
-                        <a class="nav-link" href="#">&nbsp;My&nbsp;Account&nbsp;</a>
+                        <a class="nav-link" href="<?= base_url("Account/MyAccount") ?>">&nbsp;My&nbsp;Account&nbsp;</a>
                     </li>
                     <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
                     <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "AllSingles") {
                                             echo 'active';
                                         } ?>">
-                        <a class="nav-link" href="#">&nbsp;Singles&nbsp;</a>
+                        <a class="nav-link" href="<?= base_url("Account/AllSingles") ?>">&nbsp;Singles&nbsp;</a>
                     </li>
                     <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
                     <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Suggesitions") {
