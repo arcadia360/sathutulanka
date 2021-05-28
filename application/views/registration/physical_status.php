@@ -131,7 +131,7 @@
 											<label class="margin-0-auto" for="veryFair"><?= lang('veryFair') ?></label>
 										</div>
 										<div class="text-al-center">
-											<input type="radio" name="skinColor" value="1" id="skinColor" required>
+											<input type="radio" name="skinColor" value="1" id="skinColor1" required>
 										</div>
 									</div>
 									<div class="col-2">
@@ -142,7 +142,7 @@
 											<label class="margin-0-auto" for=""><?= lang('fair') ?></label>
 										</div>
 										<div class="text-al-center">
-											<input type="radio" name="skinColor" value="2" id="skinColor">
+											<input type="radio" name="skinColor" value="2" id="skinColor2">
 										</div>
 									</div>
 									<div class="col-2">
@@ -153,7 +153,7 @@
 											<label class="margin-0-auto" for=""><?= lang('lightBrown') ?></label>
 										</div>
 										<div class="text-al-center">
-											<input type="radio" name="skinColor" value="3" id="skinColor">
+											<input type="radio" name="skinColor" value="3" id="skinColor3">
 										</div>
 									</div>
 									<div class="col-2">
@@ -164,7 +164,7 @@
 											<label class="margin-0-auto" for=""><?= lang('darkBrown') ?></label>
 										</div>
 										<div class="text-al-center">
-											<input type="radio" name="skinColor" value="4" id="skinColor">
+											<input type="radio" name="skinColor" value="4" id="skinColor4">
 										</div>
 									</div>
 									<div class="col-2">
@@ -175,7 +175,7 @@
 											<label class="margin-0-auto" for=""><?= lang('blackBrown') ?></label>
 										</div>
 										<div class="text-al-center">
-											<input type="radio" name="skinColor" value="5" id="skinColor">
+											<input type="radio" name="skinColor" value="5" id="skinColor5">
 										</div>
 									</div>
 									<div class="col-1"></div>
@@ -236,7 +236,68 @@
 
 
 </div>
+
 <script>
+	// var Member = function() {
+	// 		this.MemberID = (<?= $this->session->userdata('member_id') ?>);
+	// 	}
+	// 	var model = new Member();
+	// 	model.intMemberID = MemberID;
+
+	// 	ajaxCall('registration/getMemberData', model, function(response) {
+	// 		// $("#Supplier").val(response.intHeight);
+
+	// 		alert(response.intHeight);
+
+	// 	});
+
+	var MemberID = (<?= $this->session->userdata('member_id') ?>);
+
+	$.ajax({
+		async: false,
+		url: 'getMemberData/' + MemberID,
+		type: 'post',
+		dataType: 'json',
+		success: function(response) {
+			$("#height").val(response.intHeight);
+			$("#weight").val(response.Weight_Customised);
+			var BodyType = (response.intBodyTypeID);
+			if (BodyType == 1) {
+				document.getElementById("bodyShape").checked = true;
+			}else if (BodyType == 2) {
+				document.getElementById("bodyShape2").checked = true;
+			}
+			else{
+				document.getElementById("bodyShape3").checked = true;
+			}
+
+			var skinColorID = (response.intSkinColourID);
+
+			if (skinColorID == 1) {
+				document.getElementById("skinColor1").checked = true;
+			}else if (skinColorID == 2) {
+				document.getElementById("skinColor2").checked = true;
+			}else if (skinColorID == 3) {
+				document.getElementById("skinColor3").checked = true;
+			}else if (skinColorID == 4) {
+				document.getElementById("skinColor4").checked = true;
+			}else if (skinColorID == 5) {
+				document.getElementById("skinColor5").checked = true;
+			}
+
+
+			$("#disability").val(response.isDisability);
+			$("#bloodGroup").val(response.vcBloodGroup);
+			$("#healthInfo").val(response.isHealthInfo);
+
+		}
+	});
+
+
+	// $("#height").val(213).trigger("chosen:updated");
+	// alert(<?= $this->session->userdata('member_id') ?>);
+
+
 	$('#btnSubmit').click(function() {
 		var isBodySapeSelected = $("input[name=bodyShape]").is(":checked");
 		var isSkinColorSelected = $("input[name=skinColor]").is(":checked");
