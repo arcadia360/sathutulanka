@@ -987,7 +987,13 @@ class Model_registration extends CI_Model
 
     $bDate = $year . "-" . $month . "-" . $day;
 
+ 
+    $query = $this->db->query("SELECT fnGenerateMemberCode('" . $this->input->post('gender') . "') AS MemberCode");
+    $ret = $query->row();
+    $MemberCode = $ret->MemberCode;
+
     $data = array(
+      'vcMemberCode' => $MemberCode,
       'vcNickName' => $this->input->post('short_name'),
       'vcCountryCode' => $this->input->post('country_code'),
       'vcMobileNo' => $this->input->post('mobile_no'),
@@ -1244,7 +1250,7 @@ class Model_registration extends CI_Model
                                 <w:anchorlock/>
                                 <center style="color:#ffffff;font-family:sans-serif;font-size:15px;">Verify Email</center>
                               </v:roundrect><![endif]-->
-                              <p>' . base_url() . 'Registration/EmailVerification/' . $random_EmailCode . '<p>
+                              <p>' . base_url() . 'CreateAccount/EmailVerification/' . $random_EmailCode . '<p>
                                
                               </div>
                             </td>

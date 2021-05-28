@@ -352,7 +352,6 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <!-- Photo Slider - Start -->
-
                         <main class="main">
                             <div class="photo-container">
                                 <div class="swiper-container">
