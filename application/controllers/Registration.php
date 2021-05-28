@@ -695,7 +695,7 @@ class Registration extends Admin_Controller
 				$count = 1;
 				$imgFolderName = $this->session->userdata('member_code');
 				foreach ($result as $useriamges) {
-					$html .= "<div class='col-3 text-al-center' style='padding: 10px!important'>
+					$html .= "<div class='col-lg-3 col-4 text-al-center' style='padding: 10px!important'>
 					<i class='far fa-times-circle'></i> <br>
 					<img class='img-thumbnail imgUpload' src=" . base_url('resources/images/member/' . $imgFolderName . '/' . $useriamges->intImageName . $useriamges->vcImageType) . "> <br>
 					<div class='text-al-center'>
