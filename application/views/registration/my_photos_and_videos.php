@@ -16,7 +16,7 @@
             </div>
             <div class="col-lg-6 col-12 ">
               <div class="form-group text-al-center">
-                <button type="submit" class="btn btn-success">Upload Image</button>
+                <button type="button" id="btnUpload" class="btn btn-success">Upload Image</button>
               </div>
             </div>
           </div>
@@ -53,7 +53,6 @@
 </div>
 <script>
   $(function() {
-    viewUploadImages();
     $('#btnBack').click(function() {
       window.location.href = "<?php echo base_url('Registration/horoscope') ?>";
     });
@@ -73,6 +72,7 @@
         cache: false,
         async: false,
         success: function(data) {
+          viewUploadImages();
           Swal.fire({
             icon: 'success',
             title: 'image uploaded successfully!',
