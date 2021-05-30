@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
     .slidecontainer {
         width: 100%;
     }
@@ -23,7 +23,8 @@
         appearance: none;
         width: 25px;
         height: 25px;
-        background: #4CAF50;
+        /* background: #4CAF50; */
+        background: rgb(30, 221, 16);
         cursor: pointer;
     }
 
@@ -32,6 +33,168 @@
         height: 25px;
         background: #4CAF50;
         cursor: pointer;
+    }
+
+    /* range customize */
+    input[type="range"] {
+        --thumbSize: 18px !important;
+        --thumbBg: rgb(255, 255, 255);
+        --trackBg: rgb(211, 211, 211);
+        --progressBg: rgb(76, 175, 80);
+
+        /* webkit progress workaround */
+        --webkitProgressPercent: 0%;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+        height: var(--trackSize);
+        background-image: linear-gradient(90deg,
+                var(--progressBg) var(--webkitProgressPercent),
+                var(--trackBg) var(--webkitProgressPercent));
+        border-radius: calc(var(--trackSize) / 2);
+    }
+
+    input[type="range"]::-moz-range-progress {
+        height: var(--trackSize);
+        background-color: var(--progressBg) !important;
+        border-radius: calc(var(--trackSize) / 2) 0 0 calc(var(--trackSize) / 2);
+    }
+
+    input[type="range"]::-moz-range-track {
+        height: var(--trackSize);
+        background-color: var(--trackBg);
+        border-radius: calc(var(--trackSize) / 2);
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: var(--thumbBg);
+        border-radius: 4px;
+        border: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        margin-top: calc(((var(--thumbSize) - var(--trackSize)) / 2) * -1);
+        cursor: pointer;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        -moz-appearance: none;
+        appearance: none;
+        background-color: var(--thumbBg);
+        /* border-radius: calc(var(--thumbSize) / 2); */
+        border-radius: 4px;
+        border: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        margin-top: calc(((var(--thumbSize) - var(--trackSize)) / 2) * -1);
+        cursor: pointer;
+    }
+
+    /* end range */
+</style> -->
+
+
+<style>
+    input[type="range"] {
+        --thumbSize: 18px;
+        --trackSize: 10px;
+        --thumbBg: rgb(255, 255, 255);
+        --trackBg: rgb(211, 211, 211);
+        --progressBg: rgb(30, 221, 16);
+
+        /* webkit progress workaround */
+        --webkitProgressPercent: 0%;
+    }
+
+    input[type="range"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        height: var(--thumbSize);
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+    }
+
+    input[type="range"]:focus {
+        outline: none;
+    }
+
+    /* Thumb */
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: var(--thumbSize);
+        height: var(--thumbSize);
+        background-color: var(--thumbBg);
+        /* border-radius: calc(var(--thumbSize) / 2); */
+        border-radius: 4px;
+        border: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        margin-top: calc(((var(--thumbSize) - var(--trackSize)) / 2) * -1);
+        cursor: pointer;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        -moz-appearance: none;
+        appearance: none;
+        width: var(--thumbSize);
+        height: var(--thumbSize);
+        background-color: var(--thumbBg);
+        /* border-radius: calc(var(--thumbSize) / 2); */
+        border-radius: 4px;
+        border: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        margin-top: calc(((var(--thumbSize) - var(--trackSize)) / 2) * -1);
+        cursor: pointer;
+    }
+
+    input[type="range"]::-ms-thumb {
+        -ms-appearance: none;
+        appearance: none;
+        width: var(--thumbSize);
+        height: var(--thumbSize);
+        background-color: var(--thumbBg);
+        /* border-radius: calc(var(--thumbSize) / 2); */
+        border-radius: 4px;
+        border: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        margin-top: calc(((var(--thumbSize) - var(--trackSize)) / 2) * -1);
+        cursor: pointer;
+    }
+
+    /* Track */
+    input[type="range"]::-webkit-slider-runnable-track {
+        height: var(--trackSize);
+        background-image: linear-gradient(90deg,
+                var(--progressBg) var(--webkitProgressPercent),
+                var(--trackBg) var(--webkitProgressPercent));
+        border-radius: calc(var(--trackSize) / 2);
+    }
+
+    input[type="range"]::-moz-range-track {
+        height: var(--trackSize);
+        background-color: var(--trackBg);
+        border-radius: calc(var(--trackSize) / 2);
+    }
+
+    input[type="range"]::-ms-track {
+        height: var(--trackSize);
+        background-color: var(--trackBg);
+        border-radius: calc(var(--trackSize) / 2);
+    }
+
+    /* Progress */
+    input[type="range"]::-moz-range-progress {
+        height: var(--trackSize);
+        background-color: var(--progressBg);
+        border-radius: calc(var(--trackSize) / 2) 0 0 calc(var(--trackSize) / 2);
+    }
+
+    input[type="range"]::-ms-fill-lower {
+        height: var(--trackSize);
+        background-color: var(--progressBg);
+        border-radius: calc(var(--trackSize) / 2) 0 0 calc(var(--trackSize) / 2);
     }
 </style>
 
@@ -739,47 +902,131 @@
     $(function() {
 
         // set Progress bar values start
-        $("#OpennessToExperience").change(function() {
-            setRangeValue('#OpennessToExperience', '#OpennessToExperienceValue');
+        $("#OpennessToExperience").on({
+            mousemove: function() {
+                setRangeValue('#OpennessToExperience', '#OpennessToExperienceValue');
+            },
+            change: function() {
+                setRangeValue('#OpennessToExperience', '#OpennessToExperienceValue');
+            },
         });
-        $("#conscientiousness").change(function() {
-            setRangeValue('#conscientiousness', '#conscientiousnessValue');
+
+        $("#conscientiousness").on({
+            mousemove: function() {
+                setRangeValue('#conscientiousness', '#conscientiousnessValue');
+            },
+            change: function() {
+                setRangeValue('#conscientiousness', '#conscientiousnessValue');
+            },
         });
-        $("#ExtrovertPersonality").change(function() {
-            setRangeValue('#ExtrovertPersonality', '#ExtrovertPersonalityValue');
+
+
+        $("#ExtrovertPersonality").on({
+            mousemove: function() {
+                setRangeValue('#ExtrovertPersonality', '#ExtrovertPersonalityValue');
+            },
+            change: function() {
+                setRangeValue('#ExtrovertPersonality', '#ExtrovertPersonalityValue');
+            },
         });
-        $("#IntrovertPersonality").change(function() {
-            setRangeValue('#IntrovertPersonality', '#IntrovertPersonalityValue');
+
+        $("#IntrovertPersonality").on({
+            mousemove: function() {
+                setRangeValue('#IntrovertPersonality', '#IntrovertPersonalityValue');
+            },
+            change: function() {
+                setRangeValue('#IntrovertPersonality', '#IntrovertPersonalityValue');
+            },
         });
-        $("#Agreeableness").change(function() {
-            setRangeValue('#Agreeableness', '#AgreeablenessValue');
+
+        $("#Agreeableness").on({
+            mousemove: function() {
+                setRangeValue('#Agreeableness', '#AgreeablenessValue');
+            },
+            change: function() {
+                setRangeValue('#Agreeableness', '#AgreeablenessValue');
+            },
         });
-        $("#Neuroticism").change(function() {
-            setRangeValue('#Neuroticism', '#NeuroticismValue');
+
+        $("#Neuroticism").on({
+            mousemove: function() {
+                setRangeValue('#Neuroticism', '#NeuroticismValue');
+            },
+            change: function() {
+                setRangeValue('#Neuroticism', '#NeuroticismValue');
+            },
         });
-        $("#FamilyBond").change(function() {
-            setRangeValue('#FamilyBond', '#FamilyBondValue');
+
+        $("#FamilyBond").on({
+            mousemove: function() {
+                setRangeValue('#FamilyBond', '#FamilyBondValue');
+            },
+            change: function() {
+                setRangeValue('#FamilyBond', '#FamilyBondValue');
+            },
         });
-        $("#money").change(function() {
-            setRangeValue('#money', '#moneyValue');
+
+        $("#money").on({
+            mousemove: function() {
+                setRangeValue('#money', '#moneyValue');
+            },
+            change: function() {
+                setRangeValue('#money', '#moneyValue');
+            },
         });
-        $("#Religious").change(function() {
-            setRangeValue('#Religious', '#ReligiousValue');
+
+        $("#Religious").on({
+            mousemove: function() {
+                setRangeValue('#Religious', '#ReligiousValue');
+            },
+            change: function() {
+                setRangeValue('#Religious', '#ReligiousValue');
+            },
         });
-        $("#PhysicallyActive").change(function() {
-            setRangeValue('#PhysicallyActive', '#PhysicallyActiveValue');
+
+        $("#PhysicallyActive").on({
+            mousemove: function() {
+                setRangeValue('#PhysicallyActive', '#PhysicallyActiveValue');
+            },
+            change: function() {
+                setRangeValue('#PhysicallyActive', '#PhysicallyActiveValue');
+            },
         });
-        $("#Politics").change(function() {
-            setRangeValue('#Politics', '#PoliticsValue');
+
+        $("#Politics").on({
+            mousemove: function() {
+                setRangeValue('#Politics', '#PoliticsValue');
+            },
+            change: function() {
+                setRangeValue('#Politics', '#PoliticsValue');
+            },
         });
-        $("#Knowledge").change(function() {
-            setRangeValue('#Knowledge', '#KnowledgeValue');
+
+        $("#Knowledge").on({
+            mousemove: function() {
+                setRangeValue('#Knowledge', '#KnowledgeValue');
+            },
+            change: function() {
+                setRangeValue('#Knowledge', '#KnowledgeValue');
+            },
         });
-        $("#LoveAffairs").change(function() {
-            setRangeValue('#LoveAffairs', '#LoveAffairsValue');
+
+        $("#LoveAffairs").on({
+            mousemove: function() {
+                setRangeValue('#LoveAffairs', '#LoveAffairsValue');
+            },
+            change: function() {
+                setRangeValue('#LoveAffairs', '#LoveAffairsValue');
+            },
         });
-        $("#ImportanceOfVirginity").change(function() {
-            setRangeValue('#ImportanceOfVirginity', '#ImportanceOfVirginityValue');
+
+        $("#ImportanceOfVirginity").on({
+            mousemove: function() {
+                setRangeValue('#ImportanceOfVirginity', '#ImportanceOfVirginityValue');
+            },
+            change: function() {
+                setRangeValue('#ImportanceOfVirginity', '#ImportanceOfVirginityValue');
+            },
         });
 
         function setRangeValue(rangeID, rangeValue) {
@@ -862,6 +1109,42 @@
         });
 
     });
+</script>
+
+<script>
+    const inputElements = document.querySelectorAll('[type="range"]');
+
+    const handleInput = (inputElement) => {
+        let isChanging = false;
+
+        const setCSSProperty = () => {
+            const percent =
+                ((inputElement.value - inputElement.min) /
+                    (inputElement.max - inputElement.min)) *
+                100;
+            // Here comes the magic 🦄🌈
+            inputElement.style.setProperty("--webkitProgressPercent", `${percent}%`);
+        }
+
+        // Set event listeners
+        const handleMove = () => {
+            if (!isChanging) return;
+            setCSSProperty();
+        };
+        const handleUpAndLeave = () => isChanging = false;
+        const handleDown = () => isChanging = true;
+
+        inputElement.addEventListener("mousemove", handleMove);
+        inputElement.addEventListener("mousedown", handleDown);
+        inputElement.addEventListener("mouseup", handleUpAndLeave);
+        inputElement.addEventListener("mouseleave", handleUpAndLeave);
+        inputElement.addEventListener("click", setCSSProperty);
+
+        // Init input
+        setCSSProperty();
+    }
+
+    inputElements.forEach(handleInput)
 </script>
 <!-- <script>
     var slider = document.getElementById("rangeOpennessToExperience");
