@@ -339,19 +339,25 @@
             // alert(EmailVerificationCode);
             if (EmailVerificationCode) {
                 $.ajax({
-                    url: base_url + 'registration/otpResend/' + EmailVerificationCode,
+                    url: base_url + 'CreateAccount/otpResend/' + EmailVerificationCode,
                     type: 'post',
                     dataType: 'json',
                     async: true,
                     success: function(response) {
                         // alert(response.messages);
-
                         if (response.success === true) {
-                            swal("Sent Successfully!", response.messages, "success");
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'success',
+                                text: 'Sent Successfully !'
+                            })
                         } else {
-                            swal("Can't Send!", response.messages, "error");
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'error...',
+                                text: response.messages
+                            })
                         }
-
                     },
                     error: function(xhr, status, error) {
                         //var err = eval("(" + xhr.responseText + ")");
@@ -376,7 +382,7 @@
 
             if (mobile_no) {
                 $.ajax({
-                    url: base_url + 'registration/upDateMobileNumber/' + mobile_no + '/' + emailVerificationCode + '/' + country_code,
+                    url: base_url + 'CreateAccount/upDateMobileNumber/' + mobile_no + '/' + emailVerificationCode + '/' + country_code,
                     type: 'post',
                     dataType: 'json',
                     async: true,
@@ -423,18 +429,29 @@
 
                 if (mobile_no) {
                     $.ajax({
-                        url: base_url + 'registration/otpVerification/' + otpNumber + '/' + emailVerificationCode,
+                        url: base_url + 'CreateAccount/otpVerification/' + otpNumber + '/' + emailVerificationCode,
                         type: 'post',
                         dataType: 'json',
                         async: true,
                         success: function(response) {
                             if (response.success === true) {
-                                swal("Successfully !", response.messages, "success")
-                                    .then((value) => {
-                                        window.location.href = "<?= base_url() ?>"
-                                    });
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Successfully !',
+                                    showConfirmButton: false,
+                                    timer: 4000
+                                }).then((result) => {
+                                    if (result.dismiss === Swal.DismissReason.timer) {
+                                        window.location.href = "<?= base_url() ?>";
+                                    }
+                                })
                             } else {
-                                swal("Error!", response.messages, "error");
+                                alert(response.messages);
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: response.messages,
+                                })
                             }
                         },
                         error: function(xhr, status, error) {
@@ -465,7 +482,7 @@
         $('#country_code option[value=' + code + ']').attr('selected', 'selected');
 
         $.ajax({
-            url: base_url + 'registration/fetchUserDate/' + EmailVerificationCode,
+            url: base_url + 'CreateAccount/fetchUserDate/' + EmailVerificationCode,
             type: 'post',
             dataType: 'json',
             success: function(response) {

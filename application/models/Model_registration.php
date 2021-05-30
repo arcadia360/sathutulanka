@@ -63,10 +63,15 @@ class Model_registration extends CI_Model
 
     $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
-    if ($this->db->affected_rows() > 0) {
+
+    if ($this->db->affected_rows() == 1) {
       return true;
     } else {
-      return false;
+      if (2 <= $NoOfSubmitedForm) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
@@ -987,7 +992,7 @@ class Model_registration extends CI_Model
 
     $bDate = $year . "-" . $month . "-" . $day;
 
- 
+
     $query = $this->db->query("SELECT fnGenerateMemberCode('" . $this->input->post('gender') . "') AS MemberCode");
     $ret = $query->row();
     $MemberCode = $ret->MemberCode;

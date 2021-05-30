@@ -24,17 +24,45 @@
 	<!-- DK CSS -->
 	<link rel="stylesheet" href="<?= base_url('resources/css/common_dk.css') ?>">
 
+	<!-- Select2 -->
+	<link rel="stylesheet" href="<?php echo base_url('resources/css/admin/select2.min.css') ?>">
+
+
+	<script>
+		var base_url = "<?php echo base_url(); ?>";
+	</script>
+
+	<!-- jquery 3.2.1 -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- popper -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
+	<!-- bootstrap -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	<!-- toastr -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
 	<!-- sweetalert -->
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+	<!-- dataTables -->
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 	<!-- sweet alert 2 -->
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<!-- Bootstrap 4 -->
+	<script src="<?php echo base_url('resources/js/bootstrap.bundle.min.js') ?>"></script>
+	<!-- Select2 -->
+	<script src="<?php echo base_url('resources/js/select2.full.min.js') ?>"></script>
+	<!-- AdminLTE App -->
+	<script src="<?php echo base_url('resources/js/admin/adminlte.min.js') ?>"></script>
+	<!-- AdminLTE for demo purposes -->
+	<!-- <script src="<?php echo base_url('resources/js/admin/demo.js') ?>"></script> -->
+	<!-- InputMask  -->
+	<script src="<?php echo base_url('resources/js/admin/moment.min.js') ?>"></script>
+	<!-- date-range-picker  -->
+	<script src="<?php echo base_url('resources/js/admin/daterangepicker.js') ?>"></script>
+	<!-- Tempusdominus Bootstrap 4  -->
+	<script src="<?php echo base_url('resources/js/admin/tempusdominus-bootstrap-4.min.js') ?>"></script>
+	<!-- Common  -->
+	<script src="<?php echo base_url('resources/js/common.js') ?>"></script>
+
 
 
 	<style>
