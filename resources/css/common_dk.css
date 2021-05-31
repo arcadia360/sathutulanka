@@ -35,3 +35,10 @@
   height: 100px!important;
 }
 
+.tansparentInput{
+ background: transparent;
+ border: none;
+}
+.PercentageText{
+  color:#616161; font-size:0.8em
+}
