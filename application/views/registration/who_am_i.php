@@ -908,7 +908,7 @@
     </div>
     <!-- Container Area End -->
 
-
+    <button type="button" id="sampleValueSetToSlider">set valu</button>
 
 </div>
 
@@ -942,6 +942,11 @@
 
         // manage range slider start
         //slider openness to experiance
+
+        $('#sampleValueSetToSlider').click(function() {
+            $('#OpennessToExperience').slider("option", "value", 10);
+        });
+
         $("#OpennessToExperience").slider({
             range: "min",
             value: 50,
