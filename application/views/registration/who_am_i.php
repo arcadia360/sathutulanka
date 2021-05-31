@@ -198,6 +198,20 @@
     }
 </style>
 
+<style>
+    .ui-widget-header {
+
+        background: #1edd10 url(<?= base_url('resources/images/ui-bg_diagonals-thick_18_b81900_40x40_dk_green.png') ?>) 50% 50% !important;
+
+    }
+</style>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
 
 <div class="btnbg" style="padding-top: 10px;">
     <!-- Container Area Start -->
@@ -217,11 +231,10 @@
                         <div class="col-12">
                             <h6 class="font-weight-bold">Openness to Experience</h6>
                             <p>Enjoy new experiences, A wide variety of interests, Imaginative, Creative, Adventure, Daring, Love of learning and Art, Likes meeting new people, Not much more traditional.</p>
-                            <div class="slidecontainer">
-                                <p style="color:#616161; font-size:0.8em">0% <span style="float:right;">100%</span> </p>
-                                <input type="range" min="0" max="100" value="50" class="slider" id="OpennessToExperience" name="OpennessToExperience">
-                                <p>Value: <span id="OpennessToExperienceValue"></span></p>
-                            </div>
+                            <p class="PercentageText">0% <span class="float-right">100%</span> </p>
+                            <div id="OpennessToExperience"></div>
+                            <p>Value<input class="tansparentInput" type="text" id="OpennessToExperienceValue" name="OpennessToExperienceValue"></p>
+
                         </div>
                     </div>
                     <div class="row">
@@ -229,9 +242,9 @@
                             <h6 class="font-weight-bold">Conscientiousness</h6>
                             <p>Good impulse control, Goal-directed behavior, Self-disciplined, Think about how their behavior affects others, Hardworking, Methodical.</p>
                             <div class="slidecontainer">
-                                <p style="color:#616161; font-size:0.8em">0% <span style="float:right;">100%</span> </p>
-                                <input type="range" min="0" max="100" value="50" class="slider" id="conscientiousness" name="conscientiousness">
-                                <p>Value: <span id="conscientiousnessValue"></span></p>
+                                <p class="PercentageText">0% <span class="float-right">100%</span> </p>
+                                <div id="conscientiousness"></div>
+                                <p>Value <input class="tansparentInput" type="text" id="conscientiousnessValue" name="conscientiousnessValue"></p>
                             </div>
                         </div>
                     </div>
@@ -240,9 +253,9 @@
                             <h6 class="font-weight-bold">Extrovert Personality</h6>
                             <p>Sociable interacting with others, Friendly, Talkative, Fun loving, Enjoy meeting new people, has a wide social circle of friends. High amounts of emotional expressiveness.</p>
                             <div class="slidecontainer">
-                                <p style="color:#616161; font-size:0.8em">0% <span style="float:right;">100%</span> </p>
-                                <input type="range" min="0" max="100" value="50" class="slider" id="ExtrovertPersonality" name="ExtrovertPersonality">
-                                <p>Value: <span id="ExtrovertPersonalityValue"></span></p>
+                                <p class="PercentageText">0% <span class="float-right">100%</span> </p>
+                                <div id="ExtrovertPersonality"></div>
+                                <p>Value<input class="tansparentInput" type="text" id="ExtrovertPersonalityValue" name="ExtrovertPersonalityValue"></p>
                             </div>
                         </div>
                     </div>
@@ -251,9 +264,9 @@
                             <h6 class="font-weight-bold">Introvert Personality</h6>
                             <p>Quiet, Reserved, Introspective, Feels exhausted when having to socialize a lot, Dislikes being the center of attention (opposite of extroversion).</p>
                             <div class="slidecontainer">
-                                <p style="color:#616161; font-size:0.8em">0% <span style="float:right;">100%</span> </p>
-                                <input type="range" min="0" max="100" value="50" class="slider" id="IntrovertPersonality" name="IntrovertPersonality">
-                                <p>Value: <span id="IntrovertPersonalityValue"></span></p>
+                                <p class="PercentageText">0% <span class="float-right">100%</span> </p>
+                                <div id="IntrovertPersonality"></div>
+                                <p>Value<input class="tansparentInput" type="text" id="IntrovertPersonalityValue" name="IntrovertPersonalityValue"></p>
                             </div>
                         </div>
                     </div>
@@ -262,10 +275,9 @@
                             <h6 class="font-weight-bold">Agreeableness</h6>
                             <p>Kind, Trusting, Humble, patient, Tactful, Polite, Unselfish, Helpfulness, Sensitive, Enjoys and contributing to the happiness of other people, Feels empathy.</p>
                             <div class="slidecontainer">
-                                <p style="color:#616161; font-size:0.8em">0% <span style="float:right;">100%</span> </p>
-                                <input type="range" min="0" max="100" value="50" class="slider" id="Agreeableness" name="Agreeableness">
-                                <p>Value: <span id="AgreeablenessValue"></span></p>
-
+                                <p class="PercentageText">0% <span class="float-right">100%</span> </p>
+                                <div id="Agreeableness"></div>
+                                <p>Value<input class="tansparentInput" type="text" id="AgreeablenessValue" name="AgreeablenessValue"></p>
                             </div>
                         </div>
                     </div>
@@ -274,10 +286,9 @@
                             <h6 class="font-weight-bold">Neuroticism</h6>
                             <p>Get upset easily, Emotional instability, Over sensitive Moody, Timid.</p>
                             <div class="slidecontainer">
-                                <p style="color:#616161; font-size:0.8em">0% <span style="float:right;">100%</span> </p>
-                                <input type="range" min="0" max="100" value="50" class="slider" id="Neuroticism" name="Neuroticism">
-                                <p>Value: <span id="NeuroticismValue"></span></p>
-
+                                <p class="PercentageText">0% <span class="float-right">100%</span> </p>
+                                <div id="Neuroticism"></div>
+                                <p>Value<input class="tansparentInput" type="text" id="NeuroticismValue" name="NeuroticismValue"></p>
                             </div>
                         </div>
                     </div>
@@ -286,9 +297,9 @@
                             <h6 class="font-weight-bold">Family Bond</h6>
                             <p>Importance of your family's opinion while selecting your partner, how likely do you allow family to be involved in your relationship? Living with parents after marriage.</p>
                             <div class="slidecontainer">
-                                <p style="color:#616161; font-size:0.8em">0% <span style="float:right;">100%</span> </p>
-                                <input type="range" min="0" max="100" value="50" class="slider" id="FamilyBond" name="FamilyBond">
-                                <p>Value: <span id="FamilyBondValue"></span></p>
+                                <p class="PercentageText">0% <span class="float-right">100%</span> </p>
+                                <div id="FamilyBond"></div>
+                                <p>Value<input class="tansparentInput" type="text" id="FamilyBondValue" name="FamilyBondValue"></p>
                             </div>
                         </div>
                     </div>
@@ -297,9 +308,9 @@
                             <h6 class="font-weight-bold">Money</h6>
                             <p>How important is your partner's wealth, asset, dowry, job in a marriage?</p>
                             <div class="slidecontainer">
-                                <p style="color:#616161; font-size:0.8em">0% <span style="float:right;">100%</span> </p>
-                                <input type="range" min="0" max="100" value="50" class="slider" id="money" name="money">
-                                <p>Value: <span id="moneyValue"></span></p>
+                                <p class="PercentageText">0% <span class="float-right">100%</span> </p>
+                                <div id="money"></div>
+                                <p>Value<input class="tansparentInput" type="text" id="moneyValue" name="moneyValue"></p>
                             </div>
                         </div>
                     </div>
@@ -308,9 +319,9 @@
                             <h6 class="font-weight-bold">Religious</h6>
                             <p>How important is religion in your life? How important your spouse believes in religion? Having strong religious attitudes and activities.</p>
                             <div class="slidecontainer">
-                                <p style="color:#616161; font-size:0.8em">0% <span style="float:right;">100%</span> </p>
-                                <input type="range" min="0" max="100" value="50" class="slider" id="Religious" name="Religious">
-                                <p>Value: <span id="ReligiousValue"></span></p>
+                                <p class="PercentageText">0% <span class="float-right">100%</span> </p>
+                                <div id="Religious"></div>
+                                <p>Value<input class="tansparentInput" type="text" id="ReligiousValue" name="ReligiousValue"></p>
                             </div>
                         </div>
                     </div>
@@ -319,9 +330,9 @@
                             <h6 class="font-weight-bold">Physically Active</h6>
                             <p>Exercise once or twice a week, Prefer with sports, Gardening, Climbing the stairs, Dancing, Walking.</p>
                             <div class="slidecontainer">
-                                <p style="color:#616161; font-size:0.8em">0% <span style="float:right;">100%</span> </p>
-                                <input type="range" min="0" max="100" value="50" class="slider" id="PhysicallyActive" name="PhysicallyActive">
-                                <p>Value: <span id="PhysicallyActiveValue"></span></p>
+                                <p class="PercentageText">0% <span class="float-right">100%</span> </p>
+                                <div id="PhysicallyActive"></div>
+                                <p>Value<input class="tansparentInput" type="text" id="PhysicallyActiveValue" name="PhysicallyActiveValue"></p>
                             </div>
                         </div>
                     </div>
@@ -330,9 +341,11 @@
                             <h6 class="font-weight-bold">Politics</h6>
                             <p>About Politic Involve.</p>
                             <div class="slidecontainer">
-                                <p style="color:#616161; font-size:0.8em">0% <span style="float:right;">100%</span> </p>
-                                <input type="range" min="0" max="100" value="50" class="slider" id="Politics" name="Politics">
-                                <p>Value: <span id="PoliticsValue"></span></p>
+
+                                <p class="PercentageText">0% <span class="float-right">100%</span> </p>
+                                <div id="Politics"></div>
+                                <p>Value<input class="tansparentInput" type="text" id="PoliticsValue" name="PoliticsValue"></p>
+
                             </div>
                         </div>
                     </div>
@@ -341,9 +354,9 @@
                             <h6 class="font-weight-bold">Knowledge</h6>
                             <p>Are you often interested in gaining the knowledge and listening to news?</p>
                             <div class="slidecontainer">
-                                <p style="color:#616161; font-size:0.8em">0% <span style="float:right;">100%</span> </p>
-                                <input type="range" min="0" max="100" value="50" class="slider" id="Knowledge" name="Knowledge">
-                                <p>Value: <span id="KnowledgeValue"></span></p>
+                                <p class="PercentageText">0% <span class="float-right">100%</span> </p>
+                                <div id="Knowledge"></div>
+                                <p>Value<input class="tansparentInput" type="text" id="KnowledgeValue" name="KnowledgeValue"></p>
                             </div>
                         </div>
                     </div>
@@ -352,9 +365,9 @@
                             <h6 class="font-weight-bold">Love Affairs</h6>
                             <p>The importance of love affairs of you and your partner before marriage.</p>
                             <div class="slidecontainer">
-                                <p style="color:#616161; font-size:0.8em">0% <span style="float:right;">100%</span> </p>
-                                <input type="range" min="0" max="100" value="50" class="slider" id="LoveAffairs" name="LoveAffairs">
-                                <p>Value: <span id="LoveAffairsValue"></span></p>
+                                <p class="PercentageText">0% <span class="float-right">100%</span> </p>
+                                <div id="LoveAffairs"></div>
+                                <p>Value<input class="tansparentInput" type="text" id="LoveAffairsValue" name="LoveAffairsValue"></p>
                             </div>
                         </div>
                     </div>
@@ -362,9 +375,10 @@
                         <div class="col-12">
                             <h6 class="font-weight-bold">The importance of male & female virginity.</h6>
                             <div class="slidecontainer">
-                                <p style="color:#616161; font-size:0.8em">0% <span style="float:right;">100%</span> </p>
-                                <input type="range" min="0" max="100" value="50" class="slider" id="ImportanceOfVirginity" name="ImportanceOfVirginity">
-                                <p>Value: <span id="ImportanceOfVirginityValue"></span></p>
+
+                                <p class="PercentageText">0% <span class="float-right">100%</span> </p>
+                                <div id="ImportanceOfVirginity"></div>
+                                <p>Value<input class="tansparentInput" type="text" id="ImportanceOfVirginityValue" name="ImportanceOfVirginityValue"></p>
                             </div>
                         </div>
                     </div>
@@ -907,169 +921,238 @@
         var model = new Member();
         model.MemberID = (<?= $this->session->userdata('member_id') ?>);
 
-        ajaxCall('registration/getMemberData', model, function(response) {
+        // ajaxCall('registration/getMemberData', model, function(response) {
 
-            $('#OpennessToExperience').val(response.intOpennessToExperience);
-            $('#conscientiousnessValue').val(response.intConscientiousness);
-            $('#ExtrovertPersonalityValue').val(response.intExtrovertPersonality);
-            // $('#OpennessToExperience').val(response.intIntrovertPersonality);
-            // $('#OpennessToExperience').val(response.intAgreeableness);
-            // $('#OpennessToExperience').val(response.intNeuroticism);
-            // $('#OpennessToExperience').val(response.intFamilyBond);
-            // $('#OpennessToExperience').val(response.intMoney);
-            // $('#OpennessToExperience').val(response.intReligious);
-            // $('#OpennessToExperience').val(response.intPhysicallyActive);
-            // $('#OpennessToExperience').val(response.IntPolitics);
-            // $('#OpennessToExperience').val(response.intKnowledge);
-            // $('#OpennessToExperience').val(response.intLoveAffairs);
-            // $('#OpennessToExperience').val(response.intimportanceVirginity);
-          
+        // $('#OpennessToExperience').val(response.intOpennessToExperience);
+        // $('#conscientiousnessValue').val(response.intConscientiousness);
+        // $('#ExtrovertPersonalityValue').val(response.intExtrovertPersonality);
+        // $('#OpennessToExperience').val(response.intIntrovertPersonality);
+        // $('#OpennessToExperience').val(response.intAgreeableness);
+        // $('#OpennessToExperience').val(response.intNeuroticism);
+        // $('#OpennessToExperience').val(response.intFamilyBond);
+        // $('#OpennessToExperience').val(response.intMoney);
+        // $('#OpennessToExperience').val(response.intReligious);
+        // $('#OpennessToExperience').val(response.intPhysicallyActive);
+        // $('#OpennessToExperience').val(response.IntPolitics);
+        // $('#OpennessToExperience').val(response.intKnowledge);
+        // $('#OpennessToExperience').val(response.intLoveAffairs);
+        // $('#OpennessToExperience').val(response.intimportanceVirginity);
+
+        // });
+
+        // manage range slider start
+        //slider openness to experiance
+        $("#OpennessToExperience").slider({
+            range: "min",
+            value: 50,
+            min: 1,
+            max: 100,
+            slide: function(event, ui) {
+                $("#OpennessToExperienceValue").val(ui.value + "%");
+            }
         });
+        $("#OpennessToExperienceValue").val($("#OpennessToExperience").slider("value") + "%");
 
-
-        // set Progress bar values start
-        $("#OpennessToExperience").on({
-            mousemove: function() {
-                setRangeValue('#OpennessToExperience', '#OpennessToExperienceValue');
-            },
-            change: function() {
-                setRangeValue('#OpennessToExperience', '#OpennessToExperienceValue');
-            },
+        // slider cooncientinous
+        $("#conscientiousness").slider({
+            range: "min",
+            value: 50,
+            min: 1,
+            max: 100,
+            slide: function(event, ui) {
+                $("#conscientiousnessValue").val(ui.value + "%");
+            }
         });
+        $("#conscientiousnessValue").val($("#conscientiousness").slider("value") + "%");
 
-        $("#conscientiousness").on({
-            mousemove: function() {
-                setRangeValue('#conscientiousness', '#conscientiousnessValue');
-            },
-            change: function() {
-                setRangeValue('#conscientiousness', '#conscientiousnessValue');
-            },
+        //slider extrovert personality
+        $("#ExtrovertPersonality").slider({
+            range: "min",
+            value: 50,
+            min: 1,
+            max: 100,
+            slide: function(event, ui) {
+                $("#ExtrovertPersonalityValue").val(ui.value + "%");
+            }
         });
+        $("#ExtrovertPersonalityValue").val($("#ExtrovertPersonality").slider("value") + "%");
 
-
-        $("#ExtrovertPersonality").on({
-            mousemove: function() {
-                setRangeValue('#ExtrovertPersonality', '#ExtrovertPersonalityValue');
-            },
-            change: function() {
-                setRangeValue('#ExtrovertPersonality', '#ExtrovertPersonalityValue');
-            },
+        //slider introvert personality
+        $("#IntrovertPersonality").slider({
+            range: "min",
+            value: 50,
+            min: 1,
+            max: 100,
+            slide: function(event, ui) {
+                $("#IntrovertPersonalityValue").val(ui.value + "%");
+            }
         });
+        $("#IntrovertPersonalityValue").val($("#IntrovertPersonality").slider("value") + "%");
 
-        $("#IntrovertPersonality").on({
-            mousemove: function() {
-                setRangeValue('#IntrovertPersonality', '#IntrovertPersonalityValue');
-            },
-            change: function() {
-                setRangeValue('#IntrovertPersonality', '#IntrovertPersonalityValue');
-            },
+        //slider agreebleness personality
+        $("#Agreeableness").slider({
+            range: "min",
+            value: 50,
+            min: 1,
+            max: 100,
+            slide: function(event, ui) {
+                $("#AgreeablenessValue").val(ui.value + "%");
+            }
         });
+        $("#AgreeablenessValue").val($("#Agreeableness").slider("value") + "%");
 
-        $("#Agreeableness").on({
-            mousemove: function() {
-                setRangeValue('#Agreeableness', '#AgreeablenessValue');
-            },
-            change: function() {
-                setRangeValue('#Agreeableness', '#AgreeablenessValue');
-            },
+        //slider Neuroticism personality
+        $("#Neuroticism").slider({
+            range: "min",
+            value: 50,
+            min: 1,
+            max: 100,
+            slide: function(event, ui) {
+                $("#NeuroticismValue").val(ui.value + "%");
+            }
         });
+        $("#NeuroticismValue").val($("#Neuroticism").slider("value") + "%");
 
-        $("#Neuroticism").on({
-            mousemove: function() {
-                setRangeValue('#Neuroticism', '#NeuroticismValue');
-            },
-            change: function() {
-                setRangeValue('#Neuroticism', '#NeuroticismValue');
-            },
+        //slider Family Bond personality
+        $("#FamilyBond").slider({
+            range: "min",
+            value: 50,
+            min: 1,
+            max: 100,
+            slide: function(event, ui) {
+                $("#FamilyBondValue").val(ui.value + "%");
+            }
         });
+        $("#FamilyBondValue").val($("#FamilyBond").slider("value") + "%");
 
-        $("#FamilyBond").on({
-            mousemove: function() {
-                setRangeValue('#FamilyBond', '#FamilyBondValue');
-            },
-            change: function() {
-                setRangeValue('#FamilyBond', '#FamilyBondValue');
-            },
+        //slider money Bond personality
+        $("#money").slider({
+            range: "min",
+            value: 50,
+            min: 1,
+            max: 100,
+            slide: function(event, ui) {
+                $("#moneyValue").val(ui.value + "%");
+            }
         });
+        $("#moneyValue").val($("#money").slider("value") + "%");
 
-        $("#money").on({
-            mousemove: function() {
-                setRangeValue('#money', '#moneyValue');
-            },
-            change: function() {
-                setRangeValue('#money', '#moneyValue');
-            },
+        //slider Religious Bond personality
+        $("#Religious").slider({
+            range: "min",
+            value: 50,
+            min: 1,
+            max: 100,
+            slide: function(event, ui) {
+                $("#ReligiousValue").val(ui.value + "%");
+            }
         });
+        $("#ReligiousValue").val($("#Religious").slider("value") + "%");
 
-        $("#Religious").on({
-            mousemove: function() {
-                setRangeValue('#Religious', '#ReligiousValue');
-            },
-            change: function() {
-                setRangeValue('#Religious', '#ReligiousValue');
-            },
+        //slider physically Active Bond personality
+        $("#PhysicallyActive").slider({
+            range: "min",
+            value: 50,
+            min: 1,
+            max: 100,
+            slide: function(event, ui) {
+                $("#PhysicallyActiveValue").val(ui.value + "%");
+            }
         });
+        $("#PhysicallyActiveValue").val($("#PhysicallyActive").slider("value") + "%");
 
-        $("#PhysicallyActive").on({
-            mousemove: function() {
-                setRangeValue('#PhysicallyActive', '#PhysicallyActiveValue');
-            },
-            change: function() {
-                setRangeValue('#PhysicallyActive', '#PhysicallyActiveValue');
-            },
+        //slider Politics Bond personality
+        $("#Politics").slider({
+            range: "min",
+            value: 50,
+            min: 1,
+            max: 100,
+            slide: function(event, ui) {
+                $("#PoliticsValue").val(ui.value + "%");
+            }
         });
+        $("#PoliticsValue").val($("#Politics").slider("value") + "%");
 
-        $("#Politics").on({
-            mousemove: function() {
-                setRangeValue('#Politics', '#PoliticsValue');
-            },
-            change: function() {
-                setRangeValue('#Politics', '#PoliticsValue');
-            },
+        //slider Knowledge Bond personality
+        $("#Knowledge").slider({
+            range: "min",
+            value: 50,
+            min: 1,
+            max: 100,
+            slide: function(event, ui) {
+                $("#KnowledgeValue").val(ui.value + "%");
+            }
         });
+        $("#KnowledgeValue").val($("#Knowledge").slider("value") + "%");
 
-        $("#Knowledge").on({
-            mousemove: function() {
-                setRangeValue('#Knowledge', '#KnowledgeValue');
-            },
-            change: function() {
-                setRangeValue('#Knowledge', '#KnowledgeValue');
-            },
+        //slider LoveAffairs Bond personality
+        $("#LoveAffairs").slider({
+            range: "min",
+            value: 50,
+            min: 1,
+            max: 100,
+            slide: function(event, ui) {
+                $("#LoveAffairsValue").val(ui.value + "%");
+            }
         });
+        $("#LoveAffairsValue").val($("#LoveAffairs").slider("value") + "%");
 
-        $("#LoveAffairs").on({
-            mousemove: function() {
-                setRangeValue('#LoveAffairs', '#LoveAffairsValue');
-            },
-            change: function() {
-                setRangeValue('#LoveAffairs', '#LoveAffairsValue');
-            },
+        //slider ImportanceOfVirginity personality
+        $("#ImportanceOfVirginity").slider({
+            range: "min",
+            value: 50,
+            min: 1,
+            max: 100,
+            slide: function(event, ui) {
+                $("#ImportanceOfVirginityValue").val(ui.value + "%");
+            }
         });
+        $("#ImportanceOfVirginityValue").val($("#ImportanceOfVirginity").slider("value") + "%");
 
-        $("#ImportanceOfVirginity").on({
-            mousemove: function() {
-                setRangeValue('#ImportanceOfVirginity', '#ImportanceOfVirginityValue');
-            },
-            change: function() {
-                setRangeValue('#ImportanceOfVirginity', '#ImportanceOfVirginityValue');
-            },
-        });
 
-        function setRangeValue(rangeID, rangeValue) {
-            var progress = $(rangeID).val();
-            $(rangeValue).html(progress + '%');
+        // disable inputs
+        disableInputs();
+
+        function disableInputs() {
+            $("#OpennessToExperienceValue").prop("disabled", true);
+            $("#conscientiousnessValue").prop("disabled", true);
+            $("#ExtrovertPersonalityValue").prop("disabled", true);
+            $("#IntrovertPersonalityValue").prop("disabled", true);
+            $("#AgreeablenessValue").prop("disabled", true);
+            $("#NeuroticismValue").prop("disabled", true);
+            $("#FamilyBondValue").prop("disabled", true);
+            $("#moneyValue").prop("disabled", true);
+            $("#ReligiousValue").prop("disabled", true);
+            $("#PhysicallyActiveValue").prop("disabled", true);
+            $("#PoliticsValue").prop("disabled", true);
+            $("#KnowledgeValue").prop("disabled", true);
+            $("#LoveAffairsValue").prop("disabled", true);
+            $("#ImportanceOfVirginityValue").prop("disabled", true);
         }
-        // set Progress bar values end
 
-
-
+        function enableInputs() {
+            $("#OpennessToExperienceValue").prop("disabled", false);
+            $("#conscientiousnessValue").prop("disabled", false);
+            $("#ExtrovertPersonalityValue").prop("disabled", false);
+            $("#IntrovertPersonalityValue").prop("disabled", false);
+            $("#AgreeablenessValue").prop("disabled", false);
+            $("#NeuroticismValue").prop("disabled", false);
+            $("#FamilyBondValue").prop("disabled", false);
+            $("#moneyValue").prop("disabled", false);
+            $("#ReligiousValue").prop("disabled", false);
+            $("#PhysicallyActiveValue").prop("disabled", false);
+            $("#PoliticsValue").prop("disabled", false);
+            $("#KnowledgeValue").prop("disabled", false);
+            $("#LoveAffairsValue").prop("disabled", false);
+            $("#ImportanceOfVirginityValue").prop("disabled", false);
+        }
+        // manage range slider end
 
         $('#btnBack').click(function() {
             window.location.href = "<?php echo base_url('Registration/lifeStyle') ?>";
         });
 
         $('#btnSubmit').click(function() {
-
             if ($('.EnrichmentHobies[type=checkbox]:checked').length == 0) {
                 toastr["error"]("Please select enrichment hobies ");
             } else if ($('.Sports-Physicalactivities[type=checkbox]:checked').length == 0) {
@@ -1086,6 +1169,7 @@
                 toastr["error"]("Please select domestic hobbies ");
             } else {
                 var form = $("#addWhoAmIDetails");
+                enableInputs();
                 $.ajax({
                     type: form.attr('method'),
                     url: form.attr('action'),
@@ -1127,6 +1211,7 @@
                         })
                     }
                 });
+                disableInputs();
             }
         });
 
@@ -1134,88 +1219,5 @@
             window.location.href = "<?php echo base_url('Registration/education') ?>";
         });
 
-    });
-</script>
-
-<script>
-    const inputElements = document.querySelectorAll('[type="range"]');
-
-    const handleInput = (inputElement) => {
-        let isChanging = false;
-
-        const setCSSProperty = () => {
-            const percent =
-                ((inputElement.value - inputElement.min) /
-                    (inputElement.max - inputElement.min)) *
-                100;
-            // Here comes the magic 🦄🌈
-            inputElement.style.setProperty("--webkitProgressPercent", `${percent}%`);
-        }
-
-        // Set event listeners
-        const handleMove = () => {
-            if (!isChanging) return;
-            setCSSProperty();
-        };
-        const handleUpAndLeave = () => isChanging = false;
-        const handleDown = () => isChanging = true;
-
-        inputElement.addEventListener("mousemove", handleMove);
-        inputElement.addEventListener("mousedown", handleDown);
-        inputElement.addEventListener("mouseup", handleUpAndLeave);
-        inputElement.addEventListener("mouseleave", handleUpAndLeave);
-        inputElement.addEventListener("click", setCSSProperty);
-
-        // Init input
-        setCSSProperty();
-    }
-
-    inputElements.forEach(handleInput)
-</script>
-<!-- <script>
-    var slider = document.getElementById("rangeOpennessToExperience");
-    var output = document.getElementById("demo");
-    output.innerHTML = slider.value; // Display the default slider value
-
-    // Update the current slider value (each time you drag the slider handle)
-    slider.oninput = function() {
-        output.innerHTML = this.value;
-    }
-</script> -->
-
-<!-- <script>
-    $(function() {
-
-        loadCountries();
-        $('#btnBack').click(function() {
-            window.location.href = "<?php echo base_url('Registration/physicalStatus') ?>";
-        });
-
-        $('#btnSubmit').click(function() {
-            window.location.href = "<?php echo base_url('Registration/background') ?>";
-        });
-
-        function loadCountries() {
-            $.ajax({
-                type: 'ajax',
-                url: '<?php echo base_url(); ?>Registration/LoadCountries',
-                async: false,
-                dataType: 'json',
-                success: function(data) {
-                    var html = '';
-                    var i;
-                    html += '<option value = 0><?= lang('select'); ?></option>';
-                    for (i = 0; i < data.length; i++) {
-                        html += '<option value=' + data[i].intCountryId + ' >' + data[i].vcCountry_si + '</option>';
-                    }
-                    $('#country').html(html);
-                    $('#country').val(0);
-
-                },
-                error: function() {
-                    alert('failed to load countries');
-                }
-            });
-        }
     });
 </script>
