@@ -103,24 +103,16 @@
   $(function() {
 
     // range slider age 
-    let Ageminvalue = 18;
-    let Agemaxvalue = 68;
-
     $("#slider-range-age").slider({
       range: true,
-      min: Ageminvalue,
-      max: Agemaxvalue,
+      min: 18,
+      max: 68,
       values: [23, 63],
       slide: function(event, ui) {
         let ageStart = ui.values[0];
         let ageEnd = ui.values[1];
         let midValue = ageEnd - ageStart;
         if (midValue <= 4) {
-          Swal.fire(
-            'Note',
-            'Better to set a gap of 4 years for age',
-            'info'
-          )
           return false;
         } else {
           $('#ageStart').text(ageStart);
@@ -145,11 +137,7 @@
           let heightEnd = ui.values[1];
           let heightMidValue = heightEnd - heightStart;
           if (heightMidValue <= 4.8) {
-            Swal.fire(
-              'Note',
-              'Better to set a gap of 4 inches for height',
-              'info'
-            )
+
             return false;
           } else {
             $('#heightStart').text(toInches(ui.values[0]));
