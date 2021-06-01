@@ -6,6 +6,10 @@
     height: 40px;
 }
 
+.nav-item {
+    margin-right: 10px;
+}
+
 .btn-login {
     background-color: transparent !important;
     padding-left: 20px;

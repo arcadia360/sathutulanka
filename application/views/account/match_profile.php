@@ -1,116 +1,190 @@
 <link rel='stylesheet' href='<?= base_url('resources/css/memberProfile.css') ?>'>
+
 <style>
-    .profile-card {
-        margin-top: 80px;
-    }
-
-    .profile-card .overlay {
-        bottom: 60px;
+    .btn-toggle {
+        /* margin: 0 4rem; */
+        padding: 0;
         position: relative;
+        border: none;
+        height: 1.5rem;
+        width: 3rem;
+        border-radius: 1.5rem;
+        color: #6b7381;
+        background: #bdc1c8;
     }
 
-    .card-img-block {
-        margin: 0 auto;
-        position: relative;
-        overflow: hidden;
-        border-radius: 50%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
-        border: 5px solid #FFFFFF;
-        width: 200px;
-        height: 200px;
+    .btn:focus {
+        outline: 0;
+        box-shadow: none;
     }
 
-    .card-img-block img {
-        object-fit: cover;
-        width: 190px;
-        height: 190px;
-        margin: 0 auto;
-    }
-
-    .profile-card h5 {
-        color: #263238;
+    .btn-toggle:before,
+    .btn-toggle:after {
+        line-height: 1.5rem;
+        width: 4rem;
+        text-align: center;
         font-weight: 600;
-        text-align: center;
-        height: 24px;
-        overflow: hidden;
-    }
-
-    .profile-card p {
-        font-size: 1em;
-        font-weight: 400;
-        text-align: center;
-    }
-
-    .profile-card .card-designation {
-        position: relative;
-        color: #455a64 !important;
-        font-weight: 600;
-        text-align: center;
-        font-size: 1em;
-        margin: 0 !important;
-        padding: 0 !important;
-        top: 10px;
-    }
-
-    .profile-card .card-text {
-        position: relative;
-        color: #455a64 !important;
-        text-align: center;
-        font-size: 0.8em;
-        margin: 0 !important;
-        padding-left: 5px !important;
-        padding-right: 5px !important;
-        width: 100%;
-        height: 59px;
-        overflow: hidden;
-        top: 10px;
-    }
-
-    .badge-label {
-        margin: 0 !important;
-        padding: 0 !important;
-        position: relative;
-    }
-
-
-
-    .profile-card .photo-count {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
         position: absolute;
-        width: 100%;
-        margin: 0 !important;
-        padding: 0 !important;
-        color: #FFFFFF;
-        bottom: 5px;
-        font-size: 0.7em !important;
+        bottom: 0;
+        transition: opacity 0.25s;
     }
 
-    @media (max-width: 768px) {
+    .btn-toggle:before {
+        content: 'Hide';
+        left: -4rem;
+    }
 
-        .profile-card .profile-heart {
-            font-size: 2em;
-            right: 10px;
+    .btn-toggle:after {
+        content: 'Show';
+        right: -4rem;
+        opacity: 0.5;
+    }
+
+    .btn-toggle>.handle {
+        position: absolute;
+        top: 0.1875rem;
+        left: 0.1875rem;
+        width: 1.125rem;
+        height: 1.125rem;
+        border-radius: 1.125rem;
+        background: #fff;
+        transition: left 0.25s;
+    }
+
+    .btn-toggle.active {
+        transition: background-color 0.25s;
+    }
+
+    .btn-toggle.active>.handle {
+        left: 39px;
+        transition: left 0.25s;
+    }
+
+    .btn-toggle.active {
+        background-color: #29b5a8;
+    }
+
+    .btn-toggle.btn-sm {
+        /* margin: 0 0.5rem; */
+        padding: 0;
+        position: relative;
+        border: none;
+        height: 1.5rem;
+        width: 60px;
+        border-radius: 1.5rem;
+    }
+
+    .btn-toggle.btn-sm:before,
+    .btn-toggle.btn-sm:after {
+        line-height: 1.5rem;
+        width: 0.5rem;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.55rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        position: absolute;
+        bottom: 0;
+        transition: opacity 0.25s;
+    }
+
+    .btn-toggle.btn-sm.btn-sm:before,
+    .btn-toggle.btn-sm.btn-sm:after {
+        line-height: -0.5rem;
+        color: #fff;
+        letter-spacing: 0.75px;
+        left: 0.4125rem;
+        width: 42px;
+    }
+
+    .btn-toggle.btn-sm.btn-sm:before {
+        text-align: right;
+    }
+
+    .btn-toggle.btn-sm.btn-sm:after {
+        text-align: left;
+        opacity: 0;
+    }
+
+    .btn-toggle.btn-sm.btn-sm.active:before {
+        opacity: 0;
+    }
+
+    .btn-toggle.btn-sm.btn-sm.active:after {
+        opacity: 1;
+    }
+</style>
+
+<script>
+    $(function() {
+        $('#btnAllDetails').click(function() {
+
+            debugger;
+
+            if ($("#btnAllDetails").hasClass("show")) { // If Already Show
+                $("#btnAllDetails").addClass('hide');
+                $("#btnAllDetails").removeClass('show');
+
+                ShowAllDetails(false);
+
+                // alert("Hide");
+            } else { // If Already Hide
+                $("#btnAllDetails").addClass('show');
+                $("#btnAllDetails").removeClass('hide');
+
+                ShowAllDetails(true);
+
+                // alert("Show");
+            }
+
+            // var classList = $("#btnAllDetails").attr("class");
+
+            // var value = $("#btnAllDetails").hasClass("hide");
+
+            // var value = $("#btnAllDetails").hasClass("show");
+
+
+            // var val = $("#btnAllDetails").find(".collapse");
+
+            // .addClass('hidden');
+
+            // alert(window.getComputedStyle(this, ':before').content);
+
+            // if ($(this).val() == "Show") {
+            //     $(this).val("pause");
+            //     play_int();
+            // } else {
+            //     $(this).val("play");
+            //     play_pause();
+            // }
+        });
+    });
+
+
+
+    function ShowAllDetails(value) {
+        debugger;
+        var val = $(".card").find(".collapse");
+
+        // val[1].className += "show";
+
+        for (let index = 1; index < val.length; index++) {
+            if (value) { // Show All
+                val[index].className += " show";
+            } else { // Hide All
+                val[index].classList.remove("show");
+            }
         }
     }
 
 
-    input[type="text"]:disabled {
-        background: #ffffff;
-    }
 
+    // $(".blah").eq(9).html('blah');
+</script>
 
-    .btn-outline-primary {
-        color: #b52b4a !important;
-        border-color: #b52b4a !important;
-        margin-top: 10px;
-        border-radius: 0 !important;
-        font-weight: 600;
-    }
-
-    .btn-outline-primary:hover {
-        color: #FFFFFF !important;
-        background-color: #b52b4a;
-    }
-</style>
 <div class="container">
     <div class="main-body">
         <div class="row gutters-sm">
@@ -130,8 +204,8 @@
                             <p class="text-secondary mb-1">Software Engineer</p>
                             <p class="badge-label"><span class="badge badge-trustVerified">Trust Verified</span></p>
 
-                            <button class="btn btn-outline-primary col-12" style="margin-top: 60px;">Expressing Interest</button>
-                            <button class="btn btn-outline-primary col-12">Request</button>
+                            <button class="btn btn-outline-primary col-12" style="margin-top: 20px;">Expressing Interest</button>
+                            <button class="btn btn-outline-primary col-12" onclick="clickk();">Request</button>
                             <button class="btn btn-outline-primary col-12">Block / Report</button>
 
                         </div>
@@ -141,63 +215,6 @@
                 </div>
 
 
-                <!-- <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex flex-column align-items-center text-center">
-                            <div class="row">
-                                <a href="" class="profile-heart like"><i class="fas fa-heart"></i></a>
-                            </div>
-                            <div class="image-margin-circle">
-                                <p class="premium_badge"><i class="fas fa-crown"></i> PREMIUM</p>
-                                <p class="photo-count"><i class="fas fa-camera"></i> 0</p>
-                                <img src="https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg" class="profile-pic" />
-                            </div>
-                            <div class="mt-3"> -->
-                <!-- <h4>Supun Ariyarathna</h4>
-                                <p class="text-secondary mb-1">Software Engineer</p>
-                                <p class="badge-label"><span class="badge badge-trustVerified">Trust Verified</span></p> -->
-                <!-- <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p> -->
-                <!-- <div class="row"> -->
-                <!-- <button class="btn btn-outline-primary col-12">Expressing Interest</button>
-                                <button class="btn btn-outline-primary col-12">Request</button> -->
-
-                <!-- </div> -->
-                <!-- <div class="row"> -->
-                <!-- <button class="btn btn-outline-primary col-12">Block / Report</button> -->
-                <!-- </div> -->
-                <!-- <div class="row"> -->
-
-                <!-- </div> -->
-                <!-- <div class="row"> -->
-                <!-- <button class="btn btn-outline-primary col-12"> Send Interest By Mail Or Post</button> -->
-                <!-- </div> -->
-                <!-- <div class="row"> -->
-                <!-- <button class="btn btn-outline-primary col-12">Match Horoscope</button> -->
-                <!-- </div> -->
-
-                <!-- 
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="card mt-3">
-                    <div class="wizard">
-                        <nav class="list-group list-group-flush">
-                            <a class="list-group-item active" href="#">
-                                <i class="fas fa-user mr-2"></i>Profile
-                            </a>
-                            <a class="list-group-item" href="#">
-                                <i class="fas fa-images mr-2"></i>Photos
-                            </a>
-                            <a class="list-group-item" href="#">
-                                <i class="fas fa-video mr-2"></i>Videos
-                            </a>
-                            <a class="list-group-item" href="#">
-                                <i class="fas fa-sync-alt mr-2"></i>Match Me
-                            </a>
-                        </nav>
-                    </div>
-                </div> -->
             </div>
             <div class="col-md-8">
                 <div class="card mb-3">
@@ -255,7 +272,22 @@
                                     <img class="modal-content" id="img01">
                                     <!-- <div id="caption"></div> -->
                                 </div>
-
+                                <div class="row" style="margin-bottom: 10px;">
+                                    <div class="col-6">
+                                        <label class="float-right" style="font-size: 0.8em;">All Details :
+                                            <button type="button" id="btnAllDetails" class="btn btn-sm btn-toggle hide" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                                <div class="handle"></div>
+                                            </button>
+                                        </label>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="float-right" style="font-size: 0.8em; margin-right: 20px;">My Details :
+                                            <button type="button" class="btn btn-sm btn-toggle active" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                                <div class="handle"></div>
+                                            </button>
+                                        </label>
+                                    </div>
+                                </div>
                                 <div class="card-header" id="headingOne">
                                     <h5 class="mb-0">
                                         <button class="btn btn-link text-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -268,10 +300,10 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-6">
-                                                <h4 style="background-color: #00838f; padding: 15px; color: #FFFFFF; border-radius: 30px; text-align: center;"><i class="fas fa-male"></i> His Details</h4>
+                                                <h5 style="background-color: #00838f; padding: 10px; color: #FFFFFF; border-radius: 20px; text-align: center;"><i class="fas fa-male"></i> His Details</h5>
                                             </div>
                                             <div class="col-6">
-                                                <h4 style="background-color: #f06292; padding: 15px; color: #FFFFFF; border-radius: 30px; text-align: center;"><i class="fas fa-female"></i> My Details</h4>
+                                                <h5 style="background-color: #f06292; padding: 10px; color: #FFFFFF; border-radius: 20px; text-align: center;"><i class="fas fa-female"></i> My Details</h5>
                                             </div>
                                         </div>
                                         <div class="row">

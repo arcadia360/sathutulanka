@@ -1,273 +1,5 @@
-<style>
-    body {
-        /* margin-top:20px; */
-        color: #1a202c;
-        text-align: left;
-        background-color: #e2e8f0;
+<link rel='stylesheet' href='<?= base_url('resources/css/memberProfile.css') ?>'>
 
-    }
-
-    /* .card-body input[type="text"]:disabled {
-        background: #ffffff;
-        text-transform: capitalize;
-    } */
-
-    label {
-        font-family: 'Raleway', sans-serif !important;
-        font-weight: 600;
-        font-size: 0.9em;
-    }
-
-    .btn-link {
-        text-decoration: none !important;
-    }
-
-    .text-primary {
-        color: #b52b4a !important;
-        font-size: 0.9em !important;
-        font-weight: 600;
-    }
-
-
-    .list-group-item.active:not(.disabled) {
-        border-color: #e7e7e7;
-        background: #fff;
-        color: #b52b4a;
-        cursor: default;
-        pointer-events: none;
-    }
-
-
-    .list-group-item {
-        padding-top: 16px;
-        padding-bottom: 16px;
-        -webkit-transition: all .3s;
-        transition: all .3s;
-        border: 1px solid #e7e7e7 !important;
-        border-radius: 0 !important;
-        color: #404040;
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: .08em;
-        text-transform: uppercase;
-        text-decoration: none;
-    }
-
-    .list-group-item.active:not(.disabled)::before {
-        background-color: #b52b4a;
-    }
-
-    .list-group-item::before {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 3px;
-        height: 100%;
-        background-color: transparent;
-        content: '';
-    }
-
-    .form-control {
-        border: 1px solid #cfd1d8;
-        -webkit-border-radius: 2px;
-        -moz-border-radius: 2px;
-        border-radius: 2px;
-        font-size: .825rem;
-        background: #ffffff;
-        color: #2e323c;
-    }
-
-    .profile-pic {
-        object-fit: cover;
-        width: 200px;
-        height: 200px;
-
-        /* margin: 0 auto;
-        position: relative;
-        overflow: hidden; */
-        border-radius: 50%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        border: 5px solid #FFFFFF;
-    }
-
-    /* .image-margin-circle {
-        border: 4px solid #b52b4a;
-        border-radius: 50%;
-    } */
-
-    .profile-badge {
-        z-index: 1;
-        color: #2196f3;
-        /* font-size: 1.4em; */
-        /* position: absolute; */
-        left: 5px;
-    }
-
-    .badge-premium {
-        color: #212529;
-        background-color: #ffca28 !important;
-        text-transform: uppercase;
-    }
-
-    .badge-trustVerified {
-        color: #e8f5e9;
-        background-color: #2e7d32 !important;
-        text-transform: uppercase;
-    }
-
-    .badge-trustProving {
-        color: #FFFFFF;
-        background-color: #9ccc65 !important;
-        text-transform: uppercase;
-    }
-
-    .badge-notTrustVerified {
-        color: #FFFFFF;
-        background-color: #607d8b !important;
-        text-transform: uppercase;
-    }
-
-    .profile-heart {
-        z-index: 1;
-        color: #b0bec5;
-        font-size: 1.4em;
-        position: absolute;
-        right: 30px;
-        transition: 0.6s;
-    }
-
-    .profile-heart:hover {
-        color: #e91e63 !important;
-    }
-
-    .like {
-        color: #e91e63 !important;
-    }
-</style>
-<style>
-    /* body {
-        font-family: Arial, Helvetica, sans-serif;
-    } */
-
-    .myImg {
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    .myImg:hover {
-        opacity: 0.7;
-    }
-
-    .card-image img {
-        height: 300px !important;
-        object-fit: cover !important;
-    }
-
-    /* The Modal (background) */
-    .modal {
-        display: none;
-        /* Hidden by default */
-        position: fixed;
-        /* Stay in place */
-        z-index: 99999;
-        /* Sit on top */
-        padding-top: 100px;
-        /* Location of the box */
-        left: 0;
-        top: 0;
-        width: 100%;
-        /* Full width */
-        height: 100%;
-        /* Full height */
-        overflow: auto;
-        /* Enable scroll if needed */
-        background-color: rgb(0, 0, 0);
-        /* Fallback color */
-        background-color: rgba(0, 0, 0, 0.9);
-        /* Black w/ opacity */
-    }
-
-    /* Modal Content (image) */
-    .modal-content {
-        margin: auto;
-        display: block;
-        width: 80%;
-        max-width: 700px;
-        border: 0 !important;
-    }
-
-    /* Caption of Modal Image */
-    #caption {
-        margin: auto;
-        display: block;
-        width: 80%;
-        max-width: 700px;
-        text-align: center;
-        color: #ccc;
-        padding: 10px 0;
-        height: 150px;
-    }
-
-    /* Add Animation */
-    .modal-content,
-    #caption {
-        -webkit-animation-name: zoom;
-        -webkit-animation-duration: 0.6s;
-        animation-name: zoom;
-        animation-duration: 0.6s;
-    }
-
-    @-webkit-keyframes zoom {
-        from {
-            -webkit-transform: scale(0)
-        }
-
-        to {
-            -webkit-transform: scale(1)
-        }
-    }
-
-    @keyframes zoom {
-        from {
-            transform: scale(0)
-        }
-
-        to {
-            transform: scale(1)
-        }
-    }
-
-    /* The Close Button */
-    .closeViewer {
-        position: absolute;
-        top: 15px;
-        right: 35px;
-        color: #f1f1f1;
-        font-size: 40px;
-        font-weight: bold;
-        transition: 0.3s;
-        z-index: 99999;
-    }
-
-    .closeViewer:hover,
-    .closeViewer:focus {
-        color: #bbb;
-        text-decoration: none;
-        cursor: pointer;
-
-
-
-    }
-
-    /* 100% Image Width on Smaller Screens */
-    @media only screen and (max-width: 700px) {
-        .modal-content {
-            width: 100%;
-        }
-    }
-</style>
 <div class="container">
     <div class="main-body">
 
@@ -282,50 +14,57 @@
         <!-- /Breadcrumb -->
 
         <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex flex-column align-items-center text-center">
-                            <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150"> -->
-                            <div class="image-margin-circle">
-                                <img src="https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg" class="profile-pic" />
-                            </div>
-                            <div class="mt-3">
-                                <h4 class="nick-name"><?= $memberData['vcNickName'] ?>
-                                    <!-- <span class="profile-badge"><i class="fas fa-certificate"></i></span> -->
-                                </h4>
-                                <p class="text-secondary mb-1"><?= $memberData['vcWorkingAsSubCat_Customised'] ?></p>
+            <div class="col-md-4">
 
-                                
-                                <?php
-                                if ($memberData['intMemberAccountTypeID'] == 1) { // Not Trust Verified
-                                ?>
-                                    <p class="badge-label"><span class="badge badge-notTrustVerified">Not Trust Verified</span></p>
-                                <?php
-                                } else if ($memberData['intMemberAccountTypeID'] == 2) { // Trust Proving
-                                ?>
-                                    <p class="badge-label"><span class="badge badge-trustProving">Trust Proving</span></p>
-                                <?php
-                                } else if ($memberData['intMemberAccountTypeID'] == 3) { // Trust Verified
-                                ?>
-                                    <p class="badge-label"><span class="badge badge-trustVerified">Trust Verified</span></p>
-                                <?php
-                                } else if ($memberData['intMemberAccountTypeID'] == 4) { // Premium
-                                ?>
-                                    <p class="badge-label"><span class="badge badge-premium">Premium</span></p>
-                                <?php
-                                }
-                                ?>
+                <div class="card profile-card">
+                    <div class="row">
+                        <a href="" class="profile-heart like"><i class="fas fa-heart"></i></a>
+                    </div>
+                    <div class="overlay">
+                        <div class="card-img-block">
+                            <?php
+                            if ($memberData['intMemberAccountTypeID'] == 4) {
+                            ?>
+                                <p class="premium_badge"><i class="fas fa-crown"></i> PREMIUM</p>
+                            <?php
+                            }
+                            ?>
+                            <!-- <p class="photo-count"><i class="fas fa-camera"></i> 5</p> -->
+                            <img src="https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg" />
+                        </div>
+                        <div class="card-body">
+                            <h4 class="nick-name"><?= $memberData['vcNickName'] ?> </h4>
+                            <p class="text-secondary mb-1"><?= $memberData['vcWorkingAsSubCat_Customised'] ?></p>
 
-                                <!-- <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p> -->
-                                <!-- <button class="btn btn-primary">Follow</button>
-                                <button class="btn btn-outline-primary">Message</button> -->
-                            </div>
+                            <?php
+                            if ($memberData['intMemberAccountTypeID'] == 1) { // Not Trust Verified
+                            ?>
+                                <p class="badge-label"><span class="badge badge-notTrustVerified">Not Trust Verified</span></p>
+                            <?php
+                            } else if ($memberData['intMemberAccountTypeID'] == 2) { // Trust Proving
+                            ?>
+                                <p class="badge-label"><span class="badge badge-trustProving">Trust Proving</span></p>
+                            <?php
+                            } else if ($memberData['intMemberAccountTypeID'] == 3) { // Trust Verified
+                            ?>
+                                <p class="badge-label"><span class="badge badge-trustVerified">Trust Verified</span></p>
+                            <?php
+                            } else if ($memberData['intMemberAccountTypeID'] == 4) { // Premium
+                            ?>
+                                <p class="badge-label"><span class="badge badge-trustVerified">Trust Verified</span></p>
+                            <?php
+                            }
+                            ?>
+
+
+                            <!-- <button class="btn btn-outline-primary col-12" style="margin-top: 20px;">Expressing Interest</button>
+                            <button class="btn btn-outline-primary col-12">Request</button>
+                            <button class="btn btn-outline-primary col-12">Block / Report</button> -->
+
                         </div>
                     </div>
-                </div>
-                <div class="card mt-3">
-                    <div class="wizard">
+
+                    <div class="wizard" style="bottom: 60px; position: relative;">
                         <nav class="list-group list-group-flush">
                             <a class="list-group-item active" href="#">
                                 <div>
@@ -347,6 +86,43 @@
                         </nav>
                     </div>
                 </div>
+
+
+                <!-- <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                           <div class="image-margin-circle">
+                                <img src="https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg" class="profile-pic" />
+                            </div>
+                            <div class="mt-3">
+                                <h4 class="nick-name"><?= $memberData['vcNickName'] ?> </h4>
+                                <p class="text-secondary mb-1"><?= $memberData['vcWorkingAsSubCat_Customised'] ?></p>
+
+
+                                <?php
+                                if ($memberData['intMemberAccountTypeID'] == 1) { // Not Trust Verified
+                                ?>
+                                    <p class="badge-label"><span class="badge badge-notTrustVerified">Not Trust Verified</span></p>
+                                <?php
+                                } else if ($memberData['intMemberAccountTypeID'] == 2) { // Trust Proving
+                                ?>
+                                    <p class="badge-label"><span class="badge badge-trustProving">Trust Proving</span></p>
+                                <?php
+                                } else if ($memberData['intMemberAccountTypeID'] == 3) { // Trust Verified
+                                ?>
+                                    <p class="badge-label"><span class="badge badge-trustVerified">Trust Verified</span></p>
+                                <?php
+                                } else if ($memberData['intMemberAccountTypeID'] == 4) { // Premium
+                                ?>
+                                    <p class="badge-label"><span class="badge badge-premium">Premium</span></p>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
             </div>
             <div class="col-md-8">
                 <div class="card mb-3">

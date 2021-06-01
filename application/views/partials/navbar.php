@@ -26,6 +26,9 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css'>
     <link rel='stylesheet' href='<?= base_url('resources/css/swiper_style.css') ?>'>
 
+    <!-- Jquery 3.2  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <style>
         #toast-container {
             position: fixed;
@@ -85,25 +88,25 @@
                                         } ?>">
                         <a class="nav-link" href="<?= base_url("Account/MyAccount") ?>">&nbsp;My&nbsp;Account&nbsp;</a>
                     </li>
-                    <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
+                    <!-- <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span> -->
                     <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "AllSingles") {
                                             echo 'active';
                                         } ?>">
                         <a class="nav-link" href="<?= base_url("Account/AllSingles") ?>">&nbsp;Singles&nbsp;</a>
                     </li>
-                    <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
+                    <!-- <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span> -->
                     <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Suggesitions") {
                                             echo 'active';
                                         } ?>">
                         <a class="nav-link" href="#">&nbsp;Suggesitions&nbsp;</a>
                     </li>
-                    <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
+                    <!-- <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span> -->
                     <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Notifications") {
                                             echo 'active';
                                         } ?>">
                         <a class="nav-link" href="#">&nbsp;Notifications&nbsp;</a>
                     </li>
-                    <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span>
+                    <!-- <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span> -->
                     <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Discussions") {
                                             echo 'active';
                                         } ?>">
