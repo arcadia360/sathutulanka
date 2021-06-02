@@ -4,102 +4,126 @@
     background: #1edd10 url(<?= base_url('resouces/images/ui-bg_diagonals-thick_18_b81900_40x40_dk_green.png') ?>) 50% 50% !important;
 
   }
-
-  /* button */
-  .example .btn-toggle {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .btn-toggle {
-    margin: 0 4rem;
-    padding: 0;
-    position: relative;
-    border: none;
-    height: 1.5rem;
-    width: 3rem;
-    border-radius: 1.5rem;
-    color: #6b7381;
-    background: #bdc1c8;
-  }
-
-  .btn-toggle:focus,
-  .btn-toggle.focus,
-  .btn-toggle:focus.active,
-  .btn-toggle.focus.active {
-    outline: none;
-  }
-
-  .btn-toggle:before,
-  .btn-toggle:after {
-    line-height: 1.5rem;
-    width: 4rem;
-    text-align: center;
-    font-weight: 600;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    position: absolute;
-    bottom: 0;
-    transition: opacity 0.25s;
-  }
-
-  .btn-toggle:before {
-    content: 'No';
-    left: -4rem;
-  }
-
-  .btn-toggle:after {
-    content: 'Yes';
-    right: -4rem;
-    opacity: 0.5;
-  }
-
-  .btn-toggle>.handle {
-    position: absolute;
-    top: 0.1875rem;
-    left: 0.1875rem;
-    width: 1.125rem;
-    height: 1.125rem;
-    border-radius: 1.125rem;
-    background: #fff;
-    transition: left 0.25s;
-  }
-
-  .btn-toggle.active {
-    transition: background-color 0.25s;
-  }
-
-  .btn-toggle.active>.handle {
-    left: 1.6875rem;
-    transition: left 0.25s;
-  }
-
-  .btn-toggle.active:before {
-    opacity: 0.5;
-  }
-
-  .btn-toggle.active:after {
-    opacity: 1;
-  }
-
-  .btn-toggle:before,
-  .btn-toggle:after {
-    color: #6b7381;
-  }
-
-  .btn-toggle.active {
-    background-color: #29b5a8;
-  }
-
-  /* end button */
 </style>
 
+
+
+<!-- slider -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="<?= base_url('resources/css/btnStyle.css') ?>">
+
+<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+
+
+
+
+
+
+<div class="btnbg" style="padding-top: 10px;">
+  <!-- Container Area -->
+  <div class="container" style="z-index: 1;">
+    <div class="row">
+      <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
+        <h3 class="text-center text-inverse title">Partner Preferences</h3>
+        <hr>
+        <form method="post" action="<?= base_url('Registration/#') ?>" id="#">
+
+          <div class="row">
+            <div class="col-12">
+              <div class="text-al-center">
+                <h6 class="font-weight-bold">What kind of partner are you looking for</h6>
+              </div>
+              <h6 class="font-weight-bold">Age</h6>
+              <div data-role="rangeslider">
+                <p style="color:#616161; font-size:0.8em">Min <span id="ageStart">23</span> years <span style="float:right;">Max <span id="ageEnd">68</span> years</span> </p>
+                <div id="slider-range-age"></div>
+              </div>
+              <div class="text-al-center">
+                <h6 class="">(Better to set a gap of 4 years for age)</h6>
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-12">
+              <p for="">Restrict this contact</p>
+            </div>
+            <div class="col-lg-9 col-md-3 col-12">
+              <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <div class="handle"></div>
+              </button>
+              <a href="#" data-toggle="popover123" title="Popover Header" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
+            </div>
+          </div>
+
+
+
+
+          <div class="row">
+            <div class="col-12">
+              <div class="text-al-center">
+              </div>
+              <h6 class="font-weight-bold">Height</h6>
+              <div data-role="rangeslider">
+                <p style="color:#616161; font-size:0.8em">Min <span id="heightStart">4'5"</span> <span style="float:right;">Max <span id="heightEnd">7'0"</span> </span> </p>
+                <div id="slider-range-Height"></div>
+              </div>
+              <div class="text-al-center">
+                <h6 class="">(Better to set a gap of 4 inches for height)</h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-12 col-12">
+            <div class="form-group">
+              <label class="text-inverse font-weight-bold" for="validationCustom02"><?= lang('weight') . " (" . lang('weightScale') . ")" ?></label>
+              <select class="custom-select d-block form-control" id="weight" name="weight">
+                <option value=""><?= lang('select') ?></option>
+                <option value="30-34"> 30 - 34 </option>
+                <option value="35-39"> 35 - 39 </option>
+                <option value="40-44"> 40 - 44 </option>
+                <option value="45-49"> 45 - 49 </option>
+                <option value="50-54"> 50 - 54 </option>
+                <option value="55-59"> 55 - 59 </option>
+                <option value="60-64"> 60 - 64 </option>
+                <option value="65-69"> 65 - 69 </option>
+                <option value="70-74"> 70 - 74 </option>
+                <option value="75-79"> 75 - 79 </option>
+                <option value="80-84"> 80 - 84 </option>
+                <option value="85-89"> 85 - 89 </option>
+                <option value="90-94"> 90 - 94 </option>
+                <option value="95-99"> 95 - 99 </option>
+                <option value="100-104"> 100 - 104 </option>
+                <option value="105-109"> 105 - 109 </option>
+                <option value="110-114"> 110 - 114 </option>
+                <option value="115-119"> 115 - 119 </option>
+                <option value="120-250"> Over 119 </option>
+              </select>
+            </div>
+          </div>
+
+          <hr>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <script>
   $(function() {
+
+
+
+    $('#btnBack').click(function() {
+      window.location.href = "<?= base_url('Registration/privacySettings') ?>";
+    });
+
+    $('[data-toggle="popover123"]').popover();
 
     // range slider age 
     $("#slider-range-age").slider({
@@ -147,81 +171,26 @@
     });
     // slider-range-Height end
 
-    $("#distididin").click(() => {
-      alert($("#ristrictHeight").hasClass("active"));
-    });
+    // $("#distididin").click(() => {
+    //   alert($("#ristrictHeight").hasClass("active"));
+    // });
 
     // arrange progress bar
     // $("#slider-range-age").slider("option", "values", [1, 50]);
 
-  });
-</script>
+    // $('#togBtn').toggle(function() {
+    //     alert();
+    //   }
 
-<button type="button" id="distididin"> test</button>
+    // );
 
-<div class="btnbg" style="padding-top: 10px;">
-  <!-- Container Area Start -->
-  <div class="container" style="z-index: 1;">
-    <div class="row">
-      <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
-        <h3 class="text-center text-inverse title">Partner Preferences</h3>
-        <hr>
-        <form method="post" action="<?= base_url('Registration/#') ?>" id="#">
+    // $("#distididin").click(function() {
+    //   alert($('#togleBtnDiv').val());
+    // });
 
-          <div class="row">
-            <div class="col-12">
-              <div class="text-al-center">
-                <h6 class="font-weight-bold">What kind of partner are you looking for</h6>
-              </div>
-              <h6 class="font-weight-bold">Age</h6>
-              <div data-role="rangeslider">
-                <p style="color:#616161; font-size:0.8em">Min <span id="ageStart">23</span> years <span style="float:right;">Max <span id="ageEnd">68</span> years</span> </p>
-                <div id="slider-range-age"></div>
-              </div>
-              <div class="text-al-center">
-                <h6 class="">(Better to set a gap of 4 years for age)</h6>
-              </div>
-            </div>
-          </div>
-          <br>
-
-          <div class="row">
-            <div class="col-12">
-              <label for="" style="color:#616161; font-size:0.8em">Restrict this contact</label>
-              <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="true" autocomplete="off" id="ristrictHeight">
-                <div class="handle"></div>
-              </button>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-12">
-              <div class="text-al-center">
-              </div>
-              <h6 class="font-weight-bold">Height</h6>
-              <div data-role="rangeslider">
-                <p style="color:#616161; font-size:0.8em">Min <span id="heightStart">4'5"</span> <span style="float:right;">Max <span id="heightEnd">7'0"</span> </span> </p>
-                <div id="slider-range-Height"></div>
-              </div>
-              <div class="text-al-center">
-                <h6 class="">(Better to set a gap of 4 inches for height)</h6>
-              </div>
-            </div>
-          </div>
-
-          <hr>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  $(function() {
-    $('#btnBack').click(function() {
-      window.location.href = "<?= base_url('Registration/privacySettings') ?>";
-    });
-
+    // $("#togleBtnDiv").toggle(function() {
+    //   alert($('#togleBtnDiv').val());
+    // });
 
   });
 </script>
