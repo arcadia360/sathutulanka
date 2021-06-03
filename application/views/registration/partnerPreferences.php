@@ -19,6 +19,15 @@
 
 
 
+<link rel="stylesheet" href="<?= base_url('resources/css/bootstrap-multiselect.css') ?>">
+<script src="<?= base_url('resources/js/bootstrap-multiselect.js') ?>"></script>
+
+
+
+
+
+
+
 
 
 
@@ -49,10 +58,10 @@
           <br>
 
           <div class="row">
-            <div class="col-lg-3 col-md-3 col-12">
-              <p for="">Restrict this contact</p>
+            <div class="col-lg-2 col-md-3 col-12">
+              <p class="sm-text" for="">Restrict this contact</p>
             </div>
-            <div class="col-lg-9 col-md-3 col-12">
+            <div class="col-lg-10 col-md-3 col-12">
               <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <div class="handle"></div>
               </button>
@@ -78,52 +87,139 @@
             </div>
           </div>
 
-          <div class="col-lg-12 col-12">
-            <div class="form-group">
-              <label class="text-inverse font-weight-bold" for="validationCustom02"><?= lang('weight') . " (" . lang('weightScale') . ")" ?></label>
-              <select class="custom-select d-block form-control" id="weight" name="weight">
-                <option value=""><?= lang('select') ?></option>
-                <option value="30-34"> 30 - 34 </option>
-                <option value="35-39"> 35 - 39 </option>
-                <option value="40-44"> 40 - 44 </option>
-                <option value="45-49"> 45 - 49 </option>
-                <option value="50-54"> 50 - 54 </option>
-                <option value="55-59"> 55 - 59 </option>
-                <option value="60-64"> 60 - 64 </option>
-                <option value="65-69"> 65 - 69 </option>
-                <option value="70-74"> 70 - 74 </option>
-                <option value="75-79"> 75 - 79 </option>
-                <option value="80-84"> 80 - 84 </option>
-                <option value="85-89"> 85 - 89 </option>
-                <option value="90-94"> 90 - 94 </option>
-                <option value="95-99"> 95 - 99 </option>
-                <option value="100-104"> 100 - 104 </option>
-                <option value="105-109"> 105 - 109 </option>
-                <option value="110-114"> 110 - 114 </option>
-                <option value="115-119"> 115 - 119 </option>
-                <option value="120-250"> Over 119 </option>
-              </select>
+
+          <div id="maritialDetails" class="marginTopPartnerP">
+            <div class="row">
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label class="text-inverse font-weight-bold" for="validationCustom02">Martial Status</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <select id="MartialStatusDrp" multiple="multiple" class="form-control">
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 col-md-3 col-12">
+                <p class="sm-text" for="">Restrict this contact</p>
+              </div>
+              <div class="col-lg-10 col-md-3 col-12">
+                <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" id="restrictMartialStatusBtn">
+                  <div class="handle"></div>
+                </button>
+                <a href="#" data-toggle="restrictMartialStatusPop" title="Martial Status" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
+              </div>
             </div>
           </div>
 
-          <hr>
-        </form>
+          <div id="Religion" class="marginTopPartnerP">
+            <div class="row">
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label class="text-inverse font-weight-bold" for="validationCustom02">Religion</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <select id="ReligionDrp" multiple="multiple" class="form-control">
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2 col-md-3 col-12">
+                <p class="sm-text" for="">Restrict this contact</p>
+              </div>
+              <div class="col-lg-10 col-md-3 col-12">
+                <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" id="restrictMartialStatusBtn">
+                  <div class="handle"></div>
+                </button>
+                <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
+              </div>
+            </div>
+          </div>
+
+
+
       </div>
+
+      <hr>
+      </form>
     </div>
   </div>
 </div>
+</div>
+
 
 
 <script>
   $(function() {
+    MartialStatusDetails();
+    ReligionStatusDetails();
 
+    function MartialStatusDetails() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/MartialStatusDetails',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"](" Failed to load Martial Status Data");
+          } else {
+
+            $('#MartialStatusDrp').html(data);
+            $('#MartialStatusDrp').multiselect({
+              includeSelectAllOption: true,
+              selectAllValue: 0,
+              buttonWidth: '100%'
+            });
+          }
+        },
+        error: function() {
+          alert('Internal error failed to load countries');
+        }
+      });
+    }
+
+
+
+    $('[data-toggle="restrictMartialStatusPop"]').popover({
+      trigger: 'focus'
+    });
+
+    function ReligionStatusDetails() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/ReligionStatusDetails',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("Failed to load Religion Data");
+          } else {
+            $('#ReligionDrp').html(data);;
+          }
+        },
+        error: function() {
+          alert('Internal error Failed to load Religion Data');
+        }
+      });
+    }
+
+    $('#ReligionDrp').multiselect({
+      includeSelectAllOption: true,
+      selectAllValue: 0,
+      buttonWidth: '100%'
+    });
+
+    $('[data-toggle="popover123"]').popover({
+      trigger: 'focus'
+    });
 
 
     $('#btnBack').click(function() {
       window.location.href = "<?= base_url('Registration/privacySettings') ?>";
     });
-
-    $('[data-toggle="popover123"]').popover();
 
     // range slider age 
     $("#slider-range-age").slider({
