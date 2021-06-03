@@ -20,7 +20,7 @@ class Model_account extends CI_Model
             M.vcProvidingInformationType, 
             M.vcGender, 
             M.dtDOB, 
-            M.vcMaritalStatus, 
+            MS.vcMaritalStatus_en AS vcMaritalStatus, 
             M.vcNoOfChildren, 
             M.intMemberAccountStatusID, 
             M.vcMarriageType, 
@@ -36,11 +36,12 @@ class Model_account extends CI_Model
             M.vcMotherTounge, 
             M.vcEthnicity, vcReligion, 
             M.isPoliceReportCanProvide,
+            WW.vcWorkingWith,
             WASC.vcWorkingAsSubCat,
-              CASE WHEN (SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) = '' THEN
+            IFNULL(CASE WHEN (SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) = '' THEN
             	WASC.vcWorkingAsSubCat 
               ELSE 
-            	(SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) END 
+            	(SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) END, WW.vcWorkingWith) 
             AS vcWorkingAsSubCat_Customised,
             MAS.intMemberAccountStatusID,       
             MAS.vcMemberAccountStatus,            
@@ -48,9 +49,11 @@ class Model_account extends CI_Model
             MAT.vcMemberAccountType
           FROM 
             Member AS M
-            INNER JOIN WorkingAsSubCat AS WASC ON M.intWorkingAsSubCatID = WASC.intWorkingAsSubCatID
-            INNER JOIN MemberAccountStatus AS MAS ON M.intMemberAccountStatusID = MAS.intMemberAccountStatusID
-            INNER JOIN MemberAccountType AS MAT ON M.intMemberAccountTypeID = MAT.intMemberAccountTypeID
+            INNER JOIN WorkingWith          AS WW   ON M.intWorkingWithID = WW.intWorkingWithID
+            LEFT OUTER JOIN WorkingAsSubCat AS WASC ON M.intWorkingAsSubCatID = WASC.intWorkingAsSubCatID
+            INNER JOIN MemberAccountStatus  AS MAS  ON M.intMemberAccountStatusID = MAS.intMemberAccountStatusID
+            INNER JOIN MemberAccountType    AS MAT  ON M.intMemberAccountTypeID = MAT.intMemberAccountTypeID
+            INNER JOIN MaritalStatus        AS MS   ON M.intMaritalStatusID = MS.intMaritalStatusID
           WHERE 
             intMemberID = ? ";
 
