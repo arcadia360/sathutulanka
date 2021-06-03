@@ -966,6 +966,36 @@ class Model_registration extends CI_Model
 
 
 
+  public function LoadMartialStatusDetails()
+  {
+
+    $this->db->select('*');
+    $this->db->from('maritalstatus');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadReligionStatusDetails()
+  {
+
+    $this->db->select('*');
+    $this->db->from('religion');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+
+
   //-----------------------------------
   //END DK
   //-----------------------------------
