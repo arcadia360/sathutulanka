@@ -1,7 +1,26 @@
  <style>
      /*Profile Card 5*/
+
+     body {
+         background-color: #FFFFFF;
+         background-image: url(<?= base_url("resources/images/flower_bg.jpg") ?>);
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+     }
+
      .card {
          border: none !important;
+
+         box-shadow:
+             0 2.2px 2.2px rgba(0, 0, 0, 0.02),
+             0 5.4px 5.3px rgba(0, 0, 0, 0.028),
+             0 10.1px 10px rgba(0, 0, 0, 0.035),
+             0 18.1px 17.9px rgba(0, 0, 0, 0.042),
+             0 33.8px 33.4px rgba(0, 0, 0, 0.05),
+             0 81px 80px rgba(0, 0, 0, 0.07);
+
+
      }
 
      .card-body {
@@ -10,7 +29,7 @@
 
      .profile-card {
          margin-top: 80px;
-         height: 381px;
+         height: 329px;
      }
 
      .profile-card .overlay {
@@ -25,16 +44,26 @@
          position: relative;
          overflow: hidden;
          border-radius: 50%;
-         box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
+         /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.63); */
          border: 5px solid #FFFFFF;
-         width: 200px;
-         height: 200px;
+         width: 150px;
+         height: 150px;
+
+         box-shadow:
+             0 0.6px 2.2px rgba(0, 0, 0, 0.031),
+             0 1.3px 5.3px rgba(0, 0, 0, 0.044),
+             0 2.5px 10px rgba(0, 0, 0, 0.055),
+             0 4.5px 17.9px rgba(0, 0, 0, 0.066),
+             0 8.4px 33.4px rgba(0, 0, 0, 0.079),
+             0 20px 80px rgba(0, 0, 0, 0.11);
+
+
      }
 
      .card-img-block img {
          object-fit: cover;
-         width: 190px;
-         height: 190px;
+         width: 140px;
+         height: 140px;
          margin: 0 auto;
      }
 
@@ -107,9 +136,9 @@
      .profile-card .card-designation {
          position: relative;
          color: #455a64 !important;
-         font-weight: 600;
+         font-weight: 400;
          text-align: center;
-         font-size: 1em;
+         font-size: 0.8em;
          margin: 0 !important;
          padding: 0 !important;
          top: 10px;
@@ -216,7 +245,11 @@
          } */
          .profile-card {
              margin-top: 80px;
-             height: 290px;
+             height: 253px;
+         }
+
+         .profile-card .btn {
+             margin-top: 10px;
          }
 
          .profile-card .card-text {
@@ -232,22 +265,22 @@
 
          .profile-card .card-percentage .percentage-left {
              text-align: left !important;
-             padding-left: 30px !important;
+             /* padding-left: 30px !important; */
          }
 
          .profile-card .card-percentage .text-left {
              text-align: left !important;
-             padding-left: 20px !important;
+             /* padding-left: 20px !important; */
          }
 
          .profile-card .card-percentage .percentage-right {
              text-align: right !important;
-             padding-right: 15px !important;
+             /* padding-right: 15px !important; */
          }
 
          .profile-card .card-percentage .text-right {
              text-align: right !important;
-             padding-right: 25px !important;
+             /* padding-right: 25px !important; */
          }
 
          .profile-card .profile-heart {
@@ -270,25 +303,31 @@
          }
 
          .profile-card .btn-primary {
-             background-color: #b52b4a;
-             border-color: #b52b4a;
+             /* background-color: #b52b4a;
+             border-color: #b52b4a; */
              font-size: 1em;
-             bottom: 0 !important;
+             bottom: -10px !important;
              position: relative;
+             float: left;
              width: 100%;
-             padding: 12px !important;
+             padding: 7px !important;
          }
      }
 
      /* Medium devices (landscape tablets, 768px and up) */
-     /* @media only screen and (max-width: 1200px) {
-         @media (min-width: 920px) {
-             body {
-                 background-color: red;
-             }
+     /* @media only screen and (max-width: 1200px) { */
+     @media (max-width: 920px) {
+         body {
+
+             background-size: auto;
+             background-position: unset;
+             /* background-repeat: no-repeat; */
          }
 
-         body {
+
+     }
+
+     /* body {
              background-color: yellow;
          }
      } */
