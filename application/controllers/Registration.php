@@ -802,9 +802,9 @@ class Registration extends Admin_Controller
 		echo json_encode($response);
 	}
 
+	// partner preferences
 	public function partnerPreferences()
 	{
-
 		// $this->CheckAndRedirectNextForm(15);
 		// $this->render_template_registration('registration/partnerPreferences', 'Partner Preferences', NULL);
 		$this->load->helper('language');
@@ -814,6 +814,45 @@ class Registration extends Admin_Controller
 		$this->load->view('registration/footer');
 	}
 
+
+
+	public function MartialStatusDetails()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadMartialStatusDetails();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $MartialStatusDetails) {
+					$html .= "<option value=" . $MartialStatusDetails->intMaritalStatusID . " >" . $MartialStatusDetails->vcMaritalStatus_en  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function ReligionStatusDetails()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadReligionStatusDetails();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $religion) {
+					$html .= "<option value=" . $religion->intReligionID . " >" . $religion->vcReligion  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	// End partner preferences
 
 	public function LoadCountries()
 	{
