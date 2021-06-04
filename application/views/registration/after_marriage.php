@@ -1,213 +1,191 @@
-<div class="btnbg" style="padding-top: 10px;">
-    <!-- Container Area Start -->
-    <div class="container" style="z-index: 1;">
+<div class="offset-lg-3 col-lg-6 main-section">
+    <h3 class="text-center text-inverse title">After Marriage</h3>
+    <form method="post" action="<?= base_url('Registration/addAfterMarriageDetails') ?>" id="addAfterMarriageDetails">
         <div class="row">
-            <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
-                <h3 class="text-center text-inverse title">After Marriage</h3>
-                <!-- <hr> -->
-
-
-                <!-- dk start -->
-                <form method="post" action="<?= base_url('Registration/addAfterMarriageDetails') ?>" id="addAfterMarriageDetails">
-                    <div class="row">
-                        <div class="col-12">
-                            <label class="text-inverse font-weight-bold" for="validationCustom01">Preffer to Live</label>
-                            <div class="row">
-                                <div class="col-4">
-                                    <label class="custom-control custom-radio">
-                                        <input name="PrefferToLive" id="familyTypeJoin" type="radio" class="custom-control-input" value="In my home">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">In my home</span>
-                                    </label>
-                                </div>
-                                <div class="col-4">
-                                    <label class="custom-control custom-radio">
-                                        <input name="PrefferToLive" id="familyTypeNotJoin" type="radio" class="custom-control-input" value="In my parent's home">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">In my parent's home</span>
-                                    </label>
-                                </div>
-                                <div class="col-4">
-                                    <label class="custom-control custom-radio">
-                                        <input name="PrefferToLive" id="familyTypeNotJoin" type="radio" class="custom-control-input" value="As partner wish">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">As partner wish</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4">
-                                    <label class="custom-control custom-radio">
-                                        <input name="PrefferToLive" id="familyTypeJoin" type="radio" class="custom-control-input" value="Separated other place">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Separated other place</span>
-                                    </label>
-                                </div>
-                                <div class="col-4">
-                                    <label class="custom-control custom-radio">
-                                        <input name="PrefferToLive" id="familyTypeNotJoin" type="radio" class="custom-control-input" value="Outside of Sri lanka">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Outside of Sri lanka</span>
-                                    </label>
-                                </div>
-                                <div class="col-4">
-                                </div>
-                            </div>
-                        </div>
+            <div class="col-12">
+                <label class="text-inverse font-weight-bold" for="validationCustom01">Preffer to Live</label>
+                <div class="row">
+                    <div class="col-4">
+                        <center>
+                            <input name="PrefferToLive" id="familyTypeJoin" type="radio" value="In my home">
+                            <br>
+                            <span class="custom-control-description">In my home</span>
+                        </center>
                     </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <label class="text-inverse font-weight-bold" for="validationCustom01">Help Family</label>
-                            <div class="row">
-                                <div class="col-4">
-                                    <label class="custom-control custom-radio">
-                                        <input name="HelpFamily" type="radio" class="custom-control-input" value="yes">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Yes</span>
-                                    </label>
-                                </div>
-                                <div class="col-4">
-                                    <label class="custom-control custom-radio">
-                                        <input name="HelpFamily" type="radio" class="custom-control-input" value="Care of parents">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Care of parents</span>
-                                    </label>
-                                </div>
-                                <div class="col-4">
-                                    <label class="custom-control custom-radio">
-                                        <input name="HelpFamily" type="radio" class="custom-control-input" value="No need much help">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">No need much help</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-4">
+                        <center>
+                            <input name="PrefferToLive" id="familyTypeNotJoin" type="radio" value="In my parent's home">
+                            <br>
+                            <span class="custom-control-description">In my parent's home</span>
+                        </center>
                     </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <label class="text-inverse font-weight-bold" for="validationCustom01">Job</label>
-                            <div class="row">
-                                <div class="col-4">
-                                    <label class="custom-control custom-radio">
-                                        <input name="Job" type="radio" class="custom-control-input" value="Good to continue">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Good to continue</span>
-                                    </label>
-                                </div>
-                                <div class="col-4">
-                                    <label class="custom-control custom-radio">
-                                        <input name="Job" type="radio" class="custom-control-input" value="As partner wish">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">As partner wish</span>
-                                    </label>
-                                </div>
-                                <div class="col-4">
-                                    <label class="custom-control custom-radio">
-                                        <input name="Job" type="radio" class="custom-control-input" value="Cannot stop">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Cannot stop</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-4">
+                        <center>
+                            <input name="PrefferToLive" id="familyTypeNotJoin" type="radio" value="As partner wish">
+                            <br>
+                            <span class="custom-control-description">As partner wish</span>
+                        </center>
                     </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <label class="text-inverse font-weight-bold" for="validationCustom01">Education</label>
-                            <div class="row">
-                                <div class="col-4">
-                                    <label class="custom-control custom-radio">
-                                        <input name="Education" type="radio" class="custom-control-input" value="Good to continue">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Good to continue</span>
-                                    </label>
-                                </div>
-                                <div class="col-4">
-                                    <label class="custom-control custom-radio">
-                                        <input name="Education" type="radio" class="custom-control-input" value="As partner wish">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">As partner wish</span>
-                                    </label>
-                                </div>
-                                <div class="col-4">
-                                    <label class="custom-control custom-radio">
-                                        <input name="Education" type="radio" class="custom-control-input" value="Cannot stop">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Cannot stop</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-4">
+                        <center>
+                            <input name="PrefferToLive" id="familyTypeJoin" type="radio" value="Separated other place">
+                            <br>
+                            <span class="custom-control-description">Separated other place</span>
+                        </center>
                     </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <label class="text-inverse font-weight-bold" for="validationCustom01">Children Likes</label>
-                            <div class="row">
-                                <div class="col-3">
-                                    <label class="custom-control custom-radio">
-                                        <input name="ChildrenLikes" type="radio" class="custom-control-input" value="no">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">No</span>
-                                    </label>
-                                </div>
-                                <div class="col-3">
-                                    <label class="custom-control custom-radio">
-                                        <input name="ChildrenLikes" type="radio" class="custom-control-input" value="1">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">1</span>
-                                    </label>
-                                </div>
-                                <div class="col-3">
-                                    <label class="custom-control custom-radio">
-                                        <input name="ChildrenLikes" type="radio" class="custom-control-input" value="2">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">2</span>
-                                    </label>
-                                </div>
-                                <div class="col-3">
-                                    <label class="custom-control custom-radio">
-                                        <input name="ChildrenLikes" type="radio" class="custom-control-input" value="over 2">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Over 2</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-4">
+                        <center>
+                            <input name="PrefferToLive" id="familyTypeNotJoin" type="radio" value="Outside of Sri lanka">
+                            <br>
+                            <span class="custom-control-description">Outside of Sri lanka</span>
+                        </center>
                     </div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label class="text-inverse font-weight-bold" for="validationCustom01">Other Needs</label>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <textarea class="form-control" id="OtherNeeds" rows="5" name="OtherNeeds"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-                            <button class="btn btn-info" style="width: 150px;" id="btnBack" type="button">BACK</button>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-                            <button class="btn btn-info" style="width: 150px;" type="button" id="btnSubmit">CONTINUE</button>
-                        </div>
-                    </div>
-                </form>
-                <!-- dk end -->
+                </div>
             </div>
         </div>
-    </div>
-
-    <!-- Container Area End -->
-
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <label class="text-inverse font-weight-bold" for="validationCustom01">Help Family</label>
+                <div class="row">
+                    <div class="col-4">
+                        <center>
+                            <input name="HelpFamily" type="radio" value="yes">
+                            <br>
+                            <span class="custom-control-description">Yes</span>
+                        </center>
+                    </div>
+                    <div class="col-4">
+                        <center>
+                            <input name="HelpFamily" type="radio" value="Care of parents">
+                            <br>
+                            <span class="custom-control-description">Care of parents</span>
+                        </center>
+                    </div>
+                    <div class="col-4">
+                        <center>
+                            <input name="HelpFamily" type="radio" value="No need much help">
+                            <br>
+                            <span class="custom-control-description">No need much help</span>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <label class="text-inverse font-weight-bold" for="validationCustom01">Job</label>
+                <div class="row">
+                    <div class="col-4">
+                        <center>
+                            <input name="Job" type="radio" value="Good to continue">
+                            <br>
+                            <span class="custom-control-description">Good to continue</span>
+                        </center>
+                    </div>
+                    <div class="col-4">
+                        <center>
+                            <input name="Job" type="radio" value="As partner wish">
+                            <br>
+                            <span class="custom-control-description">As partner wish</span>
+                        </center>
+                    </div>
+                    <div class="col-4">
+                        <center>
+                            <input name="Job" type="radio" value="Cannot stop">
+                            <br>
+                            <span class="custom-control-description">Cannot stop</span>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <label class="text-inverse font-weight-bold" for="validationCustom01">Education</label>
+                <div class="row">
+                    <div class="col-4">
+                        <center>
+                            <input name="Education" type="radio" value="Good to continue">
+                            <br>
+                            <span class="custom-control-description">Good to continue</span>
+                        </center>
+                    </div>
+                    <div class="col-4">
+                        <center>
+                            <input name="Education" type="radio" value="As partner wish">
+                            <br>
+                            <span class="custom-control-description">As partner wish</span>
+                        </center>
+                    </div>
+                    <div class="col-4">
+                        <center>
+                            <input name="Education" type="radio" value="Cannot stop">
+                            <br>
+                            <span class="custom-control-description">Cannot stop</span>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <label class="text-inverse font-weight-bold" for="validationCustom01">Children Likes</label>
+                <div class="row">
+                    <div class="col-4">
+                        <center>
+                            <input name="ChildrenLikes" type="radio" value="no">
+                            <br>
+                            <span class="custom-control-description">No</span>
+                        </center>
+                    </div>
+                    <div class="col-4">
+                        <center>
+                            <input name="ChildrenLikes" type="radio" value="1">
+                            <br>
+                            <span class="custom-control-description">1</span>
+                        </center>
+                    </div>
+                    <div class="col-4">
+                        <center>
+                            <input name="ChildrenLikes" type="radio" value="2">
+                            <br>
+                            <span class="custom-control-description">2</span>
+                        </center>
+                    </div>
+                    <div class="col-4">
+                        <center>
+                            <input name="ChildrenLikes" type="radio" value="over 2">
+                            <br>
+                            <span class="custom-control-description">Over 2</span>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <label class="text-inverse font-weight-bold" for="validationCustom01">Other Needs</label>
+                <div class="form-group">
+                    <textarea class="form-control" id="OtherNeeds" rows="5" name="OtherNeeds"></textarea>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-info" id="btnBack" type="button"><i class="fas fa-angle-double-left"></i> &nbsp; BACK</button>
+                <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i></button>
+            </div>
+        </div>
+    </form>
+    <!-- dk end -->
 </div>
+
 <script>
     $(function() {
 
@@ -219,17 +197,17 @@
             let isChildrenLikesSelected = $("input[name=ChildrenLikes]").is(":checked");
 
             if (!isPrefferToLiveSelected) {
-                toastr["error"]("Please select preffer to live");
+                toastr["error"]("Please select preffer to live !");
             } else if (!isHelpFamilySelected) {
-                toastr["error"]("Please select help family");
+                toastr["error"]("Please select help family !");
             } else if (!isJobSelected) {
-                toastr["error"]("Please select job");
+                toastr["error"]("Please select job !");
             } else if (!isEducationSelected) {
-                toastr["error"]("Please select education");
+                toastr["error"]("Please select education !");
             } else if (!isChildrenLikesSelected) {
-                toastr["error"]("Please select children likes");
+                toastr["error"]("Please select children likes !");
             } else if ($('#OtherNeeds').val() == "") {
-                toastr["error"]("Please add other needs");
+                toastr["error"]("Please add other needs !");
                 $('#OtherNeeds').focus();
             } else {
                 var form = $("#addAfterMarriageDetails");
