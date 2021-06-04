@@ -14,11 +14,11 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<!-- <script src="<?php echo base_url('resources/js/admin/jquery.min.js') ?>"></script> -->
+<!-- <script src="<?php echo base_url('resources/js/jquery.min.js') ?>"></script> -->
 <!-- Bootstrap 4 -->
-<!-- <script src="<?php echo base_url('resources/js/admin/bootstrap.bundle.min.js') ?>"></script> -->
+<!-- <script src="<?php echo base_url('resources/js/bootstrap.bundle.min.js') ?>"></script> -->
 <!-- AdminLTE App -->
-<!-- <script src="<?php echo base_url('resources/js/admin/adminlte.min.js') ?>"></script> -->
+<!-- <script src="<?php echo base_url('resources/js/adminlte.min.js') ?>"></script> -->
 
 
 </body>
@@ -46,9 +46,9 @@
 <!-- jQuery -->
 
 <!-- Bootstrap 4 -->
-<script src="<?php echo base_url('resources/js/admin/bootstrap.bundle.min.js') ?>"></script>
+<script src="<?php echo base_url('resources/js/bootstrap.bundle.min.js') ?>"></script>
 <!-- Select2 -->
-<script src="<?php echo base_url('resources/js/admin//select2.full.min.js') ?>"></script>
+<script src="<?php echo base_url('resources/js/select2.full.min.js') ?>"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url('resources/js/admin/adminlte.min.js') ?>"></script>
 <!-- AdminLTE for demo purposes -->
@@ -60,7 +60,7 @@
 <!-- Tempusdominus Bootstrap 4  -->
 <script src="<?php echo base_url('resources/js/admin/tempusdominus-bootstrap-4.min.js') ?>"></script>
 <!-- Common  -->
-<script src="<?php echo base_url('resources/js/admin/common.js') ?>"></script>
+<script src="<?php echo base_url('resources/js/common.js') ?>"></script>
 <!-- Sweet Alert 2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <!-- Notification  -->

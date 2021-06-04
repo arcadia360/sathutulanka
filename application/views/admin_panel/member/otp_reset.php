@@ -12,12 +12,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>All Members</h1>
+                    <h1>OTP Reset</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Members</a></li>
-                        <li class="breadcrumb-item active">All Members</li>
+                        <li class="breadcrumb-item active">OTP Reset</li>
                     </ol>
                 </div>
             </div>
@@ -44,18 +44,6 @@
                             <!-- /.input group -->
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="customer">Member Account Status</label>
-                            <select class="form-control select2" style="width: 100%;" id="cmbstatus" name="cmbstatus">
-                                <option value="0" selected hidden>- All -</option>
-                                <?php foreach ($member_status as $k => $v) { ?>
-                                    <option value="<?= $v['intMemberAccountStatusID'] ?>"><?= $v['vcMemberAccountStatus'] ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </div>
-
                 </div>
 
             </div>
@@ -69,13 +57,12 @@
                             <!-- style="display:block !important;" -->
                             <thead>
                                 <tr>
-                                    <th>Member Code</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Mobile</th>
                                     <th>Gender</th>
                                     <th>Date Of Birth</th>
-                                    <!-- <th>Marital Status</th> -->
+                                    <th>Marital Status</th>
                                     <th>Created Date</th>
                                     <th>Added Days</th>
                                     <th>Status</th>
@@ -96,4 +83,35 @@
 
 </div>
 
-<script src="<?php echo base_url('resources/js/admin/pageJS/member.js') ?>"></script>
+<script>
+    $(document).ready(function() {
+
+        function convertToShortDate(str) {
+            var date = new Date(str),
+                mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+                day = ("0" + date.getDate()).slice(-2);
+            return [date.getFullYear(), mnth, day].join("-");
+        }
+
+        var date = new Date();
+        var monthStartDate = new Date(date.getFullYear(), date.getMonth(), 1);
+
+        var selectedFromDate = "";
+        var selectedToDate = "";
+
+
+        // FilterItems(convertToShortDate(monthStartDate), convertToShortDate(date));
+
+        $('input[name="daterange"]').daterangepicker({
+            opens: 'center',
+            startDate: new Date(date.getFullYear(), date.getMonth(), 1),
+            endDate: date,
+            maxDate: new Date()
+        }, function(start, end) {
+            selectedFromDate = start.format('YYYY-MM-DD');
+            selectedToDate = end.format('YYYY-MM-DD');
+            // FilterItems(start.format('YYYY-MM-DD'), end.format('YYYY-MM-DD'))
+        });
+
+    });
+</script>

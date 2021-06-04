@@ -55,6 +55,11 @@ table {
     white-space: nowrap;
 }
 
+.table th {
+    background-color: #263238 !important;
+    color: #FFFFFF;
+}
+
 .dataTables_length {
     width: 100% !important;
 }
@@ -332,3 +337,4 @@ table {
     background-color: #1f2d3d;
     color: #fff;
 }
+

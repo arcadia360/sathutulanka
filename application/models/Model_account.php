@@ -34,10 +34,33 @@ class Model_account extends CI_Model
             M.vcBloodGroup, 
             M.isHealthInfo, 
             M.vcMotherTounge, 
-            M.vcEthnicity, vcReligion, 
+            M.vcEthnicity, 
+            vcReligion, 
             M.isPoliceReportCanProvide,
             WW.vcWorkingWith,
             WASC.vcWorkingAsSubCat,
+            M.vcDiet,
+            M.vcDrink,
+            M.vcSmoke,
+            M.vcDressAndMakeup,
+            M.vcUsedToTravel,
+            M.vcCalToParent,
+            M.vcCustoms,
+            M.vcLiveIn,
+            M.intOpennessToExperience,
+            M.intConscientiousness,
+            M.intExtrovertPersonality,
+            M.intIntrovertPersonality,
+            M.intAgreeableness,
+            M.intNeuroticism,
+            M.intFamilyBond,
+            M.intMoney,
+            M.intReligious,
+            M.intPhysicallyActive,
+            M.IntPolitics,
+            M.intKnowledge,
+            M.intLoveAffairs,
+            M.intimportanceVirginity,
             IFNULL(CASE WHEN (SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) = '' THEN
             	WASC.vcWorkingAsSubCat 
               ELSE 
@@ -46,7 +69,16 @@ class Model_account extends CI_Model
             MAS.intMemberAccountStatusID,       
             MAS.vcMemberAccountStatus,            
             MAT.intMemberAccountTypeID,
-            MAT.vcMemberAccountType
+            MAT.vcMemberAccountType,
+            CONCAT(M.intWeightFrom,'-',M.intWeightTo) AS Weight_Customised,
+            CT.intDistrictId,
+            CT.intCityId,
+            M.intCityIdIfLiveInSL,
+            M.intCountryId,
+            M.vcAddOfSriLanka,
+            M.intNativeDistrictId,
+            M.vcMotherTounge,
+            CS.intCasteID
           FROM 
             Member AS M
             INNER JOIN WorkingWith          AS WW   ON M.intWorkingWithID = WW.intWorkingWithID
@@ -54,10 +86,22 @@ class Model_account extends CI_Model
             INNER JOIN MemberAccountStatus  AS MAS  ON M.intMemberAccountStatusID = MAS.intMemberAccountStatusID
             INNER JOIN MemberAccountType    AS MAT  ON M.intMemberAccountTypeID = MAT.intMemberAccountTypeID
             INNER JOIN MaritalStatus        AS MS   ON M.intMaritalStatusID = MS.intMaritalStatusID
+            INNER JOIN city AS CT ON  M.intCityIdIfLiveInSL = CT.intCityID
+            INNER JOIN sub_caste AS CS ON M.intSubCasteId = CS.intSubCasteId
           WHERE 
             intMemberID = ? ";
 
     $query = $this->db->query($sql, array($UserID));
     return $query->row_array();
+  }
+
+  public function getMemberWiseLanguageSpeak($MemberID)
+  {
+    $sql = "
+    SELECT vcLanguage, intMemberID
+    FROM languagespeak
+    WHERE intMemberID = ? ";
+    $query = $this->db->query($sql, array($MemberID));
+    return $query->result_array();
   }
 }
