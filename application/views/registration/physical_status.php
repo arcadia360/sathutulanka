@@ -1,9 +1,8 @@
 <!--  -->
 <div class="btnbg" style="padding-top: 10px;">
 	<!-- Container Area Start -->
-	<div class="container" style="z-index: 1;">
-		<div class="row">
-			<div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
+
+			<div class="offset-lg-3 col-lg-6 border rounded main-section">
 				<h3 class="text-center text-inverse font-weight-bold title"><?= lang('physicalStatus') ?></h3>
 				<hr>
 
@@ -16,7 +15,7 @@
 				?>
 				<form method="post" action="<?= base_url('Registration/addPhysicalStatus') ?>" id="addPyysicalStatus">
 					<div class="row">
-						<div class="col-lg-12 col-sm-12 col-12">
+						<div class="col-12">
 							<div class="form-group">
 								<label class="text-inverse font-weight-bold font-weight-bold" for="validationCustom01"><?= lang('height') ?></label>
 								<select class="custom-select d-block form-control" name="height" id="height">
@@ -85,7 +84,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-lg-12 col-12">
+						<div class="col-12">
 							<div class="form-group">
 								<label class="text-inverse font-weight-bold" for="inputEmail4" id="bodyShapeLabel"><?= lang('bodyShape') ?></label> <br>
 								<div class="row">
@@ -231,8 +230,7 @@
 					</div>
 				</form>
 			</div>
-		</div>
-	</div>
+
 
 
 </div>
