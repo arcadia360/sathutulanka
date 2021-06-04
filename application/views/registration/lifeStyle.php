@@ -1,310 +1,297 @@
-<div class="btnbg" style="padding-top: 10px;">
-  <!-- Container Area Start -->
-  <div class="container" style="z-index: 1;">
+<div class="offset-lg-3 col-lg-6 main-section">
+  <h3 class="text-center text-inverse title"><?= lang('lifeStyle') ?></h3>
+  <form method="post" action="<?= base_url('Registration/addLifeStyleDetails') ?>" id="addLifeStyleDetails">
+
+
     <div class="row">
-      <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
-        <h3 class="text-center text-inverse title"><?= lang('lifeStyle') ?></h3>
-        <hr>
-        <form method="post" action="<?= base_url('Registration/addLifeStyleDetails') ?>" id="addLifeStyleDetails">
-
-
-          <div class="row">
-            <div class="col-6">
-              <div class="form-group">
-                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('diet') ?></label>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="form-group">
-                <select class="custom-select d-block form-control" id="diet" name="diet">
-                  <option value="0"><?= lang('select') ?></option>
-                  <option value="veg"><?= lang('veg') ?></option>
-                  <option value="Non Veg"><?= lang('NonVeg') ?></option>
-                  <option value="Occasionally Non Veg"><?= lang('OccasionallyNonVeg') ?></option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-12">
-              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('drink') ?></label>
-              <div class="row">
-                <div class="col-3">
-                  <label class="custom-control custom-radio">
-                    <input id="drink" name="drink" type="radio" class="custom-control-input" value="No">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('no') ?></span>
-                  </label>
-                </div>
-                <div class="col-3">
-                  <label class="custom-control custom-radio">
-                    <input id="drink" name="drink" type="radio" class="custom-control-input" value="Yes">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('yes') ?></span>
-                  </label>
-                </div>
-                <div class="col-3">
-                  <label class="custom-control custom-radio">
-                    <input id="drink" name="drink" type="radio" class="custom-control-input" value="During Function">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('duringFunction') ?></span>
-                  </label>
-                </div>
-                <div class="col-3">
-                  <label class="custom-control custom-radio">
-                    <input id="drink" name="drink" type="radio" class="custom-control-input" value="Stopped">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('stopped') ?></span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-12">
-              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('smoke') ?></label>
-              <div class="row">
-                <div class="col-3">
-                  <label class="custom-control custom-radio">
-                    <input id="smoke" name="smoke" type="radio" class="custom-control-input" value="no">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('no') ?></span>
-                  </label>
-                </div>
-                <div class="col-3">
-                  <label class="custom-control custom-radio">
-                    <input id="smoke" name="smoke" type="radio" class="custom-control-input" value="Yes">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('yes') ?></span>
-                  </label>
-                </div>
-                <div class="col-3">
-                  <label class="custom-control custom-radio">
-                    <input id="smoke" name="smoke" type="radio" class="custom-control-input" value="During Function">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('duringFunction') ?></span>
-                  </label>
-                </div>
-                <div class="col-3">
-                  <label class="custom-control custom-radio">
-                    <input id="smoke" name="smoke" type="radio" class="custom-control-input" value="Stopped">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('stopped') ?></span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row languageSpeak">
-            <div class="col-12">
-              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('languagesSpeak') ?></label>
-              <div class="row">
-                <div class="col-3">
-                  <div class="form-group">
-                    <label class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input language" name="language[]" value="sinhala" required>
-                      <span class="custom-control-indicator"></span>
-                      <span class="custom-control-description"><?= lang('sinhala') ?></span>
-                    </label>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="form-group">
-                    <label class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input language" name="language[]" value="tamil" required>
-                      <span class="custom-control-indicator"></span>
-                      <span class="custom-control-description"><?= lang('tamil') ?></span>
-                    </label>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="form-group">
-                    <label class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input language" name="language[]" value="english" required>
-                      <span class="custom-control-indicator"></span>
-                      <span class="custom-control-description"><?= lang('english') ?></span>
-                    </label>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div class="form-group">
-                    <label class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input language" name="language[]" value="other" required>
-                      <span class="custom-control-indicator"></span>
-                      <span class="custom-control-description"><?= lang('other') ?></span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-12">
-              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('dressAndMakeup') ?></label>
-              <div class="row">
-                <div class="col-6">
-                  <label class="custom-control custom-radio">
-                    <input id="dressAndMakeup" name="dressAndMakeup" type="radio" class="custom-control-input" value="Traditional">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('traditional') ?></span>
-                  </label>
-                </div>
-                <div class="col-6">
-                  <label class="custom-control custom-radio">
-                    <input id="dressAndMakeup" name="dressAndMakeup" type="radio" class="custom-control-input" value="Moder">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('modern') ?></span>
-                  </label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <label class="custom-control custom-radio">
-                    <input id="dressAndMakeup" name="dressAndMakeup" type="radio" class="custom-control-input" value="Mix of Traditional and modern">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('mixofTraditionalAndModern') ?></span>
-                  </label>
-                </div>
-                <div class="col-6">
-                  <label class="custom-control custom-radio">
-                    <input id="dressAndMakeup" name="dressAndMakeup" type="radio" class="custom-control-input" value="Short Dresses">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('shortDresses') ?></span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-12">
-              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('usedToTravel') ?></label>
-              <div class="row">
-                <div class="col-4">
-                  <label class="custom-control custom-radio">
-                    <input id="usedToTravel" name="usedToTravel" type="radio" class="custom-control-input" value="Public">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('public') ?></span>
-                  </label>
-                </div>
-                <div class="col-4">
-                  <label class="custom-control custom-radio">
-                    <input id="usedToTravel" name="usedToTravel" type="radio" class="custom-control-input" value="Private">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('private') ?></span>
-                  </label>
-                </div>
-                <div class="col-4">
-                  <label class="custom-control custom-radio">
-                    <input id="usedToTravel" name="usedToTravel" type="radio" class="custom-control-input" value="Public and Private">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('publicAndPrivate') ?></span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-12">
-              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('CallTtParents') ?></label>
-              <div class="row">
-                <div class="col-6">
-                  <label class="custom-control custom-radio">
-                    <input id="CallTtParents" name="CallTtParents" type="radio" class="custom-control-input" value="Traditional (Thaththa/ Amma/ Appachchi)">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('traditional') . " " . lang('CallTtParentsT') ?></span>
-                  </label>
-                </div>
-                <div class="col-6">
-                  <label class="custom-control custom-radio">
-                    <input id="CallTtParents" name="CallTtParents" type="radio" class="custom-control-input" value="Modern (Daddy/ Mammy/ Uncle / Aunt)">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('modern') . " " . lang('CallTtParentsM') ?></span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-12">
-              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('customs') ?></label>
-              <div class="row">
-                <div class="col-4">
-                  <label class="custom-control custom-radio">
-                    <input id="customs" name="customs" type="radio" class="custom-control-input" value="Respect">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('respect') ?></span>
-                  </label>
-                </div>
-                <div class="col-4">
-                  <label class="custom-control custom-radio">
-                    <input id="customs" name="customs" type="radio" class="custom-control-input" value="Little Respect">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('littleRespect') ?></span>
-                  </label>
-                </div>
-                <div class="col-4">
-                  <label class="custom-control custom-radio">
-                    <input id="customs" name="customs" type="radio" class="custom-control-input" value="No Respect">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('noRespect') ?></span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-12">
-              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('LiveIn') ?></label>
-              <div class="row">
-                <div class="col-4">
-                  <label class="custom-control custom-radio">
-                    <input id="LiveIn" name="LiveIn" type="radio" class="custom-control-input" value="Normal House">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('normalHouse') ?></span>
-                  </label>
-                </div>
-                <div class="col-4">
-                  <label class="custom-control custom-radio">
-                    <input id="LiveIn" name="LiveIn" type="radio" class="custom-control-input" value="Semi luxury House">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('semiLuxuryHouse') ?></span>
-                  </label>
-                </div>
-                <div class="col-4">
-                  <label class="custom-control custom-radio">
-                    <input id="LiveIn" name="LiveIn" type="radio" class="custom-control-input" value="Luxury House">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?= lang('luxuryHouse') ?></span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <hr>
-          <div class="row">
-            <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-              <button class="btn btn-info" style="width: 150px;" id="btnBack" type="button">BACK</button>
-            </div>
-            <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-              <button class="btn btn-info" style="width: 150px;" type="button" id="btnSubmit">CONTINUE</button>
-            </div>
-          </div>
-        </form>
+      <div class="col-12">
+        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('diet') ?></label>
+        <div class="form-group">
+          <select class="custom-select d-block form-control" id="diet" name="diet">
+            <option value="0"><?= lang('select') ?></option>
+            <option value="veg"><?= lang('veg') ?></option>
+            <option value="Non Veg"><?= lang('NonVeg') ?></option>
+            <option value="Occasionally Non Veg"><?= lang('OccasionallyNonVeg') ?></option>
+          </select>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- Container Area End -->
-
+    <hr>
+    <div class="row">
+      <div class="col-12">
+        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('drink') ?></label>
+        <div class="row">
+          <div class="col-3">
+            <center>
+              <input id="drink" name="drink" type="radio" class="" value="No">
+              <br>
+              <span class="custom-control-description"><?= lang('no') ?></span>
+            </center>
+          </div>
+          <div class="col-3">
+            <center>
+              <input id="drink" name="drink" type="radio" class="" value="Yes">
+              <br>
+              <span class="custom-control-description"><?= lang('yes') ?></span>
+            </center>
+          </div>
+          <div class="col-3">
+            <center>
+              <input id="drink" name="drink" type="radio" class="" value="During Function">
+              <br>
+              <span class="custom-control-description"><?= lang('duringFunction') ?></span>
+            </center>
+          </div>
+          <div class="col-3">
+            <center>
+              <input id="drink" name="drink" type="radio" class="" value="Stopped">
+              <br>
+              <span class="custom-control-description"><?= lang('stopped') ?></span>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <hr>
+    <div class="row">
+      <div class="col-12">
+        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('smoke') ?></label>
+        <div class="row">
+          <div class="col-3">
+            <center>
+              <input id="smoke" name="smoke" type="radio" class="" value="no">
+              <br>
+              <span class="custom-control-description"><?= lang('no') ?></span>
+            </center>
+          </div>
+          <div class="col-3">
+            <center>
+              <input id="smoke" name="smoke" type="radio" class="" value="Yes">
+              <br>
+              <span class="custom-control-description"><?= lang('yes') ?></span>
+            </center>
+          </div>
+          <div class="col-3">
+            <center>
+              <input id="smoke" name="smoke" type="radio" class="" value="During Function">
+              <br>
+              <span class="custom-control-description"><?= lang('duringFunction') ?></span>
+            </center>
+          </div>
+          <div class="col-3">
+            <center>
+              <input id="smoke" name="smoke" type="radio" class="" value="Stopped">
+              <br>
+              <span class="custom-control-description"><?= lang('stopped') ?></span>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <hr>
+    <div class="row languageSpeak">
+      <div class="col-12">
+        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('languagesSpeak') ?></label>
+        <div class="row">
+          <div class="col-3">
+            <div class="form-group">
+              <center>
+                <input type="checkbox" class=" language" name="language[]" value="sinhala" required>
+                <br>
+                <span class="custom-control-description"><?= lang('sinhala') ?></span>
+              </center>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-group">
+              <center>
+                <input type="checkbox" class=" language" name="language[]" value="tamil" required>
+                <br>
+                <span class="custom-control-description"><?= lang('tamil') ?></span>
+              </center>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-group">
+              <center>
+                <input type="checkbox" class=" language" name="language[]" value="english" required>
+                <br>
+                <span class="custom-control-description"><?= lang('english') ?></span>
+              </center>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-group">
+              <center>
+                <input type="checkbox" class=" language" name="language[]" value="other" required>
+                <br>
+                <span class="custom-control-description"><?= lang('other') ?></span>
+              </center>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-12">
+        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('dressAndMakeup') ?></label>
+        <div class="row">
+          <div class="col-3">
+            <center>
+              <input id="dressAndMakeup" name="dressAndMakeup" type="radio" class="" value="Traditional">
+              <br>
+              <span class="custom-control-description"><?= lang('traditional') ?></span>
+            </center>
+          </div>
+          <div class="col-3">
+            <center>
+              <input id="dressAndMakeup" name="dressAndMakeup" type="radio" class="" value="Moder">
+              <br>
+              <span class="custom-control-description"><?= lang('modern') ?></span>
+            </center>
+          </div>
+          <div class="col-3">
+            <center>
+              <input id="dressAndMakeup" name="dressAndMakeup" type="radio" class="" value="Mix of Traditional and modern">
+              <br>
+              <span class="custom-control-description"><?= lang('mixofTraditionalAndModern') ?></span>
+            </center>
+          </div>
+          <div class="col-3">
+            <center>
+              <input id="dressAndMakeup" name="dressAndMakeup" type="radio" class="" value="Short Dresses">
+              <br>
+              <span class="custom-control-description"><?= lang('shortDresses') ?></span>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-12">
+        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('usedToTravel') ?></label>
+        <div class="row">
+          <div class="col-4">
+            <center>
+              <input id="usedToTravel" name="usedToTravel" type="radio" class="" value="Public">
+              <br>
+              <span class="custom-control-description"><?= lang('public') ?></span>
+            </center>
+          </div>
+          <div class="col-4">
+            <center>
+              <input id="usedToTravel" name="usedToTravel" type="radio" class="" value="Private">
+              <br>
+              <span class="custom-control-description"><?= lang('private') ?></span>
+            </center>
+          </div>
+          <div class="col-4">
+            <center>
+              <input id="usedToTravel" name="usedToTravel" type="radio" class="" value="Public and Private">
+              <br>
+              <span class="custom-control-description"><?= lang('publicAndPrivate') ?></span>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <hr>
+    <div class="row">
+      <div class="col-12">
+        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('CallTtParents') ?></label>
+        <div class="row">
+          <div class="col-6">
+            <center>
+              <input id="CallTtParents" name="CallTtParents" type="radio" class="" value="Traditional (Thaththa/ Amma/ Appachchi)">
+              <br>
+              <span class="custom-control-description"><?= lang('traditional') . " " . lang('CallTtParentsT') ?></span>
+            </center>
+          </div>
+          <div class="col-6">
+            <center>
+              <input id="CallTtParents" name="CallTtParents" type="radio" class="" value="Modern (Daddy/ Mammy/ Uncle / Aunt)">
+              <br>
+              <span class="custom-control-description"><?= lang('modern') . " " . lang('CallTtParentsM') ?></span>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <hr>
+    <div class="row">
+      <div class="col-12">
+        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('customs') ?></label>
+        <div class="row">
+          <div class="col-4">
+            <center>
+              <input id="customs" name="customs" type="radio" class="" value="Respect">
+              <br>
+              <span class="custom-control-description"><?= lang('respect') ?></span>
+            </center>
+          </div>
+          <div class="col-4">
+            <center>
+              <input id="customs" name="customs" type="radio" class="" value="Little Respect">
+              <br>
+              <span class="custom-control-description"><?= lang('littleRespect') ?></span>
+            </center>
+          </div>
+          <div class="col-4">
+            <center>
+              <input id="customs" name="customs" type="radio" class="" value="No Respect">
+              <br>
+              <span class="custom-control-description"><?= lang('noRespect') ?></span>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <hr>
+    <div class="row">
+      <div class="col-12">
+        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('LiveIn') ?></label>
+        <div class="row">
+          <div class="col-4">
+            <center>
+              <input id="LiveIn" name="LiveIn" type="radio" class="" value="Normal House">
+              <br>
+              <span class="custom-control-description"><?= lang('normalHouse') ?></span>
+            </center>
+          </div>
+          <div class="col-4">
+            <center>
+              <input id="LiveIn" name="LiveIn" type="radio" class="" value="Semi luxury House">
+              <br>
+              <span class="custom-control-description"><?= lang('semiLuxuryHouse') ?></span>
+            </center>
+          </div>
+          <div class="col-4">
+            <center>
+              <input id="LiveIn" name="LiveIn" type="radio" class="" value="Luxury House">
+              <br>
+              <span class="custom-control-description"><?= lang('luxuryHouse') ?></span>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-12">
+        <button class="btn btn-info" id="btnBack" type="button"><i class="fas fa-angle-double-left"></i> &nbsp; BACK</button>
+        <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i></button>
+      </div>
+    </div>
+  </form>
 </div>
+
 <script>
   $(function() {
 
@@ -324,26 +311,26 @@
 
 
       if ($('#diet').val() == 0) {
-        toastr["error"]("Please select diet");
+        toastr["error"]("Please select diet !");
         $("#diet").focus();
       } else if (!isDrinkSelected) {
-        toastr["error"]("Please select drink");
+        toastr["error"]("Please select drink !");
       } else if (!isSmokeSelected) {
-        toastr["error"]("Please select smoke");
+        toastr["error"]("Please select smoke !");
       } else if (!isSmokeSelected) {
         toastr["error"]("Please select smoke");
       } else if ($('.language[type=checkbox]:checked').length == 0) {
-        toastr["error"]("Please select Languages,Speak ");
+        toastr["error"]("Please select Languages,Speak !");
       } else if (!isDressAndMakeupSelected) {
-        toastr["error"]("Please select dress and makeup");
+        toastr["error"]("Please select dress and makeup !");
       } else if (!isusedToTravelSelected) {
-        toastr["error"]("Please select used to travel");
+        toastr["error"]("Please select used to travel !");
       } else if (!isCallTtParentsSelected) {
-        toastr["error"]("Please select call to parent");
+        toastr["error"]("Please select call to parent !");
       } else if (!iscustomsSelected) {
-        toastr["error"]("Please select customs");
+        toastr["error"]("Please select customs !");
       } else if (!isLiveInSelected) {
-        toastr["error"]("Please select live in");
+        toastr["error"]("Please select live in !");
       } else {
 
         var form = $("#addLifeStyleDetails");
@@ -356,7 +343,7 @@
             if (response.success == true) {
               Swal.fire({
                 icon: 'success',
-                title: 'Life style details saved successfully!',
+                title: 'Life style details saved successfully !',
                 showConfirmButton: false,
                 timer: 2000
               }).then((result) => {
