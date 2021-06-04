@@ -46,12 +46,12 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="customer">Customer</label>
-                            <select class="form-control select2" style="width: 100%;" id="cmbcustomer" name="cmbcustomer">
-                                <option value="0" selected hidden>All Customers</option>
-                                <!-- <?php foreach ($customer_data as $k => $v) { ?>
-                                    <option value="<?= $v['intCustomerID'] ?>"><?= $v['vcCustomerName'] ?></option>
-                                <?php } ?> -->
+                            <label for="customer">Member Account Status</label>
+                            <select class="form-control select2" style="width: 100%;" id="cmbstatus" name="cmbstatus">
+                                <option value="0" selected hidden>- All -</option>
+                                <?php foreach ($member_status as $k => $v) { ?>
+                                    <option value="<?= $v['intMemberAccountStatusID'] ?>"><?= $v['vcMemberAccountStatus'] ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>
@@ -60,7 +60,6 @@
 
             </div>
             <div class="card-body">
-
                 <div class="box">
                     <div class="box-body">
                         <!-- <div>
@@ -70,12 +69,13 @@
                             <!-- style="display:block !important;" -->
                             <thead>
                                 <tr>
+                                    <th>Member Code</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Mobile</th>
                                     <th>Gender</th>
                                     <th>Date Of Birth</th>
-                                    <th>Marital Status</th>
+                                    <!-- <th>Marital Status</th> -->
                                     <th>Created Date</th>
                                     <th>Added Days</th>
                                     <th>Status</th>
