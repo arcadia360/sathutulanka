@@ -1,92 +1,71 @@
-<div class="btnbg" style="padding-top: 10px;">
-  <!-- Container Area Start -->
-  <div class="container" style="z-index: 1;">
+<div class="offset-lg-3 col-lg-6 main-section">
+  <h3 class="text-center text-inverse title"><?= lang('residance') ?></h3>
+  <form method="post" action="<?= base_url('Registration/addResidenceDetails') ?>" id="addResidenceDetails">
     <div class="row">
-      <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
-        <h3 class="text-center text-inverse title"><?= lang('residance') ?></h3>
-        <hr>
-        <form method="post" action="<?= base_url('Registration/addResidenceDetails') ?>" id="addResidenceDetails">
-          <div class="row">
-            <div class="col-12">
-              <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('currentlyLiveIn') ?></label>
-              <div class="form-group">
-                <select class="custom-select d-block form-control" id="country" name="country">
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="ifLiveInSriLanka">
-            <!-- ifLveInSriLanka -->
-            <div class="row">
-              <div class="col-6">
-                <div class="form-group">
-                  <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label>
-                </div>
-              </div>
-              <div class="col-6">
-                <label class="text-inverse font-weight-bold">District</label>
-                <div class="form-group">
-                  <select class="custom-select d-block form-control" id="district" name="district">
-                    <!-- <option value="0"><?= lang('select') ?></option>
-                    <option value="">Select 1</option>
-                    <option value="">Select 2</option> -->
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-6">
-              </div>
-              <div class="col-6">
-                <label class="text-inverse font-weight-bold">City</label>
-                <div class="form-group">
-                  <select class="custom-select d-block form-control" id="city" name="city">
-
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div><!-- end ifLveInSriLanka -->
-          <div class="row">
-            <div class="col-12">
-              <div class="form-group">
-                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('AddressofSriLanka') . "    " ?> <span style="font-weight: 100;color: #FF9800;">(Will not publish.Office purpose only)</span> </label>
-                <input type="text" class=" d-block form-control" name="AddressofSriLanka" id="AddressofSriLanka">
-              </div>
-            </div>
-          </div>
-
-
-          <div class="row">
-            <div class="col-6">
-              <div class="form-group">
-                <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('nativeDistrict') ?></label>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="form-group">
-                <select class="custom-select d-block form-control" id="nativeDistrict" name="nativeDistrict">
-
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <hr>
-          <div class="row">
-            <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-              <button class="btn btn-info" style="width: 150px;" id="btnBack" type="button">BACK</button>
-            </div>
-            <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-              <button class="btn btn-info" style="width: 150px;" type="button" id="btnSubmit">CONTINUE</button>
-            </div>
-          </div>
-        </form>
+      <div class="col-12">
+        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('currentlyLiveIn') ?></label>
+        <div class="form-group">
+          <select class="custom-select d-block form-control" id="country" name="country">
+          </select>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- Container Area End -->
+    <div class="ifLiveInSriLanka">
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group">
+            <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label>
+          </div>
+        </div>
+        <div class="col-8">
+          <label class="text-inverse font-weight-bold">District</label>
+          <div class="form-group">
+            <select class="custom-select d-block form-control" id="district" name="district">
+              <!-- Generated Area -->
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="offset-4 col-8">
+          <label class="text-inverse font-weight-bold">City</label>
+          <div class="form-group">
+            <select class="custom-select d-block form-control" id="city" name="city">
+              <!-- Generated Area -->
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label class="text-inverse d-flex font-weight-bold" for="validationCustom01"><?= lang('AddressofSriLanka') ?>
+            <span style="font-weight: 300;color: #bf360c; font-size: 0.9em;">&nbsp; (Will not publish, Office purpose only.)</span>
+          </label>
+          <input type="text" class=" d-block form-control" name="AddressofSriLanka" id="AddressofSriLanka">
+        </div>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col-12">
+        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('nativeDistrict') ?></label>
+        <div class="form-group">
+          <select class="custom-select d-block form-control" id="nativeDistrict" name="nativeDistrict">
+            <!-- Generated Area -->
+          </select>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-12">
+        <button class="btn btn-info" id="btnBack" type="button"><i class="fas fa-angle-double-left"></i> &nbsp; BACK</button>
+        <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i></button>
+      </div>
+    </div>
+  </form>
 </div>
 
 <script>
@@ -124,15 +103,19 @@
 
       if ($('#country').val() == 0) {
         $("#country").focus();
-        toastr["error"]("Please select currently live in");
+        toastr["error"]("Please select currently live in !");
       } else if ($('#district').val() == 0) {
         $("#district").focus();
-        toastr["error"]("Please select district");
+        toastr["error"]("Please select district !");
       } else if ($('#city').val() == 0) {
         $("#city").focus();
-        toastr["error"]("Please select city");
+        toastr["error"]("Please select city !");
       } else if (jQuery.trim($("#AddressofSriLanka").val()).length == 0) {
-        toastr["error"]("Please provide address of Sri Lanka");
+        $("#AddressofSriLanka").focus();
+        toastr["error"]("Please provide address of Sri Lanka !");
+      } else if ($('#nativeDistrict').val() == 0) {
+        $("#nativeDistrict").focus();
+        toastr["error"]("Please select native district !");
       } else {
         {
           var form = $("#addResidenceDetails");
