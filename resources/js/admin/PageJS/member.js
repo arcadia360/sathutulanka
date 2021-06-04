@@ -1,10 +1,35 @@
-$(document).ready(function() {
+$(document).ready(function () {
+
+    // document.addEventListener('contextmenu', event => event.preventDefault());
+
+    jQuery("#activate-home-tab").click(function () {
+        console.log("opening home")
+        jQuery('[href="#home"]').tab('show');
+    });
+
+    jQuery('.dropdown').on('click', function (e) {
+        if (!jQuery('#tab1').is('.active')) {
+            jQuery('[href="#tab1"]').tab('show');
+        }
+    });
+    jQuery('.dropdown li [href^="#subtab"]').on('click', function (e) {
+        var currHref = this.getAttribute('href');
+        jQuery('[href="' + currHref + '"]').tab('show');
+    });
+
+    function convertToShortDate(str) {
+        var date = new Date(str),
+            mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+            day = ("0" + date.getDate()).slice(-2);
+        return [date.getFullYear(), mnth, day].join("-");
+    }
 
     var date = new Date();
     var monthStartDate = new Date(date.getFullYear(), date.getMonth(), 1);
 
     var selectedFromDate = "";
     var selectedToDate = "";
+
 
     FilterItems(convertToShortDate(monthStartDate), convertToShortDate(date));
 
@@ -13,13 +38,13 @@ $(document).ready(function() {
         startDate: new Date(date.getFullYear(), date.getMonth(), 1),
         endDate: date,
         maxDate: new Date()
-    }, function(start, end) {
+    }, function (start, end) {
         selectedFromDate = start.format('YYYY-MM-DD');
         selectedToDate = end.format('YYYY-MM-DD');
         FilterItems(start.format('YYYY-MM-DD'), end.format('YYYY-MM-DD'))
     });
 
-    $('#cmbStatus').on('change', function() {
+    $('#cmbstatus').on('select2:select', function (e) {
         if (selectedFromDate == "" && selectedToDate == "") {
             FilterItems(convertToShortDate(monthStartDate), convertToShortDate(date));
         } else {
@@ -30,66 +55,16 @@ $(document).ready(function() {
 
 });
 
-function RemoveRequest(RequestHeaderID) {
-    arcadiaConfirmAlert("You want to be able to remove this !", function(button) {
 
-        $.ajax({
-            async: true,
-            url: base_url + 'request/RemoveRequest',
-            type: 'post',
-            data: {
-                intRequestHeaderID: RequestHeaderID
-            },
-            dataType: 'json',
-            success: function(response) {
-                if (response.success == true) {
-                    arcadiaSuccessMessage("Deleted !", "request/ViewRequest");
-                } else {
-                    toastr["error"](response.messages);
-                }
-            },
-            error: function(request, status, error) {
-                arcadiaErrorMessage(error);
-            }
-        });
-    }, this);
-}
 
 function FilterItems(FromDate, ToDate) {
 
-    var StatusType = $('#cmbStatus').val();
-    // StatusType >>    All         = 0
-    // StatusType >>    Approved    = 1
-    // StatusType >>    Pending     = 2
-    // StatusType >>    Rejected    = 3
+    var statusID = $('#cmbstatus').val();
 
     $('#manageTable').DataTable({
-        'ajax': 'FilterRequestHeaderData/' + StatusType + '/' + FromDate + '/' + ToDate,
+        'ajax': 'FilterMemberListData/' + statusID + '/' + '/' + FromDate + '/' + ToDate,
         'order': [],
-        "bDestroy": true,
-        "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
-            // bebugger;
-            if (aData[6] != "N/A") {
-                if (aData[4] == aData[6]) { // Reject
-                    $('td', nRow).css('background-color', '#DC3545');
-                }
-            }
-            if (aData[5] != "N/A") {
-                if (aData[5] > 0) { // Pending
-                    $('td', nRow).css('background-color', '#FFC108');
-                }
-            }
-
-
-            $(nRow.childNodes[0]).css('text-align', 'center');
-            $(nRow.childNodes[1]).css('text-align', 'center');
-            $(nRow.childNodes[2]).css('text-align', 'right');
-            $(nRow.childNodes[3]).css('text-align', 'right');
-            $(nRow.childNodes[4]).css('text-align', 'right');
-            $(nRow.childNodes[5]).css('text-align', 'center');
-            $(nRow.childNodes[6]).css('text-align', 'center');
-            $(nRow.childNodes[7]).css('padding', '0');
-        }
+        "bDestroy": true
     });
 
 }
