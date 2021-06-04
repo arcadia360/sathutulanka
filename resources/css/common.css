@@ -31,10 +31,9 @@ input {
     outline: none;
 }
 
-input[type=text]:focus, input[type=password]:focus {
-    /* border: 2px solid #d73333; */
-    outline: 1px solid #b52b4a;
-    border: 1px solid transparent;
+input[type=text]:focus, input[type=password]:focus, select:focus, textarea:focus {
+    outline: 1px solid #b52b4a !important;
+    border: 1px solid transparent !important;
 }
 
 input[type="checkbox"]:checked+label:before {
@@ -96,6 +95,6 @@ input[type="checkbox"]:checked+label:before {
     text-transform: capitalize;
 }
 
-.card{
+.card {
     border-radius: 0 !important;
 }
