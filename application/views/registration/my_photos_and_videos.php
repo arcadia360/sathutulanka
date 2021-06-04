@@ -1,56 +1,43 @@
-<div class="btnbg" style="padding-top: 10px;">
-  <!-- Container Area Start -->
-  <div class="container" style="z-index: 1;">
+<div class="offset-lg-3 col-lg-6 main-section">
+  <h3 class="text-center text-inverse title">My Photos And Videos</h3>
+  <p>Photos & videos are the key to best responses every time. Your photos & video will appear after the inspection of our officer. 100% privacy controls available.</p>
+
+  <form method="post" action="<?= base_url('Registration/addWhoAmIDetails') ?>" id="addMyPhotos">
     <div class="row">
-      <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
-        <h3 class="text-center text-inverse title">My Photos And Videos</h3>
-        <hr>
-        <p class="lead">Photos & videos are the key to best responses every time. Your photos & video will appear after the inspection of our officer. 100% privacy controls available.</p>
-
-        <form method="post" action="<?= base_url('Registration/addWhoAmIDetails') ?>" id="addMyPhotos">
-          <div class="row">
-            <div class="col-lg-6 col-12">
-              <div class="form-group">
-                <input type="file" id="file1" name="file1" class="form-control" required>
-              </div>
-            </div>
-            <div class="col-lg-6 col-12 ">
-              <div class="form-group text-al-center">
-                <button type="button" id="btnUpload" class="btn btn-success">Upload Image</button>
-              </div>
-            </div>
-          </div>
-
-          <table class="table">
-            <tr style="text-align: center;">
-            </tr>
-            <tbody id="loadimgtable" style="text-align: center;">
-
-            </tbody>
-          </table>
-
-          <div class="row" id="loadimgdiv">
-
-          </div>
-
-          <hr>
-          <div class="row">
-            <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-              <button class="btn btn-info" style="width: 150px;" id="btnBack" type="button">Back</button>
-            </div>
-            <div class="col-lg-6 col-sm-6 col-6 text-center" style="padding: 10px;">
-              <button class="btn btn-info" style="width: 150px;" type="button" id="btnSubmit">CONTINUE</button>
-            </div>
-          </div>
-        </form>
+      <div class="col-lg-6 col-12">
+        <div class="form-group">
+          <input type="file" id="file1" name="file1" class="form-control" required>
+        </div>
+      </div>
+      <div class="col-lg-6 col-12 ">
+        <div class="form-group text-al-center">
+          <button type="button" id="btnUpload" class="btn btn-success">Upload Image</button>
+        </div>
       </div>
     </div>
-  </div>
+
+    <table class="table">
+      <tr style="text-align: center;">
+      </tr>
+      <tbody id="loadimgtable" style="text-align: center;">
+
+      </tbody>
+    </table>
+
+    <div class="row" id="loadimgdiv">
+
+    </div>
+
+    <hr>
+    <div class="row">
+      <div class="col-12">
+        <button class="btn btn-info" id="btnBack" type="button"><i class="fas fa-angle-double-left"></i> &nbsp; BACK</button>
+        <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i></button>
+      </div>
+    </div>
+  </form>
 </div>
 
-<div>
-
-</div>
 <script>
   $(function() {
     $('#btnBack').click(function() {
@@ -75,7 +62,7 @@
           viewUploadImages();
           Swal.fire({
             icon: 'success',
-            title: 'image uploaded successfully!',
+            title: 'image uploaded successfully !',
             showConfirmButton: false,
             timer: 2000
           }).then((result) => {
