@@ -8,7 +8,7 @@
 					</div> -->
             <div class="info">
                 <span class="brand-text font-weight-light d-block">Sathutu Lanka</span>
-                <span class="brand-text font-weight-light d-block" style="font-size: 0.8em;">Business Management</span>
+                <span class="brand-text font-weight-light d-block" style="font-size: 0.8em;"></span>
                 <!-- <span class="brand-text font-weight-light d-block" style="font-size: 0.8em;">System</span> -->
             </div>
         </div>
@@ -26,8 +26,11 @@
                                 <img src="<?php echo base_url('resources/AdminImages/User-Default.png') ?>" class="img-circle elevation-2" alt="User Image">
                             </div>
                             <div class="info">
-                                <span href="#" class="d-block"><?= $_SESSION['full_name'] ?>
-                                    <span class="d-block small"><?= $_SESSION['group_name'] ?></span>
+                                <span href="#" class="d-block">
+                                    <!-- <?= $_SESSION['full_name'] ?> -->
+                                    <span class="d-block small">
+                                        <!-- <?= $_SESSION['group_name'] ?> -->
+                                    </span>
                                 </span>
                             </div>
                         </div>
@@ -70,38 +73,17 @@
                                 <p>&nbsp;&nbsp;&nbsp;Members List</p>
                             </a>
                         </li>
-                    </ul>
-                </li>
-                <li class="nav-item has-treeview <?php if ($this->uri->segment(2) == "CustomersList" || $this->uri->segment(2) == "manageCustomerUnitPriceConfig") {
-                                                        echo 'menu-open';
-                                                    } ?>">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-tools"></i>
-                        <p>&nbsp;&nbsp;&nbsp;Customer
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-
-                    <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?php echo base_url('Customer/CustomersList') ?>" class="nav-link <?php if ($this->uri->segment(2) == "CustomersList") {
-                                                                                                            echo 'active';
-                                                                                                        } ?>">
-                                <i class="fas fa-user"></i>
-                                <p>&nbsp;&nbsp;&nbsp;Customers List</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?php echo base_url('Customer/manageCustomerUnitPriceConfig') ?>" class="nav-link <?php if ($this->uri->segment(2) == "manageCustomerUnitPriceConfig") {
-                                                                                                                            echo 'active';
-                                                                                                                        } ?>">
-                                <i class="fa fa-users" aria-hidden="true"></i>
-                                <p>&nbsp;&nbsp;Customer Price Config</p>
+                            <a href="<?php echo base_url('admin/otpreset') ?>" class="nav-link <?php if ($this->uri->segment(1) == "User") {
+                                                                                                        echo 'active';
+                                                                                                    } ?>">
+                                <i class="fas fa-mobile-alt"></i>
+                                <p>&nbsp;&nbsp;&nbsp;OTP Reset</p>
                             </a>
                         </li>
                     </ul>
-
                 </li>
+
 
                 <!-- <li class="nav-item">
                     <a href="<?php echo base_url('Utilities/manageSalesRep') ?>" class="nav-link <?php if ($this->uri->segment(1) == "SalesRep") {
