@@ -92,8 +92,6 @@ $('#dtPDDate').datetimepicker({
 
 // Alerts
 function arcadiaConfirmAlert(message, event, button) {
-    debugger;
-
     $(button).prop('disabled', true);
 
     Swal.fire({
@@ -245,7 +243,6 @@ function convertToShortDate(str) {
 // Ajax Common Functions
 
 function ajaxCall(url, parameters, successCallback) {
-    debugger;
     $.ajax({
         async: true,
         type: 'POST',
@@ -257,7 +254,6 @@ function ajaxCall(url, parameters, successCallback) {
         dataType: 'json',
         success: successCallback,
         error: function (request, status, error) {
-            debugger;
             console.log(request.responseText);
             arcadiaErrorMessage(error);
         }
