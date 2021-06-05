@@ -424,7 +424,7 @@ class Model_registration extends CI_Model
     $SportsPhysicalActivities = $this->input->post('Sports-Physicalactivities');
     $querySportsPhysicalActivitiesExists  = $this->db->query("select * from sportsphysicalactivities where intMID ='$mid'");
     if ($querySportsPhysicalActivitiesExists->num_rows() > 0) {
-      $this->db->delete('sports_physical_activities', array('intMID' => $mid));
+      $this->db->delete('sportsphysicalactivities', array('intMID' => $mid));
     }
     for ($i = 0; $i < count($SportsPhysicalActivities); $i++) {
 
@@ -432,7 +432,7 @@ class Model_registration extends CI_Model
         'intMID' => $mid,
         'vcSportsPhysicalActivities' => $SportsPhysicalActivities[$i]
       );
-      $this->db->insert('sports_physical_activities', $dataSportsphysicalactivitiesTB);
+      $this->db->insert('sportsphysicalactivities', $dataSportsphysicalactivitiesTB);
     }
     // save Sports / Physical activities END
 
@@ -440,14 +440,14 @@ class Model_registration extends CI_Model
     $SocialActivites = $this->input->post('SocialActivities');
     $querySocialActivitesExists  = $this->db->query("select * from socialactivities where intMID ='$mid'");
     if ($querySocialActivitesExists->num_rows() > 0) {
-      $this->db->delete('social_activities', array('intMID' => $mid));
+      $this->db->delete('socialactivities', array('intMID' => $mid));
     }
     for ($i = 0; $i < count($SocialActivites); $i++) {
       $dataSocialActivitesTB = array(
         'intMID' => $mid,
         'vcSocialActivities' => $SocialActivites[$i]
       );
-      $this->db->insert('social_activities', $dataSocialActivitesTB);
+      $this->db->insert('socialactivities', $dataSocialActivitesTB);
     }
     // save Social Activites END
 
@@ -455,14 +455,14 @@ class Model_registration extends CI_Model
     $CreativeHobbies = $this->input->post('CreatvieHobies');
     $queryCreativeHobbiesExists  = $this->db->query("select * from creativehobbies where intMID ='$mid'");
     if ($queryCreativeHobbiesExists->num_rows() > 0) {
-      $this->db->delete('creative_hobbies', array('intMID' => $mid));
+      $this->db->delete('creativehobbies', array('intMID' => $mid));
     }
     for ($i = 0; $i < count($CreativeHobbies); $i++) {
       $dataCreativeHobbiesTB = array(
         'intMID' => $mid,
         'vcCreativeHobbies' => $CreativeHobbies[$i]
       );
-      $this->db->insert('creative_hobbies', $dataCreativeHobbiesTB);
+      $this->db->insert('creativehobbies', $dataCreativeHobbiesTB);
     }
     // save Creative Hobbies END
 
@@ -470,14 +470,14 @@ class Model_registration extends CI_Model
     $CollectingHobbies = $this->input->post('CollectingHobbies');
     $queryCollectingHobbiesExists  = $this->db->query("select * from collectinghobbies where intMID ='$mid'");
     if ($queryCollectingHobbiesExists->num_rows() > 0) {
-      $this->db->delete('collecting_hobbies', array('intMID' => $mid));
+      $this->db->delete('collectinghobbies', array('intMID' => $mid));
     }
     for ($i = 0; $i < count($CollectingHobbies); $i++) {
       $dataCollectingHobbiesTB = array(
         'intMID' => $mid,
         'vcCollectingHobby' => $CollectingHobbies[$i]
       );
-      $this->db->insert('collecting_hobbies', $dataCollectingHobbiesTB);
+      $this->db->insert('collectinghobbies', $dataCollectingHobbiesTB);
     }
     // save Collecting Hobbies END
 
@@ -485,14 +485,14 @@ class Model_registration extends CI_Model
     $OutdoorsHobbies = $this->input->post('outdoorHobies');
     $queryOutdoorHobiesExists  = $this->db->query("select * from outdoorhobies where intMID ='$mid'");
     if ($queryOutdoorHobiesExists->num_rows() > 0) {
-      $this->db->delete('outdoor_hobies', array('intMID' => $mid));
+      $this->db->delete('outdoorhobies', array('intMID' => $mid));
     }
     for ($i = 0; $i < count($OutdoorsHobbies); $i++) {
       $dataOutdoorHobiesTB = array(
         'intMID' => $mid,
         'vcOutdoorHobies' => $OutdoorsHobbies[$i]
       );
-      $this->db->insert('outdoor_hobies', $dataOutdoorHobiesTB);
+      $this->db->insert('outdoorhobies', $dataOutdoorHobiesTB);
     }
     // save Outdoors hobbies END  
 
@@ -501,14 +501,14 @@ class Model_registration extends CI_Model
     $DomesticHobbies = $this->input->post('domesticHobbies');
     $queryDomesticHobbiesExists  = $this->db->query("select * from domestichobbies where intMID ='$mid'");
     if ($queryDomesticHobbiesExists->num_rows() > 0) {
-      $this->db->delete('domestic_hobbies', array('intMID' => $mid));
+      $this->db->delete('domestichobbies', array('intMID' => $mid));
     }
     for ($i = 0; $i < count($DomesticHobbies); $i++) {
       $dataDomesticHobbiesTB = array(
         'intMID' => $mid,
         'vcdomesticHobbies' => $DomesticHobbies[$i]
       );
-      $this->db->insert('domestic_hobbies', $dataDomesticHobbiesTB);
+      $this->db->insert('domestichobbies', $dataDomesticHobbiesTB);
     }
     // save Domestic Hobbies END
 
@@ -565,7 +565,7 @@ class Model_registration extends CI_Model
   public function loadWorkingWith()
   {
     $this->db->select('*');
-    $this->db->from('working_with');
+    $this->db->from('workingwith');
     $this->db->order_by('intWorkingWithId', 'DESC');
     $query = $this->db->get();
 
@@ -579,7 +579,7 @@ class Model_registration extends CI_Model
   public function loadWorkingAsMainCat()
   {
     $this->db->select('*');
-    $this->db->from('working_as_main_cat');
+    $this->db->from('WorkingAsMainCat');
     $this->db->order_by('vcWorkingAsMainCat', 'ASC');
     $query = $this->db->get();
 
@@ -594,7 +594,7 @@ class Model_registration extends CI_Model
   {
     $WorkingAsMainCatId = $this->input->post('WorkingAsMainCatId');
     $this->db->select('*');
-    $this->db->from('working_as_sub_cat');
+    $this->db->from('WorkingAsSubCat');
     $this->db->where('intWorkinAsMainCat =', $WorkingAsMainCatId);
     $this->db->order_by('vcWorkingAsSubCatl', 'asc');
     $query = $this->db->get();
@@ -692,14 +692,14 @@ class Model_registration extends CI_Model
     //insert monthly income route data
     $queryMonthlyIncomeRoutesExists  = $this->db->query("select * from monthlyincomeroutes where intMemberID ='$mid'");
     if ($queryMonthlyIncomeRoutesExists->num_rows() > 0) {
-      $this->db->delete('monthly_income_routes', array('intMemberID' => $mid));
+      $this->db->delete('MonthlyIncomeRoutes', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($incomeRoute); $i++) {
       $dataincomeRouteTb = array(
         'vcMonthlyIncomeRoute' => $incomeRoute[$i],
         'intMemberID' => $mid
       );
-      $this->db->insert('monthly_income_routes', $dataincomeRouteTb);
+      $this->db->insert('MonthlyIncomeRoutes', $dataincomeRouteTb);
     }
 
     //insert asset route data
@@ -712,7 +712,7 @@ class Model_registration extends CI_Model
         'vcAssetRoute' => $assestRoute[$i],
         'intMemberID' => $mid
       );
-      $this->db->insert('asset_routes', $datainassestRouteTb);
+      $this->db->insert('AssetRoutes', $datainassestRouteTb);
     }
 
     $this->db->where('intMemberID', $mid);
