@@ -71,6 +71,27 @@
 <script>
   $(function() {
 
+    var Member = function() {
+      this.MemberID = 0;
+    }
+    var model = new Member();
+    model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+
+    ajaxCall('registration/getMemberData', model, function(response) {
+      $("#country").val(response.intCountryId);
+      $("#district").val(response.intDistrictId);
+      $('#district').trigger('change');
+      $("#city").val(response.intCityIdIfLiveInSL);
+      $('#city').trigger('change');
+      $("#AddressofSriLanka").val(response.vcAddOfSriLanka);
+      $("#nativeDistrict").val(response.intNativeDistrictId);
+
+
+    });
+
+
+
+
     loadCountries();
     loadDistricts();
     $('#btnBack').click(function() {
@@ -169,7 +190,7 @@
           if (!data) {
             toastr["error"]("<?= lang('district') . ' ' . lang('dataCannotRetrieve') ?>");
           } else {
-            $('#country').html(data);;
+            $('#country').html(data);
             $('#country').val(0);
           }
         },
@@ -191,7 +212,7 @@
           } else {
             $('#district').html(data);;
             $('#district').val(0);
-            $('#nativeDistrict').html(data);;
+            $('#nativeDistrict').html(data);
             $('#nativeDistrict').val(0);
           }
         },
@@ -216,7 +237,7 @@
           if (!data) {
             toastr["error"]("<?= lang('city') . ' ' . lang('dataCannotRetrieve') ?>");
           } else {
-            $('#city').html(data);;
+            $('#city').html(data);
             $('#city').val(0);
           }
         },
