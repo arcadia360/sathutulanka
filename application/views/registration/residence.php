@@ -78,14 +78,15 @@
     model.MemberID = (<?= $this->session->userdata('member_id') ?>);
 
     ajaxCall('registration/getMemberData', model, function(response) {
-      $("#country").val(response.intCountryId);
-      $("#district").val(response.intDistrictId);
-      $('#district').trigger('change');
-      $("#city").val(response.intCityIdIfLiveInSL);
-      $('#city').trigger('change');
-      $("#AddressofSriLanka").val(response.vcAddOfSriLanka);
-      $("#nativeDistrict").val(response.intNativeDistrictId);
-
+      if (response.intCountryId != null) {
+        $("#country").val(response.intCountryId);
+        $("#district").val(response.intDistrictId);
+        $('#district').trigger('change');
+        $("#city").val(response.intCityIdIfLiveInSL);
+        $('#city').trigger('change');
+        $("#AddressofSriLanka").val(response.vcAddOfSriLanka);
+        $("#nativeDistrict").val(response.intNativeDistrictId);
+      }
 
     });
 
