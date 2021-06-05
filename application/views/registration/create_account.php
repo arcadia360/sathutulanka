@@ -186,7 +186,7 @@
             <!-- </div> -->
         </div>
         <div class="col-lg-4 col-md-5 col-sm-12 side-form">
-            <form method="post" action="<?= base_url('Registration/createAccount') ?>" id="submitForm">
+            <form method="post" action="<?= base_url('CreateAccount/saveAccount') ?>" id="submitForm">
                 <!-- <form method="post" action="<?= base_url('Registration/physicalStatus') ?>" id="submitForm"> -->
                 <div class="px-3 py-3 home-main-search-bgcolor reg_form" style="overflow: scroll; height:90vh;">
                     <h4 class="px-3"><?= lang('create_your_account') ?></h4>
@@ -490,31 +490,26 @@
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Marital Status</p>
                         <select class="custom-select d-block form-control" name="marital_status" id="marital_status">
                             <option value="0"><?= lang('select') ?></option>
-                            <!-- <?php foreach ($MaritalStatus_data as $k => $v) { ?>
+                            <?php foreach ($MaritalStatus_data as $k => $v) { ?>
                                 <option value="<?= $v['intMaritalStatusID'] ?>"><?= $v['vcMaritalStatus'] ?></option>
-                            <?php } ?> -->
-                            <option value="never married"><?= lang('never married') ?></option>
+                            <?php } ?>
+                            <!-- <option value="never married"><?= lang('never married') ?></option>
                             <option value="divorced"><?= lang('divorced') ?></option>
                             <option value="awaiting divorce"><?= lang('awaiting divorce') ?></option>
                             <option value="separated (not legally)"><?= lang('separated (not legally)') ?></option>
                             <option value="widowed"><?= lang('widowed') ?></option>
                             <option value="annulled"><?= lang('annulled') ?></option>
                             <option value="divorced only at engagement"><?= lang('divorced only at engagement') ?></option>
-                            <option value="virginity problem"><?= lang('virginity problem') ?></option>
+                            <option value="virginity problem"><?= lang('virginity problem') ?></option> -->
                         </select>
                     </div>
                     <div class="col-md-12 pt-4 childrenDiv" id="Div_num_of_child">
                         <p class="p20 yellow-color gill-sans-mt-regular-font mb-2">Number of Children</p>
                         <select class="custom-select d-block form-control" name="num_of_child" id="num_of_child">
                             <option value="0"><?= lang('select') ?></option>
-                            <!-- <?php foreach ($NoofChildren_data as $k => $v) { ?>
-                                <option value="<?= $v['intNoOfChildrenID'] ?>"><?= $v['vcNoOfChildren'] ?></option>
-                            <?php } ?> -->
-                            <option value="No">No</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="3+">3+</option>
+                            <?php foreach ($NoofChildren_data as $k => $v) { ?>
+                                <option value="<?= $v['intNoOfChildrenID'] ?>"><?= $v['intNoOfChildren'] ?></option>
+                            <?php } ?>
                         </select>
                         </select>
                     </div>
@@ -661,7 +656,7 @@
         $('#Div_num_of_child').hide();
         $('#marital_status').change(function() {
             var mStatus = $('#marital_status').val();
-            if (mStatus == 'never married') {
+            if (mStatus == 1) {
                 $('#Div_num_of_child').hide();
             } else {
                 $('#Div_num_of_child').show();
@@ -735,7 +730,7 @@
                 $("#agreement_check").focus();
             } else {
                 var mStatus = $('#marital_status').val();
-                if (mStatus != 'never married') {
+                if (mStatus != 1) {
                     if ($("#num_of_child :selected").val() == 0) {
                         toastr["error"]("Please Select number of children !");
                         $("#num_of_child").focus();
@@ -814,7 +809,7 @@
     function sendEmail(email, verificationText) {
         $.ajax({
             async: false,
-            url: base_url + 'registration/sendEmail/' + email + '/' + verificationText,
+            url: base_url + 'CreateAccount/sendEmail/' + email + '/' + verificationText,
             success: function(response) {},
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 alert("Status: " + textStatus);
