@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $('#manageTable').DataTable();
+
 
     $('.only-decimal').keypress(function (event) {
         return isNumber(event, this)
