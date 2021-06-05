@@ -1,7 +1,6 @@
     <!-- UiKit CSS -->
     <link rel='stylesheet' href='https://getuikit.com/assets/uikit/dist/css/uikit.css?nc=868'>
     <link rel='stylesheet' href='<?= base_url('resources/css/memberProfile.css') ?>'>
-    <!-- <link rel='stylesheet' href='https://getuikit.com/assets/uikit/dist/css/uikit.css?nc=868'> -->
 
 
 
@@ -283,7 +282,7 @@
 
     <div class="container">
         <div class="main-body">
-            <div class="row gutters-sm">
+            <div class="row">
                 <div class="col-md-4">
                     <div class="card profile-card">
                         <div class="row">
@@ -292,7 +291,7 @@
                         <div class="overlay">
                             <div class="card-img-block">
                                 <p class="premium_badge"><i class="fas fa-crown"></i> PREMIUM</p>
-                                <p class="photo-count"><i class="fas fa-camera"></i> 5</p>
+                                <!-- <p class="photo-count"><i class="fas fa-camera"></i> 5</p> -->
                                 <img src="https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg" />
                             </div>
                             <div class="card-body">
@@ -593,8 +592,8 @@
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName">Short Name</label>
-                                                        <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
+                                                        <label for="nickName">Nick Name</label>
+                                                        <input type="text" class="form-control" id="nickName" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
@@ -1512,7 +1511,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="phone">Working With</label>
+                                                        <label for="shortName" style="color: #FFFFFF;">Working With</label>
                                                         <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -1872,7 +1871,7 @@
                                     <div class="card-header" id="headingAfterMarriage">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseAfterMarriage" aria-expanded="false" aria-controls="collapseAfterMarriage">
-                                                Personal Assets
+                                                After Marriage
                                             </button>
                                         </h5>
                                     </div>
@@ -1974,14 +1973,14 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header" id="headingAfterMarriage">
+                                    <div class="card-header" id="headingHoroscope">
                                         <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseAfterMarriage" aria-expanded="false" aria-controls="collapseAfterMarriage">
+                                            <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseHoroscope" aria-expanded="false" aria-controls="collapseHoroscope">
                                                 Horoscope
                                             </button>
                                         </h5>
                                     </div>
-                                    <div id="collapseAfterMarriage" class="collapse" aria-labelledby="headingAfterMarriage" data-parent="#accordion">
+                                    <div id="collapseHoroscope" class="collapse" aria-labelledby="headingHoroscope" data-parent="#accordion">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
@@ -1994,13 +1993,13 @@
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName">Prefer to Live</label>
+                                                        <label for="shortName">Matching Horoscope</label>
                                                         <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" style="color: #FFFFFF;">Prefer to Live</label>
+                                                        <label for="shortName" style="color: #FFFFFF;">Matching Horoscope</label>
                                                         <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -2008,13 +2007,13 @@
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
-                                                        <label for="phone">Job</label>
+                                                        <label for="phone">Papa Kendara</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" style="color: #FFFFFF;">Job</label>
+                                                        <label for="shortName" style="color: #FFFFFF;">Papa Kendara</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -2022,13 +2021,13 @@
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
-                                                        <label for="phone">Education</label>
+                                                        <label for="phone">Zodiac Sign</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" style="color: #FFFFFF;">Education</label>
+                                                        <label for="shortName" style="color: #FFFFFF;">Zodiac Sign</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -2036,13 +2035,13 @@
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
-                                                        <label for="phone">Children Likes</label>
+                                                        <label for="phone">Nekatha</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" style="color: #FFFFFF;">Children Likes</label>
+                                                        <label for="shortName" style="color: #FFFFFF;">Nekatha</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -2050,13 +2049,13 @@
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
-                                                        <label for="phone">Help Family</label>
+                                                        <label for="phone">Ganaya</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" style="color: #FFFFFF;">Help Family</label>
+                                                        <label for="shortName" style="color: #FFFFFF;">Ganaya</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -2064,14 +2063,119 @@
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
-                                                        <label for="phone">Other Needs</label>
-                                                        <button class="btn btn-info btn-block">View Details</button>
+                                                        <label for="phone">Moon</label>
+                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" style="color: #FFFFFF;">Other Needs</label>
-                                                        <button class="btn btn-info btn-block">View Details</button>
+                                                        <label for="shortName" style="color: #FFFFFF;">Moon</label>
+                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6 partner-detail">
+                                                    <div class="form-group">
+                                                        <label for="phone">Mars</label>
+                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 my-detail">
+                                                    <div class="form-group">
+                                                        <label for="shortName" style="color: #FFFFFF;">Mars</label>
+                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6 partner-detail">
+                                                    <div class="form-group">
+                                                        <label for="phone">Mercury</label>
+                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 my-detail">
+                                                    <div class="form-group">
+                                                        <label for="shortName" style="color: #FFFFFF;">Mercury</label>
+                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6 partner-detail">
+                                                    <div class="form-group">
+                                                        <label for="phone">Jupiter</label>
+                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 my-detail">
+                                                    <div class="form-group">
+                                                        <label for="shortName" style="color: #FFFFFF;">Jupiter</label>
+                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6 partner-detail">
+                                                    <div class="form-group">
+                                                        <label for="phone">Venus</label>
+                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 my-detail">
+                                                    <div class="form-group">
+                                                        <label for="shortName" style="color: #FFFFFF;">Venus</label>
+                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6 partner-detail">
+                                                    <div class="form-group">
+                                                        <label for="phone">Saturn</label>
+                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 my-detail">
+                                                    <div class="form-group">
+                                                        <label for="shortName" style="color: #FFFFFF;">Saturn</label>
+                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6 partner-detail">
+                                                    <div class="form-group">
+                                                        <label for="phone">Rahu</label>
+                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 my-detail">
+                                                    <div class="form-group">
+                                                        <label for="shortName" style="color: #FFFFFF;">Rahu</label>
+                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6 partner-detail">
+                                                    <div class="form-group">
+                                                        <label for="phone">Kethu</label>
+                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 my-detail">
+                                                    <div class="form-group">
+                                                        <label for="shortName" style="color: #FFFFFF;">Kethu</label>
+                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 partner-detail">
+                                                    <div class="form-group">
+                                                        <button class="btn btn-info btn-block">Match Horoscope</button>
                                                     </div>
                                                 </div>
                                             </div>
