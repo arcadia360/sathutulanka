@@ -122,6 +122,19 @@ class Model_registration extends CI_Model
     }
   }
 
+  public function getMaritalStatus()
+  {
+    $this->db->select('intMaritalStatusID,vcMaritalStatus_en AS vcMaritalStatus');
+    $this->db->from('maritalstatus');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result_array();
+    } else {
+      return false;
+    }
+  }
+
   public function saveResidenceDetails()
   {
     $mid = $this->session->userdata('member_id');
@@ -156,10 +169,14 @@ class Model_registration extends CI_Model
     }
     $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
-    if ($this->db->affected_rows() > 0) {
+    if ($this->db->affected_rows() == 1) {
       return true;
     } else {
-      return false;
+      if (3 <= $NoOfSubmitedForm) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
@@ -208,10 +225,15 @@ class Model_registration extends CI_Model
     }
     $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
-    if ($this->db->affected_rows() > 0) {
+    
+    if ($this->db->affected_rows() == 1) {
       return true;
     } else {
-      return false;
+      if (4 <= $NoOfSubmitedForm) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
@@ -225,6 +247,18 @@ class Model_registration extends CI_Model
 
     if ($query->num_rows() > 0) {
       return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function getNoofChildren()
+  {
+    $this->db->select('*');
+    $this->db->from('noofchildren');
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      return $query->result_array();
     } else {
       return false;
     }
@@ -295,16 +329,16 @@ class Model_registration extends CI_Model
     $this->db->update('member', $dataMemberTb);
 
     //insert languages speak
-    $querylanguage_speakExist   = $this->db->query("select * from language_speak where intMemberID ='$mid'"); //check whether record exist
+    $querylanguage_speakExist   = $this->db->query("select * from languagespeak where intMemberID ='$mid'"); //check whether record exist
     if ($querylanguage_speakExist->num_rows() > 0) {
-      $this->db->delete('language_speak', array('intMemberID' => $mid)); //delete records if exist
+      $this->db->delete('languagespeak', array('intMemberID' => $mid)); //delete records if exist
     }
     for ($i = 0; $i < count($languages); $i++) {
       $dataLanguageSpeakTb = array(
         'vcLanguage' => $languages[$i],
         'intMemberID' => $mid
       );
-      $this->db->insert('language_speak', $dataLanguageSpeakTb);
+      $this->db->insert('languagespeak', $dataLanguageSpeakTb);
     }
 
     if ($this->db->trans_status() === FALSE) {
@@ -372,9 +406,9 @@ class Model_registration extends CI_Model
     $this->db->update('member', $dataMemberTb);
 
     // save Enrichment Hobies Start
-    $queryEnrichmentHobiesExist   = $this->db->query("select * from enrichment_hobbies where intMID ='$mid'"); //check whether record exist
+    $queryEnrichmentHobiesExist   = $this->db->query("select * from enrichmenthobbies where intMID ='$mid'"); //check whether record exist
     if ($queryEnrichmentHobiesExist->num_rows() > 0) {
-      $this->db->delete('enrichment_hobbies', array('intMID' => $mid)); //delete records if exist
+      $this->db->delete('enrichmenthobbies', array('intMID' => $mid)); //delete records if exist
     }
     $EnrichmentHobies = $this->input->post('EnrichmentHobies');
     for ($i = 0; $i < count($EnrichmentHobies); $i++) {
@@ -382,13 +416,13 @@ class Model_registration extends CI_Model
         'intMID' => $mid,
         'vcEnrichmentHobby' => $EnrichmentHobies[$i]
       );
-      $this->db->insert('enrichment_hobbies', $dataEnrichmentHobbiesTB);
+      $this->db->insert('enrichmenthobbies', $dataEnrichmentHobbiesTB);
     }
     // save Enrichment Hobies END
 
     // save Sports / Physical activities Start
     $SportsPhysicalActivities = $this->input->post('Sports-Physicalactivities');
-    $querySportsPhysicalActivitiesExists  = $this->db->query("select * from sports_physical_activities where intMID ='$mid'");
+    $querySportsPhysicalActivitiesExists  = $this->db->query("select * from sportsphysicalactivities where intMID ='$mid'");
     if ($querySportsPhysicalActivitiesExists->num_rows() > 0) {
       $this->db->delete('sports_physical_activities', array('intMID' => $mid));
     }
@@ -404,7 +438,7 @@ class Model_registration extends CI_Model
 
     // save Social Activites Start
     $SocialActivites = $this->input->post('SocialActivities');
-    $querySocialActivitesExists  = $this->db->query("select * from social_activities where intMID ='$mid'");
+    $querySocialActivitesExists  = $this->db->query("select * from socialactivities where intMID ='$mid'");
     if ($querySocialActivitesExists->num_rows() > 0) {
       $this->db->delete('social_activities', array('intMID' => $mid));
     }
@@ -419,7 +453,7 @@ class Model_registration extends CI_Model
 
     // save Creative Hobbies Start
     $CreativeHobbies = $this->input->post('CreatvieHobies');
-    $queryCreativeHobbiesExists  = $this->db->query("select * from creative_hobbies where intMID ='$mid'");
+    $queryCreativeHobbiesExists  = $this->db->query("select * from creativehobbies where intMID ='$mid'");
     if ($queryCreativeHobbiesExists->num_rows() > 0) {
       $this->db->delete('creative_hobbies', array('intMID' => $mid));
     }
@@ -434,7 +468,7 @@ class Model_registration extends CI_Model
 
     // save Collecting Hobbies Start
     $CollectingHobbies = $this->input->post('CollectingHobbies');
-    $queryCollectingHobbiesExists  = $this->db->query("select * from collecting_hobbies where intMID ='$mid'");
+    $queryCollectingHobbiesExists  = $this->db->query("select * from collectinghobbies where intMID ='$mid'");
     if ($queryCollectingHobbiesExists->num_rows() > 0) {
       $this->db->delete('collecting_hobbies', array('intMID' => $mid));
     }
@@ -449,7 +483,7 @@ class Model_registration extends CI_Model
 
     // save Outdoors hobbies Start
     $OutdoorsHobbies = $this->input->post('outdoorHobies');
-    $queryOutdoorHobiesExists  = $this->db->query("select * from outdoor_hobies where intMID ='$mid'");
+    $queryOutdoorHobiesExists  = $this->db->query("select * from outdoorhobies where intMID ='$mid'");
     if ($queryOutdoorHobiesExists->num_rows() > 0) {
       $this->db->delete('outdoor_hobies', array('intMID' => $mid));
     }
@@ -465,7 +499,7 @@ class Model_registration extends CI_Model
 
     // save Domestic Hobbies Start
     $DomesticHobbies = $this->input->post('domesticHobbies');
-    $queryDomesticHobbiesExists  = $this->db->query("select * from domestic_hobbies where intMID ='$mid'");
+    $queryDomesticHobbiesExists  = $this->db->query("select * from domestichobbies where intMID ='$mid'");
     if ($queryDomesticHobbiesExists->num_rows() > 0) {
       $this->db->delete('domestic_hobbies', array('intMID' => $mid));
     }
@@ -656,7 +690,7 @@ class Model_registration extends CI_Model
     $this->db->trans_begin();
 
     //insert monthly income route data
-    $queryMonthlyIncomeRoutesExists  = $this->db->query("select * from monthly_income_routes where intMemberID ='$mid'");
+    $queryMonthlyIncomeRoutesExists  = $this->db->query("select * from monthlyincomeroutes where intMemberID ='$mid'");
     if ($queryMonthlyIncomeRoutesExists->num_rows() > 0) {
       $this->db->delete('monthly_income_routes', array('intMemberID' => $mid));
     }
@@ -669,7 +703,7 @@ class Model_registration extends CI_Model
     }
 
     //insert asset route data
-    $queryAssetRoutesExists  = $this->db->query("select * from asset_routes where intMemberID ='$mid'");
+    $queryAssetRoutesExists  = $this->db->query("select * from assetroutes where intMemberID ='$mid'");
     if ($queryAssetRoutesExists->num_rows() > 0) {
       $this->db->delete('asset_routes', array('intMemberID' => $mid));
     }
@@ -1037,8 +1071,8 @@ class Model_registration extends CI_Model
       'vcProvidingInformationType' => $this->input->post('provide_infor'),
       'vcGender' => $this->input->post('gender'),
       'dtDOB' => $bDate,
-      'vcMaritalStatus' => $this->input->post('marital_status'),
-      'vcNoOfChildren' => $this->input->post('num_of_child'),
+      'intMaritalStatusID' => $this->input->post('marital_status'),
+      'intNoOfChildren' => $this->input->post('num_of_child'),
       'intMemberAccountStatusID' => 1,
       'vcMarriageType' => $this->input->post('marry_by'),
       'intNoOfSubmitedForm' => 1,
