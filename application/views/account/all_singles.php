@@ -92,7 +92,7 @@
          background-color: #b52b4a;
          border: 2px solid #b52b4a;
          font-size: 1em;
-         margin-top: 0px;
+         margin-top: 2px;
          width: 100%;
          transition: 0.6s;
      }
