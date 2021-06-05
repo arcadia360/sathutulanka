@@ -86,9 +86,10 @@ input[type="checkbox"]:checked+label:before {
 
 /* Profile  */
 
-.card-body input[type="text"]:disabled {
-    background: #ffffff;
-    text-transform: capitalize;
+.card-body input[type="text"]:disabled, 
+.card-body textarea:disabled {
+    background: #ffffff !important;
+    text-transform: capitalize !important;
 }
 
 .nick-name {
