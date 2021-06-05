@@ -84,31 +84,68 @@
         <div class="row">
           <div class="col-6">
             <label class="custom-control custom-radio">
-              <input id="policeReport" name="policeReport" type="radio" value="1" checked>
+              <input id="policeReport'1" name="policeReport" type="radio" class="custom-control-input" value="1" checked>
+              <span class="custom-control-indicator"></span>
               <span class="custom-control-description"><?= lang('canProvide') ?></span>
             </label>
           </div>
           <div class="col-6">
             <label class="custom-control custom-radio">
-              <input id="policeReport" name="policeReport" type="radio" value="0">
+              <input id="policeReport2" name="policeReport" type="radio" class="custom-control-input" value="0">
+              <span class="custom-control-indicator"></span>
               <span class="custom-control-description"><?= lang('cantProvide') ?></span>
             </label>
           </div>
         </div>
       </div>
     </div>
-    <hr>
-    <div class="row">
-      <div class="col-12">
-        <button class="btn btn-info" id="btnBack" type="button"><i class="fas fa-angle-double-left"></i> &nbsp; BACK</button>
-        <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i></button>
-      </div>
+    <div class="col-6">
+      <label class="custom-control custom-radio">
+        <input id="policeReport" name="policeReport" type="radio" value="0">
+        <span class="custom-control-description"><?= lang('cantProvide') ?></span>
+      </label>
     </div>
-  </form>
+</div>
+</div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-12">
+    <button class="btn btn-info" id="btnBack" type="button"><i class="fas fa-angle-double-left"></i> &nbsp; BACK</button>
+    <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i></button>
+  </div>
+</div>
+</form>
 </div>
 
 <script>
   $(function() {
+
+    var Member = function() {
+      this.MemberID = 0;
+    }
+    var model = new Member();
+    model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+
+    ajaxCall('registration/getMemberData', model, function(response) {
+      $("#motherTongue").val(response.vcMotherTounge);
+      $("#ethnicity").val(response.vcEthnicity);
+      $('#religion').val(response.vcReligion);
+      $("#caste").val(response.intCasteID);
+      $('#caste').trigger('change');
+      $('#subCaste').val(response.intSubCasteId);
+      $('#subCaste').trigger('change');
+      isPoliceReportCanProvide = (response.isPoliceReportCanProvide);
+      if (isPoliceReportCanProvide == 1) {
+        document.getElementById("policeReport1").checked = true;
+      } else {
+        document.getElementById("policeReport2").checked = true;
+      }
+
+    });
+
+
+
     loadCaste();
     $('#btnSubmit').click(function() {
       var policeReport = $("input[name=policeReport]").is(":checked");
