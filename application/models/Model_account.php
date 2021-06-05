@@ -21,7 +21,7 @@ class Model_account extends CI_Model
             M.vcGender, 
             M.dtDOB, 
             MS.vcMaritalStatus_en AS vcMaritalStatus, 
-            M.vcNoOfChildren, 
+            M.intNoOfChildren, 
             M.intMemberAccountStatusID, 
             M.vcMarriageType, 
             M.intNoOfSubmitedForm, 
@@ -78,16 +78,21 @@ class Model_account extends CI_Model
             M.vcAddOfSriLanka,
             M.intNativeDistrictId,
             M.vcMotherTounge,
-            CS.intCasteID
+            CS.intCasteID,
+            CT.vcCityName,
+            M.vcNic,
+            M.vcGuardianContact,
+            M.vcPremanentAddress
           FROM 
             Member AS M
-            INNER JOIN WorkingWith          AS WW   ON M.intWorkingWithID = WW.intWorkingWithID
+            LEFT OUTER JOIN WorkingWith          AS WW   ON M.intWorkingWithID = WW.intWorkingWithID
             LEFT OUTER JOIN WorkingAsSubCat AS WASC ON M.intWorkingAsSubCatID = WASC.intWorkingAsSubCatID
-            INNER JOIN MemberAccountStatus  AS MAS  ON M.intMemberAccountStatusID = MAS.intMemberAccountStatusID
-            INNER JOIN MemberAccountType    AS MAT  ON M.intMemberAccountTypeID = MAT.intMemberAccountTypeID
-            INNER JOIN MaritalStatus        AS MS   ON M.intMaritalStatusID = MS.intMaritalStatusID
-            INNER JOIN city AS CT ON  M.intCityIdIfLiveInSL = CT.intCityID
-            INNER JOIN sub_caste AS CS ON M.intSubCasteId = CS.intSubCasteId
+            LEFT OUTER JOIN MemberAccountStatus  AS MAS  ON M.intMemberAccountStatusID = MAS.intMemberAccountStatusID
+            LEFT OUTER JOIN MemberAccountType    AS MAT  ON M.intMemberAccountTypeID = MAT.intMemberAccountTypeID
+            LEFT OUTER JOIN MaritalStatus        AS MS   ON M.intMaritalStatusID = MS.intMaritalStatusID
+            LEFT OUTER JOIN city AS CT ON  M.intCityIdIfLiveInSL = CT.intCityID
+            LEFT OUTER JOIN subcaste AS CS ON M.intSubCasteId = CS.intSubCasteId
+
           WHERE 
             intMemberID = ? ";
 
