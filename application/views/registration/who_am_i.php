@@ -877,24 +877,25 @@
         var model = new Member();
         model.MemberID = (<?= $this->session->userdata('member_id') ?>);
 
-        // ajaxCall('registration/getMemberData', model, function(response) {
+        ajaxCall('registration/getMemberData', model, function(response) {
 
-        // $('#OpennessToExperience').val(response.intOpennessToExperience);
-        // $('#conscientiousnessValue').val(response.intConscientiousness);
-        // $('#ExtrovertPersonalityValue').val(response.intExtrovertPersonality);
-        // $('#OpennessToExperience').val(response.intIntrovertPersonality);
-        // $('#OpennessToExperience').val(response.intAgreeableness);
-        // $('#OpennessToExperience').val(response.intNeuroticism);
-        // $('#OpennessToExperience').val(response.intFamilyBond);
-        // $('#OpennessToExperience').val(response.intMoney);
-        // $('#OpennessToExperience').val(response.intReligious);
-        // $('#OpennessToExperience').val(response.intPhysicallyActive);
-        // $('#OpennessToExperience').val(response.IntPolitics);
-        // $('#OpennessToExperience').val(response.intKnowledge);
-        // $('#OpennessToExperience').val(response.intLoveAffairs);
-        // $('#OpennessToExperience').val(response.intimportanceVirginity);
+            $('#OpennessToExperience').slider("option", "value", response.intOpennessToExperience);
+            $("#OpennessToExperienceValue").val(response.intOpennessToExperience + "%");
+            // $('#conscientiousnessValue').val(response.intConscientiousness);
+            // $('#ExtrovertPersonalityValue').val(response.intExtrovertPersonality);
+            // $('#OpennessToExperience').val(response.intIntrovertPersonality);
+            // $('#OpennessToExperience').val(response.intAgreeableness);
+            // $('#OpennessToExperience').val(response.intNeuroticism);
+            // $('#OpennessToExperience').val(response.intFamilyBond);
+            // $('#OpennessToExperience').val(response.intMoney);
+            // $('#OpennessToExperience').val(response.intReligious);
+            // $('#OpennessToExperience').val(response.intPhysicallyActive);
+            // $('#OpennessToExperience').val(response.IntPolitics);
+            // $('#OpennessToExperience').val(response.intKnowledge);
+            // $('#OpennessToExperience').val(response.intLoveAffairs);
+            // $('#OpennessToExperience').val(response.intimportanceVirginity);
 
-        // });
+        });
 
         // manage range slider start
         //slider openness to experiance
