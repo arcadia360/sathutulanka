@@ -140,7 +140,7 @@
 						<br>
 						<label class="margin-0-auto custom-control-description" for="skinColor2"><?= lang('fair') ?></label>
 					</center>
-				</div> 
+				</div>
 				<div class="col-2">
 					<center>
 						<div class="round-symbol d-flex lightBrown"></div>
@@ -172,9 +172,7 @@
 					<div class="form-group">
 						<label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('disability') ?></label>
 						<select class="custom-select d-block form-control" id="disability" name="disability" required>
-							<option value=""><?= lang('select') ?></option>
-							<option value="0"><?= lang('noDisability') ?></option>
-							<option value="1"><?= lang('inDetails') ?></option>
+
 						</select>
 					</div>
 				</div>
@@ -205,7 +203,7 @@
 						<select class="custom-select d-block form-control" id="healthInfo" name="healthInfo" required>
 							<option value=""><?= lang('select') ?></option>
 							<option value="0"><?= lang('noHealthIssues') ?></option>
-							<option value="1"><?= lang('inDetails') ?></option>
+							<option value="1">Details in Writing</option>
 						</select>
 					</div>
 				</div>
@@ -222,6 +220,27 @@
 
 
 	<script>
+		loadDisabilityDetails()
+
+		function loadDisabilityDetails() {
+			$.ajax({
+				type: 'ajax',
+				url: '<?php echo base_url(); ?>Registration/loadDisabilityDetails',
+				async: false,
+				dataType: 'json',
+				success: function(data) {
+					if (!data) {
+						toastr["error"]("Failed to load disability selection data");
+					} else {
+						$('#disability').html(data);
+					}
+				},
+				error: function() {
+					alert('failed to load countries');
+				}
+			});
+		}
+
 		var Member = function() {
 			this.MemberID = 0;
 		}
@@ -324,6 +343,9 @@
 				toastr["error"]("<?= lang('bodyTypetErr') ?>");
 			} else if (!isSkinColorSelected) {
 				toastr["error"]("<?= lang('skinColorErr') ?>");
+			} else if ($("#disability").val() == 0) {
+				toastr["error"](" Please select disability");
+				$("#disability").focus();
 			} else if (jQuery.trim($("#disability").val()).length == 0) {
 				toastr["error"]("<?= lang('disabilityErr') ?>");
 				$("#disability").focus();
