@@ -75,7 +75,35 @@ class Model_registration extends CI_Model
     }
   }
 
+  public function loadDisabilityDetails()
+  {
+    $this->db->select('*');
+    $this->db->from('disability');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
   //residance details
+
+  public function loadresidenceStatus()
+  {
+    $this->db->select('*');
+    $this->db->from('residencestatus');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+
   public function loadCountries()
   {
 
@@ -90,6 +118,7 @@ class Model_registration extends CI_Model
       return false;
     }
   }
+
   public function loadDistricts()
   {
 
@@ -156,7 +185,9 @@ class Model_registration extends CI_Model
         'intCityIdIfLiveInSL' => $this->input->post('city'),
         'intCountryId' => $this->input->post('country'),
         'vcAddOfSriLanka' => $this->input->post('AddressofSriLanka'),
-        'intNativeDistrictId' => $this->input->post('nativeDistrict')
+        'intNativeDistrictId' => $this->input->post('nativeDistrict'),
+        'vcResidenceStatus' =>  $this->input->post('ResidenceStatus')
+
       );
     } else {
       $data = array(
@@ -164,6 +195,7 @@ class Model_registration extends CI_Model
         'intCountryId' => $this->input->post('country'),
         'vcAddOfSriLanka' => $this->input->post('AddressofSriLanka'),
         'intNativeDistrictId' => $this->input->post('nativeDistrict'),
+        'vcResidenceStatus' =>  $this->input->post('ResidenceStatus'),
         'intNoOfSubmitedForm' => 3
       );
     }
@@ -225,7 +257,7 @@ class Model_registration extends CI_Model
     }
     $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
-    
+
     if ($this->db->affected_rows() == 1) {
       return true;
     } else {
