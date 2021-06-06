@@ -3,18 +3,29 @@
   <form method="post" action="<?= base_url('Registration/addResidenceDetails') ?>" id="addResidenceDetails">
     <div class="row">
       <div class="col-12">
-        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('currentlyLiveIn') ?></label>
+        <label class="text-inverse font-weight-bold" for="validationCustom01">Currently living</label>
         <div class="form-group">
           <select class="custom-select d-block form-control" id="country" name="country">
           </select>
         </div>
       </div>
     </div>
+
+    <div class="row" id="ifLiveinAnotherCountry">
+      <div class="col-12">
+        <label class="text-inverse font-weight-bold" for="validationCustom01">Residence Status</label>
+        <div class="form-group">
+          <select class="custom-select d-block form-control" id="residenceStatus" name="ResidenceStatus">
+          </select>
+        </div>
+      </div>
+    </div>
+
     <div class="ifLiveInSriLanka">
       <div class="row">
         <div class="col-4">
           <div class="form-group">
-            <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('liveInSriLanka') ?></label>
+            <label class="text-inverse font-weight-bold" for="validationCustom01">My location in Sri Lanka</label>
           </div>
         </div>
         <div class="col-8">
@@ -40,8 +51,8 @@
     <div class="row">
       <div class="col-12">
         <div class="form-group">
-          <label class="text-inverse d-flex font-weight-bold" for="validationCustom01"><?= lang('AddressofSriLanka') ?>
-            <span style="font-weight: 300;color: #bf360c; font-size: 0.9em;">&nbsp; (Will not publish, Office purpose only.)</span>
+          <label class="text-inverse d-flex font-weight-bold" for="validationCustom01">Home address of Sri Lanka
+            <span style="font-weight: 300;color: #bf360c; font-size: 0.8em;">&nbsp; (Will not publish, Office purpose only.)</span>
           </label>
           <input type="text" class=" d-block form-control" name="AddressofSriLanka" id="AddressofSriLanka">
         </div>
@@ -71,6 +82,11 @@
 <script>
   $(function() {
 
+    loadCountries();
+    loadDistricts();
+    residenceStatus();
+    $('#ifLiveinAnotherCountry').hide();
+
     var Member = function() {
       this.MemberID = 0;
     }
@@ -87,45 +103,36 @@
         $("#AddressofSriLanka").val(response.vcAddOfSriLanka);
         $("#nativeDistrict").val(response.intNativeDistrictId);
       }
-
+      changeResidenceVisibility();
     });
 
+    $('#country').change(function() {
+      changeResidenceVisibility();
+    });
 
+    function changeResidenceVisibility() {
+      if ($('#country').val() != 0 && $('#country').val() != 1) {
+        $('#ifLiveinAnotherCountry').show();
+      } else {
+        $('#ifLiveinAnotherCountry').hide();
+        $('#residenceStatus').val(0);
+      }
+    }
 
-
-    loadCountries();
-    loadDistricts();
     $('#btnBack').click(function() {
       window.location.href = "<?php echo base_url('Registration/physicalStatus') ?>";
     });
 
     $('#btnSubmit').click(function() {
-      // var liveIn = $("input[name=liveIn]").is(":checked");
       var LiveInSriLanka = $("#LiveInSriLanka").is(":checked");
       var LiveInOverSeas = $("#LiveInOverSeas").is(":checked");
-
-      // if (!liveIn) {
-      //   toastr["error"]("Please select currently live in");
-      // } else 
-      // if (LiveInSriLanka && $('#district').val() == 0) {
-      //   $("#district").focus();
-      //   toastr["error"]("Please select district");
-      // } else if (LiveInSriLanka && $('#city').val() == 0) {
-      //   $("#city").focus();
-      //   toastr["error"]("Please select city");
-      // } else if (LiveInOverSeas && $('#country').val() == 0) {
-      //   $("#country").focus();
-      //   toastr["error"]("Please select country");
-      // } else if (jQuery.trim($("#AddressofSriLanka").val()).length == 0) {
-      //   toastr["error"]("Please provide address of Sri Lanka");
-      // } else if ($('#nativeDistrict').val() == 0) {
-      //   $("#nativeDistrict").focus();
-      //   toastr["error"]("Please select native district");
-      // }
 
       if ($('#country').val() == 0) {
         $("#country").focus();
         toastr["error"]("Please select currently live in !");
+      } else if (($('#country').val() != 0 && $('#country').val() != 1) && $('#residenceStatus').val() == 0) {
+        $("#residenceStatus").focus();
+        toastr["error"]("Please select residence status !");
       } else if ($('#district').val() == 0) {
         $("#district").focus();
         toastr["error"]("Please select district !");
@@ -180,6 +187,28 @@
       }
     });
 
+    //load Residence Status
+    function residenceStatus() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/residenceStatus',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("Failed to load residence status selection data");
+          } else {
+            $('#residenceStatus').html(data);
+            $('#country').val(0);
+          }
+        },
+        error: function() {
+          toastr["error"]("internal error Failed to load residence status selection data");
+        }
+      });
+    }
+
+
     //load countries
     function loadCountries() {
       $.ajax({
@@ -189,14 +218,14 @@
         dataType: 'json',
         success: function(data) {
           if (!data) {
-            toastr["error"]("<?= lang('district') . ' ' . lang('dataCannotRetrieve') ?>");
+            toastr["error"]("Failed to load country selection data");
           } else {
             $('#country').html(data);
             $('#country').val(0);
           }
         },
         error: function() {
-          alert('failed to load countries');
+          toastr["error"]("internal error Failed to load country selection data");
         }
       });
     }
