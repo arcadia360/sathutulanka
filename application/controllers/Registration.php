@@ -41,7 +41,7 @@ class Registration extends Admin_Controller
 		// $this->data['MarriageType_data'] = $MarriageType;
 		$this->data['NoofChildren_data'] = $NoofChildren;
 
-		$this->load->view('registration/create_account',$this->data);
+		$this->load->view('registration/create_account', $this->data);
 	}
 
 	// ---------------------------------------------------------------------------------------------------------------------------
@@ -860,6 +860,44 @@ class Registration extends Admin_Controller
 	}
 
 	// End partner preferences
+
+	public function loadDisabilityDetails()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->loadDisabilityDetails();
+		if (!$result) {
+			return false;
+		} else {
+			$html = "<option value=" . 0 . " >" . 'Select' . "</option>";
+			if ($result) {
+				foreach ($result as $disability) {
+					$html .= "<option value=" . $disability->intDisabilityID . " >" . $disability->vcDisability  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+
+
+	public function residenceStatus()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->loadresidenceStatus();
+		if (!$result) {
+			return false;
+		} else {
+			$html = "<option value=" . 0 . " >" . 'Select' . "</option>";
+			if ($result) {
+				foreach ($result as $residenceStatus) {
+					$html .= "<option value=" . $residenceStatus->vcResidenceStatus . " >" . $residenceStatus->vcResidenceStatus  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
 
 	public function LoadCountries()
 	{
