@@ -142,6 +142,9 @@
       } else if (jQuery.trim($("#AddressofSriLanka").val()).length == 0) {
         $("#AddressofSriLanka").focus();
         toastr["error"]("Please provide address of Sri Lanka !");
+      } else if (jQuery.trim($("#AddressofSriLanka").val()).length < 15) {
+        $("#AddressofSriLanka").focus();
+        toastr["error"]("Invlid address.Address length should contain more than 15 characters !");
       } else if ($('#nativeDistrict').val() == 0) {
         $("#nativeDistrict").focus();
         toastr["error"]("Please select native district !");
