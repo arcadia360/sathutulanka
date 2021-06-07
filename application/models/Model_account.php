@@ -21,7 +21,7 @@ class Model_account extends CI_Model
             M.vcGender, 
             M.dtDOB, 
             MS.vcMaritalStatus_en AS vcMaritalStatus, 
-            M.intNoOfChildren, 
+            M.intNoOfChildrenID, 
             M.intMemberAccountStatusID, 
             M.vcMarriageType, 
             M.intNoOfSubmitedForm, 
