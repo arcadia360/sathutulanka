@@ -221,6 +221,8 @@ class Model_registration extends CI_Model
       $subCasteID = 1;
     } else if ($CasteID == 2) {
       $subCasteID = 2;
+    } else if ($CasteID == 3) {
+      $subCasteID = 3;
     } else {
       $subCasteID = $this->input->post('subCaste');
     }
@@ -242,6 +244,7 @@ class Model_registration extends CI_Model
         'vcMotherTounge' => $this->input->post('motherTongue'),
         'vcEthnicity' => $this->input->post('ethnicity'),
         'vcReligion' => $this->input->post('religion'),
+        'intCasteId' => $this->input->post('caste'),
         'intSubCasteId' => $subCasteID,
         'isPoliceReportCanProvide' => $this->input->post('policeReport')
       );
@@ -250,6 +253,7 @@ class Model_registration extends CI_Model
         'vcMotherTounge' => $this->input->post('motherTongue'),
         'vcEthnicity' => $this->input->post('ethnicity'),
         'vcReligion' => $this->input->post('religion'),
+        'intCasteId' => $this->input->post('caste'),
         'intSubCasteId' => $subCasteID,
         'isPoliceReportCanProvide' => $this->input->post('policeReport'),
         'intNoOfSubmitedForm' => 4
@@ -300,7 +304,7 @@ class Model_registration extends CI_Model
   {
     $subCaste = $this->input->post('casteID');
     $this->db->select('*');
-    $this->db->from('sub_Caste');
+    $this->db->from('subCaste');
     $this->db->where('intCasteId =', $subCaste);
     $this->db->order_by('intSubCasteId', 'asc');
     $query = $this->db->get();
