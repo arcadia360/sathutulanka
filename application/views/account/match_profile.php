@@ -712,14 +712,6 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-male"></i> His Details</h5>
-                                                </div>
-                                                <div class="col-6 my-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-female"></i> My Details</h5>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="shortName">Height</label>
                                                         <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
@@ -829,14 +821,6 @@
                                     </div>
                                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                         <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-6 partner-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-male"></i> His Details</h5>
-                                                </div>
-                                                <div class="col-6 my-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-female"></i> My Details</h5>
-                                                </div>
-                                            </div>
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
@@ -950,14 +934,6 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-male"></i> His Details</h5>
-                                                </div>
-                                                <div class="col-6 my-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-female"></i> My Details</h5>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="shortName">Mother Tongue</label>
                                                         <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
@@ -1053,14 +1029,6 @@
                                     </div>
                                     <div id="collapseLifeStyle" class="collapse" aria-labelledby="headingLifeStyle" data-parent="#accordion">
                                         <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-6 partner-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-male"></i> His Details</h5>
-                                                </div>
-                                                <div class="col-6 my-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-female"></i> My Details</h5>
-                                                </div>
-                                            </div>
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
@@ -1200,14 +1168,6 @@
                                     </div>
                                     <div id="collapseWhoAmI" class="collapse" aria-labelledby="headingWhoAmI" data-parent="#accordion">
                                         <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-6 partner-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-male"></i> His Details</h5>
-                                                </div>
-                                                <div class="col-6 my-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-female"></i> My Details</h5>
-                                                </div>
-                                            </div>
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
@@ -1433,14 +1393,6 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-male"></i> His Details</h5>
-                                                </div>
-                                                <div class="col-6 my-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-female"></i> My Details</h5>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="shortName">Education Level</label>
                                                         <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
@@ -1494,14 +1446,6 @@
                                     </div>
                                     <div id="collapseCareer" class="collapse" aria-labelledby="headingCareer" data-parent="#accordion">
                                         <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-6 partner-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-male"></i> His Details</h5>
-                                                </div>
-                                                <div class="col-6 my-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-female"></i> My Details</h5>
-                                                </div>
-                                            </div>
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
@@ -1601,14 +1545,6 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-male"></i> His Details</h5>
-                                                </div>
-                                                <div class="col-6 my-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-female"></i> My Details</h5>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="shortName">Monthly Income</label>
                                                         <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
@@ -1690,14 +1626,6 @@
                                     </div>
                                     <div id="collapseFamily" class="collapse" aria-labelledby="headingFamily" data-parent="#accordion">
                                         <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-6 partner-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-male"></i> His Details</h5>
-                                                </div>
-                                                <div class="col-6 my-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-female"></i> My Details</h5>
-                                                </div>
-                                            </div>
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
@@ -1879,14 +1807,6 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-male"></i> His Details</h5>
-                                                </div>
-                                                <div class="col-6 my-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-female"></i> My Details</h5>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="shortName">Prefer to Live</label>
                                                         <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
@@ -1982,14 +1902,6 @@
                                     </div>
                                     <div id="collapseHoroscope" class="collapse" aria-labelledby="headingHoroscope" data-parent="#accordion">
                                         <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-6 partner-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-male"></i> His Details</h5>
-                                                </div>
-                                                <div class="col-6 my-detail">
-                                                    <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-female"></i> My Details</h5>
-                                                </div>
-                                            </div>
                                             <div class="row">
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
