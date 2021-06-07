@@ -308,7 +308,7 @@
         var drinkType = (response.vcDrink);
 
         if (drinkType == "No") {
-          $("#drinkNo").val(checked);
+          document.getElementById("drinkNo").checked = true;
         } else if (drinkType == "Yes") {
           document.getElementById("drinkYes").checked = true;
         } else if (drinkType == "During Function") {
