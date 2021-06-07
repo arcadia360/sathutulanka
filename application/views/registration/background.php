@@ -28,7 +28,7 @@
             <option value="indianTamils"><?= lang('indianTamils') ?></option>
             <option value="sriLankanMalays"><?= lang('sriLankanMalays') ?></option>
             <option value="burghers"><?= lang('burghers') ?></option>
-            <option value="mentionedInMyStory"><?= lang('mentionedInMyStory') ?></option>
+            <option value="mentionedInMyStory">Details in Writing</option>
           </select>
         </div>
       </div>
@@ -45,7 +45,7 @@
             <option value="islam"><?= lang('islam') ?></option>
             <option value="christians"><?= lang('christians') ?></option>
             <option value="romanCatholic"><?= lang('romanCatholic') ?></option>
-            <option value="mentionedInMyStory"><?= lang('mentionedInMyStory') ?></option>
+            <option value="mentionedInMyStory">Details in Writing</option>
           </select>
         </div>
       </div>
@@ -59,7 +59,7 @@
             <option value="0"><?= lang('select') ?></option>
             <option value="1">Select 1</option>
             <option value="2">Select 2</option>
-            <option value="mentionedInMyStory"><?= lang('mentionedInMyStory') ?></option>
+            <option value="mentionedInMyStory">Details in Writing</option>
             <option value="disregardTheCaste"><?= lang('disregardTheCaste') ?></option>
           </select>
         </div>
@@ -219,7 +219,7 @@
 
     //load sub caste 
     $('#caste').change(function() {
-      if (($('#caste').val() != 0 && $('#caste').val() != 1 && $('#caste').val() != 2)) {
+      if (($('#caste').val() != 0 && $('#caste').val() != 1 && $('#caste').val() != 2 && $('#caste').val() != 3)) {
         var casteID = $('#caste').val()
         $.ajax({
           type: 'POST',
@@ -235,10 +235,11 @@
             } else {
               $('#subCaste').html(data);;
               $('#subCaste').val(0);
+              $('#sub-caste-div').show();
             }
           },
           error: function() {
-            toastr["error"]("<?= 'Caste ' . lang('dataCannotRetrieve') . ' Connection Err' ?>");
+            toastr["error"]("internal error Failed to load sub caste selection data");
           }
         });
       } else {
@@ -257,15 +258,15 @@
     // window.location.href = "<?php echo base_url('Registration/lifeStyle') ?>";
     // });
 
-    $('#caste').change(function() {
-      var caste = $('#caste').val();
-      console.log(caste);
-      if (caste == 0 || caste == 1 || caste == 2) {
-        $('#sub-caste-div').hide();
-      } else {
-        $('#sub-caste-div').show();
-      }
-    });
+    // $('#caste').change(function() {
+    //   var caste = $('#caste').val();
+    //   console.log(caste);
+    //   if (caste == 0 || caste == 1 || caste == 2) {
+    //     $('#sub-caste-div').hide();
+    //   } else {
+    //     $('#sub-caste-div').show();
+    //   }
+    // });
 
   });
 </script>
