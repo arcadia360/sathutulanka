@@ -632,7 +632,7 @@ class Model_registration extends CI_Model
     $this->db->select('*');
     $this->db->from('WorkingAsSubCat');
     $this->db->where('intWorkinAsMainCat =', $WorkingAsMainCatId);
-    $this->db->order_by('vcWorkingAsSubCatl', 'asc');
+    $this->db->order_by('vcWorkingAsSubCat', 'asc');
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
@@ -741,7 +741,7 @@ class Model_registration extends CI_Model
     //insert asset route data
     $queryAssetRoutesExists  = $this->db->query("select * from assetroutes where intMemberID ='$mid'");
     if ($queryAssetRoutesExists->num_rows() > 0) {
-      $this->db->delete('asset_routes', array('intMemberID' => $mid));
+      $this->db->delete('assetroutes', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($assestRoute); $i++) {
       $datainassestRouteTb = array(
