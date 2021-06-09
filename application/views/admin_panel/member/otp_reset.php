@@ -53,7 +53,7 @@
                         <!-- <div>
                             Toggle column: <a class="toggle-vis" data-column="0">ID</a> - <a class="toggle-vis" data-column="1">GRN No</a> - <a class="toggle-vis" data-column="2">Office</a> - <a class="toggle-vis" data-column="3">Age</a> - <a class="toggle-vis" data-column="4">Start date</a> - <a class="toggle-vis" data-column="5">Salary</a>
                         </div> -->
-                        <table id="manageTable" class="table table-bordered table-striped">
+                        <table id="tblMemberOTPList" class="table table-bordered table-striped">
                             <!-- style="display:block !important;" -->
                             <thead>
                                 <tr>
@@ -61,11 +61,8 @@
                                     <th>Email</th>
                                     <th>Mobile</th>
                                     <th>Gender</th>
-                                    <th>Date Of Birth</th>
-                                    <th>Marital Status</th>
                                     <th>Created Date</th>
                                     <th>Added Days</th>
-                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -100,7 +97,11 @@
         var selectedToDate = "";
 
 
-        // FilterItems(convertToShortDate(monthStartDate), convertToShortDate(date));
+        $('#tblMemberOTPList').DataTable({
+            'ajax': 'GetOTPResetData/' + FromDate + '/' + ToDate,
+            'order': [],
+            "bDestroy": true
+        });
 
         $('input[name="daterange"]').daterangepicker({
             opens: 'center',
@@ -111,7 +112,22 @@
             selectedFromDate = start.format('YYYY-MM-DD');
             selectedToDate = end.format('YYYY-MM-DD');
             // FilterItems(start.format('YYYY-MM-DD'), end.format('YYYY-MM-DD'))
+
+            $('#tblMemberOTPList').DataTable({
+                'ajax': 'GetOTPResetData/' + FromDate + '/' + ToDate,
+                'order': [],
+                "bDestroy": true
+            });
         });
+
+
+
+
+
 
     });
 </script>
+
+
+
+<script src="<?php echo base_url('resources/js/admin/pageJS/member.js') ?>"></script>
