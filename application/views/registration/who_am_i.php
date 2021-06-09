@@ -404,9 +404,9 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input EnrichmentHobies" type="checkbox" value="The rest are in the writing box (MY Story)" id="EnrichmentHobieschk7" name="EnrichmentHobies[]">
+                                    <input class="form-check-input EnrichmentHobies" type="checkbox" value="Details in Writing" id="EnrichmentHobieschk7" name="EnrichmentHobies[]">
                                     <label class="form-check-label" for="EnrichmentHobieschk7">
-                                        The rest are in the writing box (MY Story)
+                                        Details in Writing
                                     </label>
                                 </div>
                             </div>
@@ -467,19 +467,19 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
+                            <!-- <div class="col-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input Sports-Physicalactivities" type="checkbox" value="Technology" id="Sports-Physicalactivitieschk7" name="Sports-Physicalactivities[]">
                                     <label class="form-check-label" for="Sports-Physicalactivitieschk7">
                                         Technology
                                     </label>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input Sports-Physicalactivities" type="checkbox" value="The rest are in the writing box (MY Story)" id="Sports-Physicalactivitieschk8" name="Sports-Physicalactivities[]">
+                                    <input class="form-check-input Sports-Physicalactivities" type="checkbox" value="Details in Writing" id="Sports-Physicalactivitieschk8" name="Sports-Physicalactivities[]">
                                     <label class="form-check-label" for="Sports-Physicalactivitieschk8">
-                                        The rest are in the writing box (MY Story)
+                                        Details in Writing
                                     </label>
                                 </div>
                             </div>
@@ -550,9 +550,9 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input SocialActivities" type="checkbox" value="The rest are in the writing box (MY Story)" id="SocialActivitieschk8" name="SocialActivities[]">
+                                    <input class="form-check-input SocialActivities" type="checkbox" value="Details in Writing" id="SocialActivitieschk8" name="SocialActivities[]">
                                     <label class="form-check-label" for="SocialActivitieschk8">
-                                        The rest are in the writing box (MY Story)
+                                        Details in Writing
                                     </label>
                                 </div>
                             </div>
@@ -631,9 +631,9 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input CreatvieHobies" type="checkbox" value="The rest are in the writing box (MY Story)" id="CreatvieHobieschk9" name="CreatvieHobies[]">
+                                    <input class="form-check-input CreatvieHobies" type="checkbox" value="Details in Writing" id="CreatvieHobieschk9" name="CreatvieHobies[]">
                                     <label class="form-check-label" for="CreatvieHobieschk9">
-                                        The rest are in the writing box (MY Story)
+                                        Details in Writing
                                     </label>
                                 </div>
                             </div>
@@ -678,9 +678,9 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input CollectingHobbies" type="checkbox" value=" The rest are in the writing box (MY Story)" id="CollectingHobbieschk5" name="CollectingHobbies[]">
+                                    <input class="form-check-input CollectingHobbies" type="checkbox" value=" Details in Writing" id="CollectingHobbieschk5" name="CollectingHobbies[]">
                                     <label class="form-check-label" for="CollectingHobbieschk5">
-                                        The rest are in the writing box (MY Story)
+                                        Details in Writing
                                     </label>
                                 </div>
                             </div>
@@ -777,9 +777,9 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input outdoorHobies" type="checkbox" value="The rest are in the writing box (MY Story)" id="outdoorHobieschk11" name="outdoorHobies[]">
+                                    <input class="form-check-input outdoorHobies" type="checkbox" value="Details in Writing" id="outdoorHobieschk11" name="outdoorHobies[]">
                                     <label class="form-check-label" for="outdoorHobieschk11">
-                                        The rest are in the writing box (MY Story)
+                                        Details in Writing
                                     </label>
                                 </div>
                             </div>
@@ -842,9 +842,9 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input domesticHobbies" type="checkbox" value="The rest are in the writing box (MY Story)" id="domesticHobbieschk7" name="domesticHobbies[]">
+                                    <input class="form-check-input domesticHobbies" type="checkbox" value="Details in Writing" id="domesticHobbieschk7" name="domesticHobbies[]">
                                     <label class="form-check-label" for="domesticHobbieschk7">
-                                        The rest are in the writing box (MY Story)
+                                        Details in Writing
                                     </label>
                                 </div>
                             </div>
