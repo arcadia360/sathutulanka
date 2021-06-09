@@ -7,10 +7,9 @@
           <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('motherTongue') ?></label>
           <select class="custom-select d-block form-control" id="motherTongue" name="motherTongue">
             <option value="0"><?= lang('select') ?></option>
-            <option value="sinhala"><?= lang('sinhala') ?></option>
-            <option value="tamil"><?= lang('tamil') ?></option>
-            <option value="english"><?= lang('english') ?></option>
-            <option value="other"><?= lang('other') ?></option>
+            <?php foreach ($motherTongue_data as $k => $v) { ?>
+              <option value="<?= $v['intMotherTongueID'] ?>"><?= $v['vcMotherTongueName'] ?></option>
+            <?php } ?>
           </select>
         </div>
       </div>
@@ -22,13 +21,9 @@
           <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('ethnicity') ?></label>
           <select class="custom-select d-block form-control" id="ethnicity" name="ethnicity">
             <option value="0"><?= lang('select') ?></option>
-            <option value="Sinhalese"><?= lang('Sinhalese') ?></option>
-            <option value="sriLankanTamils"><?= lang('sriLankanTamils') ?></option>
-            <option value="muslims"><?= lang('muslims') ?></option>
-            <option value="indianTamils"><?= lang('indianTamils') ?></option>
-            <option value="sriLankanMalays"><?= lang('sriLankanMalays') ?></option>
-            <option value="burghers"><?= lang('burghers') ?></option>
-            <option value="mentionedInMyStory">Details in Writing</option>
+            <?php foreach ($ethnicity_data as $k => $v) { ?>
+              <option value="<?= $v['intEthnicityID'] ?>"><?= $v['vcEthnicityName'] ?></option>
+            <?php } ?>
           </select>
         </div>
       </div>
@@ -40,12 +35,9 @@
           <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('religion') ?></label>
           <select class="custom-select d-block form-control" id="religion" name="religion">
             <option value="0"><?= lang('select') ?></option>
-            <option value="buddhist"><?= lang('buddhist') ?></option>
-            <option value="hindu"><?= lang('hindu') ?></option>
-            <option value="islam"><?= lang('islam') ?></option>
-            <option value="christians"><?= lang('christians') ?></option>
-            <option value="romanCatholic"><?= lang('romanCatholic') ?></option>
-            <option value="mentionedInMyStory">Details in Writing</option>
+            <?php foreach ($religion_data as $k => $v) { ?>
+              <option value="<?= $v['intReligionID'] ?>"><?= $v['vcReligion'] ?></option>
+            <?php } ?>
           </select>
         </div>
       </div>
@@ -110,31 +102,31 @@
 <script>
   $(function() {
 
-    var Member = function() {
-      this.MemberID = 0;
-    }
-    var model = new Member();
-    model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+    // var Member = function() {
+    //   this.MemberID = 0;
+    // }
+    // var model = new Member();
+    // model.MemberID = (<?= $this->session->userdata('member_id') ?>);
 
-    ajaxCall('registration/getMemberData', model, function(response) {
-      if (response.vcMotherTounge != null) {
-        $("#motherTongue").val(response.vcMotherTounge);
-        $("#ethnicity").val(response.vcEthnicity);
-        $('#religion').val(response.vcReligion);
-        $("#caste").val(response.intCasteID);
-        $('#caste').trigger('change');
-        $('#subCaste').val(response.intSubCasteId);
-        $('#subCaste').trigger('change');
-        isPoliceReportCanProvide = (response.isPoliceReportCanProvide);
-        if (isPoliceReportCanProvide == 1) {
-          document.getElementById("policeReport1").checked = true;
-        } else {
-          document.getElementById("policeReport2").checked = true;
-        }
-      }
+    // ajaxCall('registration/getMemberData', model, function(response) {
+    //   if (response.vcMotherTounge != null) {
+    //     $("#motherTongue").val(response.vcMotherTounge);
+    //     $("#ethnicity").val(response.vcEthnicity);
+    //     $('#religion').val(response.vcReligion);
+    //     $("#caste").val(response.intCasteID);
+    //     $('#caste').trigger('change');
+    //     $('#subCaste').val(response.intSubCasteId);
+    //     $('#subCaste').trigger('change');
+    //     isPoliceReportCanProvide = (response.isPoliceReportCanProvide);
+    //     if (isPoliceReportCanProvide == 1) {
+    //       document.getElementById("policeReport1").checked = true;
+    //     } else {
+    //       document.getElementById("policeReport2").checked = true;
+    //     }
+    //   }
 
 
-    });
+    // });
 
 
 
