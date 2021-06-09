@@ -8,21 +8,9 @@
 					<div class="form-group">
 						<select class="custom-select d-block form-control" id="EducationLevel" name="EducationLevel">
 							<option value="0"><?= lang('select') ?></option>
-							<option value="Details in Writing">Details in Writing</option>
-							<option value="Doctorate">Doctorate</option>
-							<option value="Masters">Masters</option>
-							<option value="Honors Degree">Honors Degree</option>
-							<option value="Bachelor">Bachelor</option>
-							<option value="Associate degree">Associate degree</option>
-							<option value="Undergraduate">Undergraduate</option>
-							<option value="Diploma">Diploma</option>
-							<option value="National collage of education">National collage of education</option>
-							<option value="Vocational and training education">Vocational and training education</option>
-							<option value="Certificates">Certificates</option>
-							<option value="Up to A/L">Up to A/L</option>
-							<option value="Up to O/L">Up to O/L</option>
-							<option value="Less than O/L">Less than O/L</option>
-
+							<?php foreach ($educationLevel_data as $k => $v) { ?>
+								<option value="<?= $v['intEducationLevelID'] ?>"><?= $v['vcEducationLevel'] ?></option>
+							<?php } ?>
 						</select>
 					</div>
 				</div>
@@ -34,39 +22,9 @@
 					<div class="form-group">
 						<select class="custom-select d-block form-control" id="EducationField" name="EducationField">
 							<option value="0"><?= lang('select') ?></option>
-							<option value="Details in Writing">Details in Writing</option>
-							<option value="Administration">Administration</option>
-							<option value="Arts">Arts</option>
-							<option value="Agriculture">Agriculture</option>
-							<option value="Construction">Construction</option>
-							<option value="Commerce and Management">Commerce and Management</option>
-							<option value="Education and Training">Education and Training</option>
-							<option value="Engineering">Engineering</option>
-							<option value="Food">Food</option>
-							<option value="Fisheries">Fisheries</option>
-							<option value="Forestry">Forestry</option>
-							<option value="Finance">Finance</option>
-							<option value="Health and welfare">Health and welfare</option>
-							<option value="Human Personal Services">Human Personal Services</option>
-							<option value="Hospitality Services">Hospitality Services</option>
-							<option value="History">History</option>
-							<option value="Information and Communication Technology">Information and Communication Technology</option>
-							<option value="Journalism and Information">Journalism and Information</option>
-							<option value="Languages">Languages</option>
-							<option value="Low">Low</option>
-							<option value="Logistics Services">Logistics Services</option>
-							<option value="Mathematics and Statistics">Mathematics and Statistics</option>
-							<option value="Manufacturing and Processing">Manufacturing and Processing</option>
-							<option value="Marketing, Sales and Services">Marketing, Sales and Services</option>
-							<option value="Natural Sciences">Natural Sciences</option>
-							<option value="Philosophy">Philosophy</option>
-							<option value="Religion">Religion</option>
-							<option value="Physical Sciences">Physical Sciences</option>
-							<option value="Social Sciences">Social Sciences</option>
-							<option value="Shipping">Shipping</option>
-							<option value="Security Services">Security Services</option>
-							<option value="Transport Distribution">Transport Distribution</option>
-							<option value="Veterinary">Veterinary</option>
+							<?php foreach ($educationField_data as $k => $v) { ?>
+								<option value="<?= $v['intEducationFieldID'] ?>"><?= $v['vcEducationField'] ?></option>
+							<?php } ?>
 						</select>
 					</div>
 				</div>
