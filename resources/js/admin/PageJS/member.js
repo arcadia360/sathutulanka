@@ -2,6 +2,8 @@ $(document).ready(function () {
 
     // document.addEventListener('contextmenu', event => event.preventDefault());
 
+
+
     jQuery("#activate-home-tab").click(function () {
         console.log("opening home")
         jQuery('[href="#home"]').tab('show');
@@ -57,14 +59,20 @@ $(document).ready(function () {
 
 
 
+
+
 function FilterItems(FromDate, ToDate) {
+
+    debugger;
 
     var statusID = $('#cmbstatus').val();
 
-    $('#manageTable').DataTable({
-        'ajax': 'FilterMemberListData/' + statusID + '/' + '/' + FromDate + '/' + ToDate,
+    $('#tblMemberList').DataTable({
+        'ajax':  base_url + 'admin/FilterMemberListData/' + statusID + '/' + '/' + FromDate + '/' + ToDate,
         'order': [],
         "bDestroy": true
     });
+
+
 
 }
