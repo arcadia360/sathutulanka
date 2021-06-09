@@ -75,8 +75,8 @@
                         </li>
                         <li class="nav-item">
                             <a href="<?php echo base_url('admin/otpreset') ?>" class="nav-link <?php if ($this->uri->segment(1) == "User") {
-                                                                                                        echo 'active';
-                                                                                                    } ?>">
+                                                                                                    echo 'active';
+                                                                                                } ?>">
                                 <i class="fas fa-mobile-alt"></i>
                                 <p>&nbsp;&nbsp;&nbsp;OTP Reset</p>
                             </a>
@@ -84,21 +84,43 @@
                     </ul>
                 </li>
 
-
-                <!-- <li class="nav-item">
-                    <a href="<?php echo base_url('Utilities/manageSalesRep') ?>" class="nav-link <?php if ($this->uri->segment(1) == "SalesRep") {
-                                                                                                    } ?>">
-                        <i class="fa fa-truck" aria-hidden="true"></i>
-                        <p>&nbsp;&nbsp;Sales Rep</p>
+                <li class="nav-item has-treeview <?php if ($this->uri->segment(1) == "User" || $this->uri->segment(2) == "UserGroup" || $this->uri->segment(2) == "MeasureUnit" || $this->uri->segment(2) == "MainCategory" || $this->uri->segment(2) == "SubCategory" || $this->uri->segment(2) == "manageSalesRep") {
+                                                        echo 'menu-open';
+                                                    } ?>">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-user"></i>
+                        <p>&nbsp;&nbsp;&nbsp;Members Verify
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
                     </a>
-                </li> -->
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?php echo base_url('admin/approvalMemberList') ?>" class="nav-link <?php if ($this->uri->segment(1) == "User") {
+                                                                                                        echo 'active';
+                                                                                                    } ?>">
+                                <i class="fas fa-user"></i>
+                                <p>&nbsp;&nbsp;&nbsp;Approval Member List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo base_url('admin/markAsTrustProving') ?>" class="nav-link <?php if ($this->uri->segment(1) == "User") {
+                                                                                                    echo 'active';
+                                                                                                } ?>">
+                                <i class="fas fa-mobile-alt"></i>
+                                <p>&nbsp;&nbsp;&nbsp;Mark as Trust Proving</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
+ 
 
                 <li class="nav-item">
                     <a href="<?= base_url('auth/logout') ?>" class="nav-link">
                         <i class="fas fa-power-off"></i>
                         <p>&nbsp;&nbsp;&nbsp;Logout</p>
                     </a>
+
                 </li>
                 </li>
             </ul>
