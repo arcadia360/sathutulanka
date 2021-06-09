@@ -241,92 +241,47 @@
 			});
 		}
 
-		var Member = function() {
-			this.MemberID = 0;
-		}
-		var model = new Member();
-		model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+		// var Member = function() {
+		// 	this.MemberID = 0;
+		// }
+		// var model = new Member();
+		// model.MemberID = (<?= $this->session->userdata('member_id') ?>);
 
-		ajaxCall('registration/getMemberData', model, function(response) {
-			// $("#Supplier").val(response.intHeight);
-			$("#height").val(response.intHeight);
-			$("#weight").val(response.Weight_Customised);
-			var BodyType = (response.intBodyTypeID);
-			if (BodyType == 1) {
-				document.getElementById("bodyShape").checked = true;
-			} else if (BodyType == 2) {
-				document.getElementById("bodyShape2").checked = true;
-			} else {
-				document.getElementById("bodyShape3").checked = true;
-			}
-
-			var skinColorID = (response.intSkinColourID);
-
-			if (skinColorID == 1) {
-				document.getElementById("skinColor1").checked = true;
-			} else if (skinColorID == 2) {
-				document.getElementById("skinColor2").checked = true;
-			} else if (skinColorID == 3) {
-				document.getElementById("skinColor3").checked = true;
-			} else if (skinColorID == 4) {
-				document.getElementById("skinColor4").checked = true;
-			} else if (skinColorID == 5) {
-				document.getElementById("skinColor5").checked = true;
-			}
-
-
-			$("#disability").val(response.isDisability);
-			$("#bloodGroup").val(response.vcBloodGroup);
-			$("#healthInfo").val(response.isHealthInfo);
-
-
-		});
-
-		// var MemberID = (<?= $this->session->userdata('member_id') ?>);
-
-		// $.ajax({
-		// 	async: false,
-		// 	url: 'getMemberData/' + MemberID,
-		// 	type: 'post',
-		// 	dataType: 'json',
-		// 	success: function(response) {
-		// 		$("#height").val(response.intHeight);
-		// 		$("#weight").val(response.Weight_Customised);
-		// 		var BodyType = (response.intBodyTypeID);
-		// 		if (BodyType == 1) {
-		// 			document.getElementById("bodyShape").checked = true;
-		// 		}else if (BodyType == 2) {
-		// 			document.getElementById("bodyShape2").checked = true;
-		// 		}
-		// 		else{
-		// 			document.getElementById("bodyShape3").checked = true;
-		// 		}
-
-		// 		var skinColorID = (response.intSkinColourID);
-
-		// 		if (skinColorID == 1) {
-		// 			document.getElementById("skinColor1").checked = true;
-		// 		}else if (skinColorID == 2) {
-		// 			document.getElementById("skinColor2").checked = true;
-		// 		}else if (skinColorID == 3) {
-		// 			document.getElementById("skinColor3").checked = true;
-		// 		}else if (skinColorID == 4) {
-		// 			document.getElementById("skinColor4").checked = true;
-		// 		}else if (skinColorID == 5) {
-		// 			document.getElementById("skinColor5").checked = true;
-		// 		}
-
-
-		// 		$("#disability").val(response.isDisability);
-		// 		$("#bloodGroup").val(response.vcBloodGroup);
-		// 		$("#healthInfo").val(response.isHealthInfo);
-
+		// ajaxCall('registration/getMemberData', model, function(response) {
+		// 	// $("#Supplier").val(response.intHeight);
+		// 	$("#height").val(response.intHeight);
+		// 	$("#weight").val(response.Weight_Customised);
+		// 	var BodyType = (response.intBodyTypeID);
+		// 	if (BodyType == 1) {
+		// 		document.getElementById("bodyShape").checked = true;
+		// 	} else if (BodyType == 2) {
+		// 		document.getElementById("bodyShape2").checked = true;
+		// 	} else {
+		// 		document.getElementById("bodyShape3").checked = true;
 		// 	}
+
+		// 	var skinColorID = (response.intSkinColourID);
+
+		// 	if (skinColorID == 1) {
+		// 		document.getElementById("skinColor1").checked = true;
+		// 	} else if (skinColorID == 2) {
+		// 		document.getElementById("skinColor2").checked = true;
+		// 	} else if (skinColorID == 3) {
+		// 		document.getElementById("skinColor3").checked = true;
+		// 	} else if (skinColorID == 4) {
+		// 		document.getElementById("skinColor4").checked = true;
+		// 	} else if (skinColorID == 5) {
+		// 		document.getElementById("skinColor5").checked = true;
+		// 	}
+
+
+		// 	$("#disability").val(response.isDisability);
+		// 	$("#bloodGroup").val(response.vcBloodGroup);
+		// 	$("#healthInfo").val(response.isHealthInfo);
+
+
 		// });
 
-
-		// $("#height").val(213).trigger("chosen:updated");
-		// alert(<?= $this->session->userdata('member_id') ?>);
 
 
 		$('#btnSubmit').click(function() {
