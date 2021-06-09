@@ -73,7 +73,7 @@
         <div class="col-12">
           <label class="text-inverse font-weight-bold" for="validationCustom01">Describe Career</label>
           <div class="form-group">
-            <textarea class="form-control" id="describeCareer" rows="5" name="describeCareer"></textarea>
+            <textarea class="form-control" id="describeCareer" rows="5" name="describeCareer" placeholder="Describe career with details"></textarea>
           </div>
         </div>
       </div>
@@ -108,7 +108,8 @@
           if (!data) {
             toastr["error"]("<?= lang('district') . ' ' . lang('dataCannotRetrieve') ?>");
           } else {
-            $('#country').html(data);;
+            $('#country').html(data);
+            $('#country option[value="1"]').remove();
             $('#country').val(0);
           }
         },
