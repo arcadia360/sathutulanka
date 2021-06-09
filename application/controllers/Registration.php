@@ -434,7 +434,7 @@ class Registration extends Admin_Controller
 			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
 			if ($result) {
 				foreach ($result as $WorkingAsSubCat) {
-					$WorkingAsSubCatName = $WorkingAsSubCat->vcWorkingAsSubCatl;
+					$WorkingAsSubCatName = $WorkingAsSubCat->vcWorkingAsSubCat;
 					$html .= "<option value=" . $WorkingAsSubCat->intWorkingAsSubCatId . " >" . $WorkingAsSubCatName  . "</option>";
 				}
 				echo json_encode($html);
