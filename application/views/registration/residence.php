@@ -87,37 +87,37 @@
     residenceStatus();
     $('#ifLiveinAnotherCountry').hide();
 
-    var Member = function() {
-      this.MemberID = 0;
-    }
-    var model = new Member();
-    model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+    // var Member = function() {
+    //   this.MemberID = 0;
+    // }
+    // var model = new Member();
+    // model.MemberID = (<?= $this->session->userdata('member_id') ?>);
 
-    ajaxCall('registration/getMemberData', model, function(response) {
-      if (response.intCountryId != null) {
-        $("#country").val(response.intCountryId);
-        $("#district").val(response.intDistrictId);
-        $('#district').trigger('change');
-        $("#city").val(response.intCityIdIfLiveInSL);
-        $('#city').trigger('change');
-        $("#AddressofSriLanka").val(response.vcAddOfSriLanka);
-        $("#nativeDistrict").val(response.intNativeDistrictId);
-      }
-      changeResidenceVisibility();
-    });
+    // ajaxCall('registration/getMemberData', model, function(response) {
+    //   if (response.intCountryId != null) {
+    //     $("#country").val(response.intCountryId);
+    //     $("#district").val(response.intDistrictId);
+    //     $('#district').trigger('change');
+    //     $("#city").val(response.intCityIdIfLiveInSL);
+    //     $('#city').trigger('change');
+    //     $("#AddressofSriLanka").val(response.vcAddOfSriLanka);
+    //     $("#nativeDistrict").val(response.intNativeDistrictId);
+    //   }
+    //   changeResidenceVisibility();
+    // });
 
-    $('#country').change(function() {
-      changeResidenceVisibility();
-    });
+    // $('#country').change(function() {
+    //   changeResidenceVisibility();
+    // });
 
-    function changeResidenceVisibility() {
-      if ($('#country').val() != 0 && $('#country').val() != 1) {
-        $('#ifLiveinAnotherCountry').show();
-      } else {
-        $('#ifLiveinAnotherCountry').hide();
-        $('#residenceStatus').val(0);
-      }
-    }
+    // function changeResidenceVisibility() {
+    //   if ($('#country').val() != 0 && $('#country').val() != 1) {
+    //     $('#ifLiveinAnotherCountry').show();
+    //   } else {
+    //     $('#ifLiveinAnotherCountry').hide();
+    //     $('#residenceStatus').val(0);
+    //   }
+    // }
 
     $('#btnBack').click(function() {
       window.location.href = "<?php echo base_url('Registration/physicalStatus') ?>";
