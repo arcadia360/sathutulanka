@@ -361,7 +361,7 @@
                     },
                     error: function(xhr, status, error) {
                         //var err = eval("(" + xhr.responseText + ")");
-                        alert(xhr.responseText);
+                        // alert(xhr.responseText);
                     }
                 });
             }
@@ -396,7 +396,7 @@
                     },
                     error: function(xhr, status, error) {
                         //var err = eval("(" + xhr.responseText + ")");
-                        alert(xhr.responseText);
+                        // alert(xhr.responseText);
                     }
                 });
             }
@@ -446,7 +446,7 @@
                                     }
                                 })
                             } else {
-                                alert(response.messages);
+                                // alert(response.messages);
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
