@@ -93,7 +93,7 @@
     <hr>
     <div class="row languageSpeak">
       <div class="col-12">
-        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('languagesSpeak') ?></label>
+        <label class="text-inverse font-weight-bold" for="validationCustom01">Languages Can Speak</label>
         <div class="row">
           <div class="col-3">
             <div class="form-group">
@@ -203,7 +203,7 @@
     <hr>
     <div class="row">
       <div class="col-12">
-        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('CallTtParents') ?></label>
+        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('CallTtParents') ?> (Your and Partner) </label>
         <div class="row">
           <div class="col-6">
             <center>
