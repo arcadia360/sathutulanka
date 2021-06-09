@@ -154,7 +154,13 @@ class Registration extends Admin_Controller
 	public function background()
 	{
 		$this->CheckAndRedirectNextForm(3);
-		$this->render_template_registration('registration/background', 'Add Background Details', NULL);
+		$motherTongue = $this->Model_registration->getMotherTongue();
+		$ethnicity = $this->Model_registration->getEthnicity();
+		$religionStatus= $this->Model_registration->LoadReligionStatusDetails();
+		$this->data['motherTongue_data'] = $motherTongue;
+		$this->data['ethnicity_data'] = $ethnicity;
+		$this->data['religion_data'] = $religionStatus;
+		$this->render_template_registration('registration/background', 'Add Background Details', $this->data);
 
 		// $this->load->helper('language');
 		// $this->lang->load('en', 'English');
@@ -236,6 +242,8 @@ class Registration extends Admin_Controller
 	public function lifeStyle()
 	{
 		$this->CheckAndRedirectNextForm(4);
+		$diet = $this->Model_registration->getDiet();
+		$this->data['diet_data'] = $diet;
 		$this->render_template_registration('registration/lifeStyle', 'Add Life Style Details', NULL);
 
 		// $this->load->helper('language');
@@ -328,7 +336,11 @@ class Registration extends Admin_Controller
 	public function education()
 	{
 		$this->CheckAndRedirectNextForm(6);
-		$this->render_template_registration('registration/education', 'Education', NULL);
+		$educationLevel = $this->Model_registration->getEducationLevel();
+		$educationField =  $this->Model_registration->getEducationField();
+		$this->data['educationLevel_data'] = $educationLevel;
+		$this->data['educationField_data'] = $educationField;
+		$this->render_template_registration('registration/education', 'Education', $this->data);
 
 		// $this->load->helper('language');
 		// $this->lang->load('en', 'English');
@@ -473,7 +485,11 @@ class Registration extends Admin_Controller
 	public function personalAssets()
 	{
 		$this->CheckAndRedirectNextForm(8);
-		$this->render_template_registration('registration/personal_assets', 'Personal Assets', NULL);
+		$monthlyIncome =  $this->Model_registration->getMonthlyIncome();
+		$assetValue = $this->Model_registration->getAssetValue();
+		$this->data['monthlyIncome_data'] = $monthlyIncome;
+		$this->data['assetValue_data'] = $assetValue;
+		$this->render_template_registration('registration/personal_assets', 'Personal Assets', $this->data);
 
 		// $this->load->helper('language');
 		// $this->lang->load('en', 'English');
