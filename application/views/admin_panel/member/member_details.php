@@ -93,11 +93,14 @@
                                                 <div class="image-margin-circle">
                                                     <img src="https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg" class="profile-pic" />
                                                 </div>
+
                                                 <div class="mt-3">
+
                                                     <h4 class="nick-name"><?= $member_data['vcNickName'] ?>
                                                         <!-- <span class="profile-badge"><i class="fas fa-certificate"></i></span> -->
                                                     </h4>
                                                     <p class="text-secondary mb-1"><?= $member_data['vcWorkingAsSubCat_Customised'] ?></p>
+
 
 
                                                     <?php
@@ -119,53 +122,77 @@
                                                     <?php
                                                     }
                                                     ?>
-                                                    <p class="text-secondary p-0"><strong>Member ID : M0001</strong></p>
 
 
-                                                    <div class="row" style="text-align: left !important;">
+                                                    <p class="text-secondary p-0"><strong><?= $member_data['vcMemberCode'] ?></strong></p>
 
-                                                        <input type="hidden" class="form-control" id="intMemberID" value="<?= $member_data['intMemberID'] ?>" placeholder="N/A">
+                                                    <form role="form" action="<?php echo base_url('admin/updateMemberDetailsByAdmin') ?>" method="post" id="updateMemberDetailsByAdminForm">
+                                                        <div class="row" style="text-align: left !important;">
 
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label for="nic">NIC</label>
-                                                                <input type="text" class="form-control" id="nic" value="<?= $member_data['vcNickName'] ?>" placeholder="N/A">
+
+                                                            <input type="hidden" class="form-control" id="intMemberID" value="<?= $member_data['intMemberID'] ?>" placeholder="N/A">
+
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <label for="nic">NIC</label>
+                                                                    <input type="text" class="form-control" name="nic" id="nic" value="<?= $member_data['vcNic'] ?>" placeholder="N/A">
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label for="address">Address</label>
-                                                                <input type="text" class="form-control" id="address" value="<?= $member_data['vcProvidingInformationType'] ?>" placeholder="N/A">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
+                                                            <!-- <div class="col-12">
                                                             <div class="form-group">
                                                                 <label for="district">District</label>
-                                                                <input type="text" class="form-control" id="district" value="<?= $member_data['vcGender'] ?>" placeholder="N/A">
+                                                                <input type="text" class="form-control" id="district" value="<?= $member_data['vcCityName'] ?>" placeholder="N/A">
                                                             </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label for="city">City</label>
-                                                                <input type="text" class="form-control" id="city" value="<?= $member_data['dtDOB'] ?>" placeholder="N/A">
+                                                            </div> -->
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <label for="city">City</label>
+                                                                    <input type="text" class="form-control"  id="city" value="<?= $member_data['vcCityName'] ?>" placeholder="N/A" disabled>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label for="mobileNo">Mobile No</label>
-                                                                <input type="text" class="form-control" id="mobileNo" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <label for="address">Address</label>
+                                                                    <input type="text" class="form-control" id="address" value="<?= $member_data['vcAddOfSriLanka'] ?>" placeholder="N/A" disabled>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label for="homeNo">Home No</label>
-                                                                <input type="text" class="form-control" id="homeNo" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <label for="premanentAddress">Premanent Address</label>
+                                                                    <input type="text" class="form-control" name="premanentAddress" id="premanentAddress" value="<?= $member_data['vcPremanentAddress'] ?>" placeholder="N/A">
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <label for="mobileNo">Mobile No</label>
+                                                                    <input type="text" class="form-control" id="mobileNo" value="<?= $member_data['vcMobileNo'] ?>" placeholder="N/A" disabled>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <label for="guardianContact">Guardian Contact</label>
+                                                                    <input type="text" class="form-control" name="guardianContact" id="guardianContact" value="<?= $member_data['vcGuardianContact'] ?>" placeholder="N/A">
+                                                                </div>
+                                                            </div>
 
-                                                    <button class="btn btn-sm btn-primary float-right" id="bbbbb"><i class="fas fa-edit"></i> Update Details</button>
+                                                        </div>
 
+                                                        <button class="btn btn-sm btn-primary float-right" id="btnUpdateMemberDetailsByAdmin"><i class="fas fa-edit"></i> Update Details</button>
+                                                    </form>
+
+                                                    <button class="btn btn-sm btn-info float-right" data-toggle="modal" data-target="#addMemberRemark" id="btnAddMemberRemark"><i class="fas fa-edit"></i> Add Remark</button>
+
+                                                    <?php if ($member_data['intMemberAccountStatusID'] != 8) { ?>
+                                                        <button class="btn btn-sm btn-danger float-right" data-toggle="modal" data-target="#addSuspend" id="btnSuspend"><i class="fas fa-trash"></i> Suspend</button>
+                                                    <?php } ?>
+
+
+                                                    <?php if ($member_data['intMemberAccountStatusID'] != 6) { ?>
+                                                        <button class="btn btn-sm btn-success float-right" id="btnApproval" onclick=btnApprovalMember(<?= $member_data['intMemberID'] ?>)><i class="fa fa-check"></i> Approval</button>
+                                                    <?php } ?>
+
+
+                                                    <!-- <a class="button btn btn-default" onclick=removeGRN()><i class="fa fa-trash"></i></a> -->
 
                                                 </div>
                                             </div>
@@ -227,7 +254,7 @@
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="website">No Of Children(s)</label>
-                                                                    <input type="text" class="form-control" id="noOfChildren" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="noOfChildren" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
@@ -255,43 +282,43 @@
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="height">Height</label>
-                                                                    <input type="text" class="form-control" id="height" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="height" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="disability">Disability</label>
-                                                                    <input type="text" class="form-control" id="disability" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="disability" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="Weight">Weight</label>
-                                                                    <input type="text" class="form-control" id="weight" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="weight" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="bloodGroup">Blood Group</label>
-                                                                    <input type="text" class="form-control" id="bloodGroup" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="bloodGroup" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="bodyShape">Body Shape</label>
-                                                                    <input type="text" class="form-control" id="bodyShape" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="bodyShape" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="healthInformation">Health Information</label>
-                                                                    <input type="text" class="form-control" id="healthInformation" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="healthInformation" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="skinColor">Skin Color</label>
-                                                                    <input type="text" class="form-control" id="skinColor" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="skinColor" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -302,49 +329,49 @@
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="country">Country </label>
-                                                                    <input type="text" class="form-control" id="country" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="country" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="sriLankaAddress">Sri Lanka Address </label>
-                                                                    <input type="text" class="form-control" id="sriLankaAddress" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="sriLankaAddress" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="residenceStatus">Residence Status</label>
-                                                                    <input type="text" class="form-control" id="residenceStatus" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="residenceStatus" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="ownership">Ownership</label>
-                                                                    <input type="text" class="form-control" id="ownership" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="ownership" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="provinces">Provinces</label>
-                                                                    <input type="text" class="form-control" id="provinces" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="provinces" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Native District</label>
-                                                                    <input type="text" class="form-control" id="nativedistrict" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="nativedistrict" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="districs">districs</label>
-                                                                    <input type="text" class="form-control" id="districs" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="districs" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="city">City</label>
-                                                                    <input type="text" class="form-control" id="city" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="city" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -356,37 +383,37 @@
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="country">Mother Tongue </label>
-                                                                    <input type="text" class="form-control" id="motherTongue" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="motherTongue" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="sriLankaAddress">Caste</label>
-                                                                    <input type="text" class="form-control" id="caste" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="caste" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="residenceStatus">Ethnicity</label>
-                                                                    <input type="text" class="form-control" id="ethnicity" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="ethnicity" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="ownership">Sub Caste</label>
-                                                                    <input type="text" class="form-control" id="subCaste" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="subCaste" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="provinces">Religion</label>
-                                                                    <input type="text" class="form-control" id="religion" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="religion" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Police Report</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -398,25 +425,25 @@
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="country">Diet </label>
-                                                                    <input type="text" class="form-control" id="motherTongue" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="motherTongue" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="sriLankaAddress">Use to Travel</label>
-                                                                    <input type="text" class="form-control" id="caste" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="caste" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="residenceStatus">Drink</label>
-                                                                    <input type="text" class="form-control" id="ethnicity" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="ethnicity" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="ownership">Call to Parent</label>
-                                                                    <input type="text" class="form-control" id="subCaste" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="subCaste" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
@@ -428,25 +455,25 @@
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Customs</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Language,Speak</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Live In</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Dress & Makeup</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -458,115 +485,115 @@
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="country">Openness to Expericence</label>
-                                                                    <input type="text" class="form-control" id="motherTongue" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="motherTongue" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="sriLankaAddress">Love Affairs</label>
-                                                                    <input type="text" class="form-control" id="caste" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="caste" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="residenceStatus">Conscientiousness</label>
-                                                                    <input type="text" class="form-control" id="ethnicity" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="ethnicity" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="ownership">Male / Female Virginity</label>
-                                                                    <input type="text" class="form-control" id="subCaste" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="subCaste" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="provinces">Extrovert Personality</label>
-                                                                    <input type="text" class="form-control" id="religion" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="religion" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Introvert Personality</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Agreeableness</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Neuroticism</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Family Bond</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Money</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Religious</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Physically Active</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Knowledge</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Sports / Physical activites</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Social Activites</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Creative Hobbies</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Collecting Hobbies</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Outdoors Hobbies</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="nativedistrict">Domestic Hobbies</label>
-                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="policeReport" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
 
@@ -579,19 +606,19 @@
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="educationLevel">Education Level</label>
-                                                                    <input type="text" class="form-control" id="educationLevel" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="educationLevel" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="educationField">Education Field</label>
-                                                                    <input type="text" class="form-control" id="educationField" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="educationField" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="school">School / University</label>
-                                                                    <input type="text" class="form-control" id="school" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="school" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -603,25 +630,25 @@
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="workingWithBorder">Working with-border</label>
-                                                                    <input type="text" class="form-control" id="workingWithBorder" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="workingWithBorder" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="describeCareer">Describe Career</label>
-                                                                    <input type="text" class="form-control" id="describeCareer" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="describeCareer" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="working">Working as</label>
-                                                                    <input type="text" class="form-control" id="working" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="working" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <label for="workingLocation">Working Location</label>
-                                                                    <input type="text" class="form-control" id="workingLocation" value="<?= $member_data['vcNoOfChildren'] ?>" placeholder="N/A">
+                                                                    <input type="text" class="form-control" id="workingLocation" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -638,40 +665,98 @@
                             <div class="tab-pane fade" id="sub_1_2">
                                 <h1>Tab 2.2</h1>
                             </div>
-                        </div>
+
+                            <div class="tab-pane fade" id="sub_1_3">
+                                <h1>Tab 2.3</h1>
+                            </div>
+
+                            <div class="tab-pane fade" id="sub_1_4">
+                                <h1>Tab 2.4</h1>
+                            </div>
+
+                            <div class="tab-pane fade" id="sub_1_5">
+
+                                <ul class="nav nav-tabs" id="thirdSubTabs" role="tablist" aria-labelledby="sub_1_5_1">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="sub_1_5_1-tab" data-toggle="tab" href="#sub_1_5_1" role="tab" aria-controls="sub_1_5_1" aria-selected="true">User Level Details</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="sub_1_5_2-tab" data-toggle="tab" href="#sub_1_5_2" role="tab" aria-controls="sub_1_5_2" aria-selected="false">Login History</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="sub_1_5_3-tab" data-toggle="tab" href="#sub_1_5_3" role="tab" aria-controls="sub_1_5_3" aria-selected="false">Rechecked</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="sub_1_5_4-tab" data-toggle="tab" href="#sub_1_5_4" role="tab" aria-controls="sub_1_5_4" aria-selected="false">Email History</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="sub_1_5_5-tab" data-toggle="tab" href="#sub_1_5_5" role="tab" aria-controls="sub_1_5_5" aria-selected="false">Send Letter History</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="sub_1_5_6-tab" onclick="RemarkHistoryTable()" data-toggle="tab" href="#sub_1_5_6" role="tab" aria-controls="sub_1_5_6" aria-selected="false">Remark History</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content mt-3">
+                                    <div class="tab-pane fade show active mt-3" id="sub_1_5_1">
+                                        <h1>sub_1_5_1</h1>
+                                    </div>
+                                    <div class="tab-pane fade" id="sub_1_5_2">
+                                        <h1>sub_1_5_2</h1>
+                                    </div>
+                                    <div class="tab-pane fade" id="sub_1_5_3">
+                                        <h1>sub_1_5_3</h1>
+                                    </div>
+                                    <div class="tab-pane fade" id="sub_1_5_4">
+                                        <h1>sub_1_5_4</h1>
+                                    </div>
+                                    <div class="tab-pane fade" id="sub_1_5_5">
+                                        <h1>sub_1_5_5</h1>
+                                    </div>
+                                    <div class="tab-pane fade" id="sub_1_5_6">
+
+                                        <table id="tblRemarkHistory" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Remark</th>
+                                                    <th>Admin</th>
+                                                    <th>Date</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
 
 
+                                </div>
+
+                                <!-- <div class="tab-pane fade show active mt-3" id="sub_1_5_1">
+                                    <h1>sub_1_5_1</h1>
+                                </div>
+                                <div class="tab-pane fade" id="sub_1_5_2">
+                                    <h1>sub_1_5_2</h1>
+                                </div>
+
+                                <div class="tab-pane fade" id="sub_1_5_3">
+                                    <h1>sub_1_5_3</h1>
+                                </div> -->
 
 
+                            </div>
 
-                        <!-- <div class="tab-pane fade" id="sub_1_2" role="tabpanel" aria-labelledby="sub_1_2">
-                            <div class="container-fluid">
-                                <h1>hello</h1>
+                            <div class="tab-pane fade" id="sub_1_6">
+                                <h1>Tab 2.6</h1>
+                            </div>
+
+                            <div class="tab-pane fade" id="sub_1_7">
+                                <h1>Tab 2.7</h1>
                             </div>
                         </div>
-
-                        <div class="tab-pane fade" id="sub_1_3" role="tabpanel" aria-labelledby="sub_1_3">
-                            Sub 3
-                        </div>
-                        <div class="tab-pane fade" id="sub_1_4" role="tabpanel" aria-labelledby="sub_1_4">
-                            Sub 4
-                        </div>
-
-                        <div class="tab-pane fade" id="sub_1_5" role="tabpanel" aria-labelledby="sub_1_5">
-                            Sub 5
-                        </div>
-                        <div class="tab-pane fade" id="sub_1_6" role="tabpanel" aria-labelledby="sub_1_6">
-                            Sub 6
-                        </div>
-
-                        <div class="tab-pane fade" id="sub_1_7" role="tabpanel" aria-labelledby="sub_1_7">
-                            Sub 7
-                        </div>
-
-                        <div class="tab-pane fade" id="sub_1_8" role="tabpanel" aria-labelledby="sub_1_8">
-                            Sub 8
-                        </div> -->
                     </div>
+
+
+
+
+
 
 
                     <div class="tab-pane fade" id="main_tab_2" role="tabpanel" aria-labelledby="main_tab_2">
@@ -1272,7 +1357,7 @@
                     </div>
                     <div class="tab-pane fade" id="main_tab_3" role="tabpanel" aria-labelledby="main_tab_3">
                         <!-- /.main tab 3 Details -->
-                        <table id="manageTableeeee" class="table table-bordered table-striped">
+                        <table id="tblAllocateOfficer" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>Allocate Officer</th>
@@ -1329,6 +1414,75 @@
 
 
 </div>
+
+<!-- btnAddMemberRemark Modallllllllllllllll -->
+<div class="modal fade" id="addMemberRemark" tabindex="-1" role="dialog" aria-labelledby="addMemberRemark" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addMemberRemark">Add Member Remark</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <form role="form" action="<?php echo base_url('admin/addMemberRemark') ?>" method="post" id="addMemberRemarkForm">
+                <div class="modal-body">
+                    <input type="hidden" class="form-control" id="intRemarkMemberID" name="intRemarkMemberID" value="<?= $member_data['intMemberID'] ?>" placeholder="N/A">
+                    <div class="form-group">
+                        <label for="remark">Remark</label>
+                        <textarea class="form-control rounded-0" id="member_remark" name="member_remark" placeholder="Enter Rmark" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="btnSubmitMemberRemark" class="btn btn-success btn-flat"><i class="fas fa-download" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Save Remark</button>
+                </div>
+
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+<!-- btnSuspend Modallllllllllllllll -->
+<div class="modal fade" id="addSuspend" tabindex="-1" role="dialog" aria-labelledby="addSuspend" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addSuspend">Member Suspend</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <form role="form" action="<?php echo base_url('admin/suspendMemberAccount') ?>" method="post" id="addSuspendForm">
+                <div class="modal-body">
+                    <input type="hidden" class="form-control" id="intMemberID" name="intMemberID" value="<?= $member_data['intMemberID'] ?>" placeholder="N/A">
+                    <div class="form-group">
+                        <label>Suspend Reason</label>
+                        <select class="form-control" style="width: 100%;" id="suspendReason" name="suspendReason">
+                            <option value="0" disabled selected hidden>Select Reason</option>
+                            <?php foreach ($suspendReason as $row) { ?>
+                                <option value="<?= $row->intMemberSuspendReasons ?>"><?= $row->vcSuspendReason ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group" id="Div_OtherReasonSuspend">
+                        <label for="Reason">Reason</label>
+                        <textarea class="form-control rounded-0" id="otherReasonSuspend" name="otherReasonSuspend" placeholder="Enter Reason" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="btnSubmitMemberSuspend" class="btn btn-success btn-flat"><i class="fas fa-download" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Submit</button>
+                </div>
+
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
 
