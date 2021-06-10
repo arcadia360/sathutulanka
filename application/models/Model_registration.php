@@ -1120,7 +1120,7 @@ class Model_registration extends CI_Model
 
 
 
-  public function LoadMartialStatusDetails()
+  public function LoadMaritalStatusData()
   {
 
     $this->db->select('*');
@@ -1134,19 +1134,47 @@ class Model_registration extends CI_Model
     }
   }
 
-  public function LoadReligionStatusDetails()
+  public function LoadReligionData()
   {
 
-    $this->db->select('intReligionID, vcReligion');
+    $this->db->select('*');
     $this->db->from('religion');
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
-      return $query->result_array();
+      return $query->result();
     } else {
       return false;
     }
   }
+
+  public function LoadNoOfChildrenData()
+  {
+
+    $this->db->select('*');
+    $this->db->from('noofchildren');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  // public function LoadEthnicityData()
+  // {
+
+  //   $this->db->select('*');
+  //   $this->db->from('noofchildren');
+  //   $query = $this->db->get();
+
+  //   if ($query->num_rows() > 0) {
+  //     return $query->result();
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
 
 
