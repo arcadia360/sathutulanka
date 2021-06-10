@@ -156,7 +156,7 @@ class Registration extends Admin_Controller
 		$this->CheckAndRedirectNextForm(3);
 		$motherTongue = $this->Model_registration->getMotherTongue();
 		$ethnicity = $this->Model_registration->getEthnicity();
-		$religionStatus= $this->Model_registration->LoadReligionStatusDetails();
+		$religionStatus = $this->Model_registration->LoadReligionStatusDetails();
 		$this->data['motherTongue_data'] = $motherTongue;
 		$this->data['ethnicity_data'] = $ethnicity;
 		$this->data['religion_data'] = $religionStatus;
@@ -839,11 +839,11 @@ class Registration extends Admin_Controller
 
 
 
-	public function MartialStatusDetails()
+	public function LoadMaritalStatusData()
 	{
 		$result = '';
 		$this->load->model('Model_registration');
-		$result = $this->Model_registration->LoadMartialStatusDetails();
+		$result = $this->Model_registration->LoadMaritalStatusData();
 		if (!$result) {
 			return false;
 		} else {
@@ -857,11 +857,30 @@ class Registration extends Admin_Controller
 		}
 	}
 
-	public function ReligionStatusDetails()
+	public function LoadNoOfChildrenData()
 	{
 		$result = '';
 		$this->load->model('Model_registration');
-		$result = $this->Model_registration->LoadReligionStatusDetails();
+		$result = $this->Model_registration->LoadNoOfChildrenData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $NoOfChildren) {
+					$html .= "<option value=" . $NoOfChildren->intNoOfChildrenID . " >" . $NoOfChildren->vcNoOfChildren_en  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+
+	public function LoadReligionData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadReligionData();
 		if (!$result) {
 			return false;
 		} else {
@@ -874,6 +893,28 @@ class Registration extends Admin_Controller
 			}
 		}
 	}
+
+	public function LoadEthnicityData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadEthnicityData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $religion) {
+					$html .= "<option value=" . $religion->intReligionID . " >" . $religion->vcReligion  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+
+
+
 
 	// End partner preferences
 
