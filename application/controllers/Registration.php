@@ -904,8 +904,98 @@ class Registration extends Admin_Controller
 		} else {
 			$html = null;
 			if ($result) {
-				foreach ($result as $religion) {
-					$html .= "<option value=" . $religion->intReligionID . " >" . $religion->vcReligion  . "</option>";
+				foreach ($result as $ethnicity) {
+					$html .= "<option value=" . $ethnicity->intEthnicityID . " >" . $ethnicity->vcEthnicityName  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function LoadMotherToungeData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadMotherToungeData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $mothertongue) {
+					$html .= "<option value=" . $mothertongue->intMotherTongueID . " >" . $mothertongue->vcMotherTongueName  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function LoadLiveInSriLankaData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadLiveInSriLankaData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $province) {
+					$html .= "<option value=" . $province->IntProvinceId . " >" . $province->vcProvinceName  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function LoadEducationLevelData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadEducationLevelData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $educationlevel) {
+					$html .= "<option value=" . $educationlevel->inteducationlevelID . " >" . $educationlevel->vcEducationlevel  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function LoadAnyDisabilityData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadAnyDisabilityData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $disability) {
+					$html .= "<option value=" . $disability->intDisabilityID . " >" . $disability->vcDisability  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function LoadDietData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadDietData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $diet) {
+					$html .= "<option value=" . $diet->intDietID . " >" . $diet->vcDietName  . "</option>";
 				}
 				echo json_encode($html);
 			}
