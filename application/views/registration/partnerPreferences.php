@@ -107,11 +107,11 @@
             </div> -->
           </div>
 
-          <div id="Childeren" class="marginTopPartnerP">
+          <div id="Children" class="marginTopPartnerP">
             <div class="row">
               <div class="col-lg-6 col-12">
                 <div class="form-group">
-                  <label class="text-inverse font-weight-bold" for="validationCustom02">Childeren</label>
+                  <label class="text-inverse font-weight-bold" for="validationCustom02">Children</label>
                 </div>
               </div>
               <div class="col-lg-6">
@@ -182,6 +182,216 @@
             </div> -->
           </div>
 
+          <div id="motherTounge" class="marginTopPartnerP">
+            <div class="row">
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label class="text-inverse font-weight-bold" for="validationCustom02">Mother Tounge</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <select id="motherToungeDrp" multiple="multiple" class="form-control">
+                </select>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="col-lg-2 col-md-3 col-12">
+                <p class="sm-text" for="">Restrict this contact</p>
+              </div>
+              <div class="col-lg-10 col-md-3 col-12">
+                <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" id="restrictMartialStatusBtn">
+                  <div class="handle"></div>
+                </button>
+                <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
+              </div>
+            </div> -->
+          </div>
+
+          <div id="LiveInSriLanka" class="marginTopPartnerP">
+            <div class="row">
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label class="text-inverse font-weight-bold" for="validationCustom02">Live in Sri Lanka</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <select id="LiveInSriLankaDrp" multiple="multiple" class="form-control">
+                </select>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="col-lg-2 col-md-3 col-12">
+                <p class="sm-text" for="">Restrict this contact</p>
+              </div>
+              <div class="col-lg-10 col-md-3 col-12">
+                <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" id="restrictMartialStatusBtn">
+                  <div class="handle"></div>
+                </button>
+                <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
+              </div>
+            </div> -->
+          </div>
+
+          <div id="EducationLevel" class="marginTopPartnerP">
+            <div class="row">
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label class="text-inverse font-weight-bold" for="validationCustom02">Education Level</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <select id="EducationLevelDrp" multiple="multiple" class="form-control">
+                </select>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="col-lg-2 col-md-3 col-12">
+                <p class="sm-text" for="">Restrict this contact</p>
+              </div>
+              <div class="col-lg-10 col-md-3 col-12">
+                <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" id="restrictMartialStatusBtn">
+                  <div class="handle"></div>
+                </button>
+                <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
+              </div>
+            </div> -->
+          </div>
+
+          <div id="CareerLevel" class="marginTopPartnerP">
+            <div class="row">
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label class="text-inverse font-weight-bold" for="validationCustom02">Career Level</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <select id="CareerLevelDrp" multiple="multiple" class="form-control">
+                </select>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="col-lg-2 col-md-3 col-12">
+                <p class="sm-text" for="">Restrict this contact</p>
+              </div>
+              <div class="col-lg-10 col-md-3 col-12">
+                <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" id="restrictMartialStatusBtn">
+                  <div class="handle"></div>
+                </button>
+                <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
+              </div>
+            </div> -->
+          </div>
+
+          <div id="MonthlyIncome" class="marginTopPartnerP">
+            <div class="row">
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label class="text-inverse font-weight-bold" for="validationCustom02">Monthly Income</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <select id="MonthlyIncomeDrp" multiple="multiple" class="form-control">
+                  <option value="None to 75000">None to 75000</option>
+                  <option value="75000 to 150000">75000 to 150000</option>
+                  <option value="150000 to 250000">150000 to 250000</option>
+                  <option value="Over 250000">Over 250000</option>
+                </select>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="col-lg-2 col-md-3 col-12">
+                <p class="sm-text" for="">Restrict this contact</p>
+              </div>
+              <div class="col-lg-10 col-md-3 col-12">
+                <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" id="restrictMartialStatusBtn">
+                  <div class="handle"></div>
+                </button>
+                <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
+              </div>
+            </div> -->
+          </div>
+
+          <div id="AssetValue" class="marginTopPartnerP">
+            <div class="row">
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label class="text-inverse font-weight-bold" for="validationCustom02">Asset Value</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <select id="AssetValueDrp" multiple="multiple" class="form-control">
+                  <option value="None to 500000">None to 500000</option>
+                  <option value="500000 to 2.5 M">500000 to 2.5 M</option>
+                  <option value="2.5 M to 7.5M">2.5 M to 7.5M</option>
+                  <option value="Over 7.5M">Over 7.5M</option>
+                </select>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="col-lg-2 col-md-3 col-12">
+                <p class="sm-text" for="">Restrict this contact</p>
+              </div>
+              <div class="col-lg-10 col-md-3 col-12">
+                <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" id="restrictMartialStatusBtn">
+                  <div class="handle"></div>
+                </button>
+                <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
+              </div>
+            </div> -->
+          </div>
+
+          <div id="AnyDisability" class="marginTopPartnerP">
+            <div class="row">
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label class="text-inverse font-weight-bold" for="validationCustom02">Any Disability</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <select id="AnyDisabilityDrp" multiple="multiple" class="form-control">
+
+                </select>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="col-lg-2 col-md-3 col-12">
+                <p class="sm-text" for="">Restrict this contact</p>
+              </div>
+              <div class="col-lg-10 col-md-3 col-12">
+                <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" id="restrictMartialStatusBtn">
+                  <div class="handle"></div>
+                </button>
+                <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
+              </div>
+            </div> -->
+          </div>
+
+          <div id="Diet" class="marginTopPartnerP">
+            <div class="row">
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label class="text-inverse font-weight-bold" for="validationCustom02">Diet</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <select id="DietDrp" multiple="multiple" class="form-control">
+
+                </select>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="col-lg-2 col-md-3 col-12">
+                <p class="sm-text" for="">Restrict this contact</p>
+              </div>
+              <div class="col-lg-10 col-md-3 col-12">
+                <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" id="restrictMartialStatusBtn">
+                  <div class="handle"></div>
+                </button>
+                <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
+              </div>
+            </div> -->
+          </div>
+
 
 
       </div>
@@ -193,18 +403,19 @@
 </div>
 </div>
 
-<button id="test1" type="button">test</button>
 
 <script>
   $(function() {
     LoadMaritalStatusData();
     LoadReligionData();
     LoadNoOfChildrenData();
-
-
-    $('#test1').click(function() {
-      LoadNoOfChildrenData();
-    });
+    LoadEthnicityData();
+    LoadMotherToungeData();
+    LoadLiveInSriLankaData();
+    LoadEducationLevelData();
+    LoadCareerLevelData();
+    LoadAnyDisabilityData();
+    LoadDietData();
 
     function LoadMaritalStatusData() {
       $.ajax({
@@ -312,7 +523,165 @@
       });
     }
 
+    function LoadMotherToungeData() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/LoadMotherToungeData',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("Failed to load mother tounge data");
+          } else {
+            $('#motherToungeDrp').html(data);
+            $('#motherToungeDrp').multiselect({
+              includeSelectAllOption: true,
+              selectAllValue: 0,
+              buttonWidth: '100%'
+            });
 
+          }
+        },
+        error: function() {
+          alert('Internal error Failed to load mother tounge data');
+        }
+      });
+    }
+
+    function LoadLiveInSriLankaData() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/LoadLiveInSriLankaData',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("Failed to load live in Sri Lanka data");
+          } else {
+            $('#LiveInSriLankaDrp').html(data);
+            $('#LiveInSriLankaDrp').multiselect({
+              includeSelectAllOption: true,
+              selectAllValue: 0,
+              buttonWidth: '100%'
+            });
+
+          }
+        },
+        error: function() {
+          alert('Internal error Failed to load live in Sri Lanka data');
+        }
+      });
+    }
+
+    function LoadEducationLevelData() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/LoadEducationLevelData',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("Failed to load education level data");
+          } else {
+            $('#EducationLevelDrp').html(data);
+            $('#EducationLevelDrp').multiselect({
+              includeSelectAllOption: true,
+              selectAllValue: 0,
+              buttonWidth: '100%'
+            });
+
+          }
+        },
+        error: function() {
+          alert('Internal error Failed load education level data');
+        }
+      });
+    }
+
+    function LoadCareerLevelData() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/loadWorkingAsMainCat',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("Failed to load career level data");
+          } else {
+            $('#CareerLevelDrp').html(data);
+            $('#CareerLevelDrp').multiselect({
+              includeSelectAllOption: true,
+              selectAllValue: 0,
+              buttonWidth: '100%'
+            });
+
+          }
+        },
+        error: function() {
+          alert('Internal error Failed to load career level data');
+        }
+      });
+    }
+
+    $('#MonthlyIncomeDrp').multiselect({
+      includeSelectAllOption: true,
+      selectAllValue: 0,
+      buttonWidth: '100%'
+    });
+
+    $('#AssetValueDrp').multiselect({
+      includeSelectAllOption: true,
+      selectAllValue: 0,
+      buttonWidth: '100%'
+    });
+
+    function LoadAnyDisabilityData() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/LoadAnyDisabilityData',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("Failed to load any disability data");
+          } else {
+            $('#AnyDisabilityDrp').html(data);
+            $('#AnyDisabilityDrp').multiselect({
+              includeSelectAllOption: true,
+              selectAllValue: 0,
+              buttonWidth: '100%'
+            });
+          }
+        },
+        error: function() {
+          alert('Internal error Failed load any disability data');
+        }
+      });
+    }
+
+    function LoadDietData() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/LoadDietData',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("Failed to load diet data");
+          } else {
+            $('#DietDrp').html(data);
+            $('#DietDrp').multiselect({
+              includeSelectAllOption: true,
+              selectAllValue: 0,
+              buttonWidth: '100%'
+            });
+          }
+        },
+        error: function() {
+          alert('Internal error Failed load diet data');
+        }
+      });
+    }
     // $('[data-toggle="popover123"]').popover({
     //   trigger: 'focus'
     // });
