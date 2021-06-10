@@ -15,21 +15,14 @@
 <link rel="stylesheet" href="<?= base_url('resources/css/btnStyle.css') ?>">
 
 <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script> -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script> -->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 
 <link rel="stylesheet" href="<?= base_url('resources/css/bootstrap-multiselect.css') ?>">
 <script src="<?= base_url('resources/js/bootstrap-multiselect.js') ?>"></script>
-
-
-
-
-
-
-
-
-
 
 <div class="btnbg" style="padding-top: 10px;">
   <!-- Container Area -->
@@ -57,7 +50,7 @@
           </div>
           <br>
 
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-lg-2 col-md-3 col-12">
               <p class="sm-text" for="">Restrict this contact</p>
             </div>
@@ -67,7 +60,7 @@
               </button>
               <a href="#" data-toggle="popover123" title="Popover Header" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
             </div>
-          </div>
+          </div> -->
 
 
 
@@ -100,7 +93,8 @@
                 </select>
               </div>
             </div>
-            <div class="row">
+
+            <!-- <div class="row">
               <div class="col-lg-2 col-md-3 col-12">
                 <p class="sm-text" for="">Restrict this contact</p>
               </div>
@@ -110,7 +104,32 @@
                 </button>
                 <a href="#" data-toggle="restrictMartialStatusPop" title="Martial Status" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
               </div>
+            </div> -->
+          </div>
+
+          <div id="Childeren" class="marginTopPartnerP">
+            <div class="row">
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label class="text-inverse font-weight-bold" for="validationCustom02">Childeren</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <select id="ChilderenDrp" multiple="multiple" class="form-control">
+                </select>
+              </div>
             </div>
+            <!-- <div class="row">
+              <div class="col-lg-2 col-md-3 col-12">
+                <p class="sm-text" for="">Restrict this contact</p>
+              </div>
+              <div class="col-lg-10 col-md-3 col-12">
+                <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" id="restrictMartialStatusBtn">
+                  <div class="handle"></div>
+                </button>
+                <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
+              </div>
+            </div> -->
           </div>
 
           <div id="Religion" class="marginTopPartnerP">
@@ -125,7 +144,7 @@
                 </select>
               </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-lg-2 col-md-3 col-12">
                 <p class="sm-text" for="">Restrict this contact</p>
               </div>
@@ -135,7 +154,7 @@
                 </button>
                 <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
               </div>
-            </div>
+            </div> -->
           </div>
 
 
@@ -148,7 +167,6 @@
   </div>
 </div>
 </div>
-
 
 
 <script>
@@ -181,11 +199,36 @@
       });
     }
 
+    function noOfChildren() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/ReligionStatusDetails',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("Failed to load Religion Data");
+          } else {
+            $('#ReligionDrp').html(data);
+            $('#ReligionDrp').multiselect({
+              includeSelectAllOption: true,
+              selectAllValue: 0,
+              buttonWidth: '100%'
+            });
+
+          }
+        },
+        error: function() {
+          alert('Internal error Failed to load Religion Data');
+        }
+      });
+    }
 
 
-    $('[data-toggle="restrictMartialStatusPop"]').popover({
-      trigger: 'focus'
-    });
+
+    // $('[data-toggle="restrictMartialStatusPop"]').popover({
+    //   trigger: 'focus'
+    // });
 
     function ReligionStatusDetails() {
       $.ajax({
@@ -197,7 +240,13 @@
           if (!data) {
             toastr["error"]("Failed to load Religion Data");
           } else {
-            $('#ReligionDrp').html(data);;
+            $('#ReligionDrp').html(data);
+            $('#ReligionDrp').multiselect({
+              includeSelectAllOption: true,
+              selectAllValue: 0,
+              buttonWidth: '100%'
+            });
+
           }
         },
         error: function() {
@@ -206,15 +255,10 @@
       });
     }
 
-    $('#ReligionDrp').multiselect({
-      includeSelectAllOption: true,
-      selectAllValue: 0,
-      buttonWidth: '100%'
-    });
 
-    $('[data-toggle="popover123"]').popover({
-      trigger: 'focus'
-    });
+    // $('[data-toggle="popover123"]').popover({
+    //   trigger: 'focus'
+    // });
 
 
     $('#btnBack').click(function() {
