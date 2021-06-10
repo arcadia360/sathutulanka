@@ -115,7 +115,7 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="ChilderenDrp" multiple="multiple" class="form-control">
+                <select id="NoOfChildrenDrp" multiple="multiple" class="form-control">
                 </select>
               </div>
             </div>
@@ -157,6 +157,31 @@
             </div> -->
           </div>
 
+          <div id="Ethnicity" class="marginTopPartnerP">
+            <div class="row">
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label class="text-inverse font-weight-bold" for="validationCustom02">Ethnicity</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <select id="EthnicityDrp" multiple="multiple" class="form-control">
+                </select>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="col-lg-2 col-md-3 col-12">
+                <p class="sm-text" for="">Restrict this contact</p>
+              </div>
+              <div class="col-lg-10 col-md-3 col-12">
+                <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" id="restrictMartialStatusBtn">
+                  <div class="handle"></div>
+                </button>
+                <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
+              </div>
+            </div> -->
+          </div>
+
 
 
       </div>
@@ -168,16 +193,23 @@
 </div>
 </div>
 
+<button id="test1" type="button">test</button>
 
 <script>
   $(function() {
-    MartialStatusDetails();
-    ReligionStatusDetails();
+    LoadMaritalStatusData();
+    LoadReligionData();
+    LoadNoOfChildrenData();
 
-    function MartialStatusDetails() {
+
+    $('#test1').click(function() {
+      LoadNoOfChildrenData();
+    });
+
+    function LoadMaritalStatusData() {
       $.ajax({
         type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/MartialStatusDetails',
+        url: '<?php echo base_url(); ?>Registration/LoadMaritalStatusData',
         async: false,
         dataType: 'json',
         success: function(data) {
@@ -194,23 +226,23 @@
           }
         },
         error: function() {
-          alert('Internal error failed to load countries');
+          toastr["error"](" Internal error Failed to load Martial Status Data");
         }
       });
     }
 
-    function noOfChildren() {
+    function LoadNoOfChildrenData() {
       $.ajax({
         type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/ReligionStatusDetails',
+        url: '<?php echo base_url(); ?>Registration/LoadNoOfChildrenData',
         async: false,
         dataType: 'json',
         success: function(data) {
           if (!data) {
-            toastr["error"]("Failed to load Religion Data");
+            toastr["error"]("Failed to load children Data");
           } else {
-            $('#ReligionDrp').html(data);
-            $('#ReligionDrp').multiselect({
+            $('#NoOfChildrenDrp').html(data);
+            $('#NoOfChildrenDrp').multiselect({
               includeSelectAllOption: true,
               selectAllValue: 0,
               buttonWidth: '100%'
@@ -219,7 +251,7 @@
           }
         },
         error: function() {
-          alert('Internal error Failed to load Religion Data');
+          toastr["error"](" Internal error Failed to load children Data");
         }
       });
     }
@@ -230,10 +262,10 @@
     //   trigger: 'focus'
     // });
 
-    function ReligionStatusDetails() {
+    function LoadReligionData() {
       $.ajax({
         type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/ReligionStatusDetails',
+        url: '<?php echo base_url(); ?>Registration/LoadReligionData',
         async: false,
         dataType: 'json',
         success: function(data) {
@@ -251,6 +283,31 @@
         },
         error: function() {
           alert('Internal error Failed to load Religion Data');
+        }
+      });
+    }
+
+    function LoadEthnicityData() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/LoadEthnicityData',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("Failed to load Ethnicity Data");
+          } else {
+            $('#EthnicityDrp').html(data);
+            $('#EthnicityDrp').multiselect({
+              includeSelectAllOption: true,
+              selectAllValue: 0,
+              buttonWidth: '100%'
+            });
+
+          }
+        },
+        error: function() {
+          alert('Internal error Failed to load Ethnicity Data');
         }
       });
     }
