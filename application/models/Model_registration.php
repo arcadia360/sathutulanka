@@ -1162,19 +1162,84 @@ class Model_registration extends CI_Model
     }
   }
 
-  // public function LoadEthnicityData()
-  // {
+  public function LoadEthnicityData()
+  {
 
-  //   $this->db->select('*');
-  //   $this->db->from('noofchildren');
-  //   $query = $this->db->get();
+    $this->db->select('*');
+    $this->db->from('ethnicity');
+    $query = $this->db->get();
 
-  //   if ($query->num_rows() > 0) {
-  //     return $query->result();
-  //   } else {
-  //     return false;
-  //   }
-  // }
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadMotherToungeData()
+  {
+
+    $this->db->select('*');
+    $this->db->from('mothertongue');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadLiveInSriLankaData()
+  {
+
+    $this->db->select('*');
+    $this->db->from('province');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadEducationLevelData()
+  {
+    $this->db->select('*');
+    $this->db->from('educationlevel');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadAnyDisabilityData()
+  {
+    $this->db->select('*');
+    $this->db->from('disability');
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadDietData()
+  {
+    $this->db->select('*');
+    $this->db->from('diet');
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
 
 
 
@@ -1185,6 +1250,20 @@ class Model_registration extends CI_Model
   //-----------------------------------
   //Create Account - Ramod
   //-----------------------------------
+
+  public function LoadReligionStatusDetails()
+  {
+
+    $this->db->select('intReligionID, vcReligion');
+    $this->db->from('religion');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result_array();
+    } else {
+      return false;
+    }
+  }
 
   public function password_hash($pass = '')
   {
