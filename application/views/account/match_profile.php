@@ -387,10 +387,10 @@
                                                     <span class="basic-preference-title">Age</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="Descriptive Information"></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="Descriptive Information Descriptive Information"></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -598,7 +598,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName">&nbsp;</label>
+                                                        <label for="website" style="color: #FFFFFF;">Nick Name</label>
                                                         <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -612,7 +612,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName">&nbsp;</label>
+                                                        <label for="website" style="color: #FFFFFF;">Gender</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -626,7 +626,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" class="float-right"><a href="#" class="descriptive-information-model" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('Age')"><i class="fas fa-info-circle"></i></a></label>
+                                                        <label for="website" style="color: #FFFFFF;">Age</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -640,7 +640,8 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" class="float-right"><a class="descriptive-information-model" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('MaritalStatus')"><i class="fas fa-info-circle"></i></a></label>
+                                                        <!-- <label for="shortName" class="float-right"><a class="descriptive-information-model" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('MaritalStatus')"><i class="fas fa-info-circle"></i></a></label> -->
+                                                        <label for="website" style="color: #FFFFFF;">Marital Status</label>
                                                         <input type="text" class="form-control" id="maritalStatus" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -654,7 +655,8 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" class="float-right" style="color: #FFFFFF;">No Of Children(s)<a class="descriptive-information-model float-right" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('NoOfChildren')"><i class="fas fa-info-circle"></i></a></label>
+                                                        <!-- <label for="shortName" class="float-right" style="color: #FFFFFF;">No Of Children(s)<a class="descriptive-information-model float-right" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('NoOfChildren')"><i class="fas fa-info-circle"></i></a></label> -->
+                                                        <label for="website" style="color: #FFFFFF;">No Of Children(s)</label>
                                                         <input type="text" class="form-control" id="noOfChildren" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -668,7 +670,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="website">&nbsp;</label>
+                                                        <label for="website" style="color: #FFFFFF;">Prof: Manage</label>
                                                         <input type="text" class="form-control" id="marryBy" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -682,7 +684,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="website">&nbsp;</label>
+                                                        <label for="website" style="color: #FFFFFF;">Marry By</label>
                                                         <input type="text" class="form-control" id="marryBy" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -719,7 +721,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" class="float-right"><a href="#" class="descriptive-information-model" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('Age')"><i class="fas fa-info-circle"></i></a></label>
+                                                        <label for="website" style="color: #FFFFFF;">Height</label>
                                                         <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -733,7 +735,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName">&nbsp;</label>
+                                                        <label for="website" style="color: #FFFFFF;">Weight</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -747,7 +749,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName">&nbsp;</label>
+                                                        <label for="website" style="color: #FFFFFF;">Body Shape</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -761,7 +763,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName">&nbsp;</label>
+                                                        <label for="website" style="color: #FFFFFF;">Skin Color</label>
                                                         <input type="text" class="form-control" id="maritalStatus" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -775,7 +777,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" class="float-right" style="color: #FFFFFF;">Disability<a class="descriptive-information-model float-right" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('NoOfChildren')"><i class="fas fa-info-circle"></i></a></label>
+                                                        <label for="website" style="color: #FFFFFF;">Disability</label>
                                                         <input type="text" class="form-control" id="noOfChildren" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -858,7 +860,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" class="float-right" style="color: #FFFFFF;">Live in Srilanka<a class="descriptive-information-model float-right" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('NoOfChildren')"><i class="fas fa-info-circle"></i></a></label>
+                                                        <label for="website" style="color: #FFFFFF;">Live in Sri Lanka</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -872,7 +874,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName">&nbsp;</label>
+                                                        <label for="website" style="color: #FFFFFF;">District</label>
                                                         <input type="text" class="form-control" id="maritalStatus" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -886,7 +888,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName">&nbsp;</label>
+                                                        <label for="website" style="color: #FFFFFF;">City</label>
                                                         <input type="text" class="form-control" id="noOfChildren" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -941,7 +943,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" class="float-right" style="color: #FFFFFF;">Mother Tongue<a class="descriptive-information-model float-right" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('NoOfChildren')"><i class="fas fa-info-circle"></i></a></label>
+                                                        <label for="website" style="color: #FFFFFF;">Mother Tongue</label>
                                                         <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -955,7 +957,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" class="float-right" style="color: #FFFFFF;">Ethnicity<a class="descriptive-information-model float-right" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('NoOfChildren')"><i class="fas fa-info-circle"></i></a></label>
+                                                        <label for="website" style="color: #FFFFFF;">Ethnicity</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -969,7 +971,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" class="float-right" style="color: #FFFFFF;">Religion<a class="descriptive-information-model float-right" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('NoOfChildren')"><i class="fas fa-info-circle"></i></a></label>
+                                                        <label for="website" style="color: #FFFFFF;">Religion</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -983,7 +985,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName">&nbsp;</label>
+                                                        <label for="website" style="color: #FFFFFF;">Religion</label>
                                                         <input type="text" class="form-control" id="maritalStatus" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -1038,7 +1040,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" class="float-right" style="color: #FFFFFF;">Diet<a class="descriptive-information-model float-right" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('NoOfChildren')"><i class="fas fa-info-circle"></i></a></label>
+                                                        <label for="website" style="color: #FFFFFF;">Diet</label>
                                                         <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -1052,7 +1054,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName">&nbsp;</label>
+                                                        <label for="website" style="color: #FFFFFF;">Drink</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -1066,7 +1068,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName">&nbsp;</label>
+                                                        <label for="website" style="color: #FFFFFF;">Smoke</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -1400,7 +1402,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" class="float-right" style="color: #FFFFFF;">Education Level<a class="descriptive-information-model float-right" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('NoOfChildren')"><i class="fas fa-info-circle"></i></a></label>
+                                                        <label for="website" style="color: #FFFFFF;">Education Level</label>
                                                         <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -1469,7 +1471,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" class="float-right" style="color: #FFFFFF;">Working As<a class="descriptive-information-model float-right" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('NoOfChildren')"><i class="fas fa-info-circle"></i></a></label>
+                                                        <label for="website" style="color: #FFFFFF;">Working As</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -1552,7 +1554,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" class="float-right" style="color: #FFFFFF;">Monthly Income<a class="descriptive-information-model float-right" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('NoOfChildren')"><i class="fas fa-info-circle"></i></a></label>
+                                                        <label for="website" style="color: #FFFFFF;">Monthly Income</label>
                                                         <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
@@ -1580,7 +1582,7 @@
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
-                                                        <label for="shortName" class="float-right" style="color: #FFFFFF;">Asset Value<a class="descriptive-information-model float-right" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('NoOfChildren')"><i class="fas fa-info-circle"></i></a></label>
+                                                        <label for="website" style="color: #FFFFFF;">Asset Value</label>
                                                         <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
