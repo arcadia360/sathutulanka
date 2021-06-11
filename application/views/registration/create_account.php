@@ -508,7 +508,7 @@
                         <select class="custom-select d-block form-control" name="num_of_child" id="num_of_child">
                             <option value="0"><?= lang('select') ?></option>
                             <?php foreach ($NoofChildren_data as $k => $v) { ?>
-                                <option value="<?= $v['intNoOfChildrenID'] ?>"><?= $v['intNoOfChildren'] ?></option>
+                                <option value="<?= $v['intNoOfChildrenID'] ?>"><?= $v['vcNoOfChildren'] ?></option>
                             <?php } ?>
                         </select>
                         </select>

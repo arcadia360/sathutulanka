@@ -72,9 +72,6 @@ table {
     margin-left: 0 !important;
 }
 
-#manageTable {
-    display: block !important;
-}
 
 .dataTables_wrapper .dataTables_paginate .paginate_button {
     padding: 0 !important;

@@ -7,17 +7,9 @@
                     <label class="text-inverse font-weight-bold" for="validationCustom01">Monthly Income</label>
                     <select class="form-control js-example-basic-single" name="monthlyIncome" id="monthlyIncome">
                         <option value="0">Select</option>
-                        <option value="Ask">Ask</option>
-                        <option value="Upto Rs 25000 ">Upto Rs 25000 </option>
-                        <option value="Rs 25000 to Rs 50000 ">Rs 25000 to Rs 50000 </option>
-                        <option value="Rs 50000 to Rs 75000">Rs 50000 to Rs 75000 </option>
-                        <option value="Rs 75000 to Rs 100000 ">Rs 75000 to Rs 100000 </option>
-                        <option value="Rs 100000 to Rs 150000">Rs 100000 to Rs 150000 </option>
-                        <option value="Rs 150000 to Rs 200000">Rs 150000 to Rs 200000 </option>
-                        <option value="Rs 200000 to Rs 250000">Rs 200000 to Rs 250000 </option>
-                        <option value="Rs 250000 to Rs 300000">Rs 250000 to Rs 300000 </option>
-                        <option value="Rs 300000 to Rs 400000 ">Rs 300000 to Rs 400000 </option>
-                        <option value="Rs 400000 Up">Rs 400000 Up </option>
+                        <?php foreach ($monthlyIncome_data as $k => $v) { ?>
+								<option value="<?= $v['intMonthlyIncomeID'] ?>"><?= $v['vcMonthlyIncome'] ?></option>
+							<?php } ?>
                     </select>
                 </div>
             </div>
@@ -97,26 +89,9 @@
                     <label class="text-inverse font-weight-bold" for="validationCustom01">Asset Value</label>
                     <select class="form-control js-example-basic-single" name="assetValue" id="assetValue">
                         <option value="0">Select</option>
-                        <option value="Ask">Ask</option>
-                        <option value="Upto Rs 150000">Upto Rs 150000 </option>
-                        <option value="Rs 150000 to Rs 250000">Rs 150000 to Rs 250000 </option>
-                        <option value="Rs 250000 to Rs 500000">Rs 250000 to Rs 500000 </option>
-                        <option value="Rs 500000 to Rs 750000">Rs 500000 to Rs 750000 </option>
-                        <option value="Rs 750000 to Rs 1000000 ">Rs 750000 to Rs 1000000 </option>
-                        <option value="Rs 1M to Rs 1.5M ">Rs 1M to Rs 1.5M </option>
-                        <option value="Rs 1.5M to Rs 2M">Rs 1.5M to Rs 2M </option>
-                        <option value="Rs 2M to Rs 2.5M ">Rs 2M to Rs 2.5M </option>
-                        <option value="Rs 2.5M to Rs 3M">Rs 2.5M to Rs 3M </option>
-                        <option value="Rs 3M to Rs 4M">Rs 3M to Rs 4M </option>
-                        <option value="Rs 4M to Rs 5M ">Rs 4M to Rs 5M </option>
-                        <option value="Rs 5M to Rs 7.5M">Rs 5M to Rs 7.5M </option>
-                        <option value="Rs 7.5M to Rs 10M">Rs 7.5M to Rs 10M </option>
-                        <option value="Rs 10M to Rs15M">Rs 10M to Rs15M </option>
-                        <option value="Rs 15M to Rs 20M">Rs 15M to Rs 20M </option>
-                        <option value="Rs 20M to Rs 30M">Rs 20M to Rs 30M </option>
-                        <option value="Rs 30M to Rs 40M">Rs 30M to Rs 40M </option>
-                        <option value="Rs 40M to Rs 50M">Rs 40M to Rs 50M </option>
-                        <option value="Rs 50M up">Rs 50M up </option>
+                        <?php foreach ($assetValue_data as $k => $v) { ?>
+								<option value="<?= $v['intAssetValueID'] ?>"><?= $v['vcAssetValue'] ?></option>
+							<?php } ?>
                     </select>
                 </div>
             </div>

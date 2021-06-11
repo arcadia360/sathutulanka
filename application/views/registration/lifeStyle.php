@@ -9,9 +9,9 @@
         <div class="form-group">
           <select class="custom-select d-block form-control" id="diet" name="diet">
             <option value="0"><?= lang('select') ?></option>
-            <option value="veg"><?= lang('veg') ?></option>
-            <option value="Non Veg"><?= lang('NonVeg') ?></option>
-            <option value="Occasionally Non Veg"><?= lang('OccasionallyNonVeg') ?></option>
+            <?php foreach ($diet_data as $k => $v) { ?>
+              <option value="<?= $v['intDietID'] ?>"><?= $v['vcDietName'] ?></option>
+            <?php } ?>
           </select>
         </div>
       </div>
@@ -93,7 +93,7 @@
     <hr>
     <div class="row languageSpeak">
       <div class="col-12">
-        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('languagesSpeak') ?></label>
+        <label class="text-inverse font-weight-bold" for="validationCustom01">Languages Can Speak</label>
         <div class="row">
           <div class="col-3">
             <div class="form-group">
@@ -203,7 +203,7 @@
     <hr>
     <div class="row">
       <div class="col-12">
-        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('CallTtParents') ?></label>
+        <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('CallTtParents') ?> (Your and Partner) </label>
         <div class="row">
           <div class="col-6">
             <center>
@@ -295,104 +295,104 @@
 <script>
   $(function() {
 
-    var Member = function() {
-      this.MemberID = 0;
-    }
-    var model = new Member();
-    model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+    // var Member = function() {
+    //   this.MemberID = 0;
+    // }
+    // var model = new Member();
+    // model.MemberID = (<?= $this->session->userdata('member_id') ?>);
 
-    ajaxCall('registration/getMemberData', model, function(response) {
+    // ajaxCall('registration/getMemberData', model, function(response) {
 
-      if (response.vcDiet != null) {
-        $("#diet").val(response.vcDiet);
-        var drinkType = (response.vcDrink);
+    //   if (response.vcDiet != null) {
+    //     $("#diet").val(response.vcDiet);
+    //     var drinkType = (response.vcDrink);
 
-        if (drinkType == "No") {
-          document.getElementById("drinkNo").checked = true;
-        } else if (drinkType == "Yes") {
-          document.getElementById("drinkYes").checked = true;
-        } else if (drinkType == "During Function") {
-          document.getElementById("drinkDuringFunction").checked = true;
-        } else if (drinkType == "Stopped") {
-          document.getElementById("drinkStopped").checked = true;
-        }
-        var smokeType = (response.vcSmoke);
+    //     if (drinkType == "No") {
+    //       document.getElementById("drinkNo").checked = true;
+    //     } else if (drinkType == "Yes") {
+    //       document.getElementById("drinkYes").checked = true;
+    //     } else if (drinkType == "During Function") {
+    //       document.getElementById("drinkDuringFunction").checked = true;
+    //     } else if (drinkType == "Stopped") {
+    //       document.getElementById("drinkStopped").checked = true;
+    //     }
+    //     var smokeType = (response.vcSmoke);
 
-        if (smokeType == "No") {
-          document.getElementById("smokeNo").checked = true;
-        } else if (smokeType == "Yes") {
-          document.getElementById("smokeYes").checked = true;
-        } else if (smokeType == "During Function") {
-          document.getElementById("smokeDuringFunction").checked = true;
-        } else if (smokeType == "Stopped") {
-          document.getElementById("smokeStopped").checked = true;
-        }
+    //     if (smokeType == "No") {
+    //       document.getElementById("smokeNo").checked = true;
+    //     } else if (smokeType == "Yes") {
+    //       document.getElementById("smokeYes").checked = true;
+    //     } else if (smokeType == "During Function") {
+    //       document.getElementById("smokeDuringFunction").checked = true;
+    //     } else if (smokeType == "Stopped") {
+    //       document.getElementById("smokeStopped").checked = true;
+    //     }
 
-        var dressAndMakeupType = (response.vcDressAndMakeup);
-        if (dressAndMakeupType == "Traditional") {
-          document.getElementById("dressAndMakeupTraditional").checked = true;
-        } else if (dressAndMakeupType == "Moder") {
-          document.getElementById("dressAndMakeupModern").checked = true;
-        } else if (dressAndMakeupType == "Mix of Traditional and modern") {
-          document.getElementById("dressAndMakeupMixofTraditionalAndModern").checked = true;
-        } else if (dressAndMakeupType == "Short Dresses") {
-          document.getElementById("dressAndMakeupShortDresses").checked = true;
-        }
+    //     var dressAndMakeupType = (response.vcDressAndMakeup);
+    //     if (dressAndMakeupType == "Traditional") {
+    //       document.getElementById("dressAndMakeupTraditional").checked = true;
+    //     } else if (dressAndMakeupType == "Moder") {
+    //       document.getElementById("dressAndMakeupModern").checked = true;
+    //     } else if (dressAndMakeupType == "Mix of Traditional and modern") {
+    //       document.getElementById("dressAndMakeupMixofTraditionalAndModern").checked = true;
+    //     } else if (dressAndMakeupType == "Short Dresses") {
+    //       document.getElementById("dressAndMakeupShortDresses").checked = true;
+    //     }
 
-        var usedToTravelType = (response.vcUsedToTravel);
-        if (usedToTravelType == "Public") {
-          document.getElementById("usedToTravelPublic").checked = true;
-        } else if (usedToTravelType == "Private") {
-          document.getElementById("usedToTravelPrivate").checked = true;
-        } else if (usedToTravelType == "Public and Private") {
-          document.getElementById("usedToTravelPublicAndPrivate").checked = true;
-        }
-
-
-        if (response.vcCalToParent == "Traditional (Thaththa/ Amma/ Appachchi)") {
-          document.getElementById("CallTtParentsTraditional").checked = true;
-        } else if (response.vcCalToParent == "Modern (Daddy/ Mammy/ Uncle / Aunt)") {
-          document.getElementById("CallTtParentsModern").checked = true;
-        }
-
-        if (response.vcCustoms == "Respect") {
-          document.getElementById("customsRespect").checked = true;
-        } else if (response.vcCustoms == "Little Respect") {
-          document.getElementById("customsLittleRespect").checked = true;
-        } else if (response.vcCustoms == "No Respect") {
-          document.getElementById("customsNoRespect").checked = true;
-        }
+    //     var usedToTravelType = (response.vcUsedToTravel);
+    //     if (usedToTravelType == "Public") {
+    //       document.getElementById("usedToTravelPublic").checked = true;
+    //     } else if (usedToTravelType == "Private") {
+    //       document.getElementById("usedToTravelPrivate").checked = true;
+    //     } else if (usedToTravelType == "Public and Private") {
+    //       document.getElementById("usedToTravelPublicAndPrivate").checked = true;
+    //     }
 
 
-        if (response.vcLiveIn == "Normal House") {
-          document.getElementById("LiveInNormalHouse").checked = true;
-        } else if (response.vcLiveIn == "Semi luxury House") {
-          document.getElementById("LiveInSemiluxuryHouse").checked = true;
-        } else if (response.vcLiveIn == "Luxury House") {
-          document.getElementById("LiveInLuxuryHouse").checked = true;
-        }
+    //     if (response.vcCalToParent == "Traditional (Thaththa/ Amma/ Appachchi)") {
+    //       document.getElementById("CallTtParentsTraditional").checked = true;
+    //     } else if (response.vcCalToParent == "Modern (Daddy/ Mammy/ Uncle / Aunt)") {
+    //       document.getElementById("CallTtParentsModern").checked = true;
+    //     }
 
-      }
+    //     if (response.vcCustoms == "Respect") {
+    //       document.getElementById("customsRespect").checked = true;
+    //     } else if (response.vcCustoms == "Little Respect") {
+    //       document.getElementById("customsLittleRespect").checked = true;
+    //     } else if (response.vcCustoms == "No Respect") {
+    //       document.getElementById("customsNoRespect").checked = true;
+    //     }
 
-    });
 
-    var model = new Member();
-    model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-    ajaxCall('registration/getMemberWiseLanguageSpeak', model, function(response) {
+    //     if (response.vcLiveIn == "Normal House") {
+    //       document.getElementById("LiveInNormalHouse").checked = true;
+    //     } else if (response.vcLiveIn == "Semi luxury House") {
+    //       document.getElementById("LiveInSemiluxuryHouse").checked = true;
+    //     } else if (response.vcLiveIn == "Luxury House") {
+    //       document.getElementById("LiveInLuxuryHouse").checked = true;
+    //     }
 
-      for (let index = 0; index < response.length; index++) {
-        if (response[index].vcLanguage == "sinhala") {
-          document.getElementById("sinhala").checked = true;
-        } else if (response[index].vcLanguage == "tamil") {
-          document.getElementById("tamil").checked = true;
-        } else if (response[index].vcLanguage == "english") {
-          document.getElementById("english").checked = true;
-        } else if (response[index].vcLanguage == "other") {
-          document.getElementById("other").checked = true;
-        }
-      }
+    //   }
 
-    });
+    // });
+
+    // var model = new Member();
+    // model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+    // ajaxCall('registration/getMemberWiseLanguageSpeak', model, function(response) {
+
+    //   for (let index = 0; index < response.length; index++) {
+    //     if (response[index].vcLanguage == "sinhala") {
+    //       document.getElementById("sinhala").checked = true;
+    //     } else if (response[index].vcLanguage == "tamil") {
+    //       document.getElementById("tamil").checked = true;
+    //     } else if (response[index].vcLanguage == "english") {
+    //       document.getElementById("english").checked = true;
+    //     } else if (response[index].vcLanguage == "other") {
+    //       document.getElementById("other").checked = true;
+    //     }
+    //   }
+
+    // });
 
     $('#btnBack').click(function() {
       window.location.href = "<?php echo base_url('Registration/background') ?>";

@@ -59,6 +59,11 @@ class Admin extends Admin_Controller
 		$this->render_template('admin_panel/member/member_list', 'Members List', $this->data);
 	}
 
+	public function approvalMemberList()
+	{
+		$this->render_template('admin_panel/member/approval_member_list', 'Approval Member List', NULL);
+	}
+
 	public function FilterMemberListData($statusID, $FromDate, $ToDate)
 	{
 		// $isAdmin = true;
@@ -103,10 +108,159 @@ class Admin extends Admin_Controller
 		echo json_encode($result);
 	}
 
+
+	public function GetOTPResetData($FromDate, $ToDate)
+	{
+		$result = array('data' => array());
+		$member_data = $this->model_admin->GetOTPResetData($FromDate, $ToDate);
+		foreach ($member_data as $key => $value) {
+
+			$result['data'][$key] = array(
+				$value['vcMemberCode'],
+				$value['vcNickName'],
+				$value['vcEmail'],
+				$value['vcMobileNo'],
+				$value['vcGender'],
+				$value['dtDOB']
+			);
+		}
+
+		echo json_encode($result);
+	}
+
+	public function approvalMember()
+	{
+		$intMemberID = $this->input->post('intMemberID');
+		$response = array();
+		$IsSuccess = $this->model_admin->approvalMember($intMemberID);
+		if ($IsSuccess == true) {
+			$response['success'] = true;
+			$response['messages'] = "Approved !";
+		} else {
+			$response['success'] = false;
+			$response['messages'] = "Error !";
+		}
+
+		echo json_encode($response);
+	}
+
+
 	public function memberDetails($MemberID)
 	{
 		$member_data = $this->model_account->getMemberData($MemberID);
+		$suspendReason = $this->model_account->getMemberSuspendReason();
 		$this->data['member_data'] = $member_data;
-		$this->render_template('admin_panel/member/member_details', 'Members Details', $this->data);
+		$this->data['suspendReason'] = $suspendReason;
+		$this->render_template('admin_panel/member/member_details', 'Members List', $this->data);
 	}
+
+	public function GetRemarkHistoryData($MemberID)
+	{
+		$result = array('data' => array());
+		$remarkdata = $this->model_admin->GetRemarkHistoryData($MemberID);
+		foreach ($remarkdata as $key => $value) {
+
+			$result['data'][$key] = array(
+				$value['vcRemark'],
+				$value['vcUserName'],
+				$value['dtEnteredDate']
+			);
+		}
+
+		echo json_encode($result);
+	}
+
+	public function suspendMemberAccount()
+	{
+		$intMemberID = $this->input->post('intMemberID');
+		$response = array();
+		$IsSuccess = $this->model_admin->suspendMemberAccount($intMemberID);
+		if ($IsSuccess == true) {
+			$response['success'] = true;
+			$response['messages'] = "Suspended !";
+		} else {
+			$response['success'] = false;
+			$response['messages'] = "Error !";
+		}
+
+		echo json_encode($response);
+
+	}
+
+	public function updateMemberDetailsByAdmin()
+	{
+		$intMemberID = $this->input->post('intMemberID');
+		$response = array();
+		$IsSuccess = $this->model_admin->updateMemberDetailsByAdmin($intMemberID);
+		if ($IsSuccess == true) {
+			$response['success'] = true;
+			$response['messages'] = "Updated !";
+		} else {
+			$response['success'] = false;
+			$response['messages'] = "Error !";
+		}
+
+		echo json_encode($response);
+	}
+
+
+	public function addMemberRemark()
+	{
+		$response = array();
+
+		$data = array(
+			'intMemberID' => $this->input->post('intRemarkMemberID'),
+			'vcRemark' => $this->input->post('member_remark'),
+			'intUserID' => 1, //Admin ID
+		);
+		$response = $this->model_admin->addMemberRemark($data);
+
+		echo json_encode($response);
+	}
+
+	public function GetPendingApprovalMember($FromDate, $ToDate)
+	{
+		$result = array('data' => array());
+		$member_data = $this->model_admin->GetPendingApprovalMember($FromDate, $ToDate);
+		foreach ($member_data as $key => $value) {
+			$buttons = '';
+			$time = '';
+			$time = $value['Days'] . ' Days &nbsp;&nbsp;';
+
+			if ($value['Months'] > 0) {
+				$time .= $value['Months'] . ' Months &nbsp;&nbsp;';
+			}
+			if ($value['Years'] > 0) {
+				$time .= $value['Years'] . ' Years &nbsp;&nbsp;';
+			}
+
+			$buttons .= '<a class="button btn btn-default" href="' . base_url("admin/manageMemberList/" . $value['intMemberID']) . '" style="margin:0 !important;"><i class="fas fa-edit"></i></a>';
+
+			$result['data'][$key] = array(
+				$value['vcMemberCode'],
+				$value['vcNickName'],
+				$value['vcEmail'],
+				$value['vcMobileNo'],
+				$value['vcGender'],
+				$value['dtDOB'],
+				// $value['vcMaritalStatus'],
+				$value['createdDate'],
+				$time,
+				$value['vcMemberAccountStatus'],
+				$buttons
+			);
+		}
+
+		echo json_encode($result);
+	}
+
+	public function manageMemberList($MemberID)
+	{
+		$member_data = $this->model_account->getMemberData($MemberID);
+		// $suspendReason = $this->model_account->getMemberSuspendReason();
+		$this->data['member_data'] = $member_data;
+		// $this->data['suspendReason'] = $suspendReason;
+		$this->render_template('admin_panel/member/manage_member', 'Manage Member', $this->data);
+	}
+
 }

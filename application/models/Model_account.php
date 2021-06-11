@@ -12,6 +12,7 @@ class Model_account extends CI_Model
     $sql = "
 		    SELECT 
             M.intMemberID, 
+            M.vcMemberCode,
             M.vcNickName, 
             M.vcCountryCode, 
             M.vcMobileNo, 
@@ -30,7 +31,7 @@ class Model_account extends CI_Model
             M.intWeightTo, 
             M.intBodyTypeID, 
             M.intSkinColourID, 
-            M.isDisability, 
+            M.intDisabilityID, 
             M.vcBloodGroup, 
             M.isHealthInfo, 
             M.vcMotherTounge, 
@@ -108,5 +109,18 @@ class Model_account extends CI_Model
     WHERE intMemberID = ? ";
     $query = $this->db->query($sql, array($MemberID));
     return $query->result_array();
+  }
+
+  public function getMemberSuspendReason()
+  {
+    $this->db->select('intMemberSuspendReasons, vcSuspendReason');
+    $this->db->from('membersuspendreasons');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return  $query->result();
+    } else {
+      return false;
+    }
   }
 }

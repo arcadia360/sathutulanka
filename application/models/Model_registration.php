@@ -43,7 +43,7 @@ class Model_registration extends CI_Model
         'intWeightTo' => $toWeight,
         'intBodyTypeID' => $this->input->post('bodyShape'),
         'intSkinColourID' => $this->input->post('skinColor'),
-        'isDisability' => $this->input->post('disability'),
+        'intDisabilityID' => $this->input->post('disability'),
         'vcBloodGroup' => $this->input->post('bloodGroup'),
         'isHealthInfo' => $this->input->post('healthInfo')
       );
@@ -54,7 +54,7 @@ class Model_registration extends CI_Model
         'intWeightTo' => $toWeight,
         'intBodyTypeID' => $this->input->post('bodyShape'),
         'intSkinColourID' => $this->input->post('skinColor'),
-        'isDisability' => $this->input->post('disability'),
+        'intDisabilityID' => $this->input->post('disability'),
         'vcBloodGroup' => $this->input->post('bloodGroup'),
         'isHealthInfo' => $this->input->post('healthInfo'),
         'intNoOfSubmitedForm' => 2
@@ -186,7 +186,7 @@ class Model_registration extends CI_Model
         'intCountryId' => $this->input->post('country'),
         'vcAddOfSriLanka' => $this->input->post('AddressofSriLanka'),
         'intNativeDistrictId' => $this->input->post('nativeDistrict'),
-        'vcResidenceStatus' =>  $this->input->post('ResidenceStatus')
+        'intResidenceStatusID' =>  $this->input->post('ResidenceStatus')
 
       );
     } else {
@@ -195,7 +195,7 @@ class Model_registration extends CI_Model
         'intCountryId' => $this->input->post('country'),
         'vcAddOfSriLanka' => $this->input->post('AddressofSriLanka'),
         'intNativeDistrictId' => $this->input->post('nativeDistrict'),
-        'vcResidenceStatus' =>  $this->input->post('ResidenceStatus'),
+        'intResidenceStatusID' =>  $this->input->post('ResidenceStatus'),
         'intNoOfSubmitedForm' => 3
       );
     }
@@ -241,18 +241,18 @@ class Model_registration extends CI_Model
 
     if ($NoOfSubmitedForm > 4) {
       $data = array(
-        'vcMotherTounge' => $this->input->post('motherTongue'),
-        'vcEthnicity' => $this->input->post('ethnicity'),
-        'vcReligion' => $this->input->post('religion'),
+        'intMotherTongueID' => $this->input->post('motherTongue'),
+        'intEthnicityID' => $this->input->post('ethnicity'),
+        'intReligionID' => $this->input->post('religion'),
         'intCasteId' => $this->input->post('caste'),
         'intSubCasteId' => $subCasteID,
         'isPoliceReportCanProvide' => $this->input->post('policeReport')
       );
     } else {
       $data = array(
-        'vcMotherTounge' => $this->input->post('motherTongue'),
-        'vcEthnicity' => $this->input->post('ethnicity'),
-        'vcReligion' => $this->input->post('religion'),
+        'intMotherTongueID' => $this->input->post('motherTongue'),
+        'intEthnicityID' => $this->input->post('ethnicity'),
+        'intReligionID' => $this->input->post('religion'),
         'intCasteId' => $this->input->post('caste'),
         'intSubCasteId' => $subCasteID,
         'isPoliceReportCanProvide' => $this->input->post('policeReport'),
@@ -288,9 +288,93 @@ class Model_registration extends CI_Model
     }
   }
 
+  public function getMotherTongue()
+  {
+    $this->db->select('intMotherTongueID,vcMotherTongueName');
+    $this->db->from('mothertongue');
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      return $query->result_array();
+    } else {
+      return false;
+    }
+  }
+
+  public function getEthnicity()
+  {
+    $this->db->select('intEthnicityID,vcEthnicityName');
+    $this->db->from('ethnicity');
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      return $query->result_array();
+    } else {
+      return false;
+    }
+  }
+
+  public function getEducationLevel()
+  {
+    $this->db->select('intEducationLevelID,vcEducationLevel');
+    $this->db->from('educationlevel');
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      return $query->result_array();
+    } else {
+      return false;
+    }
+  }
+
+  public function getEducationField()
+  {
+    $this->db->select('intEducationFieldID,vcEducationField');
+    $this->db->from('educationfield');
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      return $query->result_array();
+    } else {
+      return false;
+    }
+  }
+
+  public function getDiet()
+  {
+    $this->db->select('intDietID,vcDietName');
+    $this->db->from('diet');
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      return $query->result_array();
+    } else {
+      return false;
+    }
+  }
+
+  public function getMonthlyIncome()
+  {
+    $this->db->select('intMonthlyIncomeID,vcMonthlyIncome');
+    $this->db->from('monthlyincome');
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      return $query->result_array();
+    } else {
+      return false;
+    }
+  }
+
+  public function getAssetValue()
+  {
+    $this->db->select('intAssetValueID,vcAssetValue');
+    $this->db->from('assetvalue');
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      return $query->result_array();
+    } else {
+      return false;
+    }
+  }
+
   public function getNoofChildren()
   {
-    $this->db->select('*');
+    $this->db->select('intNoOfChildrenID,vcNoOfChildren_en AS vcNoOfChildren');
     $this->db->from('noofchildren');
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
@@ -336,7 +420,7 @@ class Model_registration extends CI_Model
 
     if ($NoOfSubmitedForm > 5) {
       $dataMemberTb  = array(
-        'vcDiet' => $this->input->post('diet'),
+        'intDietID' => $this->input->post('diet'),
         'vcDrink' => $this->input->post('drink'),
         'vcSmoke' => $this->input->post('smoke'),
         'vcDressAndMakeup' => $this->input->post('dressAndMakeup'),
@@ -347,7 +431,7 @@ class Model_registration extends CI_Model
       );
     } else {
       $dataMemberTb  = array(
-        'vcDiet' => $this->input->post('diet'),
+        'intDietID' => $this->input->post('diet'),
         'vcDrink' => $this->input->post('drink'),
         'vcSmoke' => $this->input->post('smoke'),
         'vcDressAndMakeup' => $this->input->post('dressAndMakeup'),
@@ -576,14 +660,14 @@ class Model_registration extends CI_Model
 
     if ($NoOfSubmitedForm > 7) {
       $data = array(
-        'vcEducationLevel' => $this->input->post('EducationLevel'),
-        'vcEducationField' => $this->input->post('EducationField'),
+        'intEducationLevelID' => $this->input->post('EducationLevel'),
+        'intEducationFieldID' => $this->input->post('EducationField'),
         'vcSclUniDescription' => $this->input->post('vcSclUniDescription')
       );
     } else {
       $data = array(
-        'vcEducationLevel' => $this->input->post('EducationLevel'),
-        'vcEducationField' => $this->input->post('EducationField'),
+        'intEducationLevelID' => $this->input->post('EducationLevel'),
+        'intEducationFieldID' => $this->input->post('EducationField'),
         'vcSclUniDescription' => $this->input->post('vcSclUniDescription'),
         'intNoOfSubmitedForm' => 7
       );
@@ -632,7 +716,7 @@ class Model_registration extends CI_Model
     $this->db->select('*');
     $this->db->from('WorkingAsSubCat');
     $this->db->where('intWorkinAsMainCat =', $WorkingAsMainCatId);
-    $this->db->order_by('vcWorkingAsSubCatl', 'asc');
+    $this->db->order_by('vcWorkingAsSubCat', 'asc');
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
@@ -708,14 +792,14 @@ class Model_registration extends CI_Model
 
     if ($NoOfSubmitedForm > 9) {
       $data = array(
-        'vcMonthlyIncome' => $this->input->post('monthlyIncome'),
-        'vcAssetValue' => $this->input->post('assetValue'),
+        'intMonthlyIncomeID' => $this->input->post('monthlyIncome'),
+        'intAssetValueID' => $this->input->post('assetValue'),
         'vcOwnershipOfAssets' => $this->input->post('OwnershipOfAssets')
       );
     } else {
       $data = array(
-        'vcMonthlyIncome' => $this->input->post('monthlyIncome'),
-        'vcAssetValue' => $this->input->post('assetValue'),
+        'intMonthlyIncomeID' => $this->input->post('monthlyIncome'),
+        'intAssetValueID' => $this->input->post('assetValue'),
         'vcOwnershipOfAssets' => $this->input->post('OwnershipOfAssets'),
         'intNoOfSubmitedForm' => 9
       );
@@ -741,7 +825,7 @@ class Model_registration extends CI_Model
     //insert asset route data
     $queryAssetRoutesExists  = $this->db->query("select * from assetroutes where intMemberID ='$mid'");
     if ($queryAssetRoutesExists->num_rows() > 0) {
-      $this->db->delete('asset_routes', array('intMemberID' => $mid));
+      $this->db->delete('assetroutes', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($assestRoute); $i++) {
       $datainassestRouteTb = array(
@@ -1036,7 +1120,7 @@ class Model_registration extends CI_Model
 
 
 
-  public function LoadMartialStatusDetails()
+  public function LoadMaritalStatusData()
   {
 
     $this->db->select('*');
@@ -1050,13 +1134,106 @@ class Model_registration extends CI_Model
     }
   }
 
-  public function LoadReligionStatusDetails()
+  public function LoadReligionData()
   {
 
     $this->db->select('*');
     $this->db->from('religion');
     $query = $this->db->get();
 
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadNoOfChildrenData()
+  {
+
+    $this->db->select('*');
+    $this->db->from('noofchildren');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadEthnicityData()
+  {
+
+    $this->db->select('*');
+    $this->db->from('ethnicity');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadMotherToungeData()
+  {
+
+    $this->db->select('*');
+    $this->db->from('mothertongue');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadLiveInSriLankaData()
+  {
+
+    $this->db->select('*');
+    $this->db->from('province');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadEducationLevelData()
+  {
+    $this->db->select('*');
+    $this->db->from('educationlevel');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadAnyDisabilityData()
+  {
+    $this->db->select('*');
+    $this->db->from('disability');
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadDietData()
+  {
+    $this->db->select('*');
+    $this->db->from('diet');
+    $query = $this->db->get();
     if ($query->num_rows() > 0) {
       return $query->result();
     } else {
@@ -1073,6 +1250,20 @@ class Model_registration extends CI_Model
   //-----------------------------------
   //Create Account - Ramod
   //-----------------------------------
+
+  public function LoadReligionStatusDetails()
+  {
+
+    $this->db->select('intReligionID, vcReligion');
+    $this->db->from('religion');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result_array();
+    } else {
+      return false;
+    }
+  }
 
   public function password_hash($pass = '')
   {
@@ -1108,7 +1299,7 @@ class Model_registration extends CI_Model
       'vcGender' => $this->input->post('gender'),
       'dtDOB' => $bDate,
       'intMaritalStatusID' => $this->input->post('marital_status'),
-      'intNoOfChildren' => $this->input->post('num_of_child'),
+      'intNoOfChildrenID' => $this->input->post('num_of_child'),
       'intMemberAccountStatusID' => 1,
       'vcMarriageType' => $this->input->post('marry_by'),
       'intNoOfSubmitedForm' => 1,

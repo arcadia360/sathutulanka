@@ -154,7 +154,13 @@ class Registration extends Admin_Controller
 	public function background()
 	{
 		$this->CheckAndRedirectNextForm(3);
-		$this->render_template_registration('registration/background', 'Add Background Details', NULL);
+		$motherTongue = $this->Model_registration->getMotherTongue();
+		$ethnicity = $this->Model_registration->getEthnicity();
+		$religionStatus = $this->Model_registration->LoadReligionStatusDetails();
+		$this->data['motherTongue_data'] = $motherTongue;
+		$this->data['ethnicity_data'] = $ethnicity;
+		$this->data['religion_data'] = $religionStatus;
+		$this->render_template_registration('registration/background', 'Add Background Details', $this->data);
 
 		// $this->load->helper('language');
 		// $this->lang->load('en', 'English');
@@ -236,6 +242,8 @@ class Registration extends Admin_Controller
 	public function lifeStyle()
 	{
 		$this->CheckAndRedirectNextForm(4);
+		$diet = $this->Model_registration->getDiet();
+		$this->data['diet_data'] = $diet;
 		$this->render_template_registration('registration/lifeStyle', 'Add Life Style Details', NULL);
 
 		// $this->load->helper('language');
@@ -328,7 +336,11 @@ class Registration extends Admin_Controller
 	public function education()
 	{
 		$this->CheckAndRedirectNextForm(6);
-		$this->render_template_registration('registration/education', 'Education', NULL);
+		$educationLevel = $this->Model_registration->getEducationLevel();
+		$educationField =  $this->Model_registration->getEducationField();
+		$this->data['educationLevel_data'] = $educationLevel;
+		$this->data['educationField_data'] = $educationField;
+		$this->render_template_registration('registration/education', 'Education', $this->data);
 
 		// $this->load->helper('language');
 		// $this->lang->load('en', 'English');
@@ -434,7 +446,7 @@ class Registration extends Admin_Controller
 			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
 			if ($result) {
 				foreach ($result as $WorkingAsSubCat) {
-					$WorkingAsSubCatName = $WorkingAsSubCat->vcWorkingAsSubCatl;
+					$WorkingAsSubCatName = $WorkingAsSubCat->vcWorkingAsSubCat;
 					$html .= "<option value=" . $WorkingAsSubCat->intWorkingAsSubCatId . " >" . $WorkingAsSubCatName  . "</option>";
 				}
 				echo json_encode($html);
@@ -473,7 +485,11 @@ class Registration extends Admin_Controller
 	public function personalAssets()
 	{
 		$this->CheckAndRedirectNextForm(8);
-		$this->render_template_registration('registration/personal_assets', 'Personal Assets', NULL);
+		$monthlyIncome =  $this->Model_registration->getMonthlyIncome();
+		$assetValue = $this->Model_registration->getAssetValue();
+		$this->data['monthlyIncome_data'] = $monthlyIncome;
+		$this->data['assetValue_data'] = $assetValue;
+		$this->render_template_registration('registration/personal_assets', 'Personal Assets', $this->data);
 
 		// $this->load->helper('language');
 		// $this->lang->load('en', 'English');
@@ -823,11 +839,11 @@ class Registration extends Admin_Controller
 
 
 
-	public function MartialStatusDetails()
+	public function LoadMaritalStatusData()
 	{
 		$result = '';
 		$this->load->model('Model_registration');
-		$result = $this->Model_registration->LoadMartialStatusDetails();
+		$result = $this->Model_registration->LoadMaritalStatusData();
 		if (!$result) {
 			return false;
 		} else {
@@ -841,11 +857,30 @@ class Registration extends Admin_Controller
 		}
 	}
 
-	public function ReligionStatusDetails()
+	public function LoadNoOfChildrenData()
 	{
 		$result = '';
 		$this->load->model('Model_registration');
-		$result = $this->Model_registration->LoadReligionStatusDetails();
+		$result = $this->Model_registration->LoadNoOfChildrenData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $NoOfChildren) {
+					$html .= "<option value=" . $NoOfChildren->intNoOfChildrenID . " >" . $NoOfChildren->vcNoOfChildren_en  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+
+	public function LoadReligionData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadReligionData();
 		if (!$result) {
 			return false;
 		} else {
@@ -858,6 +893,118 @@ class Registration extends Admin_Controller
 			}
 		}
 	}
+
+	public function LoadEthnicityData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadEthnicityData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $ethnicity) {
+					$html .= "<option value=" . $ethnicity->intEthnicityID . " >" . $ethnicity->vcEthnicityName  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function LoadMotherToungeData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadMotherToungeData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $mothertongue) {
+					$html .= "<option value=" . $mothertongue->intMotherTongueID . " >" . $mothertongue->vcMotherTongueName  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function LoadLiveInSriLankaData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadLiveInSriLankaData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $province) {
+					$html .= "<option value=" . $province->IntProvinceId . " >" . $province->vcProvinceName  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function LoadEducationLevelData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadEducationLevelData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $educationlevel) {
+					$html .= "<option value=" . $educationlevel->inteducationlevelID . " >" . $educationlevel->vcEducationlevel  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function LoadAnyDisabilityData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadAnyDisabilityData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $disability) {
+					$html .= "<option value=" . $disability->intDisabilityID . " >" . $disability->vcDisability  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function LoadDietData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadDietData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $diet) {
+					$html .= "<option value=" . $diet->intDietID . " >" . $diet->vcDietName  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+
+
+
 
 	// End partner preferences
 
