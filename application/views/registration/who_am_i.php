@@ -678,7 +678,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input CollectingHobbies" type="checkbox" value=" Details in Writing" id="CollectingHobbieschk5" name="CollectingHobbies[]">
+                                    <input class="form-check-input CollectingHobbies" type="checkbox" value="Details in Writing" id="CollectingHobbieschk5" name="CollectingHobbies[]">
                                     <label class="form-check-label" for="CollectingHobbieschk5">
                                         Details in Writing
                                     </label>
@@ -871,35 +871,248 @@
 <script>
     $(function() {
 
-        // var Member = function() {
-        //     this.MemberID = 0;
-        // }
-        // var model = new Member();
-        // model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+        var Member = function() {
+            this.MemberID = 0;
+        }
+        var model = new Member();
+        model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+        ajaxCall('registration/getMemberData', model, function(response) {
+            if (response.intOpennessToExperience != null) {
+                $('#OpennessToExperience').slider("option", "value", response.intOpennessToExperience);
+                $("#OpennessToExperienceValue").val(response.intOpennessToExperience + "%");
 
-        // ajaxCall('registration/getMemberData', model, function(response) {
+                $('#conscientiousness').slider("option", "value", response.intConscientiousness);
+                $("#conscientiousnessValue").val(response.intConscientiousness + "%");
 
-        //     if (response.intOpennessToExperience != null) {
-        //         $('#OpennessToExperience').slider("option", "value", response.intOpennessToExperience);
-        //         $("#OpennessToExperienceValue").val(response.intOpennessToExperience + "%");
-        //         // $('#conscientiousnessValue').val(response.intConscientiousness);
-        //         // $('#ExtrovertPersonalityValue').val(response.intExtrovertPersonality);
-        //         // $('#OpennessToExperience').val(response.intIntrovertPersonality);
-        //         // $('#OpennessToExperience').val(response.intAgreeableness);
-        //         // $('#OpennessToExperience').val(response.intNeuroticism);
-        //         // $('#OpennessToExperience').val(response.intFamilyBond);
-        //         // $('#OpennessToExperience').val(response.intMoney);
-        //         // $('#OpennessToExperience').val(response.intReligious);
-        //         // $('#OpennessToExperience').val(response.intPhysicallyActive);
-        //         // $('#OpennessToExperience').val(response.IntPolitics);
-        //         // $('#OpennessToExperience').val(response.intKnowledge);
-        //         // $('#OpennessToExperience').val(response.intLoveAffairs);
-        //         // $('#OpennessToExperience').val(response.intimportanceVirginity);
+                $('#ExtrovertPersonality').slider("option", "value", response.intExtrovertPersonality);
+                $("#ExtrovertPersonalityValue").val(response.intExtrovertPersonality + "%");
 
-        //     }
+                $('#IntrovertPersonality').slider("option", "value", response.intIntrovertPersonality);
+                $("#IntrovertPersonalityValue").val(response.intIntrovertPersonality + "%");
 
+                $('#Agreeableness').slider("option", "value", response.intAgreeableness);
+                $("#AgreeablenessValue").val(response.intAgreeableness + "%");
 
-        // });
+                $('#Neuroticism').slider("option", "value", response.intNeuroticism);
+                $("#NeuroticismValue").val(response.intNeuroticism + "%");
+
+                $('#FamilyBond').slider("option", "value", response.intFamilyBond);
+                $("#FamilyBondValue").val(response.intFamilyBond + "%");
+
+                $('#money').slider("option", "value", response.intMoney);
+                $("#moneyValue").val(response.intMoney + "%");
+
+                $('#Religious').slider("option", "value", response.intReligious);
+                $("#ReligiousValue").val(response.intReligious + "%");
+
+                $('#PhysicallyActive').slider("option", "value", response.intPhysicallyActive);
+                $("#PhysicallyActiveValue").val(response.intPhysicallyActive + "%");
+
+                $('#Politics').slider("option", "value", response.IntPolitics);
+                $("#PoliticsValue").val(response.IntPolitics + "%");
+
+                $('#Knowledge').slider("option", "value", response.intKnowledge);
+                $("#KnowledgeValue").val(response.intKnowledge + "%");
+
+                $('#LoveAffairs').slider("option", "value", response.intLoveAffairs);
+                $("#LoveAffairsValue").val(response.intLoveAffairs + "%");
+
+                $('#ImportanceOfVirginity').slider("option", "value", response.intimportanceVirginity);
+                $("#ImportanceOfVirginityValue").val(response.intimportanceVirginity + "%");
+
+            }
+
+        });
+
+        FillEnrichmentHobbies();
+        FillSportsActivities();
+        FillSocialActivites();
+        FillCreativeHobbies();
+        FillCollectingHobbies();
+        FillOutdoorsHobbies();
+        FillDomesticHobbies();
+
+        function FillEnrichmentHobbies() {
+            var model = new Member();
+            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+            ajaxCall('registration/getEnrichmentHobbies', model, function(response) {
+                for (let index = 0; index < response.length; index++) {
+                    if (response[index].vcEnrichmentHobby == "Study / Reading / Writing") {
+                        $("#EnrichmentHobieschk1").prop("checked", true);
+                    } else if (response[index].vcEnrichmentHobby == "Museums / Galleries") {
+                        $("#EnrichmentHobieschk2").prop("checked", true);
+                    } else if (response[index].vcEnrichmentHobby == "Technology") {
+                        $("#EnrichmentHobieschk3").prop("checked", true);
+                    } else if (response[index].vcEnrichmentHobby == "Net surfing") {
+                        $("#EnrichmentHobieschk4").prop("checked", true);
+                    } else if (response[index].vcEnrichmentHobby == "Meditation") {
+                        $("#EnrichmentHobieschk5").prop("checked", true);
+                    } else if (response[index].vcEnrichmentHobby == "Watching") {
+                        $("#EnrichmentHobieschk6").prop("checked", true);
+                    } else if (response[index].vcEnrichmentHobby == "Details in Writing") {
+                        $("#EnrichmentHobieschk7").prop("checked", true);
+                    }
+                }
+            });
+        }
+
+        function FillSportsActivities() {
+            var model = new Member();
+            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+            ajaxCall('registration/getSportsActivities', model, function(response) {
+                for (let index = 0; index < response.length; index++) {
+                    if (response[index].vcSportsPhysicalActivities == "Jogging") {
+                        $("#Sports-Physicalactivitieschk1").prop("checked", true);
+                    } else if (response[index].vcSportsPhysicalActivities == "Exercise") {
+                        $("#Sports-Physicalactivitieschk2").prop("checked", true);
+                    } else if (response[index].vcSportsPhysicalActivities == "Martial Arts") {
+                        $("#Sports-Physicalactivitieschk3").prop("checked", true);
+                    } else if (response[index].vcSportsPhysicalActivities == "Yoga") {
+                        $("#Sports-Physicalactivitieschk4").prop("checked", true);
+                    } else if (response[index].vcSportsPhysicalActivities == "Adventure Sports") {
+                        $("#Sports-Physicalactivitieschk5").prop("checked", true);
+                    } else if (response[index].vcSportsPhysicalActivities == "Outdoor sports") {
+                        $("#Sports-Physicalactivitieschk6").prop("checked", true);
+                    } else if (response[index].vcSportsPhysicalActivities == "Details in Writing") {
+                        $("#Sports-Physicalactivitieschk7").prop("checked", true);
+                    }
+                }
+            });
+        }
+
+        function FillSocialActivites() {
+            var model = new Member();
+            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+            ajaxCall('registration/getSocialActivites', model, function(response) {
+                for (let index = 0; index < response.length; index++) {
+                    if (response[index].vcSocialActivities == "Social Service") {
+                        $("#SocialActivitieschk1").prop("checked", true);
+                    } else if (response[index].vcSocialActivities == "Volunteering") {
+                        $("#SocialActivitieschk2").prop("checked", true);
+                    } else if (response[index].vcSocialActivities == "Politics") {
+                        $("#SocialActivitieschk3").prop("checked", true);
+                    } else if (response[index].vcSocialActivities == "Party clubbing") {
+                        $("#SocialActivitieschk4").prop("checked", true);
+                    } else if (response[index].vcSocialActivities == "Religion") {
+                        $("#SocialActivitieschk5").prop("checked", true);
+                    } else if (response[index].vcSocialActivities == "Dining") {
+                        $("#SocialActivitieschk6").prop("checked", true);
+                    } else if (response[index].vcSocialActivities == "Spending time with friends") {
+                        $("#SocialActivitieschk7").prop("checked", true);
+                    } else if (response[index].vcSocialActivities == "Details in Writing") {
+                        $("#SocialActivitieschk8").prop("checked", true);
+                    }
+                }
+            });
+        }
+
+        function FillCreativeHobbies() {
+            var model = new Member();
+            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+            ajaxCall('registration/getCreativeHobbies', model, function(response) {
+                for (let index = 0; index < response.length; index++) {
+                    if (response[index].vcCreativeHobbies == "Drawing") {
+                        $("#CreatvieHobieschk1").prop("checked", true);
+                    } else if (response[index].vcCreativeHobbies == "Dancing") {
+                        $("#CreatvieHobieschk2").prop("checked", true);
+                    } else if (response[index].vcCreativeHobbies == "Fashion & Style") {
+                        $("#CreatvieHobieschk3").prop("checked", true);
+                    } else if (response[index].vcCreativeHobbies == "Acting") {
+                        $("#CreatvieHobieschk4").prop("checked", true);
+                    } else if (response[index].vcCreativeHobbies == "Handy Craft") {
+                        $("#CreatvieHobieschk5").prop("checked", true);
+                    } else if (response[index].vcCreativeHobbies == "Sewing") {
+                        $("#CreatvieHobieschk6").prop("checked", true);
+                    } else if (response[index].vcCreativeHobbies == "Music") {
+                        $("#CreatvieHobieschk7").prop("checked", true);
+                    } else if (response[index].vcCreativeHobbies == "Photography") {
+                        $("#CreatvieHobieschk8").prop("checked", true);
+                    } else if (response[index].vcCreativeHobbies == "Details in Writing") {
+                        $("#CreatvieHobieschk9").prop("checked", true);
+                    }
+                }
+            });
+        }
+
+        function FillCollectingHobbies()
+        {
+            var model = new Member();
+            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+            ajaxCall('registration/getCollectingHobbies', model, function(response) {
+                for (let index = 0; index < response.length; index++) {
+                    if (response[index].vcCollectingHobby == "Antiques") {
+                        $("#CollectingHobbieschk1").prop("checked", true);
+                    } else if (response[index].vcCollectingHobby == "Books / Magazines") {
+                        $("#CollectingHobbieschk2").prop("checked", true);
+                    } else if (response[index].vcCollectingHobby == "Collecting stamps") {
+                        $("#CollectingHobbieschk3").prop("checked", true);
+                    } else if (response[index].vcCollectingHobby == "Coins") {
+                        $("#CollectingHobbieschk4").prop("checked", true);
+                    } else if (response[index].vcCollectingHobby == "Details in Writing") {
+                        $("#CollectingHobbieschk5").prop("checked", true);
+                    }
+                }
+            });
+        }
+
+        function FillOutdoorsHobbies()
+        {
+            var model = new Member();
+            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+            ajaxCall('registration/getOutdoorsHobbies', model, function(response) {
+                for (let index = 0; index < response.length; index++) {
+                    if (response[index].vcOutdoorHobies == "Hiking") {
+                        $("#outdoorHobieschk1").prop("checked", true);
+                    } else if (response[index].vcOutdoorHobies == "Fishing") {
+                        $("#outdoorHobieschk2").prop("checked", true);
+                    } else if (response[index].vcOutdoorHobies == "Camping") {
+                        $("#outdoorHobieschk3").prop("checked", true);
+                    } else if (response[index].vcOutdoorHobies == "Bird-watching") {
+                        $("#outdoorHobieschk4").prop("checked", true);
+                    } else if (response[index].vcOutdoorHobies == "Gardening") {
+                        $("#outdoorHobieschk5").prop("checked", true);
+                    }else if (response[index].vcOutdoorHobies == "Nature") {
+                        $("#outdoorHobieschk6").prop("checked", true);
+                    }else if (response[index].vcOutdoorHobies == "Hunting") {
+                        $("#outdoorHobieschk7").prop("checked", true);
+                    }else if (response[index].vcOutdoorHobies == "Driving") {
+                        $("#outdoorHobieschk8").prop("checked", true);
+                    }else if (response[index].vcOutdoorHobies == "Shopping") {
+                        $("#outdoorHobieschk9").prop("checked", true);
+                    }else if (response[index].vcOutdoorHobies == "Travel / Sight seeing") {
+                        $("#outdoorHobieschk10").prop("checked", true);
+                    }else if (response[index].vcOutdoorHobies == "Details in Writing") {
+                        $("#outdoorHobieschk11").prop("checked", true);
+                    }
+                }
+            });
+        }
+
+        function FillDomesticHobbies()
+        {
+            var model = new Member();
+            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+            ajaxCall('registration/getDomesticHobbies', model, function(response) {
+                for (let index = 0; index < response.length; index++) {
+                    if (response[index].vcdomesticHobbies == "Knitting") {
+                        $("#domesticHobbieschk1").prop("checked", true);
+                    } else if (response[index].vcdomesticHobbies == "Pets") {
+                        $("#domesticHobbieschk2").prop("checked", true);
+                    } else if (response[index].vcdomesticHobbies == "Cooking") {
+                        $("#domesticHobbieschk3").prop("checked", true);
+                    } else if (response[index].vcdomesticHobbies == "Spending time with family") {
+                        $("#domesticHobbieschk4").prop("checked", true);
+                    } else if (response[index].vcdomesticHobbies == "Sports indoor") {
+                        $("#domesticHobbieschk5").prop("checked", true);
+                    }else if (response[index].vcdomesticHobbies == "Home interior decoration") {
+                        $("#domesticHobbieschk6").prop("checked", true);
+                    }else if (response[index].vcdomesticHobbies == "Details in Writing") {
+                        $("#domesticHobbieschk7").prop("checked", true);
+                    }
+                }
+            });
+        }
+
 
         // manage range slider start
         //slider openness to experiance
