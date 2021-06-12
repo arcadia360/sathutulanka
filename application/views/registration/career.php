@@ -114,7 +114,7 @@
           $("#city").val(response.intCityIdWorkingIn);
           $("#country").val(response.intWorkingCountryID);
           $("#describeCareer").val(response.vcDescribeCareer);
-          
+
         }
       });
 
@@ -284,27 +284,29 @@
 
     //load Working as sub category
     $('#WorkingAsMainCat').change(function() {
-      var WorkingAsMainCatId = $('#WorkingAsMainCat').val()
-      $.ajax({
-        type: 'POST',
-        url: '<?php echo base_url(); ?>Registration/loadWorkingAsSubCat',
-        async: false,
-        dataType: 'json',
-        data: {
-          'WorkingAsMainCatId': WorkingAsMainCatId
-        },
-        success: function(data) {
-          if (!data) {
-            toastr["error"]("<?= 'Working as sub category ' . lang('dataCannotRetrieve') ?>");
-          } else {
-            $('#workingAsSubCat').html(data);;
-            $('#workingAsSubCat').val(0);
+      if ($('#WorkingAsMainCat').val() != 0 && $('#WorkingAsMainCat').val() != null) {
+        var WorkingAsMainCatId = $('#WorkingAsMainCat').val()
+        $.ajax({
+          type: 'POST',
+          url: '<?php echo base_url(); ?>Registration/loadWorkingAsSubCat',
+          async: false,
+          dataType: 'json',
+          data: {
+            'WorkingAsMainCatId': WorkingAsMainCatId
+          },
+          success: function(data) {
+            if (!data) {
+              toastr["error"]("<?= 'Working as sub category ' . lang('dataCannotRetrieve') ?>");
+            } else {
+              $('#workingAsSubCat').html(data);;
+              $('#workingAsSubCat').val(0);
+            }
+          },
+          error: function() {
+            toastr["error"]("<?= 'Working as sub category ' . lang('dataCannotRetrieve') . ' Connection Error' ?>");
           }
-        },
-        error: function() {
-          toastr["error"]("<?= 'Working as sub category ' . lang('dataCannotRetrieve') . ' Connection Error' ?>");
-        }
-      });
+        });
+      }
     });
     loadDistricts();
 
