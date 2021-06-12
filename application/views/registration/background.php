@@ -102,31 +102,31 @@
 <script>
   $(function() {
 
-    // var Member = function() {
-    //   this.MemberID = 0;
-    // }
-    // var model = new Member();
-    // model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+    var Member = function() {
+      this.MemberID = 0;
+    }
+    var model = new Member();
+    model.MemberID = (<?= $this->session->userdata('member_id') ?>);
 
-    // ajaxCall('registration/getMemberData', model, function(response) {
-    //   if (response.vcMotherTounge != null) {
-    //     $("#motherTongue").val(response.vcMotherTounge);
-    //     $("#ethnicity").val(response.vcEthnicity);
-    //     $('#religion').val(response.vcReligion);
-    //     $("#caste").val(response.intCasteID);
-    //     $('#caste').trigger('change');
-    //     $('#subCaste').val(response.intSubCasteId);
-    //     $('#subCaste').trigger('change');
-    //     isPoliceReportCanProvide = (response.isPoliceReportCanProvide);
-    //     if (isPoliceReportCanProvide == 1) {
-    //       document.getElementById("policeReport1").checked = true;
-    //     } else {
-    //       document.getElementById("policeReport2").checked = true;
-    //     }
-    //   }
+    ajaxCall('registration/getMemberData', model, function(response) {
+      if (response.intMotherTongueID != null) {
+        $("#motherTongue").val(response.intMotherTongueID);
+        $("#ethnicity").val(response.intEthnicityID);
+        $('#religion').val(response.intReligionID);
+        $("#caste").val(response.intCasteID);
+        $('#caste').trigger('change');
+        $('#subCaste').val(response.intSubCasteId);
+        $('#subCaste').trigger('change');
+        isPoliceReportCanProvide = (response.isPoliceReportCanProvide);
+        if (isPoliceReportCanProvide == 1) {
+          document.getElementById("policeReport1").checked = true;
+        } else {
+          document.getElementById("policeReport2").checked = true;
+        }
+      }
 
 
-    // });
+    });
 
 
 
