@@ -77,6 +77,57 @@ class Registration extends Admin_Controller
 		echo json_encode($data);
 	}
 
+	public function getEnrichmentHobbies()
+	{
+		$MemberID =  $this->input->post('MemberID');
+		$data = $this->Model_registration->getEnrichmentHobbies($MemberID);
+		echo json_encode($data);
+	}
+
+	public function getSportsActivities()
+	{
+		$MemberID =  $this->input->post('MemberID');
+		$data = $this->Model_registration->getSportsActivities($MemberID);
+		echo json_encode($data);
+	}
+
+	public function getCreativeHobbies()
+	{
+		$MemberID =  $this->input->post('MemberID');
+		$data = $this->Model_registration->getCreativeHobbies($MemberID);
+		echo json_encode($data);
+	}
+
+	public function getCollectingHobbies()
+	{
+		$MemberID =  $this->input->post('MemberID');
+		$data = $this->Model_registration->getCollectingHobbies($MemberID);
+		echo json_encode($data);
+	}
+	
+	public function getOutdoorsHobbies()
+	{
+		$MemberID =  $this->input->post('MemberID');
+		$data = $this->Model_registration->getOutdoorsHobbies($MemberID);
+		echo json_encode($data);
+	}
+
+	public function getDomesticHobbies()
+	{
+		$MemberID =  $this->input->post('MemberID');
+		$data = $this->Model_registration->getDomesticHobbies($MemberID);
+		echo json_encode($data);
+	}
+	
+
+	public function getSocialActivites()
+	{
+		$MemberID =  $this->input->post('MemberID');
+		$data = $this->Model_registration->getSocialActivites($MemberID);
+		echo json_encode($data);
+	}
+	
+
 	public function addPhysicalStatus()
 	{
 		$response = array();
@@ -1039,7 +1090,7 @@ class Registration extends Admin_Controller
 			$html = "<option value=" . 0 . " >" . 'Select' . "</option>";
 			if ($result) {
 				foreach ($result as $residenceStatus) {
-					$html .= "<option value=" . $residenceStatus->vcResidenceStatus . " >" . $residenceStatus->vcResidenceStatus  . "</option>";
+					$html .= "<option value=" . $residenceStatus->intResidenceStatusID . " >" . $residenceStatus->vcResidenceStatus  . "</option>";
 				}
 				echo json_encode($html);
 			}
