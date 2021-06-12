@@ -740,10 +740,14 @@ class Model_registration extends CI_Model
 
     $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
-    if ($this->db->affected_rows() > 0) {
+    if ($this->db->affected_rows() == 1) {
       return true;
     } else {
-      return false;
+      if (7 <= $NoOfSubmitedForm) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
