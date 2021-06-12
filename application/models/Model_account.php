@@ -9,8 +9,7 @@ class Model_account extends CI_Model
 
   public function getMemberData($UserID)
   {
-    $sql = "
-		    SELECT 
+    $sql = "SELECT  
             M.intMemberID, 
             M.vcMemberCode,
             M.vcNickName, 
@@ -34,13 +33,13 @@ class Model_account extends CI_Model
             M.intDisabilityID, 
             M.vcBloodGroup, 
             M.isHealthInfo, 
-            M.vcMotherTounge, 
-            M.vcEthnicity, 
-            vcReligion, 
+            MT.vcMotherTongueName AS vcMotherTounge, 
+            ET.vcEthnicityName AS vcEthnicity, 
+            RE.vcReligion, 
             M.isPoliceReportCanProvide,
             WW.vcWorkingWith,
             WASC.vcWorkingAsSubCat,
-            M.vcDiet,
+            DT.vcDietName AS vcDiet,
             M.vcDrink,
             M.vcSmoke,
             M.vcDressAndMakeup,
@@ -63,9 +62,9 @@ class Model_account extends CI_Model
             M.intLoveAffairs,
             M.intimportanceVirginity,
             IFNULL(CASE WHEN (SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) = '' THEN
-            	WASC.vcWorkingAsSubCat 
+              WASC.vcWorkingAsSubCat 
               ELSE 
-            	(SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) END, WW.vcWorkingWith) 
+              (SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) END, WW.vcWorkingWith) 
             AS vcWorkingAsSubCat_Customised,
             MAS.intMemberAccountStatusID,       
             MAS.vcMemberAccountStatus,            
@@ -78,12 +77,16 @@ class Model_account extends CI_Model
             M.intCountryId,
             M.vcAddOfSriLanka,
             M.intNativeDistrictId,
-            M.vcMotherTounge,
             CS.intCasteID,
             CT.vcCityName,
             M.vcNic,
             M.vcGuardianContact,
-            M.vcPremanentAddress
+            M.vcPremanentAddress,
+            M.intResidenceStatusID,
+            M.intEthnicityID,
+            M.intReligionID,
+            M.intMotherTongueID,
+            M.intDietID
           FROM 
             Member AS M
             LEFT OUTER JOIN WorkingWith          AS WW   ON M.intWorkingWithID = WW.intWorkingWithID
@@ -93,6 +96,12 @@ class Model_account extends CI_Model
             LEFT OUTER JOIN MaritalStatus        AS MS   ON M.intMaritalStatusID = MS.intMaritalStatusID
             LEFT OUTER JOIN city AS CT ON  M.intCityIdIfLiveInSL = CT.intCityID
             LEFT OUTER JOIN subcaste AS CS ON M.intSubCasteId = CS.intSubCasteId
+            LEFT OUTER JOIN mothertongue AS MT ON M.intMotherTongueID = MT.intMotherTongueID
+            LEFT OUTER JOIN ethnicity AS ET ON M.intEthnicityID = ET.intEthnicityID
+            LEFT OUTER JOIN religion AS RE ON M.intReligionID = RE.intReligionID
+            LEFT OUTER JOIN diet AS DT ON M.intDietID = DT.intDietID
+            LEFT OUTER JOIN disability AS DS ON M.intDisabilityID = DS.intDisabilityID
+            LEFT OUTER JOIN residencestatus AS RS ON M.intResidenceStatusID = RS.intResidenceStatusID
 
           WHERE 
             intMemberID = ? ";
