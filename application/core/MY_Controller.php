@@ -120,6 +120,7 @@ class Admin_Controller extends MY_Controller
 	public function CheckAndRedirectNextForm($lastSubmitFormNo = NULL)
 	{
 
+
 		if ($this->session->userdata('member_id')) {
 
 			$AccountStatusID = $this->session->userdata('member_account_status_id');
@@ -151,7 +152,7 @@ class Admin_Controller extends MY_Controller
 					} else if ($lastSubmittedFormNo == 10) {
 						redirect(base_url("Registration/AfterMarriage"), 'refresh');
 					} else if ($lastSubmittedFormNo == 11) {
-						redirect(base_url("Registration/Horoscope"), 'refresh');   
+						redirect(base_url("Registration/Horoscope"), 'refresh');
 					} else if ($lastSubmittedFormNo == 12) {
 						redirect(base_url("Registration/MyPhotosAndVideos"), 'refresh');
 					} else if ($lastSubmittedFormNo == 13) {
@@ -161,11 +162,11 @@ class Admin_Controller extends MY_Controller
 					} else if ($lastSubmittedFormNo == 15) {
 						redirect(base_url("Registration/PartnerPreferences"), 'refresh');
 					} else {
-						$this->session->set_flashdata('errors', 'Last submitted form redirection error, Please contact service provider !');
-						$this->load->view(base_url("Welcome"), $this->data);
+						$this->session->sess_destroy();
+						redirect(base_url("Welcome"), 'refresh');
 					}
 				}
-			} else if ($AccountStatusID  == 4 || $AccountStatusID == 5 || $AccountStatusID ==6 || $AccountStatusID == 7) { 	// Completed Account / Account Review Pending / Account Reviewed / Account Review Rejected
+			} else if ($AccountStatusID  == 4 || $AccountStatusID == 5 || $AccountStatusID == 6 || $AccountStatusID == 7) { 	// Completed Account / Account Review Pending / Account Reviewed / Account Review Rejected
 				redirect(base_url("Account/AllSingles"), 'refresh');
 			}
 		} else {
