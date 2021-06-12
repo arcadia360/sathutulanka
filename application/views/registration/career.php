@@ -91,6 +91,41 @@
 
 <script>
   $(function() {
+
+    FillCareerData();
+
+    function FillCareerData() {
+      var Member = function() {
+        this.MemberID = 0;
+      }
+      var model = new Member();
+      model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+
+      ajaxCall('registration/getMemberData', model, function(response) {
+        if (response.intWorkingWithId != null) {
+          $("#workingWith").val(response.intWorkingWithId);
+          $('#workingWith').trigger('change');
+          $("#WorkingAsMainCat").val(response.intWorkingAsSubCatId);
+          $('#WorkingAsMainCat').trigger('change');
+          $("#workingAsSubCat").val(response.intWorkingAsSubCatId);
+          $('#workingAsSubCat').trigger('change');
+          $("#workingLocation").val(response.vcWorkingLocation);
+          $("#district").val(response.intCityIdWorkingIn);
+          $("#city").val(response.intCityIdWorkingIn);
+          $("#country").val(response.intWorkingCountryID);
+          $("#describeCareer").val(response.vcDescribeCareer);
+          
+        }
+      });
+
+    }
+
+
+
+
+
+
+
     loadWorkingWith();
     loadWorkingAsMainCat();
     loadCountries();
