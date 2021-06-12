@@ -31,7 +31,8 @@
       <div class="offset-lg-2 col-lg-8 col-md-12 col-sm-12 border rounded main-section">
         <h3 class="text-center text-inverse title">Partner Preferences</h3>
         <hr>
-        <form method="post" action="<?= base_url('Registration/#') ?>" id="#">
+        <form method="post" action="<?= base_url('Registration/addPartnerPreference') ?>" id="addPartnerPreference">
+
 
           <div class="row">
             <div class="col-12">
@@ -40,7 +41,7 @@
               </div>
               <h6 class="font-weight-bold">Age</h6>
               <div data-role="rangeslider">
-                <p style="color:#616161; font-size:0.8em">Min <span id="ageStart">23</span> years <span style="float:right;">Max <span id="ageEnd">68</span> years</span> </p>
+                <p style="color:#616161; font-size:0.8em">Min <span id="ageStart">23</span> years <span style="float:right;">Max <span id="ageEnd">63</span> years</span> </p>
                 <div id="slider-range-age"></div>
               </div>
               <div class="text-al-center">
@@ -71,7 +72,7 @@
               </div>
               <h6 class="font-weight-bold">Height</h6>
               <div data-role="rangeslider">
-                <p style="color:#616161; font-size:0.8em">Min <span id="heightStart">4'5"</span> <span style="float:right;">Max <span id="heightEnd">7'0"</span> </span> </p>
+                <p style="color:#616161; font-size:0.8em">Min <span id="heightStart">5'0"</span> <span style="float:right;">Max <span id="heightEnd">6'8"</span> </span> </p>
                 <div id="slider-range-Height"></div>
               </div>
               <div class="text-al-center">
@@ -89,7 +90,7 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="MartialStatusDrp" multiple="multiple" class="form-control">
+                <select id="MartialStatusDrp" name="MartialStatusDrp[]" multiple="multiple" class="form-control">
                 </select>
               </div>
             </div>
@@ -115,7 +116,7 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="NoOfChildrenDrp" multiple="multiple" class="form-control">
+                <select id="NoOfChildrenDrp" name="NoOfChildrenDrp[]" multiple="multiple" class="form-control">
                 </select>
               </div>
             </div>
@@ -140,7 +141,7 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="ReligionDrp" multiple="multiple" class="form-control">
+                <select id="ReligionDrp" name="ReligionDrp[]" multiple="multiple" class="form-control">
                 </select>
               </div>
             </div>
@@ -165,7 +166,7 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="EthnicityDrp" multiple="multiple" class="form-control">
+                <select id="EthnicityDrp" name="EthnicityDrp[]" multiple="multiple" class="form-control">
                 </select>
               </div>
             </div>
@@ -190,7 +191,7 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="motherToungeDrp" multiple="multiple" class="form-control">
+                <select id="motherToungeDrp" name="motherToungeDrp[]" multiple="multiple" class="form-control">
                 </select>
               </div>
             </div>
@@ -215,7 +216,7 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="LiveInSriLankaDrp" multiple="multiple" class="form-control">
+                <select id="LiveInSriLankaDrp" name="LiveInSriLankaDrp[]" multiple="multiple" class="form-control">
                 </select>
               </div>
             </div>
@@ -240,7 +241,10 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="EducationLevelDrp" multiple="multiple" class="form-control">
+                <select id="EducationLevelDrp" name="EducationLevelDrp[]" multiple="multiple" class="form-control">
+                  <option value="1">With Degree</option>
+                  <option value="2">Up to A/L</option>
+                  <option value="3">Up to O/L</option>
                 </select>
               </div>
             </div>
@@ -265,7 +269,7 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="CareerLevelDrp" multiple="multiple" class="form-control">
+                <select id="CareerLevelDrp" name="CareerLevelDrp[]" multiple="multiple" class="form-control">
                 </select>
               </div>
             </div>
@@ -290,11 +294,11 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="MonthlyIncomeDrp" multiple="multiple" class="form-control">
-                  <option value="None to 75000">None to 75000</option>
-                  <option value="75000 to 150000">75000 to 150000</option>
-                  <option value="150000 to 250000">150000 to 250000</option>
-                  <option value="Over 250000">Over 250000</option>
+                <select id="MonthlyIncomeDrp" name="MonthlyIncomeDrp[]" multiple="multiple" class="form-control">
+                  <option value="1">None to 75000</option>
+                  <option value="2">75000 to 150000</option>
+                  <option value="3">150000 to 250000</option>
+                  <option value="4">Over 250000</option>
                 </select>
               </div>
             </div>
@@ -319,11 +323,11 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="AssetValueDrp" multiple="multiple" class="form-control">
-                  <option value="None to 500000">None to 500000</option>
-                  <option value="500000 to 2.5 M">500000 to 2.5 M</option>
-                  <option value="2.5 M to 7.5M">2.5 M to 7.5M</option>
-                  <option value="Over 7.5M">Over 7.5M</option>
+                <select id="AssetValueDrp" name="AssetValueDrp[]" multiple="multiple" class="form-control">
+                  <option value="1">None to 500000</option>
+                  <option value="2">500000 to 2.5 M</option>
+                  <option value="3">2.5 M to 7.5M</option>
+                  <option value="4">Over 7.5M</option>
                 </select>
               </div>
             </div>
@@ -348,7 +352,7 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="AnyDisabilityDrp" multiple="multiple" class="form-control">
+                <select id="AnyDisabilityDrp" name="AnyDisabilityDrp[]" multiple="multiple" class="form-control">
 
                 </select>
               </div>
@@ -374,7 +378,7 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="DietDrp" multiple="multiple" class="form-control">
+                <select id="DietDrp" name="DietDrp[]" multiple="multiple" class="form-control">
 
                 </select>
               </div>
@@ -392,11 +396,17 @@
             </div> -->
           </div>
 
-
+          <hr>
+          <div class="row">
+            <div class="col-12">
+              <button class="btn btn-info" id="btnBack" type="button"><i class="fas fa-angle-double-left"></i> &nbsp; BACK</button>
+              <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i></button>
+            </div>
+          </div>
 
       </div>
 
-      <hr>
+
       </form>
     </div>
   </div>
@@ -412,10 +422,96 @@
     LoadEthnicityData();
     LoadMotherToungeData();
     LoadLiveInSriLankaData();
-    LoadEducationLevelData();
     LoadCareerLevelData();
     LoadAnyDisabilityData();
     LoadDietData();
+
+    $('#btnSubmit').click(function() {
+      // if ($('#MartialStatusDrp').val() == 0) {
+      //   toastr["error"]("Please select Martial Status !");
+      //   $("#MartialStatusDrp").focus();
+      // } else if ($('#NoOfChildrenDrp').val() == 0) {
+      //   toastr["error"]("Please select Children !");
+      //   $("#NoOfChildrenDrp").focus();
+      // } else if ($('#ReligionDrp').val() == 0) {
+      //   toastr["error"]("Please select Religion !");
+      //   $("#ReligionDrp").focus();
+      // } else if ($('#motherToungeDrp').val() == 0) {
+      //   toastr["error"]("Please select Mother Tounge !");
+      //   $("#motherToungeDrp").focus();
+      // } else if ($('#LiveInSriLankaDrp').val() == 0) {
+      //   toastr["error"]("Please select Live in Sri Lanka !");
+      //   $("#LiveInSriLankaDrp").focus();
+      // } else if ($('#EducationLevelDrp').val() == 0) {
+      //   toastr["error"]("Please select Education Level!");
+      //   $("#EducationLevelDrp").focus();
+      // } else if ($('#CareerLevelDrp').val() == 0) {
+      //   toastr["error"]("Please select Career Level !");
+      //   $("#CareerLevelDrp").focus();
+      // } else if ($('#MonthlyIncomeDrp').val() == 0) {
+      //   toastr["error"]("Please select Monthly Income !");
+      //   $("#MonthlyIncomeDrp").focus();
+      // } else if ($('#AssetValueDrp').val() == 0) {
+      //   toastr["error"]("Please select Asset Value !");
+      //   $("#AssetValueDrp").focus();
+      // } else if ($('#AnyDisabilityDrp').val() == 0) {
+      //   toastr["error"]("Please select Any Disability !");
+      //   $("#AnyDisabilityDrp").focus();
+      // } else if ($('#DietDrp').val() == 0) {
+      //   toastr["error"]("Please select Diet !");
+      //   $("#DietDrp").focus();
+      // } else {
+      let memberPreferedFromAge = $("#slider-range-age").slider("values", 0);
+      let memberPreferedToAge = $("#slider-range-age").slider("values", 1);
+      let memberPreferedFromHeight = toInches($('#slider-range-Height').slider("values", 0));
+      let memberPreferedToHeight = toInches($('#slider-range-Height').slider("values", 1));
+
+
+      var form = $("#addPartnerPreference");
+      $.ajax({
+        type: form.attr('method'),
+        url: form.attr('action'),
+        data: form.serialize() + '&' + 'memberPreferedFromAge=' + memberPreferedFromAge + '&' + 'memberPreferedToAge=' + memberPreferedToAge + '&' + 'memberPreferedFromHeight=' + memberPreferedFromHeight + '&' + 'memberPreferedToHeight=' + memberPreferedToHeight,
+        dataType: 'json',
+        success: function(response) {
+          if (response.success == true) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Partner preference saved successfully !',
+              showConfirmButton: false,
+              timer: 2000
+            }).then((result) => {
+              if (result.dismiss === Swal.DismissReason.timer) {
+                // window.location.href = "<?= base_url('Registration/WhoAmI') ?>";
+              }
+            })
+
+          } else {
+            if (response.messages instanceof Object) {
+              $.each(response.messages, function(index, value) {
+                var id = $("#" + index);
+                id.closest('.form-group')
+                  .removeClass('has-error')
+                  .removeClass('has-success')
+                  .addClass(value.length > 0 ? 'has-error' : 'has-success');
+                id.after(value);
+              });
+            } else {
+              toastr["error"](response.messages);
+              $(button).prop('disabled', false);
+            }
+          }
+        },
+        error: function() {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Internal Server Error! Please contact system administrator.',
+          })
+        }
+      });
+      // }
+    });
 
     function LoadMaritalStatusData() {
       $.ajax({
@@ -493,7 +589,7 @@
           }
         },
         error: function() {
-          alert('Internal error Failed to load Religion Data');
+          toastr["error"]("Internal error Failed to load Religion Data");
         }
       });
     }
@@ -518,7 +614,7 @@
           }
         },
         error: function() {
-          alert('Internal error Failed to load Ethnicity Data');
+          toastr["error"]('Internal error Failed to load Ethnicity Data');
         }
       });
     }
@@ -543,7 +639,8 @@
           }
         },
         error: function() {
-          alert('Internal error Failed to load mother tounge data');
+          toastr["error"]('Internal error Failed to load mother tounge data');
+
         }
       });
     }
@@ -568,35 +665,18 @@
           }
         },
         error: function() {
-          alert('Internal error Failed to load live in Sri Lanka data');
+          toastr["error"]('Internal error Failed to load live in Sri Lanka data');
+
         }
       });
     }
 
-    function LoadEducationLevelData() {
-      $.ajax({
-        type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/LoadEducationLevelData',
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-          if (!data) {
-            toastr["error"]("Failed to load education level data");
-          } else {
-            $('#EducationLevelDrp').html(data);
-            $('#EducationLevelDrp').multiselect({
-              includeSelectAllOption: true,
-              selectAllValue: 0,
-              buttonWidth: '100%'
-            });
+    $('#EducationLevelDrp').multiselect({
+      includeSelectAllOption: true,
+      selectAllValue: 0,
+      buttonWidth: '100%'
+    });
 
-          }
-        },
-        error: function() {
-          alert('Internal error Failed load education level data');
-        }
-      });
-    }
 
     function LoadCareerLevelData() {
       $.ajax({
@@ -618,7 +698,8 @@
           }
         },
         error: function() {
-          alert('Internal error Failed to load career level data');
+          toastr["error"]('Internal error Failed to load career level data');
+
         }
       });
     }
@@ -654,7 +735,8 @@
           }
         },
         error: function() {
-          alert('Internal error Failed load any disability data');
+          toastr["error"]('Internal error Failed load any disability data');
+
         }
       });
     }
@@ -678,7 +760,8 @@
           }
         },
         error: function() {
-          alert('Internal error Failed load diet data');
+          toastr["error"]('Internal error Failed load diet data');
+
         }
       });
     }
@@ -726,7 +809,6 @@
           let heightEnd = ui.values[1];
           let heightMidValue = heightEnd - heightStart;
           if (heightMidValue <= 4.8) {
-
             return false;
           } else {
             $('#heightStart').text(toInches(ui.values[0]));
