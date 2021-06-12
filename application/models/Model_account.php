@@ -86,7 +86,16 @@ class Model_account extends CI_Model
             M.intEthnicityID,
             M.intReligionID,
             M.intMotherTongueID,
-            M.intDietID
+            M.intDietID,
+            M.intEducationLevelID,
+            M.intEducationFieldID,
+            M.vcSclUniDescription,
+            M.vcDescribeCareer,
+            M.intWorkingWithId,
+            M.intWorkingAsSubCatId,
+            M.vcWorkingLocation,
+            M.intCityIdWorkingIn,
+            M.intWorkingCountryID
           FROM 
             Member AS M
             LEFT OUTER JOIN WorkingWith          AS WW   ON M.intWorkingWithID = WW.intWorkingWithID
