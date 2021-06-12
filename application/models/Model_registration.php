@@ -77,7 +77,7 @@ class Model_registration extends CI_Model
 
   public function getEnrichmentHobbies($MemberID)
   {
-    $sql ="SELECT vcEnrichmentHobby, intMID
+    $sql = "SELECT vcEnrichmentHobby, intMID
     FROM enrichmenthobbies
     WHERE intMID = ? ";
     $query = $this->db->query($sql, array($MemberID));
@@ -86,7 +86,7 @@ class Model_registration extends CI_Model
 
   public function getSportsActivities($MemberID)
   {
-    $sql ="SELECT vcSportsPhysicalActivities, intMID
+    $sql = "SELECT vcSportsPhysicalActivities, intMID
     FROM sportsphysicalactivities
     WHERE intMID = ? ";
     $query = $this->db->query($sql, array($MemberID));
@@ -95,7 +95,7 @@ class Model_registration extends CI_Model
 
   public function getCreativeHobbies($MemberID)
   {
-    $sql ="SELECT vcCreativeHobbies, intMID
+    $sql = "SELECT vcCreativeHobbies, intMID
     FROM creativehobbies
     WHERE intMID = ? ";
     $query = $this->db->query($sql, array($MemberID));
@@ -104,7 +104,7 @@ class Model_registration extends CI_Model
 
   public function getCollectingHobbies($MemberID)
   {
-    $sql ="SELECT vcCollectingHobby, intMID
+    $sql = "SELECT vcCollectingHobby, intMID
     FROM collectinghobbies
     WHERE intMID = ? ";
     $query = $this->db->query($sql, array($MemberID));
@@ -113,7 +113,7 @@ class Model_registration extends CI_Model
 
   public function getOutdoorsHobbies($MemberID)
   {
-    $sql ="SELECT vcOutdoorHobies, intMID
+    $sql = "SELECT vcOutdoorHobies, intMID
     FROM outdoorhobies
     WHERE intMID = ? ";
     $query = $this->db->query($sql, array($MemberID));
@@ -122,23 +122,23 @@ class Model_registration extends CI_Model
 
   public function getDomesticHobbies($MemberID)
   {
-    $sql ="SELECT vcdomesticHobbies, intMID
+    $sql = "SELECT vcdomesticHobbies, intMID
     FROM domestichobbies
     WHERE intMID = ? ";
     $query = $this->db->query($sql, array($MemberID));
     return $query->result_array();
   }
-  
+
 
   public function getSocialActivites($MemberID)
   {
-    $sql ="SELECT vcSocialActivities, intMID
+    $sql = "SELECT vcSocialActivities, intMID
     FROM socialactivities
     WHERE intMID = ? ";
     $query = $this->db->query($sql, array($MemberID));
     return $query->result_array();
   }
-  
+
 
   public function loadDisabilityDetails()
   {
