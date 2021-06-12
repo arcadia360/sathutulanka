@@ -51,6 +51,27 @@
 	<script>
 		$(function() {
 
+			FillEducationData();
+
+			function FillEducationData() {
+				var Member = function() {
+					this.MemberID = 0;
+				}
+				var model = new Member();
+				model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+
+				ajaxCall('registration/getMemberData', model, function(response) {
+					if (response.intEducationLevelID != null) {
+						$("#EducationLevel").val(response.intEducationLevelID);
+						$('#EducationLevel').trigger('change');
+						$("#EducationField").val(response.intEducationFieldID);
+						$('#EducationField').trigger('change');
+						$("#vcSclUniDescription").val(response.vcSclUniDescription);
+					}
+				});
+
+			}
+
 			$('#btnBack').click(function() {
 				window.location.href = "<?php echo base_url('Registration/WhoAmI') ?>";
 			});
