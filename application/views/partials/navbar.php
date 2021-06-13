@@ -27,8 +27,6 @@
     <link rel='stylesheet' href='<?= base_url('resources/css/swiper_style.css') ?>'>
     <!-- UiKit CSS -->
     <!-- <link rel='stylesheet' href='https://getuikit.com/assets/uikit/dist/css/uikit.css?nc=868'> -->
-    <!-- Jquery 3.2  -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <style>
         #toast-container {
@@ -51,12 +49,20 @@
         }
     </style>
 
-    <!-- <script type="text/javascript">
-        $(function() {
-            alert("dd");
-            // toastr["error"]("Please fill in all fields !");
-        });
-    </script> -->
+    <!-- Jquery 3.2  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- toastr -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <!-- Select2 -->
+    <script src="<?= base_url('resources/js/select2.full.min.js') ?>"></script>
+    <!-- date-range-picker  -->
+    <script src="<?= base_url('resources/js/admin/daterangepicker.js') ?>"></script>
+    <!-- Common JS -->
+    <script src="<?= base_url("resources/js/common.js") ?>"></script>
+
+    <script>
+        var base_url = "<?php echo base_url(); ?>";
+    </script>
 
 <body>
 

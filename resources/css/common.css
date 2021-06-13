@@ -86,8 +86,7 @@ input[type="checkbox"]:checked+label:before {
 
 /* Profile  */
 
-.card-body input[type="text"]:disabled, 
-.card-body textarea:disabled {
+.card-body input[type="text"]:disabled, .card-body textarea:disabled {
     background: #ffffff !important;
     text-transform: capitalize !important;
 }
@@ -99,3 +98,89 @@ input[type="checkbox"]:checked+label:before {
 .card {
     border-radius: 0 !important;
 }
+
+/* Search Fields */
+
+.container-search {
+    box-shadow: 0 0.7px 2.2px rgba(0, 0, 0, 0.02), 0 1.7px 5.3px rgba(0, 0, 0, 0.028), 0 3.1px 10px rgba(0, 0, 0, 0.035), 0 5.6px 17.9px rgba(0, 0, 0, 0.042), 0 10.4px 33.4px rgba(0, 0, 0, 0.05), 0 25px 80px rgba(0, 0, 0, 0.07);
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;
+    border-radius: 20px 20px 20px 20px;
+    padding: 0 !important;
+}
+
+.txt-search {
+    /* background: #eee; */
+    -moz-border-radius: 20px 0px 0px 20px;
+    -webkit-border-radius: 20px 0px 0px 20px;
+    border-radius: 20px 0px 0px 20px;
+    border: 1px solid transparent !important;
+}
+
+.txt-search:focus {
+    background: #FFFFFF;
+}
+
+.txt-search::-webkit-input-placeholder {
+    color: #999;
+    font-size: 0.8em;
+}
+
+.txt-search:-moz-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.txt-search:-ms-input-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.btn-search {
+    border: 0;
+    cursor: pointer;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    background: #b52b4a;
+    -moz-border-radius: 0 20px 20px 0;
+    -webkit-border-radius: 0 20px 20px 0;
+    border-radius: 0 20px 20px 0;
+}
+
+.btn-search:hover {
+    background: #A12744;
+}
+
+.btn-search:focus {
+    box-shadow: none !important;
+}
+
+.btn-search:active {
+    background: #A12744 !important;
+}
+
+.btn-search:before {
+    content: '';
+    position: absolute;
+    border-width: 8px 8px 8px 0;
+    border-style: solid solid solid none;
+    border-color: transparent #b52b4a transparent;
+    top: 12px;
+    left: -6px;
+}
+
+.btn-search:hover:before {
+    border-right-color: #A12744;
+}
+
+.btn-advance-search {
+    color: #999999;
+    font-size: 0.8em;
+    font-weight: 600 !important;
+}
+
+.btn-advance-search:hover {
+    text-decoration: none;
