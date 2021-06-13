@@ -254,7 +254,7 @@ class Model_account extends CI_Model
             CASE WHEN M.intAssetValueID IN (1,2,3) THEN 7 ELSE 0 END+
             CASE WHEN M.intDisabilityID IN (1,2) THEN 7 ELSE 0 END+
             CASE WHEN M.intDietID IN (1,2) THEN 7 ELSE 0 END) AS ForMe,
-            fnGetPercentageForPartner(80,41,137,5,1,1,1,1,1,1,1,1,1,1) AS ForPartner,
+            IFNULL(fnGetPercentageForPartner(80,41,137,5,1,1,1,1,1,1,1,1,1,1),0) AS ForPartner,
             1 AS IsLiked,
             (SELECT COUNT(*) FROM MemberImage WHERE intMemberID = M.intMemberID) AS intImageCount
         FROM 
