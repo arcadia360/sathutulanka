@@ -226,7 +226,7 @@
              </ul>
          </div>
      </div>
-     <div class="row">
+     <!-- <div class="row"> -->
          <div class="search-area">
              <!-- <div class="searchX"> -->
              <!-- <div class="row"> -->
@@ -380,7 +380,7 @@
              <!-- </div> -->
              <!-- </div> -->
          </div>
-     </div>
+     <!-- </div> -->
      <div class="row">
 
      </div>
