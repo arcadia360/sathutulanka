@@ -158,6 +158,124 @@ class Model_account extends CI_Model
     return $query->row_array();
   }
 
+
+  public function getMyProfileMatchingDetils($member_id)
+  {
+
+    $sql = "
+        SELECT 
+          20 AS Age,
+          M.intHeight,
+          M.intMaritalStatusID,
+          M.intNoOfChildrenID,	
+          M.intReligionID,
+          M.intEthnicityID,
+          M.intMotherTongueID,
+          D.intProvinceID,
+          M.intEducationLevelID,
+          M.intMonthlyIncomeID,
+          M.intAssetValueID,
+          M.intDisabilityID,
+          M.intDietID,
+          M.intMemberPreferedAgeFrom,
+          M.intMemberPreferedAgeTo,
+          M.intMemberPreferedHeightFrom,
+          M.intMemberPreferedHeightTo
+        FROM Member AS M
+        INNER JOIN City         AS C 		ON M.intCityIdIfLiveInSL = C.intCityID
+	      INNER JOIN District     AS D 		ON C.intDistrictID = D.intDistrictID
+        WHERE M.intMemberID = ? ";
+
+    $query = $this->db->query($sql, array($member_id));
+    return $query->row_array();
+  }
+
+  public function getAllSinglesCount()
+  {
+    $gender = $this->session->userdata('gender');
+
+    $sql = "
+    SELECT 
+      COUNT(M.intMemberID) AS AllSinglesCount 
+    FROM Member AS M 
+    WHERE M.vcGender <> ? AND M.intMemberAccountStatusID IN (4,5,6)";
+    $query = $this->db->query($sql, array($gender));
+    return $query->row_array();
+  }
+
+  public function getPreferedMaritalStatus($member_id)
+  {
+    $sql = "
+    SELECT 
+      COUNT(M.intMemberID) AS AllSinglesCount 
+    FROM Member AS M 
+    WHERE M.vcGender <> ? AND M.intMemberAccountStatusID IN (4,5,6)";
+    $query = $this->db->query($sql, array($member_id));
+    return $query->row_array();
+  }
+
+
+  public function getMyMatches($member_id, $gender)
+  {
+
+    $details = $this->getMyProfileMatchingDetils($member_id);
+
+    $MemberPreferedAgeFrom = "A";
+    $MemberPreferedAgeTo = "B";
+
+
+    $sql = "
+          SELECT 
+            M.intMemberID,
+            M.vcMemberCode,
+            CONCAT(UPPER(SUBSTRING(M.vcNickName,1,1)),LOWER(SUBSTRING(M.vcNickName,2))) AS vcNickName,  
+            WW.vcWorkingWith,
+            WSC.vcWorkingAsSubCat, 
+            IFNULL(WSC.vcWorkingAsSubCat,WW.vcWorkingWith) AS MiniProfileDesignation,
+            M.intMemberAccountTypeID,
+            20 AS Age,
+            M.intHeight,
+            fnCmToFeet(M.intHeight) AS vcHightFeet,
+            E.vcEthnicityName,
+            R.vcReligion,
+            MS.vcMaritalStatus_en AS vcMaritalStatus,
+            EL.vcEducationLevel,    
+            (CASE WHEN 20 >= 10 AND 20 <= 20 THEN 7 ELSE 0 END +
+            CASE WHEN M.intHeight >= 10 AND M.intHeight <= 1500 THEN 7 ELSE 0 END +
+            CASE WHEN M.intMaritalStatusID IN (1,2,3,4,5 ) THEN 7 ELSE 0 END +
+            CASE WHEN M.intNoOfChildrenID IN (1,2,3) THEN 7 ELSE 0 END +
+            CASE WHEN M.intReligionID IN (1,2,3) THEN 7 ELSE 0 END +
+            CASE WHEN M.intEthnicityID IN (1,2,3) THEN 7 ELSE 0 END +
+            CASE WHEN M.intMotherTongueID IN (1,2,3) THEN 7 ELSE 0 END+
+            CASE WHEN P.intProvinceID IN (1,2,3) THEN 7 ELSE 0 END+
+            CASE WHEN M.intEducationLevelID IN (1,2,3) THEN 7 ELSE 0 END+
+            7+
+            CASE WHEN M.intMonthlyIncomeID IN (1,2,3) THEN 7 ELSE 0 END+
+            CASE WHEN M.intAssetValueID IN (1,2,3) THEN 7 ELSE 0 END+
+            CASE WHEN M.intDisabilityID IN (1,2) THEN 7 ELSE 0 END+
+            CASE WHEN M.intDietID IN (1,2) THEN 7 ELSE 0 END) AS ForMe,
+            fnGetPercentageForPartner(80,41,137,5,1,1,1,1,1,1,1,1,1,1) AS ForPartner,
+            1 AS IsLiked,
+            (SELECT COUNT(*) FROM MemberImage WHERE intMemberID = M.intMemberID) AS intImageCount
+        FROM 
+          Member AS M
+          INNER JOIN City 									AS C 		ON M.intCityIdIfLiveInSL = C.intCityID
+          INNER JOIN District 							AS D 		ON C.intDistrictID = D.intDistrictID
+          INNER JOIN Province 							AS P 		ON D.intProvinceID = P.intProvinceID    
+          INNER JOIN WorkingWith 						AS WW 	ON M.intWorkingWithId = WW.intWorkingWithId
+          LEFT OUTER JOIN WorkingAsSubCat 	AS WSC  ON M.intWorkingAsSubCatId = WSC.intWorkinAsMainCat    
+          INNER JOIN Ethnicity 							AS E 		ON M.intEthnicityID = E.intEthnicityID    
+          INNER JOIN Religion 							AS R 		ON M.intReligionID = R.intReligionID
+          INNER JOIN MaritalStatus 					AS MS 	ON M.intMaritalStatusID = MS.intMaritalStatusID  
+          INNER JOIN EducationLevel 				AS EL 	ON M.intEducationLevelID = EL.intEducationLevelID      
+        WHERE 
+          M.vcGender <> ?
+          AND M.intMemberAccountStatusID IN (4,5,6)";
+
+    $query = $this->db->query($sql, array($gender));
+    return $query->result_array();
+  }
+
   public function getMemberWiseLanguageSpeak($MemberID)
   {
     $sql = "
