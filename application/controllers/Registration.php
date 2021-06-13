@@ -1282,14 +1282,14 @@ class Registration extends Admin_Controller
 		// if ($this->form_validation->run() == TRUE) {
 		$this->load->model('Model_registration');
 		$result = $this->Model_registration->savePartnerPreference();
-		// if ($result == true) {
-		// 	$response['success'] = true;
-		// 	$session_data = array('no_of_submitted_form' => 16);
-		// 	$this->session->set_userdata($session_data);
-		// } else {
-		// 	$response['success'] = false;
-		// 	$response['messages'] = 'Error in the database while saving partner preferences. Please contact system administrator.';
-		// }
+		if ($result == true) {
+			$response['success'] = true;
+			$session_data = array('no_of_submitted_form' => 16);
+			$this->session->set_userdata($session_data);
+		} else {
+			$response['success'] = false;
+			$response['messages'] = 'Error in the database while saving partner preferences. Please contact system administrator.';
+		}
 		// } else {
 		// 	$response['success'] = false;
 		// 	foreach ($_POST as $key => $value) {
