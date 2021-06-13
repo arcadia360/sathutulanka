@@ -1286,6 +1286,45 @@ class Model_registration extends CI_Model
     }
   }
 
+  public function LoadSummerizedEducationLevelData()
+  {
+    $this->db->select('*');
+    $this->db->from('educationlevelsumerized');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadSummerizedMonthtlyIncomeData()
+  {
+    $this->db->select('*');
+    $this->db->from('monthlyincomesummerised');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadSummerizedAssetValuelData()
+  {
+    $this->db->select('*');
+    $this->db->from('assetvaluesummerised');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
   public function LoadAnyDisabilityData()
   {
     $this->db->select('*');
@@ -1307,6 +1346,139 @@ class Model_registration extends CI_Model
       return $query->result();
     } else {
       return false;
+    }
+  }
+  public function ftToCm($value)
+  {
+    $result =  str_replace("'", ".", $value);
+    $result =  str_replace('"', " ", $result);
+    return (int)$result * 30.48;
+  }
+
+  public function savePartnerPreference()
+  {
+
+    $userNameAndLastSubmitForm  = $this->getMidAndLastSubmitFrom();
+    $mid = $userNameAndLastSubmitForm['mid'];
+    $NoOfSubmitedForm = $userNameAndLastSubmitForm['noOfSubmittedForm'];
+
+    $MartialStatus = $this->input->post('MartialStatusDrp');
+    $NoOfChildren = $this->input->post('NoOfChildrenDrp');
+    $Religion = $this->input->post('ReligionDrp');
+    $Ethnicity = $this->input->post('EthnicityDrp');
+    $motherTounge = $this->input->post('motherToungeDrp');
+    $LiveInSriLanka = $this->input->post('LiveInSriLankaDrp');
+
+    $memberPreferedFromAge = $this->input->post('memberPreferedFromAge');
+    $memberPreferedToAge = $this->input->post('memberPreferedToAge');
+    $memberPreferedFromHeight  = $this->ftToCm($this->input->post('memberPreferedFromHeight'));
+    $memberPreferedToHeight  = $this->ftToCm($this->input->post('memberPreferedToHeight'));
+
+    if ($NoOfSubmitedForm == 16) {
+      $data = array(
+        'intMemberPreferedHeightFrom' => $memberPreferedFromHeight,
+        'intMemberPreferedHeightTo' => $memberPreferedToHeight,
+        'IntMemberPreferedAgeFrom' => $memberPreferedFromAge,
+        'IntMemberPreferedAgeTo' => $memberPreferedToAge
+      );
+    } else {
+      $data = array(
+        'intMemberPreferedHeightFrom' => $memberPreferedFromHeight,
+        'intMemberPreferedHeightTo' => $memberPreferedToHeight,
+        'IntMemberPreferedAgeFrom' => $memberPreferedFromAge,
+        'IntMemberPreferedAgeTo' => $memberPreferedToAge,
+      );
+    }
+    $this->db->trans_begin();
+
+    //insert Prefered Martial Status data
+    $memberpreferedmaritalstatus  = $this->db->query("select * from memberpreferedmaritalstatus where intMID ='$mid'");
+    if ($memberpreferedmaritalstatus->num_rows() > 0) {
+      $this->db->delete('memberpreferedmaritalstatus', array('intMID' => $mid));
+    }
+    for ($i = 0; $i < count($MartialStatus); $i++) {
+      $dataPreferedMartialStatusTb = array(
+        'intMaritalStatusID' => $MartialStatus[$i],
+        'intMID' => $mid
+      );
+      $this->db->insert('memberpreferedmaritalstatus', $dataPreferedMartialStatusTb);
+    }
+
+    //insert Prefered Children data
+    $memberpreferednoofchildren  = $this->db->query("select * from memberpreferednoofchildren where intMID ='$mid'");
+    if ($memberpreferednoofchildren->num_rows() > 0) {
+      $this->db->delete('memberpreferednoofchildren', array('intMID' => $mid));
+    }
+    for ($i = 0; $i < count($NoOfChildren); $i++) {
+      $dataPreferedOfChildrenTb = array(
+        'intNoOfChildrenID' => $NoOfChildren[$i],
+        'intMID' => $mid
+      );
+      $this->db->insert('memberpreferednoofchildren', $dataPreferedOfChildrenTb);
+    }
+
+    //insert Prefered Religion data
+    $memberpreferedreligion  = $this->db->query("select * from memberpreferedreligion where intMID ='$mid'");
+    if ($memberpreferedreligion->num_rows() > 0) {
+      $this->db->delete('memberpreferedreligion', array('intMID' => $mid));
+    }
+    for ($i = 0; $i < count($Religion); $i++) {
+      $dataPpreferedreligionTb = array(
+        'intReligionID' => $Religion[$i],
+        'intMID' => $mid
+      );
+      $this->db->insert('memberpreferedreligion', $dataPpreferedreligionTb);
+    }
+
+    //insert Prefered Ethnicity data
+    $memberpreferedethnicity  = $this->db->query("select * from memberpreferedethnicity where intMID ='$mid'");
+    if ($memberpreferedethnicity->num_rows() > 0) {
+      $this->db->delete('memberpreferedethnicity', array('intMID' => $mid));
+    }
+    for ($i = 0; $i < count($Ethnicity); $i++) {
+      $dataPpreferedEthnicityTb = array(
+        'intEthnicityID' => $Ethnicity[$i],
+        'intMID' => $mid
+      );
+      $this->db->insert('memberpreferedethnicity', $dataPpreferedEthnicityTb);
+    }
+
+    //insert Mother Tounge data
+    $memberpreferedmothertounge  = $this->db->query("select * from memberpreferedmothertounge where intMID ='$mid'");
+    if ($memberpreferedmothertounge->num_rows() > 0) {
+      $this->db->delete('memberpreferedmothertounge', array('intMID' => $mid));
+    }
+    for ($i = 0; $i < count($motherTounge); $i++) {
+      $dataPpreferedMotherToungeTb = array(
+        'intMotherToungeID' => $motherTounge[$i],
+        'intMID' => $mid
+      );
+      $this->db->insert('memberpreferedmothertounge', $dataPpreferedMotherToungeTb);
+    }
+
+    //insert Live in Sri Lanka data
+    $memberpreferedliveinsrilanka  = $this->db->query("select * from memberpreferedliveinsrilanka where intMID ='$mid'");
+    if ($memberpreferedliveinsrilanka->num_rows() > 0) {
+      $this->db->delete('memberpreferedliveinsrilanka', array('intMID' => $mid));
+    }
+    for ($i = 0; $i < count($LiveInSriLanka); $i++) {
+      $dataPpreferedLiveInSriLankaTb = array(
+        'IntProvinceId' => $LiveInSriLanka[$i],
+        'intMID' => $mid
+      );
+      $this->db->insert('memberpreferedliveinsrilanka', $dataPpreferedLiveInSriLankaTb);
+    }
+
+
+
+    $this->db->where('intMemberID', $mid);
+    $this->db->update('member', $data);
+    if ($this->db->trans_status() === FALSE) {
+      $this->db->trans_rollback();
+      return false;
+    } else {
+      $this->db->trans_commit();
+      return true;
     }
   }
 
