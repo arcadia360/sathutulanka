@@ -242,9 +242,7 @@
               </div>
               <div class="col-lg-6">
                 <select id="EducationLevelDrp" name="EducationLevelDrp[]" multiple="multiple" class="form-control">
-                  <option value="1">With Degree</option>
-                  <option value="2">Up to A/L</option>
-                  <option value="3">Up to O/L</option>
+
                 </select>
               </div>
             </div>
@@ -295,10 +293,7 @@
               </div>
               <div class="col-lg-6">
                 <select id="MonthlyIncomeDrp" name="MonthlyIncomeDrp[]" multiple="multiple" class="form-control">
-                  <option value="1">None to 75000</option>
-                  <option value="2">75000 to 150000</option>
-                  <option value="3">150000 to 250000</option>
-                  <option value="4">Over 250000</option>
+
                 </select>
               </div>
             </div>
@@ -324,10 +319,7 @@
               </div>
               <div class="col-lg-6">
                 <select id="AssetValueDrp" name="AssetValueDrp[]" multiple="multiple" class="form-control">
-                  <option value="1">None to 500000</option>
-                  <option value="2">500000 to 2.5 M</option>
-                  <option value="3">2.5 M to 7.5M</option>
-                  <option value="4">Over 7.5M</option>
+
                 </select>
               </div>
             </div>
@@ -425,6 +417,9 @@
     LoadCareerLevelData();
     LoadAnyDisabilityData();
     LoadDietData();
+    LoadSummerizedEducationLevelData();
+    LoadSummerizedMonthtlyIncomeData();
+    LoadSummerizedAssetValuelData();
 
     $('#btnSubmit').click(function() {
       // if ($('#MartialStatusDrp').val() == 0) {
@@ -671,12 +666,31 @@
       });
     }
 
-    $('#EducationLevelDrp').multiselect({
-      includeSelectAllOption: true,
-      selectAllValue: 0,
-      buttonWidth: '100%'
-    });
+    function LoadSummerizedEducationLevelData() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/LoadSummerizedEducationLevelData',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("Failed to load Education Level data");
+          } else {
+            $('#EducationLevelDrp').html(data);
+            $('#EducationLevelDrp').multiselect({
+              includeSelectAllOption: true,
+              selectAllValue: 0,
+              buttonWidth: '100%'
+            });
 
+          }
+        },
+        error: function() {
+          toastr["error"]('Internal error Failed to load Education Level data');
+
+        }
+      });
+    }
 
     function LoadCareerLevelData() {
       $.ajax({
@@ -704,11 +718,62 @@
       });
     }
 
-    $('#MonthlyIncomeDrp').multiselect({
-      includeSelectAllOption: true,
-      selectAllValue: 0,
-      buttonWidth: '100%'
-    });
+    //
+
+
+    function LoadSummerizedMonthtlyIncomeData() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/LoadSummerizedMonthtlyIncomeData',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("Failed to load Monthly Income data");
+          } else {
+            $('#MonthlyIncomeDrp').html(data);
+            $('#MonthlyIncomeDrp').multiselect({
+              includeSelectAllOption: true,
+              selectAllValue: 0,
+              buttonWidth: '100%'
+            });
+
+          }
+        },
+        error: function() {
+          toastr["error"]('Internal error,Failed to load Monthly Income data');
+
+        }
+      });
+    }
+
+    function LoadSummerizedAssetValuelData() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/LoadSummerizedAssetValuelData',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("Failed to load Asset Value data");
+          } else {
+            $('#AssetValueDrp').html(data);
+            $('#AssetValueDrp').multiselect({
+              includeSelectAllOption: true,
+              selectAllValue: 0,
+              buttonWidth: '100%'
+            });
+
+          }
+        },
+        error: function() {
+          toastr["error"]('Internal error Failed to load Asset Value data');
+
+        }
+      });
+    }
+
+
 
     $('#AssetValueDrp').multiselect({
       includeSelectAllOption: true,
