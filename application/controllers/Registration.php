@@ -104,7 +104,7 @@ class Registration extends Admin_Controller
 		$data = $this->Model_registration->getCollectingHobbies($MemberID);
 		echo json_encode($data);
 	}
-	
+
 	public function getOutdoorsHobbies()
 	{
 		$MemberID =  $this->input->post('MemberID');
@@ -118,7 +118,7 @@ class Registration extends Admin_Controller
 		$data = $this->Model_registration->getDomesticHobbies($MemberID);
 		echo json_encode($data);
 	}
-	
+
 
 	public function getSocialActivites()
 	{
@@ -126,7 +126,7 @@ class Registration extends Admin_Controller
 		$data = $this->Model_registration->getSocialActivites($MemberID);
 		echo json_encode($data);
 	}
-	
+
 
 	public function addPhysicalStatus()
 	{
@@ -1017,6 +1017,59 @@ class Registration extends Admin_Controller
 		}
 	}
 
+	public function LoadSummerizedEducationLevelData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadSummerizedEducationLevelData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $educationlevelsumerized) {
+					$html .= "<option value=" . $educationlevelsumerized->intEducationLevelSumerizedId . " >" . $educationlevelsumerized->vcEducationLevelSumerized  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
+	public function LoadSummerizedMonthtlyIncomeData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadSummerizedMonthtlyIncomeData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $monthlyincomesummerised) {
+					$html .= "<option value=" . $monthlyincomesummerised->intMonthlyIncomeSummerisedID . " >" . $monthlyincomesummerised->vcMonthlyIncomeSummerised  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+	public function LoadSummerizedAssetValuelData()
+	{
+		$result = '';
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadSummerizedAssetValuelData();
+		if (!$result) {
+			return false;
+		} else {
+			$html = null;
+			if ($result) {
+				foreach ($result as $assetvaluesummerised) {
+					$html .= "<option value=" . $assetvaluesummerised->intAssetvaluesummerisedID . " >" . $assetvaluesummerised->vcAssetvaluesummerised  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
 	public function LoadAnyDisabilityData()
 	{
 		$result = '';
@@ -1034,6 +1087,8 @@ class Registration extends Admin_Controller
 			}
 		}
 	}
+
+
 
 	public function LoadDietData()
 	{
@@ -1190,6 +1245,61 @@ class Registration extends Admin_Controller
 		$this->load->view('registration/horoscope');
 		$this->load->view('registration/footer');
 	}
+	public function addPartnerPreference()
+	{
+		// $maritialStatus = $this->input->post('MartialStatusDrp');
+		// for ($i = 0; $i < count($maritialStatus); $i++) {
+		// 	echo 	$maritialStatus[$i];
+		// }
+
+		// $memberPreferedFromAge = $this->input->post('memberPreferedFromAge');
+		// $memberPreferedToAge = $this->input->post('memberPreferedToAge');
+		// $memberPreferedFromHeight = $this->input->post('memberPreferedFromHeight');
+		// $memberPreferedToHeight = $this->input->post('memberPreferedToHeight');
+		// echo 	'seprate ' . $memberPreferedFromAge;
+		// echo 	'seprate ' . $memberPreferedToAge;
+		// echo 	'seprate ' . $memberPreferedFromHeight;
+		// echo 	'seprate ' . $memberPreferedToHeight;
+
+
+		$response = array();
+
+		// $this->form_validation->set_rules('MartialStatusDrp', 'Martial Status', 'required');
+		// $this->form_validation->set_rules('NoOfChildrenDrp', 'Children', 'required');
+		// $this->form_validation->set_rules('NoOfChildrenDrp', 'Children', 'required');
+		// $this->form_validation->set_rules('ReligionDrp', 'Religion', 'required');
+		// $this->form_validation->set_rules('EthnicityDrp', 'Ethnicity', 'required');
+		// $this->form_validation->set_rules('motherToungeDrp', 'Mother Tounge', 'required');
+		// $this->form_validation->set_rules('LiveInSriLankaDrp', 'Live In SriLanka', 'required');
+		// $this->form_validation->set_rules('EducationLevelDrp', 'Education Level', 'required');
+		// $this->form_validation->set_rules('CareerLevelDrp', 'Career Level', 'required');
+		// $this->form_validation->set_rules('MonthlyIncomeDrp', 'Monthly Income', 'required');
+		// $this->form_validation->set_rules('AssetValueDrp', 'Asset Value', 'required');
+		// $this->form_validation->set_rules('AnyDisabilityDrp', 'Any Disability', 'required');
+		// $this->form_validation->set_rules('DietDrp', 'Diet', 'required');
+		// $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+		// if ($this->form_validation->run() == TRUE) {
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->savePartnerPreference();
+		// if ($result == true) {
+		// 	$response['success'] = true;
+		// 	$session_data = array('no_of_submitted_form' => 16);
+		// 	$this->session->set_userdata($session_data);
+		// } else {
+		// 	$response['success'] = false;
+		// 	$response['messages'] = 'Error in the database while saving partner preferences. Please contact system administrator.';
+		// }
+		// } else {
+		// 	$response['success'] = false;
+		// 	foreach ($_POST as $key => $value) {
+		// 		$response['messages'][$key] = form_error($key);
+		// 	}
+		// }
+		echo json_encode($response);
+	}
+
+
 
 
 	// end dk section
