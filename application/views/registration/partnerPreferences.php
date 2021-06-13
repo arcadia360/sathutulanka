@@ -259,6 +259,32 @@
             </div> -->
           </div>
 
+          <div id="WorkingWith" class="marginTopPartnerP">
+            <div class="row">
+              <div class="col-lg-6 col-12">
+                <div class="form-group">
+                  <label class="text-inverse font-weight-bold" for="validationCustom02">Working With</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <select id="WorkingWithDrp" name="WorkingWithDrp[]" multiple="multiple" class="form-control">
+                </select>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="col-lg-2 col-md-3 col-12">
+                <p class="sm-text" for="">Restrict this contact</p>
+              </div>
+              <div class="col-lg-10 col-md-3 col-12">
+                <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" id="restrictMartialStatusBtn">
+                  <div class="handle"></div>
+                </button>
+                <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
+              </div>
+            </div> -->
+          </div>
+
+
           <div id="CareerLevel" class="marginTopPartnerP">
             <div class="row">
               <div class="col-lg-6 col-12">
@@ -420,92 +446,93 @@
     LoadSummerizedEducationLevelData();
     LoadSummerizedMonthtlyIncomeData();
     LoadSummerizedAssetValuelData();
+    LoadWorkingWithData();
 
     $('#btnSubmit').click(function() {
-      // if ($('#MartialStatusDrp').val() == 0) {
-      //   toastr["error"]("Please select Martial Status !");
-      //   $("#MartialStatusDrp").focus();
-      // } else if ($('#NoOfChildrenDrp').val() == 0) {
-      //   toastr["error"]("Please select Children !");
-      //   $("#NoOfChildrenDrp").focus();
-      // } else if ($('#ReligionDrp').val() == 0) {
-      //   toastr["error"]("Please select Religion !");
-      //   $("#ReligionDrp").focus();
-      // } else if ($('#motherToungeDrp').val() == 0) {
-      //   toastr["error"]("Please select Mother Tounge !");
-      //   $("#motherToungeDrp").focus();
-      // } else if ($('#LiveInSriLankaDrp').val() == 0) {
-      //   toastr["error"]("Please select Live in Sri Lanka !");
-      //   $("#LiveInSriLankaDrp").focus();
-      // } else if ($('#EducationLevelDrp').val() == 0) {
-      //   toastr["error"]("Please select Education Level!");
-      //   $("#EducationLevelDrp").focus();
-      // } else if ($('#CareerLevelDrp').val() == 0) {
-      //   toastr["error"]("Please select Career Level !");
-      //   $("#CareerLevelDrp").focus();
-      // } else if ($('#MonthlyIncomeDrp').val() == 0) {
-      //   toastr["error"]("Please select Monthly Income !");
-      //   $("#MonthlyIncomeDrp").focus();
-      // } else if ($('#AssetValueDrp').val() == 0) {
-      //   toastr["error"]("Please select Asset Value !");
-      //   $("#AssetValueDrp").focus();
-      // } else if ($('#AnyDisabilityDrp').val() == 0) {
-      //   toastr["error"]("Please select Any Disability !");
-      //   $("#AnyDisabilityDrp").focus();
-      // } else if ($('#DietDrp').val() == 0) {
-      //   toastr["error"]("Please select Diet !");
-      //   $("#DietDrp").focus();
-      // } else {
-      let memberPreferedFromAge = $("#slider-range-age").slider("values", 0);
-      let memberPreferedToAge = $("#slider-range-age").slider("values", 1);
-      let memberPreferedFromHeight = toInches($('#slider-range-Height').slider("values", 0));
-      let memberPreferedToHeight = toInches($('#slider-range-Height').slider("values", 1));
+      if ($('#MartialStatusDrp').val() == 0) {
+        toastr["error"]("Please select Martial Status !");
+        $("#MartialStatusDrp").focus();
+      } else if ($('#NoOfChildrenDrp').val() == 0) {
+        toastr["error"]("Please select Children !");
+        $("#NoOfChildrenDrp").focus();
+      } else if ($('#ReligionDrp').val() == 0) {
+        toastr["error"]("Please select Religion !");
+        $("#ReligionDrp").focus();
+      } else if ($('#motherToungeDrp').val() == 0) {
+        toastr["error"]("Please select Mother Tounge !");
+        $("#motherToungeDrp").focus();
+      } else if ($('#LiveInSriLankaDrp').val() == 0) {
+        toastr["error"]("Please select Live in Sri Lanka !");
+        $("#LiveInSriLankaDrp").focus();
+      } else if ($('#EducationLevelDrp').val() == 0) {
+        toastr["error"]("Please select Education Level!");
+        $("#EducationLevelDrp").focus();
+      } else if ($('#CareerLevelDrp').val() == 0) {
+        toastr["error"]("Please select Career Level !");
+        $("#CareerLevelDrp").focus();
+      } else if ($('#MonthlyIncomeDrp').val() == 0) {
+        toastr["error"]("Please select Monthly Income !");
+        $("#MonthlyIncomeDrp").focus();
+      } else if ($('#AssetValueDrp').val() == 0) {
+        toastr["error"]("Please select Asset Value !");
+        $("#AssetValueDrp").focus();
+      } else if ($('#AnyDisabilityDrp').val() == 0) {
+        toastr["error"]("Please select Any Disability !");
+        $("#AnyDisabilityDrp").focus();
+      } else if ($('#DietDrp').val() == 0) {
+        toastr["error"]("Please select Diet !");
+        $("#DietDrp").focus();
+      } else {
+        let memberPreferedFromAge = $("#slider-range-age").slider("values", 0);
+        let memberPreferedToAge = $("#slider-range-age").slider("values", 1);
+        let memberPreferedFromHeight = toInches($('#slider-range-Height').slider("values", 0));
+        let memberPreferedToHeight = toInches($('#slider-range-Height').slider("values", 1));
 
 
-      var form = $("#addPartnerPreference");
-      $.ajax({
-        type: form.attr('method'),
-        url: form.attr('action'),
-        data: form.serialize() + '&' + 'memberPreferedFromAge=' + memberPreferedFromAge + '&' + 'memberPreferedToAge=' + memberPreferedToAge + '&' + 'memberPreferedFromHeight=' + memberPreferedFromHeight + '&' + 'memberPreferedToHeight=' + memberPreferedToHeight,
-        dataType: 'json',
-        success: function(response) {
-          if (response.success == true) {
-            Swal.fire({
-              icon: 'success',
-              title: 'Partner preference saved successfully !',
-              showConfirmButton: false,
-              timer: 2000
-            }).then((result) => {
-              if (result.dismiss === Swal.DismissReason.timer) {
-                // window.location.href = "<?= base_url('Registration/WhoAmI') ?>";
-              }
-            })
+        var form = $("#addPartnerPreference");
+        $.ajax({
+          type: form.attr('method'),
+          url: form.attr('action'),
+          data: form.serialize() + '&' + 'memberPreferedFromAge=' + memberPreferedFromAge + '&' + 'memberPreferedToAge=' + memberPreferedToAge + '&' + 'memberPreferedFromHeight=' + memberPreferedFromHeight + '&' + 'memberPreferedToHeight=' + memberPreferedToHeight,
+          dataType: 'json',
+          success: function(response) {
+            if (response.success == true) {
+              Swal.fire({
+                icon: 'success',
+                title: 'Partner preference saved successfully !',
+                showConfirmButton: false,
+                timer: 2000
+              }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                  // window.location.href = "<?= base_url('Registration/WhoAmI') ?>";
+                }
+              })
 
-          } else {
-            if (response.messages instanceof Object) {
-              $.each(response.messages, function(index, value) {
-                var id = $("#" + index);
-                id.closest('.form-group')
-                  .removeClass('has-error')
-                  .removeClass('has-success')
-                  .addClass(value.length > 0 ? 'has-error' : 'has-success');
-                id.after(value);
-              });
             } else {
-              toastr["error"](response.messages);
-              $(button).prop('disabled', false);
+              if (response.messages instanceof Object) {
+                $.each(response.messages, function(index, value) {
+                  var id = $("#" + index);
+                  id.closest('.form-group')
+                    .removeClass('has-error')
+                    .removeClass('has-success')
+                    .addClass(value.length > 0 ? 'has-error' : 'has-success');
+                  id.after(value);
+                });
+              } else {
+                toastr["error"](response.messages);
+                $(button).prop('disabled', false);
+              }
             }
+          },
+          error: function() {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Internal Server Error! Please contact system administrator.',
+            })
           }
-        },
-        error: function() {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Internal Server Error! Please contact system administrator.',
-          })
-        }
-      });
-      // }
+        });
+      }
     });
 
     function LoadMaritalStatusData() {
@@ -691,6 +718,33 @@
         }
       });
     }
+
+    function LoadWorkingWithData() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/loadWorkingWith',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("Failed to load career level data");
+          } else {
+            $('#WorkingWithDrp').html(data);
+            $('#WorkingWithDrp').multiselect({
+              includeSelectAllOption: true,
+              selectAllValue: 0,
+              buttonWidth: '100%'
+            });
+
+          }
+        },
+        error: function() {
+          toastr["error"]('Internal error Failed to load career level data');
+
+        }
+      });
+    }
+
 
     function LoadCareerLevelData() {
       $.ajax({
