@@ -200,6 +200,7 @@ class Model_account extends CI_Model
     SELECT 
       COUNT(M.intMemberID) AS AllSinglesCount 
     FROM Member AS M 
+    WHERE M.vcGender <> ? AND M.intMemberAccountStatusID IN (3,4,5,6)";  // Remove 3
     $query = $this->db->query($sql, array($gender));
     return $query->row_array();
   }
