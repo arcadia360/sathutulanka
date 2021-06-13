@@ -233,14 +233,14 @@ class Model_account extends CI_Model
             WSC.vcWorkingAsSubCat, 
             IFNULL(WSC.vcWorkingAsSubCat,WW.vcWorkingWith) AS MiniProfileDesignation,
             M.intMemberAccountTypeID,
-            20 AS Age,
+            TIMESTAMPDIFF(year,M.dtDOB, now())  AS Age,
             M.intHeight,
             fnCmToFeet(M.intHeight) AS vcHightFeet,
             E.vcEthnicityName,
             R.vcReligion,
             MS.vcMaritalStatus_en AS vcMaritalStatus,
             EL.vcEducationLevel,    
-            (CASE WHEN 20 >= 10 AND 20 <= 20 THEN 7 ELSE 0 END +
+            (CASE WHEN  TIMESTAMPDIFF(year,M.dtDOB, now())  >= 10 AND  TIMESTAMPDIFF(year,M.dtDOB, now())  <= 20 THEN 7 ELSE 0 END +
             CASE WHEN M.intHeight >= 10 AND M.intHeight <= 1500 THEN 7 ELSE 0 END +
             CASE WHEN M.intMaritalStatusID IN (1,2,3,4,5 ) THEN 7 ELSE 0 END +
             CASE WHEN M.intNoOfChildrenID IN (1,2,3) THEN 7 ELSE 0 END +
