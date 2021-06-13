@@ -200,7 +200,6 @@ class Model_account extends CI_Model
     SELECT 
       COUNT(M.intMemberID) AS AllSinglesCount 
     FROM Member AS M 
-    WHERE M.vcGender <> ? AND M.intMemberAccountStatusID IN (4,5,6)";
     $query = $this->db->query($sql, array($gender));
     return $query->row_array();
   }
@@ -211,7 +210,7 @@ class Model_account extends CI_Model
     SELECT 
       COUNT(M.intMemberID) AS AllSinglesCount 
     FROM Member AS M 
-    WHERE M.vcGender <> ? AND M.intMemberAccountStatusID IN (4,5,6)";
+    WHERE M.vcGender <> ? AND M.intMemberAccountStatusID IN (3,4,5,6)";   // Remove 3
     $query = $this->db->query($sql, array($member_id));
     return $query->row_array();
   }
@@ -256,7 +255,7 @@ class Model_account extends CI_Model
             CASE WHEN M.intAssetValueID IN (1,2,3) THEN 7 ELSE 0 END+
             CASE WHEN M.intDisabilityID IN (1,2) THEN 7 ELSE 0 END+
             CASE WHEN M.intDietID IN (1,2) THEN 7 ELSE 0 END) AS ForMe,
-            IFNULL(fnGetPercentageForPartner(80,41,137,5,1,1,1,1,1,1,1,1,1,1),0) AS ForPartner,
+            IFNULL(fnGetPercentageForPartner(80,20,137,5,1,1,1,1,1,1,1,1,1,1),0) AS ForPartner,
             1 AS IsLiked,
             (SELECT COUNT(*) FROM MemberImage WHERE intMemberID = M.intMemberID) AS intImageCount
         FROM 
@@ -272,7 +271,7 @@ class Model_account extends CI_Model
           INNER JOIN EducationLevel 				AS EL 	ON M.intEducationLevelID = EL.intEducationLevelID      
         WHERE 
           M.vcGender <> ?
-          AND M.intMemberAccountStatusID IN (4,5,6)";
+          AND M.intMemberAccountStatusID IN (3,4,5,6)";   // Remove 3
 
     $query = $this->db->query($sql, array($gender));
     return $query->result_array();
