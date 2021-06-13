@@ -24,14 +24,12 @@ class Account extends Admin_Controller{
 
 	public function AllSingles()
 	{
+		// $gender = $this->session->userdata('gender');
+		$AllSinglesCount = $this->Model_account->getAllSinglesCount();
 
-		// $user_id = $this->session->userdata('user_id');
-		// $user_id = 18;
-		// $userData = $this->Model_account->getUserDate($user_id);
+		$this->data['AllSinglesCount'] = $AllSinglesCount;
 
-		// $this->data['userData'] = $userData;
-
-		$this->render_template('account/all_singles', 'All Singles',  null);
+		$this->render_template('account/all_singles', 'All Singles',  $this->data);
 	}
 
 	public function MatchProfile()
@@ -44,6 +42,14 @@ class Account extends Admin_Controller{
 		$this->data['userData'] = $memberData;
 
 		$this->render_template('account/match_profile', 'Match Profile',  null);
+	}
+
+	public function GetMyMatches(){
+		$member_id = $this->session->userdata('member_id');
+		$gender = $this->session->userdata('gender');
+
+		$result = $this->Model_account->getMyMatches($member_id, $gender);
+		echo json_encode($result);
 	}
 
 }
