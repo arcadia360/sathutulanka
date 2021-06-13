@@ -95,7 +95,46 @@ class Model_account extends CI_Model
             M.intWorkingAsSubCatId,
             M.vcWorkingLocation,
             M.intCityIdWorkingIn,
-            M.intWorkingCountryID
+            M.intWorkingCountryID,
+            M.intMonthlyIncomeID,
+            M.intAssetValueID,
+            M.vcOwnershipOfAssets,
+            M.intFamilyLocationID,
+            M.vcFamilyType,
+            M.vcFamilyValues,
+            M.vcFamilyClass,
+            M.vcFamilyCulture,
+            M.vcFatherStatus,
+            M.vcMotherStatus,
+            M.vcFamilyDetails,
+            M.vcPrefferToLive,
+            M.vcHelpFamily,
+            M.vcJobAfterMarriage,
+            M.vcEducationAfterMarriage,
+            M.vcChildrenLikes,
+            M.vcOtherNeeds,
+            M.vcMatchingHoroscope,
+            M.vcZodiacSign,
+            M.vcGanaya,
+            M.vcNekatha,
+            M.intRavi,
+            M.intMoon,
+            M.intMars,
+            M.intMercury,
+            M.intJupiter,
+            M.intVenus,
+            M.intSaturn,
+            M.intRahu,
+            M.intKethu,
+            M.vcPapaKendara,
+            M.vcAboutYourselfAndPartner,
+            CTT.intDistrictid,
+            WASC.intWorkinAsMainCat,
+            M.intMyPhotosPrivacy,
+            M.intMyVideosPrivacy,
+            M.intAssetsDetailsPrivacy,
+            M.intFamilyDetailsPrivacy,
+            M.intHoroscopeDetailsPrivacy
           FROM 
             Member AS M
             LEFT OUTER JOIN WorkingWith          AS WW   ON M.intWorkingWithID = WW.intWorkingWithID
@@ -111,7 +150,7 @@ class Model_account extends CI_Model
             LEFT OUTER JOIN diet AS DT ON M.intDietID = DT.intDietID
             LEFT OUTER JOIN disability AS DS ON M.intDisabilityID = DS.intDisabilityID
             LEFT OUTER JOIN residencestatus AS RS ON M.intResidenceStatusID = RS.intResidenceStatusID
-
+            LEFT OUTER JOIN city AS CTT ON M.intCityIdWorkingIn = CTT.intCityid
           WHERE 
             intMemberID = ? ";
 
