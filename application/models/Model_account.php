@@ -134,7 +134,8 @@ class Model_account extends CI_Model
             M.intMyVideosPrivacy,
             M.intAssetsDetailsPrivacy,
             M.intFamilyDetailsPrivacy,
-            M.intHoroscopeDetailsPrivacy
+            M.intHoroscopeDetailsPrivacy,
+            NOC.vcNoOfChildren_en AS vcNoOfChildren
           FROM 
             Member AS M
             LEFT OUTER JOIN WorkingWith          AS WW   ON M.intWorkingWithID = WW.intWorkingWithID
@@ -151,6 +152,7 @@ class Model_account extends CI_Model
             LEFT OUTER JOIN disability AS DS ON M.intDisabilityID = DS.intDisabilityID
             LEFT OUTER JOIN residencestatus AS RS ON M.intResidenceStatusID = RS.intResidenceStatusID
             LEFT OUTER JOIN city AS CTT ON M.intCityIdWorkingIn = CTT.intCityid
+            LEFT OUTER JOIN noofchildren AS NOC ON M.intNoOfChildrenID = NOC.intNoOfChildrenID
           WHERE 
             intMemberID = ? ";
 
