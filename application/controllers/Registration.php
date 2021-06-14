@@ -784,7 +784,7 @@ class Registration extends Admin_Controller
 					<button class='btn btn-lightt btn-sm'  onclick='RemoveImage(" . $useriamges->intImageID . ")' id = " . $useriamges->intImageID . "><i class='far fa-times-circle'></i></button> <br>
 					<img class='img-thumbnail imgUpload' src=" . base_url('resources/images/member/' . $imgFolderName . '/' . $useriamges->intImageName . $useriamges->vcImageType) . "> <br>
 					<div class='text-al-center'>
-					<input name='MyPhotos' type='radio' value=" . $useriamges->intImageID . " id=img" . $useriamges->intImageID . "><br>
+					<input name='MyPhotos' class='MyPhotos' type='radio' value=" . $useriamges->intImageID . " id=img" . $useriamges->intImageID . "><br>
 					<label for=img" . $useriamges->intImageID . ">Profile picture</label>
 					</div>
 					</div>";
@@ -805,6 +805,18 @@ class Registration extends Admin_Controller
 		}
 		echo json_encode($response);
 	}
+
+	// public function saveProfilePicture()
+	// {
+	// 	$result = '';
+	// 	$response = false;
+	// 	$this->load->model('Model_registration');
+	// 	$result = $this->Model_registration->saveProfilePicture();
+	// 	if ($result) {
+	// 		$response = true;
+	// 	}
+	// 	echo json_encode($response);
+	// }
 
 	public function AboutYourselfAndPartner()
 	{
