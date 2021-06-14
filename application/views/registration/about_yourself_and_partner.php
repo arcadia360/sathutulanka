@@ -32,12 +32,28 @@
 <script>
   $(function() {
 
+
+    FillAboutYourSelfData();
+
+function FillAboutYourSelfData() {
+    var Member = function() {
+        this.MemberID = 0;
+    }
+    var model = new Member();
+    model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+
+    ajaxCall('registration/getMemberData', model, function(response) {
+        if (response.vcAboutYourselfAndPartner != null) {
+          $("#aboutYourSelfAndPartner").val(response.vcAboutYourselfAndPartner);
+        }
+    });
+}
+
+
     $('#btnBack').click(function() {
       window.location.href = "<?php echo base_url('Registration/myPhotosAndVideos') ?>";
     });
     $('#btnSubmit').click(function() {
-
-
       var wordCount = $.trim($("#aboutYourSelfAndPartner").val()).split(' ').filter(function(v) {
         return v !== ''
       }).length;
