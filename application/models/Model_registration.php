@@ -75,6 +75,23 @@ class Model_registration extends CI_Model
     }
   }
 
+  public function getMonthlyIncomeRoutesData($MemberID)
+  {
+    $sql ="SELECT vcMonthlyIncomeRoute, intMemberID
+    FROM monthlyincomeroutes
+    WHERE intMemberID = ? ";
+    $query = $this->db->query($sql, array($MemberID));
+    return $query->result_array();
+  }
+
+  public function getAssetRoutesData($MemberID)
+  {
+    $sql ="SELECT vcAssetRoute, intMemberID
+    FROM assetroutes
+    WHERE intMemberID = ? ";
+    $query = $this->db->query($sql, array($MemberID));
+    return $query->result_array();
+  }
   public function getEnrichmentHobbies($MemberID)
   {
     $sql = "SELECT vcEnrichmentHobby, intMID
@@ -834,10 +851,14 @@ class Model_registration extends CI_Model
 
     $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
-    if ($this->db->affected_rows() > 0) {
+    if ($this->db->affected_rows() == 1) {
       return true;
     } else {
-      return false;
+      if (8 <= $NoOfSubmitedForm) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
@@ -955,10 +976,14 @@ class Model_registration extends CI_Model
     }
     $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
-    if ($this->db->affected_rows() > 0) {
+    if ($this->db->affected_rows() == 1) {
       return true;
     } else {
-      return false;
+      if (10 <= $NoOfSubmitedForm) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
@@ -990,10 +1015,14 @@ class Model_registration extends CI_Model
     }
     $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
-    if ($this->db->affected_rows() > 0) {
+    if ($this->db->affected_rows() == 1) {
       return true;
     } else {
-      return false;
+      if (11 <= $NoOfSubmitedForm) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
@@ -1041,10 +1070,14 @@ class Model_registration extends CI_Model
     }
     $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
-    if ($this->db->affected_rows() > 0) {
+    if ($this->db->affected_rows() == 1) {
       return true;
     } else {
-      return false;
+      if (12 <= $NoOfSubmitedForm) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
@@ -1067,10 +1100,14 @@ class Model_registration extends CI_Model
 
     $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
-    if ($this->db->affected_rows() > 0) {
+    if ($this->db->affected_rows() == 1) {
       return true;
     } else {
-      return false;
+      if (14 <= $NoOfSubmitedForm) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
@@ -1101,10 +1138,14 @@ class Model_registration extends CI_Model
 
     $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
-    if ($this->db->affected_rows() > 0) {
+    if ($this->db->affected_rows() == 1) {
       return true;
     } else {
-      return false;
+      if (15 <= $NoOfSubmitedForm) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 
@@ -1409,7 +1450,8 @@ class Model_registration extends CI_Model
     }
     $this->db->trans_begin();
 
-    //insert member prefered Martial Status data
+    
+    //insert Prefered Martial Status data
     $memberpreferedmaritalstatus  = $this->db->query("select * from memberpreferedmaritalstatus where intMID ='$mid'");
     if ($memberpreferedmaritalstatus->num_rows() > 0) {
       $this->db->delete('memberpreferedmaritalstatus', array('intMID' => $mid));
@@ -1422,7 +1464,7 @@ class Model_registration extends CI_Model
       $this->db->insert('memberpreferedmaritalstatus', $dataPreferedMartialStatusTb);
     }
 
-    //insert member prefered Children data
+      //insert Prefered Children data
     $memberpreferednoofchildren  = $this->db->query("select * from memberpreferednoofchildren where intMID ='$mid'");
     if ($memberpreferednoofchildren->num_rows() > 0) {
       $this->db->delete('memberpreferednoofchildren', array('intMID' => $mid));
@@ -1435,7 +1477,7 @@ class Model_registration extends CI_Model
       $this->db->insert('memberpreferednoofchildren', $dataPreferedOfChildrenTb);
     }
 
-    //insert member prefered  Religion data
+     //insert Prefered Religion data
     $memberpreferedreligion  = $this->db->query("select * from memberpreferedreligion where intMID ='$mid'");
     if ($memberpreferedreligion->num_rows() > 0) {
       $this->db->delete('memberpreferedreligion', array('intMID' => $mid));
@@ -1448,7 +1490,7 @@ class Model_registration extends CI_Model
       $this->db->insert('memberpreferedreligion', $dataPpreferedreligionTb);
     }
 
-    //insert member prefered Ethnicity data
+      //insert Prefered Ethnicity data
     $memberpreferedethnicity  = $this->db->query("select * from memberpreferedethnicity where intMID ='$mid'");
     if ($memberpreferedethnicity->num_rows() > 0) {
       $this->db->delete('memberpreferedethnicity', array('intMID' => $mid));
@@ -1461,7 +1503,7 @@ class Model_registration extends CI_Model
       $this->db->insert('memberpreferedethnicity', $dataPpreferedEthnicityTb);
     }
 
-    //insert member prefered Mother Tounge data
+      //insert Mother Tounge data
     $memberpreferedmothertounge  = $this->db->query("select * from memberpreferedmothertounge where intMID ='$mid'");
     if ($memberpreferedmothertounge->num_rows() > 0) {
       $this->db->delete('memberpreferedmothertounge', array('intMID' => $mid));
@@ -1474,7 +1516,7 @@ class Model_registration extends CI_Model
       $this->db->insert('memberpreferedmothertounge', $dataPpreferedMotherToungeTb);
     }
 
-    //insert member prefered Live in Sri Lanka data
+   //insert Live in Sri Lanka data
     $memberpreferedliveinsrilanka  = $this->db->query("select * from memberpreferedliveinsrilanka where intMID ='$mid'");
     if ($memberpreferedliveinsrilanka->num_rows() > 0) {
       $this->db->delete('memberpreferedliveinsrilanka', array('intMID' => $mid));
