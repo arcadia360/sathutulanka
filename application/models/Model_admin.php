@@ -31,7 +31,7 @@ class Model_admin extends CI_Model
             m.dtDOB, 
             ms.vcMaritalStatus_en, 
             m.vcMarriageType,
-            m.vcReligion, 
+            re.vcReligion, 
             m.vcCurrentlyLiveIn, 
             m.intCityIdIfLiveInSL,
             mt.vcMemberAccountStatus,
@@ -44,6 +44,7 @@ class Model_admin extends CI_Model
             INNER JOIN registerverification as r on m.intMemberID = r.intMemberID
             INNER JOIN memberaccountstatus as mt on m.intMemberAccountStatusID = mt.intMemberAccountStatusID
             INNER JOIN MaritalStatus   AS ms   ON m.intMaritalStatusID = ms.intMaritalStatusID
+            LEFT OUTER JOIN religion as re ON m.intReligionID = re.intReligionID
             WHERE CAST(r.dtEmailCodeSentDate AS DATE) BETWEEN ? AND ? ";
 
             $query = $this->db->query($sql, array($FromDate, $ToDate));
@@ -60,7 +61,7 @@ class Model_admin extends CI_Model
             m.dtDOB, 
             ms.vcMaritalStatus_en, 
             m.vcMarriageType,
-            m.vcReligion, 
+            re.vcReligion,
             m.vcCurrentlyLiveIn, 
             m.intCityIdIfLiveInSL,
             mt.vcMemberAccountStatus,
@@ -73,9 +74,10 @@ class Model_admin extends CI_Model
             INNER JOIN registerverification as r on m.intMemberID = r.intMemberID
             INNER JOIN memberaccountstatus as mt on m.intMemberAccountStatusID = mt.intMemberAccountStatusID
             INNER JOIN MaritalStatus   AS ms   ON m.intMaritalStatusID = ms.intMaritalStatusID
+            LEFT OUTER JOIN religion as re ON m.intReligionID = re.intReligionID
             WHERE m.intMemberAccountStatusID = ? AND CAST(r.dtEmailCodeSentDate AS DATE) BETWEEN ? AND ? ";
 
-            $query = $this->db->query($sql,array($statusID,$FromDate, $ToDate));
+            $query = $this->db->query($sql, array($statusID, $FromDate, $ToDate));
             return $query->result_array();
         }
     }
@@ -104,7 +106,7 @@ class Model_admin extends CI_Model
         m.dtDOB, 
         ms.vcMaritalStatus_en, 
         m.vcMarriageType,
-        m.vcReligion, 
+        re.vcReligion, 
         m.vcCurrentlyLiveIn, 
         m.intCityIdIfLiveInSL,
         mt.vcMemberAccountStatus,
@@ -117,6 +119,7 @@ class Model_admin extends CI_Model
         INNER JOIN registerverification as r on m.intMemberID = r.intMemberID
         INNER JOIN memberaccountstatus as mt on m.intMemberAccountStatusID = mt.intMemberAccountStatusID
         INNER JOIN MaritalStatus   AS ms   ON m.intMaritalStatusID = ms.intMaritalStatusID
+        LEFT OUTER JOIN religion as re ON m.intReligionID = re.intReligionID
         WHERE m.intMemberAccountStatusID = 5 AND CAST(r.dtEmailCodeSentDate AS DATE) BETWEEN ? AND ? ";
 
         $query = $this->db->query($sql, array($FromDate, $ToDate));
@@ -205,7 +208,6 @@ class Model_admin extends CI_Model
 
     public function updateMemberDetailsByAdmin($MemberID)
     {
-        
     }
 
     public function suspendMemberAccount($MemberID)
