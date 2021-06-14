@@ -44,9 +44,10 @@
     <style rel="stylesheet">
         @import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
 
-        body{
+        body {
             background-color: #FFFFFF !important;
         }
+
         .agreement_label,
         .agreement_label a {
             color: #000000 !important;
@@ -191,12 +192,12 @@
                 <div class="px-3 py-3 home-main-search-bgcolor reg_form" style="overflow: scroll; height:90vh;">
                     <h4 class="px-3"><?= lang('create_your_account') ?></h4>
                     <div class="col-md-12 pt-3">
-                        <input type="text" class="form-control form-padding red-color" name="short_name" id="short_name" placeholder="<?= lang('short_name') ?>" autcomplete="false">
+                        <input type="text" class="form-control form-padding red-color" name="short_name" id="short_name" maxlength="15" placeholder="<?= lang('short_name') ?>" autcomplete="false">
                     </div>
                     <!-- country codes (ISO 3166) and Dial codes. -->
                     <div class="col-md-12 pt-3">
                         <!-- <div class="form-group"> -->
-                        <select class="custom-select d-block form-control" id="country_code" name="country_code">  
+                        <select class="custom-select d-block form-control" id="country_code" name="country_code">
                             <option value="">Country Codes</option>
                             <option data-countryCode="LK" value="94">Sri Lanka (+94)</option>
                             <option data-countryCode="SA" value="966">Saudi Arabia (+966)</option>
@@ -424,7 +425,7 @@
 
 
                     <div class="col-md-12 pt-3">
-                        <input type="text" class="form-control form-padding red-color only-decimal" name="mobile_no" id="mobile_no" placeholder="Mobile No">
+                        <input type="text" class="form-control form-padding red-color only-decimal" name="mobile_no" id="mobile_no" placeholder="Mobile No ( Ex :- 777123456 )">
                     </div>
 
                     <div class="col-md-12 pt-3">
@@ -463,26 +464,25 @@
                         </select>
                     </div>
 
-                    <p class="p20 yellow-color gill-sans-mt-regular-font mb-2 ml-3 pt-4">Date Of Birth</p>  
+                    <p class="p20 yellow-color gill-sans-mt-regular-font mb-2 ml-3 pt-4">Date Of Birth</p>
                     <div class="row mx-0 mr-4">
-
-                        <div class="col-md-4">
-                            <select class="custom-select d-block form-control" name="birth_day" id="birth_day">
-                                <option value="0">Day</option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-4">
-                            <select class="custom-select d-block form-control" name="birth_month" id="birth_month">
-                                <option value="0">Month</option>
-                            </select>
-                        </div>
 
                         <div class="col-md-4">
                             <select class="custom-select d-block form-control" name="birth_year" id="birth_year">
                                 <option value="0">Year</option>
                             </select>
                         </div>
+                        <div class="col-md-4">
+                            <select class="custom-select d-block form-control" name="birth_month" id="birth_month">
+                                <option value="0">Month</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="custom-select d-block form-control" name="birth_day" id="birth_day">
+                                <option value="0">Day</option>
+                            </select>
+                        </div>
+
                     </div>
 
 
