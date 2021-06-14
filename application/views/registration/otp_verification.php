@@ -442,7 +442,7 @@
                                     timer: 4000
                                 }).then((result) => {
                                     if (result.dismiss === Swal.DismissReason.timer) {
-                                        window.location.href = "<?= base_url() ?>";
+                                        window.location.href = "<?= base_url("Welcome") ?>"; 
                                     }
                                 })
                             } else {
