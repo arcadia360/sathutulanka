@@ -41,8 +41,7 @@
 
 <script>
   function RemoveImage(e) {
-    let memberID = e;
-
+    let imgID = e;
     Swal.fire({
       title: 'Are you sure?',
       icon: 'warning',
@@ -59,14 +58,14 @@
           dataType: 'json',
           method: 'post',
           data: {
-            'memberID': memberID
+            'imgID': imgID
           },
           success: function(data) {
             toastr["success"]("Image renoved!");
             location.reload();
           },
           error: function() {
-            toastr["error"]("Internal error failed to remove image");
+            toastr["error"]("Internal error failed to save profile picture");
           }
         });
       }
@@ -79,8 +78,35 @@
     $('#btnBack').click(function() {
       window.location.href = "<?php echo base_url('Registration/horoscope') ?>";
     });
+
+
     $('#btnSubmit').click(function() {
-      window.location.href = "<?php echo base_url('Registration/AboutYourselfAndPartner') ?>";
+      // window.location.href = "<?php echo base_url('Registration/AboutYourselfAndPartner') ?>";
+      var isMyPhotosSelected = $("input[name=MyPhotos]").is(":checked");
+      let imgID = $('input[name="MyPhotos"]:checked').val();
+
+
+      if (isMyPhotosSelected) {
+        toastr["error"]("Please select profile picture");
+      } else {
+        $.ajax({
+          type: 'ajax',
+          url: '<?php echo base_url(); ?>Registration/saveProfilePicture',
+          async: false,
+          dataType: 'json',
+          method: 'post',
+          data: {
+            'imgID': imgID
+          },
+          success: function(data) {
+            // toastr["success"]("Image renoved!");
+            // location.reload();
+          },
+          error: function() {
+            toastr["error"]("Internal error failed to remove image");
+          }
+        });
+      }
     });
 
     // upload and save image
