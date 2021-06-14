@@ -278,8 +278,6 @@
 			$("#disability").val(response.intDisabilityID);
 			$("#bloodGroup").val(response.vcBloodGroup);
 			$("#healthInfo").val(response.isHealthInfo);
-
-
 		});
 
 
