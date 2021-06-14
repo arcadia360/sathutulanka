@@ -7,35 +7,35 @@
                 <div class="row">
                     <div class="col-4">
                         <center>
-                            <input name="PrefferToLive" id="familyTypeJoin" type="radio" value="In my home">
+                            <input name="PrefferToLive" id="familyTypeJoin1" type="radio" value="In my home">
                             <br>
                             <span class="custom-control-description">In my home</span>
                         </center>
                     </div>
                     <div class="col-4">
                         <center>
-                            <input name="PrefferToLive" id="familyTypeNotJoin" type="radio" value="In my parent's home">
+                            <input name="PrefferToLive" id="familyTypeJoin2" type="radio" value="In my parent's home">
                             <br>
                             <span class="custom-control-description">In my parent's home</span>
                         </center>
                     </div>
                     <div class="col-4">
                         <center>
-                            <input name="PrefferToLive" id="familyTypeNotJoin" type="radio" value="As partner wish">
+                            <input name="PrefferToLive" id="familyTypeJoin3" type="radio" value="As partner wish">
                             <br>
                             <span class="custom-control-description">As partner wish</span>
                         </center>
                     </div>
                     <div class="col-4">
                         <center>
-                            <input name="PrefferToLive" id="familyTypeJoin" type="radio" value="Separated other place">
+                            <input name="PrefferToLive" id="familyTypeJoin4" type="radio" value="Separated other place">
                             <br>
                             <span class="custom-control-description">Separated other place</span>
                         </center>
                     </div>
                     <div class="col-4">
                         <center>
-                            <input name="PrefferToLive" id="familyTypeNotJoin" type="radio" value="Outside of Sri lanka">
+                            <input name="PrefferToLive" id="familyTypeJoin5" type="radio" value="Outside of Sri lanka">
                             <br>
                             <span class="custom-control-description">Outside of Sri lanka</span>
                         </center>
@@ -50,21 +50,21 @@
                 <div class="row">
                     <div class="col-4">
                         <center>
-                            <input name="HelpFamily" type="radio" value="yes">
+                            <input name="HelpFamily" id="HelpFamily1" type="radio" value="yes">
                             <br>
                             <span class="custom-control-description">Yes</span>
                         </center>
                     </div>
                     <div class="col-4">
                         <center>
-                            <input name="HelpFamily" type="radio" value="Care of parents">
+                            <input name="HelpFamily" id="HelpFamily2" type="radio" value="Care of parents">
                             <br>
                             <span class="custom-control-description">Care of parents</span>
                         </center>
                     </div>
                     <div class="col-4">
                         <center>
-                            <input name="HelpFamily" type="radio" value="No need much help">
+                            <input name="HelpFamily" id="HelpFamily3" type="radio" value="No need much help">
                             <br>
                             <span class="custom-control-description">No need much help</span>
                         </center>
@@ -79,21 +79,21 @@
                 <div class="row">
                     <div class="col-4">
                         <center>
-                            <input name="Job" type="radio" value="Good to continue">
+                            <input name="Job" id="Job1" type="radio" value="Good to continue">
                             <br>
                             <span class="custom-control-description">Good to continue</span>
                         </center>
                     </div>
                     <div class="col-4">
                         <center>
-                            <input name="Job" type="radio" value="As partner wish">
+                            <input name="Job" id="Job2" type="radio" value="As partner wish">
                             <br>
                             <span class="custom-control-description">As partner wish</span>
                         </center>
                     </div>
                     <div class="col-4">
                         <center>
-                            <input name="Job" type="radio" value="Cannot stop">
+                            <input name="Job" id="Job3" type="radio" value="Cannot stop">
                             <br>
                             <span class="custom-control-description">Cannot stop</span>
                         </center>
@@ -108,21 +108,21 @@
                 <div class="row">
                     <div class="col-4">
                         <center>
-                            <input name="Education" type="radio" value="Good to continue">
+                            <input name="Education" id="Education1" type="radio" value="Good to continue">
                             <br>
                             <span class="custom-control-description">Good to continue</span>
                         </center>
                     </div>
                     <div class="col-4">
                         <center>
-                            <input name="Education" type="radio" value="As partner wish">
+                            <input name="Education" id="Education2" type="radio" value="As partner wish">
                             <br>
                             <span class="custom-control-description">As partner wish</span>
                         </center>
                     </div>
                     <div class="col-4">
                         <center>
-                            <input name="Education" type="radio" value="Cannot stop">
+                            <input name="Education" id="Education3" type="radio" value="Cannot stop">
                             <br>
                             <span class="custom-control-description">Cannot stop</span>
                         </center>
@@ -137,28 +137,28 @@
                 <div class="row">
                     <div class="col-4">
                         <center>
-                            <input name="ChildrenLikes" type="radio" value="no">
+                            <input name="ChildrenLikes" id="ChildrenLikes1" type="radio" value="no">
                             <br>
                             <span class="custom-control-description">No</span>
                         </center>
                     </div>
                     <div class="col-4">
                         <center>
-                            <input name="ChildrenLikes" type="radio" value="1">
+                            <input name="ChildrenLikes" id="ChildrenLikes2" type="radio" value="1">
                             <br>
                             <span class="custom-control-description">1</span>
                         </center>
                     </div>
                     <div class="col-4">
                         <center>
-                            <input name="ChildrenLikes" type="radio" value="2">
+                            <input name="ChildrenLikes" id="ChildrenLikes3" type="radio" value="2">
                             <br>
                             <span class="custom-control-description">2</span>
                         </center>
                     </div>
                     <div class="col-4">
                         <center>
-                            <input name="ChildrenLikes" type="radio" value="over 2">
+                            <input name="ChildrenLikes" id="ChildrenLikes4" type="radio" value="over 2">
                             <br>
                             <span class="custom-control-description">Over 2</span>
                         </center>
@@ -188,6 +188,72 @@
 
 <script>
     $(function() {
+
+        FillAfterMarriageData();
+
+        function FillAfterMarriageData() {
+            var Member = function() {
+                this.MemberID = 0;
+            }
+            var model = new Member();
+            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+
+            ajaxCall('registration/getMemberData', model, function(response) {
+                if (response.vcPrefferToLive != null) {
+                    var PrefferToLive = (response.vcPrefferToLive);
+                    if (PrefferToLive == "In my home") {
+                        $("#familyTypeJoin1").prop("checked", true);
+                    } else if (PrefferToLive == "In my parent's home") {
+                        $("#familyTypeJoin2").prop("checked", true);
+                    }else if (PrefferToLive == "As partner wish") {
+                        $("#familyTypeJoin3").prop("checked", true);
+                    }else if (PrefferToLive == "Separated other place") {
+                        $("#familyTypeJoin4").prop("checked", true);
+                    }else if (PrefferToLive == "Outside of Sri lanka") {
+                        $("#familyTypeJoin5").prop("checked", true);
+                    }
+
+                    var HelpFamily = (response.vcHelpFamily);
+                    if (HelpFamily == "yes") {
+                        $("#HelpFamily1").prop("checked", true);
+                    } else if (HelpFamily == "Care of parents") {
+                        $("#HelpFamily2").prop("checked", true);
+                    }else if (HelpFamily == "No need much help") {
+                        $("#HelpFamily3").prop("checked", true);
+                    }
+
+                    var JobAfterMarriage = (response.vcJobAfterMarriage);
+                    if (JobAfterMarriage == "Good to continue") {
+                        $("#Job1").prop("checked", true);
+                    } else if (JobAfterMarriage == "As partner wish") {
+                        $("#Job2").prop("checked", true);
+                    }else if (JobAfterMarriage == "Cannot stop") {
+                        $("#Job3").prop("checked", true);
+                    }
+
+                    var EducationAfterMarriage = (response.vcEducationAfterMarriage);
+                    if (EducationAfterMarriage == "Good to continue") {
+                        $("#Education1").prop("checked", true);
+                    } else if (EducationAfterMarriage == "As partner wish") {
+                        $("#Education2").prop("checked", true);
+                    }else if (EducationAfterMarriage == "Cannot stop") {
+                        $("#Education3").prop("checked", true);
+                    }
+
+                    var ChildrenLikes = (response.vcChildrenLikes);
+                    if (ChildrenLikes == "no") {
+                        $("#ChildrenLikes1").prop("checked", true);
+                    } else if (ChildrenLikes == "1") {
+                        $("#ChildrenLikes2").prop("checked", true);
+                    }else if (ChildrenLikes == "2") {
+                        $("#ChildrenLikes3").prop("checked", true);
+                    }else if (ChildrenLikes == "over 2") {
+                        $("#ChildrenLikes4").prop("checked", true);
+                    }
+                    $("#OtherNeeds").val(response.vcOtherNeeds);
+                }
+            });
+        }
 
         $('#btnSubmit').click(function() {
             let isPrefferToLiveSelected = $("input[name=PrefferToLive]").is(":checked");
