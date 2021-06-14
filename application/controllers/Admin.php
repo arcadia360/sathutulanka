@@ -263,4 +263,9 @@ class Admin extends Admin_Controller
 		$this->render_template('admin_panel/member/manage_member', 'Manage Member', $this->data);
 	}
 
+	public function markAsTrustProving()
+	{
+		$this->render_template('admin_panel/member/mark_as_trust_proving', 'Mark As Trust Proving', NULL);
+	}
+
 }
