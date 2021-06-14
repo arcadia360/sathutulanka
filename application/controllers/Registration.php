@@ -711,12 +711,13 @@ class Registration extends Admin_Controller
 		$this->load->helper('language');
 		$this->lang->load('en', 'English');
 		$this->load->view('registration/header');
-		$this->load->view('registration/my_photos_and_videos');
+		$this->load->view('registration/my_photos');
 		$this->load->view('registration/footer');
 	}
 
 	public function UploadMyPhotos()
 	{
+
 		$this->load->model('Model_registration');
 		$result = $this->Model_registration->getLastUploadedImageName();
 
@@ -744,7 +745,6 @@ class Registration extends Admin_Controller
 			$imgName = $data['upload_data']['file_name'];
 			$imgType = $data['upload_data']['file_ext'];
 
-			// echo ($imageType);
 
 			$this->load->model('Model_registration');
 			$result = $this->Model_registration->saveUploadedImageName($imgName, $imgType);
@@ -781,7 +781,7 @@ class Registration extends Admin_Controller
 				$imgFolderName = $this->session->userdata('member_code');
 				foreach ($result as $useriamges) {
 					$html .= "<div class='col-lg-3 col-4 text-al-center' style='padding: 10px!important'>
-					<i class='far fa-times-circle'></i> <br>
+					<button class='btn btn-lightt btn-sm'  onclick='RemoveImage(" . $useriamges->intImageID . ")' id = " . $useriamges->intImageID . "><i class='far fa-times-circle'></i></button> <br>
 					<img class='img-thumbnail imgUpload' src=" . base_url('resources/images/member/' . $imgFolderName . '/' . $useriamges->intImageName . $useriamges->vcImageType) . "> <br>
 					<div class='text-al-center'>
 					<input name='MyPhotos' type='radio' value=" . $useriamges->intImageID . " id=img" . $useriamges->intImageID . "><br>
@@ -792,6 +792,18 @@ class Registration extends Admin_Controller
 				echo json_encode($html);
 			}
 		}
+	}
+
+	public function removeImage()
+	{
+		$result = '';
+		$response = false;
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->removeMemberImage();
+		if ($result) {
+			$response = true;
+		}
+		echo json_encode($response);
 	}
 
 	public function AboutYourselfAndPartner()
@@ -1052,6 +1064,7 @@ class Registration extends Admin_Controller
 			}
 		}
 	}
+
 	public function LoadSummerizedAssetValuelData()
 	{
 		$result = '';
@@ -1088,8 +1101,6 @@ class Registration extends Admin_Controller
 		}
 	}
 
-
-
 	public function LoadDietData()
 	{
 		$result = '';
@@ -1107,10 +1118,6 @@ class Registration extends Admin_Controller
 			}
 		}
 	}
-
-
-
-
 
 	// End partner preferences
 
@@ -1161,14 +1168,7 @@ class Registration extends Admin_Controller
 			return false;
 		} else {
 			$this->load->helper('language');
-			// $session_data = $this->session->userdata();
-			// if ($session_data['language_id'] == 1) { // English
 			$this->lang->load('en', 'English');
-			// } else if ($session_data['language_id'] == 2) { // Sinhala
-			// $this->lang->load('si', 'Sinhala');
-			// } else if ($session_data['language_id'] == 3) { // Tamil
-			// 	$this->lang->load('ta', 'Tamil');
-			// }
 			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
 			if ($result) {
 				foreach ($result as $country) {
@@ -1188,14 +1188,7 @@ class Registration extends Admin_Controller
 			return false;
 		} else {
 			$this->load->helper('language');
-			// $session_data = $this->session->userdata();
-			// if ($session_data['language_id'] == 1) { // English
 			$this->lang->load('en', 'English');
-			// } else if ($session_data['language_id'] == 2) { // Sinhala
-			// $this->lang->load('si', 'Sinhala');
-			// } else if ($session_data['language_id'] == 3) { // Tamil
-			// 	$this->lang->load('ta', 'Tamil');
-			// }
 			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
 			if ($result) {
 				foreach ($result as $district) {
@@ -1215,14 +1208,7 @@ class Registration extends Admin_Controller
 			return false;
 		} else {
 			$this->load->helper('language');
-			// $session_data = $this->session->userdata();
-			// if ($session_data['language_id'] == 1) { // English
 			$this->lang->load('en', 'English');
-			// } else if ($session_data['language_id'] == 2) { // Sinhala
-			// $this->lang->load('si', 'Sinhala');
-			// } else if ($session_data['language_id'] == 3) { // Tamil
-			// 	$this->lang->load('ta', 'Tamil');
-			// }
 			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
 			if ($result) {
 				foreach ($result as $cities) {
