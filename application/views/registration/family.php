@@ -91,21 +91,21 @@
         <div class="row">
           <div class="col-4">
             <center>
-              <input name="Family-Culture" type="radio" value="Urban">
+              <input name="Family-Culture" id="Culture1" type="radio" value="Urban">
               <br>
               <span class="custom-control-description">Urban</span>
             </center>
           </div>
           <div class="col-4">
             <center>
-              <input name="Family-Culture" type="radio" value="Sub Urban">
+              <input name="Family-Culture" id="Culture2" type="radio" value="Sub Urban">
               <br>
               <span class="custom-control-description">Sub Urban</span>
             </center>
           </div>
           <div class="col-4">
             <center>
-              <input name="Family-Culture" type="radio" value="Rural">
+              <input name="Family-Culture" id="Culture3" type="radio" value="Rural">
               <br>
               <span class="custom-control-description">Rural</span>
             </center>
@@ -174,8 +174,48 @@
 <script>
   $(function() {
 
-    $('#btnSubmit').click(function() {
+    FillFamilyData();
 
+    function FillFamilyData() {
+      var Member = function() {
+        this.MemberID = 0;
+      }
+      var model = new Member();
+      model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+
+      ajaxCall('registration/getMemberData', model, function(response) {
+        if (response.intFamilyLocationID != null) {
+          $("#district").val(response.intFamilyLocationID);
+          var FamilyType = (response.vcFamilyType);
+          if (FamilyType == "Join") {
+            $("#familyTypeJoin").prop("checked", true);
+          } else if (FamilyType == "Not join") {
+            $("#familyTypeNotJoin").prop("checked", true);
+          }
+          var FamilyValues = (response.vcFamilyValues);
+          if (FamilyValues == "Traditional") {
+            $("#Traditional").prop("checked", true);
+          } else if (FamilyType == "Mix of Traditional and Modern") {
+            $("#TraditionalAndModern").prop("checked", true);
+          }
+          $("#Family-Class").val(response.vcFamilyClass);
+          var FamilyCulture = (response.vcFamilyCulture);
+          if (FamilyCulture == "Urban") {
+            $("#Culture1").prop("checked", true);
+          } else if (FamilyCulture == "Sub Urban") {
+            $("#Culture2").prop("checked", true);
+          } else if (FamilyCulture == "Rural") {
+            $("#Culture3").prop("checked", true);
+          }
+          $("#Father-Status").val(response.vcFatherStatus);
+          $("#Mother-Status").val(response.vcMotherStatus);
+          $("#Add-Family-Details").val(response.vcFamilyDetails);
+
+        }
+      });
+    }
+
+    $('#btnSubmit').click(function() {
       let isFamilyTypeSelected = $("input[name=Family-Type]").is(":checked");
       let isFamilyValuesSelected = $("input[name=Family-Values]").is(":checked");
       let isFamilyCultureSelected = $("input[name=Family-Culture]").is(":checked");
