@@ -174,11 +174,9 @@
                                                                     <input type="text" class="form-control" name="guardianContact" id="guardianContact" value="<?= $member_data['vcGuardianContact'] ?>" placeholder="N/A">
                                                                 </div>
                                                             </div>
-
                                                         </div>
-
-                                                        <button class="btn btn-sm btn-primary float-right" id="btnUpdateMemberDetailsByAdmin"><i class="fas fa-edit"></i> Update Details</button>
                                                     </form>
+                                                    <button class="btn btn-sm btn-primary float-right" id="btnUpdateMemberDetailsByAdmin"><i class="fas fa-edit"></i> Update Details</button>
 
                                                     <button class="btn btn-sm btn-info float-right" data-toggle="modal" data-target="#addMemberRemark" id="btnAddMemberRemark"><i class="fas fa-edit"></i> Add Remark</button>
 
@@ -602,26 +600,7 @@
                                                     </div>
 
                                                     <div class="tab-pane fade mt-3" id="education" role="tabpanel" aria-labelledby="education-tab">
-                                                        <div class="row">
-                                                            <div class="col-6">
-                                                                <div class="form-group">
-                                                                    <label for="educationLevel">Education Level</label>
-                                                                    <input type="text" class="form-control" id="educationLevel" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <div class="form-group">
-                                                                    <label for="educationField">Education Field</label>
-                                                                    <input type="text" class="form-control" id="educationField" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <div class="form-group">
-                                                                    <label for="school">School / University</label>
-                                                                    <input type="text" class="form-control" id="school" value="<?= $member_data['vcMaritalStatus'] ?>" placeholder="N/A">
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                         
                                                     </div>
 
 
