@@ -77,6 +77,39 @@ class Model_auth extends CI_Model
 		}
 	}
 
+	public function otpVerificationAfterForm($otpNumber, $emailVerificationCode)
+	{
+		if ($otpNumber && $emailVerificationCode) {
+			$sql = "SELECT 
+			M.intMemberID,
+			M.vcMemberCode,
+			M.vcNickName,
+			M.vcPassword,
+			M.vcEmail,
+			MAS.intMemberAccountStatusID,
+			MAS.vcMemberAccountStatus,
+			M.intNoOfSubmitedForm,
+			M.vcGender,
+			1 AS IsActive		
+		FROM 
+			Member AS M
+			INNER JOIN MemberAccountStatus AS MAS ON M.intMemberAccountStatusID = MAS.intMemberAccountStatusID
+            INNER JOIN registerverification AS RV ON M.intMemberID = RV.intMemberID
+		WHERE 
+			RV.vcOTP = ? AND RV.vcEmailCode = ?";
+
+			$query = $this->db->query($sql, array($otpNumber,$emailVerificationCode));
+			if ($query->num_rows() == 1) {
+				$result = $query->row_array();
+				return $result;
+			}
+			else{
+				return false;
+			}
+
+		}
+	}
+
 	// public function getUserGroupByUserId($user_id)
 	// {
 	// 	$sql = "SELECT U.intUserID,U.isAdmin,UG.intUserGroupID,UG.vcGroupName,UG.vcPermission FROM member AS U
