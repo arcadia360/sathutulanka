@@ -6,6 +6,8 @@ class CreateAccount extends Admin_Controller
 		parent::__construct();
 
 		$this->load->model('Model_registration');
+		$this->load->model('model_auth');
+		
 	}
 
     public function saveAccount()
@@ -86,7 +88,8 @@ class CreateAccount extends Admin_Controller
 			} else if ($session_data['language_id'] == 3) { // Tamil
 				$this->lang->load('ta', 'Tamil');
 			}
-			$this->load->view('registration/create_account');
+			$this->render_template('welcome', 'W E L C O M E', null);
+
 		}
 		// $data['errormsg'] = $error;
 	}
@@ -138,8 +141,33 @@ class CreateAccount extends Admin_Controller
 	{
 		$noRecord = $this->Model_registration->otpVerification($otpNumber, $emailVerificationCode);
 		if ($noRecord > 0) {
-			$response['messages'] = "Verification Successfully, Please Re-Login Here !";
-			$response['success'] = true;
+			$this->logged_in();
+			$login = $this->model_auth->otpVerificationAfterForm($otpNumber, $emailVerificationCode);
+			if ($login) {
+				if ($login['IsActive'] == 1) {
+					$logged_in_sess = array(
+						'member_id' => $login['intMemberID'],
+						'member_code' => $login['vcMemberCode'],
+						'nick_name' => $login['vcNickName'],
+						'email' => $login['vcEmail'],
+						'member_account_status_id' => $login['intMemberAccountStatusID'],
+						'member_account_status_name' => $login['vcMemberAccountStatus'],
+						'no_of_submitted_form'  => $login['intNoOfSubmitedForm'],
+						'gender'  => $login['vcGender'],
+						'language_id' => 1,
+						'logged_in' => TRUE
+					);
+
+					$this->session->set_userdata($logged_in_sess);
+					$response['success'] = true;
+				   
+				} else {
+					$this->session->set_flashdata("errors", "Your account has been deactivated. Please contact administrator !");
+					redirect(base_url("Welcome"), 'refresh');
+				}
+			}
+
+
 		} else {
 			$response['messages'] = "Please Enter Valid OTP Code !";
 			$response['success'] = false;
