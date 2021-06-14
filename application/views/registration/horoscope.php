@@ -13,21 +13,21 @@
         <div class="row">
           <div class="col-4">
             <center>
-              <input id="VeryImportan" name="matchingHoroscope" type="radio" value="Very Important" checked>
+              <input id="matchingHoroscope1" name="matchingHoroscope" id="matchingHoroscope1" type="radio" value="Very Important">
               <br>
               <span class="custom-control-description">Very Important</span>
             </center>
           </div>
           <div class="col-4">
             <center>
-              <input id="Important" name="matchingHoroscope" type="radio" value="Important">
+              <input id="matchingHoroscope2" name="matchingHoroscope" id="matchingHoroscope2" type="radio" value="Important">
               <br>
               <span class="custom-control-description">Important</span>
             </center>
           </div>
           <div class="col-4">
             <center>
-              <input id="Not Important" name="matchingHoroscope" type="radio" value="Not Important">
+              <input id="matchingHoroscope3" name="matchingHoroscope" id="matchingHoroscope3" type="radio" value="Not Important">
               <br>
               <span class="custom-control-description">Not Important</span>
             </center>
@@ -354,21 +354,21 @@
         <div class="row">
           <div class="col-4">
             <center>
-              <input name="PapaKendara" type="radio" value="Dont Know" checked>
+              <input name="PapaKendara" id="PapaKendara1" type="radio" value="Dont Know">
               <br>
               <span class="custom-control-description">Dont Know</span>
             </center>
           </div>
           <div class="col-4">
             <center>
-              <input name="PapaKendara" type="radio" value="Yes">
+              <input name="PapaKendara" id="PapaKendara2" type="radio" value="Yes">
               <br>
               <span class="custom-control-description">Yes</span>
             </center>
           </div>
           <div class="col-4">
             <center>
-              <input name="PapaKendara" type="radio" value="No">
+              <input name="PapaKendara" id="PapaKendara3"  type="radio" value="No">
               <br>
               <span class="custom-control-description">No</span>
             </center>
@@ -388,6 +388,54 @@
 
 <script>
   $(function() {
+
+    FillHorascopeData();
+
+    function FillHorascopeData() {
+      var Member = function() {
+        this.MemberID = 0;
+      }
+      var model = new Member();
+      model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+
+      ajaxCall('registration/getMemberData', model, function(response) {
+        if (response.vcMatchingHoroscope != null) {
+          var MatchingHoroscope = (response.vcMatchingHoroscope);
+          if (MatchingHoroscope == "Very Important") {
+            $("#matchingHoroscope1").prop("checked", true);
+          } else if (MatchingHoroscope == "Important") {
+            $("#matchingHoroscope2").prop("checked", true);
+          } else if (MatchingHoroscope == "Not Important") {
+            $("#matchingHoroscope3").prop("checked", true);
+          }
+          $("#ZodiacSign").val(response.vcZodiacSign);
+          $("#Ganaya").val(response.vcGanaya);
+          $("#Nekatha").val(response.vcNekatha);
+          $("#Ravi").val(response.intRavi);
+          $("#Moon").val(response.intMoon);
+          $("#Mars").val(response.intMars);
+          $("#Mercury").val(response.intMercury);
+          $("#Jupiter").val(response.intJupiter);
+          $("#Venus").val(response.intVenus);
+          $("#Saturn").val(response.intSaturn);
+          $("#Rahu").val(response.intRahu);
+          $("#Kethu").val(response.intKethu);
+          var PapaKendara = (response.vcPapaKendara);
+          if (PapaKendara == "Dont Know") {
+            $("#PapaKendara1").prop("checked", true);
+          } else if (MatchingHoroscope == "Yes") {
+            $("#PapaKendara2").prop("checked", true);
+          } else if (MatchingHoroscope == "No") {
+            $("#PapaKendara3").prop("checked", true);
+          }
+
+        }
+      });
+    }
+
+
+
+
     $('#btnBack').click(function() {
       window.location.href = "<?php echo base_url('Registration/afterMarriage') ?>";
     });
