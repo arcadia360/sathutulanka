@@ -1144,6 +1144,12 @@ class Model_registration extends CI_Model
     }
   }
 
+  public function removeMemberImage()
+  {
+    $imgID = $this->input->post('memberID');
+    $this->db->delete('memberimage', array('intImageID' => $imgID));
+  }
+
   public function getMidAndLastSubmitFrom()
   {
     $mid = $this->session->userdata('member_id');
@@ -1186,8 +1192,6 @@ class Model_registration extends CI_Model
     }
     return $result;
   }
-
-
 
   public function LoadMaritalStatusData()
   {
