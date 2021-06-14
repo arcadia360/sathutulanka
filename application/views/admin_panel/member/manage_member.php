@@ -161,7 +161,7 @@
                                     </div>
                                     <div class="pull-right">
 
-                                        <button type="button" class="btn btn-primary">Submit</button>
+                                        <button class="btn btn-sm btn-primary float-right" id="btnUpdateMemberDetailsByAdmin"><i class="fas fa-edit"></i> Update Details</button>
                                     </div>
                                 </form>
                             </div>
@@ -169,23 +169,23 @@
 
                         <div class="row" style="padding-top: 13px;">
                             <div class="col-md-6">
-                                <div class="row" style="">
+                                <div class="row">
 
                                     <div class="col-md-3">
-                                        <button type="button" class="btn btn-success">Approval</button>
+                                        <button class="btn btn-sm btn-success float-right" id="btnApproval" onclick=btnApprovalMember(<?= $member_data['intMemberID'] ?>)><i class="fa fa-check"></i> Approval</button>
                                     </div>
 
 
                                     <div class="col-md-3">
 
-                                        <button type="button" class="btn btn-warning">Disapproval</button>
+                                        <button class="btn btn-sm btn-warning float-right" data-toggle="modal" data-target="#addDisapprovalReason" id="btnAddDisapprovalReason"><i class="fas fa-ban"></i> Disapproval</button>
 
                                     </div>
 
                                     <div class="col-md-3 ">
 
                                         <div id="send_letter_div">
-                                            <button type="button" class="btn btn-primary">Send a Letter</button>
+                                            <button class="btn btn-sm btn-primary float-right"><i class="fas fa-envelope"></i> Send a Letter</button>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -241,6 +241,36 @@
 
 
 
+<!-- addDisapprovalReason Modallllllllllllllll -->
+<div class="modal fade" id="addDisapprovalReason" tabindex="-1" role="dialog" aria-labelledby="addDisapprovalReason" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addDisapprovalReason">Disapproval Reason</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <form role="form" action="<?php echo base_url('admin/addDisapprovalReason') ?>" method="post" id="addDisapprovalReasonForm">
+                <div class="modal-body">
+                    <input type="hidden" class="form-control" id="intRemarkMemberID" name="intRemarkMemberID" value="<?= $member_data['intMemberID'] ?>" placeholder="N/A">
+                    <div class="form-group">
+                        <label for="remark">Disapproval Reason</label>
+                        <textarea class="form-control rounded-0" id="disapproval_reason" name="disapproval_reason" placeholder="Enter Reason" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="btnSubmitDisapprovalReason" class="btn btn-success btn-flat"><i class="fas fa-download" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Submit</button>
+                </div>
+
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 
-<script src="<?php echo base_url('resources/js/admin/pageJS/memberDetails.js') ?>"></script>
+
+
+<script src="<?php echo base_url('resources/js/admin/pageJS/manageMember.js') ?>"></script>
