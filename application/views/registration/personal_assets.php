@@ -8,8 +8,8 @@
                     <select class="form-control js-example-basic-single" name="monthlyIncome" id="monthlyIncome">
                         <option value="0">Select</option>
                         <?php foreach ($monthlyIncome_data as $k => $v) { ?>
-								<option value="<?= $v['intMonthlyIncomeID'] ?>"><?= $v['vcMonthlyIncome'] ?></option>
-							<?php } ?>
+                            <option value="<?= $v['intMonthlyIncomeID'] ?>"><?= $v['vcMonthlyIncome'] ?></option>
+                        <?php } ?>
                     </select>
                 </div>
             </div>
@@ -17,12 +17,12 @@
 
         <div class="row">
             <div class="col-12">
-                <label class="text-inverse font-weight-bold">Monnthly Income Routes</label>
+                <label class="text-inverse font-weight-bold">Monthly Income Routes</label>
                 <div class="row">
                     <div class="col-4">
                         <div class="form-group">
                             <center>
-                                <input type="checkbox" class="language routeIncome" name="incomeRoute[]" value="Job">
+                                <input type="checkbox" class="language routeIncome" id="incomeRoute1" name="incomeRoute[]" value="Job">
                                 <br>
                                 <span class="custom-control-description">Job</span>
                             </center>
@@ -31,7 +31,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <center>
-                                <input type="checkbox" class="language routeIncome" name="incomeRoute[]" value="Rent/Lease">
+                                <input type="checkbox" class="language routeIncome" id="incomeRoute2" name="incomeRoute[]" value="Rent/Lease">
                                 <br>
                                 <span class="custom-control-description">Rent/Lease</span>
                             </center>
@@ -40,7 +40,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <center>
-                                <input type="checkbox" class="language routeIncome" name="incomeRoute[]" value="Fixed Deposit">
+                                <input type="checkbox" class="language routeIncome" id="incomeRoute3" name="incomeRoute[]" value="Fixed Deposit">
                                 <br>
                                 <span class="custom-control-description">Fixed Deposit</span>
                             </center>
@@ -55,7 +55,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <center>
-                                <input type="checkbox" class="language routeIncome" name="incomeRoute[]" value="Shares">
+                                <input type="checkbox" class="language routeIncome" id="incomeRoute4" name="incomeRoute[]" value="Shares">
                                 <br>
                                 <span class="custom-control-description">Shares</span>
                             </center>
@@ -64,7 +64,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <center>
-                                <input type="checkbox" class="language routeIncome" name="incomeRoute[]" value="Business">
+                                <input type="checkbox" class="language routeIncome" id="incomeRoute5" name="incomeRoute[]" value="Business">
                                 <br>
                                 <span class="custom-control-description">Business</span>
                             </center>
@@ -73,7 +73,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <center>
-                                <input type="checkbox" class="language routeIncome" name="incomeRoute[]" value="Ask (My Story)">
+                                <input type="checkbox" class="language routeIncome" id="incomeRoute6" name="incomeRoute[]" value="Ask (My Story)">
                                 <br>
                                 <span class="custom-control-description">Ask (My Story)</span>
                             </center>
@@ -90,8 +90,8 @@
                     <select class="form-control js-example-basic-single" name="assetValue" id="assetValue">
                         <option value="0">Select</option>
                         <?php foreach ($assetValue_data as $k => $v) { ?>
-								<option value="<?= $v['intAssetValueID'] ?>"><?= $v['vcAssetValue'] ?></option>
-							<?php } ?>
+                            <option value="<?= $v['intAssetValueID'] ?>"><?= $v['vcAssetValue'] ?></option>
+                        <?php } ?>
                     </select>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <center>
-                                <input type="checkbox" class="language assetRoutes" name="assestRoute[]" value="Land">
+                                <input type="checkbox" class="language assetRoutes" id="assestRoute1" name="assestRoute[]" value="Land">
                                 <br>
                                 <span class="custom-control-description">Land</span>
                             </center>
@@ -113,7 +113,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <center>
-                                <input type="checkbox" class="language assetRoutes" name="assestRoute[]" value="Vehicles">
+                                <input type="checkbox" class="language assetRoutes" id="assestRoute2" name="assestRoute[]" value="Vehicles">
                                 <br>
                                 <span class="custom-control-description">Vehicles</span>
                             </center>
@@ -122,7 +122,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <center>
-                                <input type="checkbox" class="language assetRoutes" name="assestRoute[]" value="House">
+                                <input type="checkbox" class="language assetRoutes" id="assestRoute3" name="assestRoute[]" value="House">
                                 <br>
                                 <span class="custom-control-description">House</span>
                             </center>
@@ -137,7 +137,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <center>
-                                <input type="checkbox" class="language assetRoutes" name="assestRoute[]" value="Business">
+                                <input type="checkbox" class="language assetRoutes"  id="assestRoute4" name="assestRoute[]" value="Business">
                                 <br>
                                 <span class="custom-control-description">Business</span>
                             </center>
@@ -146,7 +146,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <center>
-                                <input type="checkbox" class="language assetRoutes" name="assestRoute[]" value="Jewellery">
+                                <input type="checkbox" class="language assetRoutes" id="assestRoute5" name="assestRoute[]" value="Jewellery">
                                 <br>
                                 <span class="custom-control-description">Jewellery</span>
                             </center>
@@ -155,7 +155,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <center>
-                                <input type="checkbox" class="language assetRoutes" name="assestRoute[]" value="Savings">
+                                <input type="checkbox" class="language assetRoutes" id="assestRoute6" name="assestRoute[]" value="Savings">
                                 <br>
                                 <span class="custom-control-description">Savings</span>
                             </center>
@@ -171,7 +171,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <center>
-                                <input type="checkbox" class="language assetRoutes" name="assestRoute[]" value="Business Premises">
+                                <input type="checkbox" class="language assetRoutes" id="assestRoute7" name="assestRoute[]" value="Business Premises">
                                 <br>
                                 <span class="custom-control-description">Business Premises</span>
                             </center>
@@ -180,7 +180,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <center>
-                                <input type="checkbox" class="language assetRoutes" name="assestRoute[]" value="Ask (My Story)">
+                                <input type="checkbox" class="language assetRoutes" id="assestRoute8" name="assestRoute[]" value="Ask (My Story)">
                                 <br>
                                 <span class="custom-control-description">Ask (My Story)</span>
                             </center>
@@ -200,28 +200,28 @@
                     <div class="row">
                         <div class="col-3">
                             <center>
-                                <input name="OwnershipOfAssets" type="radio" value="Parent">
+                                <input name="OwnershipOfAssets" id="OwnershipOfAssets1" type="radio" value="Parent">
                                 <br>
                                 <span class="custom-control-description">Parent</span>
                             </center>
                         </div>
                         <div class="col-3">
                             <center>
-                                <input name="OwnershipOfAssets" type="radio" value="Self">
+                                <input name="OwnershipOfAssets" id="OwnershipOfAssets2" type="radio" value="Self">
                                 <br>
                                 <span class="custom-control-description">Self</span>
                             </center>
                         </div>
                         <div class="col-3">
                             <center>
-                                <input name="OwnershipOfAssets" type="radio" value="Under Parent and me">
+                                <input name="OwnershipOfAssets" id="OwnershipOfAssets3" type="radio" value="Under Parent and me">
                                 <br>
                                 <span class="custom-control-description">Under Parent and me</span>
                             </center>
                         </div>
                         <div class="col-3">
                             <center>
-                                <input name="OwnershipOfAssets" type="radio" value="Ask (My Story)">
+                                <input name="OwnershipOfAssets" id="OwnershipOfAssets4" type="radio" value="Ask (My Story)">
                                 <br>
                                 <span class="custom-control-description">Ask (My Story)</span>
                             </center>
@@ -241,6 +241,93 @@
 </div>
 <script>
     $(function() {
+
+
+        FillPersonalAssetsData();
+        FillMonthlyIncomeRoutesData();
+        FillAssetRoutes();
+
+        function FillPersonalAssetsData() {
+            var Member = function() {
+                this.MemberID = 0;
+            }
+            var model = new Member();
+            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+
+            ajaxCall('registration/getMemberData', model, function(response) {
+                if (response.intMonthlyIncomeID != null) {
+                    $("#monthlyIncome").val(response.intMonthlyIncomeID);
+                    $("#assetValue").val(response.intAssetValueID);
+                    var OwnershipOfAssets = (response.vcOwnershipOfAssets);
+                    if (OwnershipOfAssets == "Parent") {
+                        $("#OwnershipOfAssets1").prop("checked", true);
+                    } else if (OwnershipOfAssets == "Self") {
+                        $("#OwnershipOfAssets2").prop("checked", true);
+                    } else if (OwnershipOfAssets == "Under Parent and me") {
+                        $("#OwnershipOfAssets3").prop("checked", true);
+                    } else if (OwnershipOfAssets == "Ask (My Story)") {
+                        $("#OwnershipOfAssets4").prop("checked", true);
+                    }
+                }
+            });
+        }
+
+        function FillMonthlyIncomeRoutesData() {
+            var Member = function() {
+                this.MemberID = 0;
+            }
+            var model = new Member();
+            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+            ajaxCall('registration/getMonthlyIncomeRoutesData', model, function(response) {
+                for (let index = 0; index < response.length; index++) {
+                    if (response[index].vcMonthlyIncomeRoute == "Job") {
+                        $("#incomeRoute1").prop("checked", true);
+                    } else if (response[index].vcMonthlyIncomeRoute == "Rent/Lease") {
+                        $("#incomeRoute2").prop("checked", true);
+                    } else if (response[index].vcMonthlyIncomeRoute == "Fixed Deposit") {
+                        $("#incomeRoute3").prop("checked", true);
+                    } else if (response[index].vcMonthlyIncomeRoute == "Shares") {
+                        $("#incomeRoute4").prop("checked", true);
+                    } else if (response[index].vcMonthlyIncomeRoute == "Business") {
+                        $("#incomeRoute5").prop("checked", true);
+                    } else if (response[index].vcMonthlyIncomeRoute == "Ask (My Story)") {
+                        $("#incomeRoute6").prop("checked", true);
+                    }
+                }
+            });
+        }
+
+        function FillAssetRoutes()
+        {
+            var Member = function() {
+                this.MemberID = 0;
+            }
+            var model = new Member();
+            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+            ajaxCall('registration/getAssetRoutesData', model, function(response) {
+                for (let index = 0; index < response.length; index++) {
+                    if (response[index].vcAssetRoute == "Land") {
+                        $("#assestRoute1").prop("checked", true);
+                    } else if (response[index].vcAssetRoute == "Vehicles") {
+                        $("#assestRoute2").prop("checked", true);
+                    } else if (response[index].vcAssetRoute == "House") {
+                        $("#assestRoute3").prop("checked", true);
+                    } else if (response[index].vcAssetRoute == "Business") {
+                        $("#assestRoute4").prop("checked", true);
+                    } else if (response[index].vcAssetRoute == "Jewellery") {
+                        $("#assestRoute5").prop("checked", true);
+                    } else if (response[index].vcAssetRoute == "Savings") {
+                        $("#assestRoute6").prop("checked", true);
+                    }else if (response[index].vcAssetRoute == "Business Premises") {
+                        $("#assestRoute7").prop("checked", true);
+                    }else if (response[index].vcAssetRoute == "Ask (My Story)") {
+                        $("#assestRoute8").prop("checked", true);
+                    }
+                }
+            });
+        }
+
+
 
         $('#btnBack').click(function() {
             window.location.href = "<?php echo base_url('Registration/career') ?>";
