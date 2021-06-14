@@ -105,14 +105,27 @@
         if (response.intWorkingWithId != null) {
           $("#workingWith").val(response.intWorkingWithId);
           $('#workingWith').trigger('change');
-          $("#WorkingAsMainCat").val(response.intWorkingAsSubCatId);
-          $('#WorkingAsMainCat').trigger('change');
-          $("#workingAsSubCat").val(response.intWorkingAsSubCatId);
-          $('#workingAsSubCat').trigger('change');
-          $("#workingLocation").val(response.vcWorkingLocation);
-          $("#district").val(response.intCityIdWorkingIn);
-          $("#city").val(response.intCityIdWorkingIn);
-          $("#country").val(response.intWorkingCountryID);
+          if (response.intWorkinAsMainCat != null) {
+            $("#WorkingAsMainCat").val(response.intWorkinAsMainCat);
+            $('#WorkingAsMainCat').trigger('change');
+          }
+          if (response.intWorkingAsSubCatId != null) {
+            $("#workingAsSubCat").val(response.intWorkingAsSubCatId);
+            $('#workingAsSubCat').trigger('change');
+          }
+          if (response.vcWorkingLocation != null) {
+            $("#workingLocation").val(response.vcWorkingLocation);
+            $("#workingLocation").trigger('change');
+          }
+          if (response.intDistrictid != null) {
+            $("#district").val(response.intDistrictid);
+            $("#district").trigger('change');
+          }
+          if (response.intCityIdWorkingIn != null) {
+            $("#city").val(response.intCityIdWorkingIn);
+            $("#country").val(response.intWorkingCountryID);
+          }
+
           $("#describeCareer").val(response.vcDescribeCareer);
 
         }
