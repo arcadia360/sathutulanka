@@ -1146,9 +1146,15 @@ class Model_registration extends CI_Model
 
   public function removeMemberImage()
   {
-    $imgID = $this->input->post('memberID');
+    $imgID = $this->input->post('imgID');
     $this->db->delete('memberimage', array('intImageID' => $imgID));
   }
+  // public function saveProfilePicture()
+  // {
+
+  //   $imgID = $this->input->post('imgID');
+  //   // $this->db->delete('memberimage', array('intImageID' => $imgID));
+  // }
 
   public function getMidAndLastSubmitFrom()
   {
