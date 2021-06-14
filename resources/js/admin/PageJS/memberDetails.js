@@ -148,19 +148,20 @@ $('#btnSubmitMemberSuspend').click(function () {
 });
 
 $('#btnUpdateMemberDetailsByAdmin').click(function () {
-
-    if ($("#suspendReason :selected").val() == 0) {
-        toastr["error"]("Please select Reason !");
-        $("#suspendReason").focus();
-    }
-    else if ($("#suspendReason :selected").val() == 10 && ($("#otherReasonSuspend").val() == '')) {
-        toastr["error"]("Please Enter Reason !");
-        $("#otherReasonSuspend").focus();
+    if (jQuery.trim($("#nic").val()).length == 0) {
+        toastr["error"]("Please Enter Nic !");
+        $("#nic").focus();
+    } else if (jQuery.trim($("#premanentAddress").val()).length == 0) {
+        toastr["error"]("Please Enter Premanent Address !");
+        $("#premanentAddress").focus();
+    } else if (jQuery.trim($("#guardianContact").val()).length == 0) {
+        toastr["error"]("Please Enter Guardian Contact !");
+        $("#guardianContact").focus();
     }
 
     else {
-        arcadiaConfirmAlert("You want to be able to Suspend this Account !", function (button) {
-            var form = $("#----------------");
+        arcadiaConfirmAlert("You want to be able to Add this !", function (button) {
+            var form = $("#---------------");
             $.ajax({
                 async: false,
                 type: form.attr('method'),
