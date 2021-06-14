@@ -14,61 +14,61 @@
     <div class="row">
       <div class="col-3"><label for="">(1) My Photos</label></div>
       <div class="col-3 text-al-center">
-        <input name="MyPhotos" type="radio" value="1">
+        <input name="MyPhotos" id="MyPhotos1" type="radio" value="1">
       </div>
       <div class="col-3 text-al-center">
-        <input name="MyPhotos" type="radio" value="2">
+        <input name="MyPhotos" id="MyPhotos2" type="radio" value="2">
       </div>
       <div class="col-3 text-al-center">
-        <input name="MyPhotos" type="radio" value="3">
+        <input name="MyPhotos" id="MyPhotos3" type="radio" value="3">
       </div>
     </div>
     <div class="row">
       <div class="col-3"><label for="">(2) My Videos</label></div>
       <div class="col-3 text-al-center">
-        <input name="MyVideos" type="radio" value="1">
+        <input name="MyVideos" id="MyVideos1" type="radio" value="1">
       </div>
       <div class="col-3 text-al-center">
-        <input name="MyVideos" type="radio" value="2">
+        <input name="MyVideos" id="MyVideos2" type="radio" value="2">
       </div>
       <div class="col-3 text-al-center">
-        <input name="MyVideos" type="radio" value="3">
+        <input name="MyVideos" id="MyVideos3" type="radio" value="3">
       </div>
     </div>
     <div class="row">
       <div class="col-3"><label for="">(3) Assets Details</label></div>
       <div class="col-3 text-al-center">
-        <input name="AssetsDetails" type="radio" value="1">
+        <input name="AssetsDetails" id="AssetsDetails1" type="radio" value="1">
       </div>
       <div class="col-3 text-al-center">
-        <input name="AssetsDetails" type="radio" value="2">
+        <input name="AssetsDetails" id="AssetsDetails2"  type="radio" value="2">
       </div>
       <div class="col-3 text-al-center">
-        <input name="AssetsDetails" type="radio" value="3">
+        <input name="AssetsDetails" id="AssetsDetails3" type="radio" value="3">
       </div>
     </div>
     <div class="row">
       <div class="col-3"><label for="">(4) Family Details</label></div>
       <div class="col-3 text-al-center">
-        <input name="FamilyDetails" type="radio" value="1">
+        <input name="FamilyDetails" id="FamilyDetails1" type="radio" value="1">
       </div>
       <div class="col-3 text-al-center">
-        <input name="FamilyDetails" type="radio" value="2">
+        <input name="FamilyDetails" id="FamilyDetails2"  type="radio" value="2">
       </div>
       <div class="col-3 text-al-center">
-        <input name="FamilyDetails" type="radio" value="3">
+        <input name="FamilyDetails" id="FamilyDetails3"  type="radio" value="3">
       </div>
     </div>
     <div class="row">
       <div class="col-3"><label for="">(5) Horoshcope</label></div>
       <div class="col-3 text-al-center">
-        <input name="Horoshcope" type="radio" value="1">
+        <input name="Horoshcope" id="Horoshcope1" type="radio" value="1">
       </div>
       <div class="col-3 text-al-center">
-        <input name="Horoshcope" type="radio" value="2">
+        <input name="Horoshcope" id="Horoshcope2" type="radio" value="2">
       </div>
       <div class="col-3 text-al-center">
-        <input name="Horoshcope" type="radio" value="3">
+        <input name="Horoshcope"  id="Horoshcope3"  type="radio" value="3">
       </div>
     </div>
     <hr>
@@ -84,6 +84,68 @@
 
 <script>
   $(function() {
+
+    FillPrivacySettingsData();
+
+    function FillPrivacySettingsData() {
+      var Member = function() {
+        this.MemberID = 0;
+      }
+      var model = new Member();
+      model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+
+      ajaxCall('registration/getMemberData', model, function(response) {
+        if (response.intMyPhotosPrivacy != null) {
+          var MyPhotosPrivacy = (response.intMyPhotosPrivacy);
+          if (MyPhotosPrivacy == "1") {
+            $("#MyPhotos1").prop("checked", true);
+          } else if (MyPhotosPrivacy == "2") {
+            $("#MyPhotos2").prop("checked", true);
+          } else if (MyPhotosPrivacy == "3") {
+            $("#MyPhotos3").prop("checked", true);
+          }
+
+          var MyVideosPrivacy = (response.intMyVideosPrivacy);
+          if (MyVideosPrivacy == "1") {
+            $("#MyVideos1").prop("checked", true);
+          } else if (MyVideosPrivacy == "2") {
+            $("#MyVideos2").prop("checked", true);
+          } else if (MyVideosPrivacy == "3") {
+            $("#MyVideos3").prop("checked", true);
+          }
+
+          var AssetsDetailsPrivacy = (response.intAssetsDetailsPrivacy);
+          if (AssetsDetailsPrivacy == "1") {
+            $("#AssetsDetails1").prop("checked", true);
+          } else if (AssetsDetailsPrivacy == "2") {
+            $("#AssetsDetails2").prop("checked", true);
+          } else if (AssetsDetailsPrivacy == "3") {
+            $("#AssetsDetails3").prop("checked", true);
+          }
+
+          
+          var FamilyDetailsPrivacy = (response.intFamilyDetailsPrivacy);
+          if (FamilyDetailsPrivacy == "1") {
+            $("#FamilyDetails1").prop("checked", true);
+          } else if (FamilyDetailsPrivacy == "2") {
+            $("#FamilyDetails2").prop("checked", true);
+          } else if (FamilyDetailsPrivacy == "3") {
+            $("#FamilyDetails3").prop("checked", true);
+          }
+
+          var HoroscopeDetailsPrivacy = (response.intHoroscopeDetailsPrivacy);
+          if (HoroscopeDetailsPrivacy == "1") {
+            $("#Horoshcope1").prop("checked", true);
+          } else if (HoroscopeDetailsPrivacy == "2") {
+            $("#Horoshcope2").prop("checked", true);
+          } else if (HoroscopeDetailsPrivacy == "3") {
+            $("#Horoshcope3").prop("checked", true);
+          }
+
+        }
+      });
+    }
+
 
     $('#btnBack').click(function() {
       window.location.href = "<?php echo base_url('Registration/AboutYourselfAndPartner') ?>";
