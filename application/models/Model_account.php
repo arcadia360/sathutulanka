@@ -277,7 +277,7 @@ class Model_account extends CI_Model
             CASE WHEN M.intDietID IN (" . $details["MemberPreferedDiet"] . ") THEN 7 ELSE 0 END) AS ForMe,
             IFNULL(fnGetPercentageForPartner(" . $member_id . "," . $details["Age"] . "," . $details["intHeight"] . "," . $details["intMaritalStatusID"] . "," . $details["intNoOfChildrenID"] . "," . $details["intReligionID"] . "," . $details["intEthnicityID"] . "," . $details["intMotherTongueID"] . "," . $details["intProvinceID"] . "," . $details["intEducationLevelID"] . ",1," . $details["intMonthlyIncomeID"] . "," . $details["intAssetValueID"] . "," . $details["intDisabilityID"] . "," . $details["intDietID"] . "),0) AS ForPartner,
             CASE WHEN MLP.intMemberID IS NULL THEN 0 ELSE 1 END AS IsLiked,
-            (SELECT COUNT(*) FROM MemberImage WHERE intMemberID = M.intMemberID) AS intImageCount
+            (SELECT COUNT(*) FROM MemberImage AS MI WHERE MI.intMemberID = M.intMemberID) AS intImageCount
         FROM 
           Member AS M
           INNER JOIN City 									AS C 		ON M.intCityIdIfLiveInSL = C.intCityID
