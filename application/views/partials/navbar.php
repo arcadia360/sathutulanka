@@ -47,12 +47,20 @@
             background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHOSURBVEhLrZa/SgNBEMZzh0WKCClSCKaIYOED+AAKeQQLG8HWztLCImBrYadgIdY+gIKNYkBFSwu7CAoqCgkkoGBI/E28PdbLZmeDLgzZzcx83/zZ2SSXC1j9fr+I1Hq93g2yxH4iwM1vkoBWAdxCmpzTxfkN2RcyZNaHFIkSo10+8kgxkXIURV5HGxTmFuc75B2RfQkpxHG8aAgaAFa0tAHqYFfQ7Iwe2yhODk8+J4C7yAoRTWI3w/4klGRgR4lO7Rpn9+gvMyWp+uxFh8+H+ARlgN1nJuJuQAYvNkEnwGFck18Er4q3egEc/oO+mhLdKgRyhdNFiacC0rlOCbhNVz4H9FnAYgDBvU3QIioZlJFLJtsoHYRDfiZoUyIxqCtRpVlANq0EU4dApjrtgezPFad5S19Wgjkc0hNVnuF4HjVA6C7QrSIbylB+oZe3aHgBsqlNqKYH48jXyJKMuAbiyVJ8KzaB3eRc0pg9VwQ4niFryI68qiOi3AbjwdsfnAtk0bCjTLJKr6mrD9g8iq/S/B81hguOMlQTnVyG40wAcjnmgsCNESDrjme7wfftP4P7SP4N3CJZdvzoNyGq2c/HWOXJGsvVg+RA/k2MC/wN6I2YA2Pt8GkAAAAASUVORK5CYII=) !important;
             top: 70px !important;
         }
+
+        .navbar-profile-pic .dropdown-toggle::after {
+            content: none !important;
+        }
     </style>
 
     <!-- Jquery 3.2  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- toastr -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <!-- sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- sweet alert 2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Select2 -->
     <script src="<?= base_url('resources/js/select2.full.min.js') ?>"></script>
     <!-- date-range-picker  -->
@@ -82,9 +90,9 @@
             ?>
 
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#userNavbarItems" aria-controls="userNavbarItems" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#userNavbarItems" aria-controls="userNavbarItems" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
-        </button>
+        </button> -->
         <div class="collapse navbar-collapse" id="userNavbarItems">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                 <?php
@@ -123,14 +131,32 @@
                 }
                 ?>
 
+
+
             </ul>
             <?php
             if ($_SESSION['logged_in'] == TRUE) {
             ?>
-                <!-- <button type="button" class="btn btn-login" data-toggle="modal" data-target="#exampleModal">LOG OUT </button> -->
-                <a href="<?= base_url('Auth/logout') ?>" class="btn btn-login">
+                <!-- <a href="<?= base_url('Auth/logout') ?>" class="btn btn-login">
                     Logout
-                </a>
+                </a> -->
+
+                <ul class="navbar-nav mt-2 mt-lg-0">
+                    <li class="nav-item dropdown navbar-profile-pic">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="mini-profile-picture">
+                                <img src="https://i.pinimg.com/564x/6f/de/85/6fde85b86c86526af5e99ce85f57432e.jpg" alt="Profile Photo">
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="<?= base_url('Auth/logout') ?>">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+
             <?php
             } else {
             ?>
@@ -141,30 +167,35 @@
             }
             ?>
 
-            <?php
 
-            $url = "";
-            for ($i = 0; $i < count($this->uri->segment_array()); $i++) {
-                $url = $url . $this->uri->segment($i + 1) . "/";
-            }
-
-            if ($url == "") {
-                $url = "Welcome";
-            }
-            if ($_SESSION['language_id'] == 1) { // Current Language - English
-            ?>
-                <a class="nav-link btn-lang" href="<?= base_url("Welcome/ChangeLanguage/2/" . $url); ?>">සිංහල</a>
-            <?php
-            } else if ($_SESSION['language_id'] == 2) { // Current Language - Sinhala
-            ?>
-                <a class="nav-link btn-lang" href="<?= base_url("Welcome/ChangeLanguage/1/" . $url); ?>">English</a>
-            <?php
-            }
-            ?>
 
         </div>
+
+
+
+        <?php
+        $url = "";
+        for ($i = 0; $i < count($this->uri->segment_array()); $i++) {
+            $url = $url . $this->uri->segment($i + 1) . "/";
+        }
+        if ($url == "") {
+            $url = "Welcome";
+        }
+        if ($_SESSION['language_id'] == 1) { // Current Language - English
+        ?>
+            <a class="nav-link btn-lang" href="<?= base_url("Welcome/ChangeLanguage/2/" . $url); ?>">සිංහල</a>
+        <?php
+        } else if ($_SESSION['language_id'] == 2) { // Current Language - Sinhala
+        ?>
+            <a class="nav-link btn-lang" href="<?= base_url("Welcome/ChangeLanguage/1/" . $url); ?>">English</a>
+        <?php
+        }
+        ?>
     </nav>
 
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+        <a class="navbar-brand" href="#">Fixed bottom</a>
+    </nav>
 
     <!-- <div class="angle-div ">dd</div> -->
 
