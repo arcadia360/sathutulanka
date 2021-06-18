@@ -2,10 +2,14 @@ $(function () {
     getMyMatches();
 });
 
-function getMyMatches(){
-    debugger;
+var Member = function () {
+    this.MemberID = 0;
+}
+
+
+
+function getMyMatches() {
     ajaxCall('Account/GetMyMatches', null, function (response) {
-        debugger;
         var element = "";
 
         for (let index = 0; index < response.length; index++) {
@@ -34,42 +38,55 @@ function getMyMatches(){
                 verifyBadge = "<span class='badge badge-trustVerified'>Trust Verified</span>";
             }
 
-            element += 
-            "<div class='col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12'>"+
-                "<div class='card profile-card'>"+
-                    "<div class='row'>"+
-                "<a href='#' class='profile-heart " + isLiked +"'><i class='fas fa-heart'></i></a>"+
-                    "</div>"+
-                    "<div class='overlay'>" +
-                        "<div class='card-img-block'>"+
-                            premiumBadge+
-                            "<p class='photo-count'><i class='fas fa-camera'></i> " + response[index].intImageCount+"</p>"+
-                            "<img src='https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg' />" +
-                        "</div>" +
-                        "<div class='card-body pt-0'>"+
-                            "<div class='row percentage-row'>" +
-                                "<div class='col-6 card-percentage'>" +
-                                "<p class='percentage-left'>" + response[index].ForMe +"%</p>" +
-                                    "<p class='text-left'>For me</p>" +
-                                "</div>" +
-                                "<div class='col-6 card-percentage'>"+
-                                "<p class='percentage-right'>" + response[index].ForPartner +"%</p>"+
-                                    "<p class='text-right'>For him</p>" +
-                                "</div>" +
-                            "</div>" +
-                            "<h5 class='col-12 card-title'>" + response[index].vcNickName +"</h5>"+
-                            "<h6 class='col-12 card-designation'>" + response[index].MiniProfileDesignation +"</h6>" +
-                            "<p class='badge-label'>"+verifyBadge+"</p>" +
-                            "<p class='card-text'>" + response[index].Age + " Years, " + response[index].vcHightFeet + ", " + response[index].vcEthnicityName + ", " + response[index].vcReligion + ", " + response[index].vcMaritalStatus + ", " + response[index].vcEducationLevel +".</p>" +
-                        "</div>" +
-                        "<a href='#' class='btn btn-primary'>Check Match</a>" +
-                    "</div>"+
-                "</div >"+
-            "</div >";
+            element +=
+                "<div class='col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12'>" +
+                "<div class='card profile-card'>" +
+                "<div class='row'>" +
+            "<button class='profile-heart " + isLiked + "' name='" + response[index].intMemberID + "' id='btnHeart" + response[index].intMemberID+"' onClick='LikeOrDisLikeProfile(this)'><i class='fas fa-heart'></i></button>" +
+                "</div>" +
+                "<div class='overlay'>" +
+                "<div class='card-img-block'>" +
+                premiumBadge +
+                "<p class='photo-count'><i class='fas fa-camera'></i> " + response[index].intImageCount + "</p>" +
+                "<img src='https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg' />" +
+                "</div>" +
+                "<div class='card-body pt-0'>" +
+                "<div class='row percentage-row'>" +
+                "<div class='col-6 card-percentage'>" +
+                "<p class='percentage-left'>" + response[index].ForMe + "%</p>" +
+                "<p class='text-left'>For me</p>" +
+                "</div>" +
+                "<div class='col-6 card-percentage'>" +
+                "<p class='percentage-right'>" + response[index].ForPartner + "%</p>" +
+                "<p class='text-right'>For him</p>" +
+                "</div>" +
+                "</div>" +
+                "<h5 class='col-12 card-title'>" + response[index].vcNickName + "</h5>" +
+                "<h6 class='col-12 card-designation'>" + response[index].MiniProfileDesignation + "</h6>" +
+                "<p class='badge-label'>" + verifyBadge + "</p>" +
+                "<p class='card-text'>" + response[index].Age + " Years, " + response[index].vcHightFeet + ", " + response[index].vcEthnicityName + ", " + response[index].vcReligion + ", " + response[index].vcMaritalStatus + ", " + response[index].vcEducationLevel + ".</p>" +
+                "</div>" +
+                "<a href='#' class='btn btn-primary'>Check Match</a>" +
+                "</div>" +
+                "</div >" +
+                "</div >";
 
         }
 
         $('#mini-profile-area').empty();
         $('#mini-profile-area').append(element);
+    });
+}
+
+function LikeOrDisLikeProfile(element) {
+    var model = new Member();
+    model.MemberID = element.name;
+
+    ajaxCall('Account/LikeOrDisLikeProfile', model, function (response) {
+        debugger;
+        // if (response.success) {
+            
+        document.getElementById(element.id).classList.toggle("like");
+    //    }
     });
 }
