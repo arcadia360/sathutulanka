@@ -166,7 +166,7 @@ class Model_account extends CI_Model
 
     $sql = "
         SELECT 
-          20 AS Age,
+          TIMESTAMPDIFF(year,M.dtDOB, now()) AS Age,
           M.intHeight,
           M.intMaritalStatusID,
           M.intNoOfChildrenID,	
@@ -182,10 +182,33 @@ class Model_account extends CI_Model
           M.intMemberPreferedAgeFrom,
           M.intMemberPreferedAgeTo,
           M.intMemberPreferedHeightFrom,
-          M.intMemberPreferedHeightTo
-        FROM Member AS M
-        INNER JOIN City         AS C 		ON M.intCityIdIfLiveInSL = C.intCityID
-	      INNER JOIN District     AS D 		ON C.intDistrictID = D.intDistrictID
+          M.intMemberPreferedHeightTo,
+          IFNULL(GROUP_CONCAT(MPMS.intMaritalStatusID SEPARATOR ','),0) AS MemberPreferedMaritalStatus,
+          IFNULL(GROUP_CONCAT(MPNC.intNoOfChildrenID SEPARATOR ','),0) AS MemberPreferedNoOfChildren,
+          IFNULL(GROUP_CONCAT(MPR.intReligionID SEPARATOR ','),0) AS MemberPreferedReligion,
+          IFNULL(GROUP_CONCAT(MPE.intEthnicityID SEPARATOR ','),0) AS MemberPreferedEthnicity,          
+          IFNULL(GROUP_CONCAT(MPMT.intMotherTongueID SEPARATOR ','),0) AS MemberPreferedMotherTongue,
+          IFNULL(GROUP_CONCAT(MPSL.intProvinceID SEPARATOR ','),0) AS MemberPreferedLiveInSriLanka,
+          IFNULL(GROUP_CONCAT(MPEL.intEducationLevelID SEPARATOR ','),0) AS MemberPreferedEducationLevel,
+          IFNULL(GROUP_CONCAT(MPME.intMonthlyIncomeID SEPARATOR ','),0) AS MemberPreferedMonthlyIncome,
+          IFNULL(GROUP_CONCAT(MPAV.intAssetValueID SEPARATOR ','),0) AS MemberPreferedAssetValue,
+          IFNULL(GROUP_CONCAT(MPAD.intDisabilityID SEPARATOR ','),0) AS MemberPreferedAnyDisability,
+          IFNULL(GROUP_CONCAT(MPD.intDietID SEPARATOR ','),0) AS MemberPreferedDiet
+        FROM 
+          Member AS M
+          INNER JOIN City                         AS C ON M.intCityIdIfLiveInSL = C.intCityID
+          INNER JOIN District                     AS D ON C.intDistrictID = D.intDistrictID
+          INNER JOIN MemberPreferedMaritalStatus  AS MPMS ON M.intMemberID = MPMS.intMemberID
+          INNER JOIN MemberPreferedNoOfChildren   AS MPNC ON M.intMemberID = MPNC.intMemberID
+          INNER JOIN MemberPreferedReligion       AS MPR ON M.intMemberID = MPR.intMemberID
+          INNER JOIN MemberPreferedEthnicity      AS MPE ON M.intMemberID = MPE.intMemberID 	
+          INNER JOIN MemberPreferedMotherTongue   AS MPMT ON M.intMemberID = MPMT.intMemberID 
+          INNER JOIN MemberPreferedLiveInSriLanka AS MPSL ON M.intMemberID = MPSL.intMemberID
+          INNER JOIN MemberPreferedEducationLevel AS MPEL ON M.intMemberID = MPEL.intMemberID 
+          INNER JOIN MemberPreferedMonthlyIncome  AS MPME ON M.intMemberID = MPME.intMemberID
+          INNER JOIN MemberPreferedAssetValue     AS MPAV ON M.intMemberID = MPAV.intMemberID 
+          INNER JOIN MemberPreferedAnyDisability  AS MPAD ON M.intMemberID = MPAD.intMemberID 
+          INNER JOIN MemberPreferedDiet           AS MPD ON M.intMemberID = MPD.intMemberID 
         WHERE M.intMemberID = ? ";
 
     $query = $this->db->query($sql, array($member_id));
@@ -200,7 +223,7 @@ class Model_account extends CI_Model
     SELECT 
       COUNT(M.intMemberID) AS AllSinglesCount 
     FROM Member AS M 
-    WHERE M.vcGender <> ? AND M.intMemberAccountStatusID IN (3,4,5,6)";  // Remove 3
+    WHERE M.vcGender <> ? AND M.intMemberAccountStatusID IN (4,5,6)";
     $query = $this->db->query($sql, array($gender));
     return $query->row_array();
   }
@@ -211,7 +234,7 @@ class Model_account extends CI_Model
     SELECT 
       COUNT(M.intMemberID) AS AllSinglesCount 
     FROM Member AS M 
-    WHERE M.vcGender <> ? AND M.intMemberAccountStatusID IN (3,4,5,6)";   // Remove 3
+    WHERE M.vcGender <> ? AND M.intMemberAccountStatusID IN (4,5,6)";
     $query = $this->db->query($sql, array($member_id));
     return $query->row_array();
   }
@@ -221,10 +244,6 @@ class Model_account extends CI_Model
   {
 
     $details = $this->getMyProfileMatchingDetils($member_id);
-
-    $MemberPreferedAgeFrom = "A";
-    $MemberPreferedAgeTo = "B";
-
 
     $sql = "
           SELECT 
@@ -242,22 +261,22 @@ class Model_account extends CI_Model
             R.vcReligion,
             MS.vcMaritalStatus_en AS vcMaritalStatus,
             EL.vcEducationLevel,    
-            (CASE WHEN  TIMESTAMPDIFF(year,M.dtDOB, now())  >= 10 AND  TIMESTAMPDIFF(year,M.dtDOB, now())  <= 20 THEN 7 ELSE 0 END +
-            CASE WHEN M.intHeight >= 10 AND M.intHeight <= 1500 THEN 7 ELSE 0 END +
-            CASE WHEN M.intMaritalStatusID IN (1,2,3,4,5 ) THEN 7 ELSE 0 END +
-            CASE WHEN M.intNoOfChildrenID IN (1,2,3) THEN 7 ELSE 0 END +
-            CASE WHEN M.intReligionID IN (1,2,3) THEN 7 ELSE 0 END +
-            CASE WHEN M.intEthnicityID IN (1,2,3) THEN 7 ELSE 0 END +
-            CASE WHEN M.intMotherTongueID IN (1,2,3) THEN 7 ELSE 0 END+
-            CASE WHEN P.intProvinceID IN (1,2,3) THEN 7 ELSE 0 END+
-            CASE WHEN M.intEducationLevelID IN (1,2,3) THEN 7 ELSE 0 END+
+            (CASE WHEN  TIMESTAMPDIFF(year,M.dtDOB, now())  >= " . (int)$details['intMemberPreferedAgeFrom'] . " AND  TIMESTAMPDIFF(year,M.dtDOB, now())  <= " . (int)$details['intMemberPreferedAgeTo'] . " THEN 7 ELSE 0 END +
+            CASE WHEN M.intHeight >= " . (int)$details['intMemberPreferedHeightFrom'] . " AND M.intHeight <= " . (int)$details['intMemberPreferedHeightTo'] . " THEN 7 ELSE 0 END +
+            CASE WHEN M.intMaritalStatusID IN (" . $details['MemberPreferedMaritalStatus'] . ") THEN 7 ELSE 0 END +
+            CASE WHEN M.intNoOfChildrenID IN (" . $details["MemberPreferedNoOfChildren"] . ") THEN 7 ELSE 0 END +
+            CASE WHEN M.intReligionID IN (" . $details["MemberPreferedReligion"] . ") THEN 7 ELSE 0 END +
+            CASE WHEN M.intEthnicityID IN (" . $details["MemberPreferedReligion"] . ") THEN 7 ELSE 0 END +
+            CASE WHEN M.intMotherTongueID IN (" . $details["MemberPreferedMotherTongue"] . ") THEN 7 ELSE 0 END+
+            CASE WHEN P.intProvinceID IN (" . $details["MemberPreferedLiveInSriLanka"] . ") THEN 7 ELSE 0 END+
+            CASE WHEN M.intEducationLevelID IN (" . $details["MemberPreferedEducationLevel"] . ") THEN 7 ELSE 0 END+
             7+
-            CASE WHEN M.intMonthlyIncomeID IN (1,2,3) THEN 7 ELSE 0 END+
-            CASE WHEN M.intAssetValueID IN (1,2,3) THEN 7 ELSE 0 END+
-            CASE WHEN M.intDisabilityID IN (1,2) THEN 7 ELSE 0 END+
-            CASE WHEN M.intDietID IN (1,2) THEN 7 ELSE 0 END) AS ForMe,
-            IFNULL(fnGetPercentageForPartner(80,20,137,5,1,1,1,1,1,1,1,1,1,1),0) AS ForPartner,
-            1 AS IsLiked,
+            CASE WHEN M.intMonthlyIncomeID IN (" . $details["MemberPreferedMonthlyIncome"] . ") THEN 7 ELSE 0 END+
+            CASE WHEN M.intAssetValueID IN (" . $details["MemberPreferedAssetValue"] . ") THEN 7 ELSE 0 END+
+            CASE WHEN M.intDisabilityID IN (" . $details["MemberPreferedAnyDisability"] . ") THEN 7 ELSE 0 END+
+            CASE WHEN M.intDietID IN (" . $details["MemberPreferedDiet"] . ") THEN 7 ELSE 0 END) AS ForMe,
+            IFNULL(fnGetPercentageForPartner(" . $member_id . "," . $details["Age"] . "," . $details["intHeight"] . "," . $details["intMaritalStatusID"] . "," . $details["intNoOfChildrenID"] . "," . $details["intReligionID"] . "," . $details["intEthnicityID"] . "," . $details["intMotherTongueID"] . "," . $details["intProvinceID"] . "," . $details["intEducationLevelID"] . ",1," . $details["intMonthlyIncomeID"] . "," . $details["intAssetValueID"] . "," . $details["intDisabilityID"] . "," . $details["intDietID"] . "),0) AS ForPartner,
+            CASE WHEN MLP.intMemberID IS NULL THEN 0 ELSE 1 END AS IsLiked,
             (SELECT COUNT(*) FROM MemberImage WHERE intMemberID = M.intMemberID) AS intImageCount
         FROM 
           Member AS M
@@ -269,13 +288,51 @@ class Model_account extends CI_Model
           INNER JOIN Ethnicity 							AS E 		ON M.intEthnicityID = E.intEthnicityID    
           INNER JOIN Religion 							AS R 		ON M.intReligionID = R.intReligionID
           INNER JOIN MaritalStatus 					AS MS 	ON M.intMaritalStatusID = MS.intMaritalStatusID  
-          INNER JOIN EducationLevel 				AS EL 	ON M.intEducationLevelID = EL.intEducationLevelID      
+          INNER JOIN EducationLevel 				AS EL 	ON M.intEducationLevelID = EL.intEducationLevelID    
+          LEFT OUTER JOIN MemberLikedProfile AS MLP ON M.intMemberID = MLP.intMemberID_Partner AND MLP.intMemberID = $member_id    
         WHERE 
           M.vcGender <> ?
-          AND M.intMemberAccountStatusID IN (3,4,5,6)";   // Remove 3
+          AND M.intMemberAccountStatusID IN (4,5,6)";
 
     $query = $this->db->query($sql, array($gender));
     return $query->result_array();
+  }
+
+  public function updateLikeOrDisLikeProfile($member_id, $member_id_partner, $gender)
+  {
+
+    //     $dataMemberLikedProfile = array(
+    //       'intMemberID' => $member_id,
+    //       'intMemberID_Partner' => $member_id_partner
+    //     );
+    // $this->db->insert('MemberLikedProfile', $dataMemberLikedProfile);
+
+    $query = $this->db->query("SELECT intMemberID FROM Member WHERE intMemberID = ? AND vcGender <> ? ", array($member_id_partner, $gender));
+    $row = $query->row_array();
+
+    if (isset($row)) {
+      $query = $this->db->query("SELECT intMemberID FROM MemberLikedProfile WHERE intMemberID = ? AND intMemberID_Partner = ? ", array($member_id, $member_id_partner));
+      $row = $query->row_array();
+      $this->db->trans_begin();
+      if (isset($row)) {
+        $this->db->delete('MemberLikedProfile', array('intMemberID' => $member_id, 'intMemberID_Partner' => $member_id_partner));
+      } else {
+        $dataMemberLikedProfile = array(
+          'intMemberID' => $member_id,
+          'intMemberID_Partner' => $member_id_partner
+        );
+        $this->db->insert('MemberLikedProfile', $dataMemberLikedProfile);
+      }
+
+      if ($this->db->trans_status() === FALSE) {
+        $this->db->trans_rollback();
+      } else {
+        $this->db->trans_commit();
+      }
+    } else {
+      return false;
+    }
+    return true;
   }
 
   public function getMemberWiseLanguageSpeak($MemberID)
