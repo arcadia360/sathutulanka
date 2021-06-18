@@ -174,11 +174,19 @@
           font-size: 1.4em;
           position: absolute;
           right: 5px;
-          transition: 0.6s;
+          transition: 0.2s;
+          border: none !important;
+          background-color: transparent;
       }
 
       .profile-card .profile-heart:hover {
           color: #e91e63 !important;
+          cursor: pointer !important;
+      }
+
+      .profile-card .profile-heart:focus {
+          outline: none !important;
+          cursor: pointer !important;
       }
 
       .like {
@@ -374,8 +382,8 @@
       <div class="row">
 
 
-          <button class="btn btn-sm btn-light col-md-3 col-12">All Singles <span class="float-right uk-badge"><?= $AllSinglesCount['AllSinglesCount'] ?></span></button>
-          <button class="btn btn-sm btn-light col-md-3 col-12 active">My Matches <span class="float-right uk-badge">1</span></button>
+          <button class="btn btn-sm btn-light col-md-3 col-12">All Singles <span class="float-right uk-badge"><?= $allSinglesCount['AllSinglesCount'] ?></span></button>
+          <button class="btn btn-sm btn-light col-md-3 col-12 active">My Matches <span class="float-right uk-badge"><?= count($myMatchesCount)  ?></span></button>
           <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Accepted Members <span class="float-right uk-badge">10</span></button>
           <button type="button" class="btn btn-sm btn-light col-md-3 col-12">New Matches <span class="float-right uk-badge">1</span></button>
           <button type="button" class="btn btn-sm btn-light col-md-3 col-12">My Favourites <span class="float-right uk-badge">1</span></button>
@@ -385,6 +393,38 @@
 
       </div>
       <div class="row" id="mini-profile-area">
+          <!-- 
+          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+              <div class="card profile-card">
+                  <div class="row">
+                      <button class="profile-heart like"><i class="fas fa-heart"></i></button>
+                  </div>
+                  <div class="overlay">
+                      <div class="card-img-block">
+                          <p class="premium_badge"><i class="fas fa-crown"></i> PREMIUM</p>
+                          <p class="photo-count"><i class="fas fa-camera"></i> 5</p>
+                          <img src="https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg" />
+                      </div>
+                      <div class="card-body pt-0">
+                          <div class="row percentage-row">
+                              <div class="col-6 card-percentage">
+                                  <p class="percentage-left">98%</p>
+                                  <p class="text-left">For me</p>
+                              </div>
+                              <div class="col-6 card-percentage">
+                                  <p class="percentage-right">91%</p>
+                                  <p class="text-right">For him</p>
+                              </div>
+                          </div>
+                          <h5 class="col-12 card-title">Supun Ariyarathna</h5>
+                          <h6 class="col-12 card-designation">Software Engineer</h6>
+                          <p class="badge-label"><span class="badge badge-trustVerified">Trust Verified</span></p>
+                          <p class="card-text">24 Years, 4'5", Sinhalese, Christians, Never Married, Masters.</p>
+                      </div>
+                      <a href="#" class="btn btn-primary">Check Match</a>
+                  </div>
+              </div>
+          </div> -->
 
           <!-- <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
               <div class="card profile-card">
