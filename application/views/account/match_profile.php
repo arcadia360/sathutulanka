@@ -30,23 +30,7 @@
             border-bottom: none !important
         }
 
-        .mini-profile-picture {
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            border-radius: 50%;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.63);
-            border: 2px solid #FFFFFF;
-            width: 40px;
-            height: 40px;
-        }
 
-        .mini-profile-picture img {
-            object-fit: cover;
-            width: 36px;
-            height: 36px;
-            margin: 0 auto;
-        }
 
         .basic-preference-title {
             font-weight: 600 !important;
