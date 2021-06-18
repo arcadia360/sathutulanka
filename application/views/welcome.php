@@ -161,12 +161,13 @@
          .search-area {
              position: relative;
              background: #1A4668;
-             /* top: -10vh; */
+
+
+             /* top: 66vh;  2021-06-16 mobile responsive checking */
          }
 
          .slider {
-             height: 30vh;
-             /* height: 0; */
+             height: 25.9vh; /* 2021-06-16 mobile responsive checking */
 
          }
 
@@ -226,161 +227,161 @@
              </ul>
          </div>
      </div>
-     <!-- <div class="row"> -->
+     <div class="row">
          <div class="search-area">
-             <!-- <div class="searchX"> -->
-             <!-- <div class="row"> -->
-             <div class="container">
-                 <form action="#">
-                     <div class="row">
-                         <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 p-0">
-                             <select class="form-control">
-                                 <option>I'm Looking For</option>
-                                 <option>Lady</option>
-                                 <option>Gentleman</option>
-                             </select>
+             <div class="search">
+                 <!-- <div class="row"> -->
+                 <div class="container">
+                     <form action="#">
+                         <div class="row">
+                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 p-0">
+                                 <select class="form-control">
+                                     <option>I'm Looking For</option>
+                                     <option>Lady</option>
+                                     <option>Gentleman</option>
+                                 </select>
+                             </div>
+                             <div class="col-6 col-lg-2 col-md-2 col-sm-6 col-xs-6 p-0">
+                                 <select class="form-control">
+                                     <option>Age From</option>
+                                     <option value="18">18</option>
+                                     <option value="19">19</option>
+                                     <option value="20">20</option>
+                                     <option value="21">21</option>
+                                     <option value="22">22</option>
+                                     <option value="23">23</option>
+                                     <option value="24">24</option>
+                                     <option value="25">25</option>
+                                     <option value="26">26</option>
+                                     <option value="27">27</option>
+                                     <option value="28">28</option>
+                                     <option value="29">29</option>
+                                     <option value="30">30</option>
+                                     <option value="31">31</option>
+                                     <option value="32">32</option>
+                                     <option value="33">33</option>
+                                     <option value="34">34</option>
+                                     <option value="35">35</option>
+                                     <option value="36">36</option>
+                                     <option value="37">37</option>
+                                     <option value="38">38</option>
+                                     <option value="39">39</option>
+                                     <option value="40">40</option>
+                                     <option value="41">41</option>
+                                     <option value="42">42</option>
+                                     <option value="43">43</option>
+                                     <option value="44">44</option>
+                                     <option value="45">45</option>
+                                     <option value="46">46</option>
+                                     <option value="47">47</option>
+                                     <option value="48">48</option>
+                                     <option value="49">49</option>
+                                     <option value="50">50</option>
+                                     <option value="51">51</option>
+                                     <option value="52">52</option>
+                                     <option value="53">53</option>
+                                     <option value="54">54</option>
+                                     <option value="55">55</option>
+                                     <option value="56">56</option>
+                                     <option value="57">57</option>
+                                     <option value="58">58</option>
+                                     <option value="59">59</option>
+                                     <option value="60">60</option>
+                                     <option value="61">61</option>
+                                     <option value="62">62</option>
+                                     <option value="63">63</option>
+                                     <option value="64">64</option>
+                                     <option value="65">65</option>
+                                     <option value="66">66</option>
+                                     <option value="67">67</option>
+                                     <option value="68">68</option>
+                                 </select>
+                             </div>
+                             <div class="col-6 col-lg-2 col-md-2 col-sm-6 col-xs-6 p-0">
+                                 <select class="form-control">
+                                     <option>Age To</option>
+                                     <option value="18">18</option>
+                                     <option value="19">19</option>
+                                     <option value="20">20</option>
+                                     <option value="21">21</option>
+                                     <option value="22">22</option>
+                                     <option value="23">23</option>
+                                     <option value="24">24</option>
+                                     <option value="25">25</option>
+                                     <option value="26">26</option>
+                                     <option value="27">27</option>
+                                     <option value="28">28</option>
+                                     <option value="29">29</option>
+                                     <option value="30">30</option>
+                                     <option value="31">31</option>
+                                     <option value="32">32</option>
+                                     <option value="33">33</option>
+                                     <option value="34">34</option>
+                                     <option value="35">35</option>
+                                     <option value="36">36</option>
+                                     <option value="37">37</option>
+                                     <option value="38">38</option>
+                                     <option value="39">39</option>
+                                     <option value="40">40</option>
+                                     <option value="41">41</option>
+                                     <option value="42">42</option>
+                                     <option value="43">43</option>
+                                     <option value="44">44</option>
+                                     <option value="45">45</option>
+                                     <option value="46">46</option>
+                                     <option value="47">47</option>
+                                     <option value="48">48</option>
+                                     <option value="49">49</option>
+                                     <option value="50">50</option>
+                                     <option value="51">51</option>
+                                     <option value="52">52</option>
+                                     <option value="53">53</option>
+                                     <option value="54">54</option>
+                                     <option value="55">55</option>
+                                     <option value="56">56</option>
+                                     <option value="57">57</option>
+                                     <option value="58">58</option>
+                                     <option value="59">59</option>
+                                     <option value="60">60</option>
+                                     <option value="61">61</option>
+                                     <option value="62">62</option>
+                                     <option value="63">63</option>
+                                     <option value="64">64</option>
+                                     <option value="65">65</option>
+                                     <option value="66">66</option>
+                                     <option value="67">67</option>
+                                     <option value="68">68</option>
+                                 </select>
+                             </div>
+                             <div class="col-6 col-lg-2 col-md-2 col-sm-6 col-xs-6 p-0">
+                                 <select class="form-control">
+                                     <option>Religion</option>
+                                     <option value="">Buddhist</option>
+                                     <option value="">Hindu</option>
+                                     <option value="">Islam</option>
+                                     <option value="">Christians</option>
+                                     <option value="">Roman Catholic</option>
+                                     <option value="">Other</option>
+                                 </select>
+                             </div>
+                             <div class="col-6 col-lg-2 col-md-2 col-sm-6 col-xs-6 p-0">
+                                 <select class="form-control">
+                                     <option>Mother Tongue</option>
+                                     <option>සිංහල</option>
+                                     <option>English</option>
+                                     <option>தமிழ்</option>
+                                 </select>
+                             </div>
+                             <div class="col-lg-2 col-md-2 col-sm-12 p-0">
+                                 <button type="button" class="btn btn-danger wrn-btn">Search</button>
+                             </div>
                          </div>
-                         <div class="col-6 col-lg-2 col-md-2 col-sm-6 col-xs-6 p-0">
-                             <select class="form-control">
-                                 <option>Age From</option>
-                                 <option value="18">18</option>
-                                 <option value="19">19</option>
-                                 <option value="20">20</option>
-                                 <option value="21">21</option>
-                                 <option value="22">22</option>
-                                 <option value="23">23</option>
-                                 <option value="24">24</option>
-                                 <option value="25">25</option>
-                                 <option value="26">26</option>
-                                 <option value="27">27</option>
-                                 <option value="28">28</option>
-                                 <option value="29">29</option>
-                                 <option value="30">30</option>
-                                 <option value="31">31</option>
-                                 <option value="32">32</option>
-                                 <option value="33">33</option>
-                                 <option value="34">34</option>
-                                 <option value="35">35</option>
-                                 <option value="36">36</option>
-                                 <option value="37">37</option>
-                                 <option value="38">38</option>
-                                 <option value="39">39</option>
-                                 <option value="40">40</option>
-                                 <option value="41">41</option>
-                                 <option value="42">42</option>
-                                 <option value="43">43</option>
-                                 <option value="44">44</option>
-                                 <option value="45">45</option>
-                                 <option value="46">46</option>
-                                 <option value="47">47</option>
-                                 <option value="48">48</option>
-                                 <option value="49">49</option>
-                                 <option value="50">50</option>
-                                 <option value="51">51</option>
-                                 <option value="52">52</option>
-                                 <option value="53">53</option>
-                                 <option value="54">54</option>
-                                 <option value="55">55</option>
-                                 <option value="56">56</option>
-                                 <option value="57">57</option>
-                                 <option value="58">58</option>
-                                 <option value="59">59</option>
-                                 <option value="60">60</option>
-                                 <option value="61">61</option>
-                                 <option value="62">62</option>
-                                 <option value="63">63</option>
-                                 <option value="64">64</option>
-                                 <option value="65">65</option>
-                                 <option value="66">66</option>
-                                 <option value="67">67</option>
-                                 <option value="68">68</option>
-                             </select>
-                         </div>
-                         <div class="col-6 col-lg-2 col-md-2 col-sm-6 col-xs-6 p-0">
-                             <select class="form-control">
-                                 <option>Age To</option>
-                                 <option value="18">18</option>
-                                 <option value="19">19</option>
-                                 <option value="20">20</option>
-                                 <option value="21">21</option>
-                                 <option value="22">22</option>
-                                 <option value="23">23</option>
-                                 <option value="24">24</option>
-                                 <option value="25">25</option>
-                                 <option value="26">26</option>
-                                 <option value="27">27</option>
-                                 <option value="28">28</option>
-                                 <option value="29">29</option>
-                                 <option value="30">30</option>
-                                 <option value="31">31</option>
-                                 <option value="32">32</option>
-                                 <option value="33">33</option>
-                                 <option value="34">34</option>
-                                 <option value="35">35</option>
-                                 <option value="36">36</option>
-                                 <option value="37">37</option>
-                                 <option value="38">38</option>
-                                 <option value="39">39</option>
-                                 <option value="40">40</option>
-                                 <option value="41">41</option>
-                                 <option value="42">42</option>
-                                 <option value="43">43</option>
-                                 <option value="44">44</option>
-                                 <option value="45">45</option>
-                                 <option value="46">46</option>
-                                 <option value="47">47</option>
-                                 <option value="48">48</option>
-                                 <option value="49">49</option>
-                                 <option value="50">50</option>
-                                 <option value="51">51</option>
-                                 <option value="52">52</option>
-                                 <option value="53">53</option>
-                                 <option value="54">54</option>
-                                 <option value="55">55</option>
-                                 <option value="56">56</option>
-                                 <option value="57">57</option>
-                                 <option value="58">58</option>
-                                 <option value="59">59</option>
-                                 <option value="60">60</option>
-                                 <option value="61">61</option>
-                                 <option value="62">62</option>
-                                 <option value="63">63</option>
-                                 <option value="64">64</option>
-                                 <option value="65">65</option>
-                                 <option value="66">66</option>
-                                 <option value="67">67</option>
-                                 <option value="68">68</option>
-                             </select>
-                         </div>
-                         <div class="col-6 col-lg-2 col-md-2 col-sm-6 col-xs-6 p-0">
-                             <select class="form-control">
-                                 <option>Religion</option>
-                                 <option value="">Buddhist</option>
-                                 <option value="">Hindu</option>
-                                 <option value="">Islam</option>
-                                 <option value="">Christians</option>
-                                 <option value="">Roman Catholic</option>
-                                 <option value="">Other</option>
-                             </select>
-                         </div>
-                         <div class="col-6 col-lg-2 col-md-2 col-sm-6 col-xs-6 p-0">
-                             <select class="form-control">
-                                 <option>Mother Tongue</option>
-                                 <option>සිංහල</option>
-                                 <option>English</option>
-                                 <option>தமிழ்</option>
-                             </select>
-                         </div>
-                         <div class="col-lg-2 col-md-2 col-sm-12 p-0">
-                             <button type="button" class="btn btn-danger wrn-btn">Search</button>
-                         </div>
-                     </div>
-                 </form>
+                     </form>
+                 </div>
+                 <!-- </div> -->
              </div>
-             <!-- </div> -->
-             <!-- </div> -->
          </div>
-     <!-- </div> -->
+     </div>
      <div class="row">
 
      </div>
