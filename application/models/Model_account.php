@@ -80,6 +80,7 @@ class Model_account extends CI_Model
             --   ELSE 
             --   (SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) END, WW.vcWorkingWith) 
             -- AS vcWorkingAsSubCat_Customised,
+            'TEST' AS vcWorkingAsSubCat_Customised,
             MAS.intMemberAccountStatusID,       
             MAS.vcMemberAccountStatus,            
             MAT.intMemberAccountTypeID,
