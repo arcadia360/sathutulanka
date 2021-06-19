@@ -274,14 +274,14 @@ class Model_account extends CI_Model
 
     $details = $this->getMyProfileMatchingDetils($member_id);
 
-    $sql = "
-          SELECT 
+    $sql = "SELECT 
             M.intMemberID,
             M.vcMemberCode,
             CONCAT(UPPER(SUBSTRING(M.vcNickName,1,1)),LOWER(SUBSTRING(M.vcNickName,2))) AS vcNickName,  
             WW.vcWorkingWith,
-            WSC.vcWorkingAsSubCat, 
-            IFNULL(WSC.vcWorkingAsSubCat,WW.vcWorkingWith) AS MiniProfileDesignation,
+            -- WSC.vcWorkingAsSubCat, 
+            -- IFNULL(WSC.vcWorkingAsSubCat,WW.vcWorkingWith) AS MiniProfileDesignation,
+            IFNULL(WW.vcWorkingWith,'') AS MiniProfileDesignation,
             M.intMemberAccountTypeID,
             TIMESTAMPDIFF(year,M.dtDOB, now())  AS Age,
             M.intHeight,
@@ -307,13 +307,12 @@ class Model_account extends CI_Model
             IFNULL(fnGetPercentageForPartner(" . $member_id . "," . $details["Age"] . "," . $details["intHeight"] . "," . $details["intMaritalStatusID"] . "," . $details["intNoOfChildrenID"] . "," . $details["intReligionID"] . "," . $details["intEthnicityID"] . "," . $details["intMotherTongueID"] . "," . $details["intProvinceID"] . "," . $details["intEducationLevelID"] . ",1," . $details["intMonthlyIncomeID"] . "," . $details["intAssetValueID"] . "," . $details["intDisabilityID"] . "," . $details["intDietID"] . "),0) AS ForPartner,
             CASE WHEN MLP.intMemberID IS NULL THEN 0 ELSE 1 END AS IsLiked,
             (SELECT COUNT(*) FROM MemberImage AS MI WHERE MI.intMemberID = M.intMemberID) AS intImageCount
-        FROM 
+          FROM 
           Member AS M
           INNER JOIN City 									AS C 		ON M.intCityIdIfLiveInSL = C.intCityID
           INNER JOIN District 							AS D 		ON C.intDistrictID = D.intDistrictID
           INNER JOIN Province 							AS P 		ON D.intProvinceID = P.intProvinceID    
           INNER JOIN WorkingWith 						AS WW 	ON M.intWorkingWithId = WW.intWorkingWithId
-          LEFT OUTER JOIN WorkingAsSubCat 	AS WSC  ON M.intWorkingAsSubCatId = WSC.intWorkinAsMainCat    
           INNER JOIN Ethnicity 							AS E 		ON M.intEthnicityID = E.intEthnicityID    
           INNER JOIN Religion 							AS R 		ON M.intReligionID = R.intReligionID
           INNER JOIN MaritalStatus 					AS MS 	ON M.intMaritalStatusID = MS.intMaritalStatusID  
