@@ -51,6 +51,32 @@
         .navbar-profile-pic .dropdown-toggle::after {
             content: none !important;
         }
+
+        .navbar-profile-pic a {
+            font-size: 0.9em !important;
+        }
+
+        .mobile-login-button {
+            border-radius: 19px;
+            color: #FFFFFF;
+            left: 50px;
+            /* right: 20px; */
+            bottom: 10px;
+            width: CALC(100% - 100px);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background-color: #479bef !important;
+            box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.031), 0 0px 5.3px rgba(0, 0, 0, 0.044), 0 0px 10px rgba(0, 0, 0, 0.055), 0 0px 17.9px rgba(0, 0, 0, 0.066), 0 0px 33.4px rgba(0, 0, 0, 0.079), 0 0px 80px rgba(0, 0, 0, 0.11);
+            /* box-shadow:
+                0 0.2px 2.2px rgba(0, 0, 0, 0.037),
+                0 0.4px 5.3px rgba(0, 0, 0, 0.053),
+                0 0.8px 10px rgba(0, 0, 0, 0.065),
+                0 1.3px 17.9px rgba(0, 0, 0, 0.077),
+                0 2.5px 33.4px rgba(0, 0, 0, 0.093),
+                0 6px 80px rgba(0, 0, 0, 0.13); */
+
+        }
     </style>
 
     <!-- Jquery 3.2  -->
@@ -74,7 +100,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-red">
+    <nav class="navbar fixed-top navbar-expand-lg bg-red">
 
         <a class="navbar-brand" href="#">
             <?php
@@ -103,25 +129,21 @@
                                         } ?>">
                         <a class="nav-link" href="<?= base_url("Account/MyAccount") ?>">&nbsp;My&nbsp;Account&nbsp;</a>
                     </li>
-                    <!-- <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span> -->
                     <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "AllSingles") {
                                             echo 'active';
                                         } ?>">
                         <a class="nav-link" href="<?= base_url("Account/AllSingles") ?>">&nbsp;Singles&nbsp;</a>
                     </li>
-                    <!-- <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span> -->
                     <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Suggesitions") {
                                             echo 'active';
                                         } ?>">
                         <a class="nav-link" href="#">&nbsp;Suggesitions&nbsp;</a>
                     </li>
-                    <!-- <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span> -->
                     <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Notifications") {
                                             echo 'active';
                                         } ?>">
                         <a class="nav-link" href="#">&nbsp;Notifications&nbsp;</a>
                     </li>
-                    <!-- <span class="d-none d-lg-block" style="font-size: 1.4em; color: #FFFFFF;"> | </span> -->
                     <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Discussions") {
                                             echo 'active';
                                         } ?>">
@@ -149,9 +171,9 @@
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
+                            <!-- <a class="dropdown-item" href="#">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-divider"></div> -->
                             <a class="dropdown-item" href="<?= base_url('Auth/logout') ?>">Logout</a>
                         </div>
                     </li>
@@ -193,9 +215,61 @@
         ?>
     </nav>
 
-    <nav class="navbar fixed-bottom navbar-light bg-light">
-        <a class="navbar-brand" href="#">Fixed bottom</a>
-    </nav>
+    <!-- Login Button - Start  -->
+    <button type="button" class="btn btn-login fixed-bottom" data-toggle="modal" data-target="#exampleModal">
+        <?= lang('login'); ?>
+    </button>
+    <!-- Login Button - End  -->
+
+    <?php
+    if ($_SESSION['logged_in'] == TRUE) {
+    ?>
+        <!-- Mobile Navbar - Start -->
+        <nav id="mobile-navbar" class="fixed-bottom p-2 bg-white d-xs-block d-lg-none">
+            <div class="row">
+                <div class="col-2">
+                    <a class="menu-button <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "MyAccount") {
+                                                echo 'active';
+                                            } ?> ml-1" href="<?= base_url("Account/MyAccount") ?>"><i class="fas fa-home"></i></a>
+                </div>
+                <div class="col-2">
+                    <a class="menu-button <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "AllSingles") {
+                                                echo 'active';
+                                            } ?>" href="<?= base_url("Account/AllSingles") ?>"><i class="fas fa-search"></i></a>
+                </div>
+                <div class="col-2">
+                    <a class="menu-button <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Suggesitions") {
+                                                echo 'active';
+                                            } ?>" href="#"><i class="fas fa-magic"></i></a>
+                </div>
+                <div class="col-2">
+                    <a class="menu-button <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Notifications") {
+                                                echo 'active';
+                                            } ?>" href="#"><i class="fas fa-bell"></i></a>
+                </div>
+                <div class="col-2">
+                    <a class="menu-button <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Discussions") {
+                                                echo 'active';
+                                            } ?>" href="#"><i class="fas fa-comments"></i></a>
+                </div>
+                <div class="col-2 navbar-profile-pic">
+                    <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="mini-profile-picture" style="width: 30px !important; height:30px !important;">
+                            <img src="https://i.pinimg.com/564x/6f/de/85/6fde85b86c86526af5e99ce85f57432e.jpg" alt="Profile Photo">
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="<?= base_url('Auth/logout') ?>">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    <?php } else { ?>
+        <button class="fixed-bottom d-xs-block d-lg-none btn mobile-login-button" data-toggle="modal" data-target="#exampleModal"><?= lang('login'); ?></button>
+    <?php } ?>
+    <!-- Mobile Navbar - End -->
+
+
 
     <!-- <div class="angle-div ">dd</div> -->
 
