@@ -66,7 +66,8 @@
                                 <?php
                                 }
                                 ?>
-                                <img src="https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg" />
+                                <img src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/" . $this->session->userdata['profile_pic'] ?>" />
+
                             </div>
                             <div class="card-body">
                                 <h4 class="col-12 mb-1" style="text-align: center;"><?= $memberData['vcNickName'] ?> </h4>
@@ -124,41 +125,19 @@
                                 <div tabindex="-1" uk-slider="center: true">
                                     <div class="uk-position-relative uk-visible-toggle uk-light">
                                         <ul class="uk-slider-items uk-grid" uk-lightbox>
-                                            <li>
-                                                <div class="uk-panel">
-                                                    <a href="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/1.jpg" ?>">
-                                                        <img data-src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/1.jpg" ?>" alt="" uk-img="target: !ul > :last-child, !* +*">
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="uk-panel">
-                                                    <a href="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/2.jpg" ?>">
-                                                        <img data-src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/2.jpg" ?>" alt="" uk-img="target: !* -*, !* +*">
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="uk-panel">
-                                                    <a href="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/3.jpg" ?>">
-                                                        <img data-src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/3.jpg" ?>" alt="" uk-img="target: !* -*, !* +*">
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="uk-panel">
-                                                    <a href="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/4.jpg" ?>">
-                                                        <img data-src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/4.jpg" ?>" alt="" uk-img="target: !* -*, !* +*">
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="uk-panel">
-                                                    <a href="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/5.jpeg" ?>">
-                                                        <img data-src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/5.jpeg" ?>" alt="" uk-img="target: !* -*, !* +*">
-                                                    </a>
-                                                </div>
-                                            </li>
+                                            <!-- Generate Area -->
+                                            <?php foreach ($memberPhotosData as $imageData) {
+                                                if ($imageData['isProfilePicture'] == 0) { ?>
+                                                    <li>
+                                                        <div class="uk-panel">
+                                                            <a href="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/" . $imageData['vcImage'] ?>">
+                                                                <img data-src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/" . $imageData['vcImage'] ?>" alt="" uk-img="target: !ul > :last-child, !* +*">
+                                                            </a>
+                                                        </div>
+                                                    </li>
+                                            <?php }
+                                            } ?>
+                                            <!-- Generate Area End -->
                                         </ul>
                                         <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
                                         <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
