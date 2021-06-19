@@ -15,8 +15,10 @@ class Account extends Admin_Controller{
 
 		$member_id = $this->session->userdata('member_id');
 		$memberData = $this->Model_account->getMemberData($member_id);
+		$memberPhotosData = $this->Model_account->getMemberPhotosData($member_id);
 
 		$this->data['memberData'] = $memberData;
+		$this->data['memberPhotosData'] = $memberPhotosData;
 
 		$this->render_template('account/my_account', 'My Account',  $this->data);
 	}
