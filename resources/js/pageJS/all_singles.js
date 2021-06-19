@@ -79,14 +79,24 @@ function getMyMatches() {
 }
 
 function LikeOrDisLikeProfile(element) {
+    // debugger;
     var model = new Member();
     model.MemberID = element.name;
+    document.getElementById(element.id).classList.toggle("like");
+
+    // if ($("#"+element.id).hasClass("like")) {
+    //     $("#" +element.id).removeClass('like');
+    //     alert("A")
+        
+    // }else{
+    //     $("#" +element.id).addClass('like');
+    //     alert("b")
+    // }
 
     ajaxCall('Account/LikeOrDisLikeProfile', model, function (response) {
-        debugger;
-        // if (response.success) {
-            
+        // debugger;
+        if (response.success==false) {
         document.getElementById(element.id).classList.toggle("like");
-    //    }
+       }
     });
 }
