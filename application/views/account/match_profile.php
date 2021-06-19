@@ -274,14 +274,40 @@
                         </div>
                         <div class="overlay">
                             <div class="card-img-block">
-                                <p class="premium_badge"><i class="fas fa-crown"></i> PREMIUM</p>
+                                <?php
+                                if ($partnerData['intMemberAccountTypeID'] == 4) {
+                                ?>
+                                    <p class="premium_badge"><i class="fas fa-crown"></i> PREMIUM</p>
+                                <?php
+                                }
+                                ?>
                                 <!-- <p class="photo-count"><i class="fas fa-camera"></i> 5</p> -->
-                                <img src="https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg" />
+                                <img src="<?= base_url() . "resources/images/member/photos/" . $partnerData['vcMemberCode'] . "/" . $partnerData['vcProfilePicture'] ?>" />
                             </div>
                             <div class="card-body">
                                 <h4 class="col-12 mb-1" style="text-align: center;"><?= $partnerData['vcNickName'] ?></h4>
-                                <p class="text-secondary mb-1 mt-1">Software Engineer</p>
-                                <p class="badge-label"><span class="badge badge-trustVerified">Trust Verified</span></p>
+                                <p class="text-secondary mb-1 mt-1"><?= $partnerData['MiniProfileDesignation'] ?></p>
+
+                                <?php
+                                if ($partnerData['intMemberAccountTypeID'] == 1) { // Not Trust Verified
+                                ?>
+                                    <button class="btn btn-block badge-notTrustVerified" style="margin-top: 0px; border-radius: 20px; font-weight:600">Not Trust Verified</button>
+                                <?php
+                                } else if ($partnerData['intMemberAccountTypeID'] == 2) { // Trust Proving
+                                ?>
+                                    <button class="btn btn-block badge-trustProving" style="margin-top: 0px; border-radius: 20px; font-weight:600">Trust Proving</button>
+                                <?php
+                                } else if ($partnerData['intMemberAccountTypeID'] == 3) { // Trust Verified
+                                ?>
+                                    <button class="btn btn-block badge-trustVerified" style="margin-top: 0px; border-radius: 20px; font-weight:600">Trust Verified</button>
+                                <?php
+                                } else if ($partnerData['intMemberAccountTypeID'] == 4) { // Premium
+                                ?>
+                                    <button class="btn btn-block badge-trustVerified" style="margin-top: 0px; border-radius: 20px; font-weight:600">Trust Verified</button>
+                                <?php
+                                }
+                                ?>
+
 
                                 <button class="btn btn-outline-primary col-12" style="margin-top: 20px;">Expressing Interest</button>
                                 <button class="btn btn-outline-primary col-12" onclick="clickk();">Request</button>
@@ -598,7 +624,7 @@
                                                     <div class="form-group">
                                                         <label for="website" style="color: #FFFFFF;">Gender</label>
                                                         <input type="text" class="form-control" id="myGender" value="<?= $myData['vcGender'] ?>" placeholder="N/A" disabled>
-                                                    </div> 
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row">
