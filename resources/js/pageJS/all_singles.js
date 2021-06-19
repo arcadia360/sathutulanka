@@ -48,7 +48,7 @@ function getMyMatches() {
                 "<div class='card-img-block'>" +
                 premiumBadge +
                 "<p class='photo-count'><i class='fas fa-camera'></i> " + response[index].intImageCount + "</p>" +
-                "<img src='https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg' />" +
+                "<img src='" + base_url +"resources/images/member/photos/"+response[index].vcMemberCode+"/"+response[index].vcProfilePicture+"' />" +
                 "</div>" +
                 "<div class='card-body pt-0'>" +
                 "<div class='row percentage-row'>" +
