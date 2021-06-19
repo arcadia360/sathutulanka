@@ -177,10 +177,11 @@
           transition: 0.2s;
           border: none !important;
           background-color: transparent;
+          cursor: default;
       }
 
       .profile-card .profile-heart:hover {
-          color: #e91e63 !important;
+          /* color: #e91e63 !important; */
           cursor: pointer !important;
       }
 
