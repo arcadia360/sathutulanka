@@ -772,7 +772,7 @@ class Model_registration extends CI_Model
   {
     $this->db->select('*');
     $this->db->from('workingwith');
-    $this->db->order_by('intWorkingWithId', 'DESC');
+    $this->db->order_by('intSequence', 'ASC'); 
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
@@ -796,13 +796,27 @@ class Model_registration extends CI_Model
     }
   }
 
-  public function loadWorkingAsSubCat()
+  public function loadWorkingAs()
   {
-    $WorkingAsMainCatId = $this->input->post('WorkingAsMainCatId');
+    $workingWith = $this->input->post('workingWith');
     $this->db->select('*');
-    $this->db->from('WorkingAsSubCat');
-    $this->db->where('intWorkinAsMainCat =', $WorkingAsMainCatId);
-    $this->db->order_by('vcWorkingAsSubCat', 'asc');
+    $this->db->from('workingas');
+    $this->db->where('intWorkingWithId =', $workingWith);
+    $this->db->order_by('vcWorkingAs', 'asc');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
+  public function LoadWorkingSector()
+  {
+    $this->db->select('*');
+    $this->db->from('workingsector');
+    $this->db->order_by('vcWorkingsector', 'asc');
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
