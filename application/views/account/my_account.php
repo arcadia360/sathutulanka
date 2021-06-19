@@ -55,7 +55,7 @@
     <div class="container">
         <div class="main-body">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 p-xs-0">
                     <div class="card profile-card" style="height: 520px !important;">
                         <div class="overlay">
                             <div class="card-img-block">
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8 p-xs-0">
                     <div class="card mb-3">
                         <div class="card-body">
                             <!-- Photo Slider - Start -->
@@ -170,7 +170,7 @@
                             <!-- Photo Slider - End -->
                             <div id="accordion">
                                 <div class="card">
-                                    <div class="card-header" id="headingOne">
+                                    <div class="card-header p-xs-0" id="headingOne">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link text-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                 Basic Information
@@ -228,7 +228,7 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header" id="headingTwo">
+                                    <div class="card-header p-xs-0" id="headingTwo">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                                 Physical Status
@@ -285,7 +285,7 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header" id="headingThree">
+                                    <div class="card-header p-xs-0" id="headingThree">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                                 Residence
@@ -348,7 +348,7 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header" id="headingBackground">
+                                    <div class="card-header p-xs-0" id="headingBackground">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseBackground" aria-expanded="false" aria-controls="collapseBackground">
                                                 Background
@@ -399,7 +399,7 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header" id="headingLifeStyle">
+                                    <div class="card-header p-xs-0" id="headingLifeStyle">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseLifeStyle" aria-expanded="false" aria-controls="collapseLifeStyle">
                                                 Life Style
@@ -468,7 +468,7 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header" id="headingWhoAmI">
+                                    <div class="card-header p-xs-0" id="headingWhoAmI">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseWhoAmI" aria-expanded="false" aria-controls="collapseWhoAmI">
                                                 Who Am I
@@ -1075,7 +1075,7 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header" id="headingEducation">
+                                    <div class="card-header p-xs-0" id="headingEducation">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseEducation" aria-expanded="false" aria-controls="collapseEducation">
                                                 Education
@@ -1108,7 +1108,7 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header" id="headingCareer">
+                                    <div class="card-header p-xs-0" id="headingCareer">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseCareer" aria-expanded="false" aria-controls="collapseCareer">
                                                 Career
@@ -1159,7 +1159,7 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header" id="headingPersonalAssets">
+                                    <div class="card-header p-xs-0" id="headingPersonalAssets">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapsePersonalAssets" aria-expanded="false" aria-controls="collapsePersonalAssets">
                                                 Personal Assets
@@ -1204,7 +1204,7 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header" id="headingFamily">
+                                    <div class="card-header p-xs-0" id="headingFamily">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseFamily" aria-expanded="false" aria-controls="collapseFamily">
                                                 Family
@@ -1322,7 +1322,7 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header" id="headingAfterMarriage">
+                                    <div class="card-header p-xs-0" id="headingAfterMarriage">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseAfterMarriage" aria-expanded="false" aria-controls="collapseAfterMarriage">
                                                 After Marriage
@@ -1373,7 +1373,7 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header" id="headingHoroscope">
+                                    <div class="card-header p-xs-0" id="headingHoroscope">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseHoroscope" aria-expanded="false" aria-controls="collapseHoroscope">
                                                 Horoscope
@@ -1472,10 +1472,10 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header" id="headingTellMe">
+                                    <div class="card-header p-xs-0" id="headingTellMe">
                                         <h5 class="mb-0">
                                             <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseTellMe" aria-expanded="false" aria-controls="collapseTellMe">
-                                                Tell More About My Self & Partner Preference
+                                                Tell More About My Self
                                             </button>
                                         </h5>
                                     </div>
