@@ -9,30 +9,35 @@
             <!-- Generated Area -->
           </select>
         </div>
-      </div>
-    </div>
-    <div id="not-working-or-education">
-      <div id="working-as">
-        <div class="row">
+           </div>
+        </div>
+      <div id="not-working-or-education">
+
+       <div id="workingAsWorkingSector">
+        <div class="row" id="working-As">
           <div class="col-12">
-            <label class="text-inverse font-weight-bold" for="validationCustom01">Working As</label>
+          <label class="text-inverse font-weight-bold" for="validationCustom01">Working as</label>
             <div class="form-group">
-              <select class="custom-select d-block form-control" id="WorkingAsMainCat" name="WorkingAsMainCat">
+              <select class="custom-select d-block form-control" id="workingAs" name="workingAs">
                 <!-- Generated Area -->
               </select>
             </div>
           </div>
         </div>
-        <div class="row">
+
+         <div class="row">
           <div class="col-12">
+            <label class="text-inverse font-weight-bold" for="validationCustom01">Working Sector</label>
             <div class="form-group">
-              <select class="custom-select d-block form-control" id="workingAsSubCat" name="workingAsSubCat">
-                <!-- Generated Area -->
+              <select class="custom-select d-block form-control" id="WorkingSector" name="WorkingSector">
               </select>
             </div>
           </div>
         </div>
-      </div>
+        </div
+            </div>
+        
+
       <div class="row">
         <div class="col-12">
           <label class="text-inverse font-weight-bold" for="validationCustom01">Working Location</label>
@@ -140,7 +145,8 @@
 
 
     loadWorkingWith();
-    loadWorkingAsMainCat();
+    LoadWorkingSector();
+    // loadWorkingAsMainCat();
     loadCountries();
     $('#ifWorkingLocationOS').hide();
     $('#ifWorkingLocationSL').hide();
@@ -154,7 +160,7 @@
         dataType: 'json',
         success: function(data) {
           if (!data) {
-            toastr["error"]("<?= lang('district') . ' ' . lang('dataCannotRetrieve') ?>");
+            toastr["error"]("Failed to load countries");
           } else {
             $('#country').html(data);
             $('#country option[value="1"]').remove();
@@ -162,21 +168,43 @@
           }
         },
         error: function() {
-          alert('failed to load countries');
+          toastr["error"]("Internal error,Failed to load countries");
+        }
+      });
+    }
+
+    //Load Working Sector
+    function LoadWorkingSector() {
+      $.ajax({
+        type: 'ajax',
+        url: '<?php echo base_url(); ?>Registration/LoadWorkingSector',
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+          if (!data) {
+            toastr["error"]("Failed to load working sector");
+          } else {
+            $('#WorkingSector').html(data);
+            $('#WorkingSector option[value="1"]').remove();
+            $('#WorkingSector').val(0);
+          }
+        },
+        error: function() {
+          toastr["error"]("Internal error,Failed to load working sector");
         }
       });
     }
 
     $('#workingWith').change(function() {
-      if ($('#workingWith').val() == 6 || $('#workingWith').val() == 7) {
-        $('#working-as').hide();
-        $('#not-working-or-education').show();
-      } else if ($('#workingWith').val() == 8 || $('#workingWith').val() == 9) {
-        $('#not-working-or-education').hide();
-      } else {
-        $('#working-as').show();
-        $('#not-working-or-education').show();
-      }
+      // if ($('#workingWith').val() == 6 || $('#workingWith').val() == 7) {
+      //   $('#working-as').hide();
+      //   $('#not-working-or-education').show();
+      // } else if ($('#workingWith').val() == 8 || $('#workingWith').val() == 9) {
+      //   $('#not-working-or-education').hide();
+      // } else {
+      //   $('#working-as').show();
+      //   $('#not-working-or-education').show();
+      // }
     });
 
     $('#btnBack').click(function() {
@@ -274,51 +302,39 @@
         }
       });
     }
-
-    function loadWorkingAsMainCat() {
-      $.ajax({
-        type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/loadWorkingAsMainCat',
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-          if (!data) {
-            toastr["error"]("<?= 'Working as' . lang('dataCannotRetrieve') ?>");
-          } else {
-            $('#WorkingAsMainCat').html(data);;
-            $('#WorkingAsMainCat').val(0);
-          }
-        },
-        error: function() {
-          toastr["error"]("<?= 'working as' . lang('dataCannotRetrieve') . ' Connection Error' ?>");
-        }
-      });
-    }
-
     //load Working as sub category
-    $('#WorkingAsMainCat').change(function() {
-      if ($('#WorkingAsMainCat').val() != 0 && $('#WorkingAsMainCat').val() != null) {
-        var WorkingAsMainCatId = $('#WorkingAsMainCat').val()
+    $('#workingWith').change(function() {    
+        if ($('#workingWith').val() == 2 || $('#workingWith').val() == 4 || $('#workingWith').val() == 5 || $('#workingWith').val() == 6 || $('#workingWith').val() == 6 || $('#workingWith').val() == 7 || $('#workingWith').val() == 8 || $('#workingWith').val() == 10 || $('#workingWith').val() == 11 || $('#workingWith').val() == 13 || $('#workingWith').val() == 15 ) {
+
+        let workingWith = $('#workingWith').val();
+        
         $.ajax({
           type: 'POST',
-          url: '<?php echo base_url(); ?>Registration/loadWorkingAsSubCat',
+          url: '<?php echo base_url(); ?>Registration/loadWorkingAs',
           async: false,
           dataType: 'json',
           data: {
-            'WorkingAsMainCatId': WorkingAsMainCatId
+            'workingWith': workingWith
           },
           success: function(data) {
             if (!data) {
-              toastr["error"]("<?= 'Working as sub category ' . lang('dataCannotRetrieve') ?>");
+              toastr["error"]("Failed to load Working as data");
             } else {
-              $('#workingAsSubCat').html(data);;
-              $('#workingAsSubCat').val(0);
+              $('#workingAs').html(data);
+              $('#workingAsWorkingSector').show();
+              $('#workingAs').val(0);
+              $('#WorkingSector').val(0);
             }
           },
           error: function() {
-            toastr["error"]("<?= 'Working as sub category ' . lang('dataCannotRetrieve') . ' Connection Error' ?>");
+            toastr["error"]("Internal error, failed to load Working as data");
           }
         });
+      }
+      else{
+        $('#workingAsWorkingSector').hide();
+        $('#workingAs').val(0);
+        $('#WorkingSector').val(0);
       }
     });
     loadDistricts();
