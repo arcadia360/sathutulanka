@@ -59,15 +59,16 @@ class Account extends Admin_Controller{
 		echo json_encode($response);
 	}
 
-	public function MatchProfile()
+	public function MatchProfile($PartnerID)
 	{
 
 		$member_id = $this->session->userdata('member_id');
-		$memberData = $this->Model_account->getMemberData($member_id);
+		$myData = $this->Model_account->getMemberData($member_id);
+		$partnerData = $this->Model_account->getMemberData($PartnerID);
+		$this->data['myData'] = $myData;
+		$this->data['partnerData'] = $partnerData;
 
-		$this->data['userData'] = $memberData;
-
-		$this->render_template('account/match_profile', 'Match Profile',  null);
+		$this->render_template('account/match_profile', 'Match Profile',  $this->data);
 	}
 
 	public function GetMyMatches()
