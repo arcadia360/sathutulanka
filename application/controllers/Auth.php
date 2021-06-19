@@ -43,6 +43,7 @@ class Auth extends Admin_Controller
                             'member_account_status_name' => $login['vcMemberAccountStatus'],
                             'no_of_submitted_form'  => $login['intNoOfSubmitedForm'],
                             'gender'  => $login['vcGender'],
+                            'profile_pic' => $login['vcProfilePicture'],
                             'language_id' => 1,
                             'logged_in' => TRUE
                         );
