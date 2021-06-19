@@ -474,32 +474,13 @@ class Registration extends Admin_Controller
 			}
 		}
 	}
-	// Load working as main category data to career details form
-	public function loadWorkingAsMainCat()
-	{
-		$this->load->model('Model_registration');
-		$result = $this->Model_registration->loadWorkingAsMainCat();
-		if (!$result) {
-			return false;
-		} else {
-			$this->load->helper('language');
-			$this->lang->load('en', 'English');
 
-			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
-			if ($result) {
-				foreach ($result as $workingAs) {
-					$workingAsName = $workingAs->vcWorkingAsMainCat;
-					$html .= "<option value=" . $workingAs->intWorkingAsMainCatId . " >" . $workingAsName  . "</option>";
-				}
-				echo json_encode($html);
-			}
-		}
-	}
+
 	// Load working as sub category data to career details form
-	public function loadWorkingAsSubCat()
+	public function loadWorkingAs()
 	{
 		$this->load->model('Model_registration');
-		$result = $this->Model_registration->loadWorkingAsSubCat();
+		$result = $this->Model_registration->loadWorkingAs();
 		if (!$result) {
 			return false;
 		} else {
@@ -508,14 +489,36 @@ class Registration extends Admin_Controller
 
 			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
 			if ($result) {
-				foreach ($result as $WorkingAsSubCat) {
-					$WorkingAsSubCatName = $WorkingAsSubCat->vcWorkingAsSubCat;
-					$html .= "<option value=" . $WorkingAsSubCat->intWorkingAsSubCatId . " >" . $WorkingAsSubCatName  . "</option>";
+				foreach ($result as $workingas) {
+					$html .= "<option value=" . $workingas->intWorkingAsId . " >" . $workingas->vcWorkingAs . "</option>";
 				}
 				echo json_encode($html);
 			}
 		}
 	}
+
+
+	// Load Working Sector data to career details form
+	public function LoadWorkingSector()
+	{
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->LoadWorkingSector();
+		if (!$result) {
+			return false;
+		} else {
+			$this->load->helper('language');
+			$this->lang->load('en', 'English');
+
+			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
+			if ($result) {
+				foreach ($result as $workingsector) {
+					$html .= "<option value=" . $workingsector->intWorkingsectorID . " >" . $workingsector->vcWorkingsector  . "</option>";
+				}
+				echo json_encode($html);
+			}
+		}
+	}
+
 	public function addcareerDetails()
 	{
 		$response = array();
