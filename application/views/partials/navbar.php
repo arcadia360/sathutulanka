@@ -172,7 +172,7 @@
                     <li class="nav-item dropdown navbar-profile-pic">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="mini-profile-picture">
-                                <img src="https://i.pinimg.com/564x/6f/de/85/6fde85b86c86526af5e99ce85f57432e.jpg" alt="Profile Photo">
+                                <img src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/" . $this->session->userdata['profile_pic'] ?>" alt="Profile Photo">
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -221,9 +221,9 @@
     </nav>
 
     <!-- Login Button - Start  -->
-    <button type="button" class="btn btn-login fixed-bottom" data-toggle="modal" data-target="#exampleModal">
+    <!-- <button type="button" class="btn btn-login fixed-bottom" data-toggle="modal" data-target="#exampleModal">
         <?= lang('login'); ?>
-    </button>
+    </button> -->
     <!-- Login Button - End  -->
 
     <?php
@@ -260,7 +260,7 @@
                 <div class="col-2 navbar-profile-pic">
                     <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="mini-profile-picture" style="width: 30px !important; height:30px !important;">
-                            <img src="https://i.pinimg.com/564x/6f/de/85/6fde85b86c86526af5e99ce85f57432e.jpg" alt="Profile Photo">
+                            <img src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/" . $this->session->userdata['profile_pic'] ?>" alt="Profile Photo">
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
