@@ -19,6 +19,13 @@ body {
     padding-bottom: 60px !important;
 }
 
+a, button, .myelements {
+    -ms-touch-action: manipulation;
+    /* IE10  */
+    touch-action: manipulation;
+    /* IE11+ */
+}
+
 .bg-red {
     /* background-color: #d73333; */
     background-color: #b52b4a;
@@ -251,7 +258,7 @@ input[type="checkbox"]:checked+label:before {
         padding: .5rem 1.25rem !important;
     }
     /* Profile Card */
-    .card .profile-card{
+    .card .profile-card {
         height: auto !important;
     }
 }
