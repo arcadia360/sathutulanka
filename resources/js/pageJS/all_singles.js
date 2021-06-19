@@ -66,7 +66,7 @@ function getMyMatches() {
                 "<p class='badge-label'>" + verifyBadge + "</p>" +
                 "<p class='card-text'>" + response[index].Age + " Years, " + response[index].vcHightFeet + ", " + response[index].vcEthnicityName + ", " + response[index].vcReligion + ", " + response[index].vcMaritalStatus + ", " + response[index].vcEducationLevel + ".</p>" +
                 "</div>" +
-                "<a href='#' class='btn btn-primary'>Check Match</a>" +
+                "<a href='"+ base_url + ('Account/MatchProfile/'+response[index].intMemberID) +"' class='btn btn-primary'>Check Match</a>" +
                 "</div>" +
                 "</div >" +
                 "</div >";
