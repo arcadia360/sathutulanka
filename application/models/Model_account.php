@@ -154,6 +154,11 @@ class Model_account extends CI_Model
             RS.vcResidenceStatus,
             CS.vcSubCasteName,
             fnLanguageSpeakWithSeparator(M.intMemberID) AS vcLanguageSpeakWithSeparator,
+            fnMonthlyIncomeRouteSeparator(M.intMemberID) AS vcMonthlyIncomeRouteSeparator,
+            EL.vcEducationLevel,
+            EF.vcEducationField,
+            MI.vcMonthlyIncome,
+            A.vcAssetValue,
             'Test' AS Test
           FROM 
             Member AS M
@@ -172,6 +177,11 @@ class Model_account extends CI_Model
             LEFT OUTER JOIN residencestatus AS RS ON M.intResidenceStatusID = RS.intResidenceStatusID
             LEFT OUTER JOIN city AS CTT ON M.intCityIdWorkingIn = CTT.intCityid
             LEFT OUTER JOIN noofchildren AS NOC ON M.intNoOfChildrenID = NOC.intNoOfChildrenID
+            LEFT OUTER JOIN EducationLevel AS EL 	ON M.intEducationLevelID = EL.intEducationLevelID  
+            LEFT OUTER JOIN educationfield AS EF 	ON M.intEducationFieldID = EF.intEducationFieldID 
+            LEFT OUTER JOIN monthlyincome AS MI 	ON M.intMonthlyIncomeID = MI.intMonthlyIncomeID 
+            LEFT OUTER JOIN assetvalue AS A 	ON M.intAssetValueID = A.intAssetValueID
+
           WHERE 
             intMemberID = ? ";
 
