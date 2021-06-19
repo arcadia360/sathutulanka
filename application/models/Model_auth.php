@@ -53,10 +53,12 @@ class Model_auth extends CI_Model
 						MAS.vcMemberAccountStatus,
 						M.intNoOfSubmitedForm,
 						M.vcGender,
+						CONCAT(MI.intImageName,MI.vcImageType) AS vcProfilePicture,
 						1 AS IsActive		
 					FROM 
 						Member AS M
 						INNER JOIN MemberAccountStatus AS MAS ON M.intMemberAccountStatusID = MAS.intMemberAccountStatusID
+						INNER JOIN MemberImage AS MI ON M.intMemberID = MI.intMemberID AND MI.isProfilePicture = 1
 					WHERE 
 						M.vcEmail = ?";
 
