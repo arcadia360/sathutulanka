@@ -12,6 +12,7 @@ class Model_account extends CI_Model
     $sql = "SELECT  
             M.intMemberID, 
             M.vcMemberCode,
+            CONCAT(MIM.intImageName,MIM.vcImageType) AS vcProfilePicture,
             M.vcNickName, 
             M.vcCountryCode, 
             M.vcMobileNo, 
@@ -83,6 +84,7 @@ class Model_account extends CI_Model
             -- 'TEST' AS vcWorkingAsSubCat_Customised,
             M.intWorkingAsID,
             WA.vcWorkingAS,
+            IFNULL(WA.vcWorkingAS,WW.vcWorkingWith) AS MiniProfileDesignation,
             MAS.intMemberAccountStatusID,       
             MAS.vcMemberAccountStatus,            
             MAT.intMemberAccountTypeID,
@@ -185,64 +187,79 @@ class Model_account extends CI_Model
             LEFT OUTER JOIN EducationField AS EF 	ON M.intEducationFieldID = EF.intEducationFieldID 
             LEFT OUTER JOIN MonthlyIncome AS MI 	ON M.intMonthlyIncomeID = MI.intMonthlyIncomeID 
             LEFT OUTER JOIN AssetValue AS A 	ON M.intAssetValueID = A.intAssetValueID
+            LEFT OUTER JOIN MemberImage AS MIM ON M.intMemberID = MIM.intMemberID AND MIM.isProfilePicture = 1
 
           WHERE 
-            intMemberID = ? ";
+            M.intMemberID = ? ";
 
     $query = $this->db->query($sql, array($UserID));
     return $query->row_array();
   }
 
+  public function getMemberPhotosData($member_id)
+  {
+    $sql = "
+            SELECT 
+              intImageID,
+              intImageName,
+              vcImageType,
+              CONCAT(intImageName,vcImageType) AS vcImage,
+              isProfilePicture
+            FROM MemberImage
+            WHERE intMemberID = ? ";
+
+    $query = $this->db->query($sql, array($member_id));
+    return $query->result_array();
+  }
 
   public function getMyProfileMatchingDetils($member_id)
   {
 
-    $sql = "
-        SELECT 
-          TIMESTAMPDIFF(year,M.dtDOB, now()) AS Age,
-          M.intHeight,
-          M.intMaritalStatusID,
-          M.intNoOfChildrenID,	
-          M.intReligionID,
-          M.intEthnicityID,
-          M.intMotherTongueID,
-          D.intProvinceID,
-          M.intEducationLevelID,
-          M.intMonthlyIncomeID,
-          M.intAssetValueID,
-          M.intDisabilityID,
-          M.intDietID,
-          M.intMemberPreferedAgeFrom,
-          M.intMemberPreferedAgeTo,
-          M.intMemberPreferedHeightFrom,
-          M.intMemberPreferedHeightTo,
-          IFNULL(GROUP_CONCAT(MPMS.intMaritalStatusID SEPARATOR ','),0) AS MemberPreferedMaritalStatus,
-          IFNULL(GROUP_CONCAT(MPNC.intNoOfChildrenID SEPARATOR ','),0) AS MemberPreferedNoOfChildren,
-          IFNULL(GROUP_CONCAT(MPR.intReligionID SEPARATOR ','),0) AS MemberPreferedReligion,
-          IFNULL(GROUP_CONCAT(MPE.intEthnicityID SEPARATOR ','),0) AS MemberPreferedEthnicity,          
-          IFNULL(GROUP_CONCAT(MPMT.intMotherTongueID SEPARATOR ','),0) AS MemberPreferedMotherTongue,
-          IFNULL(GROUP_CONCAT(MPSL.intProvinceID SEPARATOR ','),0) AS MemberPreferedLiveInSriLanka,
-          IFNULL(GROUP_CONCAT(MPEL.intEducationLevelID SEPARATOR ','),0) AS MemberPreferedEducationLevel,
-          IFNULL(GROUP_CONCAT(MPME.intMonthlyIncomeID SEPARATOR ','),0) AS MemberPreferedMonthlyIncome,
-          IFNULL(GROUP_CONCAT(MPAV.intAssetValueID SEPARATOR ','),0) AS MemberPreferedAssetValue,
-          IFNULL(GROUP_CONCAT(MPAD.intDisabilityID SEPARATOR ','),0) AS MemberPreferedAnyDisability,
-          IFNULL(GROUP_CONCAT(MPD.intDietID SEPARATOR ','),0) AS MemberPreferedDiet
-        FROM 
-          Member AS M
-          INNER JOIN City                         AS C ON M.intCityIdIfLiveInSL = C.intCityID
-          INNER JOIN District                     AS D ON C.intDistrictID = D.intDistrictID
-          INNER JOIN MemberPreferedMaritalStatus  AS MPMS ON M.intMemberID = MPMS.intMemberID
-          INNER JOIN MemberPreferedNoOfChildren   AS MPNC ON M.intMemberID = MPNC.intMemberID
-          INNER JOIN MemberPreferedReligion       AS MPR ON M.intMemberID = MPR.intMemberID
-          INNER JOIN MemberPreferedEthnicity      AS MPE ON M.intMemberID = MPE.intMemberID 	
-          INNER JOIN MemberPreferedMotherTongue   AS MPMT ON M.intMemberID = MPMT.intMemberID 
-          INNER JOIN MemberPreferedLiveInSriLanka AS MPSL ON M.intMemberID = MPSL.intMemberID
-          INNER JOIN MemberPreferedEducationLevel AS MPEL ON M.intMemberID = MPEL.intMemberID 
-          INNER JOIN MemberPreferedMonthlyIncome  AS MPME ON M.intMemberID = MPME.intMemberID
-          INNER JOIN MemberPreferedAssetValue     AS MPAV ON M.intMemberID = MPAV.intMemberID 
-          INNER JOIN MemberPreferedAnyDisability  AS MPAD ON M.intMemberID = MPAD.intMemberID 
-          INNER JOIN MemberPreferedDiet           AS MPD ON M.intMemberID = MPD.intMemberID 
-        WHERE M.intMemberID = ? ";
+    $sql = "SELECT 
+              TIMESTAMPDIFF(year,M.dtDOB, now()) AS Age,
+              M.intHeight,
+              M.intMaritalStatusID,
+              M.intNoOfChildrenID,	
+              M.intReligionID,
+              M.intEthnicityID,
+              M.intMotherTongueID,
+              D.intProvinceID,
+              M.intEducationLevelID,
+              M.intMonthlyIncomeID,
+              M.intAssetValueID,
+              M.intDisabilityID,
+              M.intDietID,
+              M.intMemberPreferedAgeFrom,
+              M.intMemberPreferedAgeTo,
+              M.intMemberPreferedHeightFrom,
+              M.intMemberPreferedHeightTo,
+              IFNULL(GROUP_CONCAT(MPMS.intMaritalStatusID SEPARATOR ','),0) AS MemberPreferedMaritalStatus,
+              IFNULL(GROUP_CONCAT(MPNC.intNoOfChildrenID SEPARATOR ','),0) AS MemberPreferedNoOfChildren,
+              IFNULL(GROUP_CONCAT(MPR.intReligionID SEPARATOR ','),0) AS MemberPreferedReligion,
+              IFNULL(GROUP_CONCAT(MPE.intEthnicityID SEPARATOR ','),0) AS MemberPreferedEthnicity,          
+              IFNULL(GROUP_CONCAT(MPMT.intMotherTongueID SEPARATOR ','),0) AS MemberPreferedMotherTongue,
+              IFNULL(GROUP_CONCAT(MPSL.intProvinceID SEPARATOR ','),0) AS MemberPreferedLiveInSriLanka,
+              IFNULL(GROUP_CONCAT(MPEL.intEducationLevelID SEPARATOR ','),0) AS MemberPreferedEducationLevel,
+              IFNULL(GROUP_CONCAT(MPME.intMonthlyIncomeID SEPARATOR ','),0) AS MemberPreferedMonthlyIncome,
+              IFNULL(GROUP_CONCAT(MPAV.intAssetValueID SEPARATOR ','),0) AS MemberPreferedAssetValue,
+              IFNULL(GROUP_CONCAT(MPAD.intDisabilityID SEPARATOR ','),0) AS MemberPreferedAnyDisability,
+              IFNULL(GROUP_CONCAT(MPD.intDietID SEPARATOR ','),0) AS MemberPreferedDiet
+            FROM 
+              Member AS M
+              INNER JOIN City                         AS C ON M.intCityIdIfLiveInSL = C.intCityID
+              INNER JOIN District                     AS D ON C.intDistrictID = D.intDistrictID
+              INNER JOIN MemberPreferedMaritalStatus  AS MPMS ON M.intMemberID = MPMS.intMemberID
+              INNER JOIN MemberPreferedNoOfChildren   AS MPNC ON M.intMemberID = MPNC.intMemberID
+              INNER JOIN MemberPreferedReligion       AS MPR ON M.intMemberID = MPR.intMemberID
+              INNER JOIN MemberPreferedEthnicity      AS MPE ON M.intMemberID = MPE.intMemberID 	
+              INNER JOIN MemberPreferedMotherTongue   AS MPMT ON M.intMemberID = MPMT.intMemberID 
+              INNER JOIN MemberPreferedLiveInSriLanka AS MPSL ON M.intMemberID = MPSL.intMemberID
+              INNER JOIN MemberPreferedEducationLevel AS MPEL ON M.intMemberID = MPEL.intMemberID 
+              INNER JOIN MemberPreferedMonthlyIncome  AS MPME ON M.intMemberID = MPME.intMemberID
+              INNER JOIN MemberPreferedAssetValue     AS MPAV ON M.intMemberID = MPAV.intMemberID 
+              INNER JOIN MemberPreferedAnyDisability  AS MPAD ON M.intMemberID = MPAD.intMemberID 
+              INNER JOIN MemberPreferedDiet           AS MPD ON M.intMemberID = MPD.intMemberID 
+            WHERE M.intMemberID = ? ";
 
     $query = $this->db->query($sql, array($member_id));
     return $query->row_array();
@@ -252,22 +269,22 @@ class Model_account extends CI_Model
   {
     $gender = $this->session->userdata('gender');
 
-    $sql = "
-    SELECT 
-      COUNT(M.intMemberID) AS AllSinglesCount 
-    FROM Member AS M 
-    WHERE M.vcGender <> ? AND M.intMemberAccountStatusID IN (4,5,6)";
+    $sql = "SELECT 
+              COUNT(M.intMemberID) AS AllSinglesCount 
+            FROM Member AS M 
+            WHERE M.vcGender <> ? AND M.intMemberAccountStatusID IN (4,5,6)";
+
     $query = $this->db->query($sql, array($gender));
     return $query->row_array();
   }
 
   public function getPreferedMaritalStatus($member_id)
   {
-    $sql = "
-    SELECT 
-      COUNT(M.intMemberID) AS AllSinglesCount 
-    FROM Member AS M 
-    WHERE M.vcGender <> ? AND M.intMemberAccountStatusID IN (4,5,6)";
+    $sql = "SELECT 
+              COUNT(M.intMemberID) AS AllSinglesCount 
+            FROM Member AS M 
+            WHERE M.vcGender <> ? AND M.intMemberAccountStatusID IN (4,5,6)";
+
     $query = $this->db->query($sql, array($member_id));
     return $query->row_array();
   }
@@ -285,7 +302,7 @@ class Model_account extends CI_Model
             WW.vcWorkingWith,
             -- WSC.vcWorkingAsSubCat, 
             -- IFNULL(WSC.vcWorkingAsSubCat,WW.vcWorkingWith) AS MiniProfileDesignation,
-            IFNULL(WW.vcWorkingWith,'') AS MiniProfileDesignation,
+            IFNULL(WA.vcWorkingAS,WW.vcWorkingWith) AS MiniProfileDesignation,
             M.intMemberAccountTypeID,
             TIMESTAMPDIFF(year,M.dtDOB, now())  AS Age,
             M.intHeight,
@@ -309,19 +326,22 @@ class Model_account extends CI_Model
             CASE WHEN M.intDisabilityID IN (" . $details["MemberPreferedAnyDisability"] . ") THEN 7 ELSE 0 END+
             CASE WHEN M.intDietID IN (" . $details["MemberPreferedDiet"] . ") THEN 7 ELSE 0 END) AS ForMe,
             IFNULL(fnGetPercentageForPartner(" . $member_id . "," . $details["Age"] . "," . $details["intHeight"] . "," . $details["intMaritalStatusID"] . "," . $details["intNoOfChildrenID"] . "," . $details["intReligionID"] . "," . $details["intEthnicityID"] . "," . $details["intMotherTongueID"] . "," . $details["intProvinceID"] . "," . $details["intEducationLevelID"] . ",1," . $details["intMonthlyIncomeID"] . "," . $details["intAssetValueID"] . "," . $details["intDisabilityID"] . "," . $details["intDietID"] . "),0) AS ForPartner,
+            CONCAT(MI.intImageName,MI.vcImageType) AS vcProfilePicture,
             CASE WHEN MLP.intMemberID IS NULL THEN 0 ELSE 1 END AS IsLiked,
             (SELECT COUNT(*) FROM MemberImage AS MI WHERE MI.intMemberID = M.intMemberID) AS intImageCount
           FROM 
           Member AS M
-          INNER JOIN City 									AS C 		ON M.intCityIdIfLiveInSL = C.intCityID
-          INNER JOIN District 							AS D 		ON C.intDistrictID = D.intDistrictID
-          INNER JOIN Province 							AS P 		ON D.intProvinceID = P.intProvinceID    
-          INNER JOIN WorkingWith 						AS WW 	ON M.intWorkingWithId = WW.intWorkingWithId
-          INNER JOIN Ethnicity 							AS E 		ON M.intEthnicityID = E.intEthnicityID    
-          INNER JOIN Religion 							AS R 		ON M.intReligionID = R.intReligionID
-          INNER JOIN MaritalStatus 					AS MS 	ON M.intMaritalStatusID = MS.intMaritalStatusID  
-          INNER JOIN EducationLevel 				AS EL 	ON M.intEducationLevelID = EL.intEducationLevelID    
-          LEFT OUTER JOIN MemberLikedProfile AS MLP ON M.intMemberID = MLP.intMemberID_Partner AND MLP.intMemberID = $member_id    
+          INNER JOIN City 									  AS C 		ON M.intCityIdIfLiveInSL = C.intCityID
+          INNER JOIN District 							  AS D 		ON C.intDistrictID = D.intDistrictID
+          INNER JOIN Province 							  AS P 		ON D.intProvinceID = P.intProvinceID    
+          INNER JOIN WorkingWith 						  AS WW 	ON M.intWorkingWithId = WW.intWorkingWithId
+          LEFT OUTER JOIN WorkingAs           AS WA   ON M.intWorkingAsID = WA.intWorkingAsID
+          INNER JOIN Ethnicity 							  AS E 		ON M.intEthnicityID = E.intEthnicityID    
+          INNER JOIN Religion 							  AS R 		ON M.intReligionID = R.intReligionID
+          INNER JOIN MaritalStatus 					  AS MS 	ON M.intMaritalStatusID = MS.intMaritalStatusID  
+          INNER JOIN EducationLevel 				  AS EL 	ON M.intEducationLevelID = EL.intEducationLevelID    
+          LEFT OUTER JOIN MemberLikedProfile  AS MLP  ON M.intMemberID = MLP.intMemberID_Partner AND MLP.intMemberID = $member_id
+          INNER JOIN MemberImage              AS MI   ON M.intMemberID = MI.intMemberID AND MI.isProfilePicture = 1    
         WHERE 
           M.vcGender <> ?
           AND M.intMemberAccountStatusID IN (4,5,6)";
