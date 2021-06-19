@@ -51,7 +51,7 @@
             <option value="0"><?= lang('select') ?></option>
             <option value="1">Select 1</option>
             <option value="2">Select 2</option>
-            <option value="mentionedInMyStory">Details in Writing</option>
+            <option value="Details in Writing">Details in Writing</option>
             <option value="disregardTheCaste"><?= lang('disregardTheCaste') ?></option>
           </select>
         </div>
