@@ -29,16 +29,30 @@ class Model_account extends CI_Model
             M.intWeightFrom, 
             M.intWeightTo, 
             M.intBodyTypeID, 
+            CASE
+            WHEN M.intBodyTypeID = 1 THEN 'Slim'
+            WHEN M.intBodyTypeID = 2 THEN 'Average'
+            WHEN M.intBodyTypeID = 3 THEN 'Heavy'
+            END AS vcBodyType,
             M.intSkinColourID, 
+            CASE
+            WHEN M.intSkinColourID = 1 THEN 'Very Fair'
+            WHEN M.intSkinColourID = 2 THEN 'Fair'
+            WHEN M.intSkinColourID = 3 THEN 'Light Brown'
+            WHEN M.intSkinColourID = 4 THEN 'Dark Brown'
+            WHEN M.intSkinColourID = 5 THEN 'Black Brown'
+            END AS vcSkinColour,
             M.intDisabilityID, 
             M.vcBloodGroup, 
             M.isHealthInfo, 
+            CASE WHEN M.isHealthInfo = 1 THEN 'Details in Writing' ELSE  'No Health Issues' END AS vcHealthInfo,
             MT.vcMotherTongueName AS vcMotherTounge, 
             ET.vcEthnicityName AS vcEthnicity, 
             RE.vcReligion, 
             M.isPoliceReportCanProvide,
+            CASE WHEN M.isPoliceReportCanProvide = 1 THEN 'Can provide' ELSE  'Can not provide' END AS vcPoliceReportCanProvide,
             WW.vcWorkingWith,
-            WASC.vcWorkingAsSubCat,
+            -- WASC.vcWorkingAsSubCat,
             DT.vcDietName AS vcDiet,
             M.vcDrink,
             M.vcSmoke,
@@ -61,11 +75,11 @@ class Model_account extends CI_Model
             M.intKnowledge,
             M.intLoveAffairs,
             M.intimportanceVirginity,
-            IFNULL(CASE WHEN (SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) = '' THEN
-              WASC.vcWorkingAsSubCat 
-              ELSE 
-              (SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) END, WW.vcWorkingWith) 
-            AS vcWorkingAsSubCat_Customised,
+            -- IFNULL(CASE WHEN (SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) = '' THEN
+            --   WASC.vcWorkingAsSubCat 
+            --   ELSE 
+            --   (SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) END, WW.vcWorkingWith) 
+            -- AS vcWorkingAsSubCat_Customised,
             MAS.intMemberAccountStatusID,       
             MAS.vcMemberAccountStatus,            
             MAT.intMemberAccountTypeID,
@@ -129,17 +143,22 @@ class Model_account extends CI_Model
             M.vcPapaKendara,
             M.vcAboutYourselfAndPartner,
             CTT.intDistrictid,
-            WASC.intWorkinAsMainCat,
+            -- WASC.intWorkinAsMainCat,
             M.intMyPhotosPrivacy,
             M.intMyVideosPrivacy,
             M.intAssetsDetailsPrivacy,
             M.intFamilyDetailsPrivacy,
             M.intHoroscopeDetailsPrivacy,
-            NOC.vcNoOfChildren_en AS vcNoOfChildren
+            NOC.vcNoOfChildren_en AS vcNoOfChildren,
+            DS.vcDisability,
+            RS.vcResidenceStatus,
+            CS.vcSubCasteName,
+            fnLanguageSpeakWithSeparator(M.intMemberID) AS vcLanguageSpeakWithSeparator,
+            'Test' AS Test
           FROM 
             Member AS M
             LEFT OUTER JOIN WorkingWith          AS WW   ON M.intWorkingWithID = WW.intWorkingWithID
-            LEFT OUTER JOIN WorkingAsSubCat AS WASC ON M.intWorkingAsSubCatID = WASC.intWorkingAsSubCatID
+            -- LEFT OUTER JOIN WorkingAsSubCat AS WASC ON M.intWorkingAsSubCatID = WASC.intWorkingAsSubCatID
             LEFT OUTER JOIN MemberAccountStatus  AS MAS  ON M.intMemberAccountStatusID = MAS.intMemberAccountStatusID
             LEFT OUTER JOIN MemberAccountType    AS MAT  ON M.intMemberAccountTypeID = MAT.intMemberAccountTypeID
             LEFT OUTER JOIN MaritalStatus        AS MS   ON M.intMaritalStatusID = MS.intMaritalStatusID
