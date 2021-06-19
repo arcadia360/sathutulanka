@@ -80,7 +80,9 @@ class Model_account extends CI_Model
             --   ELSE 
             --   (SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) END, WW.vcWorkingWith) 
             -- AS vcWorkingAsSubCat_Customised,
-            'TEST' AS vcWorkingAsSubCat_Customised,
+            -- 'TEST' AS vcWorkingAsSubCat_Customised,
+            M.intWorkingAsID,
+            WA.vcWorkingAS,
             MAS.intMemberAccountStatusID,       
             MAS.vcMemberAccountStatus,            
             MAT.intMemberAccountTypeID,
@@ -107,7 +109,7 @@ class Model_account extends CI_Model
             M.vcSclUniDescription,
             M.vcDescribeCareer,
             M.intWorkingWithId,
-            M.intWorkingAsSubCatId,
+            -- M.intWorkingAsSubCatId,
             M.vcWorkingLocation,
             M.intCityIdWorkingIn,
             M.intWorkingCountryID,
@@ -164,24 +166,25 @@ class Model_account extends CI_Model
           FROM 
             Member AS M
             LEFT OUTER JOIN WorkingWith          AS WW   ON M.intWorkingWithID = WW.intWorkingWithID
+            LEFT OUTER JOIN WorkingAs            AS WA  ON  M.intWorkingAsID = WA.intWorkingAsID
             -- LEFT OUTER JOIN WorkingAsSubCat AS WASC ON M.intWorkingAsSubCatID = WASC.intWorkingAsSubCatID
             LEFT OUTER JOIN MemberAccountStatus  AS MAS  ON M.intMemberAccountStatusID = MAS.intMemberAccountStatusID
             LEFT OUTER JOIN MemberAccountType    AS MAT  ON M.intMemberAccountTypeID = MAT.intMemberAccountTypeID
             LEFT OUTER JOIN MaritalStatus        AS MS   ON M.intMaritalStatusID = MS.intMaritalStatusID
-            LEFT OUTER JOIN city AS CT ON  M.intCityIdIfLiveInSL = CT.intCityID
-            LEFT OUTER JOIN subcaste AS CS ON M.intSubCasteId = CS.intSubCasteId
-            LEFT OUTER JOIN mothertongue AS MT ON M.intMotherTongueID = MT.intMotherTongueID
-            LEFT OUTER JOIN ethnicity AS ET ON M.intEthnicityID = ET.intEthnicityID
-            LEFT OUTER JOIN religion AS RE ON M.intReligionID = RE.intReligionID
-            LEFT OUTER JOIN diet AS DT ON M.intDietID = DT.intDietID
-            LEFT OUTER JOIN disability AS DS ON M.intDisabilityID = DS.intDisabilityID
-            LEFT OUTER JOIN residencestatus AS RS ON M.intResidenceStatusID = RS.intResidenceStatusID
-            LEFT OUTER JOIN city AS CTT ON M.intCityIdWorkingIn = CTT.intCityid
-            LEFT OUTER JOIN noofchildren AS NOC ON M.intNoOfChildrenID = NOC.intNoOfChildrenID
+            LEFT OUTER JOIN City AS CT ON  M.intCityIdIfLiveInSL = CT.intCityID
+            LEFT OUTER JOIN Subcaste AS CS ON M.intSubCasteId = CS.intSubCasteId
+            LEFT OUTER JOIN Mothertongue AS MT ON M.intMotherTongueID = MT.intMotherTongueID
+            LEFT OUTER JOIN Ethnicity AS ET ON M.intEthnicityID = ET.intEthnicityID
+            LEFT OUTER JOIN Religion AS RE ON M.intReligionID = RE.intReligionID
+            LEFT OUTER JOIN Diet AS DT ON M.intDietID = DT.intDietID
+            LEFT OUTER JOIN Disability AS DS ON M.intDisabilityID = DS.intDisabilityID
+            LEFT OUTER JOIN Residencestatus AS RS ON M.intResidenceStatusID = RS.intResidenceStatusID
+            LEFT OUTER JOIN City AS CTT ON M.intCityIdWorkingIn = CTT.intCityid
+            LEFT OUTER JOIN NoofChildren AS NOC ON M.intNoOfChildrenID = NOC.intNoOfChildrenID
             LEFT OUTER JOIN EducationLevel AS EL 	ON M.intEducationLevelID = EL.intEducationLevelID  
-            LEFT OUTER JOIN educationfield AS EF 	ON M.intEducationFieldID = EF.intEducationFieldID 
-            LEFT OUTER JOIN monthlyincome AS MI 	ON M.intMonthlyIncomeID = MI.intMonthlyIncomeID 
-            LEFT OUTER JOIN assetvalue AS A 	ON M.intAssetValueID = A.intAssetValueID
+            LEFT OUTER JOIN EducationField AS EF 	ON M.intEducationFieldID = EF.intEducationFieldID 
+            LEFT OUTER JOIN MonthlyIncome AS MI 	ON M.intMonthlyIncomeID = MI.intMonthlyIncomeID 
+            LEFT OUTER JOIN AssetValue AS A 	ON M.intAssetValueID = A.intAssetValueID
 
           WHERE 
             intMemberID = ? ";
