@@ -256,7 +256,7 @@
 
 <body>
 
-	<nav class="navbar navbar-expand-lg bg-red">
+	<nav class="navbar fixed-top navbar-expand-lg bg-red">
 
 		<a class="navbar-brand" href="#">
 			<img class="img-fluid navbar-logo" src="<?= base_url('resources/images/navbar-logo-en.png') ?>" alt="Sathutu Lanka">
