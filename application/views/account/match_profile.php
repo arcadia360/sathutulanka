@@ -1184,13 +1184,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="shortName">Openness to Experience</label>
-                                                        <input type="text" class="form-control" id="partnerOpennessToExperience" value="<?= $partnerData['intOpennessToExperience'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerOpennessToExperience" value="<?= $partnerData['intOpennessToExperience'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="shortName" style="color: #FFFFFF;">Openness to Experience</label>
-                                                        <input type="text" class="form-control" id="myOpennessToExperience" value="<?= $myData['intOpennessToExperience'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myOpennessToExperience" value="<?= $myData['intOpennessToExperience'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1198,13 +1198,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="phone">Conscientiousness</label>
-                                                        <input type="text" class="form-control" id="partnerConscientiousness" value="<?= $partnerData['intConscientiousness'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerConscientiousness" value="<?= $partnerData['intConscientiousness'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="shortName" style="color: #FFFFFF;">Conscientiousness</label>
-                                                        <input type="text" class="form-control" id="myConscientiousness" value="<?= $myData['intConscientiousness'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myConscientiousness" value="<?= $myData['intConscientiousness'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1212,13 +1212,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="phone">Extrovert Personality</label>
-                                                        <input type="text" class="form-control" id="partnerExtrovertPersonality" value="<?= $partnerData['intExtrovertPersonality'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerExtrovertPersonality" value="<?= $partnerData['intExtrovertPersonality'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="shortName" style="color: #FFFFFF;">Extrovert Personality</label>
-                                                        <input type="text" class="form-control" id="myExtrovertPersonality" value="<?= $myData['intExtrovertPersonality'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myExtrovertPersonality" value="<?= $myData['intExtrovertPersonality'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1226,13 +1226,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="website">Introvert Personality</label>
-                                                        <input type="text" class="form-control" id="partnerIntrovertPersonality" value="<?= $partnerData['intIntrovertPersonality'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerIntrovertPersonality" value="<?= $partnerData['intIntrovertPersonality'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="shortName" style="color: #FFFFFF;">Introvert Personality</label>
-                                                        <input type="text" class="form-control" id="myIntrovertPersonality" value="<?= $myData['intIntrovertPersonality'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myIntrovertPersonality" value="<?= $myData['intIntrovertPersonality'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1240,13 +1240,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="website">Agreeableness</label>
-                                                        <input type="text" class="form-control" id="partnerAgreeableness" value="<?= $partnerData['intAgreeableness'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerAgreeableness" value="<?= $partnerData['intAgreeableness'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="shortName" style="color: #FFFFFF;">Agreeableness</label>
-                                                        <input type="text" class="form-control" id="myAgreeableness" value="<?= $myData['intAgreeableness'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myAgreeableness" value="<?= $myData['intAgreeableness'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1254,13 +1254,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="website">Neuroticism</label>
-                                                        <input type="text" class="form-control" id="partnerNeuroticism" value="<?= $partnerData['intNeuroticism'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerNeuroticism" value="<?= $partnerData['intNeuroticism'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="website" style="color: #FFFFFF;">Neuroticism</label>
-                                                        <input type="text" class="form-control" id="myNeuroticism" value="<?= $myData['intNeuroticism'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myNeuroticism" value="<?= $myData['intNeuroticism'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1268,13 +1268,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="website">Family Bond</label>
-                                                        <input type="text" class="form-control" id="partnerFamilyBond" value="<?= $partnerData['intFamilyBond'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerFamilyBond" value="<?= $partnerData['intFamilyBond'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="website" style="color: #FFFFFF;">Family Bond</label>
-                                                        <input type="text" class="form-control" id="myFamilyBond" value="<?= $myData['intFamilyBond'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myFamilyBond" value="<?= $myData['intFamilyBond'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1282,13 +1282,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="website">Money</label>
-                                                        <input type="text" class="form-control" id="partnerMoney" value="<?= $partnerData['intMoney'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerMoney" value="<?= $partnerData['intMoney'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="website" style="color: #FFFFFF;">Money</label>
-                                                        <input type="text" class="form-control" id="myMoney" value="<?= $myData['intMoney'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myMoney" value="<?= $myData['intMoney'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1296,13 +1296,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="website">Religious</label>
-                                                        <input type="text" class="form-control" id="partnerReligious" value="<?= $partnerData['intReligious'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerReligious" value="<?= $partnerData['intReligious'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="website" style="color: #FFFFFF;">Religious</label>
-                                                        <input type="text" class="form-control" id="myReligious" value="<?= $myData['intReligious'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myReligious" value="<?= $myData['intReligious'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1310,13 +1310,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="website">Physically Active</label>
-                                                        <input type="text" class="form-control" id="partnerPhysicallyActive" value="<?= $partnerData['intPhysicallyActive'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerPhysicallyActive" value="<?= $partnerData['intPhysicallyActive'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="website" style="color: #FFFFFF;">Physically Active</label>
-                                                        <input type="text" class="form-control" id="myPhysicallyActive" value="<?= $myData['intPhysicallyActive'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myPhysicallyActive" value="<?= $myData['intPhysicallyActive'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1324,13 +1324,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="website">Politics</label>
-                                                        <input type="text" class="form-control" id="partnerPolitics" value="<?= $partnerData['IntPolitics'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerPolitics" value="<?= $partnerData['IntPolitics'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="website" style="color: #FFFFFF;">Politics</label>
-                                                        <input type="text" class="form-control" id="myPolitics" value="<?= $myData['IntPolitics'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myPolitics" value="<?= $myData['IntPolitics'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1338,13 +1338,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="website">Knowledge</label>
-                                                        <input type="text" class="form-control" id="partnerKnowledge" value="<?= $partnerData['intKnowledge'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerKnowledge" value="<?= $partnerData['intKnowledge'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="website" style="color: #FFFFFF;">Knowledge</label>
-                                                        <input type="text" class="form-control" id="myKnowledge" value="<?= $myData['intKnowledge'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myKnowledge" value="<?= $myData['intKnowledge'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1352,13 +1352,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="website">Love Affairs</label>
-                                                        <input type="text" class="form-control" id="partnerLoveAffairs" value="<?= $partnerData['intLoveAffairs'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerLoveAffairs" value="<?= $partnerData['intLoveAffairs'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="website" style="color: #FFFFFF;">Love Affairs</label>
-                                                        <input type="text" class="form-control" id="myLoveAffairs" value="<?= $myData['intLoveAffairs'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myLoveAffairs" value="<?= $myData['intLoveAffairs'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1366,13 +1366,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="website">The Importance of Male & Female Virginity.</label>
-                                                        <input type="text" class="form-control" id="partnerFemaleVirginity" value="<?= $partnerData['intimportanceVirginity'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerFemaleVirginity" value="<?= $partnerData['intimportanceVirginity'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="website" style="color: #FFFFFF;">The Importance of Male & Female Virginity.</label>
-                                                        <input type="text" class="form-control" id="myFemaleVirginity" value="<?= $myData['intimportanceVirginity'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myFemaleVirginity" value="<?= $myData['intimportanceVirginity'] ?>%" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
