@@ -57,7 +57,7 @@ class Auth extends Admin_Controller
                         } else if ($login['intMemberAccountStatusID'] == 3) { // Not Completed Account
                             $this->session->set_userdata($logged_in_sess);
                             $this->CheckAndRedirectNextForm();
-                        } else if ($login['intMemberAccountStatusID'] == 4) { // Completed Account
+                        } else if ($login['intMemberAccountStatusID'] == 4 || $login['intMemberAccountStatusID'] == 5 || $login['intMemberAccountStatusID'] == 6) { // Completed Account || Account Review Pending || Account Reviewed
                             $this->session->set_userdata($logged_in_sess);
                             redirect(base_url("Account/AllSingles"), 'refresh');
                         }
