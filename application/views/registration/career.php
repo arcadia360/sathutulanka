@@ -9,14 +9,14 @@
             <!-- Generated Area -->
           </select>
         </div>
-           </div>
-        </div>
-      <div id="not-working-or-education">
+      </div>
+    </div>
+    <div id="not-working-or-education">
 
-       <div id="workingAsWorkingSector">
+      <div id="workingAsWorkingSector">
         <div class="row" id="working-As">
           <div class="col-12">
-          <label class="text-inverse font-weight-bold" for="validationCustom01">Working as</label>
+            <label class="text-inverse font-weight-bold" for="validationCustom01">Working as</label>
             <div class="form-group">
               <select class="custom-select d-block form-control" id="workingAs" name="workingAs">
                 <!-- Generated Area -->
@@ -24,19 +24,18 @@
             </div>
           </div>
         </div>
+      </div>
 
-         <div class="row">
-          <div class="col-12">
-            <label class="text-inverse font-weight-bold" for="validationCustom01">Working Sector</label>
-            <div class="form-group">
-              <select class="custom-select d-block form-control" id="WorkingSector" name="WorkingSector">
-              </select>
-            </div>
+      <div class="row">
+        <div class="col-12">
+          <label class="text-inverse font-weight-bold" for="validationCustom01">Working Sector</label>
+          <div class="form-group">
+            <select class="custom-select d-block form-control" id="WorkingSector" name="WorkingSector">
+            </select>
           </div>
         </div>
-        </div
-            </div>
-        
+      </div>
+
 
       <div class="row">
         <div class="col-12">
@@ -74,12 +73,13 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-          <label class="text-inverse font-weight-bold" for="validationCustom01">Describe Career</label>
-          <div class="form-group">
-            <textarea class="form-control" id="describeCareer" rows="5" name="describeCareer" placeholder="Describe career with details"></textarea>
-          </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <label class="text-inverse font-weight-bold" for="validationCustom01">Describe Career</label>
+        <div class="form-group">
+          <textarea class="form-control" id="describeCareer" rows="5" name="describeCareer" placeholder="Describe career with details"></textarea>
         </div>
       </div>
     </div>
@@ -137,12 +137,6 @@
       });
 
     }
-
-
-
-
-
-
 
     loadWorkingWith();
     LoadWorkingSector();
@@ -293,7 +287,7 @@
           if (!data) {
             toastr["error"]("<?= 'Woking with' . lang('dataCannotRetrieve') ?>");
           } else {
-            $('#workingWith').html(data);;
+            $('#workingWith').html(data);
             $('#workingWith').val(0);
           }
         },
@@ -302,12 +296,23 @@
         }
       });
     }
+
+    function AllclearFields() {
+      $('#workingAs').val(0);
+      $('#WorkingSector').val(0);
+      $('#workingLocation').val(0);
+      $('#country').val(0);
+      $('#district').val(0);
+      $('#city').val(0);
+
+    }
+
     //load Working as sub category
-    $('#workingWith').change(function() {    
-        if ($('#workingWith').val() == 2 || $('#workingWith').val() == 4 || $('#workingWith').val() == 5 || $('#workingWith').val() == 6 || $('#workingWith').val() == 6 || $('#workingWith').val() == 7 || $('#workingWith').val() == 8 || $('#workingWith').val() == 10 || $('#workingWith').val() == 11 || $('#workingWith').val() == 13 || $('#workingWith').val() == 15 ) {
+    $('#workingWith').change(function() {
+      if ($('#workingWith').val() == 2 || $('#workingWith').val() == 4 || $('#workingWith').val() == 5 || $('#workingWith').val() == 6 || $('#workingWith').val() == 6 || $('#workingWith').val() == 7 || $('#workingWith').val() == 8 || $('#workingWith').val() == 10 || $('#workingWith').val() == 11 || $('#workingWith').val() == 13 || $('#workingWith').val() == 15) {
 
         let workingWith = $('#workingWith').val();
-        
+
         $.ajax({
           type: 'POST',
           url: '<?php echo base_url(); ?>Registration/loadWorkingAs',
@@ -324,17 +329,22 @@
               $('#workingAsWorkingSector').show();
               $('#workingAs').val(0);
               $('#WorkingSector').val(0);
+              $('#not-working-or-education').show();
             }
           },
           error: function() {
             toastr["error"]("Internal error, failed to load Working as data");
           }
         });
-      }
-      else{
+      } else if ($('#workingWith').val() == 14 || $('#workingWith').val() == 9) {
+        $('#not-working-or-education').hide();
+        AllclearFields();
+
+      } else {
         $('#workingAsWorkingSector').hide();
         $('#workingAs').val(0);
         $('#WorkingSector').val(0);
+        $('#not-working-or-education').show();
       }
     });
     loadDistricts();
