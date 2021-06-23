@@ -58,7 +58,7 @@ class Model_auth extends CI_Model
 					FROM 
 						Member AS M
 						INNER JOIN MemberAccountStatus AS MAS ON M.intMemberAccountStatusID = MAS.intMemberAccountStatusID
-						INNER JOIN MemberImage AS MI ON M.intMemberID = MI.intMemberID AND MI.isProfilePicture = 1
+						LEFT OUTER JOIN MemberImage AS MI ON M.intMemberID = MI.intMemberID AND MI.isProfilePicture = 1
 					WHERE 
 						M.vcEmail = ?";
 
@@ -100,15 +100,13 @@ class Model_auth extends CI_Model
 		WHERE 
 			RV.vcOTP = ? AND RV.vcEmailCode = ?";
 
-			$query = $this->db->query($sql, array($otpNumber,$emailVerificationCode));
+			$query = $this->db->query($sql, array($otpNumber, $emailVerificationCode));
 			if ($query->num_rows() == 1) {
 				$result = $query->row_array();
 				return $result;
-			}
-			else{
+			} else {
 				return false;
 			}
-
 		}
 	}
 
