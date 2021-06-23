@@ -1238,8 +1238,7 @@ class Registration extends Admin_Controller
 			$html = "<option value=" . 0 . " >" . lang('select')  . "</option>";
 			if ($result) {
 				foreach ($result as $cities) {
-					$districName = lang($cities->vcCityName);
-					$html .= "<option value=" . $cities->intCityId . " >" . $districName  . "</option>";
+					$html .= "<option value=" . $cities->intCityId . " >" . $cities->vcCityName . "</option>";
 				}
 				echo json_encode($html);
 			}
