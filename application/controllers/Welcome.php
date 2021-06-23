@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Welcome extends Admin_Controller {
+class Welcome extends Admin_Controller
+{
 
 	public function index()
 	{
@@ -9,22 +10,21 @@ class Welcome extends Admin_Controller {
 
 		if (!isset($_SESSION['member_id']) || empty($_SESSION['member_id'])) {  // If Fresh User
 			$this->render_template('welcome', 'W E L C O M E', null);
-		} else{
+		} else {
 			$this->CheckAndRedirectNextForm();
 		}
-
-
 	}
 
-	public function ChangeLanguage($LanguageID,$url){
+	public function ChangeLanguage($LanguageID, $url)
+	{
 		if (!isset($_SESSION['member_id']) || empty($_SESSION['member_id'])) {  // If Fresh User
 			$logged_in_sess = array(
 				'language_id' => $LanguageID // 1 - English, 2 - Sinhala, 3 - Tamil
 			);
 			$this->session->set_userdata($logged_in_sess);
 			redirect(base_url($url), 'refresh');
-		}else{
-			echo 'ddddd';
+		} else {
+			// echo 'ddddd';
 		}
 	}
 }
