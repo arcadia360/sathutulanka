@@ -659,13 +659,16 @@ class Registration extends Admin_Controller
 
 	public function UploadMyPhotos()
 	{
-
-
+		$response = array(
+			'success' => null,
+			'message' => null,
+		);
 		$this->load->model('Model_registration');
 		$result = $this->Model_registration->getLastUploadedImageName();
 
+		$fileName = null;
 		if ($result['status']) {
-			$fileName = $result['lastUploadImageName'];
+			$fileName = (int)$result['lastUploadImageName'];
 			$fileName++;
 		} else {
 			$fileName = 1;
@@ -687,21 +690,21 @@ class Registration extends Admin_Controller
 
 			$imgName = $data['upload_data']['file_name'];
 			$imgType = $data['upload_data']['file_ext'];
-			// echo ($imageType);
 			$this->load->model('Model_registration');
 			$result = $this->Model_registration->saveUploadedImageName($imgName, $imgType);
 
 			if ($result == true) {
 				$response['success'] = true;
+				$response['message'] = 'image uploaded successfully!';
 				$session_data = array('no_of_submitted_form' => 12);
 				$this->session->set_userdata($session_data);
 			} else {
 				$response['success'] = false;
-				$response['messages'] = 'Error in the database while member images. Please contact system administrator.';
+				$response['message'] = 'Error in the database while member images. Please contact system administrator.';
 			}
 		} else {
 			$response['success'] = false;
-			$response['messages'] = 'Error while uploading image. Please contact system administrator.';
+			$response['message'] = 'Error while uploading image. Please contact system administrator.';
 		}
 
 		echo json_encode($response);
@@ -750,14 +753,20 @@ class Registration extends Admin_Controller
 
 	public function saveProfilePicture()
 	{
-		// $result = '';
-		// $response = false;
+		$response = array(
+			'status' => null,
+			'message' => null
+		);
 		$this->load->model('Model_registration');
 		$result = $this->Model_registration->saveProfilePicture();
-		// if ($result) {
-		// 	$response = true;
-		// }
-		// echo json_encode($response);
+		if ($result) {
+			$response['status'] = true;
+			$response['message'] = 'My photos saved succesfully!';
+		} else {
+			$response['status'] = false;
+			$response['message'] = 'Failed to save my photos';
+		}
+		echo json_encode($response);
 	}
 
 	public function AboutYourselfAndPartner()
