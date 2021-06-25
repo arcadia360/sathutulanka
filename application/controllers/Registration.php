@@ -54,13 +54,6 @@ class Registration extends Admin_Controller
 		// $this->data['memberData'] = $member_data;
 
 		$this->render_template_registration('registration/physical_status', 'Add Physical Details', NULL);
-
-
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/physical_status');
-		// $this->load->view('registration/footer');
 	}
 
 	public function getMemberData()
@@ -177,12 +170,6 @@ class Registration extends Admin_Controller
 	{
 		$this->CheckAndRedirectNextForm(2);
 		$this->render_template_registration('registration/residence', 'Add Residence Details', NULL);
-
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/residence');
-		// $this->load->view('registration/footer');
 	}
 
 	public function addResidenceDetails()
@@ -224,12 +211,6 @@ class Registration extends Admin_Controller
 		$this->data['ethnicity_data'] = $ethnicity;
 		$this->data['religion_data'] = $religionStatus;
 		$this->render_template_registration('registration/background', 'Add Background Details', $this->data);
-
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/background');
-		// $this->load->view('registration/footer');
 	}
 
 	public function loadCaste()
@@ -308,12 +289,6 @@ class Registration extends Admin_Controller
 		$diet = $this->Model_registration->getDiet();
 		$this->data['diet_data'] = $diet;
 		$this->render_template_registration('registration/lifeStyle', 'Add Life Style Details', NULL);
-
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/lifeStyle');
-		// $this->load->view('registration/footer');
 	}
 
 	public function addLifeStyleDetails()
@@ -352,12 +327,6 @@ class Registration extends Admin_Controller
 	{
 		$this->CheckAndRedirectNextForm(5);
 		$this->render_template_registration('registration/who_am_i', 'Who Am I', NULL);
-
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/who_am_i');
-		// $this->load->view('registration/footer');
 	}
 
 	public function addWhoAmIDetails()
@@ -404,12 +373,6 @@ class Registration extends Admin_Controller
 		$this->data['educationLevel_data'] = $educationLevel;
 		$this->data['educationField_data'] = $educationField;
 		$this->render_template_registration('registration/education', 'Education', $this->data);
-
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/education');
-		// $this->load->view('registration/footer');
 	}
 	public function addEducationDetails()
 	{
@@ -445,12 +408,6 @@ class Registration extends Admin_Controller
 	{
 		$this->CheckAndRedirectNextForm(7);
 		$this->render_template_registration('registration/career', 'career', NULL);
-
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/career');
-		// $this->load->view('registration/footer');
 	}
 
 	// Load working with data to career details form
@@ -556,12 +513,6 @@ class Registration extends Admin_Controller
 		$this->data['monthlyIncome_data'] = $monthlyIncome;
 		$this->data['assetValue_data'] = $assetValue;
 		$this->render_template_registration('registration/personal_assets', 'Personal Assets', $this->data);
-
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/personal_assets');
-		// $this->load->view('registration/footer');
 	}
 
 	public function addPersonalAssestDetails()
@@ -598,12 +549,6 @@ class Registration extends Admin_Controller
 	{
 		$this->CheckAndRedirectNextForm(9);
 		$this->render_template_registration('registration/family', 'Family', NULL);
-
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/family');
-		// $this->load->view('registration/footer');
 	}
 
 	public function addFamilyDetails()
@@ -639,12 +584,6 @@ class Registration extends Admin_Controller
 	{
 		$this->CheckAndRedirectNextForm(10);
 		$this->render_template_registration('registration/after_marriage', 'After Marriage', NULL);
-
-		// $this->load->helper('language');
-		// $this->lang->load('en', 'English');
-		// $this->load->view('registration/header');
-		// $this->load->view('registration/after_marriage');
-		// $this->load->view('registration/footer');
 	}
 
 	public function addAfterMarriageDetails()
@@ -678,14 +617,8 @@ class Registration extends Admin_Controller
 
 	public function horoscopeDetails()
 	{
-		// $this->CheckAndRedirectNextForm(11);
-		// $this->render_template_registration('registration/horoscope', 'Horoscope', NULL);
-
-		$this->load->helper('language');
-		$this->lang->load('en', 'English');
-		$this->load->view('registration/header');
-		$this->load->view('registration/horoscope');
-		$this->load->view('registration/footer');
+		$this->CheckAndRedirectNextForm(11);
+		$this->render_template_registration('registration/horoscope', 'Horoscope', NULL);
 	}
 	public function addHoroscopeDetails()
 	{
@@ -720,18 +653,13 @@ class Registration extends Admin_Controller
 
 	public function myPhotosAndVideos()
 	{
-		// $this->CheckAndRedirectNextForm(12);
-		// $this->render_template_registration('registration/horoscope', 'Horoscope', NULL);
-
-		$this->load->helper('language');
-		$this->lang->load('en', 'English');
-		$this->load->view('registration/header');
-		$this->load->view('registration/my_photos_and_videos');
-		$this->load->view('registration/footer');
+		$this->CheckAndRedirectNextForm(12);
+		$this->render_template_registration('registration/my_photos', 'my photos', NULL);
 	}
 
 	public function UploadMyPhotos()
 	{
+
 
 		$this->load->model('Model_registration');
 		$result = $this->Model_registration->getLastUploadedImageName();
@@ -795,7 +723,7 @@ class Registration extends Admin_Controller
 				$imgFolderName = $this->session->userdata('member_code');
 				foreach ($result as $useriamges) {
 					$html .= "<div class='col-lg-3 col-4 text-al-center' style='padding: 10px!important'>
-					<i class='far fa-times-circle'></i> <br>
+					<i class='far fa-times-circle' onclick='RemoveImage(" . $useriamges->intImageID . ")' ></i> <br>
 					<img class='img-thumbnail imgUpload' src=" . base_url('resources/images/member/' . $imgFolderName . '/' . $useriamges->intImageName . $useriamges->vcImageType) . "> <br>
 					<div class='text-al-center'>
 					<input name='MyPhotos' type='radio' value=" . $useriamges->intImageID . " id=img" . $useriamges->intImageID . "><br>
@@ -820,17 +748,17 @@ class Registration extends Admin_Controller
 		echo json_encode($response);
 	}
 
-	// public function saveProfilePicture()
-	// {
-	// 	$result = '';
-	// 	$response = false;
-	// 	$this->load->model('Model_registration');
-	// 	$result = $this->Model_registration->saveProfilePicture();
-	// 	if ($result) {
-	// 		$response = true;
-	// 	}
-	// 	echo json_encode($response);
-	// }
+	public function saveProfilePicture()
+	{
+		// $result = '';
+		// $response = false;
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->saveProfilePicture();
+		// if ($result) {
+		// 	$response = true;
+		// }
+		// echo json_encode($response);
+	}
 
 	public function AboutYourselfAndPartner()
 	{
