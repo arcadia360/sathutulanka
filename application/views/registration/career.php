@@ -73,13 +73,12 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-12">
-        <label class="text-inverse font-weight-bold" for="validationCustom01">Describe Career</label>
-        <div class="form-group">
-          <textarea class="form-control" id="describeCareer" rows="5" name="describeCareer" placeholder="Describe career with details"></textarea>
+      <div class="row">
+        <div class="col-12">
+          <label class="text-inverse font-weight-bold" for="validationCustom01">Describe Career</label>
+          <div class="form-group">
+            <textarea class="form-control" id="describeCareer" rows="5" name="describeCareer" placeholder="Describe career with details"></textarea>
+          </div>
         </div>
       </div>
     </div>
@@ -218,7 +217,7 @@
         toastr["error"]("Please select working as sub category !");
         $("#workingAsSubCat").focus();
 
-      } else if ($('#workingWith').val() != 8 && $('#workingWith').val() != 9 && $('#workingLocation').val() == 0) {
+      } else if ($('#workingWith').val() != 14 && $('#workingWith').val() != 9 && $('#workingLocation').val() == 0) {
         toastr["error"]("Please select working location !");
         $("#workingLocation").focus();
 
@@ -238,6 +237,7 @@
         toastr["error"]("Please describe career !");
         $("#describeCareer").focus();
       } else {
+        alert('ready to save data');
         var form = $("#addcareerDetails");
         $.ajax({
           type: form.attr('method'),
@@ -271,7 +271,9 @@
                 $(button).prop('disabled', false);
               }
             }
-
+          },
+          error: function() {
+            toastr["error"]("Internal error, failed to save career details!");
           }
         });
       }
@@ -304,6 +306,7 @@
       $('#country').val(0);
       $('#district').val(0);
       $('#city').val(0);
+      $('#describeCareer').val("");
 
     }
 
