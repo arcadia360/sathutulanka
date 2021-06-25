@@ -77,7 +77,7 @@ class Model_registration extends CI_Model
 
   public function getMonthlyIncomeRoutesData($MemberID)
   {
-    $sql ="SELECT vcMonthlyIncomeRoute, intMemberID
+    $sql = "SELECT vcMonthlyIncomeRoute, intMemberID
     FROM monthlyincomeroutes
     WHERE intMemberID = ? ";
     $query = $this->db->query($sql, array($MemberID));
@@ -86,7 +86,7 @@ class Model_registration extends CI_Model
 
   public function getAssetRoutesData($MemberID)
   {
-    $sql ="SELECT vcAssetRoute, intMemberID
+    $sql = "SELECT vcAssetRoute, intMemberID
     FROM assetroutes
     WHERE intMemberID = ? ";
     $query = $this->db->query($sql, array($MemberID));
@@ -94,54 +94,54 @@ class Model_registration extends CI_Model
   }
   public function getEnrichmentHobbies($MemberID)
   {
-    $sql = "SELECT vcEnrichmentHobby, intMID
+    $sql = "SELECT vcEnrichmentHobby, intMemberID
     FROM enrichmenthobbies
-    WHERE intMID = ? ";
+    WHERE intMemberID = ? ";
     $query = $this->db->query($sql, array($MemberID));
     return $query->result_array();
   }
 
   public function getSportsActivities($MemberID)
   {
-    $sql = "SELECT vcSportsPhysicalActivities, intMID
+    $sql = "SELECT vcSportsPhysicalActivities, intMemberID
     FROM sportsphysicalactivities
-    WHERE intMID = ? ";
+    WHERE intMemberID = ? ";
     $query = $this->db->query($sql, array($MemberID));
     return $query->result_array();
   }
 
   public function getCreativeHobbies($MemberID)
   {
-    $sql = "SELECT vcCreativeHobbies, intMID
+    $sql = "SELECT vcCreativeHobbies, intMemberID
     FROM creativehobbies
-    WHERE intMID = ? ";
+    WHERE intMemberID = ? ";
     $query = $this->db->query($sql, array($MemberID));
     return $query->result_array();
   }
 
   public function getCollectingHobbies($MemberID)
   {
-    $sql = "SELECT vcCollectingHobby, intMID
+    $sql = "SELECT vcCollectingHobby, intMemberID
     FROM collectinghobbies
-    WHERE intMID = ? ";
+    WHERE intMemberID = ? ";
     $query = $this->db->query($sql, array($MemberID));
     return $query->result_array();
   }
 
   public function getOutdoorsHobbies($MemberID)
   {
-    $sql = "SELECT vcOutdoorHobies, intMID
+    $sql = "SELECT vcOutdoorHobies, intMemberID
     FROM outdoorhobies
-    WHERE intMID = ? ";
+    WHERE intMemberID = ? ";
     $query = $this->db->query($sql, array($MemberID));
     return $query->result_array();
   }
 
   public function getDomesticHobbies($MemberID)
   {
-    $sql = "SELECT vcdomesticHobbies, intMID
+    $sql = "SELECT vcdomesticHobbies, intMemberID
     FROM domestichobbies
-    WHERE intMID = ? ";
+    WHERE intMemberID = ? ";
     $query = $this->db->query($sql, array($MemberID));
     return $query->result_array();
   }
@@ -149,9 +149,9 @@ class Model_registration extends CI_Model
 
   public function getSocialActivites($MemberID)
   {
-    $sql = "SELECT vcSocialActivities, intMID
+    $sql = "SELECT vcSocialActivities, intMemberID
     FROM socialactivities
-    WHERE intMID = ? ";
+    WHERE intMemberID = ? ";
     $query = $this->db->query($sql, array($MemberID));
     return $query->result_array();
   }
@@ -608,14 +608,14 @@ class Model_registration extends CI_Model
     $this->db->update('member', $dataMemberTb);
 
     // save Enrichment Hobies Start
-    $queryEnrichmentHobiesExist   = $this->db->query("select * from enrichmenthobbies where intMID ='$mid'"); //check whether record exist
+    $queryEnrichmentHobiesExist   = $this->db->query("select * from enrichmenthobbies where intMemberID ='$mid'"); //check whether record exist
     if ($queryEnrichmentHobiesExist->num_rows() > 0) {
-      $this->db->delete('enrichmenthobbies', array('intMID' => $mid)); //delete records if exist
+      $this->db->delete('enrichmenthobbies', array('intMemberID' => $mid)); //delete records if exist
     }
     $EnrichmentHobies = $this->input->post('EnrichmentHobies');
     for ($i = 0; $i < count($EnrichmentHobies); $i++) {
       $dataEnrichmentHobbiesTB = array(
-        'intMID' => $mid,
+        'intMemberID' => $mid,
         'vcEnrichmentHobby' => $EnrichmentHobies[$i]
       );
       $this->db->insert('enrichmenthobbies', $dataEnrichmentHobbiesTB);
@@ -624,14 +624,14 @@ class Model_registration extends CI_Model
 
     // save Sports / Physical activities Start
     $SportsPhysicalActivities = $this->input->post('Sports-Physicalactivities');
-    $querySportsPhysicalActivitiesExists  = $this->db->query("select * from sportsphysicalactivities where intMID ='$mid'");
+    $querySportsPhysicalActivitiesExists  = $this->db->query("select * from sportsphysicalactivities where intMemberID ='$mid'");
     if ($querySportsPhysicalActivitiesExists->num_rows() > 0) {
-      $this->db->delete('sportsphysicalactivities', array('intMID' => $mid));
+      $this->db->delete('sportsphysicalactivities', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($SportsPhysicalActivities); $i++) {
 
       $dataSportsphysicalactivitiesTB = array(
-        'intMID' => $mid,
+        'intMemberID' => $mid,
         'vcSportsPhysicalActivities' => $SportsPhysicalActivities[$i]
       );
       $this->db->insert('sportsphysicalactivities', $dataSportsphysicalactivitiesTB);
@@ -640,13 +640,13 @@ class Model_registration extends CI_Model
 
     // save Social Activites Start
     $SocialActivites = $this->input->post('SocialActivities');
-    $querySocialActivitesExists  = $this->db->query("select * from socialactivities where intMID ='$mid'");
+    $querySocialActivitesExists  = $this->db->query("select * from socialactivities where intMemberID ='$mid'");
     if ($querySocialActivitesExists->num_rows() > 0) {
-      $this->db->delete('socialactivities', array('intMID' => $mid));
+      $this->db->delete('socialactivities', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($SocialActivites); $i++) {
       $dataSocialActivitesTB = array(
-        'intMID' => $mid,
+        'intMemberID' => $mid,
         'vcSocialActivities' => $SocialActivites[$i]
       );
       $this->db->insert('socialactivities', $dataSocialActivitesTB);
@@ -655,13 +655,13 @@ class Model_registration extends CI_Model
 
     // save Creative Hobbies Start
     $CreativeHobbies = $this->input->post('CreatvieHobies');
-    $queryCreativeHobbiesExists  = $this->db->query("select * from creativehobbies where intMID ='$mid'");
+    $queryCreativeHobbiesExists  = $this->db->query("select * from creativehobbies where intMemberID ='$mid'");
     if ($queryCreativeHobbiesExists->num_rows() > 0) {
-      $this->db->delete('creativehobbies', array('intMID' => $mid));
+      $this->db->delete('creativehobbies', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($CreativeHobbies); $i++) {
       $dataCreativeHobbiesTB = array(
-        'intMID' => $mid,
+        'intMemberID' => $mid,
         'vcCreativeHobbies' => $CreativeHobbies[$i]
       );
       $this->db->insert('creativehobbies', $dataCreativeHobbiesTB);
@@ -670,13 +670,13 @@ class Model_registration extends CI_Model
 
     // save Collecting Hobbies Start
     $CollectingHobbies = $this->input->post('CollectingHobbies');
-    $queryCollectingHobbiesExists  = $this->db->query("select * from collectinghobbies where intMID ='$mid'");
+    $queryCollectingHobbiesExists  = $this->db->query("select * from collectinghobbies where intMemberID ='$mid'");
     if ($queryCollectingHobbiesExists->num_rows() > 0) {
-      $this->db->delete('collectinghobbies', array('intMID' => $mid));
+      $this->db->delete('collectinghobbies', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($CollectingHobbies); $i++) {
       $dataCollectingHobbiesTB = array(
-        'intMID' => $mid,
+        'intMemberID' => $mid,
         'vcCollectingHobby' => $CollectingHobbies[$i]
       );
       $this->db->insert('collectinghobbies', $dataCollectingHobbiesTB);
@@ -685,13 +685,13 @@ class Model_registration extends CI_Model
 
     // save Outdoors hobbies Start
     $OutdoorsHobbies = $this->input->post('outdoorHobies');
-    $queryOutdoorHobiesExists  = $this->db->query("select * from outdoorhobies where intMID ='$mid'");
+    $queryOutdoorHobiesExists  = $this->db->query("select * from outdoorhobies where intMemberID ='$mid'");
     if ($queryOutdoorHobiesExists->num_rows() > 0) {
-      $this->db->delete('outdoorhobies', array('intMID' => $mid));
+      $this->db->delete('outdoorhobies', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($OutdoorsHobbies); $i++) {
       $dataOutdoorHobiesTB = array(
-        'intMID' => $mid,
+        'intMemberID' => $mid,
         'vcOutdoorHobies' => $OutdoorsHobbies[$i]
       );
       $this->db->insert('outdoorhobies', $dataOutdoorHobiesTB);
@@ -701,13 +701,13 @@ class Model_registration extends CI_Model
 
     // save Domestic Hobbies Start
     $DomesticHobbies = $this->input->post('domesticHobbies');
-    $queryDomesticHobbiesExists  = $this->db->query("select * from domestichobbies where intMID ='$mid'");
+    $queryDomesticHobbiesExists  = $this->db->query("select * from domestichobbies where intMemberID ='$mid'");
     if ($queryDomesticHobbiesExists->num_rows() > 0) {
-      $this->db->delete('domestichobbies', array('intMID' => $mid));
+      $this->db->delete('domestichobbies', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($DomesticHobbies); $i++) {
       $dataDomesticHobbiesTB = array(
-        'intMID' => $mid,
+        'intMemberID' => $mid,
         'vcdomesticHobbies' => $DomesticHobbies[$i]
       );
       $this->db->insert('domestichobbies', $dataDomesticHobbiesTB);
@@ -772,7 +772,7 @@ class Model_registration extends CI_Model
   {
     $this->db->select('*');
     $this->db->from('workingwith');
-    $this->db->order_by('intSequence', 'ASC'); 
+    $this->db->order_by('intSequence', 'ASC');
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
@@ -845,7 +845,8 @@ class Model_registration extends CI_Model
     if ($NoOfSubmitedForm > 8) {
       $data = array(
         'intWorkingWithId' => $this->input->post('workingWith'),
-        'intWorkingAsSubCatId' => $this->input->post('workingAsSubCat'),
+        'intWorkingAsId' => $this->input->post('workingAs'),
+        'intWorkingsectorID' => $this->input->post('WorkingSector'),
         'vcWorkingLocation' => $this->input->post('workingLocation'),
         'intCityIdWorkingIn' => $this->input->post('city'),
         'intWorkingCountryID' => $this->input->post('country'),
@@ -854,7 +855,8 @@ class Model_registration extends CI_Model
     } else {
       $data = array(
         'intWorkingWithId' => $this->input->post('workingWith'),
-        'intWorkingAsSubCatId' => $this->input->post('workingAsSubCat'),
+        'intWorkingAsId' => $this->input->post('workingAs'),
+        'intWorkingsectorID' => $this->input->post('WorkingSector'),
         'vcWorkingLocation' => $this->input->post('workingLocation'),
         'intCityIdWorkingIn' => $this->input->post('city'),
         'intWorkingCountryID' => $this->input->post('country'),
@@ -1171,7 +1173,7 @@ class Model_registration extends CI_Model
 
       'intImageName' => $imgName,
       'vcImageType' => $imgType,
-      'intMID' => $mid
+      'intMemberID' => $mid
 
     );
     $this->db->insert('memberimage', $data);
@@ -1189,7 +1191,7 @@ class Model_registration extends CI_Model
 
     $this->db->select('*');
     $this->db->from('memberimage');
-    $this->db->where('intMID =', $mid);
+    $this->db->where('intMemberID =', $mid);
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
@@ -1204,12 +1206,41 @@ class Model_registration extends CI_Model
     $imgID = $this->input->post('imgID');
     $this->db->delete('memberimage', array('intImageID' => $imgID));
   }
-  // public function saveProfilePicture()
-  // {
+  public function saveProfilePicture()
+  {
+    $userNameAndLastSubmitForm  = $this->getMidAndLastSubmitFrom();
+    $mid = $userNameAndLastSubmitForm['mid'];
 
-  //   $imgID = $this->input->post('imgID');
-  //   // $this->db->delete('memberimage', array('intImageID' => $imgID));
-  // }
+    $dataClearProFilePic = array(
+      'isProfilePicture' => 0
+    );
+
+    $this->db->trans_begin();
+
+    $this->db->where('intMemberID', $mid);
+    $this->db->update('memberimage', $dataClearProFilePic);
+
+    $imgID = $this->input->post('imgID');
+    $data = array(
+      'isProfilePicture' => 1
+    );
+    $this->db->where('intImageID', $imgID);
+    $this->db->update('memberimage', $data);
+
+    if ($this->db->trans_status() === FALSE) {
+      $this->db->trans_rollback();
+      return false;
+    } else {
+      $this->db->trans_commit();
+      if ($this->db->affected_rows() > 0) {
+        return true;
+        echo true;
+      } else {
+        return false;
+        echo false;
+      }
+    }
+  }
 
   public function getMidAndLastSubmitFrom()
   {
@@ -1233,7 +1264,9 @@ class Model_registration extends CI_Model
 
   public function getLastUploadedImageName()
   {
-    $mid = $this->session->userdata('member_id');
+
+    $userNameAndLastSubmitForm  = $this->getMidAndLastSubmitFrom();
+    $mid = $userNameAndLastSubmitForm['mid'];
 
     $result = array(
       'status' => false,
@@ -1242,7 +1275,7 @@ class Model_registration extends CI_Model
 
     $this->db->select('intImageName');
     $this->db->from('memberimage');
-    $this->db->where('intMID', $mid);
+    $this->db->where('intMemberID', $mid);
     $this->db->order_by("intImageName", "desc");
     $this->db->limit(1);
     $query = $this->db->get();
@@ -1464,89 +1497,89 @@ class Model_registration extends CI_Model
     }
     $this->db->trans_begin();
 
-    
+
     //insert Prefered Martial Status data
-    $memberpreferedmaritalstatus  = $this->db->query("select * from memberpreferedmaritalstatus where intMID ='$mid'");
+    $memberpreferedmaritalstatus  = $this->db->query("select * from memberpreferedmaritalstatus where intMemberID ='$mid'");
     if ($memberpreferedmaritalstatus->num_rows() > 0) {
-      $this->db->delete('memberpreferedmaritalstatus', array('intMID' => $mid));
+      $this->db->delete('memberpreferedmaritalstatus', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($MartialStatus); $i++) {
       $dataPreferedMartialStatusTb = array(
         'intMaritalStatusID' => $MartialStatus[$i],
-        'intMID' => $mid
+        'intMemberID' => $mid
       );
       $this->db->insert('memberpreferedmaritalstatus', $dataPreferedMartialStatusTb);
     }
 
-      //insert Prefered Children data
-    $memberpreferednoofchildren  = $this->db->query("select * from memberpreferednoofchildren where intMID ='$mid'");
+    //insert Prefered Children data
+    $memberpreferednoofchildren  = $this->db->query("select * from memberpreferednoofchildren where intMemberID ='$mid'");
     if ($memberpreferednoofchildren->num_rows() > 0) {
-      $this->db->delete('memberpreferednoofchildren', array('intMID' => $mid));
+      $this->db->delete('memberpreferednoofchildren', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($NoOfChildren); $i++) {
       $dataPreferedOfChildrenTb = array(
         'intNoOfChildrenID' => $NoOfChildren[$i],
-        'intMID' => $mid
+        'intMemberID' => $mid
       );
       $this->db->insert('memberpreferednoofchildren', $dataPreferedOfChildrenTb);
     }
 
-     //insert Prefered Religion data
-    $memberpreferedreligion  = $this->db->query("select * from memberpreferedreligion where intMID ='$mid'");
+    //insert Prefered Religion data
+    $memberpreferedreligion  = $this->db->query("select * from memberpreferedreligion where intMemberID ='$mid'");
     if ($memberpreferedreligion->num_rows() > 0) {
-      $this->db->delete('memberpreferedreligion', array('intMID' => $mid));
+      $this->db->delete('memberpreferedreligion', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($Religion); $i++) {
       $dataPpreferedreligionTb = array(
         'intReligionID' => $Religion[$i],
-        'intMID' => $mid
+        'intMemberID' => $mid
       );
       $this->db->insert('memberpreferedreligion', $dataPpreferedreligionTb);
     }
 
-      //insert Prefered Ethnicity data
-    $memberpreferedethnicity  = $this->db->query("select * from memberpreferedethnicity where intMID ='$mid'");
+    //insert Prefered Ethnicity data
+    $memberpreferedethnicity  = $this->db->query("select * from memberpreferedethnicity where intMemberID ='$mid'");
     if ($memberpreferedethnicity->num_rows() > 0) {
-      $this->db->delete('memberpreferedethnicity', array('intMID' => $mid));
+      $this->db->delete('memberpreferedethnicity', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($Ethnicity); $i++) {
       $dataPpreferedEthnicityTb = array(
         'intEthnicityID' => $Ethnicity[$i],
-        'intMID' => $mid
+        'intMemberID' => $mid
       );
       $this->db->insert('memberpreferedethnicity', $dataPpreferedEthnicityTb);
     }
 
-      //insert Mother Tounge data
-    $memberpreferedmothertounge  = $this->db->query("select * from memberpreferedmothertounge where intMID ='$mid'");
+    //insert Mother Tounge data
+    $memberpreferedmothertounge  = $this->db->query("select * from memberpreferedmothertounge where intMemberID ='$mid'");
     if ($memberpreferedmothertounge->num_rows() > 0) {
-      $this->db->delete('memberpreferedmothertounge', array('intMID' => $mid));
+      $this->db->delete('memberpreferedmothertounge', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($motherTounge); $i++) {
       $dataPpreferedMotherToungeTb = array(
         'intMotherToungeID' => $motherTounge[$i],
-        'intMID' => $mid
+        'intMemberID' => $mid
       );
       $this->db->insert('memberpreferedmothertounge', $dataPpreferedMotherToungeTb);
     }
 
-   //insert Live in Sri Lanka data
-    $memberpreferedliveinsrilanka  = $this->db->query("select * from memberpreferedliveinsrilanka where intMID ='$mid'");
+    //insert Live in Sri Lanka data
+    $memberpreferedliveinsrilanka  = $this->db->query("select * from memberpreferedliveinsrilanka where intMemberID ='$mid'");
     if ($memberpreferedliveinsrilanka->num_rows() > 0) {
-      $this->db->delete('memberpreferedliveinsrilanka', array('intMID' => $mid));
+      $this->db->delete('memberpreferedliveinsrilanka', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($LiveInSriLanka); $i++) {
       $dataPpreferedLiveInSriLankaTb = array(
         'IntProvinceId' => $LiveInSriLanka[$i],
-        'intMID' => $mid
+        'intMemberID' => $mid
       );
       $this->db->insert('memberpreferedliveinsrilanka', $dataPpreferedLiveInSriLankaTb);
     }
 
     //insert member prefered education level data
-    $memberpreferededucationlevel  = $this->db->query("select * from memberpreferededucationlevel where intMID ='$mid'");
+    $memberpreferededucationlevel  = $this->db->query("select * from memberpreferededucationlevel where intMemberID ='$mid'");
     if ($memberpreferededucationlevel->num_rows() > 0) {
-      $this->db->delete('memberpreferededucationlevel', array('intMID' => $mid));
+      $this->db->delete('memberpreferededucationlevel', array('intMemberID' => $mid));
     }
 
     for ($i = 0; $i < count($EducationSummerizeLevel); $i++) {
@@ -1554,7 +1587,7 @@ class Model_registration extends CI_Model
         for ($j = 1; $j <= 6; $j++) {
           $dataPpreferedEducationLevelTb = array(
             'intEducationalLevelID' => $j,
-            'intMID' => $mid
+            'intMemberID' => $mid
           );
           $this->db->insert('memberpreferededucationlevel', $dataPpreferedEducationLevelTb);
         }
@@ -1563,7 +1596,7 @@ class Model_registration extends CI_Model
         for ($j = 7; $j <= 11; $j++) {
           $dataPpreferedEducationLevelTb = array(
             'intEducationalLevelID' => $j,
-            'intMID' => $mid
+            'intMemberID' => $mid
           );
           $this->db->insert('memberpreferededucationlevel', $dataPpreferedEducationLevelTb);
         }
@@ -1573,7 +1606,7 @@ class Model_registration extends CI_Model
         for ($j = 12; $j <= 14; $j++) {
           $dataPpreferedEducationLevelTb = array(
             'intEducationalLevelID' => $j,
-            'intMID' => $mid
+            'intMemberID' => $mid
           );
           $this->db->insert('memberpreferededucationlevel', $dataPpreferedEducationLevelTb);
         }
@@ -1581,36 +1614,36 @@ class Model_registration extends CI_Model
     }
 
     //insert member prefered working with data
-    $memberpreferedworkingwith  = $this->db->query("select * from memberpreferedworkingwith where intMID ='$mid'");
+    $memberpreferedworkingwith  = $this->db->query("select * from memberpreferedworkingwith where intMemberID ='$mid'");
     if ($memberpreferedworkingwith->num_rows() > 0) {
-      $this->db->delete('memberpreferedworkingwith', array('intMID' => $mid));
+      $this->db->delete('memberpreferedworkingwith', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($WorkingWith); $i++) {
       $dataPpreferedWorkingWithTb = array(
         'intMemberpreferedworkingwithID' => $WorkingWith[$i],
-        'intMID' => $mid
+        'intMemberID' => $mid
       );
       $this->db->insert('memberpreferedworkingwith', $dataPpreferedWorkingWithTb);
     }
 
     //insert member prefered Career Level data
-    $memberpreferedcareerlevel  = $this->db->query("select * from memberpreferedcareerlevel where intMID ='$mid'");
+    $memberpreferedcareerlevel  = $this->db->query("select * from memberpreferedcareerlevel where intMemberID ='$mid'");
     if ($memberpreferedcareerlevel->num_rows() > 0) {
-      $this->db->delete('memberpreferedcareerlevel', array('intMID' => $mid));
+      $this->db->delete('memberpreferedcareerlevel', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($CareerLevel); $i++) {
       $dataPpreferedCareerLevelTb = array(
         'intCareerLevelID' => $CareerLevel[$i],
-        'intMID' => $mid
+        'intMemberID' => $mid
       );
       $this->db->insert('memberpreferedcareerlevel', $dataPpreferedCareerLevelTb);
     }
 
 
     // insert member prefered Monthly Income data
-    $memberpreferedmonthlyincome  = $this->db->query("select * from memberpreferedmonthlyincome where intMID ='$mid'");
+    $memberpreferedmonthlyincome  = $this->db->query("select * from memberpreferedmonthlyincome where intMemberID ='$mid'");
     if ($memberpreferedmonthlyincome->num_rows() > 0) {
-      $this->db->delete('memberpreferedmonthlyincome', array('intMID' => $mid));
+      $this->db->delete('memberpreferedmonthlyincome', array('intMemberID' => $mid));
     }
 
     for ($i = 0; $i < count($MonthlyIncomeSummerizedLevel); $i++) {
@@ -1618,7 +1651,7 @@ class Model_registration extends CI_Model
         for ($j = 1; $j <= 4; $j++) {
           $dataPpreferedMonthlyIncomeTb = array(
             'intMonthlyIncomeID' => $j,
-            'intMID' => $mid
+            'intMemberID' => $mid
           );
           $this->db->insert('memberpreferedmonthlyincome', $dataPpreferedMonthlyIncomeTb);
         }
@@ -1627,7 +1660,7 @@ class Model_registration extends CI_Model
         for ($j = 5; $j <= 6; $j++) {
           $dataPpreferedMonthlyIncomeTb = array(
             'intMonthlyIncomeID' => $j,
-            'intMID' => $mid
+            'intMemberID' => $mid
           );
           $this->db->insert('memberpreferedmonthlyincome', $dataPpreferedMonthlyIncomeTb);
         }
@@ -1636,7 +1669,7 @@ class Model_registration extends CI_Model
         for ($j = 7; $j <= 8; $j++) {
           $dataPpreferedMonthlyIncomeTb = array(
             'intMonthlyIncomeID' => $j,
-            'intMID' => $mid
+            'intMemberID' => $mid
           );
           $this->db->insert('memberpreferedmonthlyincome', $dataPpreferedMonthlyIncomeTb);
         }
@@ -1645,7 +1678,7 @@ class Model_registration extends CI_Model
         for ($j = 9; $j <= 11; $j++) {
           $dataPpreferedMonthlyIncomeTb = array(
             'intMonthlyIncomeID' => $j,
-            'intMID' => $mid
+            'intMemberID' => $mid
           );
           $this->db->insert('memberpreferedmonthlyincome', $dataPpreferedMonthlyIncomeTb);
         }
@@ -1653,9 +1686,9 @@ class Model_registration extends CI_Model
     }
 
     // insert member prefered Asset Value data
-    $memberpreferedassetvalue  = $this->db->query("select * from memberpreferedassetvalue where intMID ='$mid'");
+    $memberpreferedassetvalue  = $this->db->query("select * from memberpreferedassetvalue where intMemberID ='$mid'");
     if ($memberpreferedassetvalue->num_rows() > 0) {
-      $this->db->delete('memberpreferedassetvalue', array('intMID' => $mid));
+      $this->db->delete('memberpreferedassetvalue', array('intMemberID' => $mid));
     }
 
     for ($i = 0; $i < count($AssetValueSummerizedLevel); $i++) {
@@ -1663,7 +1696,7 @@ class Model_registration extends CI_Model
         for ($j = 1; $j <= 4; $j++) {
           $dataPpreferedAssetValueTb = array(
             'intAssetValueID' => $j,
-            'intMID' => $mid
+            'intMemberID' => $mid
           );
           $this->db->insert('memberpreferedassetvalue', $dataPpreferedAssetValueTb);
         }
@@ -1672,7 +1705,7 @@ class Model_registration extends CI_Model
         for ($j = 5; $j <= 9; $j++) {
           $dataPpreferedAssetValueTb = array(
             'intAssetValueID' => $j,
-            'intMID' => $mid
+            'intMemberID' => $mid
           );
           $this->db->insert('memberpreferedassetvalue', $dataPpreferedAssetValueTb);
         }
@@ -1681,7 +1714,7 @@ class Model_registration extends CI_Model
         for ($j = 10; $j <= 13; $j++) {
           $dataPpreferedAssetValueTb = array(
             'intAssetValueID' => $j,
-            'intMID' => $mid
+            'intMemberID' => $mid
           );
           $this->db->insert('memberpreferedassetvalue', $dataPpreferedAssetValueTb);
         }
@@ -1690,7 +1723,7 @@ class Model_registration extends CI_Model
         for ($j = 14; $j <= 20; $j++) {
           $dataPpreferedAssetValueTb = array(
             'intAssetValueID' => $j,
-            'intMID' => $mid
+            'intMemberID' => $mid
           );
           $this->db->insert('memberpreferedassetvalue', $dataPpreferedAssetValueTb);
         }
@@ -1698,27 +1731,27 @@ class Model_registration extends CI_Model
     }
 
     //insert member prefered Any Disability data
-    $memberpreferedanydisability  = $this->db->query("select * from memberpreferedanydisability where intMID ='$mid'");
+    $memberpreferedanydisability  = $this->db->query("select * from memberpreferedanydisability where intMemberID ='$mid'");
     if ($memberpreferedanydisability->num_rows() > 0) {
-      $this->db->delete('memberpreferedanydisability', array('intMID' => $mid));
+      $this->db->delete('memberpreferedanydisability', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($AnyDisability); $i++) {
       $dataPpreferedAnyDisabilityTb = array(
         'intDisabilityID' => $AnyDisability[$i],
-        'intMID' => $mid
+        'intMemberID' => $mid
       );
       $this->db->insert('memberpreferedanydisability', $dataPpreferedAnyDisabilityTb);
     }
 
     //insert member prefered Diet data
-    $memberprefereddiet  = $this->db->query("select * from memberprefereddiet where intMID ='$mid'");
+    $memberprefereddiet  = $this->db->query("select * from memberprefereddiet where intMemberID ='$mid'");
     if ($memberprefereddiet->num_rows() > 0) {
-      $this->db->delete('memberprefereddiet', array('intMID' => $mid));
+      $this->db->delete('memberprefereddiet', array('intMemberID' => $mid));
     }
     for ($i = 0; $i < count($Diet); $i++) {
       $dataPpreferedDietTb = array(
         'intDietID' => $Diet[$i],
-        'intMID' => $mid
+        'intMemberID' => $mid
       );
       $this->db->insert('memberprefereddiet', $dataPpreferedDietTb);
     }
