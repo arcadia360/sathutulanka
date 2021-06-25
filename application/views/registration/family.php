@@ -281,6 +281,7 @@
     });
 
     $('#btnSkip').click(function() {
+      <?php $session_data = array('no_of_submitted_form' => 10); ?>
       window.location.href = "<?php echo base_url('Registration/afterMarriage') ?>";
     });
 
