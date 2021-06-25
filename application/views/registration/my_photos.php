@@ -81,7 +81,7 @@
 
 
     $('#btnSubmit').click(function() {
-      // window.location.href = "<?php echo base_url('Registration/AboutYourselfAndPartner') ?>";
+
       var isMyPhotosSelected = $("input[name=MyPhotos]").is(":checked");
       let imgID = $('input[name="MyPhotos"]:checked').val();
 
@@ -90,7 +90,7 @@
         toastr["error"]("Please select profile picture");
       } else {
         $.ajax({
-          type: 'ajax',
+          type: 'post',
           url: '<?php echo base_url(); ?>Registration/saveProfilePicture',
           async: false,
           dataType: 'json',
@@ -99,11 +99,15 @@
             'imgID': imgID
           },
           success: function(data) {
-            // toastr["success"]("Image renoved!");
-            // location.reload();
+            if (data.status) {
+              toastr["success"](data.message);
+              window.location.href = "<?php echo base_url('Registration/AboutYourselfAndPartner') ?>";
+            } else {
+              toastr["error"](data.message);
+            }
           },
           error: function() {
-            toastr["error"]("Internal error failed to save image");
+            toastr["error"]("Internal error failed to save images");
           }
         });
       }
@@ -120,19 +124,23 @@
         contentType: false,
         cache: false,
         async: false,
+        dataType: 'json',
         success: function(data) {
-          viewUploadImages();
-          Swal.fire({
-            icon: 'success',
-            title: 'image uploaded successfully !',
-            showConfirmButton: false,
-            timer: 2000
-          }).then((result) => {
-            if (result.dismiss === Swal.DismissReason.timer) {
-              // window.location.href = "<?= base_url('Registration/education') ?>";
-
-            }
-          })
+          if (data.success) {
+            viewUploadImages();
+            Swal.fire({
+              icon: 'success',
+              title: data.message,
+              showConfirmButton: false,
+              timer: 2000
+            }).then((result) => {
+              if (result.dismiss === Swal.DismissReason.timer) {
+                // window.location.href = "<?= base_url('Registration/education') ?>";
+              }
+            })
+          } else {
+            toastr["error"]("failed to save images");
+          }
         },
         error: function() {
           alert('internal error failed to uploaded image');
