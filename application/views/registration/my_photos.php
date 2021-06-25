@@ -1,5 +1,5 @@
 <div class="offset-lg-3 col-lg-6 main-section">
-  <h3 class="text-center text-inverse title">My Photos And Videos</h3>
+  <h3 class="text-center text-inverse title">My Photos</h3>
   <p>Photos & videos are the key to best responses every time. Your photos & video will appear after the inspection of our officer. 100% privacy controls available.</p>
 
   <form method="post" action="<?= base_url('Registration/addWhoAmIDetails') ?>" id="addMyPhotos">
@@ -86,7 +86,7 @@
       let imgID = $('input[name="MyPhotos"]:checked').val();
 
 
-      if (isMyPhotosSelected) {
+      if (!isMyPhotosSelected) {
         toastr["error"]("Please select profile picture");
       } else {
         $.ajax({
@@ -103,7 +103,7 @@
             // location.reload();
           },
           error: function() {
-            toastr["error"]("Internal error failed to remove image");
+            toastr["error"]("Internal error failed to save image");
           }
         });
       }
