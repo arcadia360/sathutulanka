@@ -1211,14 +1211,14 @@ class Model_registration extends CI_Model
     $userNameAndLastSubmitForm  = $this->getMidAndLastSubmitFrom();
     $mid = $userNameAndLastSubmitForm['mid'];
 
-    $dataClearProFilePic = array(
+    $ClearProFilePic = array(
       'isProfilePicture' => 0
     );
 
     $this->db->trans_begin();
 
     $this->db->where('intMemberID', $mid);
-    $this->db->update('memberimage', $dataClearProFilePic);
+    $this->db->update('memberimage', $ClearProFilePic);
 
     $imgID = $this->input->post('imgID');
     $data = array(
@@ -1232,13 +1232,7 @@ class Model_registration extends CI_Model
       return false;
     } else {
       $this->db->trans_commit();
-      if ($this->db->affected_rows() > 0) {
-        return true;
-        echo true;
-      } else {
-        return false;
-        echo false;
-      }
+      return true;
     }
   }
 
