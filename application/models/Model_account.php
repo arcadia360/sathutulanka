@@ -9,191 +9,194 @@ class Model_account extends CI_Model
 
   public function getMemberData($UserID)
   {
-    $sql = "SELECT  
-            M.intMemberID, 
-            M.vcMemberCode,
-            CONCAT(MIM.intImageName,MIM.vcImageType) AS vcProfilePicture,
-            M.vcNickName, 
-            M.vcCountryCode, 
-            M.vcMobileNo, 
-            M.vcPassword, 
-            M.vcEmail, 
-            M.vcProvidingInformationType, 
-            M.vcGender, 
-            M.dtDOB, 
-            MS.vcMaritalStatus_en AS vcMaritalStatus, 
-            M.intNoOfChildrenID, 
-            M.intMemberAccountStatusID, 
-            M.vcMarriageType, 
-            M.intNoOfSubmitedForm, 
-            M.intHeight, 
-            M.intWeightFrom, 
-            M.intWeightTo, 
-            M.intBodyTypeID, 
-            CASE
-            WHEN M.intBodyTypeID = 1 THEN 'Slim'
-            WHEN M.intBodyTypeID = 2 THEN 'Average'
-            WHEN M.intBodyTypeID = 3 THEN 'Heavy'
-            END AS vcBodyType,
-            M.intSkinColourID, 
-            CASE
-            WHEN M.intSkinColourID = 1 THEN 'Very Fair'
-            WHEN M.intSkinColourID = 2 THEN 'Fair'
-            WHEN M.intSkinColourID = 3 THEN 'Light Brown'
-            WHEN M.intSkinColourID = 4 THEN 'Dark Brown'
-            WHEN M.intSkinColourID = 5 THEN 'Black Brown'
-            END AS vcSkinColour,
-            M.intDisabilityID, 
-            M.vcBloodGroup, 
-            M.isHealthInfo, 
-            CASE WHEN M.isHealthInfo = 1 THEN 'Details in Writing' ELSE  'No Health Issues' END AS vcHealthInfo,
-            MT.vcMotherTongueName AS vcMotherTounge, 
-            ET.vcEthnicityName AS vcEthnicity, 
-            RE.vcReligion, 
-            M.isPoliceReportCanProvide,
-            CASE WHEN M.isPoliceReportCanProvide = 1 THEN 'Can provide' ELSE  'Can not provide' END AS vcPoliceReportCanProvide,
-            WW.vcWorkingWith,
-            -- WASC.vcWorkingAsSubCat,
-            DT.vcDietName AS vcDiet,
-            M.vcDrink,
-            M.vcSmoke,
-            M.vcDressAndMakeup,
-            M.vcUsedToTravel,
-            M.vcCalToParent,
-            M.vcCustoms,
-            M.vcLiveIn,
-            M.intOpennessToExperience,
-            M.intConscientiousness,
-            M.intExtrovertPersonality,
-            M.intIntrovertPersonality,
-            M.intAgreeableness,
-            M.intNeuroticism,
-            M.intFamilyBond,
-            M.intMoney,
-            M.intReligious,
-            M.intPhysicallyActive,
-            M.IntPolitics,
-            M.intKnowledge,
-            M.intLoveAffairs,
-            M.intimportanceVirginity,
-            -- IFNULL(CASE WHEN (SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) = '' THEN
-            --   WASC.vcWorkingAsSubCat 
-            --   ELSE 
-            --   (SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) END, WW.vcWorkingWith) 
-            -- AS vcWorkingAsSubCat_Customised,
-            -- 'TEST' AS vcWorkingAsSubCat_Customised,
-            M.intWorkingAsID,
-            WA.vcWorkingAS,
-            IFNULL(WA.vcWorkingAS,WW.vcWorkingWith) AS MiniProfileDesignation,
-            MAS.intMemberAccountStatusID,       
-            MAS.vcMemberAccountStatus,            
-            MAT.intMemberAccountTypeID,
-            MAT.vcMemberAccountType,
-            CONCAT(M.intWeightFrom,'-',M.intWeightTo) AS Weight_Customised,
-            CT.intDistrictId,
-            CT.intCityId,
-            M.intCityIdIfLiveInSL,
-            M.intCountryId,
-            M.vcAddOfSriLanka,
-            M.intNativeDistrictId,
-            CS.intCasteID,
-            CT.vcCityName,
-            M.vcNic,
-            M.vcGuardianContact,
-            M.vcPremanentAddress,
-            M.intResidenceStatusID,
-            M.intEthnicityID,
-            M.intReligionID,
-            M.intMotherTongueID,
-            M.intDietID,
-            M.intEducationLevelID,
-            M.intEducationFieldID,
-            M.vcSclUniDescription,
-            M.vcDescribeCareer,
-            M.intWorkingWithId,
-            -- M.intWorkingAsSubCatId,
-            M.vcWorkingLocation,
-            M.intCityIdWorkingIn,
-            M.intWorkingCountryID,
-            M.intMonthlyIncomeID,
-            M.intAssetValueID,
-            M.vcOwnershipOfAssets,
-            M.intFamilyLocationID,
-            M.vcFamilyType,
-            M.vcFamilyValues,
-            M.vcFamilyClass,
-            M.vcFamilyCulture,
-            M.vcFatherStatus,
-            M.vcMotherStatus,
-            M.vcFamilyDetails,
-            M.vcPrefferToLive,
-            M.vcHelpFamily,
-            M.vcJobAfterMarriage,
-            M.vcEducationAfterMarriage,
-            M.vcChildrenLikes,
-            M.vcOtherNeeds,
-            M.vcMatchingHoroscope,
-            M.vcZodiacSign,
-            M.vcGanaya,
-            M.vcNekatha,
-            M.intRavi,
-            M.intMoon,
-            M.intMars,
-            M.intMercury,
-            M.intJupiter,
-            M.intVenus,
-            M.intSaturn,
-            M.intRahu,
-            M.intKethu,
-            M.vcPapaKendara,
-            M.vcAboutYourselfAndPartner,
-            CTT.intDistrictid,
-            -- WASC.intWorkinAsMainCat,
-            M.intMyPhotosPrivacy,
-            M.intMyVideosPrivacy,
-            M.intAssetsDetailsPrivacy,
-            M.intFamilyDetailsPrivacy,
-            M.intHoroscopeDetailsPrivacy,
-            NOC.vcNoOfChildren_en AS vcNoOfChildren,
-            DS.vcDisability,
-            RS.vcResidenceStatus,
-            CS.vcSubCasteName,
-            fnLanguageSpeakWithSeparator(M.intMemberID) AS vcLanguageSpeakWithSeparator,
-            fnMonthlyIncomeRouteSeparator(M.intMemberID) AS vcMonthlyIncomeRouteSeparator,
-            EL.vcEducationLevel,
-            EF.vcEducationField,
-            MI.vcMonthlyIncome,
-            A.vcAssetValue,
-            'Test' AS Test
-          FROM 
-            Member AS M
-            LEFT OUTER JOIN WorkingWith          AS WW   ON M.intWorkingWithID = WW.intWorkingWithID
-            LEFT OUTER JOIN WorkingAs            AS WA  ON  M.intWorkingAsID = WA.intWorkingAsID
-            -- LEFT OUTER JOIN WorkingAsSubCat AS WASC ON M.intWorkingAsSubCatID = WASC.intWorkingAsSubCatID
-            LEFT OUTER JOIN MemberAccountStatus  AS MAS  ON M.intMemberAccountStatusID = MAS.intMemberAccountStatusID
-            LEFT OUTER JOIN MemberAccountType    AS MAT  ON M.intMemberAccountTypeID = MAT.intMemberAccountTypeID
-            LEFT OUTER JOIN MaritalStatus        AS MS   ON M.intMaritalStatusID = MS.intMaritalStatusID
-            LEFT OUTER JOIN City AS CT ON  M.intCityIdIfLiveInSL = CT.intCityID
-            LEFT OUTER JOIN Subcaste AS CS ON M.intSubCasteId = CS.intSubCasteId
-            LEFT OUTER JOIN Mothertongue AS MT ON M.intMotherTongueID = MT.intMotherTongueID
-            LEFT OUTER JOIN Ethnicity AS ET ON M.intEthnicityID = ET.intEthnicityID
-            LEFT OUTER JOIN Religion AS RE ON M.intReligionID = RE.intReligionID
-            LEFT OUTER JOIN Diet AS DT ON M.intDietID = DT.intDietID
-            LEFT OUTER JOIN Disability AS DS ON M.intDisabilityID = DS.intDisabilityID
-            LEFT OUTER JOIN Residencestatus AS RS ON M.intResidenceStatusID = RS.intResidenceStatusID
-            LEFT OUTER JOIN City AS CTT ON M.intCityIdWorkingIn = CTT.intCityid
-            LEFT OUTER JOIN NoofChildren AS NOC ON M.intNoOfChildrenID = NOC.intNoOfChildrenID
-            LEFT OUTER JOIN EducationLevel AS EL 	ON M.intEducationLevelID = EL.intEducationLevelID  
-            LEFT OUTER JOIN EducationField AS EF 	ON M.intEducationFieldID = EF.intEducationFieldID 
-            LEFT OUTER JOIN MonthlyIncome AS MI 	ON M.intMonthlyIncomeID = MI.intMonthlyIncomeID 
-            LEFT OUTER JOIN AssetValue AS A 	ON M.intAssetValueID = A.intAssetValueID
-            LEFT OUTER JOIN MemberImage AS MIM ON M.intMemberID = MIM.intMemberID AND MIM.isProfilePicture = 1
+    // $sql = "SELECT  
+    //         M.intMemberID, 
+    //         M.vcMemberCode,
+    //         CONCAT(MIM.intImageName,MIM.vcImageType) AS vcProfilePicture,
+    //         M.vcNickName, 
+    //         M.vcCountryCode, 
+    //         M.vcMobileNo, 
+    //         M.vcPassword, 
+    //         M.vcEmail, 
+    //         M.vcProvidingInformationType, 
+    //         M.vcGender, 
+    //         M.dtDOB, 
+    //         MS.vcMaritalStatus_en AS vcMaritalStatus, 
+    //         M.intNoOfChildrenID, 
+    //         M.intMemberAccountStatusID, 
+    //         M.vcMarriageType, 
+    //         M.intNoOfSubmitedForm, 
+    //         M.intHeight, 
+    //         M.intWeightFrom, 
+    //         M.intWeightTo, 
+    //         M.intBodyTypeID, 
+    //         CASE
+    //         WHEN M.intBodyTypeID = 1 THEN 'Slim'
+    //         WHEN M.intBodyTypeID = 2 THEN 'Average'
+    //         WHEN M.intBodyTypeID = 3 THEN 'Heavy'
+    //         END AS vcBodyType,
+    //         M.intSkinColourID, 
+    //         CASE
+    //         WHEN M.intSkinColourID = 1 THEN 'Very Fair'
+    //         WHEN M.intSkinColourID = 2 THEN 'Fair'
+    //         WHEN M.intSkinColourID = 3 THEN 'Light Brown'
+    //         WHEN M.intSkinColourID = 4 THEN 'Dark Brown'
+    //         WHEN M.intSkinColourID = 5 THEN 'Black Brown'
+    //         END AS vcSkinColour,
+    //         M.intDisabilityID, 
+    //         M.vcBloodGroup, 
+    //         M.isHealthInfo, 
+    //         CASE WHEN M.isHealthInfo = 1 THEN 'Details in Writing' ELSE  'No Health Issues' END AS vcHealthInfo,
+    //         MT.vcMotherTongueName AS vcMotherTounge, 
+    //         ET.vcEthnicityName AS vcEthnicity, 
+    //         RE.vcReligion, 
+    //         M.isPoliceReportCanProvide,
+    //         CASE WHEN M.isPoliceReportCanProvide = 1 THEN 'Can provide' ELSE  'Can not provide' END AS vcPoliceReportCanProvide,
+    //         WW.vcWorkingWith,
+    //         -- WASC.vcWorkingAsSubCat,
+    //         DT.vcDietName AS vcDiet,
+    //         M.vcDrink,
+    //         M.vcSmoke,
+    //         M.vcDressAndMakeup,
+    //         M.vcUsedToTravel,
+    //         M.vcCalToParent,
+    //         M.vcCustoms,
+    //         M.vcLiveIn,
+    //         M.intOpennessToExperience,
+    //         M.intConscientiousness,
+    //         M.intExtrovertPersonality,
+    //         M.intIntrovertPersonality,
+    //         M.intAgreeableness,
+    //         M.intNeuroticism,
+    //         M.intFamilyBond,
+    //         M.intMoney,
+    //         M.intReligious,
+    //         M.intPhysicallyActive,
+    //         M.IntPolitics,
+    //         M.intKnowledge,
+    //         M.intLoveAffairs,
+    //         M.intimportanceVirginity,
+    //         -- IFNULL(CASE WHEN (SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) = '' THEN
+    //         --   WASC.vcWorkingAsSubCat 
+    //         --   ELSE 
+    //         --   (SUBSTRING_INDEX(WASC.vcWorkingAsSubCat, '(', LENGTH(WASC.vcWorkingAsSubCat) - LENGTH(REPLACE(WASC.vcWorkingAsSubCat, ')', '')))) END, WW.vcWorkingWith) 
+    //         -- AS vcWorkingAsSubCat_Customised,
+    //         -- 'TEST' AS vcWorkingAsSubCat_Customised,
+    //         M.intWorkingAsID,
+    //         WA.vcWorkingAS,
+    //         IFNULL(WA.vcWorkingAS,WW.vcWorkingWith) AS MiniProfileDesignation,
+    //         MAS.intMemberAccountStatusID,       
+    //         MAS.vcMemberAccountStatus,            
+    //         MAT.intMemberAccountTypeID,
+    //         MAT.vcMemberAccountType,
+    //         CONCAT(M.intWeightFrom,'-',M.intWeightTo) AS Weight_Customised,
+    //         CT.intDistrictId,
+    //         CT.intCityId,
+    //         M.intCityIdIfLiveInSL,
+    //         M.intCountryId,
+    //         M.vcAddOfSriLanka,
+    //         M.intNativeDistrictId,
+    //         CS.intCasteID,
+    //         CT.vcCityName,
+    //         M.vcNic,
+    //         M.vcGuardianContact,
+    //         M.vcPremanentAddress,
+    //         M.intResidenceStatusID,
+    //         M.intEthnicityID,
+    //         M.intReligionID,
+    //         M.intMotherTongueID,
+    //         M.intDietID,
+    //         M.intEducationLevelID,
+    //         M.intEducationFieldID,
+    //         M.vcSclUniDescription,
+    //         M.vcDescribeCareer,
+    //         M.intWorkingWithId,
+    //         -- M.intWorkingAsSubCatId,
+    //         M.vcWorkingLocation,
+    //         M.intCityIdWorkingIn,
+    //         M.intWorkingCountryID,
+    //         M.intMonthlyIncomeID,
+    //         M.intAssetValueID,
+    //         M.vcOwnershipOfAssets,
+    //         M.intFamilyLocationID,
+    //         M.vcFamilyType,
+    //         M.vcFamilyValues,
+    //         M.vcFamilyClass,
+    //         M.vcFamilyCulture,
+    //         M.vcFatherStatus,
+    //         M.vcMotherStatus,
+    //         M.vcFamilyDetails,
+    //         M.vcPrefferToLive,
+    //         M.vcHelpFamily,
+    //         M.vcJobAfterMarriage,
+    //         M.vcEducationAfterMarriage,
+    //         M.vcChildrenLikes,
+    //         M.vcOtherNeeds,
+    //         M.vcMatchingHoroscope,
+    //         M.vcZodiacSign,
+    //         M.vcGanaya,
+    //         M.vcNekatha,
+    //         M.intRavi,
+    //         M.intMoon,
+    //         M.intMars,
+    //         M.intMercury,
+    //         M.intJupiter,
+    //         M.intVenus,
+    //         M.intSaturn,
+    //         M.intRahu,
+    //         M.intKethu,
+    //         M.vcPapaKendara,
+    //         M.vcAboutYourselfAndPartner,
+    //         CTT.intDistrictid,
+    //         -- WASC.intWorkinAsMainCat,
+    //         M.intMyPhotosPrivacy,
+    //         M.intMyVideosPrivacy,
+    //         M.intAssetsDetailsPrivacy,
+    //         M.intFamilyDetailsPrivacy,
+    //         M.intHoroscopeDetailsPrivacy,
+    //         NOC.vcNoOfChildren_en AS vcNoOfChildren,
+    //         DS.vcDisability,
+    //         RS.vcResidenceStatus,
+    //         CS.vcSubCasteName,
+    //         fnLanguageSpeakWithSeparator(M.intMemberID) AS vcLanguageSpeakWithSeparator,
+    //         fnMonthlyIncomeRouteSeparator(M.intMemberID) AS vcMonthlyIncomeRouteSeparator,
+    //         EL.vcEducationLevel,
+    //         EF.vcEducationField,
+    //         MI.vcMonthlyIncome,
+    //         A.vcAssetValue,
+    //         'Test' AS Test
+    //       FROM 
+    //         Member AS M
+    //         LEFT OUTER JOIN WorkingWith          AS WW   ON M.intWorkingWithID = WW.intWorkingWithID
+    //         LEFT OUTER JOIN WorkingAs            AS WA  ON  M.intWorkingAsID = WA.intWorkingAsID
+    //         -- LEFT OUTER JOIN WorkingAsSubCat AS WASC ON M.intWorkingAsSubCatID = WASC.intWorkingAsSubCatID
+    //         LEFT OUTER JOIN MemberAccountStatus  AS MAS  ON M.intMemberAccountStatusID = MAS.intMemberAccountStatusID
+    //         LEFT OUTER JOIN MemberAccountType    AS MAT  ON M.intMemberAccountTypeID = MAT.intMemberAccountTypeID
+    //         LEFT OUTER JOIN MaritalStatus        AS MS   ON M.intMaritalStatusID = MS.intMaritalStatusID
+    //         LEFT OUTER JOIN City AS CT ON  M.intCityIdIfLiveInSL = CT.intCityID
+    //         LEFT OUTER JOIN Subcaste AS CS ON M.intSubCasteId = CS.intSubCasteId
+    //         LEFT OUTER JOIN Mothertongue AS MT ON M.intMotherTongueID = MT.intMotherTongueID
+    //         LEFT OUTER JOIN Ethnicity AS ET ON M.intEthnicityID = ET.intEthnicityID
+    //         LEFT OUTER JOIN Religion AS RE ON M.intReligionID = RE.intReligionID
+    //         LEFT OUTER JOIN Diet AS DT ON M.intDietID = DT.intDietID
+    //         LEFT OUTER JOIN Disability AS DS ON M.intDisabilityID = DS.intDisabilityID
+    //         LEFT OUTER JOIN Residencestatus AS RS ON M.intResidenceStatusID = RS.intResidenceStatusID
+    //         LEFT OUTER JOIN City AS CTT ON M.intCityIdWorkingIn = CTT.intCityid
+    //         LEFT OUTER JOIN NoofChildren AS NOC ON M.intNoOfChildrenID = NOC.intNoOfChildrenID
+    //         LEFT OUTER JOIN EducationLevel AS EL 	ON M.intEducationLevelID = EL.intEducationLevelID  
+    //         LEFT OUTER JOIN EducationField AS EF 	ON M.intEducationFieldID = EF.intEducationFieldID 
+    //         LEFT OUTER JOIN MonthlyIncome AS MI 	ON M.intMonthlyIncomeID = MI.intMonthlyIncomeID 
+    //         LEFT OUTER JOIN AssetValue AS A 	ON M.intAssetValueID = A.intAssetValueID
+    //         LEFT OUTER JOIN MemberImage AS MIM ON M.intMemberID = MIM.intMemberID AND MIM.isProfilePicture = 1
 
-          WHERE 
-            M.intMemberID = ? ";
+    //       WHERE 
+    //         M.intMemberID = ? ";
 
+    $sql = "CALL spGetMemberDetailByID(?);";
     $query = $this->db->query($sql, array($UserID));
+    mysqli_next_result( $this->db->conn_id );
     return $query->row_array();
+
   }
 
   public function getMemberPhotosData($member_id)
