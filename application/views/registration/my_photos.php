@@ -100,8 +100,17 @@
           },
           success: function(data) {
             if (data.status) {
-              toastr["success"](data.message);
-              window.location.href = "<?php echo base_url('Registration/AboutYourselfAndPartner') ?>";
+              Swal.fire({
+                icon: 'success',
+                title: data.message,
+                showConfirmButton: false,
+                timer: 2000
+              }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                  window.location.href = "<?php echo base_url('Registration/AboutYourselfAndPartner') ?>";
+                }
+              })
+
             } else {
               toastr["error"](data.message);
             }
