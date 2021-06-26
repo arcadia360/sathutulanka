@@ -1,365 +1,33 @@
   <!-- UiKit CSS -->
   <link rel='stylesheet' href='https://getuikit.com/assets/uikit/dist/css/uikit.css?nc=868'>
-
+  <!-- singles.css -->
+  <link rel='stylesheet' href='<?= base_url("resources/css/singles.css") ?>'>
 
   <style>
       /*Profile Card 5*/
-
-      body {
-          background-color: #FFFFFF;
-          background-image: url(<?= base_url("resources/images/flower_bg.jpg") ?>);
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-      }
-
-      .card {
-          border: none !important;
-
-          box-shadow:
-              0 2.2px 2.2px rgba(0, 0, 0, 0.02),
-              0 5.4px 5.3px rgba(0, 0, 0, 0.028),
-              0 10.1px 10px rgba(0, 0, 0, 0.035),
-              0 18.1px 17.9px rgba(0, 0, 0, 0.042),
-              0 33.8px 33.4px rgba(0, 0, 0, 0.05),
-              0 81px 80px rgba(0, 0, 0, 0.07);
-      }
-
-      .card-body {
-          padding: 0 !important;
-      }
-
-      .profile-card {
-          margin-top: 80px;
-          height: 329px;
-      }
-
-      .profile-card .overlay {
-          bottom: 60px;
-          position: relative;
-      }
-
-
-
-      .card-img-block {
-          margin: 0 auto;
-          position: relative;
-          overflow: hidden;
-          border-radius: 50%;
-          /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.63); */
-          border: 5px solid #FFFFFF;
-          width: 150px;
-          height: 150px;
-
-          box-shadow:
-              0 0.6px 2.2px rgba(0, 0, 0, 0.031),
-              0 1.3px 5.3px rgba(0, 0, 0, 0.044),
-              0 2.5px 10px rgba(0, 0, 0, 0.055),
-              0 4.5px 17.9px rgba(0, 0, 0, 0.066),
-              0 8.4px 33.4px rgba(0, 0, 0, 0.079),
-              0 20px 80px rgba(0, 0, 0, 0.11);
-
-
-      }
-
-      .card-img-block img {
-          object-fit: cover;
-          width: 140px;
-          height: 140px;
-          margin: 0 auto;
-      }
-
-      .profile-card h5 {
-          color: #263238;
-          font-weight: 600;
-          text-align: center;
-          height: 24px;
-          overflow: hidden;
-      }
-
-      .profile-card p {
-          font-size: 1em;
-          font-weight: 400;
-          text-align: center;
-      }
-
-      .profile-card .btn {
-          border-radius: 0 !important;
-          text-transform: uppercase;
-          font-size: 12px;
-          padding: 10px 20px;
-      }
-
-      .profile-card .btn-primary {
-          background-color: #b52b4a;
-          border: 2px solid #b52b4a;
-          font-size: 1em;
-          margin-top: 2px;
-          width: 100%;
-          transition: 0.6s;
-      }
-
-      .profile-card .btn-primary:hover {
-          background-color: #FFFFFF;
-          color: #b52b4a;
-          font-size: 1em;
-          /* margin-top: 5px; */
-          width: 100%;
-      }
-
-      .profile-card .card-percentage {
-          color: #b52b4a;
-          position: relative;
-      }
-
-      .profile-card .card-percentage .percentage-left,
-      .profile-card .card-percentage .percentage-right {
-          padding: 0 !important;
-          margin: 0 !important;
-          font-size: 2em;
-          font-weight: 600;
-          text-align: center !important;
-      }
-
-      .profile-card .card-percentage .text-left,
-      .profile-card .card-percentage .text-right {
-          padding: 0 !important;
-          margin: 0 !important;
-          font-size: 0.8em;
-          text-align: center !important;
-      }
-
-      .profile-card .card-title {
-          margin: 0 !important;
-          padding: 0 !important;
-          top: 10px;
-      }
-
-      .profile-card .card-designation {
-          position: relative;
-          color: #455a64 !important;
-          font-weight: 400;
-          text-align: center;
-          font-size: 0.8em;
-          margin: 0 !important;
-          padding: 0 !important;
-          top: 10px;
-      }
-
-      .profile-card .card-text {
-          position: relative;
-          /* bottom: 35px; */
-          color: #455a64 !important;
-          /* font-weight: 600; */
-          text-align: center;
-          font-size: 0.8em;
-          margin: 0 !important;
-          padding-left: 5px !important;
-          padding-right: 5px !important;
-          width: 100%;
-          height: 59px;
-          overflow: hidden;
-          top: 10px;
-      }
-
-      /* .profile-badge {
-         z-index: 1;
-         color: #2196f3;
-         left: 5px;
-     } */
-
-      .profile-card .profile-heart {
-          z-index: 1;
-          color: #b0bec5;
-          font-size: 1.4em;
-          position: absolute;
-          right: 5px;
-          transition: 0.2s;
-          border: none !important;
-          background-color: transparent;
-          cursor: default;
-      }
-
-      .profile-card .profile-heart:hover {
-          /* color: #e91e63 !important; */
-          cursor: pointer !important;
-      }
-
-      .profile-card .profile-heart:focus {
-          outline: none !important;
-          cursor: pointer !important;
-      }
-
-      .like {
-          color: #e91e63 !important;
-      }
-
-      /* .badge-premium {
-         color: #212529;
-         background-color: #ffca28 !important;
-         text-transform: uppercase;
-     } */
-
-      .badge-trustVerified {
-          color: #e8f5e9;
-          background-color: #2e7d32 !important;
-          text-transform: uppercase;
-      }
-
-      .badge-trustProving {
-          color: #FFFFFF;
-          background-color: #9ccc65 !important;
-          text-transform: uppercase;
-      }
-
-      .badge-notTrustVerified {
-          color: #FFFFFF;
-          background-color: #607d8b !important;
-          text-transform: uppercase;
-      }
-
-
-      .badge-label {
-          margin: 0 !important;
-          padding: 0 !important;
-          position: relative;
-          top: 10px;
-      }
-
-      .profile-card .premium_badge {
-          background-color: #ffca28;
-          position: absolute !important;
-          width: 100%;
-          font-size: 0.6em !important;
-          /* top: 1px !important; */
-          padding: 4px 0px 0px 0px !important;
-          margin: 0 !important;
-          font-weight: 600 !important;
-          z-index: 1;
-      }
-
-      .profile-card .photo-count {
-          position: absolute;
-          width: 100%;
-          margin: 0 !important;
-          padding: 0 !important;
-          color: #FFFFFF;
-          /* background-color: red; */
-          bottom: 5px;
-          font-size: 0.7em !important;
-      }
-
-      @media (max-width: 768px) {
-
-          /* body {
-             background-color: yellow;
-         } */
-          .profile-card {
-              margin-top: 80px;
-              height: 253px;
-          }
-
-          .profile-card .btn {
-              margin-top: 10px;
-          }
-
-          .profile-card .card-text {
-              height: 40px;
-          }
-
-          .percentage-row {
-              position: absolute;
-              width: 100%;
-              top: 100px;
-              left: 15px;
-          }
-
-          .profile-card .card-percentage .percentage-left {
-              text-align: left !important;
-              /* padding-left: 30px !important; */
-          }
-
-          .profile-card .card-percentage .text-left {
-              text-align: left !important;
-              /* padding-left: 20px !important; */
-          }
-
-          .profile-card .card-percentage .percentage-right {
-              text-align: right !important;
-              /* padding-right: 15px !important; */
-          }
-
-          .profile-card .card-percentage .text-right {
-              text-align: right !important;
-              /* padding-right: 25px !important; */
-          }
-
-          .profile-card .profile-heart {
-              font-size: 2em;
-              right: 10px;
-          }
-      }
-
-      @media only screen and (max-width: 1199px) and (min-width: 992px) {
-          /* body {
-             background-color: red !important;
-         } */
-
-          .profile-card .card-text {
-              height: 56px;
-              overflow: hidden;
-              font-size: 0.8em !important;
-              padding-left: 2px !important;
-              padding-right: 2px !important;
-          }
-
-          .profile-card .btn-primary {
-              /* background-color: #b52b4a;
-             border-color: #b52b4a; */
-              font-size: 1em;
-              bottom: -10px !important;
-              position: relative;
-              float: left;
-              width: 100%;
-              padding: 7px !important;
-          }
-      }
-
-      .uk-badge {
-          background-color: #FFFFFF;
-          color: #263238;
-          box-shadow:
-              0 0.1px 2.2px rgba(0, 0, 0, 0.02),
-              0 0.1px 5.3px rgba(0, 0, 0, 0.028),
-              0 0.3px 10px rgba(0, 0, 0, 0.035),
-              0 0.4px 17.9px rgba(0, 0, 0, 0.042),
-              0 0.8px 33.4px rgba(0, 0, 0, 0.05),
-              0 2px 80px rgba(0, 0, 0, 0.07);
-      }
-
-      .uk-badge:hover {
-          color: #263238;
-      }
-
-      /* Medium devices (landscape tablets, 768px and up) */
-      /* @media only screen and (max-width: 1200px) { */
-      @media (max-width: 920px) {
-          body {
-
-              background-size: auto;
-              background-position: unset;
-              /* background-repeat: no-repeat; */
-          }
-
-
-      }
   </style>
 
 
   <div class="container">
-      <div class="row">
+      <div class="row d-xs-block d-lg-none">
+          <ul uk-accordion class="col-12 p-3 m-0">
+              <li>
+                  <a class="uk-accordion-title" href="#">All Singles</a>
+                  <div class="uk-accordion-content">
+                      <button type="button" class="btn btn-sm btn-light col-12">My Matches <span class="float-right uk-badge"><?= count($myMatchesCount)  ?></span></button>
+                      <button type="button" class="btn btn-sm btn-light col-12">Accepted Members <span class="float-right uk-badge">10</span></button>
+                      <button type="button" class="btn btn-sm btn-light col-12">New Matches <span class="float-right uk-badge">1</span></button>
+                      <button type="button" class="btn btn-sm btn-light col-12">My Favourites <span class="float-right uk-badge">1</span></button>
+                      <button type="button" class="btn btn-sm btn-light col-12">Members Intrusted In Me <span class="float-right uk-badge">1</span></button>
+                      <button type="button" class="btn btn-sm btn-light col-12">Visited Profiles <span class="float-right uk-badge">1</span></button>
+                      <button type="button" class="btn btn-sm btn-light col-12">Blocked Profiles <span class="float-right uk-badge">1</span></button>
+                  </div>
+              </li>
+          </ul>
+      </div>
 
-          <div class="col-12 mt-5">
+      <div class="row">
+          <div class="col-12 mt-lg-5">
               <div class="col-md-6 offset-md-3 input-group mb-3 container-search">
                   <input type="text" class="form-control txt-search" placeholder="Partner Nick Name or Profile ID" style="outline: none !important;">
                   <div class="input-group-append">
@@ -368,7 +36,6 @@
               </div>
               <a class="float-right btn-advance-search" href="#modal-full" uk-toggle>Advance Search <i class="fas fa-search"></i></a>
           </div>
-
           <div id="modal-full" class="uk-modal-full uk-modal" uk-modal>
               <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" uk-height-viewport>
                   <button class="uk-modal-close-full" type="button" uk-close></button>
@@ -378,20 +45,18 @@
                   </form>
               </div>
           </div>
-
       </div>
-      <div class="row">
-
-
-          <button class="btn btn-sm btn-light col-md-3 col-12">All Singles <span class="float-right uk-badge"><?= $allSinglesCount['AllSinglesCount'] ?></span></button>
-          <button class="btn btn-sm btn-light col-md-3 col-12 active">My Matches <span class="float-right uk-badge"><?= count($myMatchesCount)  ?></span></button>
-          <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Accepted Members <span class="float-right uk-badge">10</span></button>
-          <button type="button" class="btn btn-sm btn-light col-md-3 col-12">New Matches <span class="float-right uk-badge">1</span></button>
-          <button type="button" class="btn btn-sm btn-light col-md-3 col-12">My Favourites <span class="float-right uk-badge">1</span></button>
-          <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Members Intrusted In Me <span class="float-right uk-badge">1</span></button>
-          <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Visited Profiles <span class="float-right uk-badge">1</span></button>
-          <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Blocked Profiles <span class="float-right uk-badge">1</span></button>
-
+      <div class="d-none d-lg-block">
+          <div class="row">
+              <button class="btn btn-sm btn-light col-md-3 col-12 active">All Singles <span class="float-right uk-badge"><?= $allSinglesCount['AllSinglesCount'] ?></span></button>
+              <button class="btn btn-sm btn-light col-md-3 col-12">My Matches <span class="float-right uk-badge"><?= count($myMatchesCount)  ?></span></button>
+              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Accepted Members <span class="float-right uk-badge">10</span></button>
+              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">New Matches <span class="float-right uk-badge">1</span></button>
+              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">My Favourites <span class="float-right uk-badge">1</span></button>
+              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Members Intrusted In Me <span class="float-right uk-badge">1</span></button>
+              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Visited Profiles <span class="float-right uk-badge">1</span></button>
+              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Blocked Profiles <span class="float-right uk-badge">1</span></button>
+          </div>
       </div>
       <div class="row" id="mini-profile-area">
           <!-- 
