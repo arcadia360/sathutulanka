@@ -631,13 +631,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="phone">Age</label>
-                                                        <input type="text" class="form-control" id="partnerAge" value="<?= $partnerData['vcGender'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerAge" value="<?= $partnerData['vcAge'] ?> Years" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="website" style="color: #FFFFFF;">Age</label>
-                                                        <input type="text" class="form-control" id="myAge" value="<?= $myData['vcGender'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myAge" value="<?= $myData['vcAge'] ?> Years" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -675,13 +675,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="website">Prof: Manage</label>
-                                                        <input type="text" class="form-control" id="partnerMarryBy" value="<?= $partnerData['vcGender'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerMarryBy" value="<?= $partnerData['vcProvidingInformationType'] ?>" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="website" style="color: #FFFFFF;">Prof: Manage</label>
-                                                        <input type="text" class="form-control" id="myMarryBy" value="<?= $myData['vcGender'] ?>" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myMarryBy" value="<?= $myData['vcProvidingInformationType'] ?>" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1462,13 +1462,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="shortName">Working With</label>
-                                                        <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="shortName" value="<?= $partnerData['vcWorkingWith'] ?>" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="shortName" style="color: #FFFFFF;">Working With</label>
-                                                        <input type="text" class="form-control" id="shortName" value="" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="shortName" value="<?= $myData['vcWorkingWith'] ?>" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1476,13 +1476,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="phone">Working As</label>
-                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="gender" value="<?= $partnerData['vcWorkingAs'] ?>" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="website" style="color: #FFFFFF;">Working As</label>
-                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="gender" value="<?= $myData['vcWorkingAs'] ?>" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1490,13 +1490,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="phone">Working Country</label>
-                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="gender" value="<?= $partnerData['vcWorkingCountry'] ?>" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="shortName" style="color: #FFFFFF;">Working Country</label>
-                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="gender" value="<?= $myData['vcWorkingCountry'] ?>" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1518,13 +1518,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="phone">Working City</label>
-                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="gender" value="<?= $partnerData['vcWorkingCity'] ?>" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="shortName" style="color: #FFFFFF;">Working City</label>
-                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="gender" value="<?= $myData['vcWorkingCity'] ?>" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1532,13 +1532,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="phone">Describe Career</label>
-                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="describeCareer" value="<?= $partnerData['vcDescribeCareer'] ?>" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="shortName" style="color: #FFFFFF;">Describe Career</label>
-                                                        <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="describeCareer" value="<?= $myData['vcDescribeCareer'] ?>" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
