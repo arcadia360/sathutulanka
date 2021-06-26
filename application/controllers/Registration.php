@@ -657,58 +657,58 @@ class Registration extends Admin_Controller
 		$this->render_template_registration('registration/my_photos', 'my photos', NULL);
 	}
 
-	public function UploadMyPhotos()
-	{
-		$response = array(
-			'success' => null,
-			'message' => null,
-		);
-		$this->load->model('Model_registration');
-		$result = $this->Model_registration->getLastUploadedImageName();
+	// public function UploadMyPhotos()
+	// {
+	// 	$response = array(
+	// 		'success' => null,
+	// 		'message' => null,
+	// 	);
+	// 	$this->load->model('Model_registration');
+	// 	$result = $this->Model_registration->getLastUploadedImageName();
 
-		$fileName = null;
-		if ($result['status']) {
-			$fileName = (int)$result['lastUploadImageName'];
-			$fileName++;
-		} else {
-			$fileName = 1;
-		}
+	// 	$fileName = null;
+	// 	if ($result['status']) {
+	// 		$fileName = (int)$result['lastUploadImageName'];
+	// 		$fileName++;
+	// 	} else {
+	// 		$fileName = 1;
+	// 	}
 
-		$folderName = $this->session->userdata('member_code');
-		$imagePath = "./resources/images/member/" . $folderName;
-		if (!is_dir($imagePath)) {
-			mkdir("./resources/images/member/" . $folderName);
-		}
-		$config['upload_path'] = $imagePath;
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['file_name'] = $fileName;
+	// 	$folderName = $this->session->userdata('member_code');
+	// 	$imagePath = "./resources/images/member/" . $folderName;
+	// 	if (!is_dir($imagePath)) {
+	// 		mkdir("./resources/images/member/" . $folderName);
+	// 	}
+	// 	$config['upload_path'] = $imagePath;
+	// 	$config['allowed_types'] = 'gif|jpg|png';
+	// 	$config['file_name'] = $fileName;
 
-		$this->load->library('upload', $config);
+	// 	$this->load->library('upload', $config);
 
-		if ($this->upload->do_upload("file1")) {
-			$data = array('upload_data' => $this->upload->data());
+	// 	if ($this->upload->do_upload("file1")) {
+	// 		$data = array('upload_data' => $this->upload->data());
 
-			$imgName = $data['upload_data']['file_name'];
-			$imgType = $data['upload_data']['file_ext'];
-			$this->load->model('Model_registration');
-			$result = $this->Model_registration->saveUploadedImageName($imgName, $imgType);
+	// 		$imgName = $data['upload_data']['file_name'];
+	// 		$imgType = $data['upload_data']['file_ext'];
+	// 		$this->load->model('Model_registration');
+	// 		$result = $this->Model_registration->saveUploadedImageName($imgName, $imgType);
 
-			if ($result == true) {
-				$response['success'] = true;
-				$response['message'] = 'image uploaded successfully!';
-				$session_data = array('no_of_submitted_form' => 12);
-				$this->session->set_userdata($session_data);
-			} else {
-				$response['success'] = false;
-				$response['message'] = 'Error in the database while member images. Please contact system administrator.';
-			}
-		} else {
-			$response['success'] = false;
-			$response['message'] = 'Error while uploading image. Please contact system administrator.';
-		}
+	// 		if ($result == true) {
+	// 			$response['success'] = true;
+	// 			$response['message'] = 'image uploaded successfully!';
+	// 			$session_data = array('no_of_submitted_form' => 12);
+	// 			$this->session->set_userdata($session_data);
+	// 		} else {
+	// 			$response['success'] = false;
+	// 			$response['message'] = 'Error in the database while member images. Please contact system administrator.';
+	// 		}
+	// 	} else {
+	// 		$response['success'] = false;
+	// 		$response['message'] = 'Error while uploading image. Please contact system administrator.';
+	// 	}
 
-		echo json_encode($response);
-	}
+	// 	echo json_encode($response);
+	// }
 
 	public function LoadUploadedImages()
 	{
@@ -762,6 +762,8 @@ class Registration extends Admin_Controller
 		if ($result) {
 			$response['status'] = true;
 			$response['message'] = 'My photos saved succesfully!';
+			$session_data = array('no_of_submitted_form' => 13);
+			$this->session->set_userdata($session_data);
 		} else {
 			$response['status'] = false;
 			$response['message'] = 'Failed to save my photos';
@@ -771,13 +773,8 @@ class Registration extends Admin_Controller
 
 	public function AboutYourselfAndPartner()
 	{
-		// $this->CheckAndRedirectNextForm(13);
-		// $this->render_template_registration('registration/horoscope', 'Horoscope', NULL);
-		$this->load->helper('language');
-		$this->lang->load('en', 'English');
-		$this->load->view('registration/header');
-		$this->load->view('registration/about_yourself_and_partner');
-		$this->load->view('registration/footer');
+		$this->CheckAndRedirectNextForm(13);
+		$this->render_template_registration('registration/about_yourself_and_partner', 'about_yourself_and_partner', NULL);;
 	}
 
 	public function AddAboutYourselfAndPartner()
@@ -810,13 +807,8 @@ class Registration extends Admin_Controller
 
 	public function privacySettings()
 	{
-		// $this->CheckAndRedirectNextForm(13);
-		// $this->render_template_registration('registration/horoscope', 'Horoscope', NULL);
-		$this->load->helper('language');
-		$this->lang->load('en', 'English');
-		$this->load->view('registration/header');
-		$this->load->view('registration/privacy_settings');
-		$this->load->view('registration/footer');
+		$this->CheckAndRedirectNextForm(14);
+		$this->render_template_registration('registration/privacy_settings', 'privacy_settings', NULL);
 	}
 
 	public function AddPrivacySettings()
@@ -854,16 +846,9 @@ class Registration extends Admin_Controller
 	// partner preferences
 	public function partnerPreferences()
 	{
-		// $this->CheckAndRedirectNextForm(15);
-		// $this->render_template_registration('registration/partnerPreferences', 'Partner Preferences', NULL);
-		$this->load->helper('language');
-		$this->lang->load('en', 'English');
-		$this->load->view('registration/header');
-		$this->load->view('registration/partnerPreferences');
-		$this->load->view('registration/footer');
+		$this->CheckAndRedirectNextForm(15);
+		$this->render_template_registration('registration/partnerPreferences', 'Partner Preferences', NULL);
 	}
-
-
 
 	public function LoadMaritalStatusData()
 	{
