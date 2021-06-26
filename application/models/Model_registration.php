@@ -1215,6 +1215,10 @@ class Model_registration extends CI_Model
       'isProfilePicture' => 0
     );
 
+    $dataUpdateMemberTB = array(
+      'intNoOfSubmitedForm' => 13
+    );
+
     $this->db->trans_begin();
 
     $this->db->where('intMemberID', $mid);
@@ -1226,6 +1230,9 @@ class Model_registration extends CI_Model
     );
     $this->db->where('intImageID', $imgID);
     $this->db->update('memberimage', $data);
+
+    $this->db->where('intMemberID', $mid);
+    $this->db->update('member', $dataUpdateMemberTB);
 
     if ($this->db->trans_status() === FALSE) {
       $this->db->trans_rollback();
