@@ -259,7 +259,7 @@
             </div> -->
           </div>
 
-          <div id="WorkingWith" class="marginTopPartnerP">
+          <!-- <div id="WorkingWith" class="marginTopPartnerP">
             <div class="row">
               <div class="col-lg-6 col-12">
                 <div class="form-group">
@@ -270,8 +270,8 @@
                 <select id="WorkingWithDrp" name="WorkingWithDrp[]" multiple="multiple" class="form-control">
                 </select>
               </div>
-            </div>
-            <!-- <div class="row">
+            </div> -->
+          <!-- <div class="row">
               <div class="col-lg-2 col-md-3 col-12">
                 <p class="sm-text" for="">Restrict this contact</p>
               </div>
@@ -282,7 +282,7 @@
                 <a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover"><i class="far fa-question-circle"></i></a>
               </div>
             </div> -->
-          </div>
+          <!-- </div> -->
 
 
           <div id="CareerLevel" class="marginTopPartnerP">
@@ -446,7 +446,7 @@
     LoadSummerizedEducationLevelData();
     LoadSummerizedMonthtlyIncomeData();
     LoadSummerizedAssetValuelData();
-    LoadWorkingWithData();
+    // LoadWorkingWithData();
 
     $('#btnSubmit').click(function() {
       if ($('#MartialStatusDrp').val() == 0) {
@@ -719,31 +719,31 @@
       });
     }
 
-    function LoadWorkingWithData() {
-      $.ajax({
-        type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/loadWorkingWith',
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-          if (!data) {
-            toastr["error"]("Failed to load career level data");
-          } else {
-            $('#WorkingWithDrp').html(data);
-            $('#WorkingWithDrp').multiselect({
-              includeSelectAllOption: true,
-              selectAllValue: 0,
-              buttonWidth: '100%'
-            });
+    // function LoadWorkingWithData() {
+    //   $.ajax({
+    //     type: 'ajax',
+    //     url: '<?php echo base_url(); ?>Registration/loadWorkingWith',
+    //     async: false,
+    //     dataType: 'json',
+    //     success: function(data) {
+    //       if (!data) {
+    //         toastr["error"]("Failed to load career level data");
+    //       } else {
+    //         $('#WorkingWithDrp').html(data);
+    //         $('#WorkingWithDrp').multiselect({
+    //           includeSelectAllOption: true,
+    //           selectAllValue: 0,
+    //           buttonWidth: '100%'
+    //         });
 
-          }
-        },
-        error: function() {
-          toastr["error"]('Internal error Failed to load career level data');
+    //       }
+    //     },
+    //     error: function() {
+    //       toastr["error"]('Internal error Failed to load career level data');
 
-        }
-      });
-    }
+    //     }
+    //   });
+    // }
 
 
     function LoadCareerLevelData() {
