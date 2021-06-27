@@ -383,12 +383,12 @@
                                                 </div>
                                                 <div class="col-3">
                                                     <div class="mini-profile-picture">
-                                                        <img src="https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg" alt="Profile Photo">
+                                                        <img src="<?= base_url() . "resources/images/member/photos/" . $partnerData['vcMemberCode'] . "/" . $partnerData['vcProfilePicture'] ?>" alt="Profile Photo">
                                                     </div>
                                                 </div>
                                                 <div class="col-3">
                                                     <div class="mini-profile-picture">
-                                                        <img src="https://www.gazabnews.com/wp-content/uploads/2017/06/Cute-Stylish-Girl-DP-1.jpg" alt="Profile Photo">
+                                                        <img src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/" . $this->session->userdata['profile_pic'] ?>" alt="Profile Photo">
                                                     </div>
                                                 </div>
                                             </div>
@@ -397,10 +397,10 @@
                                                     <span class="basic-preference-title">Age</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check" data-toggle="tooltip" title="Descriptive Information"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedAge'] ?>"></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check" data-toggle="tooltip" title="Descriptive Information Descriptive Information"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedAge'] ?>"></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -408,10 +408,10 @@
                                                     <span class="basic-preference-title">Height</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedHeight'] ?>"></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-times"></i>
+                                                    <i class="fas fa-times" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedHeight'] ?>"></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -419,10 +419,10 @@
                                                     <span class="basic-preference-title">Marital Status</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title=""></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title=""></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
