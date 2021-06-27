@@ -152,7 +152,7 @@
           }
         },
         error: function() {
-          alert('internal error failed to uploaded image');
+          toastr["error"]('internal error failed to uploaded image');
         }
       });
     });
