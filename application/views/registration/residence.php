@@ -278,7 +278,7 @@
           }
         },
         error: function() {
-          toastr["error"]("<?= lang('city') . ' ' . lang('dataCannotRetrieve') . ' Connection error' ?>");
+          toastr["error"]("Internal error, City data could not retrieve");
         }
       });
     });
