@@ -749,7 +749,7 @@
     function LoadCareerLevelData() {
       $.ajax({
         type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/loadWorkingAsMainCat',
+        url: '<?php echo base_url(); ?>Registration/loadWorkingWith',
         async: false,
         dataType: 'json',
         success: function(data) {
