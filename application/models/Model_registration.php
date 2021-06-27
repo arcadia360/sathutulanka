@@ -1475,21 +1475,24 @@ class Model_registration extends CI_Model
     $memberPreferedFromHeight  = $this->ftToCm($this->input->post('memberPreferedFromHeight'));
     $memberPreferedToHeight  = $this->ftToCm($this->input->post('memberPreferedToHeight'));
 
-    if ($NoOfSubmitedForm == 16) {
-      $data = array(
-        'intMemberPreferedHeightFrom' => $memberPreferedFromHeight,
-        'intMemberPreferedHeightTo' => $memberPreferedToHeight,
-        'IntMemberPreferedAgeFrom' => $memberPreferedFromAge,
-        'IntMemberPreferedAgeTo' => $memberPreferedToAge
-      );
-    } else {
-      $data = array(
-        'intMemberPreferedHeightFrom' => $memberPreferedFromHeight,
-        'intMemberPreferedHeightTo' => $memberPreferedToHeight,
-        'IntMemberPreferedAgeFrom' => $memberPreferedFromAge,
-        'IntMemberPreferedAgeTo' => $memberPreferedToAge,
-      );
-    }
+    // if ($NoOfSubmitedForm == 16) {
+    $data = array(
+      'intMemberPreferedHeightFrom' => $memberPreferedFromHeight,
+      'intMemberPreferedHeightTo' => $memberPreferedToHeight,
+      'IntMemberPreferedAgeFrom' => $memberPreferedFromAge,
+      'IntMemberPreferedAgeTo' => $memberPreferedToAge,
+      'intMemberAccountStatusID' => 4
+
+
+    );
+    // } else {
+    //   $data = array(
+    //     'intMemberPreferedHeightFrom' => $memberPreferedFromHeight,
+    //     'intMemberPreferedHeightTo' => $memberPreferedToHeight,
+    //     'IntMemberPreferedAgeFrom' => $memberPreferedFromAge,
+    //     'IntMemberPreferedAgeTo' => $memberPreferedToAge,
+    //   );
+    // }
     $this->db->trans_begin();
 
 
