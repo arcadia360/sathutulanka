@@ -657,59 +657,6 @@ class Registration extends Admin_Controller
 		$this->render_template_registration('registration/my_photos', 'my photos', NULL);
 	}
 
-	// public function UploadMyPhotos()
-	// {
-	// 	$response = array(
-	// 		'success' => null,
-	// 		'message' => null,
-	// 	);
-	// 	$this->load->model('Model_registration');
-	// 	$result = $this->Model_registration->getLastUploadedImageName();
-
-	// 	$fileName = null;
-	// 	if ($result['status']) {
-	// 		$fileName = (int)$result['lastUploadImageName'];
-	// 		$fileName++;
-	// 	} else {
-	// 		$fileName = 1;
-	// 	}
-
-	// 	$folderName = $this->session->userdata('member_code');
-	// 	$imagePath = "./resources/images/member/" . $folderName;
-	// 	if (!is_dir($imagePath)) {
-	// 		mkdir("./resources/images/member/" . $folderName);
-	// 	}
-	// 	$config['upload_path'] = $imagePath;
-	// 	$config['allowed_types'] = 'gif|jpg|png';
-	// 	$config['file_name'] = $fileName;
-
-	// 	$this->load->library('upload', $config);
-
-	// 	if ($this->upload->do_upload("file1")) {
-	// 		$data = array('upload_data' => $this->upload->data());
-
-	// 		$imgName = $data['upload_data']['file_name'];
-	// 		$imgType = $data['upload_data']['file_ext'];
-	// 		$this->load->model('Model_registration');
-	// 		$result = $this->Model_registration->saveUploadedImageName($imgName, $imgType);
-
-	// 		if ($result == true) {
-	// 			$response['success'] = true;
-	// 			$response['message'] = 'image uploaded successfully!';
-	// 			$session_data = array('no_of_submitted_form' => 12);
-	// 			$this->session->set_userdata($session_data);
-	// 		} else {
-	// 			$response['success'] = false;
-	// 			$response['message'] = 'Error in the database while member images. Please contact system administrator.';
-	// 		}
-	// 	} else {
-	// 		$response['success'] = false;
-	// 		$response['message'] = 'Error while uploading image. Please contact system administrator.';
-	// 	}
-
-	// 	echo json_encode($response);
-	// }
-
 	public function LoadUploadedImages()
 	{
 		$result = '';
@@ -1170,48 +1117,17 @@ class Registration extends Admin_Controller
 
 	public function horoscope()
 	{
-		// $this->CheckAndRedirectNextForm(4);
-		// $this->render_template_registration('registration/lifeStyle', 'Add Life Style Details', NULL);
-
-		$this->load->helper('language');
-		$this->lang->load('en', 'English');
-		$this->load->view('registration/header');
-		$this->load->view('registration/horoscope');
-		$this->load->view('registration/footer');
+		$this->CheckAndRedirectNextForm(11);
+		$this->render_template_registration('registration/horoscope', 'Horoscope', NULL);
 	}
 	public function addPartnerPreference()
 	{
-		// $maritialStatus = $this->input->post('MartialStatusDrp');
-		// for ($i = 0; $i < count($maritialStatus); $i++) {
-		// 	echo 	$maritialStatus[$i];
-		// }
-
-		// $memberPreferedFromAge = $this->input->post('memberPreferedFromAge');
-		// $memberPreferedToAge = $this->input->post('memberPreferedToAge');
-		// $memberPreferedFromHeight = $this->input->post('memberPreferedFromHeight');
-		// $memberPreferedToHeight = $this->input->post('memberPreferedToHeight');
-		// echo 	'seprate ' . $memberPreferedFromAge;
-		// echo 	'seprate ' . $memberPreferedToAge;
-		// echo 	'seprate ' . $memberPreferedFromHeight;
-		// echo 	'seprate ' . $memberPreferedToHeight;
-
 
 		$response = array();
 
 		// $this->form_validation->set_rules('MartialStatusDrp', 'Martial Status', 'required');
 		// $this->form_validation->set_rules('NoOfChildrenDrp', 'Children', 'required');
 		// $this->form_validation->set_rules('NoOfChildrenDrp', 'Children', 'required');
-		// $this->form_validation->set_rules('ReligionDrp', 'Religion', 'required');
-		// $this->form_validation->set_rules('EthnicityDrp', 'Ethnicity', 'required');
-		// $this->form_validation->set_rules('motherToungeDrp', 'Mother Tounge', 'required');
-		// $this->form_validation->set_rules('LiveInSriLankaDrp', 'Live In SriLanka', 'required');
-		// $this->form_validation->set_rules('EducationLevelDrp', 'Education Level', 'required');
-		// $this->form_validation->set_rules('CareerLevelDrp', 'Career Level', 'required');
-		// $this->form_validation->set_rules('MonthlyIncomeDrp', 'Monthly Income', 'required');
-		// $this->form_validation->set_rules('AssetValueDrp', 'Asset Value', 'required');
-		// $this->form_validation->set_rules('AnyDisabilityDrp', 'Any Disability', 'required');
-		// $this->form_validation->set_rules('DietDrp', 'Diet', 'required');
-		// $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 
 		// if ($this->form_validation->run() == TRUE) {
 		$this->load->model('Model_registration');
@@ -1230,6 +1146,59 @@ class Registration extends Admin_Controller
 		// 		$response['messages'][$key] = form_error($key);
 		// 	}
 		// }
+		echo json_encode($response);
+	}
+
+	public function UploadMyPhotos()
+	{
+		$response = array(
+			'success' => null,
+			'message' => null,
+		);
+		$this->load->model('Model_registration');
+		$result = $this->Model_registration->getLastUploadedImageName();
+
+		$fileName = null;
+		if ($result['status']) {
+			$fileName = (int)$result['lastUploadImageName'];
+			$fileName++;
+		} else {
+			$fileName = 1;
+		}
+
+		$folderName = $this->session->userdata('member_code');
+		$imagePath = "./resources/images/member/" . $folderName;
+		if (!is_dir($imagePath)) {
+			mkdir("./resources/images/member/" . $folderName);
+		}
+		$config['upload_path'] = $imagePath;
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['file_name'] = $fileName;
+
+		$this->load->library('upload', $config);
+
+		if ($this->upload->do_upload("file1")) {
+			$data = array('upload_data' => $this->upload->data());
+
+			$imgName = $data['upload_data']['file_name'];
+			$imgType = $data['upload_data']['file_ext'];
+			$this->load->model('Model_registration');
+			$result = $this->Model_registration->saveUploadedImageName($imgName, $imgType);
+
+			if ($result == true) {
+				$response['success'] = true;
+				$response['message'] = 'image uploaded successfully!';
+				$session_data = array('no_of_submitted_form' => 12);
+				$this->session->set_userdata($session_data);
+			} else {
+				$response['success'] = false;
+				$response['message'] = 'Error in the database while member images. Please contact system administrator.';
+			}
+		} else {
+			$response['success'] = false;
+			$response['message'] = 'Error while uploading image. Please contact system administrator.';
+		}
+
 		echo json_encode($response);
 	}
 
