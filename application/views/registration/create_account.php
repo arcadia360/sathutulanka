@@ -46,6 +46,7 @@
 
         body {
             background-color: #FFFFFF !important;
+            padding: 0 !important;
         }
 
         .agreement_label,
@@ -71,6 +72,7 @@
         }
 
         .side-form {
+            height: CALC(100vh - 66px);
             /* background-color: #FFFFFF; */
         }
 
