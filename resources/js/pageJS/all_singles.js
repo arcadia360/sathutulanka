@@ -58,7 +58,7 @@ function getMyMatches() {
                 "</div>" +
                 "<div class='col-6 card-percentage'>" +
                 "<p class='percentage-right'>" + response[index].ForPartner + "%</p>" +
-                "<p class='text-right'>For him</p>" +
+                "<p class='text-right'>For her</p>" +
                 "</div>" +
                 "</div>" +
                 "<h5 class='col-12 card-title'>" + response[index].vcNickName + "</h5>" +
