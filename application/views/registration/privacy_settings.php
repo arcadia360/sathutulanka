@@ -23,7 +23,7 @@
         <input name="MyPhotos" id="MyPhotos3" type="radio" value="3">
       </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-3"><label for="">(2) My Videos</label></div>
       <div class="col-3 text-al-center">
         <input name="MyVideos" id="MyVideos1" type="radio" value="1">
@@ -34,33 +34,33 @@
       <div class="col-3 text-al-center">
         <input name="MyVideos" id="MyVideos3" type="radio" value="3">
       </div>
-    </div>
+    </div> -->
     <div class="row">
-      <div class="col-3"><label for="">(3) Assets Details</label></div>
+      <div class="col-3"><label for="">(2) Assets Details</label></div>
       <div class="col-3 text-al-center">
         <input name="AssetsDetails" id="AssetsDetails1" type="radio" value="1">
       </div>
       <div class="col-3 text-al-center">
-        <input name="AssetsDetails" id="AssetsDetails2"  type="radio" value="2">
+        <input name="AssetsDetails" id="AssetsDetails2" type="radio" value="2">
       </div>
       <div class="col-3 text-al-center">
         <input name="AssetsDetails" id="AssetsDetails3" type="radio" value="3">
       </div>
     </div>
     <div class="row">
-      <div class="col-3"><label for="">(4) Family Details</label></div>
+      <div class="col-3"><label for="">(3) Family Details</label></div>
       <div class="col-3 text-al-center">
         <input name="FamilyDetails" id="FamilyDetails1" type="radio" value="1">
       </div>
       <div class="col-3 text-al-center">
-        <input name="FamilyDetails" id="FamilyDetails2"  type="radio" value="2">
+        <input name="FamilyDetails" id="FamilyDetails2" type="radio" value="2">
       </div>
       <div class="col-3 text-al-center">
-        <input name="FamilyDetails" id="FamilyDetails3"  type="radio" value="3">
+        <input name="FamilyDetails" id="FamilyDetails3" type="radio" value="3">
       </div>
     </div>
     <div class="row">
-      <div class="col-3"><label for="">(5) Horoshcope</label></div>
+      <div class="col-3"><label for="">(4) Horoshcope</label></div>
       <div class="col-3 text-al-center">
         <input name="Horoshcope" id="Horoshcope1" type="radio" value="1">
       </div>
@@ -68,7 +68,7 @@
         <input name="Horoshcope" id="Horoshcope2" type="radio" value="2">
       </div>
       <div class="col-3 text-al-center">
-        <input name="Horoshcope"  id="Horoshcope3"  type="radio" value="3">
+        <input name="Horoshcope" id="Horoshcope3" type="radio" value="3">
       </div>
     </div>
     <hr>
@@ -123,7 +123,7 @@
             $("#AssetsDetails3").prop("checked", true);
           }
 
-          
+
           var FamilyDetailsPrivacy = (response.intFamilyDetailsPrivacy);
           if (FamilyDetailsPrivacy == "1") {
             $("#FamilyDetails1").prop("checked", true);
@@ -152,15 +152,17 @@
     });
     $('#btnSubmit').click(function() {
       let isMyPhotosSelected = $("input[name=MyPhotos]").is(":checked");
-      let isMyVideosSelected = $("input[name=MyVideos]").is(":checked");
+      // let isMyVideosSelected = $("input[name=MyVideos]").is(":checked");
       let isAssetsDetailsSelected = $("input[name=AssetsDetails]").is(":checked");
       let isFamilyDetailsSelected = $("input[name=FamilyDetails]").is(":checked");
       let isHoroshcopeSelected = $("input[name=Horoshcope]").is(":checked");
       if (!isMyPhotosSelected) {
         toastr["error"]("Please select my photos privacy !");
-      } else if (!isMyVideosSelected) {
-        toastr["error"]("Please select my videos privacy !");
-      } else if (!isAssetsDetailsSelected) {
+      }
+      // else if (!isMyVideosSelected) {
+      //   toastr["error"]("Please select my videos privacy !");
+      // }
+      else if (!isAssetsDetailsSelected) {
         toastr["error"]("Please select asset details privacy !");
       } else if (!isFamilyDetailsSelected) {
         toastr["error"]("Please select family details privacy !");
@@ -185,8 +187,10 @@
                   window.location.href = "<?= base_url('Registration/partnerPreferences') ?>";
                 }
               })
-
             } else {
+              if (response.falseType == DB) {
+                toastr['error'](response.messages);
+              }
               if (response.messages instanceof Object) {
                 $.each(response.messages, function(index, value) {
                   var id = $("#" + index);
