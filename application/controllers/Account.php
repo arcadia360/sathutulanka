@@ -70,6 +70,11 @@ class Account extends Admin_Controller{
 		$this->data['myData'] = $myData;
 		$this->data['partnerData'] = $partnerData;
 
+		$myBasicPreferencesData = $this->Model_account->getGetBasicPreferencesWithSeparatorMemberDetailByID($member_id);
+		$partnerBasicPreferencesData = $this->Model_account->getGetBasicPreferencesWithSeparatorMemberDetailByID($PartnerID);
+		$this->data['myBasicPreferencesData'] = $myBasicPreferencesData;
+		$this->data['partnerBasicPreferencesData'] = $partnerBasicPreferencesData;
+
 		$this->render_template('account/match_profile', 'Match Profile',  $this->data);
 	}
 
