@@ -9,6 +9,18 @@
 
 
   <div class="container">
+<!--   
+  <?php 
+  $path = base_url('application/views/partials/singlesNavbar.php');
+
+//   /Applications/XAMPP/xamppfiles/htdocs/Arcadia360/sathutulanka/application/views/partials
+
+//   echo $path;
+//   echo "//////";
+//   echo $_SERVER['DOCUMENT_ROOT'] . '/Arcadia360/sathutulanka/application/views/partials/singlesNavbar.php';
+//   include($_SERVER['DOCUMENT_ROOT'] . '/Arcadia360/sathutulanka/application/views/partials/singlesNavbar.php'); 
+  
+  ?> -->
       <div class="row d-xs-block d-lg-none">
           <ul uk-accordion class="col-12 p-3 m-0">
               <li>
@@ -24,6 +36,18 @@
                   </div>
               </li>
           </ul>
+      </div>
+      <div class="d-none d-lg-block mt-5">
+          <div class="row">
+              <button class="btn btn-sm btn-light col-md-3 col-12 active">All Singles <span class="float-right uk-badge"><?= $allSinglesCount['AllSinglesCount'] ?></span></button>
+              <button class="btn btn-sm btn-light col-md-3 col-12">My Matches <span class="float-right uk-badge"><?= count($myMatchesCount)  ?></span></button>
+              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Accepted Members <span class="float-right uk-badge">10</span></button>
+              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">New Matches <span class="float-right uk-badge">1</span></button>
+              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">My Favourites <span class="float-right uk-badge">1</span></button>
+              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Members Intrusted In Me <span class="float-right uk-badge">1</span></button>
+              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Visited Profiles <span class="float-right uk-badge">1</span></button>
+              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Blocked Profiles <span class="float-right uk-badge">1</span></button>
+          </div>
       </div>
 
       <div class="row">
@@ -44,18 +68,6 @@
                       <input class="uk-search-input uk-text-center" type="search" placeholder="Search With Member No" autofocus>
                   </form>
               </div>
-          </div>
-      </div>
-      <div class="d-none d-lg-block">
-          <div class="row">
-              <button class="btn btn-sm btn-light col-md-3 col-12 active">All Singles <span class="float-right uk-badge"><?= $allSinglesCount['AllSinglesCount'] ?></span></button>
-              <button class="btn btn-sm btn-light col-md-3 col-12">My Matches <span class="float-right uk-badge"><?= count($myMatchesCount)  ?></span></button>
-              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Accepted Members <span class="float-right uk-badge">10</span></button>
-              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">New Matches <span class="float-right uk-badge">1</span></button>
-              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">My Favourites <span class="float-right uk-badge">1</span></button>
-              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Members Intrusted In Me <span class="float-right uk-badge">1</span></button>
-              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Visited Profiles <span class="float-right uk-badge">1</span></button>
-              <button type="button" class="btn btn-sm btn-light col-md-3 col-12">Blocked Profiles <span class="float-right uk-badge">1</span></button>
           </div>
       </div>
       <div class="row" id="mini-profile-area">
