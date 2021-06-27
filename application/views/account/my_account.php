@@ -71,7 +71,7 @@
                             </div>
                             <div class="card-body">
                                 <h4 class="col-12 mb-1" style="text-align: center;"><?= $memberData['vcNickName'] ?> </h4>
-                                <p class="text-secondary mb-1 mt-1"><?= $memberData['vcWorkingAS'] ?></p>
+                                <p class="text-secondary mb-1 mt-1"><?= $memberData['MiniProfileDesignation'] ?></p>
                                 <?php
                                 if ($memberData['intMemberAccountTypeID'] == 1) { // Not Trust Verified
                                 ?>
