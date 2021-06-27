@@ -504,7 +504,7 @@
                 timer: 2000
               }).then((result) => {
                 if (result.dismiss === Swal.DismissReason.timer) {
-                  // window.location.href = "<?= base_url('Registration/WhoAmI') ?>";
+                  window.location.href = "<?= base_url('Account/AllSingles') ?>";
                 }
               })
 
