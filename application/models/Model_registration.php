@@ -1463,7 +1463,7 @@ class Model_registration extends CI_Model
     $LiveInSriLanka = $this->input->post('LiveInSriLankaDrp');
     $EducationSummerizeLevel = $this->input->post('EducationLevelDrp');
     $WorkingWith = $this->input->post('WorkingWithDrp');
-    $CareerLevel = $this->input->post('CareerLevelDrp');
+    // $CareerLevel = $this->input->post('CareerLevelDrp');
     $MonthlyIncomeSummerizedLevel = $this->input->post('MonthlyIncomeDrp');
     $AssetValueSummerizedLevel = $this->input->post('AssetValueDrp');
     $AnyDisability = $this->input->post('AnyDisabilityDrp');
@@ -1552,7 +1552,7 @@ class Model_registration extends CI_Model
     }
     for ($i = 0; $i < count($motherTongue); $i++) {
       $dataPpreferedMotherToungueTb = array(
-        'intMotherToungeID' => $motherTongue[$i],
+        'intMotherTongueID' => $motherTongue[$i],
         'intMemberID' => $mid
       );
       $this->db->insert('memberpreferedmothertongue', $dataPpreferedMotherToungueTb);
@@ -1581,7 +1581,7 @@ class Model_registration extends CI_Model
       if ($EducationSummerizeLevel[$i] == 1) {  //1 : With Degree
         for ($j = 1; $j <= 6; $j++) {
           $dataPpreferedEducationLevelTb = array(
-            'intEducationalLevelID' => $j,
+            'intEducationLevelID' => $j,
             'intMemberID' => $mid
           );
           $this->db->insert('memberpreferededucationlevel', $dataPpreferedEducationLevelTb);
@@ -1590,7 +1590,7 @@ class Model_registration extends CI_Model
       if ($EducationSummerizeLevel[$i] == 2) {  //2 : Up to A/L
         for ($j = 7; $j <= 11; $j++) {
           $dataPpreferedEducationLevelTb = array(
-            'intEducationalLevelID' => $j,
+            'intEducationLevelID' => $j,
             'intMemberID' => $mid
           );
           $this->db->insert('memberpreferededucationlevel', $dataPpreferedEducationLevelTb);
@@ -1600,7 +1600,7 @@ class Model_registration extends CI_Model
       if ($EducationSummerizeLevel[$i] == 3) {  //3 : Up to O/L
         for ($j = 12; $j <= 14; $j++) {
           $dataPpreferedEducationLevelTb = array(
-            'intEducationalLevelID' => $j,
+            'intEducationLevelID' => $j,
             'intMemberID' => $mid
           );
           $this->db->insert('memberpreferededucationlevel', $dataPpreferedEducationLevelTb);
@@ -1622,17 +1622,17 @@ class Model_registration extends CI_Model
     }
 
     //insert member prefered Career Level data
-    $memberpreferedcareerlevel  = $this->db->query("select * from memberpreferedcareerlevel where intMemberID ='$mid'");
-    if ($memberpreferedcareerlevel->num_rows() > 0) {
-      $this->db->delete('memberpreferedcareerlevel', array('intMemberID' => $mid));
-    }
-    for ($i = 0; $i < count($CareerLevel); $i++) {
-      $dataPpreferedCareerLevelTb = array(
-        'intCareerLevelID' => $CareerLevel[$i],
-        'intMemberID' => $mid
-      );
-      $this->db->insert('memberpreferedcareerlevel', $dataPpreferedCareerLevelTb);
-    }
+    // $memberpreferedcareerlevel  = $this->db->query("select * from memberpreferedcareerlevel where intMemberID ='$mid'");
+    // if ($memberpreferedcareerlevel->num_rows() > 0) {
+    //   $this->db->delete('memberpreferedcareerlevel', array('intMemberID' => $mid));
+    // }
+    // for ($i = 0; $i < count($CareerLevel); $i++) {
+    //   $dataPpreferedCareerLevelTb = array(
+    //     'intCareerLevelID' => $CareerLevel[$i],
+    //     'intMemberID' => $mid
+    //   );
+    //   $this->db->insert('memberpreferedcareerlevel', $dataPpreferedCareerLevelTb);
+    // }
 
 
     // insert member prefered Monthly Income data
