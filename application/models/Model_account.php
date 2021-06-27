@@ -236,17 +236,17 @@ class Model_account extends CI_Model
               M.intMemberPreferedAgeTo,
               M.intMemberPreferedHeightFrom,
               M.intMemberPreferedHeightTo,
-              IFNULL(GROUP_CONCAT(MPMS.intMaritalStatusID SEPARATOR ','),0) AS MemberPreferedMaritalStatus,
-              IFNULL(GROUP_CONCAT(MPNC.intNoOfChildrenID SEPARATOR ','),0) AS MemberPreferedNoOfChildren,
-              IFNULL(GROUP_CONCAT(MPR.intReligionID SEPARATOR ','),0) AS MemberPreferedReligion,
-              IFNULL(GROUP_CONCAT(MPE.intEthnicityID SEPARATOR ','),0) AS MemberPreferedEthnicity,          
-              IFNULL(GROUP_CONCAT(MPMT.intMotherTongueID SEPARATOR ','),0) AS MemberPreferedMotherTongue,
-              IFNULL(GROUP_CONCAT(MPSL.intProvinceID SEPARATOR ','),0) AS MemberPreferedLiveInSriLanka,
-              IFNULL(GROUP_CONCAT(MPEL.intEducationLevelID SEPARATOR ','),0) AS MemberPreferedEducationLevel,
-              IFNULL(GROUP_CONCAT(MPME.intMonthlyIncomeID SEPARATOR ','),0) AS MemberPreferedMonthlyIncome,
-              IFNULL(GROUP_CONCAT(MPAV.intAssetValueID SEPARATOR ','),0) AS MemberPreferedAssetValue,
-              IFNULL(GROUP_CONCAT(MPAD.intDisabilityID SEPARATOR ','),0) AS MemberPreferedAnyDisability,
-              IFNULL(GROUP_CONCAT(MPD.intDietID SEPARATOR ','),0) AS MemberPreferedDiet
+              IFNULL(GROUP_CONCAT(DISTINCT MPMS.intMaritalStatusID SEPARATOR ','),0) AS MemberPreferedMaritalStatus,
+              IFNULL(GROUP_CONCAT(DISTINCT MPNC.intNoOfChildrenID SEPARATOR ','),0) AS MemberPreferedNoOfChildren,
+              IFNULL(GROUP_CONCAT(DISTINCT MPR.intReligionID SEPARATOR ','),0) AS MemberPreferedReligion,
+              IFNULL(GROUP_CONCAT(DISTINCT MPE.intEthnicityID SEPARATOR ','),0) AS MemberPreferedEthnicity,          
+              IFNULL(GROUP_CONCAT(DISTINCT MPMT.intMotherTongueID SEPARATOR ','),0) AS MemberPreferedMotherTongue,
+              IFNULL(GROUP_CONCAT(DISTINCT MPSL.intProvinceID SEPARATOR ','),0) AS MemberPreferedLiveInSriLanka,
+              IFNULL(GROUP_CONCAT(DISTINCT MPEL.intEducationLevelID SEPARATOR ','),0) AS MemberPreferedEducationLevel,
+              IFNULL(GROUP_CONCAT(DISTINCT MPME.intMonthlyIncomeID SEPARATOR ','),0) AS MemberPreferedMonthlyIncome,
+              IFNULL(GROUP_CONCAT(DISTINCT MPAV.intAssetValueID SEPARATOR ','),0) AS MemberPreferedAssetValue,
+              IFNULL(GROUP_CONCAT(DISTINCT MPAD.intDisabilityID SEPARATOR ','),0) AS MemberPreferedAnyDisability,
+              IFNULL(GROUP_CONCAT(DISTINCT MPD.intDietID SEPARATOR ','),0) AS MemberPreferedDiet
             FROM 
               Member AS M
               INNER JOIN City                         AS C ON M.intCityIdIfLiveInSL = C.intCityID
@@ -328,7 +328,7 @@ class Model_account extends CI_Model
             CASE WHEN M.intAssetValueID IN (" . $details["MemberPreferedAssetValue"] . ") THEN 7 ELSE 0 END+
             CASE WHEN M.intDisabilityID IN (" . $details["MemberPreferedAnyDisability"] . ") THEN 7 ELSE 0 END+
             CASE WHEN M.intDietID IN (" . $details["MemberPreferedDiet"] . ") THEN 7 ELSE 0 END) AS ForMe,
-            IFNULL(fnGetPercentageForPartner(" . $member_id . "," . $details["Age"] . "," . $details["intHeight"] . "," . $details["intMaritalStatusID"] . "," . $details["intNoOfChildrenID"] . "," . $details["intReligionID"] . "," . $details["intEthnicityID"] . "," . $details["intMotherTongueID"] . "," . $details["intProvinceID"] . "," . $details["intEducationLevelID"] . ",1," . $details["intMonthlyIncomeID"] . "," . $details["intAssetValueID"] . "," . $details["intDisabilityID"] . "," . $details["intDietID"] . "),0) AS ForPartner,
+            IFNULL(fnGetPercentageForPartner(M.intMemberID," . $details["Age"] . "," . $details["intHeight"] . "," . $details["intMaritalStatusID"] . "," . $details["intNoOfChildrenID"] . "," . $details["intReligionID"] . "," . $details["intEthnicityID"] . "," . $details["intMotherTongueID"] . "," . $details["intProvinceID"] . "," . $details["intEducationLevelID"] . ",1," . $details["intMonthlyIncomeID"] . "," . $details["intAssetValueID"] . "," . $details["intDisabilityID"] . "," . $details["intDietID"] . "),0) AS ForPartner,
             CONCAT(MI.intImageName,MI.vcImageType) AS vcProfilePicture,
             CASE WHEN MLP.intMemberID IS NULL THEN 0 ELSE 1 END AS IsLiked,
             (SELECT COUNT(*) FROM MemberImage AS MI WHERE MI.intMemberID = M.intMemberID) AS intImageCount
