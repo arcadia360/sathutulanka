@@ -368,7 +368,7 @@
           </div>
           <div class="col-4">
             <center>
-              <input name="PapaKendara" id="PapaKendara3"  type="radio" value="No">
+              <input name="PapaKendara" id="PapaKendara3" type="radio" value="No">
               <br>
               <span class="custom-control-description">No</span>
             </center>
@@ -496,7 +496,7 @@
                 timer: 2000
               }).then((result) => {
                 if (result.dismiss === Swal.DismissReason.timer) {
-                  window.location.href = "<?= base_url('Registration/myPhotosAndVideos') ?>";
+                  window.location.href = "<?= base_url('Registration/myPhotos') ?>";
                 }
               })
 
@@ -528,7 +528,9 @@
     });
 
     $('#btnSkip').click(function() {
-      window.location.href = "<?php echo base_url('Registration/myPhotosAndVideos') ?>";
+      <?php $session_data = array('no_of_submitted_form' => 12);
+      $this->session->set_userdata($session_data); ?>
+      window.location.href = "<?php echo base_url('Registration/myPhotos') ?>";
     });
 
 
