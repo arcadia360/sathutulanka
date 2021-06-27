@@ -651,7 +651,7 @@ class Registration extends Admin_Controller
 	}
 
 
-	public function myPhotosAndVideos()
+	public function myPhotos()
 	{
 		$this->CheckAndRedirectNextForm(12);
 		$this->render_template_registration('registration/my_photos', 'my photos', NULL);
@@ -816,7 +816,6 @@ class Registration extends Admin_Controller
 		$response = array();
 
 		$this->form_validation->set_rules('MyPhotos', 'MyPhotos privacy', 'required');
-		$this->form_validation->set_rules('MyVideos', 'MyPhotos privacy', 'required');
 		$this->form_validation->set_rules('AssetsDetails', 'Assets Details privacy', 'required');
 		$this->form_validation->set_rules('FamilyDetails', 'Family Details privacy', 'required');
 		$this->form_validation->set_rules('Horoshcope', 'Horoshcope privacy', 'required');
@@ -832,10 +831,12 @@ class Registration extends Admin_Controller
 				$this->session->set_userdata($session_data);
 			} else {
 				$response['success'] = false;
+				$response['falseType'] = 'BD';
 				$response['messages'] = 'Error in the database while saving privacy settings. Please contact system administrator.';
 			}
 		} else {
 			$response['success'] = false;
+			$response['falseType'] = 'validation';
 			foreach ($_POST as $key => $value) {
 				$response['messages'][$key] = form_error($key);
 			}
