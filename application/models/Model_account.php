@@ -199,6 +199,14 @@ class Model_account extends CI_Model
 
   }
 
+  public function getGetBasicPreferencesWithSeparatorMemberDetailByID($member_id)
+  {
+    $sql = "CALL spGetBasicPreferencesWithSeparatorMemberDetailByID(?);";
+    $query = $this->db->query($sql, array($member_id));
+    mysqli_next_result( $this->db->conn_id );
+    return $query->row_array();
+  }
+
   public function getMemberPhotosData($member_id)
   {
     $sql = "
