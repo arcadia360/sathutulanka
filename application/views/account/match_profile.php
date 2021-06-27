@@ -419,10 +419,10 @@
                                                     <span class="basic-preference-title">Marital Status</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check" data-toggle="tooltip" title=""></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedMaritalStatus'] ?>"></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check" data-toggle="tooltip" title=""></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedMaritalStatus'] ?>"></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -430,10 +430,10 @@
                                                     <span class="basic-preference-title">Children</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['Preferednoofchildren'] ?>"></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $myBasicPreferencesData['Preferednoofchildren'] ?>"></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -441,10 +441,10 @@
                                                     <span class="basic-preference-title">Religion</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedReligion'] ?>"></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check"  data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedReligion'] ?>"></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -452,10 +452,10 @@
                                                     <span class="basic-preference-title">Ethnicity</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedEthnicity'] ?>"></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check"  data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedEthnicity'] ?>"></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -463,10 +463,10 @@
                                                     <span class="basic-preference-title">Mother Tongue</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedMotherTongue'] ?>"></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check"  data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedMotherTongue'] ?>"></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -474,10 +474,10 @@
                                                     <span class="basic-preference-title">Live in Srilanka</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedLiveinSrilanka'] ?>"></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check"  data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedLiveinSrilanka'] ?>"></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -485,10 +485,10 @@
                                                     <span class="basic-preference-title">Education</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedEducationLevel'] ?>"></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-times"></i>
+                                                    <i class="fas fa-times"  data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedEducationLevel'] ?>"></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -496,10 +496,10 @@
                                                     <span class="basic-preference-title">Career</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedCareer'] ?>"></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check"  data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedCareer'] ?>"></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -507,10 +507,10 @@
                                                     <span class="basic-preference-title">Monthly Income</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedMonthlyInCome'] ?>"></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check"  data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedMonthlyInCome'] ?>"></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -518,10 +518,10 @@
                                                     <span class="basic-preference-title">Asset Level</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedAssetValue'] ?>"></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check"  data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedAssetValue'] ?>"></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -529,10 +529,10 @@
                                                     <span class="basic-preference-title">Disability</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-times"></i>
+                                                    <i class="fas fa-times" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedDisabilit'] ?>"></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check"  data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedDisabilit'] ?>"></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -540,10 +540,10 @@
                                                     <span class="basic-preference-title">Diet</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedDiet'] ?>"></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"></i>
+                                                    <i class="fas fa-check"  data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedDiet'] ?>"></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
