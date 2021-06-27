@@ -1459,7 +1459,7 @@ class Model_registration extends CI_Model
     $NoOfChildren = $this->input->post('NoOfChildrenDrp');
     $Religion = $this->input->post('ReligionDrp');
     $Ethnicity = $this->input->post('EthnicityDrp');
-    $motherTounge = $this->input->post('motherToungeDrp');
+    $motherTongue = $this->input->post('motherToungeDrp');
     $LiveInSriLanka = $this->input->post('LiveInSriLankaDrp');
     $EducationSummerizeLevel = $this->input->post('EducationLevelDrp');
     $WorkingWith = $this->input->post('WorkingWithDrp');
@@ -1546,16 +1546,16 @@ class Model_registration extends CI_Model
     }
 
     //insert Mother Tounge data
-    $memberpreferedmothertounge  = $this->db->query("select * from memberpreferedmothertounge where intMemberID ='$mid'");
-    if ($memberpreferedmothertounge->num_rows() > 0) {
-      $this->db->delete('memberpreferedmothertounge', array('intMemberID' => $mid));
+    $memberpreferedmothertoungue  = $this->db->query("select * from memberpreferedmothertongue where intMemberID ='$mid'");
+    if ($memberpreferedmothertoungue->num_rows() > 0) {
+      $this->db->delete('memberpreferedmothertongue', array('intMemberID' => $mid));
     }
-    for ($i = 0; $i < count($motherTounge); $i++) {
-      $dataPpreferedMotherToungeTb = array(
-        'intMotherToungeID' => $motherTounge[$i],
+    for ($i = 0; $i < count($motherTongue); $i++) {
+      $dataPpreferedMotherToungueTb = array(
+        'intMotherToungeID' => $motherTongue[$i],
         'intMemberID' => $mid
       );
-      $this->db->insert('memberpreferedmothertounge', $dataPpreferedMotherToungeTb);
+      $this->db->insert('memberpreferedmothertongue', $dataPpreferedMotherToungueTb);
     }
 
     //insert Live in Sri Lanka data
