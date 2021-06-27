@@ -1136,7 +1136,6 @@ class Model_registration extends CI_Model
     if ($NoOfSubmitedForm > 15) {
       $data = array(
         'intMyPhotosPrivacy' => $this->input->post('MyPhotos'),
-        'intMyVideosPrivacy' => $this->input->post('MyVideos'),
         'intAssetsDetailsPrivacy' => $this->input->post('AssetsDetails'),
         'intFamilyDetailsPrivacy' => $this->input->post('FamilyDetails'),
         'intHoroscopeDetailsPrivacy' => $this->input->post('Horoshcope')
@@ -1144,7 +1143,6 @@ class Model_registration extends CI_Model
     } else {
       $data = array(
         'intMyPhotosPrivacy' => $this->input->post('MyPhotos'),
-        'intMyVideosPrivacy' => $this->input->post('MyVideos'),
         'intAssetsDetailsPrivacy' => $this->input->post('AssetsDetails'),
         'intFamilyDetailsPrivacy' => $this->input->post('FamilyDetails'),
         'intHoroscopeDetailsPrivacy' => $this->input->post('Horoshcope'),
@@ -1154,14 +1152,10 @@ class Model_registration extends CI_Model
 
     $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
-    if ($this->db->affected_rows() == 1) {
-      return true;
+    if ($this->db->affected_rows() < 0) {
+      return False;
     } else {
-      if (15 <= $NoOfSubmitedForm) {
-        return true;
-      } else {
-        return false;
-      }
+      return true;
     }
   }
 
