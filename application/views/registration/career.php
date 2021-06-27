@@ -237,7 +237,6 @@
         toastr["error"]("Please describe career !");
         $("#describeCareer").focus();
       } else {
-        alert('ready to save data');
         var form = $("#addcareerDetails");
         $.ajax({
           type: form.attr('method'),
