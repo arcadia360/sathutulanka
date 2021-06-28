@@ -322,7 +322,6 @@ class Registration extends Admin_Controller
 	}
 
 
-
 	public function WhoAmI()
 	{
 		$this->CheckAndRedirectNextForm(5);
