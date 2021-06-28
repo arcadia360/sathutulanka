@@ -506,8 +506,8 @@
               }).then((result) => {
                 if (result.dismiss === Swal.DismissReason.timer) {
                   <?php
-                  $session_data = array('member_account_status_id' => 4);
-                  $this->session->set_userdata($session_data);
+                  // $session_data = array('member_account_status_id' => 4);
+                  // $this->session->set_userdata($session_data);
                   // header("Refresh:0");
                   ?>
                   // location.reload();
