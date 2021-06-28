@@ -160,8 +160,8 @@ class Admin_Controller extends MY_Controller
 					} else if ($lastSubmittedFormNo == 14) {
 						redirect(base_url("Registration/PrivacySettings"), 'refresh');
 					} else if ($lastSubmittedFormNo == 15) {
-						// redirect(base_url("Registration/PartnerPreferences"), 'refresh');
-						redirect(base_url("Account/AllSingles"), 'refresh');
+						redirect(base_url("Registration/PartnerPreferences"), 'refresh');
+						// redirect(base_url("Account/AllSingles"), 'refresh');
 					} else {
 						$this->session->sess_destroy();
 						redirect(base_url("Welcome"), 'refresh');
