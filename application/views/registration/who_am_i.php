@@ -1034,8 +1034,7 @@
             });
         }
 
-        function FillCollectingHobbies()
-        {
+        function FillCollectingHobbies() {
             var model = new Member();
             model.MemberID = (<?= $this->session->userdata('member_id') ?>);
             ajaxCall('registration/getCollectingHobbies', model, function(response) {
@@ -1055,8 +1054,7 @@
             });
         }
 
-        function FillOutdoorsHobbies()
-        {
+        function FillOutdoorsHobbies() {
             var model = new Member();
             model.MemberID = (<?= $this->session->userdata('member_id') ?>);
             ajaxCall('registration/getOutdoorsHobbies', model, function(response) {
@@ -1071,25 +1069,24 @@
                         $("#outdoorHobieschk4").prop("checked", true);
                     } else if (response[index].vcOutdoorHobies == "Gardening") {
                         $("#outdoorHobieschk5").prop("checked", true);
-                    }else if (response[index].vcOutdoorHobies == "Nature") {
+                    } else if (response[index].vcOutdoorHobies == "Nature") {
                         $("#outdoorHobieschk6").prop("checked", true);
-                    }else if (response[index].vcOutdoorHobies == "Hunting") {
+                    } else if (response[index].vcOutdoorHobies == "Hunting") {
                         $("#outdoorHobieschk7").prop("checked", true);
-                    }else if (response[index].vcOutdoorHobies == "Driving") {
+                    } else if (response[index].vcOutdoorHobies == "Driving") {
                         $("#outdoorHobieschk8").prop("checked", true);
-                    }else if (response[index].vcOutdoorHobies == "Shopping") {
+                    } else if (response[index].vcOutdoorHobies == "Shopping") {
                         $("#outdoorHobieschk9").prop("checked", true);
-                    }else if (response[index].vcOutdoorHobies == "Travel / Sight seeing") {
+                    } else if (response[index].vcOutdoorHobies == "Travel / Sight seeing") {
                         $("#outdoorHobieschk10").prop("checked", true);
-                    }else if (response[index].vcOutdoorHobies == "Details in Writing") {
+                    } else if (response[index].vcOutdoorHobies == "Details in Writing") {
                         $("#outdoorHobieschk11").prop("checked", true);
                     }
                 }
             });
         }
 
-        function FillDomesticHobbies()
-        {
+        function FillDomesticHobbies() {
             var model = new Member();
             model.MemberID = (<?= $this->session->userdata('member_id') ?>);
             ajaxCall('registration/getDomesticHobbies', model, function(response) {
@@ -1104,9 +1101,9 @@
                         $("#domesticHobbieschk4").prop("checked", true);
                     } else if (response[index].vcdomesticHobbies == "Sports indoor") {
                         $("#domesticHobbieschk5").prop("checked", true);
-                    }else if (response[index].vcdomesticHobbies == "Home interior decoration") {
+                    } else if (response[index].vcdomesticHobbies == "Home interior decoration") {
                         $("#domesticHobbieschk6").prop("checked", true);
-                    }else if (response[index].vcdomesticHobbies == "Details in Writing") {
+                    } else if (response[index].vcdomesticHobbies == "Details in Writing") {
                         $("#domesticHobbieschk7").prop("checked", true);
                     }
                 }
@@ -1396,6 +1393,11 @@
 
         $('#btnSkip').click(function() {
             window.location.href = "<?php echo base_url('Registration/education') ?>";
+            <?php
+            $session_data = array('no_of_submitted_form' => 6);
+            $this->session->set_userdata($session_data);
+            ?>
+
         });
 
     });
