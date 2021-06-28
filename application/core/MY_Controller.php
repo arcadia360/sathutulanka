@@ -154,7 +154,7 @@ class Admin_Controller extends MY_Controller
 					} else if ($lastSubmittedFormNo == 11) {
 						redirect(base_url("Registration/Horoscope"), 'refresh');
 					} else if ($lastSubmittedFormNo == 12) {
-						redirect(base_url("Registration/MyPhotosAndVideos"), 'refresh');
+						redirect(base_url("Registration/myPhotos"), 'refresh');
 					} else if ($lastSubmittedFormNo == 13) {
 						redirect(base_url("Registration/AboutYourSelfAndPartner"), 'refresh');
 					} else if ($lastSubmittedFormNo == 14) {
