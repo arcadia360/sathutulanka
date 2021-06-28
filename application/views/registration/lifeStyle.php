@@ -25,28 +25,28 @@
             <center>
               <input id="drinkNo" name="drink" type="radio" class="" value="No">
               <br>
-              <span class="custom-control-description"><?= lang('no') ?></span>
+              <label for="drinkNo" class="custom-control-description"><?= lang('no') ?></label>
             </center>
           </div>
           <div class="col-3">
             <center>
               <input id="drinkYes" name="drink" type="radio" class="" value="Yes">
               <br>
-              <span class="custom-control-description"><?= lang('yes') ?></span>
+              <label for="drinkYes" class="custom-control-description"><?= lang('yes') ?></label>
             </center>
           </div>
           <div class="col-3">
             <center>
               <input id="drinkDuringFunction" name="drink" type="radio" class="" value="During Function">
               <br>
-              <span class="custom-control-description"><?= lang('duringFunction') ?></span>
+              <label for="drinkDuringFunction" class="custom-control-description"><?= lang('duringFunction') ?></label>
             </center>
           </div>
           <div class="col-3">
             <center>
               <input id="drinkStopped" name="drink" type="radio" class="" value="Stopped">
               <br>
-              <span class="custom-control-description"><?= lang('stopped') ?></span>
+              <label for="drinkStopped" class="custom-control-description"><?= lang('stopped') ?></label>
             </center>
           </div>
         </div>
@@ -62,28 +62,28 @@
             <center>
               <input id="smokeNo" name="smoke" type="radio" class="" value="no">
               <br>
-              <span class="custom-control-description"><?= lang('no') ?></span>
+              <label for="smokeNo" class="custom-control-description"><?= lang('no') ?></label>
             </center>
           </div>
           <div class="col-3">
             <center>
               <input id="smokeYes" name="smoke" type="radio" class="" value="Yes">
               <br>
-              <span class="custom-control-description"><?= lang('yes') ?></span>
+              <label for="smokeYes" class="custom-control-description"><?= lang('yes') ?></label>
             </center>
           </div>
           <div class="col-3">
             <center>
               <input id="smokeDuringFunction" name="smoke" type="radio" class="" value="During Function">
               <br>
-              <span class="custom-control-description"><?= lang('duringFunction') ?></span>
+              <label for="smokeDuringFunction" class="custom-control-description"><?= lang('duringFunction') ?></label>
             </center>
           </div>
           <div class="col-3">
             <center>
               <input id="smokeStopped" name="smoke" type="radio" class="" value="Stopped">
               <br>
-              <span class="custom-control-description"><?= lang('stopped') ?></span>
+              <label for="smokeStopped" class="custom-control-description"><?= lang('stopped') ?></label>
             </center>
           </div>
         </div>
@@ -100,7 +100,7 @@
               <center>
                 <input type="checkbox" class=" language" name="language[]" value="sinhala" id="sinhala" required>
                 <br>
-                <span class="custom-control-description"><?= lang('sinhala') ?></span>
+                <label for="sinhala" class="custom-control-description"><?= lang('sinhala') ?></label>
               </center>
             </div>
           </div>
@@ -109,7 +109,7 @@
               <center>
                 <input type="checkbox" class=" language" name="language[]" value="tamil" id="tamil" required>
                 <br>
-                <span class="custom-control-description"><?= lang('tamil') ?></span>
+                <label for="tamil" class="custom-control-description"><?= lang('tamil') ?></label>
               </center>
             </div>
           </div>
@@ -118,7 +118,7 @@
               <center>
                 <input type="checkbox" class=" language" name="language[]" value="english" id="english" required>
                 <br>
-                <span class="custom-control-description"><?= lang('english') ?></span>
+                <label for="english" class="custom-control-description"><?= lang('english') ?></label>
               </center>
             </div>
           </div>
@@ -127,7 +127,7 @@
               <center>
                 <input type="checkbox" class=" language" name="language[]" value="other" id="other" required>
                 <br>
-                <span class="custom-control-description"><?= lang('other') ?></span>
+                <label for="other" class="custom-control-description"><?= lang('other') ?></label>
               </center>
             </div>
           </div>
@@ -143,28 +143,28 @@
             <center>
               <input id="dressAndMakeupTraditional" name="dressAndMakeup" type="radio" class="" value="Traditional">
               <br>
-              <span class="custom-control-description"><?= lang('traditional') ?></span>
+              <label for="dressAndMakeupTraditional" class="custom-control-description"><?= lang('traditional') ?></label>
             </center>
           </div>
           <div class="col-3">
             <center>
               <input id="dressAndMakeupModern" name="dressAndMakeup" type="radio" class="" value="Moder">
               <br>
-              <span class="custom-control-description"><?= lang('modern') ?></span>
+              <label for="dressAndMakeupModern" class="custom-control-description"><?= lang('modern') ?></label>
             </center>
           </div>
           <div class="col-3">
             <center>
               <input id="dressAndMakeupMixofTraditionalAndModern" name="dressAndMakeup" type="radio" class="" value="Mix of Traditional and modern">
               <br>
-              <span class="custom-control-description"><?= lang('mixofTraditionalAndModern') ?></span>
+              <label for="dressAndMakeupMixofTraditionalAndModern" class="custom-control-description"><?= lang('mixofTraditionalAndModern') ?></label>
             </center>
           </div>
           <div class="col-3">
             <center>
               <input id="dressAndMakeupShortDresses" name="dressAndMakeup" type="radio" class="" value="Short Dresses">
               <br>
-              <span class="custom-control-description"><?= lang('shortDresses') ?></span>
+              <label for="dressAndMakeupShortDresses" class="custom-control-description"><?= lang('shortDresses') ?></label>
             </center>
           </div>
         </div>
@@ -179,21 +179,21 @@
             <center>
               <input id="usedToTravelPublic" name="usedToTravel" type="radio" class="" value="Public">
               <br>
-              <span class="custom-control-description"><?= lang('public') ?></span>
+              <label for="usedToTravelPublic" class="custom-control-description"><?= lang('public') ?></label>
             </center>
           </div>
           <div class="col-4">
             <center>
               <input id="usedToTravelPrivate" name="usedToTravel" type="radio" class="" value="Private">
               <br>
-              <span class="custom-control-description"><?= lang('private') ?></span>
+              <label for="usedToTravelPrivate" class="custom-control-description"><?= lang('private') ?></label>
             </center>
           </div>
           <div class="col-4">
             <center>
               <input id="usedToTravelPublicAndPrivate" name="usedToTravel" type="radio" class="" value="Public and Private">
               <br>
-              <span class="custom-control-description"><?= lang('publicAndPrivate') ?></span>
+              <label for="usedToTravelPublicAndPrivate" class="custom-control-description"><?= lang('publicAndPrivate') ?></label>
             </center>
           </div>
         </div>
@@ -209,14 +209,14 @@
             <center>
               <input id="CallTtParentsTraditional" name="CallTtParents" type="radio" class="" value="Traditional (Thaththa/ Amma/ Appachchi)">
               <br>
-              <span class="custom-control-description"><?= lang('traditional') . " " . lang('CallTtParentsT') ?></span>
+              <label for="CallTtParentsTraditional" class="custom-control-description"><?= lang('traditional') . " " . lang('CallTtParentsT') ?></label>
             </center>
           </div>
           <div class="col-6">
             <center>
               <input id="CallTtParentsModern" name="CallTtParents" type="radio" class="" value="Modern (Daddy/ Mammy/ Uncle / Aunt)">
               <br>
-              <span class="custom-control-description"><?= lang('modern') . " " . lang('CallTtParentsM') ?></span>
+              <label for="CallTtParentsModern" class="custom-control-description"><?= lang('modern') . " " . lang('CallTtParentsM') ?></label>
             </center>
           </div>
         </div>
@@ -232,21 +232,21 @@
             <center>
               <input id="customsRespect" name="customs" type="radio" class="" value="Respect">
               <br>
-              <span class="custom-control-description"><?= lang('respect') ?></span>
+              <label for="customsRespect" class="custom-control-description"><?= lang('respect') ?></label>
             </center>
           </div>
           <div class="col-4">
             <center>
               <input id="customsLittleRespect" name="customs" type="radio" class="" value="Little Respect">
               <br>
-              <span class="custom-control-description"><?= lang('littleRespect') ?></span>
+              <label for="customsLittleRespect" class="custom-control-description"><?= lang('littleRespect') ?></label>
             </center>
           </div>
           <div class="col-4">
             <center>
               <input id="customsNoRespect" name="customs" type="radio" class="" value="No Respect">
               <br>
-              <span class="custom-control-description"><?= lang('noRespect') ?></span>
+              <label for="customsNoRespect" class="custom-control-description"><?= lang('noRespect') ?></label>
             </center>
           </div>
         </div>
@@ -262,21 +262,21 @@
             <center>
               <input id="LiveInNormalHouse" name="LiveIn" type="radio" class="" value="Normal House">
               <br>
-              <span class="custom-control-description"><?= lang('normalHouse') ?></span>
+              <label for="LiveInNormalHouse" class="custom-control-description"><?= lang('normalHouse') ?></label>
             </center>
           </div>
           <div class="col-4">
             <center>
               <input id="LiveInSemiluxuryHouse" name="LiveIn" type="radio" class="" value="Semi luxury House">
               <br>
-              <span class="custom-control-description"><?= lang('semiLuxuryHouse') ?></span>
+              <label for="LiveInSemiluxuryHouse" class="custom-control-description"><?= lang('semiLuxuryHouse') ?></label>
             </center>
           </div>
           <div class="col-4">
             <center>
               <input id="LiveInLuxuryHouse" name="LiveIn" type="radio" class="" value="Luxury House">
               <br>
-              <span class="custom-control-description"><?= lang('luxuryHouse') ?></span>
+              <label for="LiveInLuxuryHouse" class="custom-control-description"><?= lang('luxuryHouse') ?></label>
             </center>
           </div>
         </div>
@@ -471,7 +471,7 @@
               icon: 'error',
               title: 'Oops...',
               text: 'Internal Server Error! Please contact system administrator.',
-            })
+            });
           }
         });
       }
