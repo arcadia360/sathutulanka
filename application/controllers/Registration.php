@@ -1133,7 +1133,7 @@ class Registration extends Admin_Controller
 		$result = $this->Model_registration->savePartnerPreference();
 		if ($result == true) {
 			$response['success'] = true;
-			$session_data = array('no_of_submitted_form' => 16);
+			$session_data = array('member_account_status_id' => 4); 
 			$this->session->set_userdata($session_data);
 		} else {
 			$response['success'] = false;
