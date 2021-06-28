@@ -219,6 +219,7 @@
 
 
 
+
 	<script>
 		loadDisabilityDetails()
 
@@ -279,8 +280,6 @@
 			$("#bloodGroup").val(response.vcBloodGroup);
 			$("#healthInfo").val(response.isHealthInfo);
 		});
-
-
 
 		$('#btnSubmit').click(function() {
 			var isBodySapeSelected = $("input[name=bodyShape]").is(":checked");
