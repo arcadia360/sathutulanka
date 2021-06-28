@@ -490,6 +490,7 @@
 
 
         var form = $("#addPartnerPreference");
+        $("#btnSubmit").prop('disabled', true);
         $.ajax({
           type: form.attr('method'),
           url: form.attr('action'),
@@ -520,7 +521,8 @@
                 });
               } else {
                 toastr["error"](response.messages);
-                $(button).prop('disabled', false);
+                $("#btnSubmit").prop('disabled', false);
+                // $(button).prop('disabled', false);
               }
             }
           },
@@ -530,6 +532,7 @@
               title: 'Oops...',
               text: 'Internal Server Error! Please contact system administrator.',
             })
+            $("#btnSubmit").prop('disabled', false);
           }
         });
       }
