@@ -207,6 +207,15 @@ class Model_account extends CI_Model
     return $query->row_array();
   }
 
+
+  public function getGetBasicPreferences_ID_WithSeparatorMemberDetailByID($member_id)
+  {
+    $sql = "CALL spGetBasicPreferences_ID_WithSeparatorMemberDetailByID(?);";
+    $query = $this->db->query($sql, array($member_id));
+    mysqli_next_result($this->db->conn_id);
+    return $query->row_array();
+  }
+
   public function getMemberPhotosData($member_id)
   {
     $sql = "
@@ -223,58 +232,58 @@ class Model_account extends CI_Model
     return $query->result_array();
   }
 
-  public function getMyProfileMatchingDetils($member_id)
-  {
+  // public function getMyProfileMatchingDetils($member_id)
+  // {
 
-    $sql = "SELECT 
-              TIMESTAMPDIFF(year,M.dtDOB, now()) AS Age,
-              M.intHeight,
-              M.intMaritalStatusID,
-              M.intNoOfChildrenID,	
-              M.intReligionID,
-              M.intEthnicityID,
-              M.intMotherTongueID,
-              D.intProvinceID,
-              M.intEducationLevelID,
-              M.intMonthlyIncomeID,
-              M.intAssetValueID,
-              M.intDisabilityID,
-              M.intDietID,
-              M.intMemberPreferedAgeFrom,
-              M.intMemberPreferedAgeTo,
-              M.intMemberPreferedHeightFrom,
-              M.intMemberPreferedHeightTo,
-              IFNULL(GROUP_CONCAT(DISTINCT MPMS.intMaritalStatusID SEPARATOR ','),0) AS MemberPreferedMaritalStatus,
-              IFNULL(GROUP_CONCAT(DISTINCT MPNC.intNoOfChildrenID SEPARATOR ','),0) AS MemberPreferedNoOfChildren,
-              IFNULL(GROUP_CONCAT(DISTINCT MPR.intReligionID SEPARATOR ','),0) AS MemberPreferedReligion,
-              IFNULL(GROUP_CONCAT(DISTINCT MPE.intEthnicityID SEPARATOR ','),0) AS MemberPreferedEthnicity,          
-              IFNULL(GROUP_CONCAT(DISTINCT MPMT.intMotherTongueID SEPARATOR ','),0) AS MemberPreferedMotherTongue,
-              IFNULL(GROUP_CONCAT(DISTINCT MPSL.intProvinceID SEPARATOR ','),0) AS MemberPreferedLiveInSriLanka,
-              IFNULL(GROUP_CONCAT(DISTINCT MPEL.intEducationLevelID SEPARATOR ','),0) AS MemberPreferedEducationLevel,
-              IFNULL(GROUP_CONCAT(DISTINCT MPME.intMonthlyIncomeID SEPARATOR ','),0) AS MemberPreferedMonthlyIncome,
-              IFNULL(GROUP_CONCAT(DISTINCT MPAV.intAssetValueID SEPARATOR ','),0) AS MemberPreferedAssetValue,
-              IFNULL(GROUP_CONCAT(DISTINCT MPAD.intDisabilityID SEPARATOR ','),0) AS MemberPreferedAnyDisability,
-              IFNULL(GROUP_CONCAT(DISTINCT MPD.intDietID SEPARATOR ','),0) AS MemberPreferedDiet
-            FROM 
-              Member AS M
-              INNER JOIN City                         AS C ON M.intCityIdIfLiveInSL = C.intCityID
-              INNER JOIN District                     AS D ON C.intDistrictID = D.intDistrictID
-              INNER JOIN MemberPreferedMaritalStatus  AS MPMS ON M.intMemberID = MPMS.intMemberID
-              INNER JOIN MemberPreferedNoOfChildren   AS MPNC ON M.intMemberID = MPNC.intMemberID
-              INNER JOIN MemberPreferedReligion       AS MPR ON M.intMemberID = MPR.intMemberID
-              INNER JOIN MemberPreferedEthnicity      AS MPE ON M.intMemberID = MPE.intMemberID 	
-              INNER JOIN MemberPreferedMotherTongue   AS MPMT ON M.intMemberID = MPMT.intMemberID 
-              INNER JOIN MemberPreferedLiveInSriLanka AS MPSL ON M.intMemberID = MPSL.intMemberID
-              INNER JOIN MemberPreferedEducationLevel AS MPEL ON M.intMemberID = MPEL.intMemberID 
-              INNER JOIN MemberPreferedMonthlyIncome  AS MPME ON M.intMemberID = MPME.intMemberID
-              INNER JOIN MemberPreferedAssetValue     AS MPAV ON M.intMemberID = MPAV.intMemberID 
-              INNER JOIN MemberPreferedAnyDisability  AS MPAD ON M.intMemberID = MPAD.intMemberID 
-              INNER JOIN MemberPreferedDiet           AS MPD ON M.intMemberID = MPD.intMemberID 
-            WHERE M.intMemberID = ? ";
+  //   $sql = "SELECT 
+  //             TIMESTAMPDIFF(year,M.dtDOB, now()) AS Age,
+  //             M.intHeight,
+  //             M.intMaritalStatusID,
+  //             M.intNoOfChildrenID,	
+  //             M.intReligionID,
+  //             M.intEthnicityID,
+  //             M.intMotherTongueID,
+  //             D.intProvinceID,
+  //             M.intEducationLevelID,
+  //             M.intMonthlyIncomeID,
+  //             M.intAssetValueID,
+  //             M.intDisabilityID,
+  //             M.intDietID,
+  //             M.intMemberPreferedAgeFrom,
+  //             M.intMemberPreferedAgeTo,
+  //             M.intMemberPreferedHeightFrom,
+  //             M.intMemberPreferedHeightTo,
+  //             IFNULL(GROUP_CONCAT(DISTINCT MPMS.intMaritalStatusID SEPARATOR ','),0) AS MemberPreferedMaritalStatus,
+  //             IFNULL(GROUP_CONCAT(DISTINCT MPNC.intNoOfChildrenID SEPARATOR ','),0) AS MemberPreferedNoOfChildren,
+  //             IFNULL(GROUP_CONCAT(DISTINCT MPR.intReligionID SEPARATOR ','),0) AS MemberPreferedReligion,
+  //             IFNULL(GROUP_CONCAT(DISTINCT MPE.intEthnicityID SEPARATOR ','),0) AS MemberPreferedEthnicity,          
+  //             IFNULL(GROUP_CONCAT(DISTINCT MPMT.intMotherTongueID SEPARATOR ','),0) AS MemberPreferedMotherTongue,
+  //             IFNULL(GROUP_CONCAT(DISTINCT MPSL.intProvinceID SEPARATOR ','),0) AS MemberPreferedLiveInSriLanka,
+  //             IFNULL(GROUP_CONCAT(DISTINCT MPEL.intEducationLevelID SEPARATOR ','),0) AS MemberPreferedEducationLevel,
+  //             IFNULL(GROUP_CONCAT(DISTINCT MPME.intMonthlyIncomeID SEPARATOR ','),0) AS MemberPreferedMonthlyIncome,
+  //             IFNULL(GROUP_CONCAT(DISTINCT MPAV.intAssetValueID SEPARATOR ','),0) AS MemberPreferedAssetValue,
+  //             IFNULL(GROUP_CONCAT(DISTINCT MPAD.intDisabilityID SEPARATOR ','),0) AS MemberPreferedAnyDisability,
+  //             IFNULL(GROUP_CONCAT(DISTINCT MPD.intDietID SEPARATOR ','),0) AS MemberPreferedDiet
+  //           FROM 
+  //             Member AS M
+  //             INNER JOIN City                         AS C ON M.intCityIdIfLiveInSL = C.intCityID
+  //             INNER JOIN District                     AS D ON C.intDistrictID = D.intDistrictID
+  //             INNER JOIN MemberPreferedMaritalStatus  AS MPMS ON M.intMemberID = MPMS.intMemberID
+  //             INNER JOIN MemberPreferedNoOfChildren   AS MPNC ON M.intMemberID = MPNC.intMemberID
+  //             INNER JOIN MemberPreferedReligion       AS MPR ON M.intMemberID = MPR.intMemberID
+  //             INNER JOIN MemberPreferedEthnicity      AS MPE ON M.intMemberID = MPE.intMemberID 	
+  //             INNER JOIN MemberPreferedMotherTongue   AS MPMT ON M.intMemberID = MPMT.intMemberID 
+  //             INNER JOIN MemberPreferedLiveInSriLanka AS MPSL ON M.intMemberID = MPSL.intMemberID
+  //             INNER JOIN MemberPreferedEducationLevel AS MPEL ON M.intMemberID = MPEL.intMemberID 
+  //             INNER JOIN MemberPreferedMonthlyIncome  AS MPME ON M.intMemberID = MPME.intMemberID
+  //             INNER JOIN MemberPreferedAssetValue     AS MPAV ON M.intMemberID = MPAV.intMemberID 
+  //             INNER JOIN MemberPreferedAnyDisability  AS MPAD ON M.intMemberID = MPAD.intMemberID 
+  //             INNER JOIN MemberPreferedDiet           AS MPD ON M.intMemberID = MPD.intMemberID 
+  //           WHERE M.intMemberID = ? ";
 
-    $query = $this->db->query($sql, array($member_id));
-    return $query->row_array();
-  }
+  //   $query = $this->db->query($sql, array($member_id));
+  //   return $query->row_array();
+  // }
 
   public function getAllSinglesCount()
   {
@@ -304,7 +313,8 @@ class Model_account extends CI_Model
   public function getMyMatches($member_id, $gender)
   {
 
-    $details = $this->getMyProfileMatchingDetils($member_id);
+    $myDetails = $this->getMemberData($member_id);
+    $myPreferencesDetails = $this->getGetBasicPreferences_ID_WithSeparatorMemberDetailByID($member_id);
 
     $sql = "SELECT 
             M.intMemberID,
@@ -322,21 +332,21 @@ class Model_account extends CI_Model
             R.vcReligion,
             MS.vcMaritalStatus_en AS vcMaritalStatus,
             EL.vcEducationLevel,    
-            (CASE WHEN  TIMESTAMPDIFF(year,M.dtDOB, now())  >= " . (int)$details['intMemberPreferedAgeFrom'] . " AND  TIMESTAMPDIFF(year,M.dtDOB, now())  <= " . (int)$details['intMemberPreferedAgeTo'] . " THEN 7 ELSE 0 END +
-            CASE WHEN M.intHeight >= " . (int)$details['intMemberPreferedHeightFrom'] . " AND M.intHeight <= " . (int)$details['intMemberPreferedHeightTo'] . " THEN 7 ELSE 0 END +
-            CASE WHEN M.intMaritalStatusID IN (" . $details['MemberPreferedMaritalStatus'] . ") THEN 7 ELSE 0 END +
-            CASE WHEN M.intNoOfChildrenID IN (" . $details["MemberPreferedNoOfChildren"] . ") THEN 7 ELSE 0 END +
-            CASE WHEN M.intReligionID IN (" . $details["MemberPreferedReligion"] . ") THEN 7 ELSE 0 END +
-            CASE WHEN M.intEthnicityID IN (" . $details["MemberPreferedReligion"] . ") THEN 7 ELSE 0 END +
-            CASE WHEN M.intMotherTongueID IN (" . $details["MemberPreferedMotherTongue"] . ") THEN 7 ELSE 0 END+
-            CASE WHEN P.intProvinceID IN (" . $details["MemberPreferedLiveInSriLanka"] . ") THEN 7 ELSE 0 END+
-            CASE WHEN M.intEducationLevelID IN (" . $details["MemberPreferedEducationLevel"] . ") THEN 7 ELSE 0 END+
+            (CASE WHEN  TIMESTAMPDIFF(year,M.dtDOB, now())  >= " . (int)$myDetails['intMemberPreferedAgeFrom'] . " AND  TIMESTAMPDIFF(year,M.dtDOB, now())  <= " . (int)$myDetails['intMemberPreferedAgeTo'] . " THEN 7 ELSE 0 END +
+            CASE WHEN M.intHeight >= " . (int)$myDetails['intMemberPreferedHeightFrom'] . " AND M.intHeight <= " . (int)$myDetails['intMemberPreferedHeightTo'] . " THEN 7 ELSE 0 END +
+            CASE WHEN M.intMaritalStatusID IN (" . $myPreferencesDetails['PreferedMaritalStatusID'] . ") THEN 7 ELSE 0 END +
+            CASE WHEN M.intNoOfChildrenID IN (" . $myPreferencesDetails["PreferednoofchildrenID"] . ") THEN 7 ELSE 0 END +
+            CASE WHEN M.intReligionID IN (" . $myPreferencesDetails["PreferedReligionID"] . ") THEN 7 ELSE 0 END +
+            CASE WHEN M.intEthnicityID IN (" . $myPreferencesDetails["PreferedEthnicityID"] . ") THEN 7 ELSE 0 END +
+            CASE WHEN M.intMotherTongueID IN (" . $myPreferencesDetails["PreferedMotherTongueID"] . ") THEN 7 ELSE 0 END+
+            CASE WHEN P.intProvinceID IN (" . $myPreferencesDetails["PreferedLiveinSrilankaID"] . ") THEN 7 ELSE 0 END+
+            CASE WHEN M.intEducationLevelID IN (" . $myPreferencesDetails["PreferedEducationLevelID"] . ") THEN 7 ELSE 0 END+
             7+
-            CASE WHEN M.intMonthlyIncomeID IN (" . $details["MemberPreferedMonthlyIncome"] . ") THEN 7 ELSE 0 END+
-            CASE WHEN M.intAssetValueID IN (" . $details["MemberPreferedAssetValue"] . ") THEN 7 ELSE 0 END+
-            CASE WHEN M.intDisabilityID IN (" . $details["MemberPreferedAnyDisability"] . ") THEN 7 ELSE 0 END+
-            CASE WHEN M.intDietID IN (" . $details["MemberPreferedDiet"] . ") THEN 7 ELSE 0 END) AS ForMe,
-            IFNULL(fnGetPercentageForPartner(M.intMemberID," . $details["Age"] . "," . $details["intHeight"] . "," . $details["intMaritalStatusID"] . "," . $details["intNoOfChildrenID"] . "," . $details["intReligionID"] . "," . $details["intEthnicityID"] . "," . $details["intMotherTongueID"] . "," . $details["intProvinceID"] . "," . $details["intEducationLevelID"] . ",1," . $details["intMonthlyIncomeID"] . "," . $details["intAssetValueID"] . "," . $details["intDisabilityID"] . "," . $details["intDietID"] . "),0) AS ForPartner,
+            CASE WHEN M.intMonthlyIncomeID IN (" . $myPreferencesDetails["PreferedMonthlyInComeID"] . ") THEN 7 ELSE 0 END+
+            CASE WHEN M.intAssetValueID IN (" . $myPreferencesDetails["PreferedAssetValueID"] . ") THEN 7 ELSE 0 END+
+            CASE WHEN M.intDisabilityID IN (" . $myPreferencesDetails["PreferedDisabilityID"] . ") THEN 7 ELSE 0 END+
+            CASE WHEN M.intDietID IN (" . $myPreferencesDetails["PreferedDietID"] . ") THEN 7 ELSE 0 END) AS ForMe,
+            IFNULL(fnGetPercentageForPartner(M.intMemberID," . $myDetails["intAge"] . "," . $myDetails["intHeight"] . "," . $myDetails["intMaritalStatusID"] . "," . $myDetails["intNoOfChildrenID"] . "," . $myDetails["intReligionID"] . "," . $myDetails["intEthnicityID"] . "," . $myDetails["intMotherTongueID"] . "," . $myDetails["intProvinceID"] . "," . $myDetails["intEducationLevelID"] . ",1," . $myDetails["intMonthlyIncomeID"] . "," . $myDetails["intAssetValueID"] . "," . $myDetails["intDisabilityID"] . "," . $myDetails["intDietID"] . "),0) AS ForPartner,
             CONCAT(MI.intImageName,MI.vcImageType) AS vcProfilePicture,
             CASE WHEN MLP.intMemberID IS NULL THEN 0 ELSE 1 END AS IsLiked,
             (SELECT COUNT(*) FROM MemberImage AS MI WHERE MI.intMemberID = M.intMemberID) AS intImageCount
