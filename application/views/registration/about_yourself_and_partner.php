@@ -35,23 +35,23 @@
 
     FillAboutYourSelfData();
 
-function FillAboutYourSelfData() {
-    var Member = function() {
+    function FillAboutYourSelfData() {
+      var Member = function() {
         this.MemberID = 0;
-    }
-    var model = new Member();
-    model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+      }
+      var model = new Member();
+      model.MemberID = (<?= $this->session->userdata('member_id') ?>);
 
-    ajaxCall('registration/getMemberData', model, function(response) {
+      ajaxCall('registration/getMemberData', model, function(response) {
         if (response.vcAboutYourselfAndPartner != null) {
           $("#aboutYourSelfAndPartner").val(response.vcAboutYourselfAndPartner);
         }
-    });
-}
+      });
+    }
 
 
     $('#btnBack').click(function() {
-      window.location.href = "<?php echo base_url('Registration/myPhotosAndVideos') ?>";
+      window.location.href = "<?php echo base_url('Registration/myPhotos') ?>";
     });
     $('#btnSubmit').click(function() {
       var wordCount = $.trim($("#aboutYourSelfAndPartner").val()).split(' ').filter(function(v) {
@@ -116,5 +116,4 @@ function FillAboutYourSelfData() {
     });
 
   });
-
 </script>
