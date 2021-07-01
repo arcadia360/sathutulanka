@@ -1482,20 +1482,9 @@ class Model_registration extends CI_Model
       'IntMemberPreferedAgeFrom' => $memberPreferedFromAge,
       'IntMemberPreferedAgeTo' => $memberPreferedToAge,
       'intMemberAccountStatusID' => 4
-
-
     );
-    // } else {
-    //   $data = array(
-    //     'intMemberPreferedHeightFrom' => $memberPreferedFromHeight,
-    //     'intMemberPreferedHeightTo' => $memberPreferedToHeight,
-    //     'IntMemberPreferedAgeFrom' => $memberPreferedFromAge,
-    //     'IntMemberPreferedAgeTo' => $memberPreferedToAge,
-    //   );
-    // }
+
     $this->db->trans_begin();
-
-
     //* Insert Prefered Martial Status data
 
     $this->db->delete('memberpreferedmaritalstatus', array('intMemberID' => $mid));
@@ -1605,7 +1594,7 @@ class Model_registration extends CI_Model
 
     //* Insert member prefered working with data
 
-    $this->db->delete('memberpreferedworkingwith', array('intMemberID' => $mid));   
+    $this->db->delete('memberpreferedworkingwith', array('intMemberID' => $mid));
     // }
     for ($i = 0; $i < count($CareerLevel); $i++) {
       $dataPpreferedWorkingWithTb = array(
@@ -1705,7 +1694,7 @@ class Model_registration extends CI_Model
     //* Insert member prefered Any Disability data
 
     $this->db->delete('memberpreferedanydisability', array('intMemberID' => $mid));
- 
+
     for ($i = 0; $i < count($AnyDisability); $i++) {
       $dataPpreferedAnyDisabilityTb = array(
         'intDisabilityID' => $AnyDisability[$i],
@@ -1717,7 +1706,7 @@ class Model_registration extends CI_Model
     //* Insert member prefered Diet data
 
     $this->db->delete('memberprefereddiet', array('intMemberID' => $mid));
- 
+
     for ($i = 0; $i < count($Diet); $i++) {
       $dataPpreferedDietTb = array(
         'intDietID' => $Diet[$i],
@@ -1728,7 +1717,7 @@ class Model_registration extends CI_Model
 
     $this->db->where('intMemberID', $mid);
     $this->db->update('member', $data);
-    
+
     if ($this->db->trans_status() === FALSE) {
       $this->db->trans_rollback();
       return false;
