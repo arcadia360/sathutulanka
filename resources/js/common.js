@@ -9,6 +9,20 @@ $(document).ready(function () {
 
 });
 
+// Hide Menu on Scroll
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function () {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+        document.getElementById("mobile-navbar").style.bottom = "10px";
+    } else {
+        document.getElementById("navbar").style.top = "-56px";
+        document.getElementById("mobile-navbar").style.bottom = "-56px";
+    }
+    prevScrollpos = currentScrollPos;
+}
+
 // THE SCRIPT THAT CHECKS IF THE KEY PRESSED IS A NUMERIC OR DECIMAL VALUE.
 function isNumber(evt, element) {
     var charCode = (evt.which) ? evt.which : event.keyCode
