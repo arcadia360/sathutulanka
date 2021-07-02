@@ -1166,9 +1166,9 @@ class Registration extends Admin_Controller
 		}
 
 		$folderName = $this->session->userdata('member_code');
-		$imagePath = "./resources/images/member/" . $folderName;
+		$imagePath = "./resources/images/member/photos/" . $folderName;
 		if (!is_dir($imagePath)) {
-			mkdir("./resources/images/member/" . $folderName);
+			mkdir("./resources/images/member/photos/" . $folderName);
 		}
 		$config['upload_path'] = $imagePath;
 		$config['allowed_types'] = 'gif|jpg|png';

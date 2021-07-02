@@ -330,41 +330,19 @@
                                     <div tabindex="-1" uk-slider="center: true">
                                         <div class="uk-position-relative uk-visible-toggle uk-light">
                                             <ul class="uk-slider-items uk-grid" uk-lightbox>
-                                                <li>
-                                                    <div class="uk-panel">
-                                                        <a href="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/1.jpg" ?>">
-                                                            <img data-src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/1.jpg" ?>" alt="" uk-img="target: !ul > :last-child, !* +*">
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="uk-panel">
-                                                        <a href="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/2.jpg" ?>">
-                                                            <img data-src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/2.jpg" ?>" alt="" uk-img="target: !* -*, !* +*">
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="uk-panel">
-                                                        <a href="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/3.jpg" ?>">
-                                                            <img data-src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/3.jpg" ?>" alt="" uk-img="target: !* -*, !* +*">
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="uk-panel">
-                                                        <a href="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/4.jpg" ?>">
-                                                            <img data-src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/4.jpg" ?>" alt="" uk-img="target: !* -*, !* +*">
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="uk-panel">
-                                                        <a href="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/5.jpeg" ?>">
-                                                            <img data-src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/5.jpeg" ?>" alt="" uk-img="target: !* -*, !* +*">
-                                                        </a>
-                                                    </div>
-                                                </li>
+                                                   <!-- Generate Area -->
+                                            <?php foreach ($partnerPhotosData as $imageData) {
+                                                if ($imageData['isProfilePicture'] == 0) { ?>
+                                                    <li>
+                                                        <div class="uk-panel">
+                                                            <a href="<?= base_url() . "resources/images/member/photos/" . $partnerData['vcMemberCode'] . "/" . $imageData['vcImage'] ?>">
+                                                                <img data-src="<?= base_url() . "resources/images/member/photos/" . $partnerData['vcMemberCode'] . "/" . $imageData['vcImage'] ?>" alt="" uk-img="target: !ul > :last-child, !* +*">
+                                                            </a>
+                                                        </div>
+                                                    </li>
+                                            <?php }
+                                            } ?>
+                                            <!-- Generate Area End -->
                                             </ul>
                                             <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
                                             <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
@@ -529,10 +507,10 @@
                                                     <span class="basic-preference-title">Disability</span>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-times" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedDisabilit'] ?>"></i>
+                                                    <i class="fas fa-times" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedDisability'] ?>"></i>
                                                 </div>
                                                 <div class="col-3" style="text-align:center;">
-                                                    <i class="fas fa-check"  data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedDisabilit'] ?>"></i>
+                                                    <i class="fas fa-check"  data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedDisability'] ?>"></i>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">

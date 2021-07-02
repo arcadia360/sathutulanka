@@ -218,12 +218,11 @@ class Model_account extends CI_Model
 
   public function getMemberPhotosData($member_id)
   {
-    $sql = "
-            SELECT 
+    $sql = "SELECT 
               intImageID,
               intImageName,
-              vcImageType,
-              CONCAT(intImageName,vcImageType) AS vcImage,
+              UPPER(vcImageType) AS vcImageType,
+              CONCAT(intImageName,UPPER(vcImageType)) AS vcImage,
               isProfilePicture
             FROM MemberImage
             WHERE intMemberID = ? ";

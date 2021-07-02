@@ -53,7 +53,7 @@ class Model_auth extends CI_Model
 						MAS.vcMemberAccountStatus,
 						M.intNoOfSubmitedForm,
 						M.vcGender,
-						CONCAT(MI.intImageName,MI.vcImageType) AS vcProfilePicture,
+						CONCAT(MI.intImageName,UPPER(vcImageType)) AS vcProfilePicture,
 						1 AS IsActive		
 					FROM 
 						Member AS M
