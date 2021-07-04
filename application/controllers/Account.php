@@ -67,8 +67,10 @@ class Account extends Admin_Controller{
 		$member_id = $this->session->userdata('member_id');
 		$myData = $this->Model_account->getMemberData($member_id);
 		$partnerData = $this->Model_account->getMemberData($PartnerID);
+		$memberPhotosData = $this->Model_account->getMemberPhotosData($PartnerID);
 		$this->data['myData'] = $myData;
 		$this->data['partnerData'] = $partnerData;
+		$this->data['partnerPhotosData'] = $memberPhotosData ;
 
 		$myBasicPreferencesData = $this->Model_account->getGetBasicPreferencesWithSeparatorMemberDetailByID($member_id);
 		$partnerBasicPreferencesData = $this->Model_account->getGetBasicPreferencesWithSeparatorMemberDetailByID($PartnerID);

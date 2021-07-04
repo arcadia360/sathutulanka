@@ -6,7 +6,19 @@
           background-repeat: no-repeat;
       } */
 
+      .member-menubar-row {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+          margin-right: -15px;
+          margin-left: -15px;
+      }
 
+      .member-menubar-row .btn-light.focus, .btn-light:focus {
+          box-shadow: none !important;
+      }
 
       .card {
           border: none !important;
@@ -35,6 +47,7 @@
           border: 5px solid #FFFFFF;
           width: 150px;
           height: 150px;
+          background-color: #FFFFFF;
           box-shadow: 0 0.6px 2.2px rgba(0, 0, 0, 0.031), 0 1.3px 5.3px rgba(0, 0, 0, 0.044), 0 2.5px 10px rgba(0, 0, 0, 0.055), 0 4.5px 17.9px rgba(0, 0, 0, 0.066), 0 8.4px 33.4px rgba(0, 0, 0, 0.079), 0 20px 80px rgba(0, 0, 0, 0.11);
       }
 
@@ -247,6 +260,37 @@
               font-size: 2em;
               right: 10px;
           }
+          .member-menubar {
+              width: 100%;
+              background-color: black;
+              overflow: scroll;
+          }
+          .member-menubar::-webkit-scrollbar {
+              display: none;
+          }
+          .member-menubar-row button {
+              flex-wrap: nowrap !important;
+              border-radius: 0;
+              background-color: #559FF8 !important;
+              color: #FFFFFF !important;
+          }
+          .member-menubar-row .active {
+              background-color: #46659e !important;
+              color: #FFFFFF !important;
+          }
+          .member-menubar-row {
+              flex-wrap: nowrap;
+              margin-right: 0;
+              margin-left: 0;
+          }
+          .member-menubar-row .float-right {
+              float: none !important;
+              margin-left: 10px !important;
+          }
+          .mt-5 {
+              margin-top: 1rem!important;
+              margin-bottom: 1rem!important;
+          }
       }
 
       @media only screen and (max-width: 1199px) and (min-width: 992px) {
@@ -268,13 +312,13 @@
       }
 
       .uk-badge {
-          background-color: #FFFFFF;
-          color: #263238;
+          background-color: #FFFFFF !important;
+          color: #263238 !important;
           box-shadow: 0 0.1px 2.2px rgba(0, 0, 0, 0.02), 0 0.1px 5.3px rgba(0, 0, 0, 0.028), 0 0.3px 10px rgba(0, 0, 0, 0.035), 0 0.4px 17.9px rgba(0, 0, 0, 0.042), 0 0.8px 33.4px rgba(0, 0, 0, 0.05), 0 2px 80px rgba(0, 0, 0, 0.07);
       }
 
       .uk-badge:hover {
-          color: #263238;
+          color: #263238 !important;
       }
 
       /* Medium devices (landscape tablets, 768px and up) */

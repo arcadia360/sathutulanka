@@ -105,7 +105,7 @@
 
 <body>
 
-    <nav class="navbar fixed-top navbar-expand-lg bg-red">
+    <nav class="navbar fixed-top navbar-expand-lg bg-red" id="navbar">
 
         <a class="navbar-brand" href="#">
             <?php
@@ -208,11 +208,11 @@
         if ($url == "") {
             $url = "Welcome";
         }
-        if ($_SESSION['language_id'] == 1) { // Current Language - English
+        if ($_SESSION['language_id'] == 1 && $_SESSION['logged_in'] == FALSE) { // Current Language - English
         ?>
             <a class="nav-link btn-lang" href="<?= base_url("Welcome/ChangeLanguage/2/" . $url); ?>">සිංහල</a>
         <?php
-        } else if ($_SESSION['language_id'] == 2) { // Current Language - Sinhala
+        } else if ($_SESSION['language_id'] == 2 && $_SESSION['logged_in'] == FALSE) { // Current Language - Sinhala
         ?>
             <a class="nav-link btn-lang" href="<?= base_url("Welcome/ChangeLanguage/1/" . $url); ?>">English</a>
         <?php
