@@ -609,13 +609,13 @@
                                                 <div class="col-6 partner-detail">
                                                     <div class="form-group">
                                                         <label for="phone">Age</label>
-                                                        <input type="text" class="form-control" id="partnerAge" value="<?= $partnerData['vcAge'] ?> Years" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="partnerAge" value="<?= $partnerData['intAge'] ?> Years" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 my-detail">
                                                     <div class="form-group">
                                                         <label for="website" style="color: #FFFFFF;">Age</label>
-                                                        <input type="text" class="form-control" id="myAge" value="<?= $myData['vcAge'] ?> Years" placeholder="N/A" disabled>
+                                                        <input type="text" class="form-control" id="myAge" value="<?= $myData['intAge'] ?> Years" placeholder="N/A" disabled>
                                                     </div>
                                                 </div>
                                             </div>
