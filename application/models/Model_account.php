@@ -194,16 +194,15 @@ class Model_account extends CI_Model
 
     $sql = "CALL spGetMemberDetailByID(?);";
     $query = $this->db->query($sql, array($UserID));
-    mysqli_next_result( $this->db->conn_id );
+    mysqli_next_result($this->db->conn_id);
     return $query->row_array();
-
   }
 
   public function getGetBasicPreferencesWithSeparatorMemberDetailByID($member_id)
   {
     $sql = "CALL spGetBasicPreferencesWithSeparatorMemberDetailByID(?);";
     $query = $this->db->query($sql, array($member_id));
-    mysqli_next_result( $this->db->conn_id );
+    mysqli_next_result($this->db->conn_id);
     return $query->row_array();
   }
 
@@ -429,4 +428,68 @@ class Model_account extends CI_Model
       return false;
     }
   }
+
+  // DK start
+  public function getVisitedProfiles($member_id, $gender)
+  {
+
+    $myDetails = $this->getMemberData($member_id);
+    $myPreferencesDetails = $this->getGetBasicPreferences_ID_WithSeparatorMemberDetailByID($member_id);
+
+    $sql = "SELECT 
+          M.intMemberID,
+          M.vcMemberCode,
+          CONCAT(UPPER(SUBSTRING(M.vcNickName,1,1)),LOWER(SUBSTRING(M.vcNickName,2))) AS vcNickName,  
+          WW.vcWorkingWith,
+          -- WSC.vcWorkingAsSubCat, 
+          -- IFNULL(WSC.vcWorkingAsSubCat,WW.vcWorkingWith) AS MiniProfileDesignation,
+          IFNULL(WA.vcWorkingAS,WW.vcWorkingWith) AS MiniProfileDesignation,
+          M.intMemberAccountTypeID,
+          TIMESTAMPDIFF(year,M.dtDOB, now())  AS Age,
+          M.intHeight,
+          fnCmToFeet(M.intHeight) AS vcHightFeet,
+          E.vcEthnicityName,
+          R.vcReligion,
+          MS.vcMaritalStatus_en AS vcMaritalStatus,
+          EL.vcEducationLevel,    
+          (CASE WHEN  TIMESTAMPDIFF(year,M.dtDOB, now())  >= " . (int)$myDetails['intMemberPreferedAgeFrom'] . " AND  TIMESTAMPDIFF(year,M.dtDOB, now())  <= " . (int)$myDetails['intMemberPreferedAgeTo'] . " THEN 7 ELSE 0 END +
+          CASE WHEN M.intHeight >= " . (int)$myDetails['intMemberPreferedHeightFrom'] . " AND M.intHeight <= " . (int)$myDetails['intMemberPreferedHeightTo'] . " THEN 7 ELSE 0 END +
+          CASE WHEN M.intMaritalStatusID IN (" . $myPreferencesDetails['PreferedMaritalStatusID'] . ") THEN 7 ELSE 0 END +
+          CASE WHEN M.intNoOfChildrenID IN (" . $myPreferencesDetails["PreferednoofchildrenID"] . ") THEN 7 ELSE 0 END +
+          CASE WHEN M.intReligionID IN (" . $myPreferencesDetails["PreferedReligionID"] . ") THEN 7 ELSE 0 END +
+          CASE WHEN M.intEthnicityID IN (" . $myPreferencesDetails["PreferedEthnicityID"] . ") THEN 7 ELSE 0 END +
+          CASE WHEN M.intMotherTongueID IN (" . $myPreferencesDetails["PreferedMotherTongueID"] . ") THEN 7 ELSE 0 END+
+          CASE WHEN P.intProvinceID IN (" . $myPreferencesDetails["PreferedLiveinSrilankaID"] . ") THEN 7 ELSE 0 END+
+          CASE WHEN M.intEducationLevelID IN (" . $myPreferencesDetails["PreferedEducationLevelID"] . ") THEN 7 ELSE 0 END+
+          7+
+          CASE WHEN M.intMonthlyIncomeID IN (" . $myPreferencesDetails["PreferedMonthlyInComeID"] . ") THEN 7 ELSE 0 END+
+          CASE WHEN M.intAssetValueID IN (" . $myPreferencesDetails["PreferedAssetValueID"] . ") THEN 7 ELSE 0 END+
+          CASE WHEN M.intDisabilityID IN (" . $myPreferencesDetails["PreferedDisabilityID"] . ") THEN 7 ELSE 0 END+
+          CASE WHEN M.intDietID IN (" . $myPreferencesDetails["PreferedDietID"] . ") THEN 7 ELSE 0 END) AS ForMe,
+          IFNULL(fnGetPercentageForPartner(M.intMemberID," . $myDetails["intAge"] . "," . $myDetails["intHeight"] . "," . $myDetails["intMaritalStatusID"] . "," . $myDetails["intNoOfChildrenID"] . "," . $myDetails["intReligionID"] . "," . $myDetails["intEthnicityID"] . "," . $myDetails["intMotherTongueID"] . "," . $myDetails["intProvinceID"] . "," . $myDetails["intEducationLevelID"] . ",1," . $myDetails["intMonthlyIncomeID"] . "," . $myDetails["intAssetValueID"] . "," . $myDetails["intDisabilityID"] . "," . $myDetails["intDietID"] . "),0) AS ForPartner,
+          CONCAT(MI.intImageName,MI.vcImageType) AS vcProfilePicture,
+          CASE WHEN MLP.intMemberID IS NULL THEN 0 ELSE 1 END AS IsLiked,
+          (SELECT COUNT(*) FROM MemberImage AS MI WHERE MI.intMemberID = M.intMemberID) AS intImageCount
+        FROM 
+        Member AS M
+        INNER JOIN City 									  AS C 		ON M.intCityIdIfLiveInSL = C.intCityID
+        INNER JOIN District 							  AS D 		ON C.intDistrictID = D.intDistrictID
+        INNER JOIN Province 							  AS P 		ON D.intProvinceID = P.intProvinceID    
+        INNER JOIN WorkingWith 						  AS WW 	ON M.intWorkingWithId = WW.intWorkingWithId
+        LEFT OUTER JOIN WorkingAs           AS WA   ON M.intWorkingAsID = WA.intWorkingAsID
+        INNER JOIN Ethnicity 							  AS E 		ON M.intEthnicityID = E.intEthnicityID    
+        INNER JOIN Religion 							  AS R 		ON M.intReligionID = R.intReligionID
+        INNER JOIN MaritalStatus 					  AS MS 	ON M.intMaritalStatusID = MS.intMaritalStatusID  
+        INNER JOIN EducationLevel 				  AS EL 	ON M.intEducationLevelID = EL.intEducationLevelID    
+        LEFT OUTER JOIN MemberLikedProfile  AS MLP  ON M.intMemberID = MLP.intMemberID_Partner AND MLP.intMemberID = $member_id
+        INNER JOIN MemberImage              AS MI   ON M.intMemberID = MI.intMemberID AND MI.isProfilePicture = 1    
+      WHERE 
+        M.vcGender <> ?
+        AND M.intMemberAccountStatusID IN (4,5,6)";
+
+    $query = $this->db->query($sql, array($gender));
+    return $query->result_array();
+  }
+  // DK end
+
 }
