@@ -482,10 +482,10 @@ class Model_account extends CI_Model
         INNER JOIN MaritalStatus 					  AS MS 	ON M.intMaritalStatusID = MS.intMaritalStatusID  
         INNER JOIN EducationLevel 				  AS EL 	ON M.intEducationLevelID = EL.intEducationLevelID    
         LEFT OUTER JOIN MemberLikedProfile  AS MLP  ON M.intMemberID = MLP.intMemberID_Partner AND MLP.intMemberID = $member_id
-        INNER JOIN MemberImage              AS MI   ON M.intMemberID = MI.intMemberID AND MI.isProfilePicture = 1    
+        INNER JOIN MemberImage              AS MI   ON M.intMemberID = MI.intMemberID AND MI.isProfilePicture = 1   
+        INNER JOIN membervisitedprofile     AS MVP  ON M.intMemberID = MVP.intVisitedID
       WHERE 
-        M.vcGender <> ?
-        AND M.intMemberAccountStatusID IN (4,5,6)";
+      MVP.intMemberID = 96";
 
     $query = $this->db->query($sql, array($gender));
     return $query->result_array();
