@@ -92,18 +92,20 @@ class Account extends Admin_Controller
 		echo json_encode($result);
 	}
 
-	public function visitedProfile()
+	// DK Start
+	public function visitedProfiles()
 	{
 		$this->render_template('account/visited_profile', 'visited profile');
 	}
-	public function GetvisitedProfile()
+	public function GetvisitedProfiles()
 	{
 		$member_id = $this->session->userdata('member_id');
 		$gender = $this->session->userdata('gender');
 
-		$result = $this->Model_account->getMyMatches($member_id, $gender);
+		$result = $this->Model_account->getVisitedProfiles($member_id, $gender);
 		echo json_encode($result);
 	}
+	// DK End
 }
 
 // All Single Area - End
