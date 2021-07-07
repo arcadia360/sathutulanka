@@ -93,7 +93,7 @@ class Account extends Admin_Controller
 	}
 
 	// DK Start
-	public function visitedProfiles()
+	public function VisitedProfiles()
 	{
 		$this->render_template('account/visited_profile', 'visited profile');
 	}
