@@ -430,6 +430,20 @@ class Model_account extends CI_Model
   }
 
   // DK start
+
+  public function getVisitedProfileCount($member_id)
+  {
+    $query = $this->db->query("SELECT COUNT(intMemberID) as noOfVisitedProfile FROM membervisitedprofile WHERE intMemberID = '.$member_id.'");
+
+
+    if ($query->num_rows() > 0) {
+      $row = $query->row();
+      return $row->noOfVisitedProfile;
+    } else {
+      return false;
+    }
+  }
+
   public function getVisitedProfiles($member_id, $gender)
   {
 
