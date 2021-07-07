@@ -92,9 +92,17 @@ class Account extends Admin_Controller
 		echo json_encode($result);
 	}
 
-	public function visitedPtofile()
+	public function visitedProfile()
 	{
 		$this->render_template('account/visited_profile', 'visited profile');
+	}
+	public function GetvisitedProfile()
+	{
+		$member_id = $this->session->userdata('member_id');
+		$gender = $this->session->userdata('gender');
+
+		$result = $this->Model_account->getMyMatches($member_id, $gender);
+		echo json_encode($result);
 	}
 }
 
