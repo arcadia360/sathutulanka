@@ -1,5 +1,12 @@
+ <script>
+     AOS.init();
+ </script>
+ <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
  <style>
      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+     @import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap');
 
      * {
          /* margin: 0;
@@ -11,23 +18,16 @@
      /* slider */
      .slider {
          width: 100%;
-         height: calc(100vh - 66px);
-         /* height: 100vh; */
+         height: 100vh;
          margin: 0 !important;
          position: relative;
-         /* background-color: #222222; */
 
      }
 
      .slider ul {
-         /* width: 100%; */
          margin: 0;
          padding: 0;
          list-style: none;
-         /* background-color: #222222; */
-         /* opacity: 0.5; */
-         /* height: 100vh; */
-
      }
 
      .slider .img-fluid {
@@ -41,13 +41,10 @@
          top: 0;
          left: 0;
          margin: 0 !important;
-         /* background-color: #222222; */
-
-         /* overflow: hidden; */
          animation-iteration-count: infinite;
          animation-duration: 24s;
          overflow: hidden;
-         height: calc(100vh - 66px);
+         height: 100vh;
 
      }
 
@@ -106,18 +103,12 @@
 
      .search-area {
          width: 100%;
-         /* background-color: yellow !important; */
          position: absolute;
-         /* top: 60vh; */
          z-index: 1;
      }
 
      .search {
          padding: 2rem;
-         /* width: 90%; */
-         /* background: rgba(26, 70, 104, 0.51); */
-         /* background-color: red; */
-         /* position: inherit; */
      }
 
      .search-area .form-control {
@@ -141,7 +132,6 @@
          text-transform: capitalize;
          height: 3.2rem !important;
          border-radius: 0;
-         /* background-color: #b52b4a; */
      }
 
      .search-area .container {
@@ -149,59 +139,49 @@
          padding: 30px 100px 30px 100px;
      }
 
-     /* @media (min-width: 768px) {
-        .search {
-            position: relative;
-            top: -30vh;
-            background: rgba(26, 70, 104, 0.51);
-        }
-    } */
+     .site-caption-section {
+         /* background-image: url("../../../resources/images/flower_bg.jpg") !important; */
+         background-color: rgba(255, 0, 0, 0.3);
+
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+     }
+
+     .site-caption-1 p,
+     .site-caption-1 {
+         font-family: 'Merienda', cursive !important;
+         font-size: 0.9em;
+         color: #5c4e3f;
+         z-index: 111;
+         text-align: justify;
+     }
 
      @media (max-width: 768px) {
          .search-area {
              position: relative;
              background: #1A4668;
-
-
-             /* top: 66vh;  2021-06-16 mobile responsive checking */
          }
 
          .slider {
-             height: 25.9vh; /* 2021-06-16 mobile responsive checking */
-
+             height: 25.9vh;
          }
 
          .search-area .container {
-             /* background-color: rgba(26, 70, 104, 0.51); */
              padding: 0 !important;
          }
      }
 
-     @media (max-width: 900px) {
-         .slider {
-             /* height: 60vh; */
-             /* height: auto !important; */
-             /* position: relative; */
-         }
-
-         .search-area {
-             /* top: 0 !important; */
-             /* background-color: blue !important; */
-         }
-     }
 
 
      @media only screen and (min-width: 768px) {
          .search {
              top: -40vh;
          }
-
-
      }
 
      @media only screen and (min-width: 892px) {
          .search-area {
-             /* background-color: pink !important; */
              top: 40vh;
          }
 
@@ -209,14 +189,13 @@
 
      @media only screen and (min-width: 1200px) {
          .search-area {
-             /* background-color: red !important; */
              top: 60vh;
          }
 
      }
  </style>
 
- <div class="container-fluid">
+ <div class="container-fluid" style="margin-top: -56px;">
      <div class="row">
          <div class="slider">
              <ul>
@@ -382,7 +361,34 @@
              </div>
          </div>
      </div>
+     <div class="row site-caption-section mt-2">
+         <div class="container pt-3 pb-2">
+             <div class="row">
+                 <div class="col-md-4">
+                     <img src="<?= base_url("resources/images/sathutulanka_1.png") ?>" alt="Sathutulanka.LK" style="width: 300px; margin: 0 auto !important; display:block;">
+                 </div>
+                 <div class="col-md-8">
+                     <div class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top pt-3 site-caption-1">
+                         <h3 style="font-weight: 400;">Who We Are _______</h3>
+                         <p class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical pt-1" uk-parallax="opacity: 0,1; y: 100,0; viewport: 0.5">
+                             This is the first and only marriage service in Sri Lanka and the world by trust.
+                             Beauty, wealth, caste, education, occupation, nationality, religion, age, horoscope ,expectation, widow are common problems in love affairs and marriages for everyone and everytime..
+                             So what we need is, these matters should not loss our hopes, trust, fortunate and goodness after the onset of marriage, becoming lonely single again...
+                         </p>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
      <div class="row">
 
+         <div class="aos-item" data-aos="flip-up">
+             <div class="aos-item__inner">
+                 <h3>wewewew5</h3>
+             </div>
+         </div>
      </div>
+
+
  </div>

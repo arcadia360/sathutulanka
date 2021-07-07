@@ -15,10 +15,22 @@ window.onscroll = function () {
     var currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
         document.getElementById("navbar").style.top = "0";
-        document.getElementById("mobile-navbar").style.bottom = "10px";
+        if (document.getElementById("mobile-navbar") != null) {
+            document.getElementById("mobile-navbar").style.bottom = "10px";
+        }
+        if (document.getElementById("welcome-container") != null) {
+            document.getElementById("welcome-container").style.marginTop = "-100px";
+        }
     } else {
         document.getElementById("navbar").style.top = "-56px";
-        document.getElementById("mobile-navbar").style.bottom = "-56px";
+        if (document.getElementById("mobile-navbar") != null) {
+            document.getElementById("mobile-navbar").style.bottom = "-56px";
+        }
+
+        if (document.getElementById("welcome-container") != null) {
+            alert("sasa");
+            document.getElementById("welcome-container").style.marginTop = "-100px";
+        }
     }
     prevScrollpos = currentScrollPos;
 }

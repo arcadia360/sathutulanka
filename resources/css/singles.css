@@ -6,6 +6,10 @@
           background-repeat: no-repeat;
       } */
 
+      body {
+          padding-bottom: 56px !important;
+      }
+
       .member-menubar-row {
           display: -webkit-box;
           display: -ms-flexbox;

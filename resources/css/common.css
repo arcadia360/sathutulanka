@@ -16,7 +16,7 @@ body {
     background-repeat: no-repeat;
     min-height: 100vh !important;
     padding-top: 56px !important;
-    padding-bottom: 56px !important;
+    /* padding-bottom: 56px !important; */
 }
 
 a, button, .myelements {
