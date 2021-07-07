@@ -7,7 +7,7 @@ var Member = function () {
 }
 
 getMyMatches =() => {
-    ajaxCall('Account/GetMyMatches', null, function (response) {
+    ajaxCall('Account/GetvisitedProfile', null, function (response) {
         var element = "";
 
         for (let index = 0; index < response.length; index++) {
