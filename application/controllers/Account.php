@@ -95,6 +95,9 @@ class Account extends Admin_Controller
 	// DK Start
 	public function VisitedProfiles()
 	{
+		$member_id = $this->session->userdata('member_id');
+		$result = $this->Model_account->getVisitedProfileCount($member_id);
+
 		$this->render_template('account/visited_profile', 'visited profile');
 	}
 	public function GetvisitedProfiles()
