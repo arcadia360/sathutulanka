@@ -673,7 +673,7 @@ class Registration extends Admin_Controller
 				foreach ($result as $useriamges) {
 					$html .= "<div class='col-lg-3 col-4 text-al-center' style='padding: 10px!important'>
 					<i class='far fa-times-circle' onclick='RemoveImage(" . $useriamges->intImageID . ")' ></i> <br>
-					<img class='img-thumbnail imgUpload' src=" . base_url('resources/images/member/' . $imgFolderName . '/' . $useriamges->intImageName . $useriamges->vcImageType) . "> <br>
+					<img class='img-thumbnail imgUpload' src=" . base_url('resources/images/member/photos/' . $imgFolderName . '/' . $useriamges->intImageName . $useriamges->vcImageType) . "> <br>
 					<div class='text-al-center'>
 					<input name='MyPhotos' type='radio' value=" . $useriamges->intImageID . " id=img" . $useriamges->intImageID . "><br>
 					<label for=img" . $useriamges->intImageID . ">Profile picture</label>
@@ -1133,7 +1133,7 @@ class Registration extends Admin_Controller
 		$result = $this->Model_registration->savePartnerPreference();
 		if ($result == true) {
 			$response['success'] = true;
-			$session_data = array('member_account_status_id' => 4); 
+			$session_data = array('member_account_status_id' => 4);
 			$this->session->set_userdata($session_data);
 		} else {
 			$response['success'] = false;
