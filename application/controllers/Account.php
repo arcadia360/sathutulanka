@@ -1,7 +1,8 @@
 <?php
 
-class Account extends Admin_Controller{
-    public function __construct()
+class Account extends Admin_Controller
+{
+	public function __construct()
 	{
 		parent::__construct();
 		$this->not_logged_in();
@@ -11,7 +12,8 @@ class Account extends Admin_Controller{
 		// header("Expires: 0"); // Proxies.
 	}
 
-    public function MyAccount(){
+	public function MyAccount()
+	{
 
 		$member_id = $this->session->userdata('member_id');
 		$memberData = $this->Model_account->getMemberData($member_id);
@@ -25,7 +27,7 @@ class Account extends Admin_Controller{
 
 
 
-// All Singles Area
+	// All Singles Area
 
 	public function AllSingles()
 	{
@@ -41,10 +43,11 @@ class Account extends Admin_Controller{
 		$this->render_template('account/all_singles', 'All Singles',  $this->data);
 	}
 
-	public function LikeOrDisLikeProfile(){
+	public function LikeOrDisLikeProfile()
+	{
 		$member_id = $this->session->userdata('member_id');
 		$MemberID_Partner =  $this->input->post('MemberID');
-		$gender = $this->session->userdata('gender'); 
+		$gender = $this->session->userdata('gender');
 
 		$result = $this->Model_account->updateLikeOrDisLikeProfile($member_id, $MemberID_Partner, $gender);
 
@@ -57,7 +60,7 @@ class Account extends Admin_Controller{
 			$response['success'] = false;
 			$response['messages'] = 'Error in the database while like profile, Please contact service provider.';
 		}
-		
+
 		echo json_encode($response);
 	}
 
@@ -70,7 +73,7 @@ class Account extends Admin_Controller{
 		$memberPhotosData = $this->Model_account->getMemberPhotosData($PartnerID);
 		$this->data['myData'] = $myData;
 		$this->data['partnerData'] = $partnerData;
-		$this->data['partnerPhotosData'] = $memberPhotosData ;
+		$this->data['partnerPhotosData'] = $memberPhotosData;
 
 		$myBasicPreferencesData = $this->Model_account->getGetBasicPreferencesWithSeparatorMemberDetailByID($member_id);
 		$partnerBasicPreferencesData = $this->Model_account->getGetBasicPreferencesWithSeparatorMemberDetailByID($PartnerID);
@@ -88,7 +91,11 @@ class Account extends Admin_Controller{
 		$result = $this->Model_account->getMyMatches($member_id, $gender);
 		echo json_encode($result);
 	}
+
+	public function visitedPtofile()
+	{
+		$this->render_template('account/visited_profile', 'visited profile');
+	}
 }
 
 // All Single Area - End
-
