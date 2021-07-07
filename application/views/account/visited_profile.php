@@ -35,4 +35,4 @@
       </div>
   </div>
 
-  <script src="<?= base_url("resources/js/pageJS/visitedProfile.js") ?>"></script>
+  <script src="<?= base_url("resources/js/pageJS/visitedProfiles.js") ?>"></script>
