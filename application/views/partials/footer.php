@@ -20,7 +20,13 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js'></script>
 <script src='<?= base_url('resources/js/swiper_script.js') ?>'></script>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <script>
+        AOS.init({
+        easing: 'ease-in-out-sine'
+      });
+
     toastr.options = {
         "closeButton": false,
         "debug": false,
