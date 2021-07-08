@@ -80,7 +80,7 @@
 
      .slider ul li:nth-child(1) {
          animation-name: slider;
-         animation-delay: -3s;
+         animation-delay: -2s;
      }
 
      .slider ul li:nth-child(2) {
@@ -100,6 +100,12 @@
          animation-delay: 16s;
          opacity: 0;
      }
+
+     /* .slider ul li:nth-child(5) {
+         animation-name: slider;
+         animation-delay: 16s;
+         opacity: 0;
+     } */
 
 
      @keyframes slider {
@@ -129,6 +135,8 @@
      body {
          /* font-family: "Roboto", sans-serif; */
          /* font-family: "Poppins", Arial, sans-serif !important; */
+         background-color: #FFFFFF !important;
+         background-image: none !important;
      }
 
      .search-area {
@@ -169,28 +177,32 @@
          padding: 30px 100px 30px 100px;
      }
 
+
+
      .site-caption-section {
          /* background-image: url("../../../resources/images/flower_bg.jpg") !important; */
-         background-color: rgba(255, 0, 0, 0.3);
+         /* background-color: rgba(255, 0, 0, 0.3); */
 
          background-size: cover;
          background-position: center;
          background-repeat: no-repeat;
-         /* clip-path: polygon(0 0, 100% 0, 100% 45%, 50% 56%, 50% 40%, 0 50%); */
-         /* clip-path: polygon(0 0, 100% 0, 100% 47%, 0 24%); */
-         clip-path: polygon(100% 0, 100% 100%, 38% 85%, 0 100%, 0 0);
+
          padding-bottom: 30px;
-         /* height: 600px;
-         margin-bottom: 0; */
      }
+
+
 
      .site-caption-1 p,
      .site-caption-1 {
-         font-family: 'Merienda', cursive !important;
+         /* font-family: 'Merienda', cursive !important; */
          font-size: 0.9em;
          color: #5c4e3f;
          z-index: 111;
          text-align: justify;
+     }
+
+     .service-card {
+         min-height: 100px !important;
      }
 
      .services .icon {
@@ -211,14 +223,23 @@
      }
 
      .services .media-body h4 {
-         font-family: "Poppins", Arial, sans-serif !important;
+         /* font-family: "Poppins", Arial, sans-serif !important; */
          font-weight: 700;
          font-size: 16px;
          color: #000000;
      }
 
+     .services p {
+         font-size: 0.8em;
+     }
+
+     .services .read-more {
+         position: absolute;
+         bottom: 0;
+     }
+
      .our-services-section {
-         background-image: url(<?= base_url("resources/images/flower_bg.jpg") ?>) !important;
+         /* background-image: url(<?= base_url("resources/images/flower_bg.jpg") ?>) !important; */
          background-size: cover;
          background-position: center;
          background-repeat: no-repeat;
@@ -263,7 +284,7 @@
  </style>
 
  <!-- Flip Card -->
- <style>
+ <!-- <style>
      .card-service {
          width: 100%;
          height: 100%;
@@ -273,8 +294,6 @@
          border-radius: 6px;
          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
          cursor: pointer;
-         /* background-color: yellow;
-         z-index: 999999; */
      }
 
      .card-service div {
@@ -304,16 +323,22 @@
      .card-service.flipped {
          transform: rotateY(180deg);
      }
- </style>
+ </style> -->
 
  <div class="container-fluid" style="margin-top: -56px;">
      <div class="row">
-         <div class="slider">
+         <div class="slider" style="clip-path: polygon(100% 0, 100% 84%, 25% 100%, 0 85%, 0 0);">
              <ul>
-                 <li><img src="<?= base_url(); ?>resources/images/slider/img_9.jpg" class="img-fluid"></li>
-                 <li><img src="<?= base_url(); ?>resources/images/slider/img_2.jpg" class="img-fluid"></li>
-                 <li><img src="<?= base_url(); ?>resources/images/slider/img_3.jpg" class="img-fluid"></li>
-                 <li><img src="<?= base_url(); ?>resources/images/slider/img_10.jpg" class="img-fluid"></li>
+                 <li><img src="<?= base_url(); ?>resources/images/slider/img_12.jpg" class="img-fluid"></li>
+                 <!-- <li><img src="<?= base_url(); ?>resources/images/slider/img_9.jpg" class="img-fluid"></li> -->
+                 <!-- <li><img src="<?= base_url(); ?>resources/images/slider/img_2.jpg" class="img-fluid"></li> -->
+                 <li><img src="<?= base_url(); ?>resources/images/slider/img_13.jpg" class="img-fluid"></li>
+
+                 <!-- <li><img src="<?= base_url(); ?>resources/images/slider/img_3.jpg" class="img-fluid"></li> -->
+                 <li><img src="<?= base_url(); ?>resources/images/slider/img_16.jpg" class="img-fluid"></li>
+                 <!-- <li><img src="<?= base_url(); ?>resources/images/slider/img_10.jpg" class="img-fluid"></li> -->
+                 <li><img src="<?= base_url(); ?>resources/images/slider/img_14.jpg" class="img-fluid"></li>
+
              </ul>
          </div>
      </div>
@@ -480,9 +505,9 @@
                  </div>
                  <div class="col-md-8">
                      <div class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top pt-3 site-caption-1">
-                         <h3 style="font-weight: 400;">Who We Are _______</h3>
+                         <h3 style="font-weight: bold; text-align: right;">WHO WE ARE</h3>
                          <p class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical pt-1" uk-parallax="opacity: 0,1; y: 100,0; viewport: 0.1">
-                             This is the first and only marriage service in Sri Lanka and the world by trust.
+                             This is the first and only marriage service in <b>Sri Lanka</b> and the world by trust.
                              Beauty, wealth, caste, education, occupation, nationality, religion, age, horoscope ,expectation, widow are common problems in love affairs and marriages for everyone and everytime..
                              So what we need is, these matters should not loss our hopes, trust, fortunate and goodness after the onset of marriage, becoming lonely single again...
                          </p>
@@ -492,11 +517,11 @@
          </div>
      </div>
 
-     <div class="row our-services-section">
+     <div class="row our-services-section" style="background-color: #f5f5f5; clip-path: polygon(68% 21%, 100% 0, 100% 100%, 0 100%, 0 0);">
          <div class="container transcroller-body">
              <div class="row  pt-5">
-                 <p style="font-weight: 500; text-align: center;" class="col-12 pb-0 mb-0" data-aos="fade-down" data-aos-once="true">Our Services</p>
-                 <h3 style="font-weight: 600; text-align: center;" class="col-12" data-aos="fade-up" data-aos-once="true">What We Offers</h3>
+                 <p style="font-weight: 500;" class="col-12 pb-0 mb-0" data-aos="fade-down" data-aos-once="true">Our Services</p>
+                 <h3 style="font-weight: bold;" class="col-12" data-aos="fade-up" data-aos-once="true">WHAT WE OFFERS</h3>
              </div>
 
 
@@ -505,74 +530,83 @@
                      <div class="back">Yo, what up?</div>
                  </div> -->
 
-             <div class="row  pt-5" data-aos="fade-down" data-aos-once="true">
-               
-                 <div class="col-md-4 services ftco-animate fadeInUp ftco-animated">
-                     <div class="d-block d-flex">
+             <div class="row pt-5 services" data-aos="fade-down" data-aos-once="true">
+
+                 <div class="col-md-4">
+                     <div class="d-block d-flex service-card">
                          <div class="icon d-flex justify-content-center align-items-center">
-                         <i class="far fa-handshake"></i>
+                             <i class="far fa-handshake"></i>
                          </div>
                          <div class="media-body pl-3">
                              <h4 class="heading">Trust</h4>
                              <p>A certificate for the word of trust.</p>
-                             <p><a href="#" class="btn-custom">Read more</a></p>
-                         </div>
-                     </div>
-                     <div class="d-block d-flex">
-                         <div class="icon d-flex justify-content-center align-items-center">
-                         <i class="far fa-heart"></i>
-                         </div>
-                         <div class="media-body pl-3">
-                             <h4 class="heading">Love or Proposal</h4>
-                             <p>Do you like to marry by love or proposal?</p>
-                             <p><a href="#" class="btn-custom">Read more</a></p>
+                             <p class="read-more"><a href="#" class="btn-custom">Read more</a></p>
                          </div>
                      </div>
                  </div>
-                <!--  <div class="col-md-4 services ftco-animate fadeInUp ftco-animated">
-                     <div class="d-block d-flex">
+                 <div class="col-md-4">
+                     <div class="d-block d-flex service-card">
                          <div class="icon d-flex justify-content-center align-items-center">
                              <i class="fas fa-user-shield"></i>
                          </div>
                          <div class="media-body pl-3">
                              <h4 class="heading">Privacy</h4>
                              <p>You and your family's privacy will be 100% secure.</p>
-                             <p><a href="#" class="btn-custom">Read more</a></p>
-                         </div>
-                     </div>
-                     <div class="d-block d-flex">
-                         <div class="icon d-flex justify-content-center align-items-center">
-                         <i class="fas fa-sync-alt"></i>
-                         </div>
-                         <div class="media-body pl-3">
-                             <h4 class="heading">After Marriage</h4>
-                             <p>Think about your life after marriage.</p>
-                             <p><a href="#" class="btn-custom">Read more</a></p>
+                             <p class="read-more"><a href="#" class="btn-custom">Read more</a></p>
                          </div>
                      </div>
                  </div>
-                 <div class="col-md-4 services ftco-animate fadeInUp ftco-animated">
-                     <div class="d-block d-flex">
+                 <div class="col-md-4">
+                     <div class="d-block d-flex service-card">
                          <div class="icon d-flex justify-content-center align-items-center">
                              <i class="fas fa-coins"></i>
                          </div>
                          <div class="media-body pl-3">
                              <h4 class="heading">Save Money</h4>
                              <p>Save your money, Time and energy (No Unnecessary meetings).</p>
-                             <p><a href="#" class="btn-custom">Read more</a></p>
+                             <p class="read-more"><a href="#" class="btn-custom">Read more</a></p>
                          </div>
                      </div>
-                     <div class="d-block d-flex">
+                 </div>
+                 <div class="col-md-4">
+                     <div class="d-block d-flex service-card">
                          <div class="icon d-flex justify-content-center align-items-center">
-                         <i class="far fa-laugh-wink"></i>
+                             <i class="far fa-heart"></i>
+                         </div>
+                         <div class="media-body pl-3">
+                             <h4 class="heading">Love or Proposal</h4>
+                             <p>Do you like to marry by love or proposal?</p>
+                             <p class="read-more"><a href="#" class="btn-custom">Read more</a></p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-4">
+                     <div class="d-block d-flex service-card">
+                         <div class="icon d-flex justify-content-center align-items-center">
+                             <i class="fas fa-sync-alt"></i>
+                         </div>
+                         <div class="media-body pl-3">
+                             <h4 class="heading">After Marriage</h4>
+                             <p>Think about your life after marriage.</p>
+                             <p class="read-more"><a href="#" class="btn-custom">Read more</a></p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-4">
+                     <div class="d-block d-flex service-card">
+                         <div class="icon d-flex justify-content-center align-items-center">
+                             <i class="far fa-laugh-wink"></i>
                          </div>
                          <div class="media-body pl-3">
                              <h4 class="heading">Always Free</h4>
                              <p>Find your life partner without barriers, It's always Free.</p>
-                             <p><a href="#" class="btn-custom">Read more</a></p>
+                             <p class="read-more"><a href="#" class="btn-custom">Read more</a></p>
                          </div>
                      </div>
-                 </div> -->
+                 </div>
+
+
+
              </div>
 
              <!-- <div class="aos-item" data-aos="fade-down" data-aos-once="true">
@@ -792,8 +826,8 @@
 
  </div>
 
- <script>
+ <!-- <script>
      $('.card-service').on('click', function() {
          $('.card-service').toggleClass('flipped');
      });
- </script>
+ </script> -->
