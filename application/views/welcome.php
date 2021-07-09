@@ -1,5 +1,29 @@
  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+ <!-- <link rel='stylesheet' href='https://getuikit.com/assets/uikit/dist/css/uikit.css?nc=868'> -->
 
+ <!-- UI Kit Overriding -->
+ <style>
+     *+h1,
+     *+.uk-h1,
+     *+h2,
+     *+.uk-h2,
+     *+h3,
+     *+.uk-h3,
+     *+h4,
+     *+.uk-h4,
+     *+h5,
+     *+.uk-h5,
+     *+h6,
+     *+.uk-h6,
+     *+.uk-heading-small,
+     *+.uk-heading-medium,
+     *+.uk-heading-large,
+     *+.uk-heading-xlarge,
+     *+.uk-heading-2xlarge {
+         margin-top: 0;
+     }
+ </style>
+ <!-- Overriding End -->
 
  <style>
      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
@@ -343,7 +367,7 @@
          </div>
      </div>
      <div class="row">
-         <div class="search-area">
+         <div class="search-area" data-aos="fade-in" data-aos-once="true">
              <div class="search">
                  <!-- <div class="row"> -->
                  <div class="container">
@@ -501,12 +525,13 @@
          <div class="container">
              <div class="row">
                  <div class="col-md-4">
-                     <img src="<?= base_url("resources/images/sathutulanka_1.png") ?>" alt="Sathutulanka.LK" style="width: 300px; margin: 0 auto !important; display:block;">
+                     <img src="<?= base_url("resources/images/sathutulanka_1.png") ?>" alt="Sathutulanka.LK" data-aos="zoom-out" data-aos-once="true" style="width: 300px;" class="mt-3">
                  </div>
                  <div class="col-md-8">
-                     <div class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top pt-3 site-caption-1">
-                         <h3 style="font-weight: bold; text-align: right;">WHO WE ARE</h3>
-                         <p class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical pt-1" uk-parallax="opacity: 0,1; y: 100,0; viewport: 0.1">
+                     <div class="pt-3 site-caption-1">
+                         <p style="font-weight: 500; text-align: right;" class="col-12 pb-0 mb-0" data-aos="fade-down" data-aos-once="true">Sathutulanka.lk</p>
+                         <h3 style="font-weight: bold; text-align: right;" data-aos="fade-left" data-aos-once="true">WHO WE ARE</h3>
+                         <p data-aos="fade-up" data-aos-once="true">
                              This is the first and only marriage service in <b>Sri Lanka</b> and the world by trust.
                              Beauty, wealth, caste, education, occupation, nationality, religion, age, horoscope ,expectation, widow are common problems in love affairs and marriages for everyone and everytime..
                              So what we need is, these matters should not loss our hopes, trust, fortunate and goodness after the onset of marriage, becoming lonely single again...
@@ -520,18 +545,11 @@
      <div class="row our-services-section" style="background-color: #f5f5f5; clip-path: polygon(68% 21%, 100% 0, 100% 100%, 0 100%, 0 0);">
          <div class="container transcroller-body">
              <div class="row  pt-5">
-                 <p style="font-weight: 500;" class="col-12 pb-0 mb-0" data-aos="fade-down" data-aos-once="true">Our Services</p>
+                 <p style="font-weight: 500; font-size: 0.9em;" class="col-12 pb-0 mb-0" data-aos="fade-down" data-aos-once="true">Our Services</p>
                  <h3 style="font-weight: bold;" class="col-12" data-aos="fade-up" data-aos-once="true">WHAT WE OFFERS</h3>
              </div>
 
-
-             <!-- <div class="card-service">
-                     <div class="front">Click to flip Click to flip Click to flip Click to flip Click to flip</div>
-                     <div class="back">Yo, what up?</div>
-                 </div> -->
-
-             <div class="row pt-5 services" data-aos="fade-down" data-aos-once="true">
-
+             <div class="row pt-5 services" data-aos="fade-right" data-aos-once="true">
                  <div class="col-md-4">
                      <div class="d-block d-flex service-card">
                          <div class="icon d-flex justify-content-center align-items-center">
@@ -540,10 +558,22 @@
                          <div class="media-body pl-3">
                              <h4 class="heading">Trust</h4>
                              <p>A certificate for the word of trust.</p>
-                             <p class="read-more"><a href="#" class="btn-custom">Read more</a></p>
+                             <p class="read-more"><a href="#modal-trust" uk-toggle>Read More</a></p>
                          </div>
                      </div>
                  </div>
+                 <!-- Read more modal -->
+                 <div id="modal-trust" uk-modal>
+                     <div class="uk-modal-dialog uk-modal-body">
+                         <h2 class="uk-modal-title">A certificate for the word of trust....</h2>
+                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                         <p class="uk-text-right">
+                             <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                             <button class="uk-button uk-button-primary" type="button">Save</button>
+                         </p>
+                     </div>
+                 </div>
+                 <!-- End of read more modal -->
                  <div class="col-md-4">
                      <div class="d-block d-flex service-card">
                          <div class="icon d-flex justify-content-center align-items-center">
@@ -552,10 +582,22 @@
                          <div class="media-body pl-3">
                              <h4 class="heading">Privacy</h4>
                              <p>You and your family's privacy will be 100% secure.</p>
-                             <p class="read-more"><a href="#" class="btn-custom">Read more</a></p>
+                             <p class="read-more"><a href="#modal-Privacy" uk-toggle>Read More</a></p>
                          </div>
                      </div>
                  </div>
+                 <!-- Read more modal -->
+                 <div id="modal-Privacy" uk-modal>
+                     <div class="uk-modal-dialog uk-modal-body">
+                         <h2 class="uk-modal-title">Headline</h2>
+                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                         <p class="uk-text-right">
+                             <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                             <button class="uk-button uk-button-primary" type="button">Save</button>
+                         </p>
+                     </div>
+                 </div>
+                 <!-- End of read more modal -->
                  <div class="col-md-4">
                      <div class="d-block d-flex service-card">
                          <div class="icon d-flex justify-content-center align-items-center">
