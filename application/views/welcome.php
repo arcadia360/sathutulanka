@@ -1,5 +1,5 @@
  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
- <!-- <link rel='stylesheet' href='https://getuikit.com/assets/uikit/dist/css/uikit.css?nc=868'> -->
+ <link rel='stylesheet' href='https://getuikit.com/assets/uikit/dist/css/uikit.css?nc=868'>
 
  <!-- UI Kit Overriding -->
  <style>
@@ -251,6 +251,7 @@
          font-weight: 700;
          font-size: 16px;
          color: #000000;
+         margin: 0 !important;
      }
 
      .services p {
@@ -260,6 +261,17 @@
      .services .read-more {
          position: absolute;
          bottom: 0;
+     }
+
+     *+p,
+     *+ul,
+     *+ol,
+     *+dl,
+     *+pre,
+     *+address,
+     *+fieldset,
+     *+figure {
+         margin-top: 0 !important;
      }
 
      .our-services-section {
@@ -563,14 +575,17 @@
                      </div>
                  </div>
                  <!-- Read more modal -->
-                 <div id="modal-trust" uk-modal>
-                     <div class="uk-modal-dialog uk-modal-body">
-                         <h2 class="uk-modal-title">A certificate for the word of trust....</h2>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                         <p class="uk-text-right">
-                             <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                             <button class="uk-button uk-button-primary" type="button">Save</button>
+                 <div id="modal-trust" class="uk-flex-top" uk-modal>
+                     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                         <button class="uk-modal-close-outside" type="button" uk-close></button>
+                         <h2 class="uk-modal-title">A certificate for the word of trust</h2>
+                         <p>
+                             It is our belief that truth and honesty conquer in the end and never regret. By visiting to homes of marriage seekers,
+                             we inspect over 70 important matters are true and correct with government accepted certificates.
+                             The specialty of this service is that trust is not limited to just verification of an identity copy,
+                             a telephone number, an email address, a letter or application sent by an applicant.
                          </p>
+
                      </div>
                  </div>
                  <!-- End of read more modal -->
