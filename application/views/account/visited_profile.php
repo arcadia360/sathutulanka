@@ -19,13 +19,14 @@
 
       <div class="mt-5 member-menubar">
           <div class="member-menubar-row">
-              <!-- <button class="btn btn-sm btn-light col-md-3 active" id="btnAllSingles">All Singles <span class="float-right uk-badge"><?= $allSinglesCount['AllSinglesCount'] ?></span></button> -->
-              <!-- <button class="btn btn-sm btn-light col-md-3" id="btnMyMatches">My Matches <span class="float-right uk-badge"><?= count($myMatchesCount)  ?></span></button> -->
+              <button class="btn btn-sm btn-light col-md-3 active" id="btnAllSingles">All Singles <span class="float-right uk-badge"><?= $allSinglesCount['AllSinglesCount'] ?></span></button>
+              <button class="btn btn-sm btn-light col-md-3" id="btnMyMatches">My Matches <span class="float-right uk-badge"><?= count($myMatchesCount)  ?></span></button>
               <button class="btn btn-sm btn-light col-md-3">Accepted Members <span class="float-right uk-badge">10</span></button>
               <button class="btn btn-sm btn-light col-md-3">New Matches <span class="float-right uk-badge">1</span></button>
               <button class="btn btn-sm btn-light col-md-3">My Favourites <span class="float-right uk-badge">1</span></button>
-              <button class="btn btn-sm btn-light col-md-3">Members Intrusted In Me <span class="float-right uk-badge">1</span></button>
-              <button class="btn btn-sm btn-light col-md-3">Visited Profiles <span class="float-right uk-badge">1</span></button>
+              <button class="btn btn-sm btn-light col-md-3">Members Intrusted In Me <span class="float-right uk-badge"></span></button>
+              <!-- <button class="btn btn-sm btn-light col-md-3">Visited Profiles <span class="float-right uk-badge">1</span></button> -->
+              <a href="<?= base_url('Account/VisitedProfiles') ?>" class="btn btn-sm btn-light col-md-3">Visited Profiles <span class="float-right uk-badge"><?= $visitedProfileCountCount ?></span></a>
               <button class="btn btn-sm btn-light col-md-3">Blocked Profiles <span class="float-right uk-badge">1</span></button>
           </div>
       </div>
