@@ -37,8 +37,11 @@ class Account extends Admin_Controller
 		$AllSinglesCount = $this->Model_account->getAllSinglesCount();
 		$MyMatchesCount = $this->Model_account->getMyMatches($member_id, $gender);
 
+		$visitedProfileCountCount = $this->Model_account->getVisitedProfileCount($member_id); //dk added 2021-7-11
+
 		$this->data['allSinglesCount'] = $AllSinglesCount;
 		$this->data['myMatchesCount'] = $MyMatchesCount;
+		$this->data['visitedProfileCountCount'] = $visitedProfileCountCount;
 
 		$this->render_template('account/all_singles', 'All Singles',  $this->data);
 	}
@@ -77,6 +80,7 @@ class Account extends Admin_Controller
 
 		$myBasicPreferencesData = $this->Model_account->getGetBasicPreferencesWithSeparatorMemberDetailByID($member_id);
 		$partnerBasicPreferencesData = $this->Model_account->getGetBasicPreferencesWithSeparatorMemberDetailByID($PartnerID);
+		$this->Model_account->updateVisitedProfile($member_id, $PartnerID); //update member visited profile - dk added 2021-7-11
 		$this->data['myBasicPreferencesData'] = $myBasicPreferencesData;
 		$this->data['partnerBasicPreferencesData'] = $partnerBasicPreferencesData;
 
