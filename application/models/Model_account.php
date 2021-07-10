@@ -431,6 +431,21 @@ class Model_account extends CI_Model
 
   // DK start
 
+  public function updateVisitedProfile($member_id, $PartnerID)
+  {
+    $query = $this->db->query("SELECT * FROM membervisitedprofile WHERE intMemberID = '" . $member_id . "' AND intVisitedID = '" . $PartnerID . "'");
+    if ($query->num_rows() < 1) {
+      $data = array(
+        'intMemberID' => $member_id,
+        'intVisitedID' => $PartnerID
+      );
+      $this->db->insert('membervisitedprofile', $data);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   public function getVisitedProfileCount($member_id)
   {
     $query = $this->db->query("SELECT COUNT(intMemberID) as noOfVisitedProfile FROM membervisitedprofile WHERE intMemberID = '.$member_id.'");
