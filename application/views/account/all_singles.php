@@ -45,9 +45,9 @@
               <button class="btn btn-sm btn-light col-md-3">Accepted Members <span class="float-right uk-badge">10</span></button>
               <button class="btn btn-sm btn-light col-md-3">New Matches <span class="float-right uk-badge">1</span></button>
               <button class="btn btn-sm btn-light col-md-3">My Favourites <span class="float-right uk-badge">1</span></button>
-              <button class="btn btn-sm btn-light col-md-3">Members Intrusted In Me <span class="float-right uk-badge">1</span></button>
+              <button class="btn btn-sm btn-light col-md-3">Members Intrusted In Me <span class="float-right uk-badge"></span></button>
               <!-- <button class="btn btn-sm btn-light col-md-3">Visited Profiles <span class="float-right uk-badge">1</span></button> -->
-              <a href="<?= base_url('Account/VisitedProfiles') ?>" class="btn btn-sm btn-light col-md-3">Visited Profiles <span class="float-right uk-badge">1</span></a>
+              <a href="<?= base_url('Account/VisitedProfiles') ?>" class="btn btn-sm btn-light col-md-3">Visited Profiles <span class="float-right uk-badge"><?= $visitedProfileCountCount ?></span></a>
               <button class="btn btn-sm btn-light col-md-3">Blocked Profiles <span class="float-right uk-badge">1</span></button>
           </div>
       </div>
