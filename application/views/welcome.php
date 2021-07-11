@@ -274,6 +274,11 @@
          margin-top: 0 !important;
      }
 
+     .uk-modal-dialog p,
+     .uk-modal-dialog div {
+         font-size: 0.8em;
+     }
+
      .our-services-section {
          /* background-image: url(<?= base_url("resources/images/flower_bg.jpg") ?>) !important; */
          background-size: cover;
@@ -574,21 +579,184 @@
                          </div>
                      </div>
                  </div>
-                 <!-- Read more modal -->
+
+                 <!-- Read more modal - trust -->
                  <div id="modal-trust" class="uk-flex-top" uk-modal>
                      <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
                          <button class="uk-modal-close-outside" type="button" uk-close></button>
                          <h2 class="uk-modal-title">A certificate for the word of trust</h2>
                          <p>
                              It is our belief that truth and honesty conquer in the end and never regret. By visiting to homes of marriage seekers,
-                             we inspect over 70 important matters are true and correct with government accepted certificates.
+                             we inspect <b><a href="#modal-70-important" uk-toggle>over 70 important</a></b> matters are true and correct with government accepted certificates.
                              The specialty of this service is that trust is not limited to just verification of an identity copy,
                              a telephone number, an email address, a letter or application sent by an applicant.
                          </p>
 
                      </div>
                  </div>
-                 <!-- End of read more modal -->
+                 <!-- End of read more modal - trust -->
+
+                 <!-- modal - over 70 important -->
+                 <div id="modal-70-important" class="uk-flex-top" uk-modal>
+                     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                         <button class="uk-modal-close-outside" type="button" uk-close></button>
+                         <h2 class="uk-modal-title">70 Important Mattters</h2>
+                         <hr class="uk-divider-icon">
+                         <div class="row">
+                             <div class="col-3">Basic Information</div>
+                             <div class="col-9">
+                                 - 01. Name
+                                 02. Age
+                                 03. Marital Status
+                             </div>
+                         </div>
+                         <hr>
+                         <div class="row">
+                             <div class="col-3">Residences and Contacts</div>
+                             <div class="col-9">
+                                 - 04. Permanent Address
+                                 05. Postal Address
+                                 06. Residence ownership
+                                 07. Native District and Lived places
+                                 08. Contacts</div>
+                         </div>
+                         <hr>
+                         <div class="row">
+                             <div class="col-3">Physical Status</div>
+                             <div class="col-9">
+                                 - 09. Height
+                                 10. Weight
+                                 11. Body Shape/Type
+                                 12. Skin Color
+                                 13. Disability if any
+                                 14. Blood Group
+                                 15. Health Information</div>
+                         </div>
+                         <hr>
+                         <div class="row">
+                             <div class="col-3">Background</div>
+                             <div class="col-9">
+                                 - 16. Mother Tongue
+                                 17. Nationality
+                                 18. Religion
+                                 19. Caste
+                                 20. Family attitudes about castes
+                                 21. If involved in a criminal or civil case
+                             </div>
+                         </div>
+                         <hr>
+                         <div class="row">
+                             <div class="col-3">Life Style</div>
+                             <div class="col-9">
+                                 - 22. Diet
+                                 23. Drink
+                                 24. Smoke
+                                 25. Languages
+                                 26. Dress and Makeup
+                                 27. Used to travel
+                                 28. How to speak parents (Amma or Mammy... etc.)
+                                 29. Attitudes about Customs
+                                 30.The nature of the home</div>
+                         </div>
+                         <hr>
+                         <div class="row">
+                             <div class="col-3">Partners attitudes</div>
+                             <div class="col-9">
+                                 - 31. Open Personality
+                                 32. Conscious Personality
+                                 33. Extrovert Personality
+                                 34. Introvert Personality
+                                 35. Agreeable Personality
+                                 36. Neurotic Personality
+                                 37. Family Bond
+                                 38. Attitudes towards Money
+                                 39. Attitudes towards Religion
+                                 40. Physically Activities
+                                 41. Attitudes towards Politics
+                                 42. Attitudes towards Knowledge and education
+                                 43. Love Affairs
+                                 44. The importance of male & female Virginity
+                                 45. Interests and Hobbies
+                                 46. Favorite People and Things</div>
+                         </div>
+                         <hr>
+                         <div class="row">
+                             <div class="col-3">Education</div>
+                             <div class="col-9">
+                                 - 47. Education Level
+                                 48. Education field
+                                 49. Schools/ Universities</div>
+                         </div>
+                         <hr>
+                         <div class="row">
+                             <div class="col-3">Career</div>
+                             <div class="col-9">
+                                 - 50. Employment Section
+                                 51. Designation
+                                 52. Workplace
+                                 53. Nature of Occupation or Business
+                                 54. Income/Salary and Previous Service Information</div>
+                         </div>
+                         <hr>
+                         <div class="row">
+                             <div class="col-3">Personal Assets</div>
+                             <div class="col-9">
+                                 - 55. Assets
+                                 56. Ownership, Nature and Issues of Assets</div>
+                         </div>
+                         <hr>
+                         <div class="row">
+                             <div class="col-3">Family</div>
+                             <div class="col-9">
+                                 - 57. The present address of the family
+                                 58. Fathers Name and Caste
+                                 59. Fathers Current Information
+                                 60. Mothers Name and Caste
+                                 61. Mothers Current Information
+                                 62. Sibling Information
+                                 63. Family type (rural or urban / middle or high income status)
+                                 64. Family Special Information (Religious, Cultural, Legal Issues, etc.)</div>
+                         </div>
+                         <hr>
+                         <div class="row">
+                             <div class="col-3">After marriage</div>
+                             <div class="col-9">
+                                 - 65. Proposers plans to live after marriage (Residence / Expatriation etc.)
+                                 66. The need of the proponents family
+                                 67. Future employment and educational activities of the proponent
+                                 68. Number of expectant children
+                                 69. Other Requirements of the Proponent</div>
+                         </div>
+                         <hr>
+                         <div class="row">
+                             <div class="col-3">Partner Preferences and Other Information</div>
+                             <div class="col-9">
+                                 - 70. Preferences of the proposed partner and other specific information of the proposer</div>
+                         </div>
+                         <hr>
+                         <div class="row">
+                             <div class="col-3">Astrology</div>
+                             <div class="col-9">
+                                 - 71. Horoscope
+                                 72. Attitudes of the family in astrology</div>
+                         </div>
+                         <hr>
+                         <div class="row">
+                             <div class="col-3">Photos and Videos</div>
+                             <div class="col-9">
+                                 - 73. More photos and videos are collected for clear identification. It gives you the opportunity to save time, money, energy on visiting homes and people.</div>
+                         </div>
+                         <hr>
+                         <div class="row">
+                             <div class="col-3">Basic Information</div>
+                             <div class="col-9">- 01. Name 02. Age 03. Marital Status</div>
+                         </div>
+                         <hr class="uk-divider-icon">
+
+                     </div>
+                 </div>
+                 <!-- End of modal - over 70 important -->
+
                  <div class="col-md-4">
                      <div class="d-block d-flex service-card">
                          <div class="icon d-flex justify-content-center align-items-center">
@@ -597,22 +765,24 @@
                          <div class="media-body pl-3">
                              <h4 class="heading">Privacy</h4>
                              <p>You and your family's privacy will be 100% secure.</p>
-                             <p class="read-more"><a href="#modal-Privacy" uk-toggle>Read More</a></p>
+                             <p class="read-more"><a href="#modal-privacy" uk-toggle>Read More</a></p>
                          </div>
                      </div>
                  </div>
-                 <!-- Read more modal -->
-                 <div id="modal-Privacy" uk-modal>
-                     <div class="uk-modal-dialog uk-modal-body">
-                         <h2 class="uk-modal-title">Headline</h2>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                         <p class="uk-text-right">
-                             <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                             <button class="uk-button uk-button-primary" type="button">Save</button>
+
+                 <!-- Read more modal - privacy -->
+                 <div id="modal-privacy" class="uk-flex-top" uk-modal>
+                     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                         <button class="uk-modal-close-outside" type="button" uk-close></button>
+                         <h2 class="uk-modal-title">You and your family’s privacy will be 100% secure</h2>
+                         <p>
+                             Your all information will be visible to others under your control.
+                             We value your privacy above all and you can get to know each other better without revealing your identity. (Free and secure chat box)
                          </p>
                      </div>
                  </div>
-                 <!-- End of read more modal -->
+                 <!-- End of read more modal - privacy -->
+
                  <div class="col-md-4">
                      <div class="d-block d-flex service-card">
                          <div class="icon d-flex justify-content-center align-items-center">
@@ -621,10 +791,25 @@
                          <div class="media-body pl-3">
                              <h4 class="heading">Save Money</h4>
                              <p>Save your money, Time and energy (No Unnecessary meetings).</p>
-                             <p class="read-more"><a href="#" class="btn-custom">Read more</a></p>
+                             <p class="read-more"><a href="#modal-save-money" uk-toggle>Read More</a></p>
                          </div>
                      </div>
                  </div>
+
+                 <!-- Read more modal - save-money -->
+                 <div id="modal-save-money" class="uk-flex-top" uk-modal>
+                     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                         <button class="uk-modal-close-outside" type="button" uk-close></button>
+                         <h2 class="uk-modal-title">Save your Money, Time and Energy (No unnecessary meetings)</h2>
+                         <p>
+                             Modern internet technology is fully utilized allowing to add videos, photos and details of the marriage seekers so as to get a true,
+                             clear and complete idea about them without any conditions. This will help you and your family not to spend valuable money,
+                             time and energy over and over to inspect homes with unnecessary meetings.
+                         </p>
+                     </div>
+                 </div>
+                 <!-- End of read more modal - save-money -->
+
                  <div class="col-md-4">
                      <div class="d-block d-flex service-card">
                          <div class="icon d-flex justify-content-center align-items-center">
@@ -633,10 +818,25 @@
                          <div class="media-body pl-3">
                              <h4 class="heading">Love or Proposal</h4>
                              <p>Do you like to marry by love or proposal?</p>
-                             <p class="read-more"><a href="#" class="btn-custom">Read more</a></p>
+                             <p class="read-more"><a href="#modal-Proposal" uk-toggle>Read More</a></p>
                          </div>
                      </div>
                  </div>
+
+                 <!-- Read more modal - Proposal -->
+                 <div id="modal-Proposal" class="uk-flex-top" uk-modal>
+                     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                         <button class="uk-modal-close-outside" type="button" uk-close></button>
+                         <h2 class="uk-modal-title">Do you like to marry by love or proposal?</h2>
+                         <p>
+                             Most of love affairs are not successful due to family reasons. Love couldn’t be expressed to unknown persons when you feel the problems of an unmatching person.
+                             There is also a lot frustrated singles whom are forced to live through parents choice. Considering all the facts of a love marriage,
+                             we assure you with confidence that you have a trustworthy space here to find your partner by love or proposal without loosing your family’s choice.
+                         </p>
+                     </div>
+                 </div>
+                 <!-- End of read more modal - Proposal -->
+
                  <div class="col-md-4">
                      <div class="d-block d-flex service-card">
                          <div class="icon d-flex justify-content-center align-items-center">
@@ -645,10 +845,26 @@
                          <div class="media-body pl-3">
                              <h4 class="heading">After Marriage</h4>
                              <p>Think about your life after marriage.</p>
-                             <p class="read-more"><a href="#" class="btn-custom">Read more</a></p>
+                             <p class="read-more"><a href="#modal-After-Marriage" uk-toggle>Read More</a></p>
                          </div>
                      </div>
                  </div>
+
+                 <!-- Read more modal - After Marriage -->
+                 <div id="modal-After-Marriage" class="uk-flex-top" uk-modal>
+                     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                         <button class="uk-modal-close-outside" type="button" uk-close></button>
+                         <h2 class="uk-modal-title">Think about your life after marriage</h2>
+                         <p>
+                             Let us think deeply about life after marriage. Unfortunately, All your efforts will be waste if you have to seperate yourselves in a short period of time due to mismatch of your ideas.
+                             There is a special space here to talk about thoughts of after marriage before building a relationship such as personal goals, prefer to live,
+                             the expectations of both parents, how your jobs affect the marriage life?, further education,
+                             about children and all other matters important to you after marriage.
+                         </p>
+                     </div>
+                 </div>
+                 <!-- End of read more modal - After Marriage -->
+
                  <div class="col-md-4">
                      <div class="d-block d-flex service-card">
                          <div class="icon d-flex justify-content-center align-items-center">
@@ -657,10 +873,23 @@
                          <div class="media-body pl-3">
                              <h4 class="heading">Always Free</h4>
                              <p>Find your life partner without barriers, It's always Free.</p>
-                             <p class="read-more"><a href="#" class="btn-custom">Read more</a></p>
+                             <p class="read-more"><a href="#modal-Always-Free" uk-toggle>Read More</a></p>
                          </div>
                      </div>
                  </div>
+
+                 <!-- Read more modal - Always Free -->
+                 <div id="modal-Always-Free" class="uk-flex-top" uk-modal>
+                     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                         <button class="uk-modal-close-outside" type="button" uk-close></button>
+                         <h2 class="uk-modal-title">Find your life partner without barriers, it is always free</h2>
+                         <p>
+                             From registration onwards, every member gets totally free and fully secure communication platform to send interests and exchange ideas under his or her own control.
+                             You will be informed about matches by automated message system daily and free of charge.
+                         </p>
+                     </div>
+                 </div>
+                 <!-- End of read more modal - Always Free -->
 
 
 
