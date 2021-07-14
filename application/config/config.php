@@ -23,9 +23,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-// $config['base_url'] = 'http://localhost/Arcadia360/SATHUTULANKA/'; //Viraj
+$config['base_url'] = 'http://localhost/Arcadia360/SATHUTULANKA/'; //Viraj
 // $config['base_url'] = 'http://localhost/sathutulanka/'; //DK
-$config['base_url'] = 'http://localhost:8012/sathutulanka/'; //Ramod
+// $config['base_url'] = 'http://localhost:8012/sathutulanka/'; //Ramod
 
 /*
 |--------------------------------------------------------------------------
