@@ -40,6 +40,12 @@
          box-sizing: border-box;
      } */
 
+    .modal-title{
+        color: #FFFFFF;
+        font-size: 1.8em;
+        align-items: center;
+        /* font-weight: bold; */
+    }
 
     /* slider */
     .slider {
@@ -268,6 +274,7 @@
         align-items: center;
         font-weight: bolder;
         color: #FFFFFF;
+        border-radius: 10px;
     }
 
     .step-title {
@@ -279,6 +286,7 @@
         padding-left: 10px;
         padding-right: 10px;
         width: 100%;
+        border-radius: 10px;
     }
 
     .steps-element {
@@ -289,6 +297,7 @@
             0 1.3px 17.9px rgba(0, 0, 0, 0.054),
             0 2.5px 33.4px rgba(0, 0, 0, 0.065),
             0 6px 80px rgba(0, 0, 0, 0.09);
+        border-radius: 10px;
 
     }
 
@@ -565,7 +574,7 @@
         </div>
     </div>
 
-    <div class="row our-services-section" style="background-color: #f5f5f5; clip-path: polygon(68% 21%, 100% 0, 100% 100%, 33% 90%, 0 100%, 0 0); padding-bottom: 30px;">
+    <div class="row our-services-section" style="background-color: #f5f5f5; clip-path: polygon(75% 14%, 100% 0, 100% 76%, 0 100%, 0 0); padding-bottom: 100px;">
         <div class="container transcroller-body">
             <div class="row  pt-5">
                 <p style="font-weight: 500; font-size: 0.9em;" class="col-12 pb-0 mb-0">Our Services</p>
@@ -995,7 +1004,7 @@
         </div>
         <!-- End of 70 importan modal -->
     </div>
-    <div class="row steps-section mt-2">
+    <div class="row steps-section mt-2 mb-5">
         <div class="container">
             <div class="row pt-2">
                 <p style="font-weight: 500; font-size: 0.9em; text-align: right;" class="col-12 pb-0 mb-0">Steps</p>
@@ -1005,14 +1014,16 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-12">
                     <div class="steps-element d-flex" style=" display: table-cell; vertical-align: middle;">
                         <p class="step-header" style="background-color: #4BB75E; margin: 0 !important;">1
-                        <span style="font-size: 0.25em !important; position: absolute; bottom:0px;">STEP</span></p>
+                            <span style="font-size: 0.25em !important; position: absolute; bottom:0px;">STEP</span>
+                        </p>
                         <p class="step-title" style="margin: 0;">Post Your Profile Free Of Charge</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-12">
                     <div class="steps-element d-flex" style=" display: table-cell;  vertical-align: middle;">
                         <p class="step-header" style="background-color: #FFC232; margin: 0 !important;">2
-                        <span style="font-size: 0.25em !important; position: absolute; bottom:0px;">STEP</span></p>
+                            <span style="font-size: 0.25em !important; position: absolute; bottom:0px;">STEP</span>
+                        </p>
                         <p class="step-title">Search Your Partner
                             <span style="font-size: 0.7em !important; position: absolute; bottom:20px;">(All Over Sri Lanka)</span>
                         </p>
@@ -1021,7 +1032,8 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-12">
                     <div class="steps-element d-flex" style=" display: table-cell;  vertical-align: middle;">
                         <p class="step-header" style="background-color: #ED2C52; margin: 0 !important;">3
-                        <span style="font-size: 0.25em !important; position: absolute; bottom:0px;">STEP</span></p>
+                            <span style="font-size: 0.25em !important; position: absolute; bottom:0px;">STEP</span>
+                        </p>
                         <p class="step-title">Marry If Trust Verified
                             <span style="font-size: 0.7em !important; position: absolute; bottom:20px;">(Trust Guaranteed By Our Service)</span>
                         </p>

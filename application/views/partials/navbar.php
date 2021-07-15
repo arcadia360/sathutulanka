@@ -285,8 +285,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="exampleModalLabel"><?= lang('welcome_to_login') ?></h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <h4><i class="fas fa-times"></i></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width: 72px; outline: none;">
+                        <h4 style="color: #FFFFFF; font-size: 30px; margin: 0;"><i class="fas fa-times"></i></h4>
                     </button>
                 </div>
                 <div class="modal-body">
