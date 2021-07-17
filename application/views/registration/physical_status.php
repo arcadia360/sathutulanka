@@ -249,6 +249,9 @@
 	}
 	var model = new Member();
 	model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+
+
+
 	var loadDisabilityUrl = '<?php echo base_url(); ?>Registration/loadDisabilityDetails';
 	let navigateTo = '<?= base_url('Registration/residence') ?>';
 </script>
