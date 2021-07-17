@@ -75,16 +75,17 @@
         <label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('policeReport') ?></label>
         <div class="row">
           <div class="col-6">
-            <label class="custom-control custom-radio">
-              <input id="policeReport1" name="policeReport" type="radio" value="1" checked>
-              <span class="custom-control-description"><?= lang('canProvide') ?></span>
-            </label>
+            <div class="radio icheck-midnightblue img-radio-align">
+              <input type="radio" name="policeReport" value="1" id="policeReport1" checked>
+              <label for="policeReport1">Can provide</label>
+            </div>
           </div>
           <div class="col-6">
-            <label class="custom-control custom-radio">
-              <input id="policeReport2" name="policeReport" type="radio" value="0">
-              <span class="custom-control-description"><?= lang('cantProvide') ?></span>
-            </label>
+            <div class="radio icheck-midnightblue img-radio-align">
+              <input type="radio" name="policeReport" value="0" id="policeReport2">
+              <label for="policeReport2"> Can not provide</label>
+            </div>
+
           </div>
         </div>
       </div>
