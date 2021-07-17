@@ -3,7 +3,7 @@ loadDisabilityDetails()
 function loadDisabilityDetails() {
     $.ajax({
         type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/loadDisabilityDetails',
+        url: loadDisabilityUrl,
         async: false,
         dataType: 'json',
         success: function(data) {
@@ -14,16 +14,19 @@ function loadDisabilityDetails() {
             }
         },
         error: function() {
-            alert('failed to load countries');
+            toastr["error"]("Internal Error,Failed to load disability selection data");
         }
     });
 }
 
-var Member = function() {
-    this.MemberID = 0;
-}
-var model = new Member();
-model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+// ================================================================
+// declared in physicalstatus.php
+// var Member = function() {
+//     this.MemberID = 0;
+// }
+// var model = new Member();
+// model.MemberID = (<?= $this->session->userdata('member_id') ?>);  
+// ================================================================
 
 ajaxCall('registration/getMemberData', model, function(response) {
     // $("#Supplier").val(response.intHeight);
@@ -100,7 +103,7 @@ $('#btnSubmit').click(function() {
                         timer: 2000
                     }).then((result) => {
                         if (result.dismiss === Swal.DismissReason.timer) {
-                            window.location.href = "<?= base_url('Registration/residence') ?>";
+                            window.location.href = navigateTo;
                         }
                     })
                 } else {
