@@ -237,20 +237,17 @@
 		<hr>
 		<div class="row">
 			<div class="col-12">
-				<button class="btn btn-info" style="float:right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i></button>
+				<button class="btn btn-info" style="float:right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i> <i class="" id="btnSubmitLoading"></i></button>
 			</div>
 		</div>
 	</form>
 </div>
-
 <script>
 	var Member = function() {
 		this.MemberID = 0;
 	}
 	var model = new Member();
 	model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-
-
 
 	var loadDisabilityUrl = '<?php echo base_url(); ?>Registration/loadDisabilityDetails';
 	let navigateTo = '<?= base_url('Registration/residence') ?>';
