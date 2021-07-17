@@ -66,29 +66,31 @@ $('#btnSubmit').click(function() {
     var isSkinColorSelected = $("input[name=skinColor]").is(":checked");
 
     if (jQuery.trim($("#height").val()).length == 0) {
-        toastr["error"]("<?= lang('heightErr') ?>");
+        toastr["error"]("Please select height");
         $("#height").focus();
     } else if (jQuery.trim($("#weight").val()).length == 0) {
-        toastr["error"]("<?= lang('weightErr') ?>");
+        toastr["error"]("Please select weight");
         $("#weight").focus();
     } else if (!isBodySapeSelected) {
-        toastr["error"]("<?= lang('bodyTypetErr') ?>");
+        toastr["error"]("Please select body type");
     } else if (!isSkinColorSelected) {
-        toastr["error"]("<?= lang('skinColorErr') ?>");
+        toastr["error"]("Please select skin color");
     } else if ($("#disability").val() == 0) {
         toastr["error"](" Please select disability");
         $("#disability").focus();
     } else if (jQuery.trim($("#disability").val()).length == 0) {
-        toastr["error"]("<?= lang('disabilityErr') ?>");
+        toastr["error"]("Please select disability");
         $("#disability").focus();
     } else if (jQuery.trim($("#bloodGroup").val()).length == 0) {
-        toastr["error"]("<?= lang('bloodGroupErr') ?>");
+        toastr["error"]("Please select blood group");
         $("#bloodGroup").focus();
     } else if (jQuery.trim($("#healthInfo").val()).length == 0) {
-        toastr["error"]("<?= lang('healthInfoErr') ?>");
+        toastr["error"]("Please select health info");
         $("#healthInfo").focus();
     } else {
         var form = $("#addPyysicalStatus");
+        $("#btnSubmitLoading").addClass("fa fa-spinner fa-spin");
+        $("#btnSubmit").attr("disabled","disabled");
         $.ajax({
             type: form.attr('method'),
             url: form.attr('action'),
@@ -102,6 +104,7 @@ $('#btnSubmit').click(function() {
                         showConfirmButton: false,
                         timer: 2000
                     }).then((result) => {
+                        $("body").hide();
                         if (result.dismiss === Swal.DismissReason.timer) {
                             window.location.href = navigateTo;
                         }
@@ -120,6 +123,7 @@ $('#btnSubmit').click(function() {
                         toastr["error"](response.messages);
                         $(button).prop('disabled', false);
                     }
+                    $("#btnSubmit").attr("disabled","enabled");
                 }
 
             }
