@@ -17,7 +17,7 @@
 	<!-- Common CSS -->
 	<link rel="stylesheet" href="<?= base_url('resources/css/common.css') ?>">
 	<!-- DK CSS -->
-	<link rel="stylesheet" href="<?= base_url('resources/css/common_dk.css') ?>">
+	<link rel="stylesheet" href="<?= base_url('resources/css/registration_form/common_dk.css') ?>">
 	<!-- Navbar CSS -->
 	<link rel="stylesheet" href="<?= base_url('resources/css/navbar.css') ?>">
 	<!-- Animate CSS -->
@@ -29,6 +29,9 @@
 	<link rel='stylesheet' href='<?= base_url('resources/css/swiper_style.css') ?>'>
 	<!-- Select2 CSS -->
 	<link rel="stylesheet" href="<?php echo base_url('resources/css/admin/select2.min.css') ?>">
+
+	<!-- I check bootstrap -->
+	<link rel="stylesheet" href="<?= base_url('resources/css/registration_form/icheck-bootstrap.min.css') ?>">
 
 	<style>
 		#toast-container {
