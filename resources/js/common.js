@@ -1,11 +1,8 @@
-$(document).ready(function () {
-
-
+$(function () {
 
     $('.only-decimal').keypress(function (event) {
         return isNumber(event, this)
     });
-
 
 });
 
@@ -269,6 +266,7 @@ function convertToShortDate(str) {
 // Ajax Common Functions
 
 function ajaxCall(url, parameters, successCallback) {
+    $('body').addClass("wait"); // Change Cursor To Progress
     $.ajax({
         async: true,
         type: 'POST',
@@ -278,6 +276,9 @@ function ajaxCall(url, parameters, successCallback) {
         data: parameters,
         // contentType: 'application/json;',
         dataType: 'json',
+        complete: function () {
+            $('body').removeClass("wait");
+        },
         success: successCallback,
         error: function (request, status, error) {
             console.log(request.responseText);
