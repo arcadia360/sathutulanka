@@ -93,7 +93,7 @@
 	/* border: 3px solid #f05209; */
 }
 
-.skin-content-radio {
+.icheck-align {
 	/* border: 3px solid #73AD21; */
 }
 
@@ -101,7 +101,7 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-	.skin-content-radio {
+	.icheck-align {
 		margin-left: 4px !important;
 		padding: 0 !important;
 	}
@@ -109,7 +109,7 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-	.skin-content-radio {
+	.icheck-align {
 
 		margin-left: 4px !important;
 		padding: 0 !important;
@@ -118,7 +118,7 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-	.skin-content-radio {
+	.icheck-align {
 		margin-left: 4px !important;
 		padding: 0 !important;
 	}
@@ -126,7 +126,7 @@
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-	.skin-content-radio {
+	.icheck-align {
 		margin-left: 7px !important;
 		padding: 0 !important;
 	}
@@ -134,7 +134,7 @@
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-	.skin-content-radio {
+	.icheck-align {
 		margin-left: 7px !important;
 		padding: 0 !important;
 	}
