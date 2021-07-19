@@ -360,7 +360,7 @@ class Model_registration extends CI_Model
 
     $this->db->select('*');
     $this->db->from('caste');
-    $this->db->order_by('intCasteId', 'asc');
+    $this->db->order_by('intCasteSequence', 'desc');
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
@@ -1296,19 +1296,19 @@ class Model_registration extends CI_Model
     }
   }
 
-  public function LoadReligionData()
-  {
+  // public function LoadReligionData()
+  // {
 
-    $this->db->select('*');
-    $this->db->from('religion');
-    $query = $this->db->get();
+  //   $this->db->select('*');
+  //   $this->db->from('religion');
+  //   $query = $this->db->get();
 
-    if ($query->num_rows() > 0) {
-      return $query->result();
-    } else {
-      return false;
-    }
-  }
+  //   if ($query->num_rows() > 0) {
+  //     return $query->result();
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   public function LoadNoOfChildrenData()
   {
@@ -1742,6 +1742,7 @@ class Model_registration extends CI_Model
 
     $this->db->select('intReligionID, vcReligion');
     $this->db->from('religion');
+    $this->db->order_by("intReligionSequence", "desc");
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
