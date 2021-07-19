@@ -836,20 +836,20 @@ class Registration extends Admin_Controller
 
 	public function LoadReligionData()
 	{
-		$result = '';
-		$this->load->model('Model_registration');
-		$result = $this->Model_registration->LoadReligionData();
-		if (!$result) {
-			return false;
-		} else {
-			$html = null;
-			if ($result) {
-				foreach ($result as $religion) {
-					$html .= "<option value=" . $religion->intReligionID . " >" . $religion->vcReligion  . "</option>";
-				}
-				echo json_encode($html);
-			}
-		}
+		// $result = '';
+		// $this->load->model('Model_registration');
+		// $result = $this->Model_registration->LoadReligionData(); 
+		// if (!$result) {
+		// 	return false;
+		// } else {
+		// 	$html = null;
+		// 	if ($result) {
+		// 		foreach ($result as $religion) {
+		// 			$html .= "<option value=" . $religion->intReligionID . " >" . $religion->vcReligion  . "</option>";
+		// 		}
+		// 		echo json_encode($html);
+		// 	}
+		// }
 	}
 
 	public function LoadEthnicityData()
