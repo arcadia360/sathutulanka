@@ -68,6 +68,8 @@ $(function() {
       } else {
         {
           var form = $("#addResidenceDetails");
+          $("#btnSubmitLoading").addClass("fa fa-spinner fa-spin");
+          $("#btnSubmit").attr("disabled","disabled");
           $.ajax({
             type: form.attr('method'),
             url: form.attr('action'),
@@ -81,6 +83,7 @@ $(function() {
                   showConfirmButton: false,
                   timer: 2000
                 }).then((result) => {
+                  $("body").hide();
                   if (result.dismiss === Swal.DismissReason.timer) {
                     window.location.href = navigateTo;
                   }
@@ -134,7 +137,7 @@ $(function() {
       $.ajax({
         type: 'ajax',
         url: loadCountryListUrl,
-        async: false,
+        async: false, 
         dataType: 'json',
         success: function(data) {
           if (!data) {
