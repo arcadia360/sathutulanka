@@ -142,7 +142,7 @@
 
 				<center>
 					<div class="round-symbol skin-content-color mx-auto veryFair"></div>
-					<div class="radio icheck-midnightblue skin-content-radio mx-auto">
+					<div class="radio icheck-midnightblue icheck-align mx-auto">
 						<input type="radio" name="skinColor" value="1" id="skinColor1">
 						<label for="skinColor1"></label>
 					</div>
@@ -153,7 +153,7 @@
 			<div class="col-2">
 				<center>
 					<div class="round-symbol skin-content-color mx-auto fair"></div>
-					<div class="radio icheck-midnightblue skin-content-radio mx-auto">
+					<div class="radio icheck-midnightblue icheck-align mx-auto">
 						<input type="radio" name="skinColor" value="2" id="skinColor2">
 						<label for="skinColor2"></label>
 					</div>
@@ -163,7 +163,7 @@
 			<div class="col-2">
 				<center>
 					<div class="round-symbol skin-content-color lightBrown"></div>
-					<div class="radio icheck-midnightblue skin-content-radio mx-auto">
+					<div class="radio icheck-midnightblue icheck-align mx-auto">
 						<input type="radio" name="skinColor" value="3" id="skinColor3">
 						<label for="skinColor3"></label>
 					</div>
@@ -173,7 +173,7 @@
 			<div class="col-2">
 				<center>
 					<div class="round-symbol skin-content-color darkBrown"></div>
-					<div class="radio icheck-midnightblue skin-content-radio mx-auto">
+					<div class="radio icheck-midnightblue icheck-align mx-auto">
 						<input type="radio" name="skinColor" value="4" id="skinColor4">
 						<label for="skinColor4"></label>
 					</div>
@@ -183,7 +183,7 @@
 			<div class="col-2">
 				<center>
 					<div class="round-symbol skin-content-color blackBrown"></div>
-					<div class="radio icheck-midnightblue skin-content-radio mx-auto">
+					<div class="radio icheck-midnightblue icheck-align mx-auto">
 						<input type="radio" name="skinColor" value="5" id="skinColor5">
 						<label for="skinColor5"></label>
 					</div>
