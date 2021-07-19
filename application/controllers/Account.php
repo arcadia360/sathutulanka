@@ -92,8 +92,9 @@ class Account extends Admin_Controller
 		$member_id = $this->session->userdata('member_id');
 		$gender = $this->session->userdata('gender');
 
-		$result = $this->Model_account->getMyMatches($member_id, $gender);
-		echo json_encode($result);
+		$response['result'] = $this->Model_account->getMyMatches($member_id, $gender);
+		$response['token'] = $this->security->get_csrf_hash(); 
+		echo json_encode($response);
 	}
 
 	// DK Start

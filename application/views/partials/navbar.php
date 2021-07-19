@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
     <!-- Bootstrap 4.0 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Common CSS -->
     <link rel="stylesheet" href="<?= base_url('resources/css/common.css') ?>">
     <!-- Navbar CSS -->
@@ -34,6 +35,10 @@
     <!-- <link rel='stylesheet' href='https://getuikit.com/assets/uikit/dist/css/uikit.css?nc=868'> -->
 
     <style>
+        #btn-signin:hover {
+            color: #FFFFFF;
+        }
+
         #toast-container {
             position: fixed;
             z-index: 999999;
@@ -81,6 +86,36 @@
                 0 2.5px 33.4px rgba(0, 0, 0, 0.093),
                 0 6px 80px rgba(0, 0, 0, 0.13); */
 
+        }
+
+        .btn.focus,
+        .btn:focus {
+            outline: 0;
+            box-shadow:
+                0 0.7px 1.3px rgba(0, 0, 0, 0.02),
+                0 1.7px 3.2px rgba(0, 0, 0, 0.028),
+                0 3.1px 6px rgba(0, 0, 0, 0.035),
+                0 5.6px 10.7px rgba(0, 0, 0, 0.042),
+                0 10.4px 20.1px rgba(0, 0, 0, 0.05),
+                0 25px 48px rgba(0, 0, 0, 0.07);
+
+
+        }
+
+        .custom-control-input:checked~.custom-control-label::before {
+            /* color: #fff; */
+            border-color: transparent !important;
+            /* background-color: #007bff; */
+        }
+
+        .custom-control-input:focus~.custom-control-label::before {
+            box-shadow:
+                0 0.7px 1.3px rgba(0, 0, 0, 0.02),
+                0 1.7px 3.2px rgba(0, 0, 0, 0.028),
+                0 3.1px 6px rgba(0, 0, 0, 0.035),
+                0 5.6px 10.7px rgba(0, 0, 0, 0.042),
+                0 10.4px 20.1px rgba(0, 0, 0, 0.05),
+                0 25px 48px rgba(0, 0, 0, 0.07);
         }
     </style>
 
@@ -164,10 +199,6 @@
             <?php
             if ($_SESSION['logged_in'] == TRUE) {
             ?>
-                <!-- <a href="<?= base_url('Auth/logout') ?>" class="btn btn-login">
-                    Logout
-                </a> -->
-
                 <ul class="navbar-nav mt-2 mt-lg-0">
                     <li class="nav-item dropdown navbar-profile-pic">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -292,33 +323,39 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="card card-body" style="border: none;">
+                            <?php
+                            $attributes = array('role' => 'form', 'id' => 'loginForm');
+                            echo form_open('', $attributes);
+                            ?>
+                            <div class="form-group required">
+                                <!-- <label for="username"><?= lang('email_phone') ?></label> -->
+                                <label for="username">Email</label>
+                                <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
+                            </div>
+                            <div class="form-group required">
+                                <label class="d-flex flex-row align-items-center" for="password"><?= lang('password') ?></label>
+                                <input type="password" class="form-control" required="" id="password" name="password" value="">
+                            </div>
+                            <div class="form-group mt-4 mb-4">
 
-                            <form id="submitForm" action="<?= base_url("Auth/login") ?>" method="post" data-parsley-validate="" data-parsley-errors-messages-disabled="true" novalidate="" _lpchecked="1"><input type="hidden" name="_csrf" value="7635eb83-1f95-4b32-8788-abec2724a9a4">
-                                <div class="form-group required">
-                                    <lSabel for="username"><?= lang('email_phone') ?></lSabel>
-                                    <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
-                                </div>
-                                <div class="form-group required">
-                                    <label class="d-flex flex-row align-items-center" for="password"><?= lang('password') ?></label>
-                                    <input type="password" class="form-control" required="" id="password" name="password" value="">
-                                </div>
-                                <div class="form-group mt-4 mb-4">
-
-                                    <div class="col-12">
-                                        <div class="row">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me" data-parsley-multiple="remember-me">
-                                                <label class="custom-control-label lbl-remember-me" for="remember-me" style="cursor: pointer !important;"><?= lang('remember_me') ?></label>
-                                            </div>
-                                            <a class="ml-auto btn-forget-password" href="/forget-password"><?= lang('forget_password') ?></a>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me" data-parsley-multiple="remember-me">
+                                            <label class="custom-control-label lbl-remember-me" for="remember-me" style="cursor: pointer !important;"><?= lang('remember_me') ?></label>
                                         </div>
+                                        <a class="ml-auto btn-forget-password" href="/forget-password"><?= lang('forget_password') ?></a>
                                     </div>
-
                                 </div>
-                                <div class="form-group pt-1">
-                                    <button class="btn btn-block btn-signin" type="submit"><?= lang('sign_in') ?></button>
-                                </div>
-                            </form>
+                            </div>
+                            <div class="form-group pt-1">
+                                <!-- <button class="btn btn-block btn-signin" type="submit"><?= lang('sign_in') ?></button> -->
+                                <button class="btn btn-block btn-signin" id="btn-signin" type="button">
+                                    <?= lang('sign_in') ?>
+                                    <i class="fa fa-spinner fa-spin" style="font-size:24px" id="icon-wait"></i>
+                                </button>
+                            </div>
+                            <?= form_close(); ?>
                             <p class="small-xl text-center">
                                 <span class="text-muted"><?= lang('not_a_member') ?></span>
                                 <a class="btn-register-free" href="<?= base_url('Registration') ?>">
