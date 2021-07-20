@@ -251,11 +251,6 @@
         ?>
     </nav>
 
-    <!-- Login Button - Start  -->
-    <!-- <button type="button" class="btn btn-login fixed-bottom" data-toggle="modal" data-target="#exampleModal">
-        <?= lang('login'); ?>
-    </button> -->
-    <!-- Login Button - End  -->
 
     <?php
     if ($_SESSION['logged_in'] == TRUE) {
@@ -313,7 +308,7 @@
     <!-- Login Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
+            <div class="modal-content"> 
                 <div class="modal-header">
                     <h4 class="modal-title" id="exampleModalLabel"><?= lang('welcome_to_login') ?></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width: 72px; outline: none;">
@@ -321,6 +316,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                <small id="invalid-messages" class="form-text text-danger font-weight-bold animate__animated animate__flash" style="position: absolute; top:5px; z-index: 1;">Please provide a valid password !</small>
                     <div class="row">
                         <div class="card card-body" style="border: none;">
                             <?php
@@ -331,10 +327,12 @@
                                 <!-- <label for="username"><?= lang('email_phone') ?></label> -->
                                 <label for="username">Email</label>
                                 <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
+                                <small id="invalid-email" class="form-text text-danger font-weight-bold animate__animated animate__flash">Please provide a valid email !</small>
                             </div>
-                            <div class="form-group required">
+                            <div class="form-group required"> 
                                 <label class="d-flex flex-row align-items-center" for="password"><?= lang('password') ?></label>
                                 <input type="password" class="form-control" required="" id="password" name="password" value="">
+                                <small id="invalid-password" class="form-text text-danger font-weight-bold animate__animated animate__flash">Please provide a valid password !</small>
                             </div>
                             <div class="form-group mt-4 mb-4">
 

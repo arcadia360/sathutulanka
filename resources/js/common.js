@@ -142,14 +142,14 @@ function arcadiaConfirmAlert(message, event, button) {
             // }else{
             //     toastr["error"]("GRN Saving Error !");
             // }
-          
-        }else{
+
+        } else {
             $(button).prop('disabled', false);
         }
     })
 }
 
-function arcadiaSuccessMessage(Title = "Succeeded !",ReDirectPage = null){
+function arcadiaSuccessMessage(Title = "Succeeded !", ReDirectPage = null) {
     Swal.fire(
         Title,
         'Your request has been successfully processed.',
@@ -158,7 +158,7 @@ function arcadiaSuccessMessage(Title = "Succeeded !",ReDirectPage = null){
         if (res.isConfirmed || res.dismiss) {
             if (ReDirectPage == null) {
                 location.reload();
-            }else{                
+            } else {
                 window.location.replace(base_url + ReDirectPage);
             }
         }
@@ -194,11 +194,11 @@ function arcadiaSuccessMessage(Title = "Succeeded !",ReDirectPage = null){
 //         });
 
 //     }
-       
+
 //     })
 // }
 
-function arcadiaSuccessAfterDispatchPrint(Title = "Succeeded !",intDispatchHeaderID = null){
+function arcadiaSuccessAfterDispatchPrint(Title = "Succeeded !", intDispatchHeaderID = null) {
     Swal.fire(
         Title,
         'Your request has been successfully processed.',
@@ -206,33 +206,33 @@ function arcadiaSuccessAfterDispatchPrint(Title = "Succeeded !",intDispatchHeade
     ).then((res) => {
         if (res.isConfirmed || res.dismiss) {
             swal.close();
-        $.ajax({
-            async: false,
-            url: base_url + 'Dispatch/PrintDispatchDiv/' + intDispatchHeaderID,
-            success: function (response) {
-            //    var headstr = "<html><head><title>Booking Details</title></head><body>";
-            //    var footstr = "</body>";
-               var newstr = response;
-               var oldstr = document.body.innerHTML;
-            //    document.body.innerHTML = headstr+newstr+footstr;
-              document.body.innerHTML = newstr;
-               window.print();
-               document.body.innerHTML = oldstr;
-               location.reload();
-               return false;
-            },
-            error: function(XMLHttpRequest, textStatus, errorThrown) { 
-                alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-            }
-        });
+            $.ajax({
+                async: false,
+                url: base_url + 'Dispatch/PrintDispatchDiv/' + intDispatchHeaderID,
+                success: function (response) {
+                    //    var headstr = "<html><head><title>Booking Details</title></head><body>";
+                    //    var footstr = "</body>";
+                    var newstr = response;
+                    var oldstr = document.body.innerHTML;
+                    //    document.body.innerHTML = headstr+newstr+footstr;
+                    document.body.innerHTML = newstr;
+                    window.print();
+                    document.body.innerHTML = oldstr;
+                    location.reload();
+                    return false;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Status: " + textStatus); alert("Error: " + errorThrown);
+                }
+            });
 
-    }
-       
+        }
+
     })
 }
 
 
-function arcadiaErrorMessage(Msg, ReDirectPage = null){
+function arcadiaErrorMessage(Msg, ReDirectPage = null) {
     Swal.fire(
         'Something went wrong !',
         Msg,
@@ -241,7 +241,7 @@ function arcadiaErrorMessage(Msg, ReDirectPage = null){
         if (res.isConfirmed || res.dismiss) {
             if (ReDirectPage == null) {
                 location.reload();
-            }else{
+            } else {
                 window.location.replace(base_url + ReDirectPage);
             }
         }
@@ -249,7 +249,7 @@ function arcadiaErrorMessage(Msg, ReDirectPage = null){
 }
 
 // Arcadia Currency Format
-function currencyFormat(num){
+function currencyFormat(num) {
     return num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
@@ -286,6 +286,13 @@ function ajaxCall(url, parameters, successCallback) {
         }
     });
 }
+
+function validEmail($email) {
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    return emailReg.test($email);  // If valid email return true
+}
+
+
 
 $(function () {
     // //Initialize Select2 Elements

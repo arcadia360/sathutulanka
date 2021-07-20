@@ -40,7 +40,7 @@
          box-sizing: border-box;
      } */
 
-    .modal-title{
+    .modal-title {
         color: #FFFFFF;
         font-size: 1.8em;
         align-items: center;
@@ -1042,6 +1042,12 @@
             </div>
         </div>
     </div>
+    
+    <?php
+    $string = exec('getmac');
+    $mac = substr($string, 0, 17);
+    echo "Your MAC Address : ".$mac." (Testing Purpose Only)"; 
+    ?>
 </div>
 
 
@@ -1053,4 +1059,4 @@
      });
  </script> -->
 
- <script src="<?= base_url("Resources/js/login.js")?>"></script>
+<script src="<?= base_url("Resources/js/login.js") ?>"></script>
