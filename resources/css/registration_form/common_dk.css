@@ -97,6 +97,10 @@
 	/* border: 3px solid #73AD21; */
 }
 
+input[type="radio"]:checked+label:before {
+	background: #b52b4a !important;
+}
+
 
 
 /* Extra small devices (phones, 600px and down) */
