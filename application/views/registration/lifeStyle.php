@@ -54,7 +54,7 @@
                 <input type="radio" name="drink" value="Stopped" id="drinkStopped">
                 <label for="drinkStopped"></label>
               </div>
-              <div> <span class="custom-control-description"><?= lang('stopped') ?></span></div>
+              <div> <span class="custom-control-description">Stopped</span></div>
             </center>
           </div>
         </div>
@@ -99,7 +99,7 @@
                 <input type="radio" name="smoke" value="Stopped" id="smokeStopped">
                 <label for="smokeStopped"></label>
               </div>
-              <div> <span class="custom-control-description"><?= lang('stopped') ?></span></div>
+              <div> <span class="custom-control-description">Stopped</span></div>
             </center>
           </div>
         </div>
@@ -151,7 +151,7 @@
                   <input type="checkbox" class=" language" name="language[]" value="other" id="other" />
                   <label for="other"></label>
                 </div>
-                <div> <span class="custom-control-description"><?= lang('other') ?></span></div>
+                <div> <span class="custom-control-description">Other</span></div>
               </center>
             </div>
           </div>
@@ -344,7 +344,7 @@
     <div class="row">
       <div class="col-12">
         <button class="btn btn-info" id="btnBack" type="button"><i class="fas fa-angle-double-left"></i> &nbsp; BACK</button>
-        <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i></button>
+        <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i><i class="" id="btnSubmitLoading"></i></button>
       </div>
     </div>
   </form>
