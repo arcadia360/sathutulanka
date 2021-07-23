@@ -351,63 +351,49 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input EnrichmentHobies" type="checkbox" value="Study / Reading / Writing" id="EnrichmentHobieschk1" name="EnrichmentHobies[]">
-                                    <label class="form-check-label" for="EnrichmentHobieschk1">
-                                        Study / Reading / Writing
-                                    </label>
+                                    <label for="EnrichmentHobieschk1">Study / Reading / Writing</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input EnrichmentHobies" type="checkbox" value="Museums / Galleries" id="EnrichmentHobieschk2" name="EnrichmentHobies[]">
-                                    <label class="form-check-label" for="EnrichmentHobieschk2">
-                                        Museums / Galleries
-                                    </label>
+                                    <label for="EnrichmentHobieschk2">Museums / Galleries</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input EnrichmentHobies" type="checkbox" value="Technology" id="EnrichmentHobieschk3" name="EnrichmentHobies[]">
-                                    <label class="form-check-label" for="EnrichmentHobieschk3">
-                                        Technology
-                                    </label>
+                                    <label for="EnrichmentHobieschk3">Technology</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input EnrichmentHobies" type="checkbox" value="Net surfing" id="EnrichmentHobieschk4" name="EnrichmentHobies[]">
-                                    <label class="form-check-label" for="EnrichmentHobieschk4">
-                                        Net surfing
-                                    </label>
+                                    <label for="EnrichmentHobieschk4">Net surfing</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input EnrichmentHobies" type="checkbox" value="Meditation" id="EnrichmentHobieschk5" name="EnrichmentHobies[]">
-                                    <label class="form-check-label" for="EnrichmentHobieschk5">
-                                        Meditation
-                                    </label>
+                                    <label for="EnrichmentHobieschk5">Meditation</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input EnrichmentHobies" type="checkbox" value="Watching" id="EnrichmentHobieschk6" name="EnrichmentHobies[]">
-                                    <label class="form-check-label" for="EnrichmentHobieschk6">
-                                        Watching
-                                    </label>
+                                    <label for="EnrichmentHobieschk6">Watching</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input EnrichmentHobies" type="checkbox" value="Details in Writing" id="EnrichmentHobieschk7" name="EnrichmentHobies[]">
-                                    <label class="form-check-label" for="EnrichmentHobieschk7">
-                                        Details in Writing
-                                    </label>
+                                    <label for="EnrichmentHobieschk7">Details in Writing</label>
                                 </div>
                             </div>
                         </div>
@@ -416,71 +402,49 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input Sports-Physicalactivities" type="checkbox" value="Jogging" id="Sports-Physicalactivitieschk1" name="Sports-Physicalactivities[]">
-                                    <label class="form-check-label" for="Sports-Physicalactivitieschk1">
-                                        Jogging
-                                    </label>
+                                    <label for="Sports-Physicalactivitieschk1">Jogging</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input Sports-Physicalactivities" type="checkbox" value="Exercise" id="Sports-Physicalactivitieschk2" name="Sports-Physicalactivities[]">
-                                    <label class="form-check-label" for="Sports-Physicalactivitieschk2">
-                                        Exercise
-                                    </label>
+                                    <label for="Sports-Physicalactivitieschk2">Exercise</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input Sports-Physicalactivities" type="checkbox" value="Martial Arts" id="Sports-Physicalactivitieschk3" name="Sports-Physicalactivities[]">
-                                    <label class="form-check-label" for="Sports-Physicalactivitieschk3">
-                                        Martial Arts
-                                    </label>
+                                    <label for="Sports-Physicalactivitieschk3">Martial Arts</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input Sports-Physicalactivities" type="checkbox" value="Yoga" id="Sports-Physicalactivitieschk4" name="Sports-Physicalactivities[]">
-                                    <label class="form-check-label" for="Sports-Physicalactivitieschk4">
-                                        Yoga
-                                    </label>
+                                    <label for="Sports-Physicalactivitieschk4">Yoga</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input Sports-Physicalactivities" type="checkbox" value="Adventure Sports" id="Sports-Physicalactivitieschk5" name="Sports-Physicalactivities[]">
-                                    <label class="form-check-label" for="Sports-Physicalactivitieschk5">
-                                        Adventure Sports
-                                    </label>
+                                    <label for="Sports-Physicalactivitieschk5">Adventure Sports</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input Sports-Physicalactivities" type="checkbox" value="Outdoor sports" id="Sports-Physicalactivitieschk6" name="Sports-Physicalactivities[]">
-                                    <label class="form-check-label" for="Sports-Physicalactivitieschk6">
-                                        Outdoor sports
-                                    </label>
+                                    <label for="Sports-Physicalactivitieschk6">Outdoor sports</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <!-- <div class="col-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input Sports-Physicalactivities" type="checkbox" value="Technology" id="Sports-Physicalactivitieschk7" name="Sports-Physicalactivities[]">
-                                    <label class="form-check-label" for="Sports-Physicalactivitieschk7">
-                                        Technology
-                                    </label>
-                                </div>
-                            </div> -->
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input Sports-Physicalactivities" type="checkbox" value="Details in Writing" id="Sports-Physicalactivitieschk8" name="Sports-Physicalactivities[]">
-                                    <label class="form-check-label" for="Sports-Physicalactivitieschk8">
-                                        Details in Writing
-                                    </label>
+                                    <label for="Sports-Physicalactivitieschk8">Details in Writing</label>
                                 </div>
                             </div>
                         </div>
@@ -489,71 +453,55 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input SocialActivities" type="checkbox" value="Social Service" id="SocialActivitieschk1" name="SocialActivities[]">
-                                    <label class="form-check-label" for="SocialActivitieschk1">
-                                        Social Service
-                                    </label>
+                                    <label for="SocialActivitieschk1">Social Service</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input SocialActivities" type="checkbox" value="Volunteering" id="SocialActivitieschk2" name="SocialActivities[]">
-                                    <label class="form-check-label" for="SocialActivitieschk2">
-                                        Volunteering
-                                    </label>
+                                    <label for="SocialActivitieschk2">Volunteering</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input SocialActivities" type="checkbox" value="Politics" id="SocialActivitieschk3" name="SocialActivities[]">
-                                    <label class="form-check-label" for="SocialActivitieschk3">
-                                        Politics
-                                    </label>
+                                    <label for="SocialActivitieschk3">Politics</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input SocialActivities" type="checkbox" value="Party clubbing" id="SocialActivitieschk4" name="SocialActivities[]">
-                                    <label class="form-check-label" for="SocialActivitieschk4">
-                                        Party clubbing
-                                    </label>
+                                    <label for="SocialActivitieschk4">Party clubbing</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input SocialActivities" type="checkbox" value="Religion" id="SocialActivitieschk5" name="SocialActivities[]">
-                                    <label class="form-check-label" for="SocialActivitieschk5">
-                                        Religion
-                                    </label>
+                                    <label for="SocialActivitieschk5">Religion</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input SocialActivities" type="checkbox" value="Dining" id="SocialActivitieschk6" name="SocialActivities[]">
-                                    <label class="form-check-label" for="SocialActivitieschk6">
-                                        Dining
-                                    </label>
+                                    <label for="SocialActivitieschk6">Dining</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input SocialActivities" type="checkbox" value="Spending time with friends" id="SocialActivitieschk7" name="SocialActivities[]">
-                                    <label class="form-check-label" for="SocialActivitieschk7">
-                                        Spending time with friends
-                                    </label>
+                                    <label for="SocialActivitieschk7">Spending time with friends</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input SocialActivities" type="checkbox" value="Details in Writing" id="SocialActivitieschk8" name="SocialActivities[]">
-                                    <label class="form-check-label" for="SocialActivitieschk8">
-                                        Details in Writing
-                                    </label>
+                                    <label for="SocialActivitieschk8">Details in Writing</label>
                                 </div>
                             </div>
                         </div>
@@ -562,79 +510,61 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input CreatvieHobies" type="checkbox" value="Drawing" id="CreatvieHobieschk1" name="CreatvieHobies[]">
-                                    <label class="form-check-label" for="CreatvieHobieschk1">
-                                        Drawing
-                                    </label>
+                                    <label for="CreatvieHobieschk1">Drawing</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input CreatvieHobies" type="checkbox" value="Dancing" id="CreatvieHobieschk2" name="CreatvieHobies[]">
-                                    <label class="form-check-label" for="CreatvieHobieschk2">
-                                        Dancing
-                                    </label>
+                                    <label for="CreatvieHobieschk2">Dancing</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input CreatvieHobies" type="checkbox" value="Fashion & Style" id="CreatvieHobieschk3" name="CreatvieHobies[]">
-                                    <label class="form-check-label" for="CreatvieHobieschk3">
-                                        Fashion & Style
-                                    </label>
+                                    <label for="CreatvieHobieschk3">Fashion & Style</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input CreatvieHobies" type="checkbox" value="Acting" id="CreatvieHobieschk4" name="CreatvieHobies[]">
-                                    <label class="form-check-label" for="CreatvieHobieschk4">
-                                        Acting
-                                    </label>
+                                    <label for="CreatvieHobieschk4">Acting</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input CreatvieHobies" type="checkbox" value="Handy Craft" id="CreatvieHobieschk5" name="CreatvieHobies[]">
-                                    <label class="form-check-label" for="CreatvieHobieschk5">
-                                        Handy Craft
-                                    </label>
+                                    <label for="CreatvieHobieschk5">Handy Craft</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input CreatvieHobies" type="checkbox" value="Sewing" id="CreatvieHobieschk6" name="CreatvieHobies[]">
-                                    <label class="form-check-label" for="CreatvieHobieschk6">
-                                        Sewing
-                                    </label>
+                                    <label for="CreatvieHobieschk6">Sewing</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input CreatvieHobies" type="checkbox" value="Music" id="CreatvieHobieschk7" name="CreatvieHobies[]">
-                                    <label class="form-check-label" for="CreatvieHobieschk7">
-                                        Music
-                                    </label>
+                                    <label for="CreatvieHobieschk7">Music</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input CreatvieHobies" type="checkbox" value="Photography" id="CreatvieHobieschk8" name="CreatvieHobies[]">
-                                    <label class="form-check-label" for="CreatvieHobieschk8">
-                                        Photography
-                                    </label>
+                                    <label for="CreatvieHobieschk8">Photography</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input CreatvieHobies" type="checkbox" value="Details in Writing" id="CreatvieHobieschk9" name="CreatvieHobies[]">
-                                    <label class="form-check-label" for="CreatvieHobieschk9">
-                                        Details in Writing
-                                    </label>
+                                    <label for="CreatvieHobieschk9">Details in Writing</label>
                                 </div>
                             </div>
                         </div>
@@ -643,45 +573,35 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input CollectingHobbies" type="checkbox" value="Antiques" id="CollectingHobbieschk1" name="CollectingHobbies[]">
-                                    <label class="form-check-label" for="CollectingHobbieschk1">
-                                        Antiques
-                                    </label>
+                                    <label for="CollectingHobbieschk1">Antiques</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input CollectingHobbies" type="checkbox" value="Books / Magazines" id="CollectingHobbieschk2" name="CollectingHobbies[]">
-                                    <label class="form-check-label" for="CollectingHobbieschk2">
-                                        Books / Magazines
-                                    </label>
+                                    <label for="CollectingHobbieschk2">Books / Magazines</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input CollectingHobbies" type="checkbox" value="Collecting stamps" id="CollectingHobbieschk3" name="CollectingHobbies[]">
-                                    <label class="form-check-label" for="CollectingHobbieschk3">
-                                        Collecting stamps
-                                    </label>
+                                    <label for="CollectingHobbieschk3">Collecting stamps</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input CollectingHobbies" type="checkbox" value="Coins" id="CollectingHobbieschk4" name="CollectingHobbies[]">
-                                    <label class="form-check-label" for="CollectingHobbieschk4">
-                                        Coins
-                                    </label>
+                                    <label for="CollectingHobbieschk4">Coins</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input CollectingHobbies" type="checkbox" value="Details in Writing" id="CollectingHobbieschk5" name="CollectingHobbies[]">
-                                    <label class="form-check-label" for="CollectingHobbieschk5">
-                                        Details in Writing
-                                    </label>
+                                    <label for="CollectingHobbieschk5">Details in Writing</label>
                                 </div>
                             </div>
                         </div>
@@ -690,97 +610,75 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input outdoorHobies" type="checkbox" value="Hiking" id="outdoorHobieschk1" name="outdoorHobies[]">
-                                    <label class="form-check-label" for="outdoorHobieschk1">
-                                        Hiking
-                                    </label>
+                                    <label for="outdoorHobieschk1">Hiking</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input outdoorHobies" type="checkbox" value="Fishing" id="outdoorHobieschk2" name="outdoorHobies[]">
-                                    <label class="form-check-label" for="outdoorHobieschk2">
-                                        Fishing
-                                    </label>
+                                    <label for="outdoorHobieschk2">Fishing</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input outdoorHobies" type="checkbox" value="Camping" id="outdoorHobieschk3" name="outdoorHobies[]">
-                                    <label class="form-check-label" for="outdoorHobieschk3">
-                                        Camping
-                                    </label>
+                                    <label for="outdoorHobieschk3">Camping</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input outdoorHobies" type="checkbox" value="Bird-watching" id="outdoorHobieschk4" name="outdoorHobies[]">
-                                    <label class="form-check-label" for="outdoorHobieschk4">
-                                        Bird-watching
-                                    </label>
+                                    <label for="outdoorHobieschk4">Bird-watching</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input outdoorHobies" type="checkbox" value="Gardening" id="outdoorHobieschk5" name="outdoorHobies[]">
-                                    <label class="form-check-label" for="outdoorHobieschk5">
-                                        Gardening
-                                    </label>
+                                    <label for="outdoorHobieschk5">Gardening</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input outdoorHobies" type="checkbox" value="Nature" id="outdoorHobieschk6" name="outdoorHobies[]">
-                                    <label class="form-check-label" for="outdoorHobieschk6">
-                                        Nature
-                                    </label>
+                                    <label for="outdoorHobieschk6">Nature</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input outdoorHobies" type="checkbox" value="Hunting" id="outdoorHobieschk7" name="outdoorHobies[]">
-                                    <label class="form-check-label" for="outdoorHobieschk7">
-                                        Hunting
-                                    </label>
+                                    <label for="outdoorHobieschk7">Hunting</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input outdoorHobies" type="checkbox" value="Driving" id="outdoorHobieschk8" name="outdoorHobies[]">
-                                    <label class="form-check-label" for="outdoorHobieschk8">
-                                        Driving
-                                    </label>
+                                    <label for="outdoorHobieschk8">Driving</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input outdoorHobies" type="checkbox" value="Shopping" id="outdoorHobieschk9" name="outdoorHobies[]">
-                                    <label class="form-check-label" for="outdoorHobieschk9">
-                                        Shopping
-                                    </label>
+                                    <label for="outdoorHobieschk9">Shopping</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input outdoorHobies" type="checkbox" value="Travel / Sight seeing" id="outdoorHobieschk10" name="outdoorHobies[]">
-                                    <label class="form-check-label" for="outdoorHobieschk10">
-                                        Travel / Sight seeing
-                                    </label>
+                                    <label for="outdoorHobieschk10">Travel / Sight seeing</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input outdoorHobies" type="checkbox" value="Details in Writing" id="outdoorHobieschk11" name="outdoorHobies[]">
-                                    <label class="form-check-label" for="outdoorHobieschk11">
-                                        Details in Writing
-                                    </label>
+                                    <label for="outdoorHobieschk11">Details in Writing</label>
                                 </div>
                             </div>
                         </div>
@@ -789,64 +687,51 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input domesticHobbies" type="checkbox" value="Knitting" id="domesticHobbieschk1" name="domesticHobbies[]">
-                                    <label class="form-check-label" for="domesticHobbieschk1">
-                                        Knitting
-                                    </label>
+                                    <label for="domesticHobbieschk1">Knitting</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input domesticHobbies" type="checkbox" value="Pets" id="domesticHobbieschk2" name="domesticHobbies[]">
-                                    <label class="form-check-label" for="domesticHobbieschk2">
-                                        Pets
-                                    </label>
+                                    <label for="domesticHobbieschk2">Pets</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input domesticHobbies" type="checkbox" value="Cooking" id="domesticHobbieschk3" name="domesticHobbies[]">
-                                    <label class="form-check-label" for="domesticHobbieschk3">
-                                        Cooking
-                                    </label>
+                                    <label for="domesticHobbieschk3">Cooking</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input domesticHobbies" type="checkbox" value="Spending time with family" id="domesticHobbieschk4" name="domesticHobbies[]">
-                                    <label class="form-check-label" for="domesticHobbieschk4">
-                                        Spending time with family
-                                    </label>
+                                    <label for="domesticHobbieschk4">Spending time with family</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input domesticHobbies" type="checkbox" value="Sports indoor" id="domesticHobbieschk5" name="domesticHobbies[]">
-                                    <label class="form-check-label" for="domesticHobbieschk5">
-                                        Sports indoor
-                                    </label>
+                                    <label for="domesticHobbieschk5">Sports indoor</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input domesticHobbies" type="checkbox" value="Home interior decoration" id="domesticHobbieschk6" name="domesticHobbies[]">
-                                    <label class="form-check-label" for="domesticHobbieschk6">
-                                        Home interior decoration
-                                    </label>
+                                    <label for="domesticHobbieschk6">Home interior decoration</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-check">
+                                <div class="checkbox icheck-wetasphalt">
                                     <input class="form-check-input domesticHobbies" type="checkbox" value="Details in Writing" id="domesticHobbieschk7" name="domesticHobbies[]">
-                                    <label class="form-check-label" for="domesticHobbieschk7">
-                                        Details in Writing
-                                    </label>
+                                    <label for="domesticHobbieschk7">Details in Writing</label>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -869,539 +754,22 @@
 
 
 <script>
-    $(function() {
+    var Member = function() {
+        this.MemberID = 0;
+    }
+    var model = new Member();
+    model.MemberID = (<?= $this->session->userdata('member_id') ?>);
 
-        var Member = function() {
-            this.MemberID = 0;
-        }
-        var model = new Member();
-        model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-        ajaxCall('registration/getMemberData', model, function(response) {
-            if (response.intOpennessToExperience != null) {
-                $('#OpennessToExperience').slider("option", "value", response.intOpennessToExperience);
-                $("#OpennessToExperienceValue").val(response.intOpennessToExperience + "%");
+    let memberId = (<?= $this->session->userdata('member_id') ?>)
+    let navigateBack = "<?php echo base_url('Registration/lifeStyle') ?>";
+    let navigateTo = "<?= base_url('Registration/education') ?>";
 
-                $('#conscientiousness').slider("option", "value", response.intConscientiousness);
-                $("#conscientiousnessValue").val(response.intConscientiousness + "%");
-
-                $('#ExtrovertPersonality').slider("option", "value", response.intExtrovertPersonality);
-                $("#ExtrovertPersonalityValue").val(response.intExtrovertPersonality + "%");
-
-                $('#IntrovertPersonality').slider("option", "value", response.intIntrovertPersonality);
-                $("#IntrovertPersonalityValue").val(response.intIntrovertPersonality + "%");
-
-                $('#Agreeableness').slider("option", "value", response.intAgreeableness);
-                $("#AgreeablenessValue").val(response.intAgreeableness + "%");
-
-                $('#Neuroticism').slider("option", "value", response.intNeuroticism);
-                $("#NeuroticismValue").val(response.intNeuroticism + "%");
-
-                $('#FamilyBond').slider("option", "value", response.intFamilyBond);
-                $("#FamilyBondValue").val(response.intFamilyBond + "%");
-
-                $('#money').slider("option", "value", response.intMoney);
-                $("#moneyValue").val(response.intMoney + "%");
-
-                $('#Religious').slider("option", "value", response.intReligious);
-                $("#ReligiousValue").val(response.intReligious + "%");
-
-                $('#PhysicallyActive').slider("option", "value", response.intPhysicallyActive);
-                $("#PhysicallyActiveValue").val(response.intPhysicallyActive + "%");
-
-                $('#Politics').slider("option", "value", response.IntPolitics);
-                $("#PoliticsValue").val(response.IntPolitics + "%");
-
-                $('#Knowledge').slider("option", "value", response.intKnowledge);
-                $("#KnowledgeValue").val(response.intKnowledge + "%");
-
-                $('#LoveAffairs').slider("option", "value", response.intLoveAffairs);
-                $("#LoveAffairsValue").val(response.intLoveAffairs + "%");
-
-                $('#ImportanceOfVirginity').slider("option", "value", response.intimportanceVirginity);
-                $("#ImportanceOfVirginityValue").val(response.intimportanceVirginity + "%");
-
-            }
-
-        });
-
-        FillEnrichmentHobbies();
-        FillSportsActivities();
-        FillSocialActivites();
-        FillCreativeHobbies();
-        FillCollectingHobbies();
-        FillOutdoorsHobbies();
-        FillDomesticHobbies();
-
-        function FillEnrichmentHobbies() {
-            var model = new Member();
-            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-            ajaxCall('registration/getEnrichmentHobbies', model, function(response) {
-                for (let index = 0; index < response.length; index++) {
-                    if (response[index].vcEnrichmentHobby == "Study / Reading / Writing") {
-                        $("#EnrichmentHobieschk1").prop("checked", true);
-                    } else if (response[index].vcEnrichmentHobby == "Museums / Galleries") {
-                        $("#EnrichmentHobieschk2").prop("checked", true);
-                    } else if (response[index].vcEnrichmentHobby == "Technology") {
-                        $("#EnrichmentHobieschk3").prop("checked", true);
-                    } else if (response[index].vcEnrichmentHobby == "Net surfing") {
-                        $("#EnrichmentHobieschk4").prop("checked", true);
-                    } else if (response[index].vcEnrichmentHobby == "Meditation") {
-                        $("#EnrichmentHobieschk5").prop("checked", true);
-                    } else if (response[index].vcEnrichmentHobby == "Watching") {
-                        $("#EnrichmentHobieschk6").prop("checked", true);
-                    } else if (response[index].vcEnrichmentHobby == "Details in Writing") {
-                        $("#EnrichmentHobieschk7").prop("checked", true);
-                    }
-                }
-            });
-        }
-
-        function FillSportsActivities() {
-            var model = new Member();
-            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-            ajaxCall('registration/getSportsActivities', model, function(response) {
-                for (let index = 0; index < response.length; index++) {
-                    if (response[index].vcSportsPhysicalActivities == "Jogging") {
-                        $("#Sports-Physicalactivitieschk1").prop("checked", true);
-                    } else if (response[index].vcSportsPhysicalActivities == "Exercise") {
-                        $("#Sports-Physicalactivitieschk2").prop("checked", true);
-                    } else if (response[index].vcSportsPhysicalActivities == "Martial Arts") {
-                        $("#Sports-Physicalactivitieschk3").prop("checked", true);
-                    } else if (response[index].vcSportsPhysicalActivities == "Yoga") {
-                        $("#Sports-Physicalactivitieschk4").prop("checked", true);
-                    } else if (response[index].vcSportsPhysicalActivities == "Adventure Sports") {
-                        $("#Sports-Physicalactivitieschk5").prop("checked", true);
-                    } else if (response[index].vcSportsPhysicalActivities == "Outdoor sports") {
-                        $("#Sports-Physicalactivitieschk6").prop("checked", true);
-                    } else if (response[index].vcSportsPhysicalActivities == "Details in Writing") {
-                        $("#Sports-Physicalactivitieschk7").prop("checked", true);
-                    }
-                }
-            });
-        }
-
-        function FillSocialActivites() {
-            var model = new Member();
-            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-            ajaxCall('registration/getSocialActivites', model, function(response) {
-                for (let index = 0; index < response.length; index++) {
-                    if (response[index].vcSocialActivities == "Social Service") {
-                        $("#SocialActivitieschk1").prop("checked", true);
-                    } else if (response[index].vcSocialActivities == "Volunteering") {
-                        $("#SocialActivitieschk2").prop("checked", true);
-                    } else if (response[index].vcSocialActivities == "Politics") {
-                        $("#SocialActivitieschk3").prop("checked", true);
-                    } else if (response[index].vcSocialActivities == "Party clubbing") {
-                        $("#SocialActivitieschk4").prop("checked", true);
-                    } else if (response[index].vcSocialActivities == "Religion") {
-                        $("#SocialActivitieschk5").prop("checked", true);
-                    } else if (response[index].vcSocialActivities == "Dining") {
-                        $("#SocialActivitieschk6").prop("checked", true);
-                    } else if (response[index].vcSocialActivities == "Spending time with friends") {
-                        $("#SocialActivitieschk7").prop("checked", true);
-                    } else if (response[index].vcSocialActivities == "Details in Writing") {
-                        $("#SocialActivitieschk8").prop("checked", true);
-                    }
-                }
-            });
-        }
-
-        function FillCreativeHobbies() {
-            var model = new Member();
-            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-            ajaxCall('registration/getCreativeHobbies', model, function(response) {
-                for (let index = 0; index < response.length; index++) {
-                    if (response[index].vcCreativeHobbies == "Drawing") {
-                        $("#CreatvieHobieschk1").prop("checked", true);
-                    } else if (response[index].vcCreativeHobbies == "Dancing") {
-                        $("#CreatvieHobieschk2").prop("checked", true);
-                    } else if (response[index].vcCreativeHobbies == "Fashion & Style") {
-                        $("#CreatvieHobieschk3").prop("checked", true);
-                    } else if (response[index].vcCreativeHobbies == "Acting") {
-                        $("#CreatvieHobieschk4").prop("checked", true);
-                    } else if (response[index].vcCreativeHobbies == "Handy Craft") {
-                        $("#CreatvieHobieschk5").prop("checked", true);
-                    } else if (response[index].vcCreativeHobbies == "Sewing") {
-                        $("#CreatvieHobieschk6").prop("checked", true);
-                    } else if (response[index].vcCreativeHobbies == "Music") {
-                        $("#CreatvieHobieschk7").prop("checked", true);
-                    } else if (response[index].vcCreativeHobbies == "Photography") {
-                        $("#CreatvieHobieschk8").prop("checked", true);
-                    } else if (response[index].vcCreativeHobbies == "Details in Writing") {
-                        $("#CreatvieHobieschk9").prop("checked", true);
-                    }
-                }
-            });
-        }
-
-        function FillCollectingHobbies() {
-            var model = new Member();
-            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-            ajaxCall('registration/getCollectingHobbies', model, function(response) {
-                for (let index = 0; index < response.length; index++) {
-                    if (response[index].vcCollectingHobby == "Antiques") {
-                        $("#CollectingHobbieschk1").prop("checked", true);
-                    } else if (response[index].vcCollectingHobby == "Books / Magazines") {
-                        $("#CollectingHobbieschk2").prop("checked", true);
-                    } else if (response[index].vcCollectingHobby == "Collecting stamps") {
-                        $("#CollectingHobbieschk3").prop("checked", true);
-                    } else if (response[index].vcCollectingHobby == "Coins") {
-                        $("#CollectingHobbieschk4").prop("checked", true);
-                    } else if (response[index].vcCollectingHobby == "Details in Writing") {
-                        $("#CollectingHobbieschk5").prop("checked", true);
-                    }
-                }
-            });
-        }
-
-        function FillOutdoorsHobbies() {
-            var model = new Member();
-            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-            ajaxCall('registration/getOutdoorsHobbies', model, function(response) {
-                for (let index = 0; index < response.length; index++) {
-                    if (response[index].vcOutdoorHobies == "Hiking") {
-                        $("#outdoorHobieschk1").prop("checked", true);
-                    } else if (response[index].vcOutdoorHobies == "Fishing") {
-                        $("#outdoorHobieschk2").prop("checked", true);
-                    } else if (response[index].vcOutdoorHobies == "Camping") {
-                        $("#outdoorHobieschk3").prop("checked", true);
-                    } else if (response[index].vcOutdoorHobies == "Bird-watching") {
-                        $("#outdoorHobieschk4").prop("checked", true);
-                    } else if (response[index].vcOutdoorHobies == "Gardening") {
-                        $("#outdoorHobieschk5").prop("checked", true);
-                    } else if (response[index].vcOutdoorHobies == "Nature") {
-                        $("#outdoorHobieschk6").prop("checked", true);
-                    } else if (response[index].vcOutdoorHobies == "Hunting") {
-                        $("#outdoorHobieschk7").prop("checked", true);
-                    } else if (response[index].vcOutdoorHobies == "Driving") {
-                        $("#outdoorHobieschk8").prop("checked", true);
-                    } else if (response[index].vcOutdoorHobies == "Shopping") {
-                        $("#outdoorHobieschk9").prop("checked", true);
-                    } else if (response[index].vcOutdoorHobies == "Travel / Sight seeing") {
-                        $("#outdoorHobieschk10").prop("checked", true);
-                    } else if (response[index].vcOutdoorHobies == "Details in Writing") {
-                        $("#outdoorHobieschk11").prop("checked", true);
-                    }
-                }
-            });
-        }
-
-        function FillDomesticHobbies() {
-            var model = new Member();
-            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-            ajaxCall('registration/getDomesticHobbies', model, function(response) {
-                for (let index = 0; index < response.length; index++) {
-                    if (response[index].vcdomesticHobbies == "Knitting") {
-                        $("#domesticHobbieschk1").prop("checked", true);
-                    } else if (response[index].vcdomesticHobbies == "Pets") {
-                        $("#domesticHobbieschk2").prop("checked", true);
-                    } else if (response[index].vcdomesticHobbies == "Cooking") {
-                        $("#domesticHobbieschk3").prop("checked", true);
-                    } else if (response[index].vcdomesticHobbies == "Spending time with family") {
-                        $("#domesticHobbieschk4").prop("checked", true);
-                    } else if (response[index].vcdomesticHobbies == "Sports indoor") {
-                        $("#domesticHobbieschk5").prop("checked", true);
-                    } else if (response[index].vcdomesticHobbies == "Home interior decoration") {
-                        $("#domesticHobbieschk6").prop("checked", true);
-                    } else if (response[index].vcdomesticHobbies == "Details in Writing") {
-                        $("#domesticHobbieschk7").prop("checked", true);
-                    }
-                }
-            });
-        }
-
-
-        // manage range slider start
-        //slider openness to experiance
-
-        $('#sampleValueSetToSlider').click(function() {
-            $('#OpennessToExperience').slider("option", "value", 10);
-        });
-
-        $("#OpennessToExperience").slider({
-            range: "min",
-            value: 50,
-            min: 1,
-            max: 100,
-            slide: function(event, ui) {
-                $("#OpennessToExperienceValue").val(ui.value + "%");
-            }
-        });
-        $("#OpennessToExperienceValue").val($("#OpennessToExperience").slider("value") + "%");
-
-        // slider cooncientinous
-        $("#conscientiousness").slider({
-            range: "min",
-            value: 50,
-            min: 1,
-            max: 100,
-            slide: function(event, ui) {
-                $("#conscientiousnessValue").val(ui.value + "%");
-            }
-        });
-        $("#conscientiousnessValue").val($("#conscientiousness").slider("value") + "%");
-
-        //slider extrovert personality
-        $("#ExtrovertPersonality").slider({
-            range: "min",
-            value: 50,
-            min: 1,
-            max: 100,
-            slide: function(event, ui) {
-                $("#ExtrovertPersonalityValue").val(ui.value + "%");
-            }
-        });
-        $("#ExtrovertPersonalityValue").val($("#ExtrovertPersonality").slider("value") + "%");
-
-        //slider introvert personality
-        $("#IntrovertPersonality").slider({
-            range: "min",
-            value: 50,
-            min: 1,
-            max: 100,
-            slide: function(event, ui) {
-                $("#IntrovertPersonalityValue").val(ui.value + "%");
-            }
-        });
-        $("#IntrovertPersonalityValue").val($("#IntrovertPersonality").slider("value") + "%");
-
-        //slider agreebleness personality
-        $("#Agreeableness").slider({
-            range: "min",
-            value: 50,
-            min: 1,
-            max: 100,
-            slide: function(event, ui) {
-                $("#AgreeablenessValue").val(ui.value + "%");
-            }
-        });
-        $("#AgreeablenessValue").val($("#Agreeableness").slider("value") + "%");
-
-        //slider Neuroticism personality
-        $("#Neuroticism").slider({
-            range: "min",
-            value: 50,
-            min: 1,
-            max: 100,
-            slide: function(event, ui) {
-                $("#NeuroticismValue").val(ui.value + "%");
-            }
-        });
-        $("#NeuroticismValue").val($("#Neuroticism").slider("value") + "%");
-
-        //slider Family Bond personality
-        $("#FamilyBond").slider({
-            range: "min",
-            value: 50,
-            min: 1,
-            max: 100,
-            slide: function(event, ui) {
-                $("#FamilyBondValue").val(ui.value + "%");
-            }
-        });
-        $("#FamilyBondValue").val($("#FamilyBond").slider("value") + "%");
-
-        //slider money Bond personality
-        $("#money").slider({
-            range: "min",
-            value: 50,
-            min: 1,
-            max: 100,
-            slide: function(event, ui) {
-                $("#moneyValue").val(ui.value + "%");
-            }
-        });
-        $("#moneyValue").val($("#money").slider("value") + "%");
-
-        //slider Religious Bond personality
-        $("#Religious").slider({
-            range: "min",
-            value: 50,
-            min: 1,
-            max: 100,
-            slide: function(event, ui) {
-                $("#ReligiousValue").val(ui.value + "%");
-            }
-        });
-        $("#ReligiousValue").val($("#Religious").slider("value") + "%");
-
-        //slider physically Active Bond personality
-        $("#PhysicallyActive").slider({
-            range: "min",
-            value: 50,
-            min: 1,
-            max: 100,
-            slide: function(event, ui) {
-                $("#PhysicallyActiveValue").val(ui.value + "%");
-            }
-        });
-        $("#PhysicallyActiveValue").val($("#PhysicallyActive").slider("value") + "%");
-
-        //slider Politics Bond personality
-        $("#Politics").slider({
-            range: "min",
-            value: 50,
-            min: 1,
-            max: 100,
-            slide: function(event, ui) {
-                $("#PoliticsValue").val(ui.value + "%");
-            }
-        });
-        $("#PoliticsValue").val($("#Politics").slider("value") + "%");
-
-        //slider Knowledge Bond personality
-        $("#Knowledge").slider({
-            range: "min",
-            value: 50,
-            min: 1,
-            max: 100,
-            slide: function(event, ui) {
-                $("#KnowledgeValue").val(ui.value + "%");
-            }
-        });
-        $("#KnowledgeValue").val($("#Knowledge").slider("value") + "%");
-
-        //slider LoveAffairs Bond personality
-        $("#LoveAffairs").slider({
-            range: "min",
-            value: 50,
-            min: 1,
-            max: 100,
-            slide: function(event, ui) {
-                $("#LoveAffairsValue").val(ui.value + "%");
-            }
-        });
-        $("#LoveAffairsValue").val($("#LoveAffairs").slider("value") + "%");
-
-        //slider ImportanceOfVirginity personality
-        $("#ImportanceOfVirginity").slider({
-            range: "min",
-            value: 50,
-            min: 1,
-            max: 100,
-            slide: function(event, ui) {
-                $("#ImportanceOfVirginityValue").val(ui.value + "%");
-            }
-        });
-        $("#ImportanceOfVirginityValue").val($("#ImportanceOfVirginity").slider("value") + "%");
-
-
-        // disable inputs
-        disableInputs();
-
-        function disableInputs() {
-            $("#OpennessToExperienceValue").prop("disabled", true);
-            $("#conscientiousnessValue").prop("disabled", true);
-            $("#ExtrovertPersonalityValue").prop("disabled", true);
-            $("#IntrovertPersonalityValue").prop("disabled", true);
-            $("#AgreeablenessValue").prop("disabled", true);
-            $("#NeuroticismValue").prop("disabled", true);
-            $("#FamilyBondValue").prop("disabled", true);
-            $("#moneyValue").prop("disabled", true);
-            $("#ReligiousValue").prop("disabled", true);
-            $("#PhysicallyActiveValue").prop("disabled", true);
-            $("#PoliticsValue").prop("disabled", true);
-            $("#KnowledgeValue").prop("disabled", true);
-            $("#LoveAffairsValue").prop("disabled", true);
-            $("#ImportanceOfVirginityValue").prop("disabled", true);
-        }
-
-        function enableInputs() {
-            $("#OpennessToExperienceValue").prop("disabled", false);
-            $("#conscientiousnessValue").prop("disabled", false);
-            $("#ExtrovertPersonalityValue").prop("disabled", false);
-            $("#IntrovertPersonalityValue").prop("disabled", false);
-            $("#AgreeablenessValue").prop("disabled", false);
-            $("#NeuroticismValue").prop("disabled", false);
-            $("#FamilyBondValue").prop("disabled", false);
-            $("#moneyValue").prop("disabled", false);
-            $("#ReligiousValue").prop("disabled", false);
-            $("#PhysicallyActiveValue").prop("disabled", false);
-            $("#PoliticsValue").prop("disabled", false);
-            $("#KnowledgeValue").prop("disabled", false);
-            $("#LoveAffairsValue").prop("disabled", false);
-            $("#ImportanceOfVirginityValue").prop("disabled", false);
-        }
-        // manage range slider end
-
-        $('#btnBack').click(function() {
-            window.location.href = "<?php echo base_url('Registration/lifeStyle') ?>";
-        });
-
-        $('#btnSubmit').click(function() {
-            if ($('.EnrichmentHobies[type=checkbox]:checked').length == 0) {
-                toastr["error"]("Please select enrichment hobies !");
-            } else if ($('.Sports-Physicalactivities[type=checkbox]:checked').length == 0) {
-                toastr["error"]("Please select sports / physicalactivities !");
-            } else if ($('.SocialActivities[type=checkbox]:checked').length == 0) {
-                toastr["error"]("Please select social Activities !");
-            } else if ($('.CreatvieHobies[type=checkbox]:checked').length == 0) {
-                toastr["error"]("Please select creative hobies !");
-            } else if ($('.CollectingHobbies[type=checkbox]:checked').length == 0) {
-                toastr["error"]("Please select collecting hobbies !");
-            } else if ($('.outdoorHobies[type=checkbox]:checked').length == 0) {
-                toastr["error"]("Please select outdoor hobies !");
-            } else if ($('.domesticHobbies[type=checkbox]:checked').length == 0) {
-                toastr["error"]("Please select domestic hobbies !");
-            } else {
-                var form = $("#addWhoAmIDetails");
-                enableInputs();
-                $("#btnSubmit").prop('disabled', true);
-                $.ajax({
-                    type: form.attr('method'),
-                    url: form.attr('action'),
-                    data: form.serialize(),
-                    dataType: 'json',
-                    success: function(response) {
-                        if (response.success == true) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Personal assets saved successfully !',
-                                showConfirmButton: false,
-                                timer: 2000
-                            }).then((result) => {
-                                if (result.dismiss === Swal.DismissReason.timer) {
-                                    window.location.href = "<?= base_url('Registration/education') ?>";
-                                }
-                            })
-                        } else {
-                            if (response.messages instanceof Object) {
-                                $.each(response.messages, function(index, value) {
-                                    var id = $("#" + index);
-                                    id.closest('.form-group')
-                                        .removeClass('has-error')
-                                        .removeClass('has-success')
-                                        .addClass(value.length > 0 ? 'has-error' : 'has-success');
-                                    id.after(value);
-                                });
-                            } else {
-                                toastr["error"](response.messages);
-                                $(button).prop('disabled', false);
-                                $("#btnSubmit").prop('disabled', false);
-                            }
-                        }
-                    },
-                    error: function() {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Internal Server Error! Please contact system administrator.',
-                        });
-                        $("#btnSubmit").prop('disabled', false);
-                    }
-                });
-                disableInputs();
-            }
-        });
-
-        $('#btnSkip').click(function() {
-            window.location.href = "<?php echo base_url('Registration/education') ?>";
-            <?php
-            $session_data = array('no_of_submitted_form' => 6);
-            $this->session->set_userdata($session_data);
-            ?>
-
-        });
-
+    $('#btnSkip').click(function() {
+        window.location.href = "<?php echo base_url('Registration/education') ?>";
+        <?php
+        $session_data = array('no_of_submitted_form' => 6);
+        $this->session->set_userdata($session_data);
+        ?>
     });
 </script>
+<script src="<?= base_url('resources/js/registration_form/whoAmI.js') ?>"></script>
