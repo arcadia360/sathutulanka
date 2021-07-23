@@ -130,6 +130,8 @@
       } else {
 
         var form = $("#addLifeStyleDetails");
+        $("#btnSubmitLoading").addClass("fa fa-spinner fa-spin");
+        $("#btnSubmit").attr("disabled","disabled");
         $.ajax({
           type: form.attr('method'),
           url: form.attr('action'),
@@ -143,6 +145,7 @@
                 showConfirmButton: false,
                 timer: 2000
               }).then((result) => {
+                $("body").hide();
                 if (result.dismiss === Swal.DismissReason.timer) {
                   window.location.href = navigateTo;
                 }
