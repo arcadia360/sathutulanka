@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Auth extends Admin_Controller
 {
-
+ 
     public function __construct()
     {
         parent::__construct();
@@ -32,11 +32,6 @@ class Auth extends Admin_Controller
 
                         $rememberMe = $this->input->post('remember-me');
 
-                        if ($rememberMe != NULL) {
-                            setcookie('username', $this->input->post('username'), time() + (86400 * 7), "/");
-                            setcookie('password', $this->input->post('password'), time() + (86400 * 7), "/");
-                        }
-
                         $logged_in_sess = array(
                             'member_id' => $login['intMemberID'],
                             'member_code' => $login['vcMemberCode'],
@@ -57,11 +52,21 @@ class Auth extends Admin_Controller
                         } else if ($login['intMemberAccountStatusID'] == 2) { // OTP Verification Pending
                             $response['success'] = false;
                             $response['messages'] = 'Please verify the mobile number using your OTP !';
-                        } else if ($login['intMemberAccountStatusID'] == 3) { // Not Completed Account
+                        } else if ($login['intMemberAccountStatusID'] == 3) { // Not Completed Account >>> (Redirect to registration forms)
+
+                            if ($rememberMe != NULL) {
+                                setcookie('username', $this->input->post('username'), time() + (86400 * 7), "/");   // Can used 7 days only 
+                                setcookie('password', $this->input->post('password'), time() + (86400 * 7), "/");   // Can used 7 days only 
+                            }
                             $this->session->set_userdata($logged_in_sess);
                             $response['success'] = true;
                             // $this->CheckAndRedirectNextForm();
                         } else if ($login['intMemberAccountStatusID'] == 4 || $login['intMemberAccountStatusID'] == 5 || $login['intMemberAccountStatusID'] == 6) { // Completed Account || Account Review Pending || Account Reviewed
+                            
+                            if ($rememberMe != NULL) {
+                                setcookie('username', $this->input->post('username'), time() + (86400 * 7), "/");   // Can used 7 days only 
+                                setcookie('password', $this->input->post('password'), time() + (86400 * 7), "/");   // Can used 7 days only 
+                            }
                             $this->session->set_userdata($logged_in_sess);
                             $response['success'] = true;
                             // redirect(base_url("Account/AllSingles"), 'refresh');
@@ -170,8 +175,11 @@ class Auth extends Admin_Controller
     public function logout()
     {
         // Remove cookie
+        // delete_cookie("username");
+        // delete_cookie("password");
         setcookie("username", "", time() - 3600, "/");
         setcookie("password", "", time() - 3600, "/");
+
         // Remove session
         $this->session->sess_destroy();
         redirect(base_url("Welcome"), 'refresh');

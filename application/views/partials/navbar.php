@@ -117,6 +117,22 @@
                 0 10.4px 20.1px rgba(0, 0, 0, 0.05),
                 0 25px 48px rgba(0, 0, 0, 0.07);
         }
+
+        .input-group-addon {
+            padding: .5rem .75rem;
+            margin-bottom: 0;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.25;
+            color: #495057;
+            text-align: center;
+            background-color: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, .15);
+            /* border-radius: .25rem; */
+            position: absolute;
+            right: 0;
+            z-index: 9;
+        }
     </style>
 
     <!-- Jquery 3.2  -->
@@ -156,9 +172,8 @@
             ?>
 
         </a>
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#userNavbarItems" aria-controls="userNavbarItems" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button> -->
+
+
         <div class="collapse navbar-collapse" id="userNavbarItems">
             <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                 <?php
@@ -192,9 +207,6 @@
                 <?php
                 }
                 ?>
-
-
-
             </ul>
             <?php
             if ($_SESSION['logged_in'] == TRUE) {
@@ -224,9 +236,6 @@
             <?php
             }
             ?>
-
-
-
         </div>
 
 
@@ -301,75 +310,81 @@
     <!-- Mobile Navbar - End -->
 
 
+    <?php
+    if ($_SESSION['logged_in'] == FALSE) {
+    ?>
 
-    <!-- <div class="angle-div ">dd</div> -->
-
-
-    <!-- Login Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content"> 
-                <div class="modal-header">
-                    <h4 class="modal-title" id="exampleModalLabel"><?= lang('welcome_to_login') ?></h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width: 72px; outline: none;">
-                        <h4 style="color: #FFFFFF; font-size: 30px; margin: 0;"><i class="fas fa-times"></i></h4>
-                    </button>
-                </div>
-                <div class="modal-body">
-                <small id="invalid-messages" class="form-text text-danger font-weight-bold animate__animated animate__flash" style="position: absolute; top:5px; z-index: 1;">Please provide a valid password !</small>
-                    <div class="row">
-                        <div class="card card-body" style="border: none;">
-                            <?php
-                            $attributes = array('role' => 'form', 'id' => 'loginForm');
-                            echo form_open('', $attributes);
-                            ?>
-                            <div class="form-group required">
-                                <!-- <label for="username"><?= lang('email_phone') ?></label> -->
-                                <label for="username">Email</label>
-                                <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
-                                <small id="invalid-email" class="form-text text-danger font-weight-bold animate__animated animate__flash">Please provide a valid email !</small>
-                            </div>
-                            <div class="form-group required"> 
-                                <label class="d-flex flex-row align-items-center" for="password"><?= lang('password') ?></label>
-                                <input type="password" class="form-control" required="" id="password" name="password" value="">
-                                <small id="invalid-password" class="form-text text-danger font-weight-bold animate__animated animate__flash">Please provide a valid password !</small>
-                            </div>
-                            <div class="form-group mt-4 mb-4">
-
-                                <div class="col-12">
-                                    <div class="row">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me" data-parsley-multiple="remember-me">
-                                            <label class="custom-control-label lbl-remember-me" for="remember-me" style="cursor: pointer !important;"><?= lang('remember_me') ?></label>
+        <!-- Login Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel"><?= lang('welcome_to_login') ?></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width: 72px; outline: none;">
+                            <h4 style="color: #FFFFFF; font-size: 30px; margin: 0;"><i class="fas fa-times"></i></h4>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <small id="invalid-messages" class="form-text text-danger font-weight-bold animate__animated animate__flash" style="position: absolute; top:5px; z-index: 1;">Please provide a valid password !</small>
+                        <div class="row">
+                            <div class="card card-body" style="border: none;">
+                                <?php
+                                $attributes = array('role' => 'form', 'id' => 'loginForm');
+                                echo form_open('', $attributes);
+                                ?>
+                                <div class="form-group required">
+                                    <!-- <label for="username"><?= lang('email_phone') ?></label> -->
+                                    <label for="username">Email</label>
+                                    <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
+                                    <small id="invalid-email" class="form-text text-danger font-weight-bold animate__animated animate__flash">Please provide a valid email !</small>
+                                </div>
+                                <div class="form-group required">
+                                    <label class="d-flex flex-row align-items-center" for="password"><?= lang('password') ?></label>
+                                    <!-- <input type="password" class="form-control" required="" id="password" name="password" value=""> -->
+                                    <div class="input-group" id="show_hide_password">
+                                        <input class="form-control" type="password" id="password" name="password">
+                                        <div class="input-group-addon" style="align-items: center;">
+                                            <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                         </div>
-                                        <a class="ml-auto btn-forget-password" href="/forget-password"><?= lang('forget_password') ?></a>
+                                    </div>
+                                    <small id="invalid-password" class="form-text text-danger font-weight-bold animate__animated animate__flash">Please provide a valid password !</small>
+                                </div>
+                                <div class="form-group mt-4 mb-4">
+
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me" data-parsley-multiple="remember-me" checked>
+                                                <label class="custom-control-label lbl-remember-me" for="remember-me" style="cursor: pointer !important;"><?= lang('remember_me') ?></label>
+                                            </div>
+                                            <a class="ml-auto btn-forget-password" href="/forget-password"><?= lang('forget_password') ?></a>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="form-group pt-1">
+                                    <!-- <button class="btn btn-block btn-signin" type="submit"><?= lang('sign_in') ?></button> -->
+                                    <button class="btn btn-block btn-signin" id="btn-signin" type="button">
+                                        <?= lang('sign_in') ?>
+                                        <i class="fa fa-spinner fa-spin" style="font-size:24px" id="icon-wait"></i>
+                                    </button>
+                                </div>
+                                <?= form_close(); ?>
+                                <p class="small-xl text-center">
+                                    <span class="text-muted"><?= lang('not_a_member') ?></span>
+                                    <a class="btn-register-free" href="<?= base_url('Registration') ?>">
+                                        <h5 class="animate__animated animate__pulse animate__infinite m-auto"><?= lang('register_free') ?></h5>
+                                    </a>
+                                </p>
                             </div>
-                            <div class="form-group pt-1">
-                                <!-- <button class="btn btn-block btn-signin" type="submit"><?= lang('sign_in') ?></button> -->
-                                <button class="btn btn-block btn-signin" id="btn-signin" type="button">
-                                    <?= lang('sign_in') ?>
-                                    <i class="fa fa-spinner fa-spin" style="font-size:24px" id="icon-wait"></i>
-                                </button>
-                            </div>
-                            <?= form_close(); ?>
-                            <p class="small-xl text-center">
-                                <span class="text-muted"><?= lang('not_a_member') ?></span>
-                                <a class="btn-register-free" href="<?= base_url('Registration') ?>">
-                                    <h5 class="animate__animated animate__pulse animate__infinite m-auto"><?= lang('register_free') ?></h5>
-                                </a>
-                            </p>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div> -->
             </div>
         </div>
-    </div>
+
+    <?php
+    }
+    ?>
 
     <!-- </body>
 

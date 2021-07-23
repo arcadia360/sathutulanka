@@ -9,6 +9,9 @@
 
 
   <div class="container">
+
+
+
       <!--   
   <?php
     $path = base_url('application/views/partials/singlesNavbar.php');
@@ -52,7 +55,8 @@
           </div>
       </div>
 
-      <div class="row">
+
+      <!-- <div class="row">
           <div class="col-12 mt-lg-5">
               <div class="col-md-6 offset-md-3 input-group mb-3 container-search">
                   <input type="text" class="form-control txt-search" placeholder="Partner Nick Name or Profile ID" style="outline: none !important;">
@@ -66,13 +70,23 @@
               <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" uk-height-viewport>
                   <button class="uk-modal-close-full" type="button" uk-close></button>
                   <form class="uk-search uk-search-large">
-                      <!-- <button class="btn">okds</button> -->
                       <input class="uk-search-input uk-text-center" type="search" placeholder="Search With Member No" autofocus>
                   </form>
               </div>
           </div>
-      </div>
+      </div> -->
+
+      <?php
+        $attributes = array('role' => 'form', 'id' => 'loginForm');
+        echo form_open('', $attributes);
+        ?>
+      <?= form_close(); ?>
+
       <div class="row" id="mini-profile-area">
+
+
+
+
           <!-- 
           <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
               <div class="card profile-card">

@@ -6,7 +6,8 @@ class Welcome extends Admin_Controller
 
 	public function index()
 	{
-		// $this->CheckAndRedirectNextForm();
+
+		$this->CheckCookieAfterFillSessionData(); // Check Cookie
 
 		if (!isset($_SESSION['member_id']) || empty($_SESSION['member_id'])) {  // If Fresh User
 			$this->render_template('welcome', 'W E L C O M E', null);

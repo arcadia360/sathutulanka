@@ -5,6 +5,8 @@ class MY_Controller extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+
+		$this->load->model('model_auth');
 	}
 }
 
@@ -119,8 +121,6 @@ class Admin_Controller extends MY_Controller
 
 	public function CheckAndRedirectNextForm($lastSubmitFormNo = NULL)
 	{
-
-
 		if ($this->session->userdata('member_id')) {
 
 			$AccountStatusID = $this->session->userdata('member_account_status_id');
@@ -172,6 +172,53 @@ class Admin_Controller extends MY_Controller
 			}
 		} else {
 			redirect(base_url("Welcome"), 'refresh');
+		}
+	}
+
+	public function CheckCookieAfterFillSessionData(){
+
+		$username = $this->input->cookie('username', TRUE);
+		$password = $this->input->cookie('password', TRUE);
+
+		if ($username != NULL && $password != NULL) {
+			$username_exists = $this->model_auth->check_username($username);
+			if ($username_exists == TRUE) {
+				$login = $this->model_auth->login($username, $password);
+				if ($login) {
+					if ($login['IsActive'] == 1) {
+
+						$logged_in_sess = array(
+							'member_id' => $login['intMemberID'],
+							'member_code' => $login['vcMemberCode'],
+							'nick_name' => $login['vcNickName'],
+							'email' => $login['vcEmail'],
+							'member_account_status_id' => $login['intMemberAccountStatusID'],
+							'member_account_status_name' => $login['vcMemberAccountStatus'],
+							'no_of_submitted_form'  => $login['intNoOfSubmitedForm'],
+							'gender'  => $login['vcGender'],
+							'profile_pic' => $login['vcProfilePicture'],
+							'language_id' => 1,
+							'logged_in' => TRUE
+						);
+
+						if ($login['intMemberAccountStatusID'] == 3) { // Not Completed Account >>> (Redirect to registration forms)
+							$this->session->set_userdata($logged_in_sess);
+						} else if ($login['intMemberAccountStatusID'] == 4 || $login['intMemberAccountStatusID'] == 5 || $login['intMemberAccountStatusID'] == 6) { // Completed Account || Account Review Pending || Account Reviewed
+							$this->session->set_userdata($logged_in_sess);
+						}
+
+					} else {
+						setcookie("username", "", time() - 3600, "/");
+						setcookie("password", "", time() - 3600, "/");
+					}
+				} else {
+					setcookie("username", "", time() - 3600, "/");
+					setcookie("password", "", time() - 3600, "/");
+				}
+			}else{
+				setcookie("username", "", time() - 3600, "/");
+				setcookie("password", "", time() - 3600, "/");
+			}
 		}
 	}
 
