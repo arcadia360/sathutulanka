@@ -183,7 +183,7 @@
     <h3 class="text-center text-inverse title">Who Am I</h3>
     <div class="row">
         <div class="col-12">
-            <button class="btn btn-info float-right" type="button" id="btnSkip">Skip this step &nbsp; <i class="fas fa-forward"></i></button>
+            <button class="btn btn-info float-right" type="button" id="btnSkip">Skip this step &nbsp; <i class="fas fa-forward"></i>&nbsp;<i class="" id="btnSkipIcon"></i></button>
         </div>
     </div>
     <br>
@@ -743,7 +743,7 @@
         <div class="row">
             <div class="col-12">
                 <button class="btn btn-info" id="btnBack" type="button"><i class="fas fa-angle-double-left"></i> &nbsp; BACK</button>
-                <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i></button>
+                <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i> <i class="" id="btnSubmitLoading"></i></button>
             </div>
         </div>
     </form>
@@ -765,6 +765,7 @@
     let navigateTo = "<?= base_url('Registration/education') ?>";
 
     $('#btnSkip').click(function() {
+        $("#btnSkipIcon").addClass("fa fa-spinner fa-spin");
         window.location.href = "<?php echo base_url('Registration/education') ?>";
         <?php
         $session_data = array('no_of_submitted_form' => 6);
