@@ -88,7 +88,11 @@ class Admin extends Admin_Controller
 				$time .= $value['Years'] . ' Years &nbsp;&nbsp;';
 			}
 
-			$buttons .= '<a class="button btn btn-default" href="' . base_url("admin/memberDetails/" . $value['intMemberID']) . '" style="margin:0 !important;"><i class="fas fa-edit"></i></a>';
+			if ($value['intMemberAccountStatusID'] != 3){
+				$buttons .= '<a class="button btn btn-default" href="' . base_url("admin/memberDetails/" . $value['intMemberID']) . '" style="margin:0 !important;"><i class="fas fa-edit"></i></a>';
+
+			}
+
 
 			$result['data'][$key] = array(
 				$value['vcMemberCode'],
@@ -266,6 +270,16 @@ class Admin extends Admin_Controller
 	public function markAsTrustProving()
 	{
 		$this->render_template('admin_panel/member/mark_as_trust_proving', 'Mark As Trust Proving', NULL);
+	}
+
+	public function markAsTrustVerified()
+	{
+		$this->render_template('admin_panel/member/mark_as_trust_verified', 'Mark As Trust Verified', NULL);
+	}
+
+	public function markAsPremium()
+	{
+		$this->render_template('admin_panel/member/mark_as_premium', 'Mark As Premium', NULL);
 	}
 
 }
