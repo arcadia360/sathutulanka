@@ -398,6 +398,7 @@ class Model_registration extends CI_Model
   {
     $this->db->select('intEducationLevelID,vcEducationLevel');
     $this->db->from('educationlevel');
+    $this->db->order_by('intEducationLevelID', 'DESC');
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       return $query->result_array();
@@ -410,6 +411,7 @@ class Model_registration extends CI_Model
   {
     $this->db->select('intEducationFieldID,vcEducationField');
     $this->db->from('educationfield');
+    $this->db->order_by('intEducationFieldID', 'DESC');
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       return $query->result_array();
