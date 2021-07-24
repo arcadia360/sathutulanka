@@ -471,6 +471,7 @@
             } else {
                 var form = $("#addWhoAmIDetails");
                 enableInputs();
+                $("#btnSubmitLoading").addClass("fa fa-spinner fa-spin");
                 $("#btnSubmit").prop('disabled', true);
                 $.ajax({
                     type: form.attr('method'),
@@ -485,6 +486,7 @@
                                 showConfirmButton: false,
                                 timer: 2000
                             }).then((result) => {
+                                $("body").hide();
                                 if (result.dismiss === Swal.DismissReason.timer) {
                                     window.location.href = navigateTo;
                                 }
