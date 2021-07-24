@@ -52,7 +52,7 @@
       <div class="col-12">
         <div class="form-group">
           <label class="text-inverse d-flex font-weight-bold" for="validationCustom01">Home address of Sri Lanka
-            <span style="font-weight: 300;color: #bf360c; font-size: 0.8em;">&nbsp; (Will not publish, Office purpose only.)</span>
+            <span class="highLightText">&nbsp; (Will not publish, Office purpose only.)</span>
           </label>
           <input type="text" class=" d-block form-control" name="AddressofSriLanka" id="AddressofSriLanka">
         </div>
