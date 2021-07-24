@@ -110,6 +110,22 @@
                                 <p>&nbsp;&nbsp;&nbsp;Mark as Trust Proving</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?php echo base_url('admin/markAsTrustVerified') ?>" class="nav-link <?php if ($this->uri->segment(1) == "User") {
+                                                                                                    echo 'active';
+                                                                                                } ?>">
+                                <i class="fas fa-mobile-alt"></i>
+                                <p>&nbsp;&nbsp;&nbsp;Mark as Trust Verified</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo base_url('admin/markAsPremium') ?>" class="nav-link <?php if ($this->uri->segment(1) == "User") {
+                                                                                                    echo 'active';
+                                                                                                } ?>">
+                                <i class="fas fa-mobile-alt"></i>
+                                <p>&nbsp;&nbsp;&nbsp;Mark as Premium</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
