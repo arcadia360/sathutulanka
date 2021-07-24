@@ -1,5 +1,6 @@
 <div class="offset-lg-3 col-lg-6 main-section">
     <h3 class="text-center text-inverse title">Personal Assets</h3>
+    <span class="highLightText">Will not publish, Office purpose only.</span>
     <form method="post" action="<?= base_url('Registration/addPersonalAssestDetails') ?>" id="addPersonalAssestDetails">
         <div class="row">
             <div class="col-lg-12 col-sm-12 col-12">
@@ -137,7 +138,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <center>
-                                <input type="checkbox" class="language assetRoutes"  id="assestRoute4" name="assestRoute[]" value="Business">
+                                <input type="checkbox" class="language assetRoutes" id="assestRoute4" name="assestRoute[]" value="Business">
                                 <br>
                                 <span class="custom-control-description">Business</span>
                             </center>
@@ -234,158 +235,31 @@
         <div class="row">
             <div class="col-12">
                 <button class="btn btn-info" id="btnBack" type="button"><i class="fas fa-angle-double-left"></i> &nbsp; BACK</button>
-                <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i></button>
+                <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i><i class="" id="btnSubmitLoading"></i></button>
             </div>
         </div>
     </form>
 </div>
 <script>
-    $(function() {
+    var Member = function() {
+        this.MemberID = 0;
+    }
+    var model = new Member();
+    model.MemberID = (<?= $this->session->userdata('member_id') ?>);
 
+    var Member = function() {
+        this.MemberID = 0;
+    }
+    var model = new Member();
+    model.MemberID = (<?= $this->session->userdata('member_id') ?>);
 
-        FillPersonalAssetsData();
-        FillMonthlyIncomeRoutesData();
-        FillAssetRoutes();
+    var Member = function() {
+        this.MemberID = 0;
+    }
+    var model = new Member();
+    model.MemberID = (<?= $this->session->userdata('member_id') ?>);
 
-        function FillPersonalAssetsData() {
-            var Member = function() {
-                this.MemberID = 0;
-            }
-            var model = new Member();
-            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-
-            ajaxCall('registration/getMemberData', model, function(response) {
-                if (response.intMonthlyIncomeID != null) {
-                    $("#monthlyIncome").val(response.intMonthlyIncomeID);
-                    $("#assetValue").val(response.intAssetValueID);
-                    var OwnershipOfAssets = (response.vcOwnershipOfAssets);
-                    if (OwnershipOfAssets == "Parent") {
-                        $("#OwnershipOfAssets1").prop("checked", true);
-                    } else if (OwnershipOfAssets == "Self") {
-                        $("#OwnershipOfAssets2").prop("checked", true);
-                    } else if (OwnershipOfAssets == "Under Parent and me") {
-                        $("#OwnershipOfAssets3").prop("checked", true);
-                    } else if (OwnershipOfAssets == "Ask (My Story)") {
-                        $("#OwnershipOfAssets4").prop("checked", true);
-                    }
-                }
-            });
-        }
-
-        function FillMonthlyIncomeRoutesData() {
-            var Member = function() {
-                this.MemberID = 0;
-            }
-            var model = new Member();
-            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-            ajaxCall('registration/getMonthlyIncomeRoutesData', model, function(response) {
-                for (let index = 0; index < response.length; index++) {
-                    if (response[index].vcMonthlyIncomeRoute == "Job") {
-                        $("#incomeRoute1").prop("checked", true);
-                    } else if (response[index].vcMonthlyIncomeRoute == "Rent/Lease") {
-                        $("#incomeRoute2").prop("checked", true);
-                    } else if (response[index].vcMonthlyIncomeRoute == "Fixed Deposit") {
-                        $("#incomeRoute3").prop("checked", true);
-                    } else if (response[index].vcMonthlyIncomeRoute == "Shares") {
-                        $("#incomeRoute4").prop("checked", true);
-                    } else if (response[index].vcMonthlyIncomeRoute == "Business") {
-                        $("#incomeRoute5").prop("checked", true);
-                    } else if (response[index].vcMonthlyIncomeRoute == "Ask (My Story)") {
-                        $("#incomeRoute6").prop("checked", true);
-                    }
-                }
-            });
-        }
-
-        function FillAssetRoutes()
-        {
-            var Member = function() {
-                this.MemberID = 0;
-            }
-            var model = new Member();
-            model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-            ajaxCall('registration/getAssetRoutesData', model, function(response) {
-                for (let index = 0; index < response.length; index++) {
-                    if (response[index].vcAssetRoute == "Land") {
-                        $("#assestRoute1").prop("checked", true);
-                    } else if (response[index].vcAssetRoute == "Vehicles") {
-                        $("#assestRoute2").prop("checked", true);
-                    } else if (response[index].vcAssetRoute == "House") {
-                        $("#assestRoute3").prop("checked", true);
-                    } else if (response[index].vcAssetRoute == "Business") {
-                        $("#assestRoute4").prop("checked", true);
-                    } else if (response[index].vcAssetRoute == "Jewellery") {
-                        $("#assestRoute5").prop("checked", true);
-                    } else if (response[index].vcAssetRoute == "Savings") {
-                        $("#assestRoute6").prop("checked", true);
-                    }else if (response[index].vcAssetRoute == "Business Premises") {
-                        $("#assestRoute7").prop("checked", true);
-                    }else if (response[index].vcAssetRoute == "Ask (My Story)") {
-                        $("#assestRoute8").prop("checked", true);
-                    }
-                }
-            });
-        }
-
-
-
-        $('#btnBack').click(function() {
-            window.location.href = "<?php echo base_url('Registration/career') ?>";
-        });
-
-        $('#btnSubmit').click(function() {
-            var isOwnershipOfAssetsSelected = $("input[name=OwnershipOfAssets]").is(":checked");
-            if ($('#monthlyIncome').val() == 0) {
-                toastr["error"]("Please select monthly income !");
-                $("#monthlyIncome").focus();
-            } else if ($('.routeIncome[type=checkbox]:checked').length == 0) {
-                toastr["error"]("Please select income route !");
-            } else if ($('#assetValue').val() == 0) {
-                toastr["error"]("Please select asset value");
-                $("#assetValue").focus();
-            } else if ($('.assetRoutes[type=checkbox]:checked').length == 0) {
-                toastr["error"]("Please select assest route !");
-            } else if (!isOwnershipOfAssetsSelected) {
-                toastr["error"]("Please select ownership of assets !");
-            } else {
-
-                var form = $("#addPersonalAssestDetails");
-                $.ajax({
-                    type: form.attr('method'),
-                    url: form.attr('action'),
-                    data: form.serialize(),
-                    dataType: 'json',
-                    success: function(response) {
-                        if (response.success == true) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Personal assets saved successfully!',
-                                showConfirmButton: false,
-                                timer: 2000
-                            }).then((result) => {
-                                if (result.dismiss === Swal.DismissReason.timer) {
-                                    window.location.href = "<?= base_url('Registration/family') ?>";
-                                }
-                            })
-                        } else {
-                            if (response.messages instanceof Object) {
-                                $.each(response.messages, function(index, value) {
-                                    var id = $("#" + index);
-                                    id.closest('.form-group')
-                                        .removeClass('has-error')
-                                        .removeClass('has-success')
-                                        .addClass(value.length > 0 ? 'has-error' : 'has-success');
-                                    id.after(value);
-                                });
-                            } else {
-                                toastr["error"](response.messages);
-                                $(button).prop('disabled', false);
-                            }
-                        }
-                    }
-                });
-            }
-        });
-
-    });
+    let navigateBack = "<?php echo base_url('Registration/career') ?>";
+    let navigateTo = "<?= base_url('Registration/family') ?>";
 </script>
+<script src="<?= base_url('resources/js/registration_form/personal_assets.js') ?>"></script>
