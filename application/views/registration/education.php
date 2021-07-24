@@ -42,88 +42,19 @@
 			<div class="row">
 				<div class="col-12">
 					<button class="btn btn-info" id="btnBack" type="button"><i class="fas fa-angle-double-left"></i> &nbsp; BACK</button>
-					<button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i></button>
+					<button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i><i class="" id="btnSubmitLoading"></i></button>
 				</div>
 			</div>
 		</form>
 	</div>
 
 	<script>
-		$(function() {
-
-			FillEducationData();
-
-			function FillEducationData() {
-				var Member = function() {
-					this.MemberID = 0;
-				}
-				var model = new Member();
-				model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-
-				ajaxCall('registration/getMemberData', model, function(response) {
-					if (response.intEducationLevelID != null) {
-						$("#EducationLevel").val(response.intEducationLevelID);
-						$('#EducationLevel').trigger('change');
-						$("#EducationField").val(response.intEducationFieldID);
-						$('#EducationField').trigger('change');
-						$("#vcSclUniDescription").val(response.vcSclUniDescription);
-					}
-				});
-
-			}
-
-			$('#btnBack').click(function() {
-				window.location.href = "<?php echo base_url('Registration/WhoAmI') ?>";
-			});
-
-			$('#btnSubmit').click(function() {
-				if ($('#EducationLevel').val() == 0) {
-					toastr["error"]("Please select education level !");
-					$("#EducationLevel").focus();
-				} else if ($('#EducationField').val() == 0) {
-					toastr["error"]("Please select education field !");
-					$("#EducationField").focus();
-				} else if ($('#vcSclUniDescription').val() == "") {
-					toastr["error"]("Please select school university description !");
-					$("#vcSclUniDescription").focus();
-				} else {
-					var form = $("#addEducationDetails");
-					$.ajax({
-						type: form.attr('method'),
-						url: form.attr('action'),
-						data: form.serialize(),
-						dataType: 'json',
-						success: function(response) {
-							if (response.success == true) {
-								Swal.fire({
-									icon: 'success',
-									title: 'Education details saved successfully!',
-									showConfirmButton: false,
-									timer: 2000
-								}).then((result) => {
-									if (result.dismiss === Swal.DismissReason.timer) {
-										window.location.href = "<?= base_url('Registration/career') ?>";
-									}
-								})
-							} else {
-								if (response.messages instanceof Object) {
-									$.each(response.messages, function(index, value) {
-										var id = $("#" + index);
-										id.closest('.form-group')
-											.removeClass('has-error')
-											.removeClass('has-success')
-											.addClass(value.length > 0 ? 'has-error' : 'has-success');
-										id.after(value);
-									});
-								} else {
-									toastr["error"](response.messages);
-									$(button).prop('disabled', false);
-								}
-							}
-						}
-					});
-				}
-
-			});
-		});
+		var Member = function() {
+			this.MemberID = 0;
+		}
+		var model = new Member();
+		model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+		let navigateBack = "<?php echo base_url('Registration/WhoAmI') ?>";
+		let navigateTo = "<?= base_url('Registration/career') ?>";
 	</script>
+	<script src="<?= base_url('resources/js/registration_form/education.js') ?>"></script>
