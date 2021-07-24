@@ -101,7 +101,11 @@ input[type="radio"]:checked+label:before {
 	background: #b52b4a !important;
 }
 
-
+.highLightText {
+	font-weight: 300;
+	color: #bf360c;
+	font-size: 0.8em
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
