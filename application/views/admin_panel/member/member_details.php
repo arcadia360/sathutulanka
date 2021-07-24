@@ -99,7 +99,7 @@
                                                     <h4 class="nick-name"><?= $member_data['vcNickName'] ?>
                                                         <!-- <span class="profile-badge"><i class="fas fa-certificate"></i></span> -->
                                                     </h4>
-                                                    <p class="text-secondary mb-1"><?= $member_data['vcWorkingAsSubCat_Customised'] ?></p>
+                                                    <p class="text-secondary mb-1"><?= $member_data['MiniProfileDesignation'] ?></p>
 
 
 
