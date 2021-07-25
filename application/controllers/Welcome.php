@@ -6,11 +6,21 @@ class Welcome extends Admin_Controller
 
 	public function index()
 	{
-
 		$this->CheckCookieAfterFillSessionData(); // Check Cookie
 
 		if (!isset($_SESSION['member_id']) || empty($_SESSION['member_id'])) {  // If Fresh User
 			$this->render_template('welcome', 'W E L C O M E', null);
+		} else {
+			$this->CheckAndRedirectNextForm();
+		}
+	}
+
+	public function ForgetPassword(){
+
+		$this->CheckCookieAfterFillSessionData(); // Check Cookie
+
+		if (!isset($_SESSION['member_id']) || empty($_SESSION['member_id'])) {  // If Fresh User
+			$this->render_template('forget_password', 'W E L C O M E', null);
 		} else {
 			$this->CheckAndRedirectNextForm();
 		}

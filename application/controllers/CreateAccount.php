@@ -186,6 +186,28 @@ class CreateAccount extends Admin_Controller
 		return false;
 	}
 
+	public function SendPasswordResetLinkToTheEmailAddress()
+	{
+		$username_exists = $this->model_auth->check_username($this->input->post('email-for-pass'));
+		if ($username_exists) {
+
+
+			$result = $this->Model_registration->getMemberBasicData($this->input->post('email-for-pass'));
+			
+			$response = $this->Model_registration->getPasswordRestLink($result['intMemberID'], $result['vcEmail']);
+
+			if ($response['success'] == true) {
+				$response['messages'] = "Successful !";
+			}else{
+				$response['messages'] = "Resetting Link Generate Error !";
+			}
+		} else {
+			$response['messages'] = "Invalid Email Address !";
+			$response['success'] = false;
+		}
+		echo json_encode($response);
+	}
+
 
 
 	

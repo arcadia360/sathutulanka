@@ -28,7 +28,7 @@ class Model_auth extends CI_Model
 	public function check_username($username)
 	{
 		if ($username) {
-			$sql = 'SELECT * FROM Member WHERE vcEmail = ?';
+			$sql = 'SELECT intMemberID FROM Member WHERE vcEmail = ?';
 			$query = $this->db->query($sql, array($username));
 			$result = $query->num_rows();
 			return ($result == 1) ? true : false;
