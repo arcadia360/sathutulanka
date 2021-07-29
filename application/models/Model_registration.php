@@ -2217,13 +2217,14 @@ class Model_registration extends CI_Model
 
     $this->db->insert('PasswordResetRequest', $data_2);
 
-    $this->sendPasswordResetRequestEmail($email, $resetLink = "");
+    $resetLink = base_url() + "CreateAccount/ResetPassword/" + $random_EmailCode;
 
     if ($this->db->trans_status() === FALSE) {
       $this->db->trans_rollback();
       $response['success'] = false;
     } else {
       $this->db->trans_commit();
+      $this->sendPasswordResetRequestEmail($email, $resetLink); //Send Email
       $response['success'] = true;
     }
 
@@ -2247,7 +2248,7 @@ class Model_registration extends CI_Model
     $this->email->set_newline("\r\n");
     $this->email->from('geekfortechnologycom@gmail.com', "Admin Team");
     $this->email->to($email);
-    $this->email->subject("Sathutulanka Email Verification");
+    $this->email->subject("Sathutu Lanka Password Reset Link");
     // $this->email->message("Dear member,\nPlease click on below URL or paste into your browser to verify your Email Address\n\n http://localhost:8012/sathutulanka/Registration/VerificatinEmail/" . $random_EmailCode . "\n" . "\n\nThanks\nAdmin Team");
     $message = "";
     $message = '
@@ -2386,8 +2387,8 @@ class Model_registration extends CI_Model
                       <div class="col_cont" style="width:100% !important;">
                         <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
                           <div class="img-container center fixedwidth" align="center" style="padding-right: 0px;padding-left: 0px;">
-                                                        <a href="www.sathutulanka.lk" target="_blank" style="outline:none" tabindex="-1">
-                                                            <img class="center fixedwidth" align="center" border="0" src="https://d1oco4z2z1fhwp.cloudfront.net/templates/default/4036/5f4fa970-2c78-4218-9e89-9953d812ddb4.png" alt="Your logo." title="Your logo." style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 160px; max-width: 100%; display: block;" width="160"></a>
+                            <a href="www.sathutulanka.lk" target="_blank" style="outline:none" tabindex="-1">
+                              <img class="center fixedwidth" align="center" border="0" src="' . base_url('resources/images/navbar-logo-en.png') . '" alt="SathutuLanka.lk" title="Your logo." style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 160px; max-width: 100%; display: block;" width="160"></a>
                           </div>
                         </div>
                       </div>
@@ -2430,7 +2431,7 @@ class Model_registration extends CI_Model
                             </div>
                           </div>
                           <div class="button-container" align="center" style="padding-top:0px;padding-right:10px;padding-bottom:0px;padding-left:10px;">
-                                                    <a href="www.sathutulanka.lk" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #f7a50c; border-radius: 35px; -webkit-border-radius: 35px; -moz-border-radius: 35px; width: auto; width: auto; border-top: 1px solid #f7a50c; border-right: 1px solid #f7a50c; border-bottom: 1px solid #f7a50c; border-left: 1px solid #f7a50c; padding-top: 15px; padding-bottom: 15px; font-family: \' Helvetica Neue\' , Helvetica, Arial, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:30px;padding-right:30px;font-size:16px;display:inline-block;letter-spacing:undefined;"><span style="font-size: 16px; margin: 0; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;"><strong>RESET PASSWORD</strong></span></span></a>
+                                                    <a href="' . $resetLink . '" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #f7a50c; border-radius: 35px; -webkit-border-radius: 35px; -moz-border-radius: 35px; width: auto; width: auto; border-top: 1px solid #f7a50c; border-right: 1px solid #f7a50c; border-bottom: 1px solid #f7a50c; border-left: 1px solid #f7a50c; padding-top: 15px; padding-bottom: 15px; font-family: \' Helvetica Neue\' , Helvetica, Arial, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:30px;padding-right:30px;font-size:16px;display:inline-block;letter-spacing:undefined;"><span style="font-size: 16px; margin: 0; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;"><strong>RESET PASSWORD</strong></span></span></a>
                           </div>
                           <div style="color:#555555;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;line-height:1.5;padding-top:10px;padding-right:10px;padding-bottom:0px;padding-left:10px;">
                             <div class="txtTinyMce-wrapper" style="line-height: 1.5; font-size: 12px; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; color: #555555; mso-line-height-alt: 18px;">
@@ -2442,7 +2443,7 @@ class Model_registration extends CI_Model
                           </div>
                           <div style="color:#555555;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                             <div class="txtTinyMce-wrapper" style="font-size: 14px; line-height: 1.2; color: #555555; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; mso-line-height-alt: 17px;">
-                              <p style="margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;"><a href="https://www.freepik.com/profile/forgot/dmlyYWpsYXNpdGhhemVlcm9AZ21haWwuY29tfDAzODUzNzMxMTVkNTNhOTY3YjYzZTY=" target="_blank" rel="noopener" style="color: #0068A5;">https://www.freepik.com/profile/forgot/dmlyYWpsYXNpdGhhemVlcm9AZ21haWwuY29tfDAzODUzNzMxMTVkNTNhOTY3YjYzZTY=</a></p>
+                              <p style="margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;"><a href="' . $resetLink . '" target="_blank" rel="noopener" style="color: #0068A5;">' . $resetLink . '</a></p>
                             </div>
                           </div>
                         </div>
