@@ -2217,7 +2217,7 @@ class Model_registration extends CI_Model
 
     $this->db->insert('PasswordResetRequest', $data_2);
 
-    $resetLink = base_url() + "CreateAccount/ResetPassword/" + $random_EmailCode;
+    $resetLink = base_url() . "CreateAccount/ResetPassword/" . $random_EmailCode;
 
     if ($this->db->trans_status() === FALSE) {
       $this->db->trans_rollback();
