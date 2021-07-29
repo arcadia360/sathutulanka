@@ -30,7 +30,7 @@ class CreateAccount extends Admin_Controller
 				// $this->Model_registration->sendVerificatinEmail($email, $random_EmailCode);
 				$response['email'] = $userData['vcEmail'];
 				$response['verificationText'] = $userData['vcEmailCode'];
-				$response['messages'] = "Please Check Your Email";
+				$response['messages'] = "Please Check Your Email !";
 				$response['success'] = true;
 			} else {
 				$response['messages'] = "Sent error";
