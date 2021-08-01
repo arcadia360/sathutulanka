@@ -1,5 +1,6 @@
 <div class="offset-lg-3 col-lg-6 main-section">
   <h3 class="text-center text-inverse title">Horoscope</h3>
+  <p class="highLightText text-center">100% Privacy Controls Available</p>
   <div class="row">
     <div class="container">
       <button class="btn btn-info float-right" type="button" id="btnSkip">Skip this step &nbsp; <i class="fas fa-forward"></i></button>
@@ -13,23 +14,29 @@
         <div class="row">
           <div class="col-4">
             <center>
-              <input id="matchingHoroscope1" name="matchingHoroscope" id="matchingHoroscope1" type="radio" value="Very Important">
-              <br>
-              <span class="custom-control-description">Very Important</span>
+              <div class="radio icheck-midnightblue icheck-align mx-auto">
+                <input id="matchingHoroscope1" name="matchingHoroscope" id="matchingHoroscope1" type="radio" value="Very Important">
+                <label for="matchingHoroscope1"></label>
+              </div>
+              <div> <span class="custom-control-description">Very Important</span></div>
             </center>
           </div>
           <div class="col-4">
             <center>
-              <input id="matchingHoroscope2" name="matchingHoroscope" id="matchingHoroscope2" type="radio" value="Important">
-              <br>
-              <span class="custom-control-description">Important</span>
+              <div class="radio icheck-midnightblue icheck-align mx-auto">
+                <input id="matchingHoroscope2" name="matchingHoroscope" id="matchingHoroscope2" type="radio" value="Important">
+                <label for="matchingHoroscope2"></label>
+              </div>
+              <div> <span class="custom-control-description">Important</span></div>
             </center>
           </div>
           <div class="col-4">
             <center>
-              <input id="matchingHoroscope3" name="matchingHoroscope" id="matchingHoroscope3" type="radio" value="Not Important">
-              <br>
-              <span class="custom-control-description">Not Important</span>
+              <div class="radio icheck-midnightblue icheck-align mx-auto">
+                <input id="matchingHoroscope3" name="matchingHoroscope" id="matchingHoroscope3" type="radio" value="Not Important">
+                <label for="matchingHoroscope3"></label>
+              </div>
+              <div> <span class="custom-control-description">Not Important</span></div>
             </center>
           </div>
         </div>
@@ -354,23 +361,29 @@
         <div class="row">
           <div class="col-4">
             <center>
-              <input name="PapaKendara" id="PapaKendara1" type="radio" value="Dont Know">
-              <br>
-              <span class="custom-control-description">Dont Know</span>
+              <div class="radio icheck-midnightblue icheck-align mx-auto">
+                <input name="PapaKendara" id="PapaKendara1" type="radio" value="Dont Know">
+                <label for="PapaKendara1"></label>
+              </div>
+              <div> <span class="custom-control-description">Dont Know</span></div>
             </center>
           </div>
           <div class="col-4">
             <center>
-              <input name="PapaKendara" id="PapaKendara2" type="radio" value="Yes">
-              <br>
-              <span class="custom-control-description">Yes</span>
+              <div class="radio icheck-midnightblue icheck-align mx-auto">
+                <input name="PapaKendara" id="PapaKendara2" type="radio" value="Yes">
+                <label for="PapaKendara2"></label>
+              </div>
+              <div> <span class="custom-control-description">Yes</span></div>
             </center>
           </div>
           <div class="col-4">
             <center>
-              <input name="PapaKendara" id="PapaKendara3" type="radio" value="No">
-              <br>
-              <span class="custom-control-description">No</span>
+              <div class="radio icheck-midnightblue icheck-align mx-auto">
+                <input name="PapaKendara" id="PapaKendara3" type="radio" value="No">
+                <label for="PapaKendara3"></label>
+              </div>
+              <div> <span class="custom-control-description">No</span></div>
             </center>
           </div>
         </div>
@@ -380,159 +393,28 @@
     <div class="row">
       <div class="col-12">
         <button class="btn btn-info" id="btnBack" type="button"><i class="fas fa-angle-double-left"></i> &nbsp; BACK</button>
-        <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i></button>
+        <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i><i class="" id="btnSubmitLoading"></i></button>
       </div>
     </div>
   </form>
 </div>
 
 <script>
-  $(function() {
+  var Member = function() {
+    this.MemberID = 0;
+  }
+  var model = new Member();
+  model.MemberID = (<?= $this->session->userdata('member_id') ?>);
 
-    FillHorascopeData();
-
-    function FillHorascopeData() {
-      var Member = function() {
-        this.MemberID = 0;
-      }
-      var model = new Member();
-      model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-
-      ajaxCall('registration/getMemberData', model, function(response) {
-        if (response.vcMatchingHoroscope != null) {
-          var MatchingHoroscope = (response.vcMatchingHoroscope);
-          if (MatchingHoroscope == "Very Important") {
-            $("#matchingHoroscope1").prop("checked", true);
-          } else if (MatchingHoroscope == "Important") {
-            $("#matchingHoroscope2").prop("checked", true);
-          } else if (MatchingHoroscope == "Not Important") {
-            $("#matchingHoroscope3").prop("checked", true);
-          }
-          $("#ZodiacSign").val(response.vcZodiacSign);
-          $("#Ganaya").val(response.vcGanaya);
-          $("#Nekatha").val(response.vcNekatha);
-          $("#Ravi").val(response.intRavi);
-          $("#Moon").val(response.intMoon);
-          $("#Mars").val(response.intMars);
-          $("#Mercury").val(response.intMercury);
-          $("#Jupiter").val(response.intJupiter);
-          $("#Venus").val(response.intVenus);
-          $("#Saturn").val(response.intSaturn);
-          $("#Rahu").val(response.intRahu);
-          $("#Kethu").val(response.intKethu);
-          var PapaKendara = (response.vcPapaKendara);
-          if (PapaKendara == "Dont Know") {
-            $("#PapaKendara1").prop("checked", true);
-          } else if (MatchingHoroscope == "Yes") {
-            $("#PapaKendara2").prop("checked", true);
-          } else if (MatchingHoroscope == "No") {
-            $("#PapaKendara3").prop("checked", true);
-          }
-
-        }
-      });
-    }
+  let navigateBack = "<?php echo base_url('Registration/afterMarriage') ?>";
+  let navigateTo = "<?= base_url('Registration/myPhotos') ?>";
 
 
 
-
-    $('#btnBack').click(function() {
-      window.location.href = "<?php echo base_url('Registration/afterMarriage') ?>";
-    });
-
-    $('#btnSubmit').click(function() {
-      var isMatchingHoroscopeSelected = $("input[name=matchingHoroscope]").is(":checked");
-      var isPapaKendaraSelected = $("input[name=PapaKendara]").is(":checked");
-      if (!isMatchingHoroscopeSelected) {
-        toastr["error"]("Please select matching horoscope !");
-      } else if ($('#ZodiacSign').val() == 0) {
-        toastr["error"]("Please select zodiac sign !");
-        $("#ZodiacSign").focus();
-      } else if ($('#Ganaya').val() == 0) {
-        toastr["error"]("Please select ganaya !");
-        $("#Ganaya").focus();
-      } else if ($('#Nekatha').val() == 0) {
-        toastr["error"]("Please select nekatha !");
-        $("#Nekatha").focus();
-      } else if ($('#Ravi').val() == 0) {
-        toastr["error"]("Please select ravi !");
-        $("#Ravi").focus();
-      } else if ($('#Moon').val() == 0) {
-        toastr["error"]("Please select moon !");
-        $("#Moon").focus();
-      } else if ($('#Mars').val() == 0) {
-        toastr["error"]("Please select mars !");
-        $("#Mars").focus();
-      } else if ($('#Mercury').val() == 0) {
-        toastr["error"]("Please select mercury !");
-        $("#Mercury").focus();
-      } else if ($('#Jupiter').val() == 0) {
-        toastr["error"]("Please select jupiter !");
-        $("#Jupiter").focus();
-      } else if ($('#Venus').val() == 0) {
-        toastr["error"]("Please select venus !");
-        $("#Venus").focus();
-      } else if ($('#Saturn').val() == 0) {
-        toastr["error"]("Please select saturn !");
-        $("#Saturn").focus();
-      } else if ($('#Kethu').val() == 0) {
-        toastr["error"]("Please select kethu !");
-        $("#Kethu").focus();
-      } else if (!isPapaKendaraSelected) {
-        toastr["error"]("Please select papa kendara !");
-      } else {
-        var form = $("#addHoroscopeDetails");
-        $.ajax({
-          type: form.attr('method'),
-          url: form.attr('action'),
-          data: form.serialize(),
-          dataType: 'json',
-          success: function(response) {
-            if (response.success == true) {
-              Swal.fire({
-                icon: 'success',
-                title: 'Horoscope details saved successfully !',
-                showConfirmButton: false,
-                timer: 2000
-              }).then((result) => {
-                if (result.dismiss === Swal.DismissReason.timer) {
-                  window.location.href = "<?= base_url('Registration/myPhotos') ?>";
-                }
-              })
-
-            } else {
-              if (response.messages instanceof Object) {
-                $.each(response.messages, function(index, value) {
-                  var id = $("#" + index);
-                  id.closest('.form-group')
-                    .removeClass('has-error')
-                    .removeClass('has-success')
-                    .addClass(value.length > 0 ? 'has-error' : 'has-success');
-                  id.after(value);
-                });
-              } else {
-                toastr["error"](response.messages);
-                $(button).prop('disabled', false);
-              }
-            }
-          },
-          error: function() {
-            Swal.fire({
-              icon: 'error',
-              title: 'Oops...',
-              text: 'Internal Server Error! Please contact system administrator.',
-            })
-          }
-        });
-      }
-    });
-
-    $('#btnSkip').click(function() {
-      <?php $session_data = array('no_of_submitted_form' => 12);
-      $this->session->set_userdata($session_data); ?>
-      window.location.href = "<?php echo base_url('Registration/myPhotos') ?>";
-    });
-
-
+  $('#btnSkip').click(function() {
+    <?php $session_data = array('no_of_submitted_form' => 12);
+    $this->session->set_userdata($session_data); ?>
+    window.location.href = "<?php echo base_url('Registration/myPhotos') ?>";
   });
 </script>
+<script src="<?= base_url('resources/js/registration_form/horoscope.js') ?>"></script>
