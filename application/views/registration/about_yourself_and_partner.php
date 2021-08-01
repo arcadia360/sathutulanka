@@ -22,7 +22,7 @@
     <div class="row">
       <div class="col-12">
         <button class="btn btn-info" id="btnBack" type="button"><i class="fas fa-angle-double-left"></i> &nbsp; BACK</button>
-        <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i></button>
+        <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i><i class="" id="btnSubmitLoading"></i></button>
       </div>
     </div>
   </form>
@@ -30,90 +30,12 @@
 
 
 <script>
-  $(function() {
-
-
-    FillAboutYourSelfData();
-
-    function FillAboutYourSelfData() {
-      var Member = function() {
-        this.MemberID = 0;
-      }
-      var model = new Member();
-      model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-
-      ajaxCall('registration/getMemberData', model, function(response) {
-        if (response.vcAboutYourselfAndPartner != null) {
-          $("#aboutYourSelfAndPartner").val(response.vcAboutYourselfAndPartner);
-        }
-      });
-    }
-
-
-    $('#btnBack').click(function() {
-      window.location.href = "<?php echo base_url('Registration/myPhotos') ?>";
-    });
-    $('#btnSubmit').click(function() {
-      var wordCount = $.trim($("#aboutYourSelfAndPartner").val()).split(' ').filter(function(v) {
-        return v !== ''
-      }).length;
-
-      if ($('#aboutYourSelfAndPartner').val() == "") {
-        toastr["error"]("Please add about your self and partner !");
-        $("#aboutYourSelfAndPartner").focus();
-      } else if (wordCount < 50) {
-        toastr["error"]("The About yourself and partner field must type 50 words in length !");
-        // toastr["error"]("The About yourself and partner field cannot exceed 2500 characters in length !");
-        $("#aboutYourSelfAndPartner").focus();
-      } else if (wordCount > 500) {
-        toastr["error"]("The About yourself and partner field cannot exceed 500 words in length !");
-        $("#aboutYourSelfAndPartner").focus();
-      } else {
-        var form = $("#AddAboutYourselfAndPartner");
-        $.ajax({
-          type: form.attr('method'),
-          url: form.attr('action'),
-          data: form.serialize(),
-          dataType: 'json',
-          success: function(response) {
-            if (response.success == true) {
-              Swal.fire({
-                icon: 'success',
-                title: 'about yourself and partner details saved successfully !',
-                showConfirmButton: false,
-                timer: 2000
-              }).then((result) => {
-                if (result.dismiss === Swal.DismissReason.timer) {
-                  window.location.href = "<?= base_url('Registration/privacySettings') ?>";
-                }
-              })
-
-            } else {
-              if (response.messages instanceof Object) {
-                $.each(response.messages, function(index, value) {
-                  var id = $("#" + index);
-                  id.closest('.form-group')
-                    .removeClass('has-error')
-                    .removeClass('has-success')
-                    .addClass(value.length > 0 ? 'has-error' : 'has-success');
-                  id.after(value);
-                });
-              } else {
-                toastr["error"](response.messages);
-                $(button).prop('disabled', false);
-              }
-            }
-          },
-          error: function() {
-            Swal.fire({
-              icon: 'error',
-              title: 'Oops...',
-              text: 'Internal Server Error! Please contact system administrator.',
-            })
-          }
-        });
-      }
-    });
-
-  });
+  var Member = function() {
+    this.MemberID = 0;
+  }
+  var model = new Member();
+  model.MemberID = (<?= $this->session->userdata('member_id') ?>);
+  let navigateBack = "<?php echo base_url('Registration/myPhotos') ?>";
+  let navigateTo = "<?= base_url('Registration/privacySettings') ?>";
 </script>
+<script src="<?= base_url('resources/js/registration_form/AboutYourselfAndPartner.js') ?>"></script>
