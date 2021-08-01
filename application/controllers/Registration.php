@@ -675,8 +675,11 @@ class Registration extends Admin_Controller
 					<i class='far fa-times-circle' onclick='RemoveImage(" . $useriamges->intImageID . ")' ></i> <br>
 					<img class='img-thumbnail imgUpload' src=" . base_url('resources/images/member/photos/' . $imgFolderName . '/' . $useriamges->intImageName . $useriamges->vcImageType) . "> <br>
 					<div class='text-al-center'>
-					<input name='MyPhotos' type='radio' value=" . $useriamges->intImageID . " id=img" . $useriamges->intImageID . "><br>
-					<label for=img" . $useriamges->intImageID . ">Profile picture</label>
+					<div class='radio icheck-midnightblue icheck-align mx-auto'>
+					<input name='MyPhotos' type='radio' value=" . $useriamges->intImageID . " id=img" . $useriamges->intImageID . ">
+					<label for=img" . $useriamges->intImageID . "></label>
+                                </div>
+                                <div><label for=img" . $useriamges->intImageID . ">Profile picture</label></div>
 					</div>
 					</div>";
 				}
@@ -684,7 +687,6 @@ class Registration extends Admin_Controller
 			}
 		}
 	}
-
 	public function removeImage()
 	{
 		$result = '';
