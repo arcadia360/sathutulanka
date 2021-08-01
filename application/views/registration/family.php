@@ -1,6 +1,7 @@
 <div class="offset-lg-3 col-lg-6 main-section">
   <!-- <h3 class="text-center text-inverse font-weight-bold"><?= lang('residance') ?></h3> -->
   <h3 class="text-center text-inverse title">Family</h3>
+  <p class="highLightText text-center">100% Privacy Controls Available</p>
   <div class="row">
     <div class="container">
       <button class="btn btn-info float-right" type="button" id="btnSkip">Skip this step &nbsp; <i class="fas fa-forward"></i></button>
@@ -22,19 +23,24 @@
     <div class="row">
       <div class="col-12">
         <label class="text-inverse font-weight-bold" for="validationCustom01">Family Type</label>
+        <a href="#" class="anchor-qustion" data-toggle="popover" data-content="Join means living in one place more than two families"><i class="	fa fa-question-circle"></i></a>
         <div class="row">
-          <div class="col-4">
+          <div class="col-6">
             <center>
-              <input name="Family-Type" id="familyTypeJoin" type="radio" value="Join">
-              <br>
-              <span class="custom-control-description">Join</span>
+              <div class="radio icheck-midnightblue icheck-align mx-auto">
+                <input name="Family-Type" id="familyTypeJoin" type="radio" value="Join">
+                <label for="familyTypeJoin"></label>
+              </div>
+              <div> <span class="custom-control-description">Join</span></div>
             </center>
           </div>
-          <div class="col-4">
+          <div class="col-6">
             <center>
-              <input name="Family-Type" id="familyTypeNotJoin" type="radio" value="Not join">
-              <br>
-              <span class="custom-control-description">Not join</span>
+              <div class="radio icheck-midnightblue icheck-align mx-auto">
+                <input name="Family-Type" id="familyTypeNotJoin" type="radio" value="Not join">
+                <label for="familyTypeNotJoin"></label>
+              </div>
+              <div> <span class="custom-control-description">Not join</span></div>
             </center>
           </div>
         </div>
@@ -47,23 +53,29 @@
         <div class="row">
           <div class="col-4">
             <center>
-              <input id="Traditional" name="Family-Values" type="radio" value="Traditional">
-              <br>
-              <span class="custom-control-description">Traditional</span>
+              <div class="radio icheck-midnightblue icheck-align mx-auto">
+                <input id="Traditional" name="Family-Values" type="radio" value="Traditional">
+                <label for="Traditional"></label>
+              </div>
+              <div> <span class="custom-control-description">Traditional</span></div>
             </center>
           </div>
           <div class="col-4">
             <center>
-              <input id="TraditionalAndModern" name="Family-Values" type="radio" value="Mix of Traditional and Modern">
-              <br>
-              <span class="custom-control-description">Mix of Traditional and Modern</span>
+              <div class="radio icheck-midnightblue icheck-align mx-auto">
+                <input id="TraditionalAndModern" name="Family-Values" type="radio" value="Mix of Traditional and Modern">
+                <label for="TraditionalAndModern"></label>
+              </div>
+              <div> <span class="custom-control-description">Mix of Traditional and Modern</span></div>
             </center>
           </div>
           <div class="col-4">
             <center>
-              <input id="Modern" name="Family-Values" type="radio" value="Modern">
-              <br>
-              <span class="custom-control-description">Modern</span>
+              <div class="radio icheck-midnightblue icheck-align mx-auto">
+                <input id="Modern" name="Family-Values" type="radio" value="Modern">
+                <label for="Modern"></label>
+              </div>
+              <div> <span class="custom-control-description">Modern</span></div>
             </center>
           </div>
         </div>
@@ -91,23 +103,29 @@
         <div class="row">
           <div class="col-4">
             <center>
-              <input name="Family-Culture" id="Culture1" type="radio" value="Urban">
-              <br>
-              <span class="custom-control-description">Urban</span>
+              <div class="radio icheck-midnightblue icheck-align mx-auto">
+                <input name="Family-Culture" id="Culture1" type="radio" value="Urban">
+                <label for="Culture1"></label>
+              </div>
+              <div> <span class="custom-control-description">Urban</span></div>
             </center>
           </div>
           <div class="col-4">
             <center>
-              <input name="Family-Culture" id="Culture2" type="radio" value="Sub Urban">
-              <br>
-              <span class="custom-control-description">Sub Urban</span>
+              <div class="radio icheck-midnightblue icheck-align mx-auto">
+                <input name="Family-Culture" id="Culture2" type="radio" value="Sub Urban">
+                <label for="Culture1"></label>
+              </div>
+              <div> <span class="custom-control-description">Sub Urban</span></div>
             </center>
           </div>
           <div class="col-4">
             <center>
-              <input name="Family-Culture" id="Culture3" type="radio" value="Rural">
-              <br>
-              <span class="custom-control-description">Rural</span>
+              <div class="radio icheck-midnightblue icheck-align mx-auto">
+                <input name="Family-Culture" id="Culture3" type="radio" value="Rural">
+                <label for="Family-Culture"></label>
+              </div>
+              <div> <span class="custom-control-description">Rural</span></div>
             </center>
           </div>
         </div>
@@ -165,151 +183,28 @@
     <div class="row">
       <div class="col-12">
         <button class="btn btn-info" id="btnBack" type="button"><i class="fas fa-angle-double-left"></i> &nbsp; BACK</button>
-        <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i></button>
+        <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i><i class="" id="btnSubmitLoading"></i></button>
       </div>
     </div>
   </form>
 </div>
 
 <script>
-  $(function() {
+  var Member = function() {
+    this.MemberID = 0;
+  }
+  var model = new Member();
+  model.MemberID = (<?= $this->session->userdata('member_id') ?>);
 
-    FillFamilyData();
 
-    function FillFamilyData() {
-      var Member = function() {
-        this.MemberID = 0;
-      }
-      var model = new Member();
-      model.MemberID = (<?= $this->session->userdata('member_id') ?>);
-
-      ajaxCall('registration/getMemberData', model, function(response) {
-        if (response.intFamilyLocationID != null) {
-          $("#district").val(response.intFamilyLocationID);
-          var FamilyType = (response.vcFamilyType);
-          if (FamilyType == "Join") {
-            $("#familyTypeJoin").prop("checked", true);
-          } else if (FamilyType == "Not join") {
-            $("#familyTypeNotJoin").prop("checked", true);
-          }
-          var FamilyValues = (response.vcFamilyValues);
-          if (FamilyValues == "Traditional") {
-            $("#Traditional").prop("checked", true);
-          } else if (FamilyType == "Mix of Traditional and Modern") {
-            $("#TraditionalAndModern").prop("checked", true);
-          }
-          $("#Family-Class").val(response.vcFamilyClass);
-          var FamilyCulture = (response.vcFamilyCulture);
-          if (FamilyCulture == "Urban") {
-            $("#Culture1").prop("checked", true);
-          } else if (FamilyCulture == "Sub Urban") {
-            $("#Culture2").prop("checked", true);
-          } else if (FamilyCulture == "Rural") {
-            $("#Culture3").prop("checked", true);
-          }
-          $("#Father-Status").val(response.vcFatherStatus);
-          $("#Mother-Status").val(response.vcMotherStatus);
-          $("#Add-Family-Details").val(response.vcFamilyDetails);
-
-        }
-      });
-    }
-
-    $('#btnSubmit').click(function() {
-      let isFamilyTypeSelected = $("input[name=Family-Type]").is(":checked");
-      let isFamilyValuesSelected = $("input[name=Family-Values]").is(":checked");
-      let isFamilyCultureSelected = $("input[name=Family-Culture]").is(":checked");
-
-      if ($('#district').val() == 0) {
-        toastr["error"]("Please select district !");
-        $("#district").focus();
-      } else if (!isFamilyTypeSelected) {
-        toastr["error"]("Please select family type !");
-      } else if (!isFamilyValuesSelected) {
-        toastr["error"]("Please select family values !");
-      } else if ($('#Family-Class').val() == 0) {
-        toastr["error"]("Please select family class !");
-        $("#Family-Class").focus();
-      } else if (!isFamilyCultureSelected) {
-        toastr["error"]("Please select family culture !");
-      } else if ($('#Father-Status').val() == 0) {
-        toastr["error"]("Please select father status !");
-        $("#Father-Status").focus();
-      } else if ($('#Mother-Status').val() == 0) {
-        toastr["error"]("Please select mother status !");
-        $("#mother-Status").focus();
-      } else if ($('#Add-Family-Details').val() == "") {
-        toastr["error"]("Please add family details !");
-        $("#Add-Family-Details").focus();
-      } else {
-        var form = $("#addFamilyDetails");
-        $.ajax({
-          type: form.attr('method'),
-          url: form.attr('action'),
-          data: form.serialize(),
-          dataType: 'json',
-          success: function(response) {
-            if (response.success == true) {
-              Swal.fire({
-                icon: 'success',
-                title: 'Family details saved successfully!',
-                showConfirmButton: false,
-                timer: 2000
-              }).then((result) => {
-                if (result.dismiss === Swal.DismissReason.timer) {
-                  window.location.href = "<?= base_url('Registration/afterMarriage') ?>";
-                }
-              })
-            } else {
-              if (response.messages instanceof Object) {
-                $.each(response.messages, function(index, value) {
-                  var id = $("#" + index);
-                  id.closest('.form-group')
-                    .removeClass('has-error')
-                    .removeClass('has-success')
-                    .addClass(value.length > 0 ? 'has-error' : 'has-success');
-                  id.after(value);
-                });
-              } else {
-                toastr["error"](response.messages);
-                $(button).prop('disabled', false);
-              }
-            }
-          }
-        });
-      }
-    });
-
-    $('#btnSkip').click(function() {
-      <?php $session_data = array('no_of_submitted_form' => 10);
-      $this->session->set_userdata($session_data); ?>
-
-      window.location.href = "<?php echo base_url('Registration/afterMarriage') ?>";
-    });
-
-    loadDistricts();
-    $('#btnBack').click(function() {
-      window.location.href = "<?php echo base_url('Registration/personalAssets') ?>";
-    });
-
-    function loadDistricts() {
-      $.ajax({
-        type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/loadDistricts',
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-          if (!data) {
-            toastr["error"]("<?= lang('district') . ' ' . lang('dataCannotRetrieve') ?>");
-          } else {
-            $('#district').html(data);;
-            $('#district').val(0);
-          }
-        },
-        error: function() {
-          toastr["error"]("<?= lang('district') . ' ' . lang('dataCannotRetrieve') . ' Connection Err' ?>");
-        }
-      });
-    }
+  $('#btnSkip').click(function() {
+    <?php $session_data = array('no_of_submitted_form' => 10);
+    $this->session->set_userdata($session_data); ?>
+    window.location.href = "<?php echo base_url('Registration/afterMarriage') ?>";
   });
+
+  let navigateTo = "<?= base_url('Registration/afterMarriage') ?>";
+  let navigateBack = "<?php echo base_url('Registration/personalAssets') ?>";
+  let loadDistrictUrl = '<?php echo base_url(); ?>Registration/loadDistricts';
 </script>
+<script src="<?= base_url('resources/js/registration_form/family.js') ?>"></script>
