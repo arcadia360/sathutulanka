@@ -104,7 +104,16 @@ input[type="radio"]:checked+label:before {
 .highLightText {
 	font-weight: 300;
 	color: #bf360c;
-	font-size: 0.8em
+	font-size: 1.2em;
+}
+
+.anchor-qustion {
+	text-decoration: none;
+	color: #2C3E50;
+}
+
+.anchor-qustion:hover {
+	color: #0b1015;
 }
 
 /* Extra small devices (phones, 600px and down) */
