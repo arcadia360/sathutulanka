@@ -30,7 +30,7 @@ class CreateAccount extends Admin_Controller
 				// $this->Model_registration->sendVerificatinEmail($email, $random_EmailCode);
 				$response['email'] = $userData['vcEmail'];
 				$response['verificationText'] = $userData['vcEmailCode'];
-				$response['messages'] = "Please Check Your Email";
+				$response['messages'] = "Please Check Your Email !";
 				$response['success'] = true;
 			} else {
 				$response['messages'] = "Sent error";
@@ -184,6 +184,28 @@ class CreateAccount extends Admin_Controller
 		}
 
 		return false;
+	}
+
+	public function SendPasswordResetLinkToTheEmailAddress()
+	{
+		$username_exists = $this->model_auth->check_username($this->input->post('email-for-pass'));
+		if ($username_exists) {
+
+
+			$result = $this->Model_registration->getMemberBasicData($this->input->post('email-for-pass'));
+			
+			$response = $this->Model_registration->getPasswordRestLink($result['intMemberID'], $result['vcEmail']);
+
+			if ($response['success'] == true) {
+				$response['messages'] = "Successful !";
+			}else{
+				$response['messages'] = "Resetting Link Generate Error !";
+			}
+		} else {
+			$response['messages'] = "Invalid Email Address !";
+			$response['success'] = false;
+		}
+		echo json_encode($response);
 	}
 
 

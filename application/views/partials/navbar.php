@@ -35,50 +35,53 @@
     <!-- <link rel='stylesheet' href='https://getuikit.com/assets/uikit/dist/css/uikit.css?nc=868'> -->
 
     <style>
-        #btn-signin:hover {
-            color: #FFFFFF;
+        .form-control {
+            border-radius: 0 !important;
         }
+            #btn-signin:hover {
+                color: #FFFFFF;
+            }
 
-        #toast-container {
-            position: fixed;
-            z-index: 999999;
-            pointer-events: none;
-            right: 10px !important;
+            #toast-container {
+                position: fixed;
+                z-index: 999999;
+                pointer-events: none;
+                right: 10px !important;
 
-        }
+            }
 
-        #toast-container>div {
-            -moz-box-shadow: 0 0 12px #000000 !important;
-            -webkit-box-shadow: 0 0 12px #000000 !important;
-            box-shadow: 0 0 12px #000000 !important;
-        }
+            #toast-container>div {
+                -moz-box-shadow: 0 0 12px #000000 !important;
+                -webkit-box-shadow: 0 0 12px #000000 !important;
+                box-shadow: 0 0 12px #000000 !important;
+            }
 
-        #toast-container>.toast-error {
-            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHOSURBVEhLrZa/SgNBEMZzh0WKCClSCKaIYOED+AAKeQQLG8HWztLCImBrYadgIdY+gIKNYkBFSwu7CAoqCgkkoGBI/E28PdbLZmeDLgzZzcx83/zZ2SSXC1j9fr+I1Hq93g2yxH4iwM1vkoBWAdxCmpzTxfkN2RcyZNaHFIkSo10+8kgxkXIURV5HGxTmFuc75B2RfQkpxHG8aAgaAFa0tAHqYFfQ7Iwe2yhODk8+J4C7yAoRTWI3w/4klGRgR4lO7Rpn9+gvMyWp+uxFh8+H+ARlgN1nJuJuQAYvNkEnwGFck18Er4q3egEc/oO+mhLdKgRyhdNFiacC0rlOCbhNVz4H9FnAYgDBvU3QIioZlJFLJtsoHYRDfiZoUyIxqCtRpVlANq0EU4dApjrtgezPFad5S19Wgjkc0hNVnuF4HjVA6C7QrSIbylB+oZe3aHgBsqlNqKYH48jXyJKMuAbiyVJ8KzaB3eRc0pg9VwQ4niFryI68qiOi3AbjwdsfnAtk0bCjTLJKr6mrD9g8iq/S/B81hguOMlQTnVyG40wAcjnmgsCNESDrjme7wfftP4P7SP4N3CJZdvzoNyGq2c/HWOXJGsvVg+RA/k2MC/wN6I2YA2Pt8GkAAAAASUVORK5CYII=) !important;
-            top: 70px !important;
-        }
+            #toast-container>.toast-error {
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHOSURBVEhLrZa/SgNBEMZzh0WKCClSCKaIYOED+AAKeQQLG8HWztLCImBrYadgIdY+gIKNYkBFSwu7CAoqCgkkoGBI/E28PdbLZmeDLgzZzcx83/zZ2SSXC1j9fr+I1Hq93g2yxH4iwM1vkoBWAdxCmpzTxfkN2RcyZNaHFIkSo10+8kgxkXIURV5HGxTmFuc75B2RfQkpxHG8aAgaAFa0tAHqYFfQ7Iwe2yhODk8+J4C7yAoRTWI3w/4klGRgR4lO7Rpn9+gvMyWp+uxFh8+H+ARlgN1nJuJuQAYvNkEnwGFck18Er4q3egEc/oO+mhLdKgRyhdNFiacC0rlOCbhNVz4H9FnAYgDBvU3QIioZlJFLJtsoHYRDfiZoUyIxqCtRpVlANq0EU4dApjrtgezPFad5S19Wgjkc0hNVnuF4HjVA6C7QrSIbylB+oZe3aHgBsqlNqKYH48jXyJKMuAbiyVJ8KzaB3eRc0pg9VwQ4niFryI68qiOi3AbjwdsfnAtk0bCjTLJKr6mrD9g8iq/S/B81hguOMlQTnVyG40wAcjnmgsCNESDrjme7wfftP4P7SP4N3CJZdvzoNyGq2c/HWOXJGsvVg+RA/k2MC/wN6I2YA2Pt8GkAAAAASUVORK5CYII=) !important;
+                top: 70px !important;
+            }
 
-        .navbar-profile-pic .dropdown-toggle::after {
-            content: none !important;
-        }
+            .navbar-profile-pic .dropdown-toggle::after {
+                content: none !important;
+            }
 
-        .navbar-profile-pic a {
-            font-size: 0.9em !important;
-        }
+            .navbar-profile-pic a {
+                font-size: 0.9em !important;
+            }
 
-        .mobile-login-button {
-            border-radius: 19px;
-            color: #FFFFFF;
-            left: 50px;
-            /* right: 20px; */
-            bottom: 10px;
-            width: CALC(100% - 100px);
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            background-color: #479bef !important;
-            box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.031), 0 0px 5.3px rgba(0, 0, 0, 0.044), 0 0px 10px rgba(0, 0, 0, 0.055), 0 0px 17.9px rgba(0, 0, 0, 0.066), 0 0px 33.4px rgba(0, 0, 0, 0.079), 0 0px 80px rgba(0, 0, 0, 0.11);
-            /* box-shadow:
+            .mobile-login-button {
+                border-radius: 19px;
+                color: #FFFFFF;
+                left: 50px;
+                /* right: 20px; */
+                bottom: 10px;
+                width: CALC(100% - 100px);
+                font-weight: 600;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                background-color: #479bef !important;
+                box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.031), 0 0px 5.3px rgba(0, 0, 0, 0.044), 0 0px 10px rgba(0, 0, 0, 0.055), 0 0px 17.9px rgba(0, 0, 0, 0.066), 0 0px 33.4px rgba(0, 0, 0, 0.079), 0 0px 80px rgba(0, 0, 0, 0.11);
+                /* box-shadow:
                 0 0.2px 2.2px rgba(0, 0, 0, 0.037),
                 0 0.4px 5.3px rgba(0, 0, 0, 0.053),
                 0 0.8px 10px rgba(0, 0, 0, 0.065),
@@ -86,53 +89,53 @@
                 0 2.5px 33.4px rgba(0, 0, 0, 0.093),
                 0 6px 80px rgba(0, 0, 0, 0.13); */
 
-        }
+            }
 
-        .btn.focus,
-        .btn:focus {
-            outline: 0;
-            box-shadow:
-                0 0.7px 1.3px rgba(0, 0, 0, 0.02),
-                0 1.7px 3.2px rgba(0, 0, 0, 0.028),
-                0 3.1px 6px rgba(0, 0, 0, 0.035),
-                0 5.6px 10.7px rgba(0, 0, 0, 0.042),
-                0 10.4px 20.1px rgba(0, 0, 0, 0.05),
-                0 25px 48px rgba(0, 0, 0, 0.07);
+            .btn.focus,
+            .btn:focus {
+                outline: 0;
+                box-shadow:
+                    0 0.7px 1.3px rgba(0, 0, 0, 0.02),
+                    0 1.7px 3.2px rgba(0, 0, 0, 0.028),
+                    0 3.1px 6px rgba(0, 0, 0, 0.035),
+                    0 5.6px 10.7px rgba(0, 0, 0, 0.042),
+                    0 10.4px 20.1px rgba(0, 0, 0, 0.05),
+                    0 25px 48px rgba(0, 0, 0, 0.07);
 
 
-        }
+            }
 
-        .custom-control-input:checked~.custom-control-label::before {
-            /* color: #fff; */
-            border-color: transparent !important;
-            /* background-color: #007bff; */
-        }
+            .custom-control-input:checked~.custom-control-label::before {
+                /* color: #fff; */
+                border-color: transparent !important;
+                /* background-color: #007bff; */
+            }
 
-        .custom-control-input:focus~.custom-control-label::before {
-            box-shadow:
-                0 0.7px 1.3px rgba(0, 0, 0, 0.02),
-                0 1.7px 3.2px rgba(0, 0, 0, 0.028),
-                0 3.1px 6px rgba(0, 0, 0, 0.035),
-                0 5.6px 10.7px rgba(0, 0, 0, 0.042),
-                0 10.4px 20.1px rgba(0, 0, 0, 0.05),
-                0 25px 48px rgba(0, 0, 0, 0.07);
-        }
+            .custom-control-input:focus~.custom-control-label::before {
+                box-shadow:
+                    0 0.7px 1.3px rgba(0, 0, 0, 0.02),
+                    0 1.7px 3.2px rgba(0, 0, 0, 0.028),
+                    0 3.1px 6px rgba(0, 0, 0, 0.035),
+                    0 5.6px 10.7px rgba(0, 0, 0, 0.042),
+                    0 10.4px 20.1px rgba(0, 0, 0, 0.05),
+                    0 25px 48px rgba(0, 0, 0, 0.07);
+            }
 
-        .input-group-addon {
-            padding: .5rem .75rem;
-            margin-bottom: 0;
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.25;
-            color: #495057;
-            text-align: center;
-            background-color: #FFFFFF;
-            border: 1px solid rgba(0, 0, 0, .15);
-            /* border-radius: .25rem; */
-            position: absolute;
-            right: 0;
-            z-index: 9;
-        }
+            .input-group-addon {
+                padding: .5rem .75rem;
+                margin-bottom: 0;
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 1.25;
+                color: #495057;
+                text-align: center;
+                background-color: #FFFFFF;
+                border: 1px solid rgba(0, 0, 0, .15);
+                /* border-radius: .25rem; */
+                position: absolute;
+                right: 0;
+                z-index: 9;
+            }
     </style>
 
     <!-- Jquery 3.2  -->
@@ -357,7 +360,7 @@
                                                 <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me" data-parsley-multiple="remember-me" checked>
                                                 <label class="custom-control-label lbl-remember-me" for="remember-me" style="cursor: pointer !important;"><?= lang('remember_me') ?></label>
                                             </div>
-                                            <a class="ml-auto btn-forget-password" href="/forget-password"><?= lang('forget_password') ?></a>
+                                            <a class="ml-auto btn-forget-password" href="<?= base_url("Welcome/ForgetPassword")?>"><?= lang('forget_password') ?></a>
                                         </div>
                                     </div>
                                 </div>

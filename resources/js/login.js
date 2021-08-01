@@ -2,8 +2,7 @@ $(function () {
     $("#icon-wait").hide();
     $("#invalid-email").hide();
     $("#invalid-password").hide();
-    $("#invalid-messages").hide(); 
-    
+    $("#invalid-messages").hide();
 
     $("#show_hide_password a").on('click', function (event) {
         event.preventDefault();
@@ -24,16 +23,16 @@ $(function () {
 $("#btn-signin").click(function () {
 
     // $('body').addClass("wait"); // Change Cursor To Progress
- 
+
     $("#invalid-email").hide();
     $("#invalid-password").hide();
     $("#invalid-messages").hide();
-    
+
 
     if ($("#username").val().trim() === "") {
         $("#invalid-email").text("Please Enter Your Email Address !");
         $("#invalid-email").show();
-    }else if(!validEmail($("#username").val().trim())){
+    } else if (!validEmail($("#username").val().trim())) {
         $("#invalid-email").text("Please Enter Valid Email Address !");
         $("#invalid-email").show();
         return;
@@ -43,9 +42,9 @@ $("#btn-signin").click(function () {
         $("#invalid-password").show();
     }
 
-    if($("#username").val().trim() !== "" && $("#password").val().trim() !== ""){
+    if ($("#username").val().trim() !== "" && $("#password").val().trim() !== "") {
 
-    $("#icon-wait").show();
+        $("#icon-wait").show();
 
         $.ajax({
             type: 'POST',
@@ -57,27 +56,20 @@ $("#btn-signin").click(function () {
                 // $("#icon-wait").hide();
             },
             success: function (response) {
-    
-                $('input[name=csrf_arcadia360]').val(response.token);
-    
+
+                // $('input[name=csrf_arcadia360]').val(response.token);
+
                 if (response.success == false) {
                     $("#invalid-messages").text(response.messages);
                     $("#invalid-messages").show();
                     $("#icon-wait").hide();
-                }else{
+                } else {
                     $("#icon-wait").hide();
                     location.reload();
                 }
-                // alert("ddd");
             }
         });
     }
-
-//     ajaxCall('Auth/Login', $("#loginForm").serialize(), function (response) {
-// alert("ddd");
-//     });
-
-
 });
 
 $("#login-button").click(function (event) {
@@ -89,5 +81,3 @@ $("#login-button").click(function (event) {
 
 
 
-
- 

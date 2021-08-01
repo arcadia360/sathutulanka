@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Auth extends Admin_Controller
 {
- 
+
     public function __construct()
     {
         parent::__construct();
@@ -62,7 +62,7 @@ class Auth extends Admin_Controller
                             $response['success'] = true;
                             // $this->CheckAndRedirectNextForm();
                         } else if ($login['intMemberAccountStatusID'] == 4 || $login['intMemberAccountStatusID'] == 5 || $login['intMemberAccountStatusID'] == 6) { // Completed Account || Account Review Pending || Account Reviewed
-                            
+
                             if ($rememberMe != NULL) {
                                 setcookie('username', $this->input->post('username'), time() + (86400 * 7), "/");   // Can used 7 days only 
                                 setcookie('password', $this->input->post('password'), time() + (86400 * 7), "/");   // Can used 7 days only 
@@ -96,9 +96,11 @@ class Auth extends Admin_Controller
             $response['success'] = false;
         }
 
-        $response['token'] = $this->security->get_csrf_hash();
+        // $response['token'] = $this->security->get_csrf_hash();
         echo json_encode($response);
     }
+
+
 
 
     // public function Login()

@@ -2179,4 +2179,322 @@ class Model_registration extends CI_Model
       return $this->db->affected_rows();
     }
   }
+
+
+  public function getMemberBasicData($email)
+  {
+
+    $this->db->select('intMemberID,vcEmail');
+    $this->db->from('member');
+    $this->db->where('vcEmail', $email);
+    $query = $this->db->get();
+
+    return $query->row_array();
+  }
+
+  public function getPasswordRestLink($memberID, $email)
+  {
+
+    $data = array(
+      'intMemberID' => $memberID
+    );
+
+    $sql = "UPDATE PasswordResetRequest SET IsInvalid = 1 WHERE intMemberID = ?";
+
+    $random_EmailCode = substr(md5(uniqid(rand(), true)), 16, 16);
+    date_default_timezone_set('Asia/Colombo');
+    $nowDateTime = date('Y-m-d h:i:s');
+
+    $data_2 = array(
+      'intMemberID' => $memberID,
+      'vcEmailCode' => $random_EmailCode,
+      'dtPasswordResetLinkSentDate' => $nowDateTime,
+    );
+
+    $this->db->trans_begin();
+
+    $this->db->query($sql, array($data));
+
+    $this->db->insert('PasswordResetRequest', $data_2);
+
+    $resetLink = base_url() . "CreateAccount/ResetPassword/" . $random_EmailCode;
+
+    if ($this->db->trans_status() === FALSE) {
+      $this->db->trans_rollback();
+      $response['success'] = false;
+    } else {
+      $this->db->trans_commit();
+      $this->sendPasswordResetRequestEmail($email, $resetLink); //Send Email
+      $response['success'] = true;
+    }
+
+    return $response;
+  }
+
+  public function sendPasswordResetRequestEmail($email, $resetLink)
+  {
+    $config = array(
+      'protocol' => 'smtp',
+      'smtp_host' => 'smtp.gmail.com.',
+      'smtp_port' => 587,
+      'smtp_user' => 'geekfortechnologycom@gmail.com', // change it to yours
+      'smtp_pass' => 'nethsara@ramod', // change it to yours
+      'mailtype' => 'html',
+      'charset' => 'iso-8859-1',
+      'wordwrap' => TRUE
+    );
+
+    $this->load->library('email', $config);
+    $this->email->set_newline("\r\n");
+    $this->email->from('geekfortechnologycom@gmail.com', "Admin Team");
+    $this->email->to($email);
+    $this->email->subject("Sathutu Lanka Password Reset Link");
+    // $this->email->message("Dear member,\nPlease click on below URL or paste into your browser to verify your Email Address\n\n http://localhost:8012/sathutulanka/Registration/VerificatinEmail/" . $random_EmailCode . "\n" . "\n\nThanks\nAdmin Team");
+    $message = "";
+    $message = '
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title></title>
+      <style type="text/css">
+        body {
+          margin: 0;
+          padding: 0;
+        }
+
+        table,
+        td,
+        tr {
+          vertical-align: top;
+          border-collapse: collapse;
+        }
+
+        * {
+          line-height: inherit;
+        }
+
+        a[x-apple-data-detectors=true] {
+          color: inherit !important;
+          text-decoration: none !important;
+        }
+      </style>
+      <style type="text/css" id="media-query">
+        @media (max-width: 660px) {
+
+          .block-grid,
+          .col {
+            min-width: 320px !important;
+            max-width: 100% !important;
+            display: block !important;
+          }
+
+          .block-grid {
+            width: 100% !important;
+          }
+
+          .col {
+            width: 100% !important;
+          }
+
+          .col_cont {
+            margin: 0 auto;
+          }
+
+          img.fullwidth,
+          img.fullwidthOnMobile {
+            width: 100% !important;
+          }
+
+          .no-stack .col {
+            min-width: 0 !important;
+            display: table-cell !important;
+          }
+
+          .no-stack.two-up .col {
+            width: 50% !important;
+          }
+
+          .no-stack .col.num2 {
+            width: 16.6% !important;
+          }
+
+          .no-stack .col.num3 {
+            width: 25% !important;
+          }
+
+          .no-stack .col.num4 {
+            width: 33% !important;
+          }
+
+          .no-stack .col.num5 {
+            width: 41.6% !important;
+          }
+
+          .no-stack .col.num6 {
+            width: 50% !important;
+          }
+
+          .no-stack .col.num7 {
+            width: 58.3% !important;
+          }
+
+          .no-stack .col.num8 {
+            width: 66.6% !important;
+          }
+
+          .no-stack .col.num9 {
+            width: 75% !important;
+          }
+
+          .no-stack .col.num10 {
+            width: 83.3% !important;
+          }
+
+          .video-block {
+            max-width: none !important;
+          }
+
+          .mobile_hide {
+            min-height: 0px;
+            max-height: 0px;
+            max-width: 0px;
+            display: none;
+            overflow: hidden;
+            font-size: 0px;
+          }
+
+          .desktop_hide {
+            display: block !important;
+            max-height: none !important;
+          }
+        }
+      </style>
+    </head>
+
+    <body class="clean-body" style="margin: 0; padding: 0; -webkit-text-size-adjust: 100%; background-color: #f8f8f9;">
+      <table class="nl-container" style="table-layout: fixed; vertical-align: top; min-width: 320px; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #f8f8f9; width: 100%;" cellpadding="0" cellspacing="0" role="presentation" width="100%" bgcolor="#f8f8f9" valign="top">
+        <tbody>
+          <tr style="vertical-align: top;" valign="top">
+            <td style="word-break: break-word; vertical-align: top;" valign="top">
+              <div style="background-color:transparent;">
+                <div class="block-grid " style="min-width: 320px; max-width: 640px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: transparent;">
+                  <div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
+                    <div class="col num12" style="min-width: 320px; max-width: 640px; display: table-cell; vertical-align: top; width: 640px;">
+                      <div class="col_cont" style="width:100% !important;">
+                        <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
+                          <div class="img-container center fixedwidth" align="center" style="padding-right: 0px;padding-left: 0px;">
+                            <a href="www.sathutulanka.lk" target="_blank" style="outline:none" tabindex="-1">
+                              <img class="center fixedwidth" align="center" border="0" src="' . base_url('resources/images/navbar-logo-en.png') . '" alt="SathutuLanka.lk" title="Your logo." style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 160px; max-width: 100%; display: block;" width="160"></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="background-color:transparent;">
+                <div class="block-grid " style="min-width: 320px; max-width: 640px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #fff;">
+                  <div style="border-collapse: collapse;display: table;width: 100%;background-color:#fff;">
+                    <div class="col num12" style="min-width: 320px; max-width: 640px; display: table-cell; vertical-align: top; width: 640px;">
+                      <div class="col_cont" style="width:100% !important;">
+                        <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
+                          <div class="img-container center autowidth" align="center" style="padding-right: 0px;padding-left: 0px;">
+                                                        <a href="www.sathutulanka.lk" target="_blank" style="outline:none" tabindex="-1"><img class="center autowidth" align="center" border="0" src="https://d1oco4z2z1fhwp.cloudfront.net/templates/default/4036/___passwordreset.gif" alt="Image of lock &amp; key." title="Image of lock &amp; key." style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 640px; max-width: 100%; display: block;" width="640"></a>
+                          </div>
+                          <table class="divider" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" role="presentation" valign="top">
+                            <tbody>
+                              <tr style="vertical-align: top;" valign="top">
+                                <td class="divider_inner" style="word-break: break-word; vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; padding-top: 30px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px;" valign="top">
+                                  <table class="divider_content" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-top: 0px solid #BBBBBB; width: 100%;" align="center" role="presentation" valign="top">
+                                    <tbody>
+                                      <tr style="vertical-align: top;" valign="top">
+                                        <td style="word-break: break-word; vertical-align: top; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" valign="top"><span></span></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div style="color:#555555;font-family:\' Helvetica Neue\' , Helvetica, Arial, sans-serif;line-height:1.2;padding-top:10px;padding-right:40px;padding-bottom:10px;padding-left:40px;">
+                            <div class="txtTinyMce-wrapper" style="line-height: 1.2; font-size: 12px; font-family: \' Helvetica Neue\' , Helvetica, Arial, sans-serif; color: #555555; mso-line-height-alt: 14px;">
+                              <p style="margin: 0; font-size: 30px; line-height: 1.2; text-align: center; word-break: break-word; mso-line-height-alt: 36px; margin-top: 0; margin-bottom: 0;"><span style="font-size: 30px; color: #2b303a;"><strong>Forgot Your Password?</strong></span></p>
+                            </div>
+                          </div>
+                          <div style="color:#555555;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;line-height:1.5;padding-top:10px;padding-right:40px;padding-bottom:10px;padding-left:40px;">
+                            <div class="txtTinyMce-wrapper" style="line-height: 1.5; font-size: 12px; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; color: #555555; mso-line-height-alt: 18px;">
+                              <p style="margin: 0; font-size: 14px; line-height: 1.5; word-break: break-word; text-align: left; mso-line-height-alt: 21px; margin-top: 0; margin-bottom: 0;">Hello, VirajLasitha, someone requested to reset the password for this account.</p>
+                            </div>
+                          </div>
+                          <div class="button-container" align="center" style="padding-top:0px;padding-right:10px;padding-bottom:0px;padding-left:10px;">
+                                                    <a href="' . $resetLink . '" target="_blank" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #f7a50c; border-radius: 35px; -webkit-border-radius: 35px; -moz-border-radius: 35px; width: auto; width: auto; border-top: 1px solid #f7a50c; border-right: 1px solid #f7a50c; border-bottom: 1px solid #f7a50c; border-left: 1px solid #f7a50c; padding-top: 15px; padding-bottom: 15px; font-family: \' Helvetica Neue\' , Helvetica, Arial, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;"><span style="padding-left:30px;padding-right:30px;font-size:16px;display:inline-block;letter-spacing:undefined;"><span style="font-size: 16px; margin: 0; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;"><strong>RESET PASSWORD</strong></span></span></a>
+                          </div>
+                          <div style="color:#555555;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;line-height:1.5;padding-top:10px;padding-right:10px;padding-bottom:0px;padding-left:10px;">
+                            <div class="txtTinyMce-wrapper" style="line-height: 1.5; font-size: 12px; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; color: #555555; mso-line-height-alt: 18px;">
+                              <p style="margin: 0; line-height: 1.5; word-break: break-word; mso-line-height-alt: 18px; margin-top: 0; margin-bottom: 0;">If it was a mistake, just ignore this email.</p>
+                              <p style="margin: 0; line-height: 1.5; word-break: break-word; mso-line-height-alt: 18px; margin-top: 0; margin-bottom: 0;">If the previous link does not work, try to copy and paste the following URL in your browser\' s address bar:</p>
+                              <p style="margin: 0; line-height: 1.5; word-break: break-word; mso-line-height-alt: 18px; margin-top: 0; margin-bottom: 0;"></p>
+                              <p style="margin: 0; line-height: 1.5; word-break: break-word; mso-line-height-alt: 18px; margin-top: 0; margin-bottom: 0;"></p>
+                            </div>
+                          </div>
+                          <div style="color:#555555;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                            <div class="txtTinyMce-wrapper" style="font-size: 14px; line-height: 1.2; color: #555555; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; mso-line-height-alt: 17px;">
+                              <p style="margin: 0; font-size: 14px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 17px; margin-top: 0; margin-bottom: 0;"><a href="' . $resetLink . '" target="_blank" rel="noopener" style="color: #0068A5;">' . $resetLink . '</a></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="background-color:transparent;">
+                <div class="block-grid " style="min-width: 320px; max-width: 640px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #fff;">
+                  <div style="border-collapse: collapse;display: table;width: 100%;background-color:#fff;">
+                    <div class="col num12" style="min-width: 320px; max-width: 640px; display: table-cell; vertical-align: top; width: 640px;">
+                      <div class="col_cont" style="width:100% !important;">
+                        <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
+                          <div style="color:#a0a0a0;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                            <div class="txtTinyMce-wrapper" style="font-size: 14px; line-height: 1.2; color: #a0a0a0; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; mso-line-height-alt: 17px;">
+                              <p style="margin: 0; font-size: 11px; line-height: 1.2; word-break: break-word; mso-line-height-alt: 13px; margin-top: 0; margin-bottom: 0;"><span style="font-size: 11px;">This is an automatically generated email, please do not reply.</span></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="background-color:transparent;">
+                <div class="block-grid " style="min-width: 320px; max-width: 640px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; Margin: 0 auto; background-color: #570c32;">
+                  <div style="border-collapse: collapse;display: table;width: 100%;background-color:#570c32;">
+                    <div class="col num12" style="min-width: 320px; max-width: 640px; display: table-cell; vertical-align: top; width: 640px;">
+                      <div class="col_cont" style="width:100% !important;">
+                        <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
+                          <div style="color:#ffffff;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;line-height:1.2;padding-top:15px;padding-right:40px;padding-bottom:15px;padding-left:40px;">
+                            <div class="txtTinyMce-wrapper" style="line-height: 1.2; font-size: 12px; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; color: #ffffff; mso-line-height-alt: 14px;">
+                              <p style="margin: 0; font-size: 12px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 14px; margin-top: 0; margin-bottom: 0;"><span style="color: #bcbcbc; font-size: 12px;">Sathutu Lanka Copyright © 2021</span></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </body>
+
+    </html>
+    ';
+    $this->email->message($message);
+    $this->email->send();
+  }
 }
