@@ -1,6 +1,6 @@
 <div class="offset-lg-3 col-lg-6 main-section">
     <h3 class="text-center text-inverse title">Personal Assets</h3>
-    <span class="highLightText">100% Privacy Controls Available</span>
+    <p class="highLightText text-center">100% Privacy Controls Available</p>
     <form method="post" action="<?= base_url('Registration/addPersonalAssestDetails') ?>" id="addPersonalAssestDetails">
         <div class="row">
             <div class="col-lg-12 col-sm-12 col-12">
