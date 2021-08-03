@@ -186,6 +186,18 @@ class CreateAccount extends Admin_Controller
 		return false;
 	}
 
+	public function ForgetPassword()
+	{
+
+		$this->CheckCookieAfterFillSessionData(); // Check Cookie
+
+		if (!isset($_SESSION['member_id']) || empty($_SESSION['member_id'])) {  // If Fresh User
+			$this->render_template('account/forget_password', 'W E L C O M E', null);
+		} else {
+			$this->CheckAndRedirectNextForm();
+		}
+	}
+
 	public function SendPasswordResetLinkToTheEmailAddress()
 	{
 		$username_exists = $this->model_auth->check_username($this->input->post('email-for-pass'));
@@ -206,6 +218,16 @@ class CreateAccount extends Admin_Controller
 			$response['success'] = false;
 		}
 		echo json_encode($response);
+	}
+
+	public function ResetPassword(){
+		// $this->CheckCookieAfterFillSessionData(); // Check Cookie
+
+		if (!isset($_SESSION['member_id']) || empty($_SESSION['member_id'])) {  // If Fresh User
+			$this->render_template('account/create_new_password', 'W E L C O M E', null);
+		} else {
+			$this->CheckAndRedirectNextForm();
+		}
 	}
 
 
