@@ -15,16 +15,16 @@ class Welcome extends Admin_Controller
 		}
 	}
 
-	public function ForgetPassword(){
+	// public function ForgetPassword(){
 
-		$this->CheckCookieAfterFillSessionData(); // Check Cookie
+	// 	$this->CheckCookieAfterFillSessionData(); // Check Cookie
 
-		if (!isset($_SESSION['member_id']) || empty($_SESSION['member_id'])) {  // If Fresh User
-			$this->render_template('forget_password', 'W E L C O M E', null);
-		} else {
-			$this->CheckAndRedirectNextForm();
-		}
-	}
+	// 	if (!isset($_SESSION['member_id']) || empty($_SESSION['member_id'])) {  // If Fresh User
+	// 		$this->render_template('forget_password', 'W E L C O M E', null);
+	// 	} else {
+	// 		$this->CheckAndRedirectNextForm();
+	// 	}
+	// }
 
 	public function ChangeLanguage($LanguageID, $url)
 	{
