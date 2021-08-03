@@ -38,50 +38,52 @@
         .form-control {
             border-radius: 0 !important;
         }
-            #btn-signin:hover {
-                color: #FFFFFF;
-            }
 
-            #toast-container {
-                position: fixed;
-                z-index: 999999;
-                pointer-events: none;
-                right: 10px !important;
+        .btn-signin:hover,
+        .btn-signin:active {
+            color: #FFFFFF;
+        }
 
-            }
+        #toast-container {
+            position: fixed;
+            z-index: 999999;
+            pointer-events: none;
+            right: 10px !important;
 
-            #toast-container>div {
-                -moz-box-shadow: 0 0 12px #000000 !important;
-                -webkit-box-shadow: 0 0 12px #000000 !important;
-                box-shadow: 0 0 12px #000000 !important;
-            }
+        }
 
-            #toast-container>.toast-error {
-                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHOSURBVEhLrZa/SgNBEMZzh0WKCClSCKaIYOED+AAKeQQLG8HWztLCImBrYadgIdY+gIKNYkBFSwu7CAoqCgkkoGBI/E28PdbLZmeDLgzZzcx83/zZ2SSXC1j9fr+I1Hq93g2yxH4iwM1vkoBWAdxCmpzTxfkN2RcyZNaHFIkSo10+8kgxkXIURV5HGxTmFuc75B2RfQkpxHG8aAgaAFa0tAHqYFfQ7Iwe2yhODk8+J4C7yAoRTWI3w/4klGRgR4lO7Rpn9+gvMyWp+uxFh8+H+ARlgN1nJuJuQAYvNkEnwGFck18Er4q3egEc/oO+mhLdKgRyhdNFiacC0rlOCbhNVz4H9FnAYgDBvU3QIioZlJFLJtsoHYRDfiZoUyIxqCtRpVlANq0EU4dApjrtgezPFad5S19Wgjkc0hNVnuF4HjVA6C7QrSIbylB+oZe3aHgBsqlNqKYH48jXyJKMuAbiyVJ8KzaB3eRc0pg9VwQ4niFryI68qiOi3AbjwdsfnAtk0bCjTLJKr6mrD9g8iq/S/B81hguOMlQTnVyG40wAcjnmgsCNESDrjme7wfftP4P7SP4N3CJZdvzoNyGq2c/HWOXJGsvVg+RA/k2MC/wN6I2YA2Pt8GkAAAAASUVORK5CYII=) !important;
-                top: 70px !important;
-            }
+        #toast-container>div {
+            -moz-box-shadow: 0 0 12px #000000 !important;
+            -webkit-box-shadow: 0 0 12px #000000 !important;
+            box-shadow: 0 0 12px #000000 !important;
+        }
 
-            .navbar-profile-pic .dropdown-toggle::after {
-                content: none !important;
-            }
+        #toast-container>.toast-error {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHOSURBVEhLrZa/SgNBEMZzh0WKCClSCKaIYOED+AAKeQQLG8HWztLCImBrYadgIdY+gIKNYkBFSwu7CAoqCgkkoGBI/E28PdbLZmeDLgzZzcx83/zZ2SSXC1j9fr+I1Hq93g2yxH4iwM1vkoBWAdxCmpzTxfkN2RcyZNaHFIkSo10+8kgxkXIURV5HGxTmFuc75B2RfQkpxHG8aAgaAFa0tAHqYFfQ7Iwe2yhODk8+J4C7yAoRTWI3w/4klGRgR4lO7Rpn9+gvMyWp+uxFh8+H+ARlgN1nJuJuQAYvNkEnwGFck18Er4q3egEc/oO+mhLdKgRyhdNFiacC0rlOCbhNVz4H9FnAYgDBvU3QIioZlJFLJtsoHYRDfiZoUyIxqCtRpVlANq0EU4dApjrtgezPFad5S19Wgjkc0hNVnuF4HjVA6C7QrSIbylB+oZe3aHgBsqlNqKYH48jXyJKMuAbiyVJ8KzaB3eRc0pg9VwQ4niFryI68qiOi3AbjwdsfnAtk0bCjTLJKr6mrD9g8iq/S/B81hguOMlQTnVyG40wAcjnmgsCNESDrjme7wfftP4P7SP4N3CJZdvzoNyGq2c/HWOXJGsvVg+RA/k2MC/wN6I2YA2Pt8GkAAAAASUVORK5CYII=) !important;
+            top: 70px !important;
+        }
 
-            .navbar-profile-pic a {
-                font-size: 0.9em !important;
-            }
+        .navbar-profile-pic .dropdown-toggle::after {
+            content: none !important;
+        }
 
-            .mobile-login-button {
-                border-radius: 19px;
-                color: #FFFFFF;
-                left: 50px;
-                /* right: 20px; */
-                bottom: 10px;
-                width: CALC(100% - 100px);
-                font-weight: 600;
-                letter-spacing: 1px;
-                text-transform: uppercase;
-                background-color: #479bef !important;
-                box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.031), 0 0px 5.3px rgba(0, 0, 0, 0.044), 0 0px 10px rgba(0, 0, 0, 0.055), 0 0px 17.9px rgba(0, 0, 0, 0.066), 0 0px 33.4px rgba(0, 0, 0, 0.079), 0 0px 80px rgba(0, 0, 0, 0.11);
-                /* box-shadow:
+        .navbar-profile-pic a {
+            font-size: 0.9em !important;
+        }
+
+        .mobile-login-button {
+            border-radius: 19px;
+            color: #FFFFFF;
+            left: 50px;
+            /* right: 20px; */
+            bottom: 10px;
+            width: CALC(100% - 100px);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background-color: #479bef !important;
+            box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.031), 0 0px 5.3px rgba(0, 0, 0, 0.044), 0 0px 10px rgba(0, 0, 0, 0.055), 0 0px 17.9px rgba(0, 0, 0, 0.066), 0 0px 33.4px rgba(0, 0, 0, 0.079), 0 0px 80px rgba(0, 0, 0, 0.11);
+            /* box-shadow:
                 0 0.2px 2.2px rgba(0, 0, 0, 0.037),
                 0 0.4px 5.3px rgba(0, 0, 0, 0.053),
                 0 0.8px 10px rgba(0, 0, 0, 0.065),
@@ -89,53 +91,57 @@
                 0 2.5px 33.4px rgba(0, 0, 0, 0.093),
                 0 6px 80px rgba(0, 0, 0, 0.13); */
 
-            }
+        }
 
-            .btn.focus,
-            .btn:focus {
-                outline: 0;
-                box-shadow:
-                    0 0.7px 1.3px rgba(0, 0, 0, 0.02),
-                    0 1.7px 3.2px rgba(0, 0, 0, 0.028),
-                    0 3.1px 6px rgba(0, 0, 0, 0.035),
-                    0 5.6px 10.7px rgba(0, 0, 0, 0.042),
-                    0 10.4px 20.1px rgba(0, 0, 0, 0.05),
-                    0 25px 48px rgba(0, 0, 0, 0.07);
+        .btn.focus,
+        .btn:focus {
+            outline: 0;
+            box-shadow:
+                0 0.7px 1.3px rgba(0, 0, 0, 0.02),
+                0 1.7px 3.2px rgba(0, 0, 0, 0.028),
+                0 3.1px 6px rgba(0, 0, 0, 0.035),
+                0 5.6px 10.7px rgba(0, 0, 0, 0.042),
+                0 10.4px 20.1px rgba(0, 0, 0, 0.05),
+                0 25px 48px rgba(0, 0, 0, 0.07);
 
 
-            }
+        }
 
-            .custom-control-input:checked~.custom-control-label::before {
-                /* color: #fff; */
-                border-color: transparent !important;
-                /* background-color: #007bff; */
-            }
+        .custom-control-input:checked~.custom-control-label::before {
+            /* color: #fff; */
+            border-color: transparent !important;
+            /* background-color: #007bff; */
+        }
 
-            .custom-control-input:focus~.custom-control-label::before {
-                box-shadow:
-                    0 0.7px 1.3px rgba(0, 0, 0, 0.02),
-                    0 1.7px 3.2px rgba(0, 0, 0, 0.028),
-                    0 3.1px 6px rgba(0, 0, 0, 0.035),
-                    0 5.6px 10.7px rgba(0, 0, 0, 0.042),
-                    0 10.4px 20.1px rgba(0, 0, 0, 0.05),
-                    0 25px 48px rgba(0, 0, 0, 0.07);
-            }
+        .custom-control-input:focus~.custom-control-label::before {
+            box-shadow:
+                0 0.7px 1.3px rgba(0, 0, 0, 0.02),
+                0 1.7px 3.2px rgba(0, 0, 0, 0.028),
+                0 3.1px 6px rgba(0, 0, 0, 0.035),
+                0 5.6px 10.7px rgba(0, 0, 0, 0.042),
+                0 10.4px 20.1px rgba(0, 0, 0, 0.05),
+                0 25px 48px rgba(0, 0, 0, 0.07);
+        }
 
-            .input-group-addon {
-                padding: .5rem .75rem;
-                margin-bottom: 0;
-                font-size: 1rem;
-                font-weight: 400;
-                line-height: 1.25;
-                color: #495057;
-                text-align: center;
-                background-color: #FFFFFF;
-                border: 1px solid rgba(0, 0, 0, .15);
-                /* border-radius: .25rem; */
-                position: absolute;
-                right: 0;
-                z-index: 9;
-            }
+        .input-group-addon {
+            padding: .5rem .75rem;
+            margin-bottom: 0;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.25;
+            color: #495057;
+            text-align: center;
+            background-color: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, .15);
+            /* border-radius: .25rem; */
+            position: absolute;
+            right: 0;
+            z-index: 9;
+        }
+
+        .input-group-addon a {
+            color: #607d8b;
+        }
     </style>
 
     <!-- Jquery 3.2  -->
@@ -161,7 +167,7 @@
 
     <nav class="navbar fixed-top navbar-expand-lg bg-red" id="navbar">
 
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="<?= base_url('Welcome') ?>">
             <?php
             if ($_SESSION['language_id'] == 1) { // Current Language - English
             ?>
@@ -173,7 +179,6 @@
             <?php
             }
             ?>
-
         </a>
 
 
@@ -231,7 +236,7 @@
                 </ul>
 
             <?php
-            } else {
+            } else if ($this->uri->segment(1) == "Welcome" || $this->uri->segment(1) == "") {
             ?>
                 <button type="button" class="btn btn-login" data-toggle="modal" data-target="#exampleModal">
                     <?= lang('login'); ?>
@@ -244,21 +249,23 @@
 
 
         <?php
-        $url = "";
-        for ($i = 0; $i < count($this->uri->segment_array()); $i++) {
-            $url = $url . $this->uri->segment($i + 1) . "/";
-        }
-        if ($url == "") {
-            $url = "Welcome";
-        }
-        if ($_SESSION['language_id'] == 1 && $_SESSION['logged_in'] == FALSE) { // Current Language - English
+        if ($this->uri->segment(1) == "Welcome" || $this->uri->segment(1) == "") {
+            $url = "";
+            for ($i = 0; $i < count($this->uri->segment_array()); $i++) {
+                $url = $url . $this->uri->segment($i + 1) . "/";
+            }
+            if ($url == "") {
+                $url = "Welcome";
+            }
+            if ($_SESSION['language_id'] == 1 && $_SESSION['logged_in'] == FALSE) { // Current Language - English
         ?>
-            <a class="nav-link btn-lang" href="<?= base_url("Welcome/ChangeLanguage/2/" . $url); ?>">සිංහල</a>
+                <a class="nav-link btn-lang" href="<?= base_url("Welcome/ChangeLanguage/2/" . $url); ?>">සිංහල</a>
+            <?php
+            } else if ($_SESSION['language_id'] == 2 && $_SESSION['logged_in'] == FALSE) { // Current Language - Sinhala
+            ?>
+                <a class="nav-link btn-lang" href="<?= base_url("Welcome/ChangeLanguage/1/" . $url); ?>">English</a>
         <?php
-        } else if ($_SESSION['language_id'] == 2 && $_SESSION['logged_in'] == FALSE) { // Current Language - Sinhala
-        ?>
-            <a class="nav-link btn-lang" href="<?= base_url("Welcome/ChangeLanguage/1/" . $url); ?>">English</a>
-        <?php
+            }
         }
         ?>
     </nav>
@@ -307,7 +314,7 @@
                 </div>
             </div>
         </nav>
-    <?php } else { ?>
+    <?php } else if ($this->uri->segment(1) == "Welcome" || $this->uri->segment(1) == "") { ?>
         <button class="fixed-bottom d-xs-block d-lg-none btn mobile-login-button" data-toggle="modal" data-target="#exampleModal"><?= lang('login'); ?></button>
     <?php } ?>
     <!-- Mobile Navbar - End -->
@@ -315,77 +322,79 @@
 
     <?php
     if ($_SESSION['logged_in'] == FALSE) {
+        if ($this->uri->segment(1) == "Welcome" || $this->uri->segment(1) == "") {
     ?>
 
-        <!-- Login Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="exampleModalLabel"><?= lang('welcome_to_login') ?></h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width: 72px; outline: none;">
-                            <h4 style="color: #FFFFFF; font-size: 30px; margin: 0;"><i class="fas fa-times"></i></h4>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <small id="invalid-messages" class="form-text text-danger font-weight-bold animate__animated animate__flash" style="position: absolute; top:5px; z-index: 1;">Please provide a valid password !</small>
-                        <div class="row">
-                            <div class="card card-body" style="border: none;">
-                                <?php
-                                $attributes = array('role' => 'form', 'id' => 'loginForm');
-                                echo form_open('', $attributes);
-                                ?>
-                                <div class="form-group required">
-                                    <!-- <label for="username"><?= lang('email_phone') ?></label> -->
-                                    <label for="username">Email</label>
-                                    <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
-                                    <small id="invalid-email" class="form-text text-danger font-weight-bold animate__animated animate__flash">Please provide a valid email !</small>
-                                </div>
-                                <div class="form-group required">
-                                    <label class="d-flex flex-row align-items-center" for="password"><?= lang('password') ?></label>
-                                    <!-- <input type="password" class="form-control" required="" id="password" name="password" value=""> -->
-                                    <div class="input-group" id="show_hide_password">
-                                        <input class="form-control" type="password" id="password" name="password">
-                                        <div class="input-group-addon" style="align-items: center;">
-                                            <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
-                                        </div>
+            <!-- Login Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="exampleModalLabel"><?= lang('welcome_to_login') ?></h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="width: 72px; outline: none;">
+                                <h4 style="color: #FFFFFF; font-size: 30px; margin: 0;"><i class="fas fa-times"></i></h4>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <small id="invalid-messages" class="form-text text-danger font-weight-bold animate__animated animate__flash" style="position: absolute; top:5px; z-index: 1;">Please provide a valid password !</small>
+                            <div class="row">
+                                <div class="card card-body" style="border: none;">
+                                    <?php
+                                    $attributes = array('role' => 'form', 'id' => 'loginForm');
+                                    echo form_open('', $attributes);
+                                    ?>
+                                    <div class="form-group required">
+                                        <!-- <label for="username"><?= lang('email_phone') ?></label> -->
+                                        <label for="username">Email</label>
+                                        <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
+                                        <small id="invalid-email" class="form-text text-danger font-weight-bold animate__animated animate__flash">Please provide a valid email !</small>
                                     </div>
-                                    <small id="invalid-password" class="form-text text-danger font-weight-bold animate__animated animate__flash">Please provide a valid password !</small>
-                                </div>
-                                <div class="form-group mt-4 mb-4">
-
-                                    <div class="col-12">
-                                        <div class="row">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me" data-parsley-multiple="remember-me" checked>
-                                                <label class="custom-control-label lbl-remember-me" for="remember-me" style="cursor: pointer !important;"><?= lang('remember_me') ?></label>
+                                    <div class="form-group required">
+                                        <label class="d-flex flex-row align-items-center" for="password"><?= lang('password') ?></label>
+                                        <!-- <input type="password" class="form-control" required="" id="password" name="password" value=""> -->
+                                        <div class="input-group" id="show_hide_password">
+                                            <input class="form-control" type="password" id="password" name="password">
+                                            <div class="input-group-addon" style="align-items: center;">
+                                                <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                             </div>
-                                            <a class="ml-auto btn-forget-password" href="<?= base_url("Welcome/ForgetPassword")?>"><?= lang('forget_password') ?></a>
+                                        </div>
+                                        <small id="invalid-password" class="form-text text-danger font-weight-bold animate__animated animate__flash">Please provide a valid password !</small>
+                                    </div>
+                                    <div class="form-group mt-4 mb-4">
+
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me" data-parsley-multiple="remember-me" checked>
+                                                    <label class="custom-control-label lbl-remember-me" for="remember-me" style="cursor: pointer !important;"><?= lang('remember_me') ?></label>
+                                                </div>
+                                                <a class="ml-auto btn-forget-password" href="<?= base_url("Account/ForgetPassword") ?>"><?= lang('forget_password') ?></a>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="form-group pt-1">
+                                        <!-- <button class="btn btn-block btn-signin" type="submit"><?= lang('sign_in') ?></button> -->
+                                        <button class="btn btn-block btn-signin" id="btn-signin" type="button">
+                                            <?= lang('sign_in') ?>
+                                            <i class="fa fa-spinner fa-spin" style="font-size:24px" id="icon-wait"></i>
+                                        </button>
+                                    </div>
+                                    <?= form_close(); ?>
+                                    <p class="small-xl text-center">
+                                        <span class="text-muted"><?= lang('not_a_member') ?></span>
+                                        <a class="btn-register-free" href="<?= base_url('Registration') ?>">
+                                            <h5 class="animate__animated animate__pulse animate__infinite m-auto"><?= lang('register_free') ?></h5>
+                                        </a>
+                                    </p>
                                 </div>
-                                <div class="form-group pt-1">
-                                    <!-- <button class="btn btn-block btn-signin" type="submit"><?= lang('sign_in') ?></button> -->
-                                    <button class="btn btn-block btn-signin" id="btn-signin" type="button">
-                                        <?= lang('sign_in') ?>
-                                        <i class="fa fa-spinner fa-spin" style="font-size:24px" id="icon-wait"></i>
-                                    </button>
-                                </div>
-                                <?= form_close(); ?>
-                                <p class="small-xl text-center">
-                                    <span class="text-muted"><?= lang('not_a_member') ?></span>
-                                    <a class="btn-register-free" href="<?= base_url('Registration') ?>">
-                                        <h5 class="animate__animated animate__pulse animate__infinite m-auto"><?= lang('register_free') ?></h5>
-                                    </a>
-                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
     <?php
+        }
     }
     ?>
 
