@@ -198,7 +198,7 @@
     .site-caption-1 p,
     .site-caption-1 {
         /* font-family: 'Merienda', cursive !important; */
-        font-size: 0.9em;
+        font-size: 1em;
         color: #5c4e3f;
         z-index: 111;
         text-align: justify;
@@ -211,13 +211,15 @@
     .services .icon {
         line-height: 1.3;
         position: relative;
-        width: 70px;
-        height: 70px;
+        width: 80px;
+        height: 80px;
         margin: 0 auto;
         position: relative;
         z-index: 0;
         border-radius: 50%;
-        background: #b52b4a;
+        /* background: #b52b4a; */
+        background: #FFFFFF;
+
         -webkit-box-shadow: 0px 10px 30px -4px rgb(0 0 0 / 15%);
         -moz-box-shadow: 0px 10px 30px -4px rgba(0, 0, 0, 0.15);
         box-shadow: 0px 10px 30px -4px rgb(0 0 0 / 15%);
@@ -240,6 +242,26 @@
     .services .read-more {
         position: absolute;
         bottom: 0;
+    }
+
+
+    .advantage-model .icon {
+        line-height: 1.3;
+        position: relative;
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 0;
+        border-radius: 50%;
+        /* background: #b52b4a; */
+        background: #FFFFFF;
+
+        -webkit-box-shadow: 0px 10px 30px -4px rgb(0 0 0 / 15%);
+        -moz-box-shadow: 0px 10px 30px -4px rgba(0, 0, 0, 0.15);
+        box-shadow: 0px 10px 30px -4px rgb(0 0 0 / 15%);
+        font-size: 30px;
+        color: #fff;
     }
 
     *+p,
@@ -556,12 +578,12 @@
     <div class="row site-caption-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
                     <img src="<?= base_url("resources/images/sathutulanka_1.png") ?>" alt="Sathutulanka.LK" style="width: 300px;" class="mt-3">
-                </div>
-                <div class="col-md-8">
-                    <div class="pt-3 site-caption-1">
-                        <p style="font-weight: 500; text-align: right;" class="col-12 pb-0 mb-0">Sathutulanka.lk</p>
+                </div> -->
+                <div class="col-12">
+                    <div class="site-caption-1">
+                        <p style="font-weight: 500; text-align: right; font-size: 0.9em;" class="col-12 pb-0 mb-0">Sathutulanka.lk</p>
                         <h3 style="font-weight: bold; text-align: right;">WHO WE ARE</h3>
                         <p>
                             This is the first and only marriage service in <b>Sri Lanka</b> and the world by trust.
@@ -574,18 +596,20 @@
         </div>
     </div>
 
-    <div class="row our-services-section" style="background-color: #f5f5f5; clip-path: polygon(75% 14%, 100% 0, 100% 76%, 0 100%, 0 0); padding-bottom: 100px;">
+    <!-- <div class="row our-services-section" style="background-color: #f5f5f5; clip-path: polygon(75% 14%, 100% 0, 100% 76%, 0 100%, 0 0); padding-bottom: 100px;"> -->
+    <div class="row our-services-section mt-3 pb-4" style="background-color: #f5f5f5;">
         <div class="container transcroller-body">
-            <div class="row  pt-5">
+            <div class="row  pt-4">
                 <p style="font-weight: 500; font-size: 0.9em;" class="col-12 pb-0 mb-0">Our Services</p>
                 <h3 style="font-weight: bold;" class="col-12">WHAT WE OFFERS</h3>
             </div>
 
-            <div class="row pt-5 services">
+            <div class="row pt-4 services">
                 <div class="col-md-4">
                     <div class="d-block d-flex service-card">
-                        <div class="icon d-flex justify-content-center align-items-center">
-                            <i class="far fa-handshake"></i>
+                        <div class="icon d-flex justify-content-center align-items-center" style="background: #9A0001;">
+                            <!-- <i class="far fa-handshake"></i> -->
+                            <img src="<?= base_url("resources/images/Image2.png") ?>" alt="Trust" style="padding: 10px;">
                         </div>
                         <div class="media-body pl-3">
                             <h4 class="heading">Trust</h4>
@@ -598,7 +622,8 @@
                 <div class="col-md-4">
                     <div class="d-block d-flex service-card">
                         <div class="icon d-flex justify-content-center align-items-center">
-                            <i class="fas fa-user-shield"></i>
+                            <!-- <i class="fas fa-user-shield"></i> -->
+                            <img src="<?= base_url("resources/images/Image9.png") ?>" alt="Trust" style="padding: 10px;">
                         </div>
                         <div class="media-body pl-3">
                             <h4 class="heading">Privacy</h4>
@@ -610,7 +635,8 @@
                 <div class="col-md-4">
                     <div class="d-block d-flex service-card">
                         <div class="icon d-flex justify-content-center align-items-center">
-                            <i class="fas fa-coins"></i>
+                            <!-- <i class="fas fa-coins"></i> -->
+                            <img src="<?= base_url("resources/images/Image6.png") ?>" alt="Trust" style="padding: 12px;">
                         </div>
                         <div class="media-body pl-3">
                             <h4 class="heading">Save Money</h4>
@@ -622,7 +648,8 @@
                 <div class="col-md-4">
                     <div class="d-block d-flex service-card">
                         <div class="icon d-flex justify-content-center align-items-center">
-                            <i class="far fa-heart"></i>
+                            <!-- <i class="far fa-heart"></i> -->
+                            <img src="<?= base_url("resources/images/Image1.png") ?>" alt="Trust" style="padding: 10px; margin-left: 8px;">
                         </div>
                         <div class="media-body pl-3">
                             <h4 class="heading">Love or Proposal</h4>
@@ -634,7 +661,8 @@
                 <div class="col-md-4">
                     <div class="d-block d-flex service-card">
                         <div class="icon d-flex justify-content-center align-items-center">
-                            <i class="fas fa-sync-alt"></i>
+                            <!-- <i class="fas fa-sync-alt"></i> -->
+                            <img src="<?= base_url("resources/images/Image4.png") ?>" alt="Trust" style="padding: 10px;">
                         </div>
                         <div class="media-body pl-3">
                             <h4 class="heading">After Marriage</h4>
@@ -646,7 +674,8 @@
                 <div class="col-md-4">
                     <div class="d-block d-flex service-card">
                         <div class="icon d-flex justify-content-center align-items-center">
-                            <i class="far fa-laugh-wink"></i>
+                            <!-- <i class="far fa-laugh-wink"></i> -->
+                            <img src="<?= base_url("resources/images/Image10.png") ?>" alt="Trust" style="padding: 10px;">
                         </div>
                         <div class="media-body pl-3">
                             <h4 class="heading">Always Free</h4>
@@ -657,15 +686,18 @@
                 </div>
             </div>
         </div>
-        <!-- Read more modal -->
-        <div id="modal-container" class="uk-modal-container" uk-modal>
+        <!-- Advantages modal -->
+        <div id="modal-container" class="advantage-model" uk-modal>
             <div class="uk-modal-dialog uk-modal-body">
                 <button class="uk-modal-close-default" type="button" uk-close></button>
-                <h2 class="uk-modal-title" style="color: #0f6ecd;"><strong>Advantages of Sathutu Lanka</strong></h2>
+                <h2 class="uk-modal-title text-center" style="color: #0f6ecd;"><strong>Advantages of Sathutu Lanka</strong></h2>
                 <hr>
                 <div class="row">
                     <div class="col-12">
-                        <h4><strong>A certificate for the word of trust</strong></h4>
+                        <div class="icon d-flex justify-content-center align-items-center mb-3" style="background: #9A0001;">
+                            <img src="<?= base_url("resources/images/Image2.png") ?>" alt="Trust" style="padding: 10px;">
+                        </div>
+                        <h4 class="text-center"><strong>A certificate for the word of trust</strong></h4>
                         <p>
                             It is our belief that truth and honesty conquer in the end and never regret.
                             By visiting to homes of marriage seekers, we inspect <a href="#modal-70" uk-toggle><strong>over 70 important</strong></a> matters are true and correct with government accepted certificates.
@@ -677,7 +709,10 @@
                 <hr>
                 <div class="row">
                     <div class="col-12">
-                        <h4><strong>Save your money, time and energy (No unnecessary meetings)</strong></h4>
+                        <div class="icon d-flex justify-content-center align-items-center mb-3">
+                            <img src="<?= base_url("resources/images/Image6.png") ?>" alt="Trust" style="padding: 12px;">
+                        </div>
+                        <h4 class="text-center"><strong>Save your money, time and energy</br>(No unnecessary meetings)</strong></h4>
                         <p>
                             Modern internet technology is fully utilized allowing to add videos, photos and details of the marriage seekers so as to get a true,
                             clear and complete idea about them without any conditions. This will help you and your family not to spend valuable money,
@@ -688,7 +723,10 @@
                 <hr>
                 <div class="row">
                     <div class="col-12">
-                        <h4><strong>Find your life partner without barriers, It is always free</strong></h4>
+                        <div class="icon d-flex justify-content-center align-items-center mb-3">
+                            <img src="<?= base_url("resources/images/Image10.png") ?>" alt="Trust" style="padding: 10px;">
+                        </div>
+                        <h4 class="text-center"><strong>Find your life partner without barriers,</br> It is always free</strong></h4>
                         <p>
                             Modern internet technology is fully utilized allowing to add videos, photos and details of the marriage seekers so as to get a true,
                             clear and complete idea about them without any conditions. This will help you and your family not to spend valuable money,
@@ -699,7 +737,10 @@
                 <hr>
                 <div class="row">
                     <div class="col-12">
-                        <h4><strong>You and your family’s privacy will be 100% secure</strong></h4>
+                        <div class="icon d-flex justify-content-center align-items-center mb-3">
+                            <img src="<?= base_url("resources/images/Image9.png") ?>" alt="Trust" style="padding: 10px;">
+                        </div>
+                        <h4 class="text-center"><strong>You and your family’s privacy will be 100% secure</strong></h4>
                         <p>
                             Your all information will be visible to others under your control.
                             We value your privacy above all and you can get to know each other better without revealing your identity. (Free and secure chat box)
@@ -709,7 +750,10 @@
                 <hr>
                 <div class="row">
                     <div class="col-12">
-                        <h4><strong>Do you like to marry by love or proposal?</strong></h4>
+                        <div class="icon d-flex justify-content-center align-items-center mb-3">
+                            <img src="<?= base_url("resources/images/Image1.png") ?>" alt="Trust" style="padding: 10px; margin-left: 8px;">
+                        </div>
+                        <h4 class="text-center"><strong>Do you like to marry by love or proposal?</strong></h4>
                         <p>
                             Most of love affairs are not successful due to family reasons.
                             Love couldn’t be expressed to unknown persons when you feel the problems of an unmatching person. There is also a lot frustrated singles whom are forced to live through parents choice.
@@ -720,7 +764,10 @@
                 <hr>
                 <div class="row">
                     <div class="col-12">
-                        <h4><strong>Think about your life after marriage</strong></h4>
+                        <div class="icon d-flex justify-content-center align-items-center mb-3">
+                            <img src="<?= base_url("resources/images/Image4.png") ?>" alt="Trust" style="padding: 10px;">
+                        </div>
+                        <h4 class="text-center"><strong>Think about your life after marriage</strong></h4>
                         <p>
                             Let us think deeply about life after marriage. Unfortunately, All your efforts will be waste if you have to seperate yourselves in a short period of time due to mismatch of your ideas.
                             There is a special space here to talk about thoughts of after marriage before building a relationship such as personal goals,
@@ -732,7 +779,10 @@
                 <hr>
                 <div class="row">
                     <div class="col-12">
-                        <h4><strong>Think about your life after marriage</strong></h4>
+                        <div class="icon d-flex justify-content-center align-items-center mb-3">
+                            <img src="<?= base_url("resources/images/Member.png") ?>" alt="Trust" style="padding: 10px;">
+                        </div>
+                        <h4 class="text-center"><strong>Find your partner from thousands of marriage seekers</strong></h4>
                         <p>
                             Thousands of marriage seekers will come to the website because there is a free service ranging from the publication of the proposal to the identification of any partner of the website.
                             100% trust verification service available with government approved certificates if necessary.
@@ -742,7 +792,10 @@
                 <hr>
                 <div class="row">
                     <div class="col-12">
-                        <h4><strong>Think about your life after marriage</strong></h4>
+                        <div class="icon d-flex justify-content-center align-items-center mb-3">
+                            <img src="<?= base_url("resources/images/Search.png") ?>" alt="Trust" style="padding: 10px;">
+                        </div>
+                        <h4 class="text-center"><strong>Search engine convenience</strong></h4>
                         <p>
                             The ability to quickly find your desired partner through thousands of marriage seekers under 37 key points and restricting getting interests of undesired marriage seekers if necessary.
                         </p>
@@ -751,16 +804,10 @@
                 <hr>
                 <div class="row">
                     <div class="col-12">
-                        <h4><strong>Search Engine Convenience</strong></h4>
-                        <p>
-                            The ability to quickly find your desired partner through thousands of marriage seekers under 37 key points and restricting getting interests of undesired marriage seekers if necessary.
-                        </p>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-12">
-                        <h4><strong>Single Attention to each Account</strong></h4>
+                        <div class="icon d-flex justify-content-center align-items-center mb-3">
+                            <img src="<?= base_url("resources/images/Security.png") ?>" alt="Trust" style="padding: 10px;">
+                        </div>
+                        <h4 class="text-center"><strong>Single attention to each account</strong></h4>
                         <p>
                             The ability to select desired partners reliably and smoothly as our staff monitors each account separately and get trust verified.
                         </p>
@@ -769,13 +816,20 @@
                 <hr>
                 <div class="row">
                     <div class="col-12">
-                        <h4><strong>Premium Membership</strong></h4>
+                        <div class="icon d-flex justify-content-center align-items-center mb-3" style="box-shadow: none;">
+                            <img src="<?= base_url("resources/images/Premium.png") ?>" alt="Trust" style="">
+                        </div>
+                        <h4 class="text-center"><strong>Premium Membership</strong></h4>
                         <p>
                             The ability to quickly and easily meet your marriage needs by sending your interests to members by post,
                             examination of horoscopes by expert astrologers soon, making your profile top of other members and finding marriage expectants from other media also.
                         </p>
                     </div>
                 </div>
+                <hr>
+                <p class="uk-text-right" style="float: right;">
+                    <button class="uk-button uk-button-primary uk-modal-close" type="button">OK</button>
+                </p>
             </div>
         </div>
         <!-- End of read more modal -->
@@ -998,7 +1052,7 @@
                 </div>
                 <hr>
                 <p class="uk-text-right">
-                    <button class="uk-button uk-button-default uk-modal-close" type="button">OK</button>
+                    <button class="uk-button uk-button-primary uk-modal-close" type="button">OK</button>
                 </p>
             </div>
         </div>
@@ -1042,11 +1096,11 @@
             </div>
         </div>
     </div>
-    
+
     <?php
     $string = exec('getmac');
     $mac = substr($string, 0, 17);
-    echo "Your MAC Address : ".$mac." (Testing Purpose Only)"; 
+    echo "Your MAC Address : " . $mac . " (Testing Purpose Only)";
     ?>
 </div>
 
