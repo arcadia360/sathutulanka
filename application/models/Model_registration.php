@@ -1781,7 +1781,7 @@ class Model_registration extends CI_Model
       'vcMemberCode' => $MemberCode,
       'vcNickName' => $this->input->post('short_name'),
       'vcCountryCode' => $this->input->post('country_code'),
-      'vcMobileNo' => $this->input->post('mobile_no'),
+      'vcMobileNo' => substr($this->input->post('mobile_no'), 1), // Remove 1st number (zero)
       'vcPassword' => $this->password_hash($this->input->post('password')),
       'vcEmail' =>  $this->input->post('email'),
       'vcProvidingInformationType' => $this->input->post('provide_infor'),
