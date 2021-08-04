@@ -220,14 +220,17 @@ class CreateAccount extends Admin_Controller
 		echo json_encode($response);
 	}
 
-	public function ResetPassword(){
+	public function ResetPassword($verificationCode = NULL){
 		// $this->CheckCookieAfterFillSessionData(); // Check Cookie
 
-		if (!isset($_SESSION['member_id']) || empty($_SESSION['member_id'])) {  // If Fresh User
-			$this->render_template('account/create_new_password', 'W E L C O M E', null);
-		} else {
-			$this->CheckAndRedirectNextForm();
-		}
+		// if (!isset($_SESSION['member_id']) || empty($_SESSION['member_id'])) {  // If Fresh User
+		// 	$this->render_template('account/create_new_password', 'W E L C O M E', null);
+		// } else {
+		// 	$this->CheckAndRedirectNextForm();
+		// }
+
+		$noRecords = $this->Model_registration->upDateIsReset($verificationCode);
+		
 	}
 
 

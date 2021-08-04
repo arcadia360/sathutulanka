@@ -2497,4 +2497,18 @@ class Model_registration extends CI_Model
     $this->email->message($message);
     $this->email->send();
   }
+
+  //-----------------------------------
+  //Reset Password
+  //-----------------------------------
+
+  public function upDateIsReset($verificationCode)
+  {
+    date_default_timezone_set('Asia/Colombo');
+    $nowDateTime = date('Y-m-d h:i:s');
+
+    $sql = "";
+    $this->db->query($sql, array($verificationCode));
+    return $this->db->affected_rows();
+  }
 }
