@@ -197,6 +197,7 @@
 			<div class="col-12">
 				<div class="form-group">
 					<label class="text-inverse font-weight-bold" for="validationCustom01"><?= lang('disability') ?></label>
+					<a href="" class="anchor-qustion" data-toggle="popover" data-content="You can select details in writing field and type your special details later."><i class="	fa fa-question-circle"></i></a>
 					<select class="custom-select d-block form-control" id="disability" name="disability" required>
 
 					</select>
