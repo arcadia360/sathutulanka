@@ -130,3 +130,12 @@ $('#btnSubmit').click(function() {
         });
     }
 });
+
+$('[data-toggle="popover"]').popover({
+    trigger: 'focus'
+  });
+
+$('[data-toggle="popover"]').on('click', function(e) {
+    e.preventDefault();
+	return true;
+});
