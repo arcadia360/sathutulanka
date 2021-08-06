@@ -181,6 +181,10 @@
 
 <div class="offset-lg-3 col-lg-6 main-section">
     <h3 class="text-center text-inverse title">Who Am I</h3>
+
+
+    <p class="highLightText text-center">Mark the percentage of below matters ideas, attitudes and personalities according to your preferences. Decreasing and increasing the percentage is not a problem</p>
+
     <div class="row">
         <div class="col-12">
             <button class="btn btn-info float-right" type="button" id="btnSkip">Skip this step &nbsp; <i class="fas fa-forward"></i>&nbsp;<i class="" id="btnSkipIcon"></i></button>
