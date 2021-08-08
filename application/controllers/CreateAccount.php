@@ -230,10 +230,36 @@ class CreateAccount extends Admin_Controller
 		// }
 
 		$noRecords = $this->Model_registration->upDateIsReset($verificationCode);
+		if ($noRecords > 0) {
+			$this->data['user_data'] = array('status' => '1','emailCode' => $verificationCode); 
+			$this->render_template('account/create_new_password', 'W E L C O M E', $this->data);
+		}
+		else{
+			$this->data['user_data'] = array('status' => '0','emailCode' => $verificationCode); 
+			$this->render_template('account/create_new_password', 'W E L C O M E', $this->data);
+		}
 		
 	}
 
+	public function password_hash($pass = '')
+	{
+	  if ($pass) {
+		$password = password_hash($pass, PASSWORD_DEFAULT);
+		return $password;
+	  }
+	}
 
+	public function CreateNewPassword()
+	{
+		$result = $this->Model_registration->getPasswordRestData($this->input->post('emailCode'));
+		$IsSave = $this->Model_registration->createNewPassword($result['intMemberID']);
 
+		if ($IsSave == true) {
+			$response['success'] = true;
+		}else{
+			$response['success'] = false;
+		}
+		echo json_encode($response);
+	}
 	
 }
