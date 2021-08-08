@@ -33,6 +33,9 @@
     <link rel='stylesheet' href='<?= base_url('resources/css/swiper_style.css') ?>'>
     <!-- UiKit CSS -->
     <!-- <link rel='stylesheet' href='https://getuikit.com/assets/uikit/dist/css/uikit.css?nc=868'> -->
+    <!-- Footer CSS -->
+    <link rel="stylesheet" href="<?= base_url('resources/css/footer.css') ?>">
+
 
     <style>
         .form-control {
@@ -72,16 +75,17 @@
         }
 
         .mobile-login-button {
-            border-radius: 19px;
+            border-radius: 22px;
             color: #FFFFFF;
-            left: 50px;
+            left: 125px;
             /* right: 20px; */
             bottom: 10px;
-            width: CALC(100% - 100px);
+            width: CALC(100% - 250px);
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
-            background-color: #479bef !important;
+            /* background-color: #479bef !important; */
+            background-color: #00ad5f !important;
             box-shadow: 0 0px 2.2px rgba(0, 0, 0, 0.031), 0 0px 5.3px rgba(0, 0, 0, 0.044), 0 0px 10px rgba(0, 0, 0, 0.055), 0 0px 17.9px rgba(0, 0, 0, 0.066), 0 0px 33.4px rgba(0, 0, 0, 0.079), 0 0px 80px rgba(0, 0, 0, 0.11);
             /* box-shadow:
                 0 0.2px 2.2px rgba(0, 0, 0, 0.037),
@@ -90,7 +94,13 @@
                 0 1.3px 17.9px rgba(0, 0, 0, 0.077),
                 0 2.5px 33.4px rgba(0, 0, 0, 0.093),
                 0 6px 80px rgba(0, 0, 0, 0.13); */
+            transition: bottom 0.3s;
+            border: 4px #FFFFFF solid;
 
+        }
+
+        .mobile-login-button:hover {
+            color: #FFFFFF;
         }
 
         .btn.focus,
@@ -103,7 +113,7 @@
                 0 5.6px 10.7px rgba(0, 0, 0, 0.042),
                 0 10.4px 20.1px rgba(0, 0, 0, 0.05),
                 0 25px 48px rgba(0, 0, 0, 0.07);
-
+            color: #FFFFFF;
 
         }
 
@@ -167,7 +177,7 @@
 
     <nav class="navbar fixed-top navbar-expand-lg bg-red" id="navbar">
 
-        <a class="navbar-brand" href="<?= base_url('Welcome') ?>">
+        <a class="navbar-brand" href="<?= base_url() ?>">
             <?php
             if ($_SESSION['language_id'] == 1) { // Current Language - English
             ?>
@@ -236,7 +246,7 @@
                 </ul>
 
             <?php
-            } else if ($this->uri->segment(1) == "Welcome" || $this->uri->segment(1) == "") {
+            } else if ($this->uri->segment(1) == "Welcome" && $this->uri->segment(2) == "" || $this->uri->segment(1) == "") {
             ?>
                 <button type="button" class="btn btn-login" data-toggle="modal" data-target="#exampleModal">
                     <?= lang('login'); ?>
@@ -249,7 +259,7 @@
 
 
         <?php
-        if ($this->uri->segment(1) == "Welcome" || $this->uri->segment(1) == "") {
+        if ($this->uri->segment(1) == "Welcome" && $this->uri->segment(2) == "" || $this->uri->segment(1) == "") {
             $url = "";
             for ($i = 0; $i < count($this->uri->segment_array()); $i++) {
                 $url = $url . $this->uri->segment($i + 1) . "/";
@@ -314,15 +324,15 @@
                 </div>
             </div>
         </nav>
-    <?php } else if ($this->uri->segment(1) == "Welcome" || $this->uri->segment(1) == "") { ?>
-        <button class="fixed-bottom d-xs-block d-lg-none btn mobile-login-button" data-toggle="modal" data-target="#exampleModal"><?= lang('login'); ?></button>
+    <?php } else if ($this->uri->segment(1) == "Welcome" && $this->uri->segment(2) == "" || $this->uri->segment(1) == "") { ?>
+        <button class="fixed-bottom d-xs-block d-lg-none btn mobile-login-button" id="mobile-login-button" data-toggle="modal" data-target="#exampleModal"><?= lang('login'); ?></button>
     <?php } ?>
     <!-- Mobile Navbar - End -->
 
 
     <?php
     if ($_SESSION['logged_in'] == FALSE) {
-        if ($this->uri->segment(1) == "Welcome" || $this->uri->segment(1) == "") {
+        if ($this->uri->segment(1) == "Welcome" && $this->uri->segment(2) == "" || $this->uri->segment(1) == "") {
     ?>
 
             <!-- Login Modal -->

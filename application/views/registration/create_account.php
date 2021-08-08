@@ -141,7 +141,7 @@
 
     <nav class="navbar navbar-expand-lg bg-red">
 
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="<?= base_url()?>">
             <?php
             if ($_SESSION['language_id'] == 1) { // Current Language - English
             ?>
@@ -178,7 +178,7 @@
 
     <!-- <div class="container"> -->
     <div class="row">
-        <div class="col-lg-8 col-md-7 d-none d-md-block d-lg-block">
+        <div class="col-lg-8 col-md-7 d-none d-md-block d-lg-block" style="height: CALC(100vh - 56px);">
             <!-- <img class="main-img" src="https://s3.amazonaws.com/gspv-expression-engine/background-images/wedding-photographers-atlanta.jpg" alt=""> -->
             <!-- <div class="slider-wrap"> -->
             <div class="slider"></div>
@@ -191,7 +191,7 @@
         <div class="col-lg-4 col-md-5 col-sm-12 side-form">
             <form method="post" action="<?= base_url('CreateAccount/saveAccount') ?>" id="submitForm">
                 <!-- <form method="post" action="<?= base_url('Registration/physicalStatus') ?>" id="submitForm"> -->
-                <div class="pl-3 pr-3 home-main-search-bgcolor reg_form" style="overflow: scroll; height:90vh;">
+                <div class="pl-3 pr-3 home-main-search-bgcolor reg_form" style="overflow: scroll; height:CALC(100vh - 56px);">
                     <h4 class="pt-3"><strong><?= lang('create_your_account') ?></strong></h4>
                     <!-- <div class="col-md-12 pt-3"> -->
                     <input type="text" class="form-control form-padding red-color mt-3" name="short_name" id="short_name" maxlength="15" placeholder="<?= lang('short_name') ?>" autcomplete="false">
@@ -425,7 +425,7 @@
 
 
                     <!-- <div class="col-md-12 pt-3"> -->
-                    <input type="number" class="form-control form-padding red-color only-decimal  mt-3" name="mobile_no" id="mobile_no" placeholder="Mobile No (Ex : 0777123456)">
+                    <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control form-padding red-color only-decimal  mt-3" name="mobile_no" id="mobile_no" placeholder="Mobile No (Eg : 0777123456)">
                     <!-- </div> -->
 
                     <!-- <div class="col-md-12 pt-3"> -->

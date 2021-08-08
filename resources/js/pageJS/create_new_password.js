@@ -2,6 +2,20 @@ $(function () {
     $("#icon-wait-create").hide();
     $("#errorMsg").hide();
 
+    var linkStatus = ($("#linkStatus").val());
+    if (linkStatus == "0") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Invalid Link !',
+            showConfirmButton: false,
+            timer: 4000
+          }).then((result) => {
+            $("body").hide();
+            if (result.dismiss === Swal.DismissReason.timer) {
+              window.location.href = base_url;
+            }
+          })
+    } 
 
     // $("#invalid-email").hide();
     // $("#invalid-password").hide();
@@ -79,16 +93,31 @@ $("#btn-createPassword").click(function () {
             data: $("#createNewPasswordForm").serialize(),
             dataType: 'json',
             success: function (response) {
-
-                // $('input[name=csrf_arcadia360]').val(response.token);
-
-                if (response.success == false) {
-                    $("#errorMsg").text(response.messages);
-                    $("#errorMsg").show();
-                    $("#icon-wait-create").hide();
+                if (response.success == true) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Password Reset successfully!',
+                        showConfirmButton: false,
+                        timer: 2000
+                    }).then((result) => {
+                        $("body").hide();
+                        if (result.dismiss === Swal.DismissReason.timer) {
+                            window.location.href = base_url + 'sathutulanka';
+                        }
+                    })
                 } else {
-                    $("#icon-wait-create").hide();
-                    location.reload();
+                    if (response.messages instanceof Object) {
+                        $.each(response.messages, function(index, value) {
+                            var id = $("#" + index);
+                            id.closest('.form-group')
+                                .removeClass('has-error')
+                                .removeClass('has-success')
+                                .addClass(value.length > 0 ? 'has-error' : 'has-success');
+                            id.after(value);
+                        });
+                    } else {
+                        toastr["error"](response.messages);
+                    }
                 }
             }
         });

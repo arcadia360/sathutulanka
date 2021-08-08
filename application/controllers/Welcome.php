@@ -26,6 +26,10 @@ class Welcome extends Admin_Controller
 	// 	}
 	// }
 
+	public function ContactUs(){
+		$this->render_template('contact_us', 'Contact Us', null);
+	}
+
 	public function ChangeLanguage($LanguageID, $url)
 	{
 		if (!isset($_SESSION['member_id']) || empty($_SESSION['member_id'])) {  // If Fresh User

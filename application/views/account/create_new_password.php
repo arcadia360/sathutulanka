@@ -222,6 +222,8 @@
             <span>choose a good one!</span>
         </h1>
         <form id="createNewPasswordForm">
+        <input type="hidden" class="form-control" id="linkStatus" name="linkStatus" value="<?= $user_data['status']  ?>" placeholder="N/A">
+        <input type="hidden" class="form-control" id="emailCode" name="emailCode" value="<?= $user_data['emailCode']  ?>" placeholder="N/A">
             <!-- <p>
                 <input type="password" value="" placeholder="Enter Password" id="p" class="password">
                 <button class="unmask" type="button"></button>
