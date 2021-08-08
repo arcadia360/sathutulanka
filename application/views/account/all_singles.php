@@ -76,11 +76,11 @@
           </div>
       </div> -->
 
-      <?php
+      <!-- <?php
         $attributes = array('role' => 'form', 'id' => 'loginForm');
         echo form_open('', $attributes);
         ?>
-      <?= form_close(); ?>
+      <?= form_close(); ?> -->
 
       <div class="row" id="mini-profile-area">
 
