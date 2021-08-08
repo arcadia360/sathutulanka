@@ -378,7 +378,7 @@
                                                     <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me" data-parsley-multiple="remember-me" checked>
                                                     <label class="custom-control-label lbl-remember-me" for="remember-me" style="cursor: pointer !important;"><?= lang('remember_me') ?></label>
                                                 </div>
-                                                <a class="ml-auto btn-forget-password" href="<?= base_url("Account/ForgetPassword") ?>"><?= lang('forget_password') ?></a>
+                                                <a class="ml-auto btn-forget-password" href="<?= base_url("createaccount/ForgetPassword") ?>"><?= lang('forget_password') ?></a>
                                             </div>
                                         </div>
                                     </div>
