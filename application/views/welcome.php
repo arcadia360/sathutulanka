@@ -40,6 +40,7 @@
          box-sizing: border-box;
      } */
 
+
     .modal-title {
         color: #FFFFFF;
         font-size: 1.8em;
@@ -326,7 +327,22 @@
     @media (max-width: 768px) {
         .search-area {
             position: relative;
-            background: #1A4668;
+            /* background: #1A4668; */
+        }
+
+        .mobile-drop-shadow {
+            box-shadow:
+                0 0.7px 2.2px rgba(0, 0, 0, 0.02),
+                0 1.7px 5.3px rgba(0, 0, 0, 0.028),
+                0 3.3px 10px rgba(0, 0, 0, 0.035),
+                0 5.8px 17.9px rgba(0, 0, 0, 0.042),
+                0 10.9px 33.4px rgba(0, 0, 0, 0.05),
+                0 26px 80px rgba(0, 0, 0, 0.07);
+
+        }
+
+        .caption-para {
+            font-size: 16px;
         }
 
         .slider {
@@ -403,7 +419,7 @@
      }
  </style> -->
 
-<div class="container-fluid" style="margin-top: -56px;">
+<div class="container-fluid">
     <div class="row">
         <div class="slider" style="clip-path: polygon(100% 0, 100% 84%, 25% 100%, 0 85%, 0 0);">
             <ul>
@@ -426,7 +442,7 @@
                 <!-- <div class="row"> -->
                 <div class="container">
                     <form action="#">
-                        <div class="row">
+                        <div class="row mobile-drop-shadow">
                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 p-0">
                                 <select class="form-control">
                                     <option>I'm Looking For</option>
@@ -585,7 +601,7 @@
                     <div class="site-caption-1">
                         <p style="font-weight: 500; text-align: right; font-size: 0.9em;" class="col-12 pb-0 mb-0">Sathutulanka.lk</p>
                         <h3 style="font-weight: bold; text-align: right;">WHO WE ARE</h3>
-                        <p>
+                        <p class="caption-para">
                             This is the first and only marriage service in <b>Sri Lanka</b> and the world by trust.
                             Beauty, wealth, caste, education, occupation, nationality, religion, age, horoscope ,expectation, widow are common problems in love affairs and marriages for everyone and everytime..
                             So what we need is, these matters should not loss our hopes, trust, fortunate and goodness after the onset of marriage, becoming lonely single again...
@@ -1065,7 +1081,7 @@
                 <h3 style="font-weight: bold; text-transform: uppercase; text-align: right" class="col-12">Simple Steps To Partner</h3>
             </div>
             <div class="row pt-3">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-12 mt-3 mt-lg-0">
                     <div class="steps-element d-flex" style=" display: table-cell; vertical-align: middle;">
                         <p class="step-header" style="background-color: #4BB75E; margin: 0 !important;">1
                             <span style="font-size: 0.25em !important; position: absolute; bottom:0px;">STEP</span>
@@ -1073,7 +1089,7 @@
                         <p class="step-title" style="margin: 0;">Post Your Profile Free Of Charge</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-12 mt-3 mt-lg-0">
                     <div class="steps-element d-flex" style=" display: table-cell;  vertical-align: middle;">
                         <p class="step-header" style="background-color: #FFC232; margin: 0 !important;">2
                             <span style="font-size: 0.25em !important; position: absolute; bottom:0px;">STEP</span>
@@ -1083,7 +1099,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-12 mt-3 mt-lg-0">
                     <div class="steps-element d-flex" style=" display: table-cell;  vertical-align: middle;">
                         <p class="step-header" style="background-color: #ED2C52; margin: 0 !important;">3
                             <span style="font-size: 0.25em !important; position: absolute; bottom:0px;">STEP</span>
