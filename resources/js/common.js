@@ -8,7 +8,7 @@ $(function () {
 
 // Hide Menu on Scroll
 var prevScrollpos = window.pageYOffset;
-window.onscroll = function () {
+window.onscroll = function () { 
     var currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
         document.getElementById("navbar").style.top = "0";
@@ -18,15 +18,27 @@ window.onscroll = function () {
         if (document.getElementById("welcome-container") != null) {
             document.getElementById("welcome-container").style.marginTop = "-100px";
         }
+        if (document.getElementById("mobile-login-button") != null) {
+            document.getElementById("mobile-login-button").style.bottom = "10px";
+        }
+
+        
     } else {
-        document.getElementById("navbar").style.top = "-56px";
+        if (window.scrollY > 56) {
+            document.getElementById("navbar").style.top = "-56px";
+        }
+        // document.getElementById("navbar").style.top = "-56px";   // Commented On 2021-08-06
         if (document.getElementById("mobile-navbar") != null) {
             document.getElementById("mobile-navbar").style.bottom = "-56px";
         }
 
         if (document.getElementById("welcome-container") != null) {
-            alert("sasa");
+            alert("scroll hiding warning !");
             document.getElementById("welcome-container").style.marginTop = "-100px";
+        }
+
+        if (document.getElementById("mobile-login-button") != null) {
+            document.getElementById("mobile-login-button").style.bottom = "-45px";
         }
     }
     prevScrollpos = currentScrollPos;
