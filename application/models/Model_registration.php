@@ -2192,6 +2192,35 @@ class Model_registration extends CI_Model
     return $query->row_array();
   }
 
+  public function getPasswordRestData($EmailCode)
+  {
+
+    $this->db->select('intMemberID');
+    $this->db->from('passwordresetrequest');
+    $this->db->where('vcEmailCode', $EmailCode);
+    $query = $this->db->get();
+
+    return $query->row_array();
+  }
+
+  public function createNewPassword($intMemberID)
+  {
+    $this->db->trans_begin();
+
+    $newPassword = $this->password_hash($this->input->post('newPassword'));
+    $sql = "UPDATE member SET vcPassword = '$newPassword' WHERE intMemberID = ?";
+    $this->db->query($sql, array($intMemberID));
+
+    if ($this->db->trans_status() === FALSE) {
+      $this->db->trans_rollback();
+      return false;
+    } else {
+      $this->db->trans_commit();
+      return true;
+    }
+
+  }
+
   public function getPasswordRestLink($memberID, $email)
   {
 
@@ -2507,7 +2536,9 @@ class Model_registration extends CI_Model
     date_default_timezone_set('Asia/Colombo');
     $nowDateTime = date('Y-m-d h:i:s');
 
-    $sql = "";
+    $sql = "UPDATE passwordresetrequest
+    SET IsReset = 1, dtPasswordResetDate = '$nowDateTime' , IsInvalid = 1  
+    WHERE vcEmailCode = ? AND IsReset = 0 AND IsInvalid = 0";
     $this->db->query($sql, array($verificationCode));
     return $this->db->affected_rows();
   }
