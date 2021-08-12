@@ -36,7 +36,7 @@
 
 .btn-login:hover {
     background-color: #FFFFFF !important;
-    color: #b52b4a;
+    color: #b52b4a !important;
     border: 2px solid #b52b4a;
     border-radius: 0;
 }
