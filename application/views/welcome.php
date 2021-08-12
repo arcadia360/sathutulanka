@@ -26,6 +26,10 @@
     *+.uk-heading-2xlarge {
         margin-top: 0;
     }
+
+    .uk-modal-dialog {
+        width: 800px !important;
+    }
 </style>
 <!-- Overriding End -->
 
@@ -445,14 +449,14 @@
                         <div class="row mobile-drop-shadow">
                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 p-0">
                                 <select class="form-control">
-                                    <option>I'm Looking For</option>
-                                    <option>Lady</option>
-                                    <option>Gentleman</option>
+                                    <option><?= lang('im_looking_for'); ?></option>
+                                    <option><?= lang('male_search'); ?></option>
+                                    <option><?= lang('female_search'); ?></option>
                                 </select>
                             </div>
                             <div class="col-6 col-lg-2 col-md-2 col-sm-6 col-xs-6 p-0">
                                 <select class="form-control">
-                                    <option>Age From</option>
+                                    <option><?= lang('age_from'); ?></option>
                                     <option value="18">18</option>
                                     <option value="19">19</option>
                                     <option value="20">20</option>
@@ -508,7 +512,7 @@
                             </div>
                             <div class="col-6 col-lg-2 col-md-2 col-sm-6 col-xs-6 p-0">
                                 <select class="form-control">
-                                    <option>Age To</option>
+                                    <option><?= lang('age_to'); ?></option>
                                     <option value="18">18</option>
                                     <option value="19">19</option>
                                     <option value="20">20</option>
@@ -564,25 +568,25 @@
                             </div>
                             <div class="col-6 col-lg-2 col-md-2 col-sm-6 col-xs-6 p-0">
                                 <select class="form-control">
-                                    <option>Religion</option>
-                                    <option value="">Buddhist</option>
-                                    <option value="">Hindu</option>
-                                    <option value="">Islam</option>
-                                    <option value="">Christians</option>
-                                    <option value="">Roman Catholic</option>
-                                    <option value="">Other</option>
+                                    <option><?= lang('religion'); ?></option>
+                                    <option value=""><?= lang('buddhist'); ?></option>
+                                    <option value=""><?= lang('hindu'); ?></option>
+                                    <option value=""><?= lang('islam'); ?></option>
+                                    <option value=""><?= lang('christians'); ?></option>
+                                    <option value=""><?= lang('romanCatholic'); ?></option>
+                                    <option value=""><?= lang('other'); ?></option>
                                 </select>
                             </div>
                             <div class="col-6 col-lg-2 col-md-2 col-sm-6 col-xs-6 p-0">
                                 <select class="form-control">
-                                    <option>Mother Tongue</option>
+                                    <option><?= lang('mother_tongue'); ?></option>
                                     <option>සිංහල</option>
                                     <option>English</option>
                                     <option>தமிழ்</option>
                                 </select>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-12 p-0">
-                                <button type="button" class="btn btn-danger wrn-btn">Search</button>
+                                <button type="button" class="btn btn-danger wrn-btn" data-toggle="modal" data-target="#exampleModal"><?= lang('search'); ?></button>
                             </div>
                         </div>
                     </form>
@@ -599,12 +603,10 @@
                 </div> -->
                 <div class="col-12">
                     <div class="site-caption-1">
-                        <p style="font-weight: 500; text-align: right; font-size: 0.9em;" class="col-12 pb-0 mb-0">Sathutulanka.lk</p>
-                        <h3 style="font-weight: bold; text-align: right;">WHO WE ARE</h3>
+                        <p style="font-weight: 500; text-align: right; font-size: 0.9em;" class="col-12 pb-0 pr-0 mb-0">Sathutulanka.lk</p>
+                        <h3 style="font-weight: bold; text-align: right; text-transform: uppercase;"><?= lang('who_we_are'); ?></h3>
                         <p class="caption-para">
-                            This is the first and only marriage service in <b>Sri Lanka</b> and the world by trust.
-                            Beauty, wealth, caste, education, occupation, nationality, religion, age, horoscope ,expectation, widow are common problems in love affairs and marriages for everyone and everytime..
-                            So what we need is, these matters should not loss our hopes, trust, fortunate and goodness after the onset of marriage, becoming lonely single again...
+                            <?= lang('who_we_are_content'); ?>
                         </p>
                     </div>
                 </div>
@@ -616,8 +618,8 @@
     <div class="row our-services-section mt-3 pb-4" style="background-color: #f5f5f5;">
         <div class="container transcroller-body">
             <div class="row  pt-4">
-                <p style="font-weight: 500; font-size: 0.9em;" class="col-12 pb-0 mb-0">Our Services</p>
-                <h3 style="font-weight: bold;" class="col-12">WHAT WE OFFERS</h3>
+                <p style="font-weight: 500; font-size: 0.9em;" class="col-12 pb-0 mb-0"><?= lang('our_services'); ?></p>
+                <h3 style="font-weight: bold; text-transform: uppercase;" class="col-12"><?= lang('what_we_offer'); ?></h3>
             </div>
 
             <div class="row pt-4 services">
@@ -628,9 +630,9 @@
                             <img src="<?= base_url("resources/images/Image2.png") ?>" alt="Trust" style="padding: 10px;">
                         </div>
                         <div class="media-body pl-3">
-                            <h4 class="heading">Trust</h4>
-                            <p>A certificate for the word of trust.</p>
-                            <p class="read-more"><a href="#modal-container" uk-toggle>Read More</a></p>
+                            <h4 class="heading"><?= lang('trust'); ?></h4>
+                            <p><?= lang('trust_title'); ?></p>
+                            <p class="read-more"><a href="#modal-container" uk-toggle><?= lang('read_more'); ?></a></p>
                         </div>
                     </div>
                 </div>
@@ -642,9 +644,9 @@
                             <img src="<?= base_url("resources/images/Image9.png") ?>" alt="Trust" style="padding: 10px;">
                         </div>
                         <div class="media-body pl-3">
-                            <h4 class="heading">Privacy</h4>
-                            <p>You and your family's privacy will be 100% secure.</p>
-                            <p class="read-more"><a href="#modal-container" uk-toggle>Read More</a></p>
+                            <h4 class="heading"><?= lang('privacy'); ?></h4>
+                            <p><?= lang('privacy_title'); ?></p>
+                            <p class="read-more"><a href="#modal-container" uk-toggle><?= lang('read_more'); ?></a></p>
                         </div>
                     </div>
                 </div>
@@ -655,9 +657,9 @@
                             <img src="<?= base_url("resources/images/Image6.png") ?>" alt="Trust" style="padding: 12px;">
                         </div>
                         <div class="media-body pl-3">
-                            <h4 class="heading">Save Money</h4>
-                            <p>Save your money, Time and energy (No Unnecessary meetings).</p>
-                            <p class="read-more"><a href="#modal-container" uk-toggle>Read More</a></p>
+                            <h4 class="heading"><?= lang('save_money'); ?></h4>
+                            <p><?= lang('save_money_title'); ?></p>
+                            <p class="read-more"><a href="#modal-container" uk-toggle><?= lang('read_more'); ?></a></p>
                         </div>
                     </div>
                 </div>
@@ -668,9 +670,9 @@
                             <img src="<?= base_url("resources/images/Image1.png") ?>" alt="Trust" style="padding: 10px; margin-left: 8px;">
                         </div>
                         <div class="media-body pl-3">
-                            <h4 class="heading">Love or Proposal</h4>
-                            <p>Do you like to marry by love or proposal?</p>
-                            <p class="read-more"><a href="#modal-container" uk-toggle>Read More</a></p>
+                            <h4 class="heading"><?= lang('love_proposal'); ?></h4>
+                            <p><?= lang('love_proposal_title'); ?></p>
+                            <p class="read-more"><a href="#modal-container" uk-toggle><?= lang('read_more'); ?></a></p>
                         </div>
                     </div>
                 </div>
@@ -681,9 +683,9 @@
                             <img src="<?= base_url("resources/images/Image4.png") ?>" alt="Trust" style="padding: 10px;">
                         </div>
                         <div class="media-body pl-3">
-                            <h4 class="heading">After Marriage</h4>
-                            <p>Think about your life after marriage.</p>
-                            <p class="read-more"><a href="#modal-container" uk-toggle>Read More</a></p>
+                            <h4 class="heading"><?= lang('after_marriage'); ?></h4>
+                            <p><?= lang('after_marriage_title'); ?></p>
+                            <p class="read-more"><a href="#modal-container" uk-toggle><?= lang('read_more'); ?></a></p>
                         </div>
                     </div>
                 </div>
@@ -694,9 +696,9 @@
                             <img src="<?= base_url("resources/images/Image10.png") ?>" alt="Trust" style="padding: 10px;">
                         </div>
                         <div class="media-body pl-3">
-                            <h4 class="heading">Always Free</h4>
-                            <p>Find your life partner without barriers, It's always Free.</p>
-                            <p class="read-more"><a href="#modal-container" uk-toggle>Read More</a></p>
+                            <h4 class="heading"><?= lang('always_free'); ?></h4>
+                            <p><?= lang('always_free_title'); ?></p>
+                            <p class="read-more"><a href="#modal-container" uk-toggle><?= lang('read_more'); ?></a></p>
                         </div>
                     </div>
                 </div>
@@ -706,19 +708,16 @@
         <div id="modal-container" class="advantage-model" uk-modal>
             <div class="uk-modal-dialog uk-modal-body">
                 <button class="uk-modal-close-default" type="button" uk-close></button>
-                <h2 class="uk-modal-title text-center" style="color: #0f6ecd;"><strong>Advantages of Sathutu Lanka</strong></h2>
+                <h2 class="uk-modal-title text-center" style="color: #0f6ecd;"><strong><?= lang('advantages_of_sathutulanka'); ?></strong></h2>
                 <hr>
                 <div class="row">
                     <div class="col-12">
                         <div class="icon d-flex justify-content-center align-items-center mb-3" style="background: #9A0001;">
                             <img src="<?= base_url("resources/images/Image2.png") ?>" alt="Trust" style="padding: 10px;">
                         </div>
-                        <h4 class="text-center"><strong>A certificate for the word of trust</strong></h4>
-                        <p>
-                            It is our belief that truth and honesty conquer in the end and never regret.
-                            By visiting to homes of marriage seekers, we inspect <a href="#modal-70" uk-toggle><strong>over 70 important</strong></a> matters are true and correct with government accepted certificates.
-                            The specialty of this service is that trust is not limited to just verification of an identity copy, a telephone number,
-                            an email address, a letter or application sent by an applicant.
+                        <h4 class="text-center"><strong><?= lang('trust_title'); ?></strong></h4>
+                        <p><?= lang('advantages_of_sathutulanka_trust'); ?>
+
                         </p>
                     </div>
                 </div>
@@ -728,12 +727,8 @@
                         <div class="icon d-flex justify-content-center align-items-center mb-3">
                             <img src="<?= base_url("resources/images/Image6.png") ?>" alt="Trust" style="padding: 12px;">
                         </div>
-                        <h4 class="text-center"><strong>Save your money, time and energy</br>(No unnecessary meetings)</strong></h4>
-                        <p>
-                            Modern internet technology is fully utilized allowing to add videos, photos and details of the marriage seekers so as to get a true,
-                            clear and complete idea about them without any conditions. This will help you and your family not to spend valuable money,
-                            time and energy over and over to inspect homes with unnecessary meetings.
-                        </p>
+                        <h4 class="text-center"><strong><?= lang('save_money_title'); ?></strong></h4>
+                        <p><?= lang('advantages_of_sathutulanka_save_money'); ?></p>
                     </div>
                 </div>
                 <hr>
@@ -742,12 +737,8 @@
                         <div class="icon d-flex justify-content-center align-items-center mb-3">
                             <img src="<?= base_url("resources/images/Image10.png") ?>" alt="Trust" style="padding: 10px;">
                         </div>
-                        <h4 class="text-center"><strong>Find your life partner without barriers,</br> It is always free</strong></h4>
-                        <p>
-                            Modern internet technology is fully utilized allowing to add videos, photos and details of the marriage seekers so as to get a true,
-                            clear and complete idea about them without any conditions. This will help you and your family not to spend valuable money,
-                            time and energy over and over to inspect homes with unnecessary meetings.
-                        </p>
+                        <h4 class="text-center"><strong><?= lang('always_free_title'); ?></strong></h4>
+                        <p><?= lang('advantages_of_sathutulanka_always_free'); ?></p>
                     </div>
                 </div>
                 <hr>
@@ -756,11 +747,8 @@
                         <div class="icon d-flex justify-content-center align-items-center mb-3">
                             <img src="<?= base_url("resources/images/Image9.png") ?>" alt="Trust" style="padding: 10px;">
                         </div>
-                        <h4 class="text-center"><strong>You and your family’s privacy will be 100% secure</strong></h4>
-                        <p>
-                            Your all information will be visible to others under your control.
-                            We value your privacy above all and you can get to know each other better without revealing your identity. (Free and secure chat box)
-                        </p>
+                        <h4 class="text-center"><strong><?= lang('privacy_title'); ?></strong></h4>
+                        <p><?= lang('advantages_of_sathutulanka_privacy'); ?></p>
                     </div>
                 </div>
                 <hr>
@@ -769,12 +757,8 @@
                         <div class="icon d-flex justify-content-center align-items-center mb-3">
                             <img src="<?= base_url("resources/images/Image1.png") ?>" alt="Trust" style="padding: 10px; margin-left: 8px;">
                         </div>
-                        <h4 class="text-center"><strong>Do you like to marry by love or proposal?</strong></h4>
-                        <p>
-                            Most of love affairs are not successful due to family reasons.
-                            Love couldn’t be expressed to unknown persons when you feel the problems of an unmatching person. There is also a lot frustrated singles whom are forced to live through parents choice.
-                            Considering all the facts of a love marriage, we assure you with confidence that you have a trustworthy space here to find your partner by love or proposal without loosing your family’s choice.
-                        </p>
+                        <h4 class="text-center"><strong><?= lang('love_proposal_title'); ?></strong></h4>
+                        <p><?= lang('advantages_of_sathutulanka_love_proposal'); ?></p>
                     </div>
                 </div>
                 <hr>
@@ -783,13 +767,8 @@
                         <div class="icon d-flex justify-content-center align-items-center mb-3">
                             <img src="<?= base_url("resources/images/Image4.png") ?>" alt="Trust" style="padding: 10px;">
                         </div>
-                        <h4 class="text-center"><strong>Think about your life after marriage</strong></h4>
-                        <p>
-                            Let us think deeply about life after marriage. Unfortunately, All your efforts will be waste if you have to seperate yourselves in a short period of time due to mismatch of your ideas.
-                            There is a special space here to talk about thoughts of after marriage before building a relationship such as personal goals,
-                            prefer to live, the expectations of both parents, how your jobs affect the marriage life?,
-                            further education, about children and all other matters important to you after marriage.
-                        </p>
+                        <h4 class="text-center"><strong><?= lang('after_marriage_title'); ?></strong></h4>
+                        <p><?= lang('advantages_of_sathutulanka_after_marriage'); ?></p>
                     </div>
                 </div>
                 <hr>
@@ -798,11 +777,8 @@
                         <div class="icon d-flex justify-content-center align-items-center mb-3">
                             <img src="<?= base_url("resources/images/Member.png") ?>" alt="Trust" style="padding: 10px;">
                         </div>
-                        <h4 class="text-center"><strong>Find your partner from thousands of marriage seekers</strong></h4>
-                        <p>
-                            Thousands of marriage seekers will come to the website because there is a free service ranging from the publication of the proposal to the identification of any partner of the website.
-                            100% trust verification service available with government approved certificates if necessary.
-                        </p>
+                        <h4 class="text-center"><strong><?= lang('marriage_seeker_title'); ?></strong></h4>
+                        <p><?= lang('advantages_of_sathutulanka_marriage_seeker'); ?></p>
                     </div>
                 </div>
                 <hr>
@@ -811,10 +787,8 @@
                         <div class="icon d-flex justify-content-center align-items-center mb-3">
                             <img src="<?= base_url("resources/images/Search.png") ?>" alt="Trust" style="padding: 10px;">
                         </div>
-                        <h4 class="text-center"><strong>Search engine convenience</strong></h4>
-                        <p>
-                            The ability to quickly find your desired partner through thousands of marriage seekers under 37 key points and restricting getting interests of undesired marriage seekers if necessary.
-                        </p>
+                        <h4 class="text-center"><strong><?= lang('search_engine_convenience_title'); ?></strong></h4>
+                        <p><?= lang('advantages_of_sathutulanka_search_engine_convenience'); ?></p>
                     </div>
                 </div>
                 <hr>
@@ -823,10 +797,8 @@
                         <div class="icon d-flex justify-content-center align-items-center mb-3">
                             <img src="<?= base_url("resources/images/Security.png") ?>" alt="Trust" style="padding: 10px;">
                         </div>
-                        <h4 class="text-center"><strong>Single attention to each account</strong></h4>
-                        <p>
-                            The ability to select desired partners reliably and smoothly as our staff monitors each account separately and get trust verified.
-                        </p>
+                        <h4 class="text-center"><strong><?= lang('single_attention_title'); ?></strong></h4>
+                        <p><?= lang('advantages_of_sathutulanka_single_attention'); ?></p>
                     </div>
                 </div>
                 <hr>
@@ -835,16 +807,13 @@
                         <div class="icon d-flex justify-content-center align-items-center mb-3" style="box-shadow: none;">
                             <img src="<?= base_url("resources/images/Premium.png") ?>" alt="Trust" style="">
                         </div>
-                        <h4 class="text-center"><strong>Premium Membership</strong></h4>
-                        <p>
-                            The ability to quickly and easily meet your marriage needs by sending your interests to members by post,
-                            examination of horoscopes by expert astrologers soon, making your profile top of other members and finding marriage expectants from other media also.
-                        </p>
+                        <h4 class="text-center"><strong><?= lang('premium_membership_title'); ?></strong></h4>
+                        <p><?= lang('advantages_of_sathutulanka_premium_membership'); ?></p>
                     </div>
                 </div>
                 <hr>
                 <p class="uk-text-right" style="float: right;">
-                    <button class="uk-button uk-button-primary uk-modal-close" type="button">OK</button>
+                    <button class="uk-button uk-button-primary uk-modal-close" type="button"><?= lang('ok'); ?></button>
                 </p>
             </div>
         </div>
@@ -853,222 +822,140 @@
         <!-- 70 importan modal -->
         <div id="modal-70" uk-modal>
             <div class="uk-modal-dialog uk-modal-body">
-                <h3 class="uk-modal-title" style="color: #0f6ecd;">70 Important Mattters</h3>
+                <h2 class="uk-modal-title text-center" style="color: #0f6ecd;"><strong><?= lang('70_important_mattters'); ?></strong></h2>
                 <hr>
                 <div class="row">
-                    <div class="col-3">
-                        <strong>Basic Information</strong>
+                    <div class="col-md-3">
+                        <h4><strong><?= lang('basic_information'); ?></strong></h4>
                     </div>
-                    <div class="col-9">
-                        <p>
-                            01. Name
-                            02. Age
-                            03. Marital Status
-                        </p>
+                    <div class="col-md-9">
+                        <p><?= lang('basic_information_details'); ?></p>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-3">
-                        <strong>Residences and Contacts</strong>
+                    <div class="col-md-3">
+                        <h4><strong><?= lang('residences_and_contacts'); ?></strong></h4>
                     </div>
-                    <div class="col-9">
-                        <p>
-                            04. Permanent Address
-                            05. Postal Address
-                            06. Residence ownership
-                            07. Native District and Lived places
-                            08. Contacts
-                        </p>
+                    <div class="col-md-9">
+                        <p><?= lang('residences_and_contact_details'); ?></p>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-3">
-                        <strong>Physical Status</strong>
+                    <div class="col-md-3">
+                        <h4> <strong><?= lang('physical_status'); ?></strong></h4>
                     </div>
-                    <div class="col-9">
-                        <p>
-                            09. Height
-                            10. Weight
-                            11. Body Shape/Type
-                            12. Skin Color
-                            13. Disability if any
-                            14. Blood Group
-                            15. Health Information
-                        </p>
+                    <div class="col-md-9">
+                        <p><?= lang('physical_status_details'); ?></p>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-3">
-                        <strong>Background</strong>
+                    <div class="col-md-3">
+                        <h4><strong><?= lang('background'); ?></strong></h4>
                     </div>
-                    <div class="col-9">
-                        <p>
-                            16. Mother Tongue
-                            17. Nationality
-                            18. Religion 19. Caste
-                            20. Family attitudes about castes
-                            21. If involved in a criminal or civil case
-                        </p>
+                    <div class="col-md-9">
+                        <p><?= lang('background_details'); ?></p>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-3">
-                        <strong>Life Style</strong>
+                    <div class="col-md-3">
+                        <h4><strong><?= lang('lifeStyle'); ?></strong></h4>
                     </div>
-                    <div class="col-9">
-                        <p>
-                            22. Diet
-                            23. Drink
-                            24. Smoke
-                            25. Languages
-                            26. Dress and Makeup
-                            27. Used to travel
-                            28. How to speak parents (Amma or Mammy... etc.)
-                            29. Attitudes about Customs
-                            30.The nature of the home
-                        </p>
+                    <div class="col-md-9">
+                        <p><?= lang('lifeStyle_details'); ?></p>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-3">
-                        <strong>Partners Attitudes</strong>
+                    <div class="col-md-3">
+                        <h4><strong><?= lang('partners_attitudes'); ?></strong></h4>
                     </div>
-                    <div class="col-9">
-                        <p>
-                            31. Open Personality
-                            32. Conscious Personality
-                            33. Extrovert Personality
-                            34. Introvert Personality
-                            35. Agreeable Personality
-                            36. Neurotic Personality
-                            37. Family Bond
-                            38. Attitudes towards Money
-                            39. Attitudes towards Religion
-                            40. Physically Activities
-                            41. Attitudes towards Politics
-                            42. Attitudes towards Knowledge and education
-                            43. Love Affairs
-                            44. The importance of male & female Virginity
-                            45. Interests and Hobbies
-                            46. Favorite People and Things
-                        </p>
+                    <div class="col-md-9">
+                        <p><?= lang('partners_attitudes_details'); ?></p>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-3">
-                        <strong>Education</strong>
+                    <div class="col-md-3">
+                        <h4><strong><?= lang('education'); ?></strong></h4>
                     </div>
-                    <div class="col-9">
-                        <p>
-                            47. Education Level
-                            48. Education field
-                            49. Schools/ Universities
-                        </p>
+                    <div class="col-md-9">
+                        <p><?= lang('education_details'); ?></p>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-3">
-                        <strong>Career</strong>
+                    <div class="col-md-3">
+                        <h4><strong><?= lang('career'); ?></strong></h4>
                     </div>
-                    <div class="col-9">
-                        <p>
-                            50. Employment Section
-                            51. Designation
-                            52. Workplace
-                            53. Nature of Occupation or Business
-                            54. Income/Salary and Previous Service Information
-                        </p>
+                    <div class="col-md-9">
+                        <p><?= lang('career_details'); ?></p>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-3">
-                        <strong>Personal Assets</strong>
+                    <div class="col-md-3">
+                        <h4><strong><?= lang('personal_assets'); ?></strong></h4>
                     </div>
-                    <div class="col-9">
-                        <p>
-                            55. Assets
-                            56. Ownership, Nature and Issues of Assets
-                        </p>
+                    <div class="col-md-9">
+                        <p><?= lang('personal_assets_details'); ?></p>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-3">
-                        <strong>Family</strong>
+                    <div class="col-md-3">
+                        <h4><strong><?= lang('family'); ?></strong></h4>
                     </div>
-                    <div class="col-9">
-                        <p>
-                            57. The present address of the family
-                            58. Fathers Name and Caste
-                            59. Fathers Current Information
-                            60. Mothers Name and Caste
-                            61. Mothers Current Information
-                            62. Sibling Information
-                            63. Family type (rural or urban / middle or high income status)
-                            64. Family Special Information (Religious, Cultural, Legal Issues, etc.)
-                        </p>
+                    <div class="col-md-9">
+                        <p><?= lang('family_details'); ?></p>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-3">
-                        <strong>After Marriage</strong>
+                    <div class="col-md-3">
+                        <h4><strong><?= lang('after_marriage'); ?></strong></h4>
                     </div>
-                    <div class="col-9">
-                        <p>
-                            65. Proposers plans to live after marriage (Residence / Expatriation etc.)
-                            66. The need of the proponents family
-                            67. Future employment and educational activities of the proponent
-                            68. Number of expectant children
-                            69. Other Requirements of the Proponent
-                        </p>
+                    <div class="col-md-9">
+                        <p><?= lang('after_marriage_details'); ?></p>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-3">
-                        <strong>Partner Preferences and Other Information</strong>
+                    <div class="col-md-3">
+                        <h4><strong><?= lang('partner_preferences_and_other_information'); ?></strong></h4>
                     </div>
-                    <div class="col-9">
-                        <p>
-                            70. Preferences of the proposed partner and other specific information of the proposer
-                        </p>
+                    <div class="col-md-9">
+                        <p><?= lang('partner_preferences_and_other_information_details'); ?></p>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-3">
-                        <strong>Astrology</strong>
+                    <div class="col-md-3">
+                        <h4><strong><?= lang('astrology'); ?></strong></h4>
                     </div>
-                    <div class="col-9">
-                        <p>
-                            71. Horoscope
-                            72. Attitudes of the family in astrology
-                        </p>
+                    <div class="col-md-9">
+                        <p><?= lang('astrology_details'); ?></p>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-3">
-                        <strong>Photos & Videos</strong>
+                    <div class="col-md-3">
+                        <h4><strong><?= lang('photos_and_videos'); ?></strong></h4>
                     </div>
-                    <div class="col-9">
-                        <p>
-                            73. More photos and videos are collected for clear identification. It gives you the opportunity to save time, money, energy on visiting homes and people.
-                        </p>
+                    <div class="col-md-9">
+                        <p><?= lang('photos_and_videos_details'); ?></p>
                     </div>
                 </div>
-                <hr>
+                <div class="row">
+                    <div class="col-12">
+                        <p style="border: 2px #ffab00 solid; padding: 10px;"><strong><?= lang('70_important_mattters_note'); ?></strong></p>
+                    </div>
+                </div>
                 <p class="uk-text-right">
-                    <button class="uk-button uk-button-primary uk-modal-close" type="button">OK</button>
+                    <button class="uk-button uk-button-primary uk-modal-close" type="button"><?= lang('ok'); ?></button>
                 </p>
             </div>
         </div>
@@ -1077,36 +964,32 @@
     <div class="row steps-section mt-2 mb-5">
         <div class="container">
             <div class="row pt-2">
-                <p style="font-weight: 500; font-size: 0.9em; text-align: right;" class="col-12 pb-0 mb-0">Steps</p>
-                <h3 style="font-weight: bold; text-transform: uppercase; text-align: right" class="col-12">Simple Steps To Partner</h3>
+                <p style="font-weight: 500; font-size: 0.9em; text-align: right;" class="col-12 pb-0 mb-0"><?= lang('steps'); ?></p>
+                <h3 style="font-weight: bold; text-transform: uppercase; text-align: right" class="col-12"><?= lang('steps_title'); ?></h3>
             </div>
             <div class="row pt-3">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-12 mt-3 mt-lg-0">
                     <div class="steps-element d-flex" style=" display: table-cell; vertical-align: middle;">
                         <p class="step-header" style="background-color: #4BB75E; margin: 0 !important;">1
-                            <span style="font-size: 0.25em !important; position: absolute; bottom:0px;">STEP</span>
+                            <span style="font-size: 0.25em !important; position: absolute; bottom:0px; text-transform: uppercase;"><?= lang('step'); ?></span>
                         </p>
-                        <p class="step-title" style="margin: 0;">Post Your Profile Free Of Charge</p>
+                        <p class="step-title" style="margin: 0;"><?= lang('step_1_title'); ?></p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-12 mt-3 mt-lg-0">
                     <div class="steps-element d-flex" style=" display: table-cell;  vertical-align: middle;">
                         <p class="step-header" style="background-color: #FFC232; margin: 0 !important;">2
-                            <span style="font-size: 0.25em !important; position: absolute; bottom:0px;">STEP</span>
+                            <span style="font-size: 0.25em !important; position: absolute; bottom:0px; text-transform: uppercase;"><?= lang('step'); ?></span>
                         </p>
-                        <p class="step-title">Search Your Partner
-                            <span style="font-size: 0.7em !important; position: absolute; bottom:20px;">(All Over Sri Lanka)</span>
-                        </p>
+                        <p class="step-title"><?= lang('step_2_title'); ?></p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-12 mt-3 mt-lg-0">
                     <div class="steps-element d-flex" style=" display: table-cell;  vertical-align: middle;">
                         <p class="step-header" style="background-color: #ED2C52; margin: 0 !important;">3
-                            <span style="font-size: 0.25em !important; position: absolute; bottom:0px;">STEP</span>
+                            <span style="font-size: 0.25em !important; position: absolute; bottom:0px; text-transform: uppercase;"><?= lang('step'); ?></span>
                         </p>
-                        <p class="step-title">Marry If Trust Verified
-                            <span style="font-size: 0.7em !important; position: absolute; bottom:20px;">(Trust Guaranteed By Our Service)</span>
-                        </p>
+                        <p class="step-title"><?= lang('step_3_title'); ?></p>
                     </div>
                 </div>
             </div>
