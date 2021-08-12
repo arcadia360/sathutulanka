@@ -10,7 +10,7 @@ var Member = function () {
 
 function getMyMatches() {
     ajaxCall('Account/GetMyMatches', $("#loginForm").serialize(), function (response) {
-        debugger;
+        // debugger;
 
     // $.ajax({
     //     type: 'POST',
