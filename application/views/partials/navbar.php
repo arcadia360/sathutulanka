@@ -257,27 +257,48 @@
         </div>
 
 
+        
+        <!-- Commented on 2021-08-11 (ViRAJ) -->
 
         <?php
-        if ($this->uri->segment(1) == "Welcome" && $this->uri->segment(2) == "" || $this->uri->segment(1) == "") {
-            $url = "";
-            for ($i = 0; $i < count($this->uri->segment_array()); $i++) {
-                $url = $url . $this->uri->segment($i + 1) . "/";
-            }
-            if ($url == "") {
-                $url = "Welcome";
-            }
-            if ($_SESSION['language_id'] == 1 && $_SESSION['logged_in'] == FALSE) { // Current Language - English
+        // if ($this->uri->segment(1) == "Welcome" && $this->uri->segment(2) == "" || $this->uri->segment(1) == "") {
+        //     $url = "";
+        //     for ($i = 0; $i < count($this->uri->segment_array()); $i++) {
+        //         $url = $url . $this->uri->segment($i + 1) . "/";
+        //     }
+        //     if ($url == "") {
+        //         $url = "Welcome";
+        //     }
+        //     if ($_SESSION['language_id'] == 1 && $_SESSION['logged_in'] == FALSE) { // Current Language - English
         ?>
-                <a class="nav-link btn-lang" href="<?= base_url("Welcome/ChangeLanguage/2/" . $url); ?>">සිංහල</a>
-            <?php
-            } else if ($_SESSION['language_id'] == 2 && $_SESSION['logged_in'] == FALSE) { // Current Language - Sinhala
-            ?>
-                <a class="nav-link btn-lang" href="<?= base_url("Welcome/ChangeLanguage/1/" . $url); ?>">English</a>
+        <!-- <a class="nav-link btn-lang" href="<?= base_url("Welcome/ChangeLanguage/2/" . $url); ?>">සිංහල</a> -->
         <?php
-            }
+        // } else if ($_SESSION['language_id'] == 2 && $_SESSION['logged_in'] == FALSE) { // Current Language - Sinhala
+        ?>
+        <!-- <a class="nav-link btn-lang" href="<?= base_url("Welcome/ChangeLanguage/1/" . $url); ?>">English</a> -->
+        <?php
+        //     }
+        // }
+        ?>
+
+
+        <?php
+        if ($_SESSION['language_id'] == 1) {
+        ?>
+            <a class="nav-link btn-lang" onclick="ChangeLanguage(2)">
+                <i class="fa fa-spinner fa-spin" style="font-size:17px" id="icon-wait-lang"></i>
+                සිංහල</a>
+        <?php
+        } else if ($_SESSION['language_id'] == 2) {
+        ?>
+            <a class="nav-link btn-lang" onclick="ChangeLanguage(1)">
+                <i class="fa fa-spinner fa-spin" style="font-size:17px" id="icon-wait-lang"></i>
+                English</a>
+        <?php
         }
         ?>
+
+
     </nav>
 
 
@@ -407,6 +428,17 @@
         }
     }
     ?>
+
+    <script>
+        function ChangeLanguage(languageID) {
+            $('#icon-wait-lang').show();
+            ajaxCall('Welcome/ChangeLanguage/' + languageID, null, function(response) {
+                if (response['success'] == true) {
+                    location.reload();
+                }
+            });
+        }
+    </script>
 
     <!-- </body>
 
