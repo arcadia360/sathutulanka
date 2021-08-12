@@ -1,5 +1,7 @@
 $(function () {
 
+    $('#icon-wait-lang').hide();
+
     $('.only-decimal').keypress(function (event) {
         return isNumber(event, this)
     });
