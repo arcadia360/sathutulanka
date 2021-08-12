@@ -26,20 +26,31 @@ class Welcome extends Admin_Controller
 	// 	}
 	// }
 
-	public function ContactUs(){
+	public function ContactUs()
+	{
 		$this->render_template('contact_us', 'Contact Us', null);
 	}
 
-	public function ChangeLanguage($LanguageID, $url)
+	// public function ChangeLanguage($LanguageID, $url)   //>>> Commented on 2021-08-11 (ViRAJ)
+	// {
+	// 	if (!isset($_SESSION['member_id']) || empty($_SESSION['member_id'])) {  // If Fresh User
+	// 		$logged_in_sess = array(
+	// 			'language_id' => $LanguageID // 1 - English, 2 - Sinhala, 3 - Tamil
+	// 		);
+	// 		$this->session->set_userdata($logged_in_sess);
+	// 		redirect(base_url($url), 'refresh');
+	// 	} else {
+	// 		// echo 'ddddd';
+	// 	}
+	// }
+
+	public function ChangeLanguage($LanguageID) 
 	{
-		if (!isset($_SESSION['member_id']) || empty($_SESSION['member_id'])) {  // If Fresh User
-			$logged_in_sess = array(
-				'language_id' => $LanguageID // 1 - English, 2 - Sinhala, 3 - Tamil
-			);
-			$this->session->set_userdata($logged_in_sess);
-			redirect(base_url($url), 'refresh');
-		} else {
-			// echo 'ddddd';
-		}
+		$logged_in_sess = array(
+			'language_id' => $LanguageID // 1 - English, 2 - Sinhala, 3 - Tamil
+		);
+		$this->session->set_userdata($logged_in_sess);
+		$response['success'] = true;
+		echo json_encode($response);
 	}
 }
