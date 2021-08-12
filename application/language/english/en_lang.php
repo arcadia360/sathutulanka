@@ -1,6 +1,142 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+//Welcome Page
+$lang['search'] = 'Search';
+$lang['im_looking_for'] = "I'm Looking For";
+$lang['male_search'] = 'Male';
+$lang['female_search'] = 'Female';
+$lang['age_from'] = 'Age From';
+$lang['age_to'] = 'Age To';
+$lang['religion'] = 'Religion';
+$lang['mother_tongue'] = 'Mother Tongue';
+
+
+
+$lang['who_we_are'] = 'Who We Are';
+$lang['who_we_are_content'] =
+    'This is the first and only marriage service in <b>Sri Lanka</b> and the world by trust.
+                            Beauty, wealth, caste, education, occupation, nationality, religion, age, horoscope ,expectation, widow are common problems in love affairs and marriages for everyone and everytime..
+                            So what we need is, these matters should not loss our hopes, trust, fortunate and goodness after the onset of marriage, becoming lonely single again...';
+$lang['our_services'] = 'Our Services';
+$lang['what_we_offer'] = 'What We Offer';
+$lang['trust'] = 'Trust';
+$lang['trust_title'] = 'A certificate for the word of trust.';
+$lang['read_more'] = 'Read More';
+$lang['privacy'] = 'Privacy';
+$lang['privacy_title'] = "You and your family's privacy will be 100% secure.";
+$lang['save_money'] = 'Save Money';
+$lang['save_money_title'] = 'Save your money, Time and energy </br>(No Unnecessary meetings).';
+$lang['love_proposal'] = 'Love or Proposal';
+$lang['love_proposal_title'] = 'Do you like to marry by love or proposal?';
+$lang['after_marriage'] = 'After Marriage';
+$lang['after_marriage_title'] = 'Think about your life after marriage.';
+$lang['always_free'] = 'Always Free';
+$lang['always_free_title'] = "Find your life partner without barriers,<br>It's always Free.";
+
+$lang['steps'] = 'Steps';
+$lang['steps_title'] = '3 Simple Steps To Your Partner';
+$lang['step'] = 'Step';
+$lang['step_1_title'] = 'Post Your Profile Free Of Charge';
+$lang['step_2_title'] = 'Search Your Partner <span style="font-size: 0.7em !important; position: absolute; bottom:20px;">(All Over Sri Lanka)</span>';
+$lang['step_3_title'] = 'Marry If Trust Verified <span style="font-size: 0.7em !important; position: absolute; bottom:20px;">(Trust Guaranteed By Our Service)</span>';
+
+$lang['advantages_of_sathutulanka'] = 'Advantages of Sathutu Lanka';
+$lang['advantages_of_sathutulanka_trust'] = 
+                            'It is our belief that truth and honesty conquer in the end and never regret.
+                            By visiting to homes of marriage seekers, we inspect <a href="#modal-70" uk-toggle><strong>over 70 important</strong></a> matters are true and correct with government accepted certificates.
+                            The specialty of this service is that trust is not limited to just verification of an identity copy, a telephone number,
+                            an email address, a letter or application sent by an applicant.';
+$lang['advantages_of_sathutulanka_save_money'] = 
+                            'Modern internet technology is fully utilized allowing to add videos, photos and details of the marriage seekers so as to get a true,
+                            clear and complete idea about them without any conditions. This will help you and your family not to spend valuable money,
+                            time and energy over and over to inspect homes with unnecessary meetings.';
+$lang['advantages_of_sathutulanka_always_free'] =
+                            'Modern internet technology is fully utilized allowing to add videos, 
+                            photos and details of the marriage seekers so as to get a true,
+                            clear and complete idea about them without any conditions. This will help you and your family not to spend valuable money,
+                            time and energy over and over to inspect homes with unnecessary meetings.';
+$lang['advantages_of_sathutulanka_privacy'] = 
+                            'Your all information will be visible to others under your control.
+                            We value your privacy above all and you can get to know each other better without revealing your identity. (Free and secure chat box)';
+$lang['advantages_of_sathutulanka_love_proposal'] = 
+                            'Most of love affairs are not successful due to family reasons.
+                            Love couldn’t be expressed to unknown persons when you feel the problems of an unmatching person. 
+                            There is also a lot frustrated singles whom are forced to live through parents choice.
+                            Considering all the facts of a love marriage, we assure you with confidence that you have a trustworthy space here to 
+                            find your partner by love or proposal without loosing your family’s choice.';
+$lang['advantages_of_sathutulanka_after_marriage'] = 
+                            'Let us think deeply about life after marriage. Unfortunately, All your efforts will be waste if you have to seperate yourselves in a short period of time due to mismatch of your ideas.
+                            There is a special space here to talk about thoughts of after marriage before building a relationship such as personal goals,
+                            prefer to live, the expectations of both parents, how your jobs affect the marriage life?,
+                            further education, about children and all other matters important to you after marriage.';
+$lang['marriage_seeker_title'] = 'Find your partner from thousands of marriage seekers';
+$lang['advantages_of_sathutulanka_marriage_seeker'] = 
+                            'Thousands of marriage seekers will come to the website because there is a free service ranging from the publication of the proposal to the 
+                            identification of any partner of the website. 100% trust verification service available with government approved certificates if necessary.';
+$lang['search_engine_convenience_title'] = 'Search engine convenience';
+$lang['advantages_of_sathutulanka_search_engine_convenience'] = 
+                            'The ability to quickly find your desired partner through thousands of marriage seekers under 37 key points and restricting getting 
+                            interests of undesired marriage seekers if necessary.';
+$lang['single_attention_title'] = 'Single attention to each account';
+$lang['advantages_of_sathutulanka_single_attention'] =
+                            'The ability to select desired partners reliably and smoothly as our staff monitors each account separately and get trust verified.';
+$lang['premium_membership_title'] = 'Premium Membership';
+$lang['advantages_of_sathutulanka_premium_membership'] = 
+                            'The ability to quickly and easily meet your marriage needs by sending your interests to members by post, 
+                            examination of horoscopes by expert astrologers soon, making your profile top of other members and finding marriage expectants from other media also.';
+$lang['ok'] = 'OK';
+
+$lang['70_important_mattters'] = '70 Important Mattters';
+$lang['basic_information'] = 'Basic Information';
+$lang['basic_information_details'] = '01. Name 02. Age 03. Marital Status';
+$lang['residences_and_contacts'] = 'Residences and Contacts';
+$lang['residences_and_contact_details'] = '04. Permanent Address 05. Postal Address 06. Residence ownership 07. Native District and Lived places 08. Contacts';
+$lang['physical_status'] = 'Physical Status';
+$lang['physical_status_details'] = '09. Height 10. Weight 11. Body Shape/Type 12. Skin Color 13. Disability if any 14. Blood Group 15. Health Information';
+$lang['background_details'] = '16. Mother Tongue 17. Nationality 18. Religion 19. Caste 20. Family attitudes about castes 21. If involved in a criminal or civil case';
+$lang['lifeStyle_details'] = '22. Diet 23. Drink 24. Smoke 25. Languages 26. Dress and Makeup 27. Used to travel 28. How to speak parents (Amma or Mammy... etc.) 29. Attitudes about Customs 30.The nature of the home';
+$lang['partners_attitudes'] = 'Partners Attitudes';
+$lang['partners_attitudes_details'] = '31. Open Personality 32. Conscious Personality 33. Extrovert Personality 34. Introvert Personality 35. Agreeable Personality 36. Neurotic Personality 37. Family Bond 38. Attitudes towards Money 39. Attitudes towards Religion 40. Physically Activities 41. Attitudes towards Politics 42. Attitudes towards Knowledge and education 43. Love Affairs 44. The importance of male & female Virginity 45. Interests and Hobbies 46. Favorite People and Things';
+$lang['education'] = 'Education';
+$lang['education_details'] = '47. Education Level 48. Education field 49. Schools/ Universities';
+$lang['career'] = 'Career';
+$lang['career_details'] = '50. Employment Section 51. Designation 52. Workplace 53. Nature of Occupation or Business 54. Income/Salary and Previous Service Information';
+$lang['personal_assets'] = 'Personal Assets';
+$lang['personal_assets_details'] = '55. Assets 56. Ownership, Nature and Issues of Assets';
+$lang['family'] = 'Family';
+$lang['family_details'] = '57. The present address of the family 58. Fathers Name and Caste 59. Fathers Current Information 60. Mothers Name and Caste 61. Mothers Current Information 62. Sibling Information 63. Family type (rural or urban / middle or high income status) 64. Family Special Information (Religious, Cultural, Legal Issues, etc.)';
+$lang['after_marriage'] = 'After Marriage';
+$lang['after_marriage_details'] = '65. Proposers plans to live after marriage (Residence / Expatriation etc.) 66. The need of the proponents family 67. Future employment and educational activities of the proponent 68. Number of expectant children 69. Other Requirements of the Proponent';
+$lang['partner_preferences_and_other_information'] = 'Partner Preferences & Other Information';
+$lang['partner_preferences_and_other_information_details'] = '70. Preferences of the proposed partner and other specific information of the proposer';
+$lang['astrology'] = 'Astrology';
+$lang['astrology_details'] = '71. Horoscope 72. Attitudes of the family in astrology';
+$lang['photos_and_videos'] = 'Photos & Videos';
+$lang['photos_and_videos_details'] = '73. More photos and videos are collected for clear identification. It gives you the opportunity to save time, money, energy on visiting homes and people.';
+$lang['70_important_mattters_note'] = 
+                            'Note that it is essential to check all of the above information for a problem-free marriage. 
+                            All the above information is certified and guaranteed to you by government approved certificates, 
+                            checking with government websites or visiting government institutions, visiting proposers homes directly, 
+                            obtaining information indirectly from outside the proposers and by a surety of the guardians and an affidavit of the proposer. 
+                            So that any party can get compensation on false information.';
+
+
+
+// Footer
+$lang['help_support'] = 'Help & Support';
+$lang['about_us'] = 'About Us';
+$lang['contact_us'] = 'Contact Us';
+$lang['footer_title'] = 'IS A REGISTERED TRADEMARK AND SHOULD NOT BE USED WITHOUT PERMISSION. ALL RIGHTS RESERVED.';
+
+
+
+
+
+
+
+
+
 
 //Registration
 $lang['male'] = 'Male';
@@ -127,7 +263,7 @@ $lang['mentionedInMyStory'] = 'Mentioned in My Story';
 $lang['sinhala'] = 'Sinhala';
 $lang['tamil'] = 'Tamil';
 $lang['english'] = 'English';
-$lang['other'] = 'other';
+$lang['other'] = 'Other';
 
 $lang['buddhist'] = 'Buddhist';
 $lang['hindu'] = 'Hindu';
