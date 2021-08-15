@@ -107,6 +107,12 @@ input[type="radio"]:checked+label:before {
 	font-size: 1.2em;
 }
 
+.infoText {
+	font-weight: 300;
+	color: #bf360c;
+	font-size: .8em;
+}
+
 .anchor-qustion {
 	text-decoration: none;
 	color: #2C3E50;
