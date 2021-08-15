@@ -87,11 +87,17 @@
             <div class="row">
               <div class="col-lg-6 col-12">
                 <div class="form-group">
-                  <label class="text-inverse font-weight-bold" for="validationCustom02">Martial Status</label>
+                  <label class="text-inverse font-weight-bold" for="validationCustom02">Maritial Status</label>
                 </div>
               </div>
               <div class="col-lg-6">
                 <select id="MartialStatusDrp" name="MartialStatusDrp[]" multiple="multiple" class="form-control">
+
+                  <option value="0"><?= lang('select') ?></option>
+                  <?php foreach ($LoadMaritalStatusData as $k => $v) { ?>
+                    <option value="<?= $v['intMaritalStatusID'] ?>"><?= $v['vcMaritalStatus_en'] ?></option>
+                  <?php } ?>
+
                 </select>
               </div>
             </div>
@@ -118,6 +124,10 @@
               </div>
               <div class="col-lg-6">
                 <select id="NoOfChildrenDrp" name="NoOfChildrenDrp[]" multiple="multiple" class="form-control">
+                  <option value="0"><?= lang('select') ?></option>
+                  <?php foreach ($LoadNoOfChildrenData as $k => $v) { ?>
+                    <option value="<?= $v['intNoOfChildrenID'] ?>"><?= $v['vcNoOfChildren_en'] ?></option>
+                  <?php } ?>
                 </select>
               </div>
             </div>
@@ -143,6 +153,12 @@
               </div>
               <div class="col-lg-6">
                 <select id="ReligionDrp" name="ReligionDrp[]" multiple="multiple" class="form-control">
+                  <option value="0"><?= lang('select') ?></option>
+                  <?php foreach ($LoadReligionData as $k => $v) { ?>
+                    <option value="<?= $v['intReligionID'] ?>"><?= $v['vcReligion'] ?></option>
+                  <?php } ?>
+
+
                 </select>
               </div>
             </div>
@@ -168,6 +184,10 @@
               </div>
               <div class="col-lg-6">
                 <select id="EthnicityDrp" name="EthnicityDrp[]" multiple="multiple" class="form-control">
+                  <option value="0"><?= lang('select') ?></option>
+                  <?php foreach ($LoadEthnicityData as $k => $v) { ?>
+                    <option value="<?= $v['intEthnicityID'] ?>"><?= $v['vcEthnicityName'] ?></option>
+                  <?php } ?>
                 </select>
               </div>
             </div>
@@ -193,6 +213,10 @@
               </div>
               <div class="col-lg-6">
                 <select id="motherToungeDrp" name="motherToungeDrp[]" multiple="multiple" class="form-control">
+                  <option value="0"><?= lang('select') ?></option>
+                  <?php foreach ($LoadMotherToungeData as $k => $v) { ?>
+                    <option value="<?= $v['intMotherTongueID'] ?>"><?= $v['vcMotherTongueName'] ?></option>
+                  <?php } ?>
                 </select>
               </div>
             </div>
@@ -218,6 +242,10 @@
               </div>
               <div class="col-lg-6">
                 <select id="LiveInSriLankaDrp" name="LiveInSriLankaDrp[]" multiple="multiple" class="form-control">
+                  <option value="0"><?= lang('select') ?></option>
+                  <?php foreach ($LoadLiveInSriLankaData as $k => $v) { ?>
+                    <option value="<?= $v['IntProvinceId'] ?>"><?= $v['vcProvinceName'] ?></option>
+                  <?php } ?>
                 </select>
               </div>
             </div>
@@ -243,7 +271,10 @@
               </div>
               <div class="col-lg-6">
                 <select id="EducationLevelDrp" name="EducationLevelDrp[]" multiple="multiple" class="form-control">
-
+                  <option value="0"><?= lang('select') ?></option>
+                  <?php foreach ($LoadSummerizedEducationLevelData as $k => $v) { ?>
+                    <option value="<?= $v['intEducationLevelSumerizedId'] ?>"><?= $v['vcEducationLevelSumerized'] ?></option>
+                  <?php } ?>
                 </select>
               </div>
             </div>
@@ -295,6 +326,10 @@
               </div>
               <div class="col-lg-6">
                 <select id="CareerLevelDrp" name="CareerLevelDrp[]" multiple="multiple" class="form-control">
+                  <option value="0"><?= lang('select') ?></option>
+                  <?php foreach ($loadWorkingWithData as $k => $v) { ?>
+                    <option value="<?= $v['intWorkingWithId'] ?>"><?= $v['vcWorkingWith'] ?></option>
+                  <?php } ?>
                 </select>
               </div>
             </div>
@@ -320,7 +355,10 @@
               </div>
               <div class="col-lg-6">
                 <select id="MonthlyIncomeDrp" name="MonthlyIncomeDrp[]" multiple="multiple" class="form-control">
-
+                  <option value="0"><?= lang('select') ?></option>
+                  <?php foreach ($LoadSummerizedMonthtlyIncomeData as $k => $v) { ?>
+                    <option value="<?= $v['intMonthlyIncomeSummerisedID'] ?>"><?= $v['vcMonthlyIncomeSummerised'] ?></option>
+                  <?php } ?>
                 </select>
               </div>
             </div>
@@ -346,7 +384,10 @@
               </div>
               <div class="col-lg-6">
                 <select id="AssetValueDrp" name="AssetValueDrp[]" multiple="multiple" class="form-control">
-
+                  <option value="0"><?= lang('select') ?></option>
+                  <?php foreach ($LoadSummerizedAssetValuelData as $k => $v) { ?>
+                    <option value="<?= $v['intAssetvaluesummerisedID'] ?>"><?= $v['vcAssetvaluesummerised'] ?></option>
+                  <?php } ?>
                 </select>
               </div>
             </div>
@@ -372,7 +413,10 @@
               </div>
               <div class="col-lg-6">
                 <select id="AnyDisabilityDrp" name="AnyDisabilityDrp[]" multiple="multiple" class="form-control">
-
+                  <option value="0"><?= lang('select') ?></option>
+                  <?php foreach ($LoadAnyDisabilityData as $k => $v) { ?>
+                    <option value="<?= $v['intDisabilityID'] ?>"><?= $v['vcDisability'] ?></option>
+                  <?php } ?>
                 </select>
               </div>
             </div>
@@ -398,7 +442,10 @@
               </div>
               <div class="col-lg-6">
                 <select id="DietDrp" name="DietDrp[]" multiple="multiple" class="form-control">
-
+                  <option value="0"><?= lang('select') ?></option>
+                  <?php foreach ($LoadDietData as $k => $v) { ?>
+                    <option value="<?= $v['intDietID'] ?>"><?= $v['vcDietName'] ?></option>
+                  <?php } ?>
                 </select>
               </div>
             </div>
@@ -435,18 +482,84 @@
 
 <script>
   $(function() {
-    LoadMaritalStatusData();
-    LoadReligionData();
-    LoadNoOfChildrenData();
-    LoadEthnicityData();
-    LoadMotherToungeData();
-    LoadLiveInSriLankaData();
-    LoadCareerLevelData();
-    LoadAnyDisabilityData();
-    LoadDietData();
-    LoadSummerizedEducationLevelData();
-    LoadSummerizedMonthtlyIncomeData();
-    LoadSummerizedAssetValuelData();
+
+    $('#MartialStatusDrp').multiselect({
+      includeSelectAllOption: true,
+      selectAllValue: 0,
+      buttonWidth: '100%'
+    });
+
+    $('#NoOfChildrenDrp').multiselect({
+      includeSelectAllOption: true,
+      selectAllValue: 0,
+      buttonWidth: '100%'
+    });
+
+    $('#ReligionDrp').multiselect({
+      includeSelectAllOption: true,
+      selectAllValue: 0,
+      buttonWidth: '100%'
+    });
+    $('#EthnicityDrp').multiselect({
+      includeSelectAllOption: true,
+      selectAllValue: 0,
+      buttonWidth: '100%'
+    });
+    $('#motherToungeDrp').multiselect({
+      includeSelectAllOption: true,
+      selectAllValue: 0,
+      buttonWidth: '100%'
+    });
+    $('#LiveInSriLankaDrp').multiselect({
+      includeSelectAllOption: true,
+      selectAllValue: 0,
+      buttonWidth: '100%'
+    });
+    $('#EducationLevelDrp').multiselect({
+      includeSelectAllOption: true,
+      selectAllValue: 0,
+      buttonWidth: '100%'
+    });
+    $('#MonthlyIncomeDrp').multiselect({
+      includeSelectAllOption: true,
+      selectAllValue: 0,
+      buttonWidth: '100%'
+    });
+    $('#CareerLevelDrp').multiselect({
+      includeSelectAllOption: true,
+      selectAllValue: 0,
+      buttonWidth: '100%'
+    });
+    $('#AssetValueDrp').multiselect({
+      includeSelectAllOption: true,
+      selectAllValue: 0,
+      buttonWidth: '100%'
+    });
+    $('#AnyDisabilityDrp').multiselect({
+      includeSelectAllOption: true,
+      selectAllValue: 0,
+      buttonWidth: '100%'
+    });
+    $('#DietDrp').multiselect({
+      includeSelectAllOption: true,
+      selectAllValue: 0,
+      buttonWidth: '100%'
+    });
+
+
+
+    // LoadMaritalStatusData();
+    // LoadReligionData();
+    // LoadNoOfChildrenData();
+    // LoadEthnicityData();
+    // LoadMotherToungeData();
+    // LoadLiveInSriLankaData();
+    // LoadCareerLevelData();
+    // LoadAnyDisabilityData();
+    // LoadDietData();
+    // LoadSummerizedEducationLevelData();
+    // LoadSummerizedMonthtlyIncomeData();
+    // LoadSummerizedAssetValuelData();
     // LoadWorkingWithData();
 
     $('#btnSubmit').click(function() {
@@ -540,189 +653,12 @@
       }
     });
 
-    function LoadMaritalStatusData() {
-      $.ajax({
-        type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/LoadMaritalStatusData',
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-          if (!data) {
-            toastr["error"](" Failed to load Martial Status Data");
-          } else {
-
-            $('#MartialStatusDrp').html(data);
-            $('#MartialStatusDrp').multiselect({
-              includeSelectAllOption: true,
-              selectAllValue: 0,
-              buttonWidth: '100%'
-            });
-          }
-        },
-        error: function() {
-          toastr["error"](" Internal error Failed to load Martial Status Data");
-        }
-      });
-    }
-
-    function LoadNoOfChildrenData() {
-      $.ajax({
-        type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/LoadNoOfChildrenData',
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-          if (!data) {
-            toastr["error"]("Failed to load children Data");
-          } else {
-            $('#NoOfChildrenDrp').html(data);
-            $('#NoOfChildrenDrp').multiselect({
-              includeSelectAllOption: true,
-              selectAllValue: 0,
-              buttonWidth: '100%'
-            });
-
-          }
-        },
-        error: function() {
-          toastr["error"](" Internal error Failed to load children Data");
-        }
-      });
-    }
-
-
-
     // $('[data-toggle="restrictMartialStatusPop"]').popover({
     //   trigger: 'focus'
     // });
 
-    function LoadReligionData() {
-      $.ajax({
-        type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/LoadReligionData',
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-          if (!data) {
-            toastr["error"]("Failed to load Religion Data");
-          } else {
-            $('#ReligionDrp').html(data);
-            $('#ReligionDrp').multiselect({
-              includeSelectAllOption: true,
-              selectAllValue: 0,
-              buttonWidth: '100%'
-            });
 
-          }
-        },
-        error: function() {
-          toastr["error"]("Internal error Failed to load Religion Data");
-        }
-      });
-    }
 
-    function LoadEthnicityData() {
-      $.ajax({
-        type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/LoadEthnicityData',
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-          if (!data) {
-            toastr["error"]("Failed to load Ethnicity Data");
-          } else {
-            $('#EthnicityDrp').html(data);
-            $('#EthnicityDrp').multiselect({
-              includeSelectAllOption: true,
-              selectAllValue: 0,
-              buttonWidth: '100%'
-            });
-
-          }
-        },
-        error: function() {
-          toastr["error"]('Internal error Failed to load Ethnicity Data');
-        }
-      });
-    }
-
-    function LoadMotherToungeData() {
-      $.ajax({
-        type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/LoadMotherToungeData',
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-          if (!data) {
-            toastr["error"]("Failed to load mother tounge data");
-          } else {
-            $('#motherToungeDrp').html(data);
-            $('#motherToungeDrp').multiselect({
-              includeSelectAllOption: true,
-              selectAllValue: 0,
-              buttonWidth: '100%'
-            });
-
-          }
-        },
-        error: function() {
-          toastr["error"]('Internal error Failed to load mother tounge data');
-
-        }
-      });
-    }
-
-    function LoadLiveInSriLankaData() {
-      $.ajax({
-        type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/LoadLiveInSriLankaData',
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-          if (!data) {
-            toastr["error"]("Failed to load live in Sri Lanka data");
-          } else {
-            $('#LiveInSriLankaDrp').html(data);
-            $('#LiveInSriLankaDrp').multiselect({
-              includeSelectAllOption: true,
-              selectAllValue: 0,
-              buttonWidth: '100%'
-            });
-
-          }
-        },
-        error: function() {
-          toastr["error"]('Internal error Failed to load live in Sri Lanka data');
-
-        }
-      });
-    }
-
-    function LoadSummerizedEducationLevelData() {
-      $.ajax({
-        type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/LoadSummerizedEducationLevelData',
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-          if (!data) {
-            toastr["error"]("Failed to load Education Level data");
-          } else {
-            $('#EducationLevelDrp').html(data);
-            $('#EducationLevelDrp').multiselect({
-              includeSelectAllOption: true,
-              selectAllValue: 0,
-              buttonWidth: '100%'
-            });
-
-          }
-        },
-        error: function() {
-          toastr["error"]('Internal error Failed to load Education Level data');
-
-        }
-      });
-    }
 
     // function LoadWorkingWithData() {
     //   $.ajax({
@@ -751,60 +687,12 @@
     // }
 
 
-    function LoadCareerLevelData() {
-      $.ajax({
-        type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/loadWorkingWith',
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-          if (!data) {
-            toastr["error"]("Failed to load career level data");
-          } else {
-            $('#CareerLevelDrp').html(data);
-            $('#CareerLevelDrp').multiselect({
-              includeSelectAllOption: true,
-              selectAllValue: 0,
-              buttonWidth: '100%'
-            });
 
-          }
-        },
-        error: function() {
-          toastr["error"]('Internal error Failed to load career level data');
-
-        }
-      });
-    }
 
     //
 
 
-    function LoadSummerizedMonthtlyIncomeData() {
-      $.ajax({
-        type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/LoadSummerizedMonthtlyIncomeData',
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-          if (!data) {
-            toastr["error"]("Failed to load Monthly Income data");
-          } else {
-            $('#MonthlyIncomeDrp').html(data);
-            $('#MonthlyIncomeDrp').multiselect({
-              includeSelectAllOption: true,
-              selectAllValue: 0,
-              buttonWidth: '100%'
-            });
 
-          }
-        },
-        error: function() {
-          toastr["error"]('Internal error,Failed to load Monthly Income data');
-
-        }
-      });
-    }
 
     function LoadSummerizedAssetValuelData() {
       $.ajax({
@@ -834,64 +722,10 @@
 
 
 
-    $('#AssetValueDrp').multiselect({
-      includeSelectAllOption: true,
-      selectAllValue: 0,
-      buttonWidth: '100%'
-    });
 
-    function LoadAnyDisabilityData() {
-      $.ajax({
-        type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/LoadAnyDisabilityData',
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-          if (!data) {
-            toastr["error"]("Failed to load any disability data");
-          } else {
-            $('#AnyDisabilityDrp').html(data);
-            $('#AnyDisabilityDrp').multiselect({
-              includeSelectAllOption: true,
-              selectAllValue: 0,
-              buttonWidth: '100%'
-            });
-          }
-        },
-        error: function() {
-          toastr["error"]('Internal error Failed load any disability data');
 
-        }
-      });
-    }
 
-    function LoadDietData() {
-      $.ajax({
-        type: 'ajax',
-        url: '<?php echo base_url(); ?>Registration/LoadDietData',
-        async: false,
-        dataType: 'json',
-        success: function(data) {
-          if (!data) {
-            toastr["error"]("Failed to load diet data");
-          } else {
-            $('#DietDrp').html(data);
-            $('#DietDrp').multiselect({
-              includeSelectAllOption: true,
-              selectAllValue: 0,
-              buttonWidth: '100%'
-            });
-          }
-        },
-        error: function() {
-          toastr["error"]('Internal error Failed load diet data');
 
-        }
-      });
-    }
-    // $('[data-toggle="popover123"]').popover({
-    //   trigger: 'focus'
-    // });
 
 
     $('#btnBack').click(function() {
