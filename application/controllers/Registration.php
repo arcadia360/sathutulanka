@@ -796,118 +796,21 @@ class Registration extends Admin_Controller
 	public function partnerPreferences()
 	{
 		$this->CheckAndRedirectNextForm(15);
-		$this->render_template_registration('registration/partnerPreferences', 'Partner Preferences', NULL);
+
+		$this->data['LoadMaritalStatusData'] = $this->Model_registration->LoadMaritalStatusData();
+		$this->data['LoadNoOfChildrenData'] = $this->Model_registration->LoadNoOfChildrenData();
+		$this->data['LoadReligionData'] = $this->Model_registration->ReligionData();
+		$this->data['LoadEthnicityData'] = $this->Model_registration->LoadEthnicityData();
+		$this->data['LoadMotherToungeData'] = $this->Model_registration->LoadMotherToungeData();
+		$this->data['LoadSummerizedEducationLevelData'] = $this->Model_registration->LoadSummerizedEducationLevelData();
+		$this->data['LoadSummerizedMonthtlyIncomeData'] = $this->Model_registration->LoadSummerizedMonthtlyIncomeData();
+		$this->data['loadWorkingWithData'] = $this->Model_registration->loadWorkingWithData();
+		$this->data['LoadSummerizedAssetValuelData'] = $this->Model_registration->LoadSummerizedAssetValuelData();
+		$this->data['LoadAnyDisabilityData'] = $this->Model_registration->LoadAnyDisabilityData();
+		$this->data['LoadDietData'] = $this->Model_registration->LoadDietData();
+
+		$this->render_template_registration('registration/partnerPreferences', 'Partner Preferences', $this->data);
 	}
-
-	public function LoadMaritalStatusData()
-	{
-		$result = '';
-		$this->load->model('Model_registration');
-		$result = $this->Model_registration->LoadMaritalStatusData();
-		if (!$result) {
-			return false;
-		} else {
-			$html = null;
-			if ($result) {
-				foreach ($result as $MartialStatusDetails) {
-					$html .= "<option value=" . $MartialStatusDetails->intMaritalStatusID . " >" . $MartialStatusDetails->vcMaritalStatus_en  . "</option>";
-				}
-				echo json_encode($html);
-			}
-		}
-	}
-
-	public function LoadNoOfChildrenData()
-	{
-		$result = '';
-		$this->load->model('Model_registration');
-		$result = $this->Model_registration->LoadNoOfChildrenData();
-		if (!$result) {
-			return false;
-		} else {
-			$html = null;
-			if ($result) {
-				foreach ($result as $NoOfChildren) {
-					$html .= "<option value=" . $NoOfChildren->intNoOfChildrenID . " >" . $NoOfChildren->vcNoOfChildren_en  . "</option>";
-				}
-				echo json_encode($html);
-			}
-		}
-	}
-
-
-	public function LoadReligionData()
-	{
-		// $result = '';
-		// $this->load->model('Model_registration');
-		// $result = $this->Model_registration->LoadReligionData(); 
-		// if (!$result) {
-		// 	return false;
-		// } else {
-		// 	$html = null;
-		// 	if ($result) {
-		// 		foreach ($result as $religion) {
-		// 			$html .= "<option value=" . $religion->intReligionID . " >" . $religion->vcReligion  . "</option>";
-		// 		}
-		// 		echo json_encode($html);
-		// 	}
-		// }
-	}
-
-	public function LoadEthnicityData()
-	{
-		$result = '';
-		$this->load->model('Model_registration');
-		$result = $this->Model_registration->LoadEthnicityData();
-		if (!$result) {
-			return false;
-		} else {
-			$html = null;
-			if ($result) {
-				foreach ($result as $ethnicity) {
-					$html .= "<option value=" . $ethnicity->intEthnicityID . " >" . $ethnicity->vcEthnicityName  . "</option>";
-				}
-				echo json_encode($html);
-			}
-		}
-	}
-
-	public function LoadMotherToungeData()
-	{
-		$result = '';
-		$this->load->model('Model_registration');
-		$result = $this->Model_registration->LoadMotherToungeData();
-		if (!$result) {
-			return false;
-		} else {
-			$html = null;
-			if ($result) {
-				foreach ($result as $mothertongue) {
-					$html .= "<option value=" . $mothertongue->intMotherTongueID . " >" . $mothertongue->vcMotherTongueName  . "</option>";
-				}
-				echo json_encode($html);
-			}
-		}
-	}
-
-	public function LoadLiveInSriLankaData()
-	{
-		$result = '';
-		$this->load->model('Model_registration');
-		$result = $this->Model_registration->LoadLiveInSriLankaData();
-		if (!$result) {
-			return false;
-		} else {
-			$html = null;
-			if ($result) {
-				foreach ($result as $province) {
-					$html .= "<option value=" . $province->IntProvinceId . " >" . $province->vcProvinceName  . "</option>";
-				}
-				echo json_encode($html);
-			}
-		}
-	}
-
 	public function LoadEducationLevelData()
 	{
 		$result = '';
@@ -920,60 +823,6 @@ class Registration extends Admin_Controller
 			if ($result) {
 				foreach ($result as $educationlevel) {
 					$html .= "<option value=" . $educationlevel->inteducationlevelID . " >" . $educationlevel->vcEducationlevel  . "</option>";
-				}
-				echo json_encode($html);
-			}
-		}
-	}
-
-	public function LoadSummerizedEducationLevelData()
-	{
-		$result = '';
-		$this->load->model('Model_registration');
-		$result = $this->Model_registration->LoadSummerizedEducationLevelData();
-		if (!$result) {
-			return false;
-		} else {
-			$html = null;
-			if ($result) {
-				foreach ($result as $educationlevelsumerized) {
-					$html .= "<option value=" . $educationlevelsumerized->intEducationLevelSumerizedId . " >" . $educationlevelsumerized->vcEducationLevelSumerized  . "</option>";
-				}
-				echo json_encode($html);
-			}
-		}
-	}
-
-	public function LoadSummerizedMonthtlyIncomeData()
-	{
-		$result = '';
-		$this->load->model('Model_registration');
-		$result = $this->Model_registration->LoadSummerizedMonthtlyIncomeData();
-		if (!$result) {
-			return false;
-		} else {
-			$html = null;
-			if ($result) {
-				foreach ($result as $monthlyincomesummerised) {
-					$html .= "<option value=" . $monthlyincomesummerised->intMonthlyIncomeSummerisedID . " >" . $monthlyincomesummerised->vcMonthlyIncomeSummerised  . "</option>";
-				}
-				echo json_encode($html);
-			}
-		}
-	}
-
-	public function LoadSummerizedAssetValuelData()
-	{
-		$result = '';
-		$this->load->model('Model_registration');
-		$result = $this->Model_registration->LoadSummerizedAssetValuelData();
-		if (!$result) {
-			return false;
-		} else {
-			$html = null;
-			if ($result) {
-				foreach ($result as $assetvaluesummerised) {
-					$html .= "<option value=" . $assetvaluesummerised->intAssetvaluesummerisedID . " >" . $assetvaluesummerised->vcAssetvaluesummerised  . "</option>";
 				}
 				echo json_encode($html);
 			}
