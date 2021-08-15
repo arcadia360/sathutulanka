@@ -1292,25 +1292,11 @@ class Model_registration extends CI_Model
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
-      return $query->result();
+      return $query->result_array();
     } else {
       return false;
     }
   }
-
-  // public function LoadReligionData()
-  // {
-
-  //   $this->db->select('*');
-  //   $this->db->from('religion');
-  //   $query = $this->db->get();
-
-  //   if ($query->num_rows() > 0) {
-  //     return $query->result();
-  //   } else {
-  //     return false;
-  //   }
-  // }
 
   public function LoadNoOfChildrenData()
   {
@@ -1320,11 +1306,27 @@ class Model_registration extends CI_Model
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
-      return $query->result();
+      return $query->result_array();
     } else {
       return false;
     }
   }
+
+  public function ReligionData()
+  {
+
+    $this->db->select('intReligionID, vcReligion');
+    $this->db->from('religion');
+    $this->db->order_by("intReligionSequence", "desc");
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result_array();
+    } else {
+      return false;
+    }
+  }
+
 
   public function LoadEthnicityData()
   {
@@ -1334,7 +1336,7 @@ class Model_registration extends CI_Model
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
-      return $query->result();
+      return $query->result_array();
     } else {
       return false;
     }
@@ -1348,7 +1350,7 @@ class Model_registration extends CI_Model
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
-      return $query->result();
+      return $query->result_array();
     } else {
       return false;
     }
@@ -1362,7 +1364,7 @@ class Model_registration extends CI_Model
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
-      return $query->result();
+      return $query->result_array();
     } else {
       return false;
     }
@@ -1388,7 +1390,7 @@ class Model_registration extends CI_Model
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
-      return $query->result();
+      return $query->result_array();
     } else {
       return false;
     }
@@ -1401,7 +1403,21 @@ class Model_registration extends CI_Model
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
-      return $query->result();
+      return $query->result_array();
+    } else {
+      return false;
+    }
+  }
+
+  public function loadWorkingWithData()
+  {
+    $this->db->select('*');
+    $this->db->from('workingwith');
+    $this->db->order_by('intSequence', 'ASC');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result_array();
     } else {
       return false;
     }
@@ -1414,7 +1430,7 @@ class Model_registration extends CI_Model
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
-      return $query->result();
+      return $query->result_array();
     } else {
       return false;
     }
@@ -1426,7 +1442,7 @@ class Model_registration extends CI_Model
     $this->db->from('disability');
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
-      return $query->result();
+      return $query->result_array();
     } else {
       return false;
     }
@@ -1438,7 +1454,7 @@ class Model_registration extends CI_Model
     $this->db->from('diet');
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
-      return $query->result();
+      return $query->result_array();
     } else {
       return false;
     }
@@ -2218,7 +2234,6 @@ class Model_registration extends CI_Model
       $this->db->trans_commit();
       return true;
     }
-
   }
 
   public function getPasswordRestLink($memberID, $email)
