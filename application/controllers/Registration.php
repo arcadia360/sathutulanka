@@ -808,6 +808,7 @@ class Registration extends Admin_Controller
 		$this->data['LoadSummerizedAssetValuelData'] = $this->Model_registration->LoadSummerizedAssetValuelData();
 		$this->data['LoadAnyDisabilityData'] = $this->Model_registration->LoadAnyDisabilityData();
 		$this->data['LoadDietData'] = $this->Model_registration->LoadDietData();
+		$this->data['LoadLiveInSriLankaData'] = $this->Model_registration->LoadLiveInSriLankaData();
 
 		$this->render_template_registration('registration/partnerPreferences', 'Partner Preferences', $this->data);
 	}
