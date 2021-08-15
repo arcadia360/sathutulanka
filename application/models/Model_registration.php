@@ -1459,6 +1459,7 @@ class Model_registration extends CI_Model
       return false;
     }
   }
+
   public function ftToCm($value)
   {
     $result =  str_replace("'", ".", $value);
