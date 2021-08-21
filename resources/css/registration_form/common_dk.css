@@ -101,6 +101,16 @@ input[type="radio"]:checked+label:before {
 	background: #b52b4a !important;
 }
 
+input[type='checkbox']:after {
+	border: 2px solid #455a64 !important;
+}
+
+input[type='checkbox']:checked:after {
+	background-color: #b52b4a !important;
+}
+
+
+
 .highLightText {
 	font-weight: 300;
 	color: #bf360c;
