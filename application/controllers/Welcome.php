@@ -9,7 +9,7 @@ class Welcome extends Admin_Controller
 		$this->CheckCookieAfterFillSessionData(); // Check Cookie
 
 		if (!isset($_SESSION['member_id']) || empty($_SESSION['member_id'])) {  // If Fresh User
-			$this->render_template('welcome', 'W E L C O M E', null);
+			$this->render_template('welcome', 'Welcome', null);
 		} else {
 			$this->CheckAndRedirectNextForm();
 		}
