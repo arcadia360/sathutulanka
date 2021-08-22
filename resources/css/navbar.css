@@ -89,3 +89,19 @@
     text-decoration: none !important;
     color: #b52b4a;
 }
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: absolute !important;
+}
+
+.dropdown-menu {
+    min-width: 0 !important;
+}
+
+@media (max-width: 992px) {
+    nav .mini-profile-picture {
+        width: 35px !important;
+        height: 35px !important;
+        margin-top: -10px;
+    }
+}
