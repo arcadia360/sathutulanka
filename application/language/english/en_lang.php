@@ -176,12 +176,22 @@ $lang['login'] = 'Login';
 //Login
 $lang['welcome_to_login'] = 'Welcome to Login';
 $lang['email_phone'] = 'Email / Phone';
+$lang['email'] = 'Email';
 $lang['password'] = 'Password';
 $lang['remember_me'] = 'Remember Me';
 $lang['forget_password'] = 'Forget Password?';
 $lang['sign_in'] = 'Sign In';
 $lang['not_a_member'] = 'Not a member?';
 $lang['register_free'] = 'Register Free';
+$lang['invalid_email'] = 'Please Enter a Valid Email Address !';
+$lang['empty_email'] = 'Please Enter Your Email Address !';
+$lang['empty_password'] = 'Please Enter Your Password !';
+$lang['incorrect_email_or_password'] = 'Incorrect Email Address or Password !';
+$lang['deactivated_account'] = 'Your account has been deactivated. Please contact sathutulanka team !';
+$lang['varify_your_email'] = 'Please verify your email address !';
+$lang['OTP_verify_pending'] = 'Please verify the mobile number using your OTP !';
+
+
 
 $lang['select'] = 'Select';
 $lang['please'] = 'Please';
