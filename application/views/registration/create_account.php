@@ -141,7 +141,7 @@
 
     <nav class="navbar navbar-expand-lg bg-red">
 
-        <a class="navbar-brand" href="<?= base_url()?>">
+        <a class="navbar-brand" href="<?= base_url() ?>">
             <?php
             if ($_SESSION['language_id'] == 1) { // Current Language - English
             ?>
@@ -155,6 +155,7 @@
             ?>
 
         </a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
@@ -173,7 +174,26 @@
 
             <!-- <a class="nav-link btn-lang" href="">සිංහල</a> -->
 
+
+
+
         </div>
+
+        <?php
+        if ($_SESSION['language_id'] == 1) {
+        ?>
+            <a class="nav-link btn-lang" style="color: #FFFFFF; cursor: pointer;" onclick="ChangeLanguage(2)">
+                <i class="fa fa-spinner fa-spin" style="font-size:17px;" id="icon-wait-lang"></i>
+                සිංහල</a>
+        <?php
+        } else if ($_SESSION['language_id'] == 2) {
+        ?>
+            <a class="nav-link btn-lang" style="color: #FFFFFF; cursor: pointer" onclick="ChangeLanguage(1)">
+                <i class="fa fa-spinner fa-spin" style="font-size:17px;" id="icon-wait-lang"></i>
+                English</a>
+        <?php
+        }
+        ?>
     </nav>
 
     <!-- <div class="container"> -->
@@ -539,33 +559,45 @@
                             <a style="color:#284d98 !important; text-decoration: underline;" href="#" data-toggle="modal" data-target="#termsConditionsModal"> Term And Condition And Privacy Policy</a>
                         </p>
                     </div>
-                    <!-- <div class="col-md-12 text-center pt-3 pb-2"> -->
-                    <!-- <a href="<?= base_url() ?>" class="btn btn-primary btn-block sbmitBtn">&nbsp;CONTINUE&nbsp;</a> -->
                     <button type="button" name="btnContinue" id="btnContinue" class="btn btn-primary btn-block sbmitBtn p-2 mb-3 mt-3">&nbsp;CONTINUE&nbsp; </button>
-                    <!-- </a> -->
 
-                    <!-- Button trigger modal -->
-                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Launch demo modal
-                        </button> -->
+                    <div class="col-12 text-justify pt-2" style="border: 2px solid #01579b; color:#01579b; border-radius: 10px;">
+                        <p>
+                            <small>
+                                If you plan to post a suggestion with dishonesty. Don't waste your time and leave the website right now.
+                                There is no room for anyone directly or indirectly to deceive anyone in our information retrieval system. Everyone who does so will be punished by the law.
+                            </small>
+                        </p>
+                    </div>
 
-                    <!-- <button type="submit" class="btn btn-primary btn-block gill-sans-mt-regular-font home-search-btn p20 home-search-letter-spacing sbmitBtn">&nbsp;CONTINUE&nbsp;</button> -->
-                    <!-- </div> -->
-
-                    <!-- Modal -->
+                    <!-- Mobile No Verify Modal -->
                     <div class="modal fade" id="contactNoVerifyModal" tabindex="-1" role="dialog" aria-labelledby="contactNoVerifyModal" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <!-- <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div> -->
+
                                 <div class="modal-body">
                                     We will be verifying the phone number:
                                     <br>
-                                    <!-- <strong>+94 0713922146</strong> -->
+                                    <input type="text" id="country_code_view" name="country_code_view" style="border: 0px none;">
+                                    <br>
+                                    Is this OK, or would you like to edit the number?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" name="btnEdit" id="btnEdit" class="btn btn-light" data-dismiss="modal">Edit</button>
+                                    <button type="button" name="btnSaveUser" id="btnSaveUser" class="btn" style="background-color: #b52b4a; color:#FFFFFF;">&nbsp;&nbsp;OK&nbsp;&nbsp;</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Terms & Conditions Modal -->
+                    <div class="modal fade" id="termsConditionsModal" tabindex="-1" role="dialog" aria-labelledby="termsConditionsModal" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+
+                                <div class="modal-body">
+                                    We will be verifying the phone number:
+                                    <br>
                                     <input type="text" id="country_code_view" name="country_code_view" style="border: 0px none;">
                                     <br>
                                     Is this OK, or would you like to edit the number?
@@ -816,6 +848,31 @@
                 alert("Error: " + errorThrown);
             }
         });
+    }
+
+
+    function ChangeLanguage(languageID) {
+        $('#icon-wait-lang').show();
+        // ajaxCall('Welcome/ChangeLanguage/' + languageID, null, function(response) {
+        //     if (response['success'] == true) {
+        //         location.reload();
+        //     }
+        // });
+
+
+        $.ajax({
+            type: 'POST',
+            url: 'Welcome/ChangeLanguage/' + languageID,
+            data: null,
+            dataType: 'json',
+            success: function(response) {
+                if (response['success'] == true) {
+                    location.reload();
+                }
+            }
+        });
+
+
     }
 </script>
 
