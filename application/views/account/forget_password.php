@@ -58,7 +58,7 @@
 		}
 	</style>
 
-	<div class="container padding-bottom-3x mb-2 mt-5">
+	<div class="container padding-bottom-3x mb-2 mt-5" style="min-height: CALC(100vh - 298px);">
 		<div class="row justify-content-center">
 			<div class="col-lg-8 col-md-12">
 				<div class="forgot">
