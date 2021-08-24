@@ -37,8 +37,9 @@ $lang['steps'] = 'පියවරයන්';
 $lang['steps_title'] = 'ඔබගේ සහකරු සරල පියවර 3 කින්';
 $lang['step'] = 'පියවර';
 $lang['step_1_title'] = 'ඔබගේ යෝජනාව නොමිලේ පළ කරන්න';
-$lang['step_2_title'] = 'සහකරු සොයාගන්න <span style="font-size: 0.7em !important; position: absolute; bottom:20px;">(මුළු ශ්‍රී ලංකාවෙන්ම)</span>';
-$lang['step_3_title'] = 'විශ්වාසවන්ත නම් විවාහ වන්න <span style="font-size: 0.7em !important; position: absolute; bottom:20px;">(අපගේ සේවාව මගින් විශ්වාසය සහතික කරනු ලැබේ)</span>';
+$lang['step_2_title'] = 'සහකරු සොයාගන්න <span style="position: absolute; font-size: 0.8em !important; bottom:15px;">(මුළු ශ්‍රී ලංකාවෙන්ම)</span>';
+// $lang['step_3_title'] = 'විශ්වාසවන්ත නම් විවාහ වන්න <span style="position: absolute; bottom:15px;">(අපගේ සේවාව මගින් විශ්වාසය සහතික <br> කරනු ලැබේ)</span>';
+$lang['step_3_title'] = 'විශ්වාසවන්ත නම් විවාහ වන්න<span style="position: absolute; font-size: 0.8em !important; bottom:15px;">(අපගේ සේවාව මගින් විශ්වාසය සහතික කරනු ලැබේ)</span>';
 
 $lang['advantages_of_sathutulanka'] = 'සතුටු ලංකා වාසි';
 $lang['advantages_of_sathutulanka_trust'] =
