@@ -485,8 +485,6 @@
           </div>
 
       </div>
-
-
       </form>
     </div>
   </div>
@@ -504,86 +502,6 @@
   $(function() {
     // $('#MartialStatusDrp').selectpicker('selectAll');
     // $('#MartialStatusDrp').selectpicker();
-
-    // $('#MartialStatusDrp').multiselect({
-    //   includeSelectAllOption: true,
-    //   selectAllValue: 0,
-    //   buttonWidth: '100%'
-    // });
-
-    // $('#NoOfChildrenDrp').multiselect({
-    //   includeSelectAllOption: true,
-    //   selectAllValue: 0,
-    //   buttonWidth: '100%'
-    // });
-
-    // $('#ReligionDrp').multiselect({
-    //   includeSelectAllOption: true,
-    //   selectAllValue: 0,
-    //   buttonWidth: '100%'
-    // });
-    // $('#EthnicityDrp').multiselect({
-    //   includeSelectAllOption: true,
-    //   selectAllValue: 0,
-    //   buttonWidth: '100%'
-    // });
-    // $('#motherToungeDrp').multiselect({
-    //   includeSelectAllOption: true,
-    //   selectAllValue: 0,
-    //   buttonWidth: '100%'
-    // });
-    // $('#LiveInSriLankaDrp').multiselect({
-    //   includeSelectAllOption: true,
-    //   selectAllValue: 0,
-    //   buttonWidth: '100%'
-    // });
-    // $('#EducationLevelDrp').multiselect({
-    //   includeSelectAllOption: true,
-    //   selectAllValue: 0,
-    //   buttonWidth: '100%'
-    // });
-    // $('#MonthlyIncomeDrp').multiselect({
-    //   includeSelectAllOption: true,
-    //   selectAllValue: 0,
-    //   buttonWidth: '100%'
-    // });
-    // $('#CareerLevelDrp').multiselect({
-    //   includeSelectAllOption: true,
-    //   selectAllValue: 0,
-    //   buttonWidth: '100%'
-    // });
-    // $('#AssetValueDrp').multiselect({
-    //   includeSelectAllOption: true,
-    //   selectAllValue: 0,
-    //   buttonWidth: '100%'
-    // });
-    // $('#AnyDisabilityDrp').multiselect({
-    //   includeSelectAllOption: true,
-    //   selectAllValue: 0,
-    //   buttonWidth: '100%'
-    // });
-    // $('#DietDrp').multiselect({
-    //   includeSelectAllOption: true,
-    //   selectAllValue: 0,
-    //   buttonWidth: '100%'
-    // });
-
-
-
-    // LoadMaritalStatusData();
-    // LoadReligionData();
-    // LoadNoOfChildrenData();
-    // LoadEthnicityData();
-    // LoadMotherToungeData();
-    // LoadLiveInSriLankaData();
-    // LoadCareerLevelData();
-    // LoadAnyDisabilityData();
-    // LoadDietData();
-    // LoadSummerizedEducationLevelData();
-    // LoadSummerizedMonthtlyIncomeData();
-    // LoadSummerizedAssetValuelData();
-    // LoadWorkingWithData();
-
     $('#btnSubmit').click(function() {
       if ($('#MartialStatusDrp').val() == 0) {
         toastr["error"]("Please select Martial Status !");
