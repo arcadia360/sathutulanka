@@ -102,7 +102,7 @@ $("#btn-createPassword").click(function () {
                     }).then((result) => {
                         $("body").hide();
                         if (result.dismiss === Swal.DismissReason.timer) {
-                            window.location.href = base_url + 'sathutulanka';
+                            window.location.href = base_url;
                         }
                     })
                 } else {
