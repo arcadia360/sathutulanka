@@ -210,7 +210,7 @@
     }
 
     .service-card {
-        min-height: 100px !important;
+        min-height: 135px !important;
     }
 
     .services .icon {
@@ -235,14 +235,14 @@
     .services .media-body h4 {
         /* font-family: "Poppins", Arial, sans-serif !important; */
         font-weight: 700;
-        font-size: 16px;
+        font-size: 1.2em;
         color: #000000;
         margin: 0 !important;
     }
 
-    .services p {
+    /* .services p {
         font-size: 0.8em;
-    }
+    } */
 
     .services .read-more {
         position: absolute;
@@ -301,7 +301,7 @@
         align-items: center;
         font-weight: bolder;
         color: #FFFFFF;
-        border-radius: 10px;
+        border-radius: 7px;
     }
 
     .step-title {
@@ -317,13 +317,22 @@
     }
 
     .steps-element {
-        box-shadow:
+        /* box-shadow:
             0 0.2px 2.2px rgba(0, 0, 0, 0.025),
             0 0.4px 5.3px rgba(0, 0, 0, 0.036),
             0 0.8px 10px rgba(0, 0, 0, 0.045),
             0 1.3px 17.9px rgba(0, 0, 0, 0.054),
             0 2.5px 33.4px rgba(0, 0, 0, 0.065),
-            0 6px 80px rgba(0, 0, 0, 0.09);
+            0 6px 80px rgba(0, 0, 0, 0.09); */
+
+        box-shadow:
+            0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+            0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+            0 12.5px 10px rgba(0, 0, 0, 0.035),
+            0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+            0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+            0 100px 80px rgba(0, 0, 0, 0.07);
+
         border-radius: 10px;
 
     }
@@ -355,6 +364,18 @@
 
         .search-area .container {
             padding: 0 !important;
+        }
+
+        .steps-element {
+            box-shadow:
+                0 2.8px 2.2px -24px rgba(0, 0, 0, 0.02),
+                0 6.7px 5.3px -24px rgba(0, 0, 0, 0.028),
+                0 12.5px 10px -24px rgba(0, 0, 0, 0.035),
+                0 22.3px 17.9px -24px rgba(0, 0, 0, 0.042),
+                0 41.8px 33.4px -24px rgba(0, 0, 0, 0.05),
+                0 100px 80px -24px rgba(0, 0, 0, 0.07);
+
+
         }
     }
 
@@ -969,27 +990,27 @@
             </div>
             <div class="row pt-3">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-12 mt-3 mt-lg-0">
-                    <div class="steps-element d-flex" style=" display: table-cell; vertical-align: middle;">
+                    <div class="steps-element d-flex" style=" display: table-cell; vertical-align: middle; border: 2px solid #4BB75E;">
                         <p class="step-header" style="background-color: #4BB75E; margin: 0 !important;">1
                             <span style="font-size: 0.25em !important; position: absolute; bottom:0px; text-transform: uppercase;"><?= lang('step'); ?></span>
                         </p>
-                        <p class="step-title" style="margin: 0;"><?= lang('step_1_title'); ?></p>
+                        <p class="step-title" style="margin: 0; color: #007c15;"><?= lang('step_1_title'); ?></p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-12 mt-3 mt-lg-0">
-                    <div class="steps-element d-flex" style=" display: table-cell;  vertical-align: middle;">
+                    <div class="steps-element d-flex" style=" display: table-cell;  vertical-align: middle; border: 2px solid #FFC232;">
                         <p class="step-header" style="background-color: #FFC232; margin: 0 !important;">2
                             <span style="font-size: 0.25em !important; position: absolute; bottom:0px; text-transform: uppercase;"><?= lang('step'); ?></span>
                         </p>
-                        <p class="step-title"><?= lang('step_2_title'); ?></p>
+                        <p class="step-title" style="color: #bd8f23;"><?= lang('step_2_title'); ?></p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-12 mt-3 mt-lg-0">
-                    <div class="steps-element d-flex" style=" display: table-cell;  vertical-align: middle;">
+                    <div class="steps-element d-flex" style=" display: table-cell;  vertical-align: middle; border: 2px solid #ED2C52;">
                         <p class="step-header" style="background-color: #ED2C52; margin: 0 !important;">3
                             <span style="font-size: 0.25em !important; position: absolute; bottom:0px; text-transform: uppercase;"><?= lang('step'); ?></span>
                         </p>
-                        <p class="step-title"><?= lang('step_3_title'); ?></p>
+                        <p class="step-title" style="color: #bb213f;"><?= lang('step_3_title'); ?></p>
                     </div>
                 </div>
             </div>
