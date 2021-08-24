@@ -96,7 +96,7 @@ $("#btn-createPassword").click(function () {
                 if (response.success == true) {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Password Reset successfully!',
+                        title: 'Password Reset Successfully!',
                         showConfirmButton: false,
                         timer: 2000
                     }).then((result) => {
