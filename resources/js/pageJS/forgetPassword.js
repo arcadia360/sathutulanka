@@ -15,7 +15,7 @@ $("#btn-forgetpassword").click(function () {
         $("#email").text("Please Enter Your Email Address !");
         $("#email").show();
     } else if (!validEmail($("#email-for-pass").val().trim())) {
-        $("#email").text("Please Enter Valid Email Address !");
+        $("#email").text("Please Enter Valid Email Address !"); 
         $("#email").show();
     } else {
         $("#icon-wait2").show();
@@ -24,7 +24,16 @@ $("#btn-forgetpassword").click(function () {
             if (response.success == true) {
                 $("#icon-wait2").hide();
                 $("#icon-default").show();
-                alert(response.messages);
+                // alert(response.messages);
+
+                swal({
+                    title: "Success !",
+                    text: "Please check your email !",
+                    type: "success"
+                }, function () {
+                    window.location = base_url;
+                });
+ 
 
             }else{
                 $("#email").text("Please Enter Valid Email Address !");
