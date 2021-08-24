@@ -37,9 +37,9 @@ $lang['always_free_title'] = "Find your life partner without barriers,<br>It's a
 $lang['steps'] = 'Steps';
 $lang['steps_title'] = '3 Simple Steps To Your Partner';
 $lang['step'] = 'Step';
-$lang['step_1_title'] = 'Post Your Profile Free Of Charge';
-$lang['step_2_title'] = 'Search Your Partner <span style="font-size: 0.7em !important; position: absolute; bottom:20px;">(All Over Sri Lanka)</span>';
-$lang['step_3_title'] = 'Marry If Trust Verified <span style="font-size: 0.7em !important; position: absolute; bottom:20px;">(Trust Guaranteed By Our Service)</span>';
+$lang['step_1_title'] = 'Post Your Profile <br> Free Of Charge';
+$lang['step_2_title'] = 'Search Your Partner <span style="font-size: 0.9em !important; position: absolute; bottom:15px;">(All Over Sri Lanka)</span>';
+$lang['step_3_title'] = 'Marry If Trust Verified <span style="position: absolute; font-size: 0.9em !important; bottom:15px;">(Trust Guaranteed By Our Service)</span>';
 
 $lang['advantages_of_sathutulanka'] = 'Advantages of Sathutu Lanka';
 $lang['advantages_of_sathutulanka_trust'] = 
