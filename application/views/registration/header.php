@@ -137,7 +137,6 @@
 		input[type='checkbox']:after {
 			width: 15px;
 			height: 15px;
-			/* border-radius: 15px; */
 			top: -2px;
 			left: -1px;
 			position: relative;
@@ -151,7 +150,6 @@
 		input[type='checkbox']:checked:after {
 			width: 15px;
 			height: 15px;
-			/* border-radius: 15px; */
 			top: -2px;
 			left: -1px;
 			position: relative;
@@ -159,8 +157,6 @@
 			content: '';
 			display: inline-block;
 			visibility: visible;
-			/* padding: 2px !important; */
-			/* border: 2px solid red; */
 		}
 
 		/* check box customize */
