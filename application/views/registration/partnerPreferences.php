@@ -4,6 +4,17 @@
     background: #1edd10 url(<?= base_url('resouces/images/ui-bg_diagonals-thick_18_b81900_40x40_dk_green.png') ?>) 50% 50% !important;
 
   }
+
+  .dropdown-menu.show {
+    background-color: #eceff1;
+    box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 2%), 0 6.7px 5.3px rgb(0 0 0 / 3%), 0 12.5px 10px rgb(0 0 0 / 4%), 0 22.3px 17.9px rgb(0 0 0 / 4%), 0 41.8px 33.4px rgb(0 0 0 / 5%), 0 100px 80px rgb(0 0 0 / 7%);
+  }
+
+  .filter-option {
+    background-color: #ffffff !important;
+    border: 1px solid #cfd8dc;
+    border-radius: 3px;
+  }
 </style>
 
 
@@ -24,6 +35,11 @@
 
 <link rel="stylesheet" href="<?= base_url('resources/css/bootstrap-multiselect.css') ?>">
 <script src="<?= base_url('resources/js/bootstrap-multiselect.js') ?>"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
 
 <div class="btnbg" style="padding-top: 10px;">
   <!-- Container Area -->
@@ -83,6 +99,7 @@
           </div>
 
 
+
           <div id="maritialDetails" class="marginTopPartnerP">
             <div class="row">
               <div class="col-lg-6 col-12">
@@ -91,9 +108,7 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="MartialStatusDrp" name="MartialStatusDrp[]" multiple="multiple" class="form-control">
-
-                  <option value="0"><?= lang('select') ?></option>
+                <select class="selectpicker form-control" multiple data-actions-box="true" data-size="5" data-selected-text-format="count > 3" id="MartialStatusDrp" name="MartialStatusDrp[]">
                   <?php foreach ($LoadMaritalStatusData as $k => $v) { ?>
                     <option value="<?= $v['intMaritalStatusID'] ?>"><?= $v['vcMaritalStatus_en'] ?></option>
                   <?php } ?>
@@ -123,8 +138,7 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="NoOfChildrenDrp" name="NoOfChildrenDrp[]" multiple="multiple" class="form-control">
-                  <option value="0"><?= lang('select') ?></option>
+                <select class="selectpicker form-control" multiple data-actions-box="true" data-size="5" data-selected-text-format="count > 3" id="NoOfChildrenDrp" name="NoOfChildrenDrp[]">
                   <?php foreach ($LoadNoOfChildrenData as $k => $v) { ?>
                     <option value="<?= $v['intNoOfChildrenID'] ?>"><?= $v['vcNoOfChildren_en'] ?></option>
                   <?php } ?>
@@ -152,8 +166,8 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="ReligionDrp" name="ReligionDrp[]" multiple="multiple" class="form-control">
-                  <option value="0"><?= lang('select') ?></option>
+                <select class="selectpicker form-control" multiple data-actions-box="true" data-size="5" data-selected-text-format="count > 3" id="ReligionDrp" name="ReligionDrp[]">
+
                   <?php foreach ($LoadReligionData as $k => $v) { ?>
                     <option value="<?= $v['intReligionID'] ?>"><?= $v['vcReligion'] ?></option>
                   <?php } ?>
@@ -183,8 +197,8 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="EthnicityDrp" name="EthnicityDrp[]" multiple="multiple" class="form-control">
-                  <option value="0"><?= lang('select') ?></option>
+                <select class="selectpicker form-control" multiple data-actions-box="true" data-size="5" data-selected-text-format="count > 3" id="EthnicityDrp" name="EthnicityDrp[]">
+
                   <?php foreach ($LoadEthnicityData as $k => $v) { ?>
                     <option value="<?= $v['intEthnicityID'] ?>"><?= $v['vcEthnicityName'] ?></option>
                   <?php } ?>
@@ -212,8 +226,8 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="motherToungeDrp" name="motherToungeDrp[]" multiple="multiple" class="form-control">
-                  <option value="0"><?= lang('select') ?></option>
+                <select class="selectpicker form-control" multiple data-actions-box="true" data-size="5" data-selected-text-format="count > 3" id="motherToungeDrp" name="motherToungeDrp[]">
+
                   <?php foreach ($LoadMotherToungeData as $k => $v) { ?>
                     <option value="<?= $v['intMotherTongueID'] ?>"><?= $v['vcMotherTongueName'] ?></option>
                   <?php } ?>
@@ -241,8 +255,8 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="LiveInSriLankaDrp" name="LiveInSriLankaDrp[]" multiple="multiple" class="form-control">
-                  <option value="0"><?= lang('select') ?></option>
+                <select class="selectpicker form-control" multiple data-actions-box="true" data-size="5" data-selected-text-format="count > 3" id="LiveInSriLankaDrp" name="LiveInSriLankaDrp[]">
+
                   <?php foreach ($LoadLiveInSriLankaData as $k => $v) { ?>
                     <option value="<?= $v['IntProvinceId'] ?>"><?= $v['vcProvinceName'] ?></option>
                   <?php } ?>
@@ -270,8 +284,8 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="EducationLevelDrp" name="EducationLevelDrp[]" multiple="multiple" class="form-control">
-                  <option value="0"><?= lang('select') ?></option>
+                <select class="selectpicker form-control" multiple data-actions-box="true" data-size="5" data-selected-text-format="count > 3" id="EducationLevelDrp" name="EducationLevelDrp[]">
+
                   <?php foreach ($LoadSummerizedEducationLevelData as $k => $v) { ?>
                     <option value="<?= $v['intEducationLevelSumerizedId'] ?>"><?= $v['vcEducationLevelSumerized'] ?></option>
                   <?php } ?>
@@ -325,8 +339,8 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="CareerLevelDrp" name="CareerLevelDrp[]" multiple="multiple" class="form-control">
-                  <option value="0"><?= lang('select') ?></option>
+                <select class="selectpicker form-control" multiple data-actions-box="true" data-size="5" data-selected-text-format="count > 3" id="CareerLevelDrp" name="CareerLevelDrp[]">
+
                   <?php foreach ($loadWorkingWithData as $k => $v) { ?>
                     <option value="<?= $v['intWorkingWithId'] ?>"><?= $v['vcWorkingWith'] ?></option>
                   <?php } ?>
@@ -354,8 +368,8 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="MonthlyIncomeDrp" name="MonthlyIncomeDrp[]" multiple="multiple" class="form-control">
-                  <option value="0"><?= lang('select') ?></option>
+                <select class="selectpicker form-control" multiple data-actions-box="true" data-size="5" data-selected-text-format="count > 3" id="MonthlyIncomeDrp" name="MonthlyIncomeDrp[]">
+
                   <?php foreach ($LoadSummerizedMonthtlyIncomeData as $k => $v) { ?>
                     <option value="<?= $v['intMonthlyIncomeSummerisedID'] ?>"><?= $v['vcMonthlyIncomeSummerised'] ?></option>
                   <?php } ?>
@@ -383,8 +397,8 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="AssetValueDrp" name="AssetValueDrp[]" multiple="multiple" class="form-control">
-                  <option value="0"><?= lang('select') ?></option>
+                <select class="selectpicker form-control" multiple data-actions-box="true" data-size="5" data-selected-text-format="count > 3" id="AssetValueDrp" name="AssetValueDrp[]">
+
                   <?php foreach ($LoadSummerizedAssetValuelData as $k => $v) { ?>
                     <option value="<?= $v['intAssetvaluesummerisedID'] ?>"><?= $v['vcAssetvaluesummerised'] ?></option>
                   <?php } ?>
@@ -412,8 +426,8 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="AnyDisabilityDrp" name="AnyDisabilityDrp[]" multiple="multiple" class="form-control">
-                  <option value="0"><?= lang('select') ?></option>
+                <select class="selectpicker form-control" multiple data-actions-box="true" data-size="5" data-selected-text-format="count > 3" id="AnyDisabilityDrp" name="AnyDisabilityDrp[]">
+
                   <?php foreach ($LoadAnyDisabilityData as $k => $v) { ?>
                     <option value="<?= $v['intDisabilityID'] ?>"><?= $v['vcDisability'] ?></option>
                   <?php } ?>
@@ -441,8 +455,8 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <select id="DietDrp" name="DietDrp[]" multiple="multiple" class="form-control">
-                  <option value="0"><?= lang('select') ?></option>
+                <select class="selectpicker form-control" multiple data-actions-box="true" data-size="5" data-selected-text-format="count > 3" id="DietDrp" name="DietDrp[]">
+
                   <?php foreach ($LoadDietData as $k => $v) { ?>
                     <option value="<?= $v['intDietID'] ?>"><?= $v['vcDietName'] ?></option>
                   <?php } ?>
@@ -471,97 +485,23 @@
           </div>
 
       </div>
-
-
       </form>
     </div>
   </div>
 </div>
 </div>
 
+<select class="selectpicker" multiple data-live-search="false" id="MartialStatusDrp1">
+  <option>Mustard</option>
+  <option>Ketchup</option>
+  <option>Relish</option>
+</select>
+
 
 <script>
   $(function() {
-
-    $('#MartialStatusDrp').multiselect({
-      includeSelectAllOption: true,
-      selectAllValue: 0,
-      buttonWidth: '100%'
-    });
-
-    $('#NoOfChildrenDrp').multiselect({
-      includeSelectAllOption: true,
-      selectAllValue: 0,
-      buttonWidth: '100%'
-    });
-
-    $('#ReligionDrp').multiselect({
-      includeSelectAllOption: true,
-      selectAllValue: 0,
-      buttonWidth: '100%'
-    });
-    $('#EthnicityDrp').multiselect({
-      includeSelectAllOption: true,
-      selectAllValue: 0,
-      buttonWidth: '100%'
-    });
-    $('#motherToungeDrp').multiselect({
-      includeSelectAllOption: true,
-      selectAllValue: 0,
-      buttonWidth: '100%'
-    });
-    $('#LiveInSriLankaDrp').multiselect({
-      includeSelectAllOption: true,
-      selectAllValue: 0,
-      buttonWidth: '100%'
-    });
-    $('#EducationLevelDrp').multiselect({
-      includeSelectAllOption: true,
-      selectAllValue: 0,
-      buttonWidth: '100%'
-    });
-    $('#MonthlyIncomeDrp').multiselect({
-      includeSelectAllOption: true,
-      selectAllValue: 0,
-      buttonWidth: '100%'
-    });
-    $('#CareerLevelDrp').multiselect({
-      includeSelectAllOption: true,
-      selectAllValue: 0,
-      buttonWidth: '100%'
-    });
-    $('#AssetValueDrp').multiselect({
-      includeSelectAllOption: true,
-      selectAllValue: 0,
-      buttonWidth: '100%'
-    });
-    $('#AnyDisabilityDrp').multiselect({
-      includeSelectAllOption: true,
-      selectAllValue: 0,
-      buttonWidth: '100%'
-    });
-    $('#DietDrp').multiselect({
-      includeSelectAllOption: true,
-      selectAllValue: 0,
-      buttonWidth: '100%'
-    });
-
-
-
-    // LoadMaritalStatusData();
-    // LoadReligionData();
-    // LoadNoOfChildrenData();
-    // LoadEthnicityData();
-    // LoadMotherToungeData();
-    // LoadLiveInSriLankaData();
-    // LoadCareerLevelData();
-    // LoadAnyDisabilityData();
-    // LoadDietData();
-    // LoadSummerizedEducationLevelData();
-    // LoadSummerizedMonthtlyIncomeData();
-    // LoadSummerizedAssetValuelData();
-    // LoadWorkingWithData();
-
+    // $('#MartialStatusDrp').selectpicker('selectAll');
+    // $('#MartialStatusDrp').selectpicker();
     $('#btnSubmit').click(function() {
       if ($('#MartialStatusDrp').val() == 0) {
         toastr["error"]("Please select Martial Status !");

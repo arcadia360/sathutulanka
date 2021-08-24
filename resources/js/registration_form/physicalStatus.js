@@ -29,12 +29,15 @@ function loadDisabilityDetails() {
 // ================================================================
 
 ajaxCall('registration/getMemberData', model, function(response) {
+
+    debugger;
+
     // $("#Supplier").val(response.intHeight);
     $("#height").val(response.intHeight);
     $("#weight").val(response.Weight_Customised);
     var BodyType = (response.intBodyTypeID);
     if (BodyType == 1) {
-        document.getElementById("bodyShape").checked = true;
+        document.getElementById("bodyShape1").checked = true;
     } else if (BodyType == 2) {
         document.getElementById("bodyShape2").checked = true;
     } else {
@@ -54,6 +57,7 @@ ajaxCall('registration/getMemberData', model, function(response) {
     } else if (skinColorID == 5) {
         document.getElementById("skinColor5").checked = true;
     }
+
 
 
     $("#disability").val(response.intDisabilityID);
