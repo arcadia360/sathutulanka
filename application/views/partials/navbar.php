@@ -38,9 +38,11 @@
 
 
     <style>
+    
+        
         .form-control {
             border-radius: 0 !important;
-        }
+        } 
 
         .btn-signin:hover,
         .btn-signin:active {
@@ -227,6 +229,8 @@
                 ?>
             </ul>
             <?php
+            if ($this->uri->segment(1) == "" || $this->uri->segment(1) == "Welcome"){
+            
             if ($_SESSION['logged_in'] == TRUE) {
             ?>
                 <ul class="navbar-nav mt-2 mt-lg-0">
@@ -237,9 +241,6 @@
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <!-- <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div> -->
                             <a class="dropdown-item" href="<?= base_url('Auth/logout') ?>">Logout</a>
                         </div>
                     </li>
@@ -253,11 +254,12 @@
                 </button>
             <?php
             }
+        }
             ?>
         </div>
 
 
-        
+
         <!-- Commented on 2021-08-11 (ViRAJ) -->
 
         <?php
@@ -283,19 +285,53 @@
 
 
         <?php
-        if ($_SESSION['language_id'] == 1) {
+
+        if ($this->uri->segment(1) == "" || $this->uri->segment(1) == "Welcome") {
+            if ($_SESSION['language_id'] == 1) {
         ?>
-            <a class="nav-link btn-lang" onclick="ChangeLanguage(2)">
-                <i class="fa fa-spinner fa-spin" style="font-size:17px" id="icon-wait-lang"></i>
-                සිංහල</a>
+                <a class="nav-link btn-lang" onclick="ChangeLanguage(2)">
+                    <i class="fa fa-spinner fa-spin" style="font-size:17px" id="icon-wait-lang"></i>
+                    සිංහල</a>
+            <?php
+            } else if ($_SESSION['language_id'] == 2) {
+            ?>
+                <a class="nav-link btn-lang" onclick="ChangeLanguage(1)">
+                    <i class="fa fa-spinner fa-spin" style="font-size:17px" id="icon-wait-lang"></i>
+                    English</a>
         <?php
-        } else if ($_SESSION['language_id'] == 2) {
+            }
+        }
         ?>
-            <a class="nav-link btn-lang" onclick="ChangeLanguage(1)">
-                <i class="fa fa-spinner fa-spin" style="font-size:17px" id="icon-wait-lang"></i>
-                English</a>
+
+        <?php
+        if ($this->uri->segment(1) != "Welcome" && $this->uri->segment(1) != "") {
+        if ($_SESSION['logged_in'] == TRUE) {
+        ?>
+            <ul class="navbar-nav mt-2 mt-lg-0">
+                <li class="nav-item dropdown navbar-profile-pic">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="mini-profile-picture">
+                            <img src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/" . $this->session->userdata['profile_pic'] ?>" alt="Profile Photo">
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <!-- <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div> -->
+                        <a class="dropdown-item" href="<?= base_url('Auth/logout') ?>">Logout</a>
+                    </div>
+                </li>
+            </ul>
+
+        <?php
+        } else if ($this->uri->segment(1) == "Welcome" && $this->uri->segment(2) == "" || $this->uri->segment(1) == "") {
+        ?>
+            <button type="button" class="btn btn-login" data-toggle="modal" data-target="#exampleModal">
+                <?= lang('login'); ?>
+            </button>
         <?php
         }
+    }
         ?>
 
 
@@ -308,32 +344,33 @@
         <!-- Mobile Navbar - Start -->
         <nav id="mobile-navbar" class="fixed-bottom p-2 bg-white d-xs-block d-lg-none">
             <div class="row">
-                <div class="col-2">
+                <div class="col">
                     <a class="menu-button <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "MyAccount") {
                                                 echo 'active';
                                             } ?> ml-1" href="<?= base_url("Account/MyAccount") ?>"><i class="fas fa-home"></i></a>
                 </div>
-                <div class="col-2">
-                    <a class="menu-button <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "AllSingles") {
-                                                echo 'active';
-                                            } ?>" href="<?= base_url("Account/AllSingles") ?>"><i class="fas fa-search"></i></a>
-                </div>
-                <div class="col-2">
+
+                <div class="col">
                     <a class="menu-button <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Suggesitions") {
                                                 echo 'active';
                                             } ?>" href="#"><i class="fas fa-magic"></i></a>
                 </div>
-                <div class="col-2">
+                <div class="col">
+                    <a class="menu-button <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "AllSingles") {
+                                                echo 'active';
+                                            } ?>" href="<?= base_url("Account/AllSingles") ?>"><i class="fas fa-search"></i></a>
+                </div>
+                <div class="col">
                     <a class="menu-button <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Notifications") {
                                                 echo 'active';
                                             } ?>" href="#"><i class="fas fa-bell"></i></a>
                 </div>
-                <div class="col-2">
+                <div class="col">
                     <a class="menu-button <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Discussions") {
                                                 echo 'active';
                                             } ?>" href="#"><i class="fas fa-comments"></i></a>
                 </div>
-                <div class="col-2 navbar-profile-pic">
+                <!-- <div class="col-2 navbar-profile-pic">
                     <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="mini-profile-picture" style="width: 30px !important; height:30px !important;">
                             <img src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/" . $this->session->userdata['profile_pic'] ?>" alt="Profile Photo">
@@ -342,7 +379,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="<?= base_url('Auth/logout') ?>">Logout</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </nav>
     <?php } else if ($this->uri->segment(1) == "Welcome" && $this->uri->segment(2) == "" || $this->uri->segment(1) == "") { ?>
@@ -367,7 +404,14 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <small id="invalid-messages" class="form-text text-danger font-weight-bold animate__animated animate__flash" style="position: absolute; top:5px; z-index: 1;">Please provide a valid password !</small>
+
+                            <small id="invalid-messages" class="form-text text-danger font-weight-bold animate__animated animate__flash" style="position: absolute; top:5px; z-index: 1;"><?= lang('incorrect_email_or_password') ?></small>
+                            <small id="deactivated-messages" class="form-text text-danger font-weight-bold animate__animated animate__flash" style="position: absolute; top:5px; z-index: 1;"><?= lang('deactivated_account') ?></small>
+
+                            <small id="varifyyouremail" class="form-text text-danger font-weight-bold animate__animated animate__flash" style="position: absolute; top:5px; z-index: 1;"><?= lang('varify_your_email') ?></small>
+                            <small id="otpverifypending" class="form-text text-danger font-weight-bold animate__animated animate__flash" style="position: absolute; top:5px; z-index: 1;"><?= lang('otp_verify_pending') ?></small>
+
+
                             <div class="row">
                                 <div class="card card-body" style="border: none;">
                                     <?php
@@ -376,9 +420,11 @@
                                     ?>
                                     <div class="form-group required">
                                         <!-- <label for="username"><?= lang('email_phone') ?></label> -->
-                                        <label for="username">Email</label>
+                                        <label for="username"><?= lang('email') ?></label>
                                         <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
-                                        <small id="invalid-email" class="form-text text-danger font-weight-bold animate__animated animate__flash">Please provide a valid email !</small>
+                                        <small id="invalid-email" class="form-text text-danger font-weight-bold animate__animated animate__flash"><?= lang('invalid_email') ?></small>
+                                        <small id="empty-email" class="form-text text-danger font-weight-bold animate__animated animate__flash"><?= lang('empty_email') ?></small>
+
                                     </div>
                                     <div class="form-group required">
                                         <label class="d-flex flex-row align-items-center" for="password"><?= lang('password') ?></label>
@@ -389,7 +435,7 @@
                                                 <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                                             </div>
                                         </div>
-                                        <small id="invalid-password" class="form-text text-danger font-weight-bold animate__animated animate__flash">Please provide a valid password !</small>
+                                        <small id="empty-password" class="form-text text-danger font-weight-bold animate__animated animate__flash"><?= lang('empty_password') ?></small>
                                     </div>
                                     <div class="form-group mt-4 mb-4">
 
@@ -430,6 +476,14 @@
     ?>
 
     <script>
+        // var invalid_messages = <?= lang('incorrect_email_or_password') ?>;
+        // var deactivated_messages = <?= lang('deactivated_account') ?>;
+        // var varify_your_email = <?= lang('varify_your_email') ?>;
+        // var otp_verify_pending = <?= lang('OTP_verify_pending') ?>;
+
+
+
+
         function ChangeLanguage(languageID) {
             $('#icon-wait-lang').show();
             ajaxCall('Welcome/ChangeLanguage/' + languageID, null, function(response) {

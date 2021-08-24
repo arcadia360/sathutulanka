@@ -48,10 +48,10 @@ class Auth extends Admin_Controller
 
                         if ($login['intMemberAccountStatusID'] == 1) { // Email Verification Pending
                             $response['success'] = false;
-                            $response['messages'] = 'Please verify your email !';
+                            $response['messages'] = 1;
                         } else if ($login['intMemberAccountStatusID'] == 2) { // OTP Verification Pending
                             $response['success'] = false;
-                            $response['messages'] = 'Please verify the mobile number using your OTP !';
+                            $response['messages'] = 2;
                         } else if ($login['intMemberAccountStatusID'] == 3) { // Not Completed Account >>> (Redirect to registration forms)
 
                             if ($rememberMe != NULL) {
@@ -80,16 +80,21 @@ class Auth extends Admin_Controller
 
                     } else {
                         $response['success'] = false;
-                        $response['messages'] = 'Your account has been deactivated. Please contact administrator !';
+                        // $response['messages'] = 'Your account has been deactivated. Please contact administrator !';
+                        $response['messages'] = 3;
                     }
                 } else {
                     $response['success'] = false;
-                    $response['messages'] = 'Incorrect user name or password !';
+                    // $response['messages'] = 'Incorrect user name or password !';
+                    $response['messages'] = 3;
+
+                    
                 }
             } else {
                 $response['success'] = false;
                 // $response['messages'] = 'User name does not exists !';
-                $response['messages'] = 'Incorrect user name or password !';
+                // $response['messages'] = 'Incorrect user name or password !';
+                $response['messages'] = 'Invalid';
             }
         } else {
             // false case

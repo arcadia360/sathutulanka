@@ -125,12 +125,22 @@ $lang['footer_title'] = 'ලියාපදිංචි සන්නාමයක
 //Login
 $lang['welcome_to_login'] = 'පිවිසුම වෙත සාදරයෙන් පිළිගනිමු';
 $lang['email_phone'] = 'විද්‍යුත් තැපෑල / දුරකතන අංකය';
+$lang['email'] = 'විද්‍යුත් තැපෑල';
 $lang['password'] = 'මුර පදය';
 $lang['remember_me'] = 'මතක තබා ගන්න';
 $lang['forget_password'] = 'මුරපදය අමතකද?';
 $lang['sign_in'] = 'ඇතුලුවන්න';
 $lang['not_a_member'] = 'සාමාජිකයෙක් නොවේද?';
 $lang['register_free'] = 'නොමිලේ ලියාපදිංචි වන්න';
+$lang['invalid_email'] = 'කරණාකර වලංගු විද්යුත් තැපෑල් ලිපිනයක් ඇතුළු කරන්න !';
+$lang['empty_email'] = 'කරුණාකර ඔබේ විද්‍යුත් තැපැල් ලිපිනය ඇතුළත් කරන්න !';
+$lang['empty_password'] = 'ඔබගේ මුරපදය ඇතුල් කරන්න !';
+$lang['incorrect_email_or_password'] = 'වැරදි ඊමේල් ලිපිනයක් හෝ මුරපදයකි !';
+$lang['deactivated_account'] = 'ඔබේ ගිණුම අක්‍රිය කර ඇත. කරුණාකර සතුටු ලංකා කණ්ඩායම වෙත සම්බන්ධ වන්න !';
+$lang['varify_your_email'] = 'කරුණාකර ඔබගේ විද්‍යුත් තැපැල් ලිපිනය තහවුරු කරන්න !';
+$lang['OTP_verify_pending'] = 'කරුණාකර ඔබගේ OTP භාවිතා කර ජංගම දුරකථන අංකය තහවුරු කරන්න !';
+
+
 
 //navbar
 $lang['login'] = 'ඇතුල් වන්න';

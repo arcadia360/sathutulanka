@@ -23,6 +23,14 @@ class Registration extends Admin_Controller
 			$this->CheckAndRedirectNextForm(0);
 		}
 
+		if (!isset($session_data['language_id']) || empty($session_data['language_id'])) {  // If Fresh User
+			$logged_in_sess = array(
+				'language_id' => 1 // 1 - English, 2 - Sinhala, 3 - Tamil
+			);
+			$this->session->set_userdata($logged_in_sess);
+		}
+
+
 		if ($session_data['language_id'] == 1) { // English
 			$this->lang->load('en', 'English');
 		} else if ($session_data['language_id'] == 2) { // Sinhala
