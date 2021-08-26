@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sathutu Lanka | User Registration</title>
+    <title>User Registration | Sathutu Lanka</title>
 
     <link rel="stylesheet" href="<?php echo base_url('resources/css/registration_form/style.css') ?>">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
+    <!-- Bootstrap 4.0 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Common CSS -->
     <link rel="stylesheet" href="<?= base_url('resources/css/common.css') ?>">
@@ -15,6 +19,7 @@
     <link rel="stylesheet" href="<?= base_url('resources/css/navbar.css') ?>">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
 
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -57,7 +62,7 @@
 
         .sbmitBtn {
             background-color: #b52b4a;
-            border: none;
+            border: 2px #b52b4a solid;
         }
 
         .sbmitBtn:hover {
@@ -156,39 +161,17 @@
 
         </a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
-                <!-- <li class="nav-item active">
-                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Disabled</a>
-                </li> -->
-            </ul>
-
-            <!-- <a class="nav-link btn-lang" href="">සිංහල</a> -->
-
-
-
-
-        </div>
 
         <?php
         if ($_SESSION['language_id'] == 1) {
         ?>
-            <a class="nav-link btn-lang" style="color: #FFFFFF; cursor: pointer;" onclick="ChangeLanguage(2)">
+            <a class="nav-link btn-lang" style="color: #FFFFFF; cursor: pointer; position: absolute; right: 0;" onclick="ChangeLanguage(2)">
                 <i class="fa fa-spinner fa-spin" style="font-size:17px;" id="icon-wait-lang"></i>
                 සිංහල</a>
         <?php
         } else if ($_SESSION['language_id'] == 2) {
         ?>
-            <a class="nav-link btn-lang" style="color: #FFFFFF; cursor: pointer" onclick="ChangeLanguage(1)">
+            <a class="nav-link btn-lang" style="color: #FFFFFF; cursor: pointer; position: absolute; right: 0;" onclick="ChangeLanguage(1)">
                 <i class="fa fa-spinner fa-spin" style="font-size:17px;" id="icon-wait-lang"></i>
                 English</a>
         <?php
@@ -205,7 +188,7 @@
             <div class="slider"></div>
             <div class="slider"></div>
 
-            <p class="title">Let's Set Up Your Profile <span style="font-size: 3em;">Free</span>,<br>To Find Your Love..</p>
+            <p class="title"><?= lang('lets_setup_your_profile_free') ?></p>
             <!-- </div> -->
         </div>
         <div class="col-lg-4 col-md-5 col-sm-12 side-form">
@@ -221,8 +204,8 @@
                     <!-- <div class="col-md-12 pt-3"> -->
                     <!-- <div class="form-group"> -->
                     <select class="custom-select d-block form-control  mt-3" id="country_code" name="country_code">
-                        <option value="">Country Codes</option>
-                        <option data-countryCode="LK" value="94" selected>Sri Lanka (+94)</option>
+                        <option value="" disabled><?= lang('country_code') ?></option>
+                        <option data-countryCode="LK" value="94" selected><?= lang('sri_lanka') ?> (+94)</option>
                         <option data-countryCode="SA" value="966">Saudi Arabia (+966)</option>
                         <option data-countryCode="AE" value="971">United Arab Emirates (+971)</option>
                         <option data-countryCode="KW" value="965">Kuwait (+965)</option>
@@ -445,22 +428,24 @@
 
 
                     <!-- <div class="col-md-12 pt-3"> -->
-                    <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control form-padding red-color only-decimal  mt-3" name="mobile_no" id="mobile_no" placeholder="Mobile No (Eg : 0777123456)">
+                    <!-- <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control form-padding red-color only-decimal  mt-3" name="mobile_no" id="mobile_no" placeholder="<?= lang('mobile_number') ?> (<?= lang('eg') ?> : 0777123456)"> -->
+                    <input type="text" inputmode="numeric" pattern="[0-9]*" class="form-control form-padding red-color only-decimal  mt-3" name="mobile_no" id="mobile_no" placeholder="<?= lang('mobile_number') ?> (<?= lang('eg') ?> : 0777123456)">
+
                     <!-- </div> -->
 
                     <!-- <div class="col-md-12 pt-3"> -->
-                    <input type="password" class="form-control form-padding red-color  mt-3" name="password" id="password" placeholder="New Password" autocomplete="false">
+                    <input type="password" class="form-control form-padding red-color  mt-3" name="password" id="password" placeholder="<?= lang('new_password') ?>" autocomplete="false">
                     <!-- </div> -->
                     <!-- <div class="col-md-12 pt-3"> -->
-                    <input type="password" class="form-control form-padding red-color  mt-3" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" autcomplete="false">
+                    <input type="password" class="form-control form-padding red-color  mt-3" name="password_confirmation" id="password_confirmation" placeholder="<?= lang('confirm_password') ?>" autcomplete="false">
                     <!-- </div>
                     <div class="col-md-12 pt-3"> -->
-                    <input type="email" class="form-control form-padding red-color  mt-3" name="email" id="email" placeholder="Your Email" autocomplete="false">
+                    <input type="email" class="form-control form-padding red-color  mt-3" name="email" id="email" placeholder="<?= lang('email') ?>" autocomplete="false">
                     <!-- </div> -->
 
                     <section class="pt-3 pb-4 mt-4" style="border: 2px solid #ffab91;  border-radius: 20px;">
                         <div class="col-12">
-                            <p class="p20 yellow-color gill-sans-mt-regular-font mb-2"><strong>Providing Information</strong></p>
+                            <p class="p20 yellow-color gill-sans-mt-regular-font mb-2"><strong><?= lang('providing_information') ?></strong></p>
                             <select class="custom-select d-block form-control" name="provide_infor" id="provide_infor">
                                 <option value="0"><?= lang('select') ?></option>
                                 <!-- <?php foreach ($ProvidingInformationType_data as $k => $v) { ?>
@@ -473,12 +458,12 @@
                                 <option value="brother"><?= lang('brother') ?></option>
                                 <option value="sister"><?= lang('sister') ?></option>
                                 <option value="friend"><?= lang('friend') ?></option>
-                                <option value="mentioned in writing"><?= lang('mentioned in writing') ?></option>
+                                <option value="mentioned in writing"><?= lang('mentioned_in_writing') ?></option>
                             </select>
                         </div>
 
                         <div class="col-md-12 pt-4">
-                            <p class="p20 yellow-color gill-sans-mt-regular-font mb-2"><strong>Gender</strong></p>
+                            <p class="p20 yellow-color gill-sans-mt-regular-font mb-2"><strong><?= lang('gender') ?></strong></p>
                             <select class="custom-select d-block form-control" name="gender" id="gender">
                                 <option value="0"><?= lang('select') ?></option>
                                 <option value="male"><?= lang('male') ?></option>
@@ -487,28 +472,28 @@
                         </div>
 
                         <div class="col-md-12 pt-4">
-                            <p class="p20 yellow-color gill-sans-mt-regular-font mb-2"><strong>Date Of Birth</strong></p>
+                            <p class="p20 yellow-color gill-sans-mt-regular-font mb-2"><strong><?= lang('date_of_birth') ?></strong></p>
                             <div class="row">
                                 <div class="col-4">
                                     <select class="custom-select d-block form-control" name="birth_year" id="birth_year">
-                                        <option value="0">Year</option>
+                                        <option value="0"><?= lang('year') ?></option>
                                     </select>
                                 </div>
                                 <div class="col-4">
                                     <select class="custom-select d-block form-control" name="birth_month" id="birth_month">
-                                        <option value="0">Month</option>
+                                        <option value="0"><?= lang('month') ?></option>
                                     </select>
                                 </div>
                                 <div class="col-4">
                                     <select class="custom-select d-block form-control" name="birth_day" id="birth_day">
-                                        <option value="0">Day</option>
+                                        <option value="0"><?= lang('date') ?></option>
                                     </select>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-md-12 pt-4">
-                            <p class="p20 yellow-color gill-sans-mt-regular-font mb-2"><strong>Marital Status</strong></p>
+                            <p class="p20 yellow-color gill-sans-mt-regular-font mb-2"><strong><?= lang('marital_status') ?></strong></p>
                             <select class="custom-select d-block form-control" name="marital_status" id="marital_status">
                                 <option value="0"><?= lang('select') ?></option>
                                 <?php foreach ($MaritalStatus_data as $k => $v) { ?>
@@ -526,7 +511,7 @@
                         </div>
 
                         <div class="col-md-12 pt-4 childrenDiv" id="Div_num_of_child">
-                            <p class="p20 yellow-color gill-sans-mt-regular-font mb-2"><strong>Number of Children</strong></p>
+                            <p class="p20 yellow-color gill-sans-mt-regular-font mb-2"><strong><?= lang('no_of_children') ?></strong></p>
                             <select class="custom-select d-block form-control" name="num_of_child" id="num_of_child">
                                 <option value="0"><?= lang('select') ?></option>
                                 <?php foreach ($NoofChildren_data as $k => $v) { ?>
@@ -537,14 +522,14 @@
                         </div>
 
                         <div class="col-md-12 pt-4">
-                            <p class="p20 yellow-color gill-sans-mt-regular-font mb-2"><strong>Marry By</strong></p>
+                            <p class="p20 yellow-color gill-sans-mt-regular-font mb-2"><strong><?= lang('marry_by') ?></strong></p>
                             <select class="custom-select d-block form-control" name="marry_by" id="marry_by">
                                 <option value="0"><?= lang('select') ?></option>
                                 <!-- <?php foreach ($MarriageType_data as $k => $v) { ?>
                                 <option value="<?= $v['intMarriageTypeID'] ?>"><?= $v['vcMarriageType'] ?></option>
                             <?php } ?> -->
-                                <option value="proposal">Proposal</option>
-                                <option value="love">Love</option>
+                                <option value="proposal"><?= lang('marry_by_proposal') ?></option>
+                                <option value="love"><?= lang('marry_by_love') ?></option>
                             </select>
                         </div>
 
@@ -559,22 +544,16 @@
                             <a style="color:#284d98 !important; text-decoration: underline;" href="#" data-toggle="modal" data-target="#termsConditionsModal"> Term And Condition And Privacy Policy</a>
                         </p>
                     </div>
-                    <button type="button" name="btnContinue" id="btnContinue" class="btn btn-primary btn-block sbmitBtn p-2 mb-3 mt-3">&nbsp;CONTINUE&nbsp; </button>
+                    <button type="button" name="btnContinue" id="btnContinue" class="btn btn-primary btn-block sbmitBtn p-2 mb-3 mt-3" style="text-transform: uppercase;">&nbsp;<?= lang('continue') ?>&nbsp; </button>
 
                     <div class="col-12 text-justify pt-2" style="border: 2px solid #01579b; color:#01579b; border-radius: 10px;">
-                        <p>
-                            <small>
-                                If you plan to post a suggestion with dishonesty. Don't waste your time and leave the website right now.
-                                There is no room for anyone directly or indirectly to deceive anyone in our information retrieval system. Everyone who does so will be punished by the law.
-                            </small>
-                        </p>
+                        <p> <?= lang('law_notice') ?></p>
                     </div>
 
                     <!-- Mobile No Verify Modal -->
                     <div class="modal fade" id="contactNoVerifyModal" tabindex="-1" role="dialog" aria-labelledby="contactNoVerifyModal" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-
                                 <div class="modal-body">
                                     We will be verifying the phone number:
                                     <br>
@@ -592,19 +571,19 @@
 
                     <!-- Terms & Conditions Modal -->
                     <div class="modal fade" id="termsConditionsModal" tabindex="-1" role="dialog" aria-labelledby="termsConditionsModal" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
-
-                                <div class="modal-body">
-                                    We will be verifying the phone number:
-                                    <br>
-                                    <input type="text" id="country_code_view" name="country_code_view" style="border: 0px none;">
-                                    <br>
-                                    Is this OK, or would you like to edit the number?
+                                <div class="modal-header" style="background-color: #FFFFFF !important;">
+                                    <h5 class="modal-title" style="color: #000000 !important;"><?= lang('conditions_applicable') ?> &nbsp; / &nbsp; <?= lang('service_agreement') ?></h5>
+                                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button> -->
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" name="btnEdit" id="btnEdit" class="btn btn-light" data-dismiss="modal">Edit</button>
-                                    <button type="button" name="btnSaveUser" id="btnSaveUser" class="btn" style="background-color: #b52b4a; color:#FFFFFF;">&nbsp;&nbsp;OK&nbsp;&nbsp;</button>
+                                <div class="modal-body">
+                                    <?= lang('t_and_c_section') ?>
+                                </div>
+                                <div class="modal-footer"> 
+                                    <button type="button" class="btn" data-dismiss="modal" style="background-color: #b52b4a; color:#FFFFFF;">&nbsp;&nbsp;OK&nbsp;&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -623,14 +602,14 @@
 <script>
     $(function() {
 
-
+        $('#icon-wait-lang').hide();
 
         $('#Div_num_of_child').hide();
 
 
 
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
+        const monthNames = ["<?= lang('january') ?>", "<?= lang('february') ?>", "<?= lang('march') ?>", "<?= lang('april') ?>", "<?= lang('may') ?>", "<?= lang('june') ?>",
+            "<?= lang('july') ?>", "<?= lang('august') ?>", "<?= lang('september') ?>", "<?= lang('october') ?>", "<?= lang('november') ?>", "<?= lang('december') ?>"
         ];
         // let qntYears = 20;
         // let selectYear = $("#birth_year");
@@ -670,7 +649,7 @@
         var year = $("#birth_year").val();
         var month = parseInt($("#birth_month").val()) + 1;
         $("#birth_day").empty();
-        $("#birth_day").append('<option value="0">Day</option>');
+        $("#birth_day").append('<option value="0"><?= lang('date') ?></option>');
 
         var days = 0
         if (year > 0 && month > 0) {
