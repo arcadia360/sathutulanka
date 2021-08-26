@@ -233,10 +233,18 @@ class Model_registration extends CI_Model
     }
   }
 
-  public function getMaritalStatus()
+  public function getMaritalStatus($language_id)
   {
-    $this->db->select('intMaritalStatusID,vcMaritalStatus_en AS vcMaritalStatus');
-    $this->db->from('maritalstatus');
+
+
+    if ($language_id == 2) { // Sinhala
+      $this->db->select('intMaritalStatusID,vcMaritalStatus_si AS vcMaritalStatus');
+      $this->db->from('maritalstatus');
+    }else{ // Default English
+      $this->db->select('intMaritalStatusID,vcMaritalStatus_en AS vcMaritalStatus');
+      $this->db->from('maritalstatus');
+    }
+
     $query = $this->db->get();
 
     if ($query->num_rows() > 0) {
@@ -456,10 +464,16 @@ class Model_registration extends CI_Model
     }
   }
 
-  public function getNoofChildren()
+  public function getNoofChildren($language_id)
   {
-    $this->db->select('intNoOfChildrenID,vcNoOfChildren_en AS vcNoOfChildren');
-    $this->db->from('noofchildren');
+    if ($language_id == 2) { // Sinhala
+      $this->db->select('intNoOfChildrenID,vcNoOfChildren_si AS vcNoOfChildren');
+      $this->db->from('noofchildren');
+    }else{ // Default English
+      $this->db->select('intNoOfChildrenID,vcNoOfChildren_en AS vcNoOfChildren');
+      $this->db->from('noofchildren');
+    }
+ 
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       return $query->result_array();
