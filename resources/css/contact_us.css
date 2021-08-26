@@ -42,9 +42,9 @@
 
 /*---------------------------------------------*/
 
-a {
+.container-contact100 a {
     /* font-family: Poppins-Regular; */
-    font-size: 14px;
+    font-size: 1.5em;
     line-height: 1.7;
     color: #666666;
     margin: 0px;
@@ -54,21 +54,21 @@ a {
     -moz-transition: all 0.4s;
 }
 
-a:focus {
+.container-contact100 a:focus {
     outline: none !important;
 }
 
-a:hover {
+.container-contact100 a:hover {
     text-decoration: none;
 }
 
 /*---------------------------------------------*/
 
-h1, h2, h3, h4, h5, h6 {
+.container-contact100 h1, .container-contact100 h2, .container-contact100 h3, .container-contact100 h4, .container-contact100 h5, .container-contact100 h6 {
     margin: 0px;
 }
 
-p {
+.container-contact100 p {
     /* font-family: Poppins-Regular; */
     font-size: 14px;
     line-height: 1.7;
@@ -76,19 +76,19 @@ p {
     margin: 0px;
 }
 
-ul, li {
+.container-contact100 ul, .container-contact100 li {
     margin: 0px;
     list-style-type: none;
 }
 
 /*---------------------------------------------*/
 
-input {
+.container-contact100 input {
     outline: none;
     border: none;
 }
 
-textarea {
+.container-contact100 textarea {
     outline: none;
     border: none;
 }
