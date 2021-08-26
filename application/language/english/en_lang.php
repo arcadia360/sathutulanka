@@ -131,48 +131,6 @@ $lang['footer_title'] = 'IS A REGISTERED TRADEMARK AND SHOULD NOT BE USED WITHOU
 
 
 
-
-
-
-
-
-
-
-//Registration
-$lang['male'] = 'Male';
-$lang['female'] = 'Female';
-
-$lang['create_your_account'] = 'Create Your Account';
-$lang['short_name'] = 'Short&nbsp;Name';
-$lang['country_code'] = 'Country&nbsp;Code';
-$lang['mobile_number'] = 'Mobile&nbsp;Number';
-$lang['new_password'] = 'New&nbsp;Password';
-$lang['confirm_password'] = 'Confirm&nbsp;Password';
-$lang['email'] = 'Email';
-
-$lang['never married'] = 'Never&nbsp;Married';
-$lang['divorced'] = 'Divorced';
-$lang['awaiting divorce'] = 'Awaiting&nbsp;Divorce';
-$lang['separated (not legally)'] = 'Separated&nbsp;(not&nbsp;Legally)';
-$lang['widowed'] = 'Widowed';
-$lang['annulled'] = 'Annulled';
-$lang['divorced only at engagement'] = 'Divorced&nbsp;Only&nbsp;at&nbsp;Engagement';
-$lang['virginity problem'] = 'Virginity&nbsp;Problem';
-
-$lang['self'] = 'Self';
-$lang['parents'] = 'Parents';
-$lang['guardian'] = 'Guardian';
-$lang['relative'] = 'Relative';
-$lang['brother'] = 'Brother';
-$lang['sister'] = 'Sister';
-$lang['friend'] = 'Friend';
-$lang['mentioned in writing'] = 'Mentioned&nbsp;in&nbsp;writing';
-
-// DK
-$lang['dataCannotRetrieve'] = 'Data cannot retrieve';
-//navbar
-$lang['login'] = 'Login';
-
 //Login
 $lang['welcome_to_login'] = 'Welcome to Login';
 $lang['email_phone'] = 'Email / Phone';
@@ -190,6 +148,529 @@ $lang['incorrect_email_or_password'] = 'Incorrect Email Address or Password !';
 $lang['deactivated_account'] = 'Your account has been deactivated. Please contact sathutulanka team !';
 $lang['varify_your_email'] = 'Please verify your email address !';
 $lang['OTP_verify_pending'] = 'Please verify the mobile number using your OTP !';
+
+
+
+
+
+
+//Registration
+$lang['lets_setup_your_profile_free'] = "Let's Set Up Your Profile <span style='font-size: 3em;'>Free</span>,<br>To Find Your Love..";
+
+$lang['male'] = 'Male';
+$lang['female'] = 'Female';
+
+$lang['create_your_account'] = 'Create Your Account';
+$lang['short_name'] = 'Short&nbsp;Name';
+$lang['country_code'] = 'Country&nbsp;Code';
+$lang['sri_lanka'] = 'Sri Lanka';
+$lang['mobile_number'] = 'Mobile&nbsp;Number';
+$lang['eg'] = 'Eg';
+$lang['new_password'] = 'New&nbsp;Password';
+$lang['confirm_password'] = 'Confirm&nbsp;Password';
+
+$lang['providing_information'] = 'Providing Information';
+$lang['gender'] = 'Gender';
+$lang['date_of_birth'] = 'Date Of Birth';
+$lang['marital_status'] = 'Marital Status';
+$lang['no_of_children'] = 'Number of Children';
+$lang['marry_by'] = 'Marry By';
+
+$lang['never married'] = 'Never&nbsp;Married';
+$lang['divorced'] = 'Divorced';
+$lang['awaiting divorce'] = 'Awaiting&nbsp;Divorce';
+$lang['separated (not legally)'] = 'Separated&nbsp;(not&nbsp;Legally)';
+$lang['widowed'] = 'Widowed';
+$lang['annulled'] = 'Annulled';
+$lang['divorced only at engagement'] = 'Divorced&nbsp;Only&nbsp;at&nbsp;Engagement';
+$lang['virginity problem'] = 'Virginity&nbsp;Problem';
+
+$lang['self'] = 'Self';
+$lang['parents'] = 'Parents';
+$lang['guardian'] = 'Guardian';
+$lang['relative'] = 'Relative';
+$lang['brother'] = 'Brother';
+$lang['sister'] = 'Sister';
+$lang['friend'] = 'Friend';
+$lang['mentioned_in_writing'] = 'Mentioned&nbsp;in&nbsp;writing';
+
+$lang['year'] = 'Year';
+$lang['month'] = 'Month';
+$lang['date'] = 'Date';
+
+$lang['january'] = 'January';
+$lang['february'] = 'February';
+$lang['march'] = 'March';
+$lang['april'] = 'April';
+$lang['may'] = 'May';
+$lang['june'] = 'June';
+$lang['july'] = 'July';
+$lang['august'] = 'August';
+$lang['september'] = 'September';
+$lang['october'] = 'October';
+$lang['november'] = 'November';
+$lang['december'] = 'December';
+
+$lang['marry_by_love'] = 'Love';
+$lang['marry_by_proposal'] = 'Proposal';
+
+$lang['continue'] = 'Continue';
+
+$lang['law_notice'] = "If you plan to post a suggestion with dishonesty. Don't waste your time and leave the website right now. 
+There is no room for anyone directly or indirectly to deceive anyone in our information retrieval system.<b> Everyone who does so will be punished by the law.</b>";
+
+// Terms and conditions
+$lang['conditions_applicable'] = 'Conditions Applicable';
+$lang['service_agreement'] = 'Service Agreement';
+$lang['t_and_c_section']= '
+      <p class="text-justify">
+          Welcome to the SATHUTU LANKA MATRIMONIAL SERVICES website. The terms, conditions and covenants of this service agreement will apply as equally to all to whom initiate the using of this site. This agreement shall be changed from time to time by SATHUTU LANKA MATRIMONIAL SERVICES website. You should periodically review this service agreement for the changes in this agreement. SATHUTU LANKA website is a trusted advertising platform that enables its members to find their mate personally and cannot be used for commercial purposes without our permission. This is actually for people whom are looking to get married truly and it is strictly prohibited the use for illicit relationships. Registration to the SATHUTU LANKA MATRIMONIAL SERVICES website and usage subject to some conditions of this agreement is totally free. This website charges only for advanced features.        
+      </p>
+
+      <p class="font-weight-bold">
+        
+        1. Acceptance of terms and conditions      </p>
+
+      <ul class="text-justify">
+        <li>
+            This Agreement is an electronic agreement that establishes legal obligations and initiate the using of this SATHUTU LANKA MATRIMONIAL SERVICES website by anyone is deemed to be as a person who accepted this agreement. The term “Member” cited in this agreement means a person who voluntarily provides information to this website and agrees to use this service with or without any payment. As a member, you agree to submit your personal identification information in full, to get process that information officially, display and use that information among other members of the website. You must suspend your use of our service or delete your account to withdraw this agreement. But if you are involve in an issue during the time you use the service, this agreement will affect you in the future.          
+        </li>
+      </ul>
+
+      <p class="font-weight-bold">
+          2. Eligibilities for use        
+      </p>
+
+      
+      <ol type="a" class="text-justify">
+        <li>
+            Must be a person who is 18 years of age or older than that or the age is legally not barred for a marriage as a person of Sri Lanka according to the laws of Sri Lanka to get register as a member or to use the services of the SATHUTU LANKA MATRIMONIAL SERVICES website.          
+        </li>
+        <br>
+        <li>
+            The SATHUTU LANKA MATRIMONIAL SERVICES website provides this service only to members who are not legally barred to get marry under the laws of Sri Lanka. You should be aware that, a court or similar authority will not be able to issue an injunction order against you in the future, while you are intending to get marry.          
+         </li>
+        <br>
+        <li>
+            You shall not use this service to build up an illicit relationship. As per the sole discretion of the SATHUTU LANKA MATRIMONIAL SERVICES website, if any reason to believe that you have made any misconception, SATHUTU LANKA website has the exclusive right to suspend your account and investigate the issue or to remove your account altogether at any time. As a member you have agree not to get refund any amount paid in such occasion.          
+         </li>
+      </ol>
+
+      <p class="font-weight-bold">
+          3. Use without non-commercial purpose.        
+       </p>
+      <ul class="text-justify">
+        <li>
+            This website may not be used for commercial purposes by any party without written permission of this establishment. You should not provide any information to other websites such as providing links.          
+        </li>
+      </ul>
+
+      <p class="font-weight-bold">
+          4. Account security        
+       </p>
+      <ul class="text-justify">
+        <li>
+            Undertaking of responsibility about log in or log out to/from this website and maintaining your account confidentiality and taking responsibility for all activities under your account will be initiate with the time you registered to this site. Make sure to log out from your account every time you leave this site. You shall agree to notify us promptly of any unauthorized use or any act of breach of responsibilities of your account or any other similar account.          
+        </li>
+      </ul>
+
+
+      <p class="font-weight-bold">
+          5. Other terms and conditions of use of members        
+       </p>
+      <ol type="a" class="text-justify">
+        <li>
+            This establishment expects that, the members of the SATHUTU LANKA MATRIMONIAL SERVICES will take precautionary measures to protect their privacy and security. Such a set of security schemes is indicated on the main interface of each account by (Not Trust Verified / Trust Proving / Trust Verified) buttons. In addition, the Be Success section also contains instructions. By becoming a member you agree to follow and adhere to these instructions.          
+        </li>
+        <br>
+        <li>
+            SATHUTU LANKA MATRIMONIAL SERVICES website has the exclusive right to monitor inter-communication information of the members. Similarly, SATHUTU LANKA establishment has the exclusive right to delete accounts or related data with indecent, inappropriate, obscene communications, inaccuracies and advertisements used with commercial purposes at any time without prior notice.          
+        </li>
+        <br>
+        <li>
+            Communicating with members, observing the information or content of the Members through any technical action or any other manner other than the establishment’s procedures, is a punishable offense by law and SATHUTU LANKA establishment will interfere for those actions.          
+         </li>
+        <br>
+        <li>
+            You are obligated to ensure your information in your home and should contact our establishment’s investigation officers for that. You must comply with it whenever and wherever it occurs and you cannot refuse that for whatever reason. If you object to this, you hereby grant authority to SATHUTU LANKA establishment to withdraw or suspend your account without any refund.          
+         </li>
+        <br>
+        <li>
+            You acknowledge that the information you provide during registration are true and accurate and it is your responsibility to update and maintain the account every time such information changes.          
+        </li>
+        <br>
+        <li>
+           
+            SATHUTU LANKA website does not allow a same member to open similar accounts. SATHUTU LANKA establishment has the exclusive right to deactivate such accounts without any refund.          
+        </li>
+        <br>
+        <li>
+            SATHUTU LANKA website reserves the right to block any account by monitor the performance and status of each accounts.          
+        </li>
+        <br>
+      </ol>
+
+      <p class="font-weight-bold">
+          5. Proprietary rights of content on the SATHUTU LANKA website        
+       </p>
+
+       <ul>
+         <li>SATHUTU LANKA establishment owns the title right of the SATHUTU LANKA MATRIMONIAL SERVICES Website and its services. Rights of the SATHUTU LANKA MATRIMONIAL SERVICES Website such as copyright, trademarks and rights of certain other information are embedded in the website itself. And shall not copy, modify, publish, transmit, distribute, advertise, display or sell the information of registered members or any other proprietary information not included herein. Any act done on your effort is treated as breach of this agreement. In such a case, SATHUTU LANKA website will have the exclusive right to terminate your membership without any payment and to take legal action under either civil or criminal law.</li>
+       </ul>
+
+       <p class="font-weight-bold">
+          6. Contents posted on the website        
+       </p>
+
+       <ol type="A" class="text-justify">
+          <li>
+              SATHUTU LANKA website reserves the exclusive right to remove any photograph, video or content that is posted by a member, which is considered unsafe to the members and to the SATHUTU LANKA website and violates any law, offensive, offensive or contrary to institutional conditions.          </li>
+          <br>
+          <li>
+              You hereby agree to grant invalid or irrevocable power without a specific period to the staff of this website to save, use, distribute, reproduce, modify and to use appropriately and display publicly to the public the all information submitted by you to this website.          </li>
+          <br>
+          <li>
+              You are solely and exclusively responsible for all information, photos, videos, data, clauses, drawings or other public or private certificates which confirms the information sent to the SATHUTU LANKA website. You are aware that all of this information will be used for communication purposes both in personal and in public on the website or in writing or in print. You are aware that SATHUTU LANKA website is not obligated to undertake or receive any responsibility in any way to any party about the accuracy and truthfulness of the information sent and reviewed. You are also aware that SATHUTU LANKA website will not be liable for any circumstances for any inaccuracies, omissions, loss, harm, or misuse of your visible or invisible information. You hereby acknowledge that, you agree to verify in writing or to ask for evidence if necessary to verify the truthfulness, completeness, and accuracy of the contents of all information you send and if for any reason you unable to comply with such a request, SATHUTU LANKA website will have the sole discretion to cancel your account without any refund and you are hereby aware that, you can be request to pay compensation by any affected party to recover losses for any loss or damage caused to any party because any false information which you have been provided.          </li>
+          <br>
+          <li>
+              The followings are prohibited and illegal content not to be included in this SATHUTU LANKA website. SATHUTU LANKA website has the exclusive right to investigate and prosecute about such information or content. In such case, members will not be entitled to any refund.            
+          </li>
+          <br>
+          <ol type="I">
+              <li>
+                  Exposing any form of things such as form of pornography, sexual organs, etc.                
+  
+              </li>
+              <br>
+              
+              <li>
+                  Entering information or data against any person or persons in any manner such as racism, terrorism, malice, defamation, intimidation, obscenity, any form of physically or psychologically violence.                
+              </li>
+              <br>
+              
+              <li>
+                  Use for advertise any other purpose by post or email.                
+              </li>
+              <br>
+              <li>
+                  Providing links to unauthorized computer programs.                
+              </li>
+              <br>
+              <li>
+                  Using information of persons under 18 years of age.                
+               </li>
+               <br>
+              <li>
+                  Doing, purchasing or sell illegal activities via website or violate a persons privacy or create computer viruses or providing advisory information for such purposes.                
+              </li>
+              <br>
+              <li>
+                  Using other members’ passwords and personal identification information for commercial or illegal purposes.                
+              </li>
+              <br>
+              <li>
+                  Use SATHUTU LANKA website for competitions, entertainment, advertising, pyramid schemes and commercial activities without prior written permission of us.                
+               </li>
+               <br>
+              <li>
+                  Entering any telephone numbers, postal addresses, emails or web addresses that members can openly view on your account or in the course of communication.                
+              </li>
+            </ol>
+       </ol>
+      <p class="font-weight-bold">
+          8. Time and expiration.        
+       </p>
+      <ol type="A" class="text-justify">
+        <li>
+            You may terminate your membership at any time for any reason by inform in writing to the SATHUTU LANKA website. When you cancel your membership, you will not be able to claim any claim for any amount you have paid or part of such payment or any other loss or damage or prejudice unless it is given by us in writing.          
+        </li>
+        <br>
+        
+        <li>
+            SATHUTU LANKA website has the exclusive right to terminate your account by notifying you to the email address you have provided (initially or later) in the event of breach or misuse of the terms, conditions and covenants contained in this Agreement. In such a case, the establishment will not be liable to you for refund any amount you have paid or part of such payment or to pay for any damages or losses.          
+        </li>
+        <br>
+        
+        <li>
+            Members’ accounts will automatically terminate at different times depending on the variety status of the members.          
+        </li>
+        <br>
+        <li>
+            This agreement will continue to be effective and valid as long as you use this Website. However, this Agreement will be deemed to be valid in the event of an interrogation in the future, even if the account has been terminated for any error during the use of the Website.          
+        </li>
+      </ol>
+      <p class="font-weight-bold">
+          9. Disputes of the members        
+           </p>
+      <ul class="text-justify">
+        <li>
+            You are solely responsible for your inter-communication with other members of the SATHUTU LANKA website. SATHUTU LANKA website has the right to resolve disputes between you and other members, but is not obligated to do so. SATHUTU LANKA website has the exclusive right to take appropriate actions against members whom doing wrongdoings. However, SATHUTU LANKA website is not obligated to cooperate with members of such complaints. SATHUTU LANKA website does not have any obligation to interfere with the transactions and interactions between the members.          
+        </li>
+        <br>
+      </ul>
+      <p class="font-weight-bold">
+          10. Conditions of the "Get Married and Win" contest        
+      </p>
+      <ol type="A" class="text-justify">
+        <li>
+            Funds will be allocated based on the number of members in order to reward the winning members.          
+         </li>
+         <br>
+        <li>
+            This contest is open to all Trust Verified members.          
+         </li>
+         <br>
+        <li>
+            To be eligible for the contest, all you have to do is inform us your partners account number that you have found from this website when delete your account from the website. The feedback section at the end of the Account Settings section allows you to let us know about it.          
+        </li>
+        <br>
+        <li>
+            The date of draw in this competition will be determined only after a certain number of members have been determined by this establishment.          
+        </li>
+        <br>
+        <li>
+            Basic information about this competition such as the draw dates, locations, winners and prizes will be published on the website.          
+        </li>
+        <br>
+        <li>
+            The selecting of the winners for this draw will do publicly and in transparent manner by the establishment.          
+        </li>
+        <br>
+        <li>
+            Parties whom are in connection directly or indirectly with the establishment cannot participate to this competition.          
+        </li>
+        <br>
+        <li>
+            All other rules and conditions relating to this competition also will be notified in writing to all eligible members.          
+        </li>
+        <br>
+        <li>
+            When you qualify for this contest, you are deemed to have accepted all current or future terms and conditions relating to this contest.          
+        </li>
+        <br>
+        <li>
+            SATHUTU LANKA establishment reserves the sole right to impose rules and regulations regarding this competition without prior notice.          
+        </li>
+      </ol>
+      <p class="font-weight-bold">
+          11. Disclaimer        
+      </p>
+      <ol type="A" class="text-justify">
+        <li>
+            There is no guarantee that the service of SATHUTU LANKA website will fulfil your need compulsorily. There is also no responsibility for it.          
+        </li>
+        <br>
+        <li>
+            Exchanging information with the intention of marrying a member through the SATHUTU LANKA MATRIMONIAL SERVICES website, suffrage or acting as like that by interfering the establishment is not an approval or does not an encourage for a marriage. Further, SATHUTU LANKA website will not be liable for any loss or damage to any party or parties due to any relationship (before or after marriage) built through the SATHUTU LANKA website.          
+        </li>
+        <br>
+        <li>
+            SATHUTU LANKA website is not responsible for any issues arising out of or in connection with content provided by third parties in this SATHUTU LANKA website.          
+        </li>
+        <br>
+        <li>
+            SATHUTU LANKA website is not responsible for the accuracy or compatibility of contents posted on the website (through the website or in written service) published by all parties.          
+        </li>
+        <br>
+        <li>
+            SATHUTU LANKA website is not responsible for any failures such as omission, interruption, deletion, failure of the transmission line, theft or destruction, unauthorized access or modification, delay in transmission.          
+        </li>
+        <br>
+        <li>
+            SATHUTU LANKA website is not responsible for any failure in telephone network, computer systems, computer software, servers and suppliers, computer equipment and software, email, internet technology issues or technical malfunctions. SATHUTU LANKA website does not accept any responsibility for any technical fault, such as damage to users, members or any other person, as a result of such damage, or damage to physical equipment such as computers.          
+        </li>
+        <br>
+        <li>
+            SATHUTU LANKA establishment is not responsible for any loss or damage occur by an exchange of any information in between the members, loss or damage of money or any information by the use of the SATHUTU LANKA website or our service. You should not give your financial information (Ex: passwords, bank credit card numbers) to other members.          
+        </li>
+        <br>
+        <li>
+            SATHUTU LANKA website does not accept any responsibility for any civil or criminal problems arising out of content posted by users or third parties. However, SATHUTU LANKA website has the exclusive right to indemnify the losses or damages caused to the website against any such users or third parties. SATHUTU LANKA website has no claim about the contents you have submitted.          
+        </li>
+      </ol>
+      <p class="font-weight-bold">
+          12. Limitation of liability        
+      </p>
+      <ul class="text-justify">
+        <li>
+            SATHUTU LANKA website and service may not be liable to indemnify you or any third party for any indirect or direct harm or prejudice or damage viz. a damage or any loss which may be caused by the use of the website if the website advised or solicited about those. Also, if there is a membership fee paid for it, it is not obligated to refund any amount or part of it.          
+        </li>
+      </ul>
+
+      <p class="font-weight-bold">
+          13. Carry out legal proceedings.        
+      </p>
+      <ul class="text-justify">
+        <li>
+            May comply with all applicable laws in Sri Lanka.          
+        </li>
+      </ul>
+
+      <p class="font-weight-bold">
+          14. Compensation        
+      </p>
+      <ul class="text-justify">
+        <li>
+            You are solely bound to fully indemnify the claims of the establishment or other relevant parties or members including any loss, legal fees incurred by you due to use of this service or due to breach of the terms, conditions, covenants in this agreement or due to any fraudulent act.          
+        </li>
+      </ul>
+
+      <p class="font-weight-bold">
+          15. Other special matters        
+      </p>
+      <ol type="A" class="text-justify">
+        <li>
+            As long as you are a member of the SATHUTU LANKA website, you agree to compulsorily receive and respond to e-mails, text messages, printed or written letters and telephone calls sending by SATHUTU LANKA MATRIMONIAL SERVICES establishment. You cannot object to that. You can manage calls, advertisements and announcements sending by other members within the website itself.          
+        </li>
+        <br>
+        <li>
+            You have accepted the terms and conditions of this agreement at the initiation of using this website and the rest of this agreement will remain in full force and effect either if any provision of this agreement is invalid. By agreeing to become a member of the SATHUTU LANKA website or by using the website, you have agreed to the terms, conditions, covenants cited in this agreement.          
+          
+          </li>
+      </ol>
+      <p class="font-weight-bold">
+          16. Privacy Policy        
+      </p>
+      <ul class="text-justify">
+        <li>
+            Your privacy is important to us. It is our responsibility to collect, use and share your information in a transparent manner when it is publicly and commonly use.          
+        </li>
+        <br>
+        <li>
+            1. Information you provide          
+        </li>
+        <br>
+        <li>
+            You provide information directly and indirectly to our organization.          
+        </li>
+        <br>
+        <ol type="A">
+          <li>
+              When registering and certifying your information, you will directly provide us your personal information, such as name, gender, age, education, employment information, photos, videos, marital status.            
+          </li>
+          <br>
+          <li>
+              You will be directly informed to us when your marriage is performed successfully.            
+          </li>
+          <br>
+          <li>
+              Information relating to your bank accounts also will be provided directly to us for payments. It also includes password and SMS associated with your accounts.            
+          </li>
+          <br>
+          <li>
+              You voluntarily provide information to our establishment in our surveys or promotional activities performing through the website.            
+          </li>
+          <br>
+          <li>
+              You may also be required to provide information directly or indirectly to our Customers and Investigation Officers.            
+          </li>
+          <br>
+          <li>
+              Also you will share your information in interactive communication with other users of the SATHUTU LANKA website. We will collect such information.            
+          </li>
+          <br>
+          <li>
+              We will collect some information indirectly such as times you access to the website, what services you are using, other member accounts you have poked, information you share with other members.            
+          </li>
+          <br>
+          <li>
+              Your information may also obtain by us indirectly through the technically invisible options such as IP addresses, Device IDs and computer operating cookies.            
+          </li>
+          <br>
+          <li>
+              We obtain your information indirectly from your neighbors, relatives, family members, government agencies with your information and social media.            
+          </li>
+          <br>
+          <li>
+              Secret Investigation Officers working with us also collect your information indirectly.            
+          </li>
+        </ol>
+        <br>
+        <li>
+            2. How to use your information          
+        </li>
+        <br>
+        <ul class="text-justify">
+          <li>
+              Your information will be used to keep this matrimonial service in high quality. We have to analyze your information and use it for surveys to help you to operate your account, provide customer support and to provide genuine services. Your information is generally used to inter-communicate with other users of SATHUTU LANKA website viz. members whom you think as suitable or persons whom expecting to get marry in different media. When using information, you may want to use your email addresses, phone numbers, and home addresses with persons whom expecting to get marry and whom you think as suitable. Also have to share your information with third-party service providers we use. As examples, such as web and application development, hosting, maintenance, storage / backup, payment systems analysts etc. We also allow to use your information for services obtain by us from third parties subject to our terms and conditions. We may also agree to provide your information to law enforcement agencies for better service. You have to use your information to resolve various disputes among the members. In some cases, we may also use your information for promotional purposes.            
+          </li>
+        </ul>
+        <br>
+        <li>
+            3. Time period which keep your information with us           
+          </li>
+        <br>
+        <ul class="text-justify">
+          <li>
+              We will keep your information on our site only at your consent. That is, until you delete your account. However, even if your deleted account is inactive, we are obliged to submit it in the event of a legal action that may arise in the future and for that purpose we may keep your information in inactive mode. If your information are deemed sufficient by law to be valid as evidence, then your information will be retained during that period.            
+          </li>
+        </ul>
+
+        <br>
+        <li>
+            4. Security of information           
+          </li>
+        <br>
+       <ul class="text-justify">
+          <li>
+              Due to the inherent insecurity of the Internet, we cannot guarantee you about the full security of your information. However, we are using the highest standards in the industry for your sensitive information such as bank accounts, passwords and your important information. There are facilities in the website itself you to make your own decisions about how your personal information will be displayed to other members.            
+          </li>
+        </ul>
+
+        <br>
+        <li>
+            5. Request Information           
+          </li>
+        <br>
+       <ul class="text-justify">
+          <li>
+              You can request information of other members from our establishment. But we have to give you such information only upon the consent of that member.            
+          </li>
+        </ul>
+        <br>
+        <li>
+            6. Obligation to examine information           
+          </li>
+        <br>
+       <ul class="text-justify">
+          <li>
+              It is your obligation to allow our officers to visit your home and get verify the truthfulness and accuracy of the information you provide when you register on the internet via website and it is your duty to do so.            
+          </li>
+        </ul>
+        <br>
+        <li>
+            7. Technological practices of third parties           
+          </li>
+        <br>
+       <ul class="text-justify">
+        <li>
+            You are also aware that our advertising analytics partners and our third-party partners use various technologies such as cookies and web beacons to track your referral behavior and to collect certain information such as passwords.          
+        </li>
+      </ul>
+      </ul>
+      <br>
+      <h4 class="font-weight-bold">
+          Our cookies policy        
+      </h4>
+
+      <p class="text-justify">
+          A cookie is a set of small text files that can be sent or entered by your computer. We may also collect or save your data for the purposes of surveys by our establishment or for various surveys by our service providers as third parties. You can also set cookies settings on your computer. You can also opt out or delete cookies if you do not want them. Please consider that, using cookies as a requirement for the administration of your data.        
+      </p>
+    
+      <h4 class="font-weight-bold text-justify" style="color: #ab003c;">
+          SATHUTU LANKA website reserves the right to change or modify this service agreement from time to time without prior notice to you. Therefore, it is your responsibility to review this service agreement from time to time.        
+      </h4>
+
+      
+';
+
+
+// DK
+$lang['dataCannotRetrieve'] = 'Data cannot retrieve';
+//navbar
+$lang['login'] = 'Login';
+
+
 
 
 
