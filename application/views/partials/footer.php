@@ -1,12 +1,12 @@
 		<footer class="footer-distributed">
 
-			<div class="footer-right">
+			<!-- <div class="footer-right">
 
 				<a href="#"><i class="fab fa-facebook-f"></i></a>
 				<a href="https://wa.me/+94777292932" target="new"><i class="fab fa-whatsapp"></i></a>
 				<a href="tel:0115735736"><i class="fas fa-phone-alt"></i></a>
 
-			</div>
+			</div> -->
 
 			<div class="footer-left">
 
