@@ -13,7 +13,8 @@
 
       .main-container {
           /* background-color: black; */
-          min-height: 100vh;
+          /* min-height: 100vh; */
+          min-height: CALC(100vh - 203px);
       }
 
       .member-menubar-row {
