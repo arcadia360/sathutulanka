@@ -45,25 +45,9 @@
               </div>
           </div>
           <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime nobis provident quae voluptatem a necessitatibus dolor corrupti cupiditate, asperiores, minus veritatis qui deleniti alias magni rem inventore, voluptas soluta consequuntur?</p>
-
+              <div class="row" id="MyProfileVisitedByOthers">
+              </div>
           </div>
       </div>
   </div>
-  <script>
-      $('#visitedByMe').click(function() {
-          $("#visitedByMe").addClass("active");
-          $("#visitedByOthers").removeClass("active");
-          $("#visitedByMeContent").addClass("show active");
-          $("#visitedByOthersContent").removeClass("show active");
-      });
-      $('#visitedByOthers').click(function() {
-          $("#visitedByOthers").addClass("active");
-          $("#visitedByMe").removeClass("active");
-          $("#visitedByOthersContent").addClass("show active");
-          $("#visitedByMeContent").removeClass("show active");
-      });
-  </script>
-
-
   <script src="<?= base_url("resources/js/pageJS/visitedProfiles.js") ?>"></script>
