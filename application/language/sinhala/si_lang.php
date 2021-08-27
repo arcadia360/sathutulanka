@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+//Common
+$lang['successful'] = 'සාර්ථකයි !';
+
 //Welcome Page
 $lang['search'] = 'සොයන්න';
 $lang['im_looking_for'] = 'මම සොයන්නේ';
@@ -641,6 +644,35 @@ $lang['t_and_c_section'] = '
       </h4>
 
 ';
+
+$lang['we_will_be_verifying_the_phone_number'] = 'දුරකථන අංකය සත්‍යාපනය කිරීම';
+$lang['is_this_ok_the_number'] = 'මෙය හරිද, නැත්නම් ඔබ අංකය සංස්කරණය කිරීමට කැමතිද?';
+$lang['please_enter_name'] = 'කරුණාකර නම ඇතුළත් කරන්න !';
+$lang['please_enter_country_code'] = 'කරුණාකර රටේ දුරකථන කේතය තෝරන්න !';
+$lang['please_enter_mobile_no'] = 'කරුණාකර ජංගම දුරකථන අංකය ඇතුළත් කරන්න !';
+$lang['please_enter_valid_mobile_no'] = 'වලංගු ජංගම දුරකථන අංකය ඇතුළු කරන්න !';
+$lang['please_enter_password'] = 'කරුණාකර මුරපදය ඇතුළත් කරන්න !';
+$lang['please_enter_confirm_password'] = 'කරුණාකර ඔබේ තහවුරු කිරීමේ මුරපදය ඇතුළත් කරන්න !';
+$lang['password_did_not_match'] = 'මුරපදය හා තහවුරු කිරීමේ මුරපදය නොගැලපේ !';
+$lang['please_enter_email'] = 'කරුණාකර විද්‍යුත් තැපෑල ඇතුළු කරන්න !';
+$lang['please_select_providing_information'] = 'කරුණාකර ඔබේ තොරතුරු ලබාදෙන්නේ කවුරුන් විසින්දැයි තෝරන්න !';
+$lang['please_select_gender'] = 'කරුණාකර ස්ත්‍රී පුරුෂ භාවය තෝරන්න !';
+$lang['please_select_birth_year'] = 'කරුණාකර උපන් වර්ෂය තෝරන්න !';
+$lang['please_select_birth_month'] = 'කරුණාකර උපන් මාසය තෝරන්න !';
+$lang['please_select_birth_day'] = 'කරුණාකර උපන් දිනය තෝරන්න !';
+$lang['please_select_marital_status'] = 'කරුණාකර විවාහක තත්ත්වය තෝරන්න !';
+$lang['please_select_marry_by'] = 'කරුණාකර විවාහ වීමට කැමති ආකාරය තෝරන්න !';
+$lang['please_check_t_and_c'] = 'කරුණාකර කොන්දේසි සහ පෞද්ගලිකත්‍ව ප්‍රතිපත්ති පරීක්‍ෂා කරන්න !';
+$lang['please_select_no_of_children'] = 'කරුණාකර දරුවන් ගණන තෝරන්න !';
+$lang['please_check_your_email'] = 'කරුණාකර ඔබේ විද්‍යුත් තැපැල් ලිපිනය පරීක්‍ෂා කරන්න !';
+$lang['email_sent_error'] = 'ඊමේල් යැවීමේ දෝශයකි !';
+
+
+
+
+
+
+
 
 
 
