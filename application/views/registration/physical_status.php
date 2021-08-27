@@ -238,7 +238,7 @@
 		<hr>
 		<div class="row">
 			<div class="col-12">
-				<button class="btn btn-info" style="float:right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i> <i class="" id="btnSubmitLoading"></i></button>
+				<button class="btn btn-info" style="float:right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i> &nbsp; <i class="" id="btnSubmitLoading"></i></button>
 			</div>
 		</div>
 	</form>
