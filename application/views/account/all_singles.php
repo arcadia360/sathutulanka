@@ -2,6 +2,8 @@
   <link rel='stylesheet' href='https://getuikit.com/assets/uikit/dist/css/uikit.css?nc=868'>
   <!-- singles.css -->
   <link rel='stylesheet' href='<?= base_url("resources/css/singles.css") ?>'>
+  <!-- Preloader CSS -->
+  <link rel='stylesheet' href='<?= base_url("resources/css/preloader.css") ?>'>
 
   <style>
       /*Profile Card 5*/
@@ -82,6 +84,22 @@
           <div class="row" id="mini-profile-area">
 
 
+              <div class="flex-container">
+                  <div class="unit">
+                      <div class="heart">
+                          <div class="heart-piece-0"></div>
+                          <div class="heart-piece-1"></div>
+                          <div class="heart-piece-2"></div>
+                          <div class="heart-piece-3"></div>
+                          <div class="heart-piece-4"></div>
+                          <div class="heart-piece-5"></div>
+                          <div class="heart-piece-6"></div>
+                          <div class="heart-piece-7"></div>
+                          <div class="heart-piece-8"></div>
+                      </div>
+                      <p>Loading..</p>
+                  </div>
+              </div>
 
 
               <!-- 
