@@ -37,7 +37,7 @@ class Account extends Admin_Controller
 		$AllSinglesCount = $this->Model_account->getAllSinglesCount();
 		$MyMatchesCount = $this->Model_account->getMyMatches($member_id, $gender);
 
-		$visitedProfileCountCount = $this->Model_account->getVisitedProfileCount($member_id); //dk added 2021-7-11
+		$visitedProfileCountCount = $this->Model_account->getVisitedProfileCount($member_id); //dk added 2021-7-11 
 
 		$this->data['allSinglesCount'] = $AllSinglesCount;
 		$this->data['myMatchesCount'] = $MyMatchesCount;
@@ -93,7 +93,7 @@ class Account extends Admin_Controller
 		$gender = $this->session->userdata('gender');
 
 		$response['result'] = $this->Model_account->getMyMatches($member_id, $gender);
-		$response['token'] = $this->security->get_csrf_hash(); 
+		$response['token'] = $this->security->get_csrf_hash();
 		echo json_encode($response);
 	}
 
@@ -105,12 +105,22 @@ class Account extends Admin_Controller
 
 		$this->render_template('account/visited_profile', 'visited profile');
 	}
+
 	public function GetvisitedProfiles()
 	{
 		$member_id = $this->session->userdata('member_id');
 		$gender = $this->session->userdata('gender');
 
 		$result = $this->Model_account->getVisitedProfiles($member_id, $gender);
+		echo json_encode($result);
+	}
+
+	public function getMyProfileVisitedByOthers()
+	{
+		$member_id = $this->session->userdata('member_id');
+		$gender = $this->session->userdata('gender');
+
+		$result = $this->Model_account->getMyProfileVisitedByOthers($member_id, $gender);
 		echo json_encode($result);
 	}
 	// DK End
