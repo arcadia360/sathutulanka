@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+//Common
+$lang['successful'] = 'Successful !';
+
+
 //Welcome Page
 $lang['search'] = 'Search';
 $lang['im_looking_for'] = "I'm Looking For";
@@ -660,9 +664,39 @@ $lang['t_and_c_section']= '
       <h4 class="font-weight-bold text-justify" style="color: #ab003c;">
           SATHUTU LANKA website reserves the right to change or modify this service agreement from time to time without prior notice to you. Therefore, it is your responsibility to review this service agreement from time to time.        
       </h4>
-
-      
 ';
+
+$lang['we_will_be_verifying_the_phone_number'] = 'We will be verifying the phone number';
+$lang['is_this_ok_the_number'] = 'Is this OK, or would you like to edit the number?';
+$lang['please_enter_name'] = 'Please Enter Name !';
+$lang['please_enter_country_code'] = 'Please Select Country Code !';
+$lang['please_enter_mobile_no'] = 'කරුණාකර ජංගම දුරකථන අංකය ඇතුළත් කරන්න!';
+$lang['please_enter_valid_mobile_no'] = 'Please Enter Valid Mobile No !';
+$lang['please_enter_password'] = 'Please Enter Password !';
+$lang['please_enter_confirm_password'] = 'Please Re-Enter Your Password !';
+$lang['password_did_not_match'] = 'Password & Confirm Password Did Not Match !';
+$lang['please_enter_email'] = 'Please Enter Email !';
+$lang['please_select_providing_information'] = 'Please Select Providing Information !';
+$lang['please_select_gender'] = 'Please Select Gender !';
+$lang['please_select_birth_year'] = 'Please Select Birth Year !';
+$lang['please_select_birth_month'] = 'Please Select Birth Month !';
+$lang['please_select_birth_day'] = 'Please Select Birth Date !';
+$lang['please_select_marital_status'] = 'Please Select Marital Status !';
+$lang['please_select_marry_by'] = 'Please Select Marry By !';
+$lang['please_check_t_and_c'] = 'Please Check Term And Condition And Privacy Policy !';
+$lang['please_select_no_of_children'] = 'Please Select Number Of Children !';
+$lang['please_check_your_email'] = 'Please Check Your Email Address !';
+$lang['email_sent_error'] = 'Email Sending Error !';
+
+
+
+
+// $lang[''] = '';
+// $lang[''] = '';
+// $lang[''] = '';
+
+
+
 
 
 // DK
