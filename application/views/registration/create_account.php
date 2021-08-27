@@ -17,9 +17,10 @@
     <link rel="stylesheet" href="<?= base_url('resources/css/common.css') ?>">
     <!-- Navbar CSS -->
     <link rel="stylesheet" href="<?= base_url('resources/css/navbar.css') ?>">
-
+    <!-- toastr CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -52,6 +53,19 @@
         body {
             background-color: #FFFFFF !important;
             padding: 0 !important;
+        }
+
+        .btn-primary.focus,
+        .btn-primary:focus {
+            box-shadow: none !important;
+        }
+
+        .btn-primary:not(:disabled):not(.disabled).active,
+        .btn-primary:not(:disabled):not(.disabled):active,
+        .show>.btn-primary.dropdown-toggle {
+            color: #b52b4a !important;
+            background-color: #FFFFFF !important;
+            border-color: #b52b4a !important;
         }
 
         .agreement_label,
@@ -536,6 +550,7 @@
                     </section>
 
 
+                    <small id="warning-message" class="form-text text-danger font-weight-bold animate__animated animate__flash mt-3 text-center"><?= lang('incorrect_email_or_password') ?></small>
 
                     <div class="col-md-12 pt-4">
                         <p class="mb-0 p14 text-white text-center agreement_label">
@@ -555,11 +570,11 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-body">
-                                    We will be verifying the phone number:
+                                    <?= lang('we_will_be_verifying_the_phone_number') ?>
                                     <br>
                                     <input type="text" id="country_code_view" name="country_code_view" style="border: 0px none;">
                                     <br>
-                                    Is this OK, or would you like to edit the number?
+                                    <?= lang('is_this_ok_the_number') ?>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" name="btnEdit" id="btnEdit" class="btn btn-light" data-dismiss="modal">Edit</button>
@@ -582,7 +597,7 @@
                                 <div class="modal-body">
                                     <?= lang('t_and_c_section') ?>
                                 </div>
-                                <div class="modal-footer"> 
+                                <div class="modal-footer">
                                     <button type="button" class="btn" data-dismiss="modal" style="background-color: #b52b4a; color:#FFFFFF;">&nbsp;&nbsp;OK&nbsp;&nbsp;</button>
                                 </div>
                             </div>
@@ -605,6 +620,8 @@
         $('#icon-wait-lang').hide();
 
         $('#Div_num_of_child').hide();
+
+        $('#warning-message').hide();
 
 
 
@@ -679,65 +696,98 @@
 
     $('#btnContinue').click(function() {
 
+        $('#warning-message').hide();
+
         var isAgreementCheck = $("input[name=agreement]").is(":checked");
         const length = $("#mobile_no").val().length;
 
         if (jQuery.trim($("#short_name").val()).length == 0) {
-            toastr["error"]("Please Enter Name !");
+            // toastr["error"]("Please Enter Name !");
+            $('#warning-message').text('<?= lang('please_enter_name') ?>');
+            $('#warning-message').show();
             $("#short_name").focus();
         } else if ($("#country_code :selected").val() == 0) {
-            toastr["error"]("Please Select Country Code !");
+            // toastr["error"]("Please Select Country Code !");
+            $('#warning-message').text('<?= lang('please_enter_country_code') ?>');
+            $('#warning-message').show();
             $("#country_code").focus();
         } else if (jQuery.trim($("#mobile_no").val()).length == 0) {
-            toastr["error"]("Please Enter Mobile No !");
+            // toastr["error"]("Please Enter Mobile No !");
+            $('#warning-message').text('<?= lang('please_enter_mobile_no') ?>');
+            $('#warning-message').show();
             $("#mobile_no").focus();
         } else if (jQuery.trim($("#country_code").val()) == 94 && length != 10) { // With 1st zero "0"
-            toastr["error"]("Please Valid Mobile No");
+            // toastr["error"]("Please Valid Mobile No");
+            $('#warning-message').text('<?= lang('please_enter_valid_mobile_no') ?>');
+            $('#warning-message').show();
             $("#mobile_no").focus();
         } else if (jQuery.trim($("#password").val()).length == 0) {
-            toastr["error"]("Please Enter Password !");
+            // toastr["error"]("Please Enter Password !");
+            $('#warning-message').text('<?= lang('please_enter_password') ?>');
+            $('#warning-message').show();
             $("#password").focus();
         } else if (jQuery.trim($("#password_confirmation").val()).length == 0) {
-            toastr["error"]("Please Enter Confirmation Password !");
+            // toastr["error"]("Please Re-Enter Your Password !");
+            $('#warning-message').text('<?= lang('please_enter_confirm_password') ?>');
+            $('#warning-message').show();
             $("#password_confirmation").focus();
         } else if (jQuery.trim($("#password").val()) != jQuery.trim($("#password_confirmation").val())) {
-            toastr["error"]("Password and confirm password do not match !");
+            // toastr["error"]("Password and confirm password do not match !");
+            $('#warning-message').text('<?= lang('password_did_not_match') ?>');
+            $('#warning-message').show();
             $("#password_confirmation").focus();
         } else if (jQuery.trim($("#email").val()).length == 0) {
-            toastr["error"]("Please Enter Email !");
+            // toastr["error"]("Please Enter Email !");
+            $('#warning-message').text('<?= lang('please_enter_email') ?>');
+            $('#warning-message').show();
             $("#email").focus();
         } else if ($("#provide_infor :selected").val() == 0) {
-            toastr["error"]("Please Select Providing Information !");
+            // toastr["error"]("Please Select Providing Information !");
+            $('#warning-message').text('<?= lang('please_select_providing_information') ?>');
+            $('#warning-message').show();
             $("#provide_infor").focus();
         } else if ($("#gender :selected").val() == 0) {
-            toastr["error"]("Please Select Gender !");
+            // toastr["error"]("Please Select Gender !");
+            $('#warning-message').text('<?= lang('please_select_gender') ?>');
+            $('#warning-message').show();
             $("#gender").focus();
         } else if ($("#birth_year :selected").val() == 0) {
-            toastr["error"]("Please Select Birth Year !");
+            // toastr["error"]("Please Select Birth Year !");
+            $('#warning-message').text('<?= lang('please_select_birth_year') ?>');
+            $('#warning-message').show();
             $("#birth_year").focus();
-
         } else if ($("#birth_month :selected").val() == 0) {
-            toastr["error"]("Please Select Birth Moth !");
+            // toastr["error"]("Please Select Birth Moth !");
+            $('#warning-message').text('<?= lang('please_select_birth_month') ?>');
+            $('#warning-message').show();
             $("#birth_month").focus();
-
         } else if ($("#birth_day :selected").val() == 0) {
-            toastr["error"]("Please Select Birth Day !");
+            // toastr["error"]("Please Select Birth Day !");
+            $('#warning-message').text('<?= lang('please_select_birth_day') ?>');
+            $('#warning-message').show();
             $("#birth_day").focus();
-
         } else if ($("#marital_status :selected").val() == 0) {
-            toastr["error"]("Please Select Marital Status !");
+            // toastr["error"]("Please Select Marital Status !");
+            $('#warning-message').text('<?= lang('please_select_marital_status') ?>');
+            $('#warning-message').show();
             $("#marital_status").focus();
         } else if ($("#marry_by :selected").val() == 0) {
-            toastr["error"]("Please Select Marry By !");
+            // toastr["error"]("Please Select Marry By !");
+            $('#warning-message').text('<?= lang('please_select_marry_by') ?>');
+            $('#warning-message').show();
             $("#marry_by").focus();
         } else if (!isAgreementCheck) {
-            toastr["error"]("Please Check Term And Condition And Privacy Policy !");
+            // toastr["error"]("Please Check Term And Condition And Privacy Policy !");
+            $('#warning-message').text('<?= lang('please_check_t_and_c') ?>');
+            $('#warning-message').show();
             $("#agreement_check").focus();
         } else {
             var mStatus = $('#marital_status').val();
             if (mStatus != 1) {
                 if ($("#num_of_child :selected").val() == 0) {
-                    toastr["error"]("Please Select number of children !");
+                    // toastr["error"]("Please Select number of children !");
+                    $('#warning-message').text('<?= lang('please_select_no_of_children') ?>');
+                    $('#warning-message').show();
                     $("#num_of_child").focus();
                     return;
                 }
@@ -790,7 +840,7 @@
             dataType: 'json',
             success: function(response) {
                 if (response.success == true) {
-                    swal("Successfully !", response.messages, "success")
+                    swal("<?= lang('successful')?>", response.messages, "success")
                         .then((value) => {
                             window.location.href = "<?= base_url() ?>"
                         });
