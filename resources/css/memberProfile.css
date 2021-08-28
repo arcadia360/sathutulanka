@@ -103,44 +103,23 @@ label {
     margin: 0 auto;
 }
 
-.profile-card h5 {
+/* .profile-card h5 {
     color: #263238;
     font-weight: 600;
     text-align: center;
     height: 24px;
     overflow: hidden;
-}
-
+} */
+/* 
 .profile-card p {
     font-size: 1em;
     font-weight: 400;
     text-align: center;
-}
+} */
 
-.profile-card .card-designation {
-    position: relative;
-    color: #455a64 !important;
-    font-weight: 600;
-    text-align: center;
-    font-size: 1em;
-    margin: 0 !important;
-    padding: 0 !important;
-    top: 10px;
-}
 
-.profile-card .card-text {
-    position: relative;
-    color: #455a64 !important;
-    text-align: center;
-    font-size: 0.8em;
-    margin: 0 !important;
-    padding-left: 5px !important;
-    padding-right: 5px !important;
-    width: 100%;
-    height: 59px;
-    overflow: hidden;
-    top: 10px;
-}
+
+
 
 .btn-outline-primary {
     color: #b52b4a !important;
@@ -209,7 +188,7 @@ label {
     text-transform: uppercase;
 } */
 
-.badge-trustVerified {
+/* .badge-trustVerified {
     color: #e8f5e9;
     background-color: #2e7d32 !important;
     text-transform: uppercase;
@@ -219,13 +198,13 @@ label {
     color: #FFFFFF;
     background-color: #9ccc65 !important;
     text-transform: uppercase;
-}
+} */
 
-.badge-notTrustVerified {
+/* .badge-notTrustVerified {
     color: #FFFFFF;
     background-color: #607d8b !important;
     text-transform: uppercase;
-}
+} */
 
 .premium_badge {
     background-color: #ffca28 !important;
@@ -239,27 +218,7 @@ label {
     z-index: 1 !important;
 }
 
-.photo-count {
-    position: absolute !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    color: #FFFFFF !important;
-    /* background-color: red; */
-    bottom: 10px !important;
-    font-size: 0.7em !important;
-    z-index: 1 !important;
-}
 
-.profile-card .photo-count {
-    position: absolute;
-    width: 100%;
-    margin: 0 !important;
-    padding: 0 !important;
-    color: #FFFFFF;
-    bottom: 5px;
-    font-size: 0.7em !important;
-}
 
 .profile-heart {
     z-index: 1;
@@ -279,9 +238,9 @@ label {
     right: 10px;
 }
 
-.card-body > .nick-name{
+.card-body>.nick-name {
     text-align: center;
-} 
+}
 
 .like {
     color: #e91e63 !important;
@@ -403,7 +362,17 @@ label {
 /* 100% Image Width on Smaller Screens */
 
 @media only screen and (max-width: 700px) {
+    .profile-card {
+        margin-top: 20px !important;
+    }
     .modal-content {
         width: 100%;
+    }
+    .profile-card .overlay {
+        bottom: 0 !important;
+    }
+    .mini-picture{
+        width: 50px !important;
+        height: 50px !important;
     }
 }
