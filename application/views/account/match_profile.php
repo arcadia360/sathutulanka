@@ -239,11 +239,18 @@
 
     <div class="container-fluid">
         <div class="main-body">
+
+
+
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 padding-mobile-left-0 padding-mobile-right-0">
                     <div class="card profile-card">
                         <div class="row">
-                            <a href="" class="profile-heart like"><i class="fas fa-heart"></i></a>
+                            <!-- <a href="" class="profile-heart like"><i class="fas fa-heart"></i></a> -->
+                            <button class="profile-heart  
+                               <?php if ($matchingPercentageData["IsLiked"] == 1) { ?>
+                                    like
+                               <?php } ?>" id="btnHeart" onclick="LikeOrDisLikeProfile(<?= $partnerData['intMemberID'] ?>)"><i class="fas fa-heart"></i></button>
                         </div>
                         <div class="overlay">
                             <div class="card-img-block">
@@ -292,7 +299,8 @@
 
 
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 padding-mobile-left-0 padding-mobile-right-0">
+
                     <div class="card mb-3">
                         <div class="card-body content-areaX">
                             <div id="accordion">
@@ -542,8 +550,8 @@
                                                 </button>
                                             </label>
                                         </div>
-                                        <div class="col-6">
-                                            <label>My Details :
+                                        <div class="col-6 padding-mobile-left-0">
+                                            <label class="float-right-mobile">My Details :
                                                 <button type="button" id="btnMyDetails" class="btn btn-sm btn-toggle active show" data-toggle="button" aria-pressed="false" autocomplete="off">
                                                     <div class="handle"></div>
                                                 </button>
@@ -2116,7 +2124,12 @@
 
 
     <script>
+        var Member = function() {
+            this.MemberID = 0;
+        }
+
         $(function() {
+
 
             $('[data-toggle="tooltip"]').tooltip();
 
@@ -2185,5 +2198,17 @@
 
         function ShowDescriptiveInformation(value) {
             $("#modalDescriptiveInformation").modal("show");
+        }
+
+        function LikeOrDisLikeProfile(PartnerID) {
+            var model = new Member();
+            model.MemberID = PartnerID;
+            document.getElementById("btnHeart").classList.toggle("like");
+
+            ajaxCall('Account/LikeOrDisLikeProfile', model, function(response) {
+                if (response.success == false) {
+                    document.getElementById("btnHeart").classList.toggle("like");
+                }
+            });
         }
     </script>
