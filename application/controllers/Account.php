@@ -35,7 +35,7 @@ class Account extends Admin_Controller
 		$member_id = $this->session->userdata('member_id');
 
 		$AllSinglesCount = $this->Model_account->getAllSinglesCount();
-		$MyMatchesCount = $this->Model_account->getMyMatches($member_id, $gender);
+		$MyMatchesCount = $this->Model_account->getAllSingles_ByMemberID($member_id, $gender);
 
 		$visitedProfileCountCount = $this->Model_account->getVisitedProfileCount($member_id); //dk added 2021-7-11 
 
@@ -74,9 +74,13 @@ class Account extends Admin_Controller
 		$myData = $this->Model_account->getMemberData($member_id);
 		$partnerData = $this->Model_account->getMemberData($PartnerID);
 		$memberPhotosData = $this->Model_account->getMemberPhotosData($PartnerID);
+		$matchingPercentageData = $this->Model_account->getPartnerAndMemberMatchingPercentage($member_id, $PartnerID);
+
 		$this->data['myData'] = $myData;
 		$this->data['partnerData'] = $partnerData;
 		$this->data['partnerPhotosData'] = $memberPhotosData;
+		$this->data['matchingPercentageData'] = $matchingPercentageData;
+
 
 		$myBasicPreferencesData = $this->Model_account->getGetBasicPreferencesWithSeparatorMemberDetailByID($member_id);
 		$partnerBasicPreferencesData = $this->Model_account->getGetBasicPreferencesWithSeparatorMemberDetailByID($PartnerID);
@@ -92,7 +96,7 @@ class Account extends Admin_Controller
 		$member_id = $this->session->userdata('member_id');
 		$gender = $this->session->userdata('gender');
 
-		$response['result'] = $this->Model_account->getMyMatches($member_id, $gender);
+		$response['result'] = $this->Model_account->getAllSingles_ByMemberID($member_id, $gender);
 		$response['token'] = $this->security->get_csrf_hash();
 		echo json_encode($response);
 	}
