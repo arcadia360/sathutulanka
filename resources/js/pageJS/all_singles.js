@@ -1,5 +1,5 @@
 $(function () {
-    getMyMatches();
+    getAllSingles_ByMemberID();
 });
 
 var Member = function () {
@@ -8,7 +8,7 @@ var Member = function () {
 
 
 
-function getMyMatches() {
+function getAllSingles_ByMemberID() {
     ajaxCall('Account/GetMyMatches', $("#loginForm").serialize(), function (response) {
         // debugger;
 
