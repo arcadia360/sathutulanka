@@ -250,7 +250,7 @@
                             <button class="profile-heart  
                                <?php if ($matchingPercentageData["IsLiked"] == 1) { ?>
                                     like
-                               <?php } ?>" id="btnHeart" onclick="LikeOrDisLikeProfile(<?= $partnerData['intMemberID'] ?>)"><i class="fas fa-heart"></i></button>
+                               <?php } ?>" name="<?= $partnerData['intMemberID'] ?>" id="btnHeart<?= $partnerData['intMemberID'] ?>" onclick="LikeOrDisLikeProfile(this)"><i class="fas fa-heart"></i></button>
                         </div>
                         <div class="overlay">
                             <div class="card-img-block">
@@ -357,13 +357,13 @@
 
                                                                 </div>
                                                                 <div class="col-3">
-                                                                    <h3 class="mini-percentage">90%</h4>
+                                                                    <h3 class="mini-percentage"><?= $matchingPercentageData['ForPartner'] ?>%</h4>
                                                                         <div class="mini-picture">
                                                                             <img src="<?= base_url() . "resources/images/member/photos/" . $partnerData['vcMemberCode'] . "/" . $partnerData['vcProfilePicture'] ?>" alt="Profile Photo">
                                                                         </div>
                                                                 </div>
                                                                 <div class="col-3">
-                                                                    <h3 class="mini-percentage">90%</h4>
+                                                                    <h3 class="mini-percentage"><?= $matchingPercentageData['ForMe'] ?>%</h4>
                                                                         <div class="mini-picture">
                                                                             <img src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/" . $this->session->userdata['profile_pic'] ?>" alt="Profile Photo">
                                                                         </div>
@@ -2200,14 +2200,27 @@
             $("#modalDescriptiveInformation").modal("show");
         }
 
-        function LikeOrDisLikeProfile(PartnerID) {
+        // function LikeOrDisLikeProfile(PartnerID) {
+        //     var model = new Member();
+        //     model.MemberID = PartnerID;
+        //     document.getElementById("btnHeart").classList.toggle("like");
+
+        //     ajaxCall('Account/LikeOrDisLikeProfile', model, function(response) {
+        //         if (response.success == false) {
+        //             document.getElementById("btnHeart").classList.toggle("like");
+        //         }
+        //     });
+        // }
+
+        function LikeOrDisLikeProfile(element) {
             var model = new Member();
-            model.MemberID = PartnerID;
-            document.getElementById("btnHeart").classList.toggle("like");
+            model.MemberID = element.name;
+            document.getElementById(element.id).classList.toggle("like");
+
 
             ajaxCall('Account/LikeOrDisLikeProfile', model, function(response) {
                 if (response.success == false) {
-                    document.getElementById("btnHeart").classList.toggle("like");
+                    document.getElementById(element.id).classList.toggle("like");
                 }
             });
         }
