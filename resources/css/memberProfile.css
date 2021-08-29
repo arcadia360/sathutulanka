@@ -229,9 +229,9 @@ label {
     transition: 0.6s;
 }
 
-.profile-heart:hover {
+/* .profile-heart:hover {
     color: #e91e63 !important;
-}
+} */
 
 .profile-card .profile-heart {
     font-size: 1.8em;
@@ -242,9 +242,9 @@ label {
     text-align: center;
 }
 
-.like {
+/* .like {
     color: #e91e63 !important;
-}
+} */
 
 /* body {
         font-family: Arial, Helvetica, sans-serif;
