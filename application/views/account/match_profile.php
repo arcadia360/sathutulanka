@@ -6,6 +6,11 @@
 
 
     <style>
+        .tooltip-inner {
+            white-space: pre-line;
+            /* white-space: pre-wrap; */
+        }
+
         .card {
             border-radius: none !important;
             border: none !important;
@@ -374,7 +379,11 @@
                                                                     <span class="basic-preference-title">Age</span>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedAge'] ?>"></i>
+                                                                    <i class="fas fa-check" data-toggle="tooltip" style="white-space: pre-line;" title="Tharu's Age :
+                                                                    20
+                                                                    -----------------
+                                                                    Partner Preference
+                                                                    <?= $partnerBasicPreferencesData['PreferedAge'] ?>"></i>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
                                                                     <i class="fas fa-check" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedAge'] ?>"></i>
@@ -495,10 +504,16 @@
                                                                     <span class="basic-preference-title">Asset Level</span>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedAssetValue'] ?>"></i>
+                                                                    <i class="fas fa-check" data-toggle="tooltip" title="Tharu's Asset Level :
+                                                                    -----------------
+                                                                    Partner Preference :
+                                                                    <?= $partnerBasicPreferencesData['PreferedAssetValue'] ?>"></i>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas fa-check" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedAssetValue'] ?>"></i>
+                                                                    <i class="fas fa-check" data-toggle="tooltip" title="Viraj's Asset Level : 
+                                                                    -----------------
+                                                                    Partner Preference :
+                                                                    <?= $myBasicPreferencesData['PreferedAssetValue'] ?>"></i>
                                                                 </div>
                                                             </div>
                                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
