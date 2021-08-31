@@ -10,7 +10,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?= $page_title ?></title>
 	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+	
 	<!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'> -->
 	<!-- Bootstrap 4.0 -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -137,6 +137,7 @@
 		input[type='checkbox']:after {
 			width: 15px;
 			height: 15px;
+			/* border-radius: 15px; */
 			top: -2px;
 			left: -1px;
 			position: relative;
@@ -150,6 +151,7 @@
 		input[type='checkbox']:checked:after {
 			width: 15px;
 			height: 15px;
+			/* border-radius: 15px; */
 			top: -2px;
 			left: -1px;
 			position: relative;
@@ -157,6 +159,8 @@
 			content: '';
 			display: inline-block;
 			visibility: visible;
+			/* padding: 2px !important; */
+			/* border: 2px solid red; */
 		}
 
 		/* check box customize */
