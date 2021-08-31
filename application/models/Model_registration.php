@@ -240,7 +240,7 @@ class Model_registration extends CI_Model
     if ($language_id == 2) { // Sinhala
       $this->db->select('intMaritalStatusID,vcMaritalStatus_si AS vcMaritalStatus');
       $this->db->from('maritalstatus');
-    }else{ // Default English
+    } else { // Default English
       $this->db->select('intMaritalStatusID,vcMaritalStatus_en AS vcMaritalStatus');
       $this->db->from('maritalstatus');
     }
@@ -469,11 +469,11 @@ class Model_registration extends CI_Model
     if ($language_id == 2) { // Sinhala
       $this->db->select('intNoOfChildrenID,vcNoOfChildren_si AS vcNoOfChildren');
       $this->db->from('noofchildren');
-    }else{ // Default English
+    } else { // Default English
       $this->db->select('intNoOfChildrenID,vcNoOfChildren_en AS vcNoOfChildren');
       $this->db->from('noofchildren');
     }
- 
+
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       return $query->result_array();
@@ -1631,7 +1631,7 @@ class Model_registration extends CI_Model
     // }
     for ($i = 0; $i < count($CareerLevel); $i++) {
       $dataPpreferedWorkingWithTb = array(
-        'intMemberpreferedworkingwithID' => $CareerLevel[$i],
+        'intWorkingWithId' => $CareerLevel[$i],
         'intMemberID' => $mid
       );
       $this->db->insert('memberpreferedworkingwith', $dataPpreferedWorkingWithTb);  // error line
