@@ -70,28 +70,18 @@ GetvisitedProfilesByMe = () => {
 
 		}
 
-		$('#mini-profile-area').empty();
-		$('#mini-profile-area').append(element);
+		$('#profileVisitedByMe').empty();
+		$('#profileVisitedByMe').append(element);
 	});
 }
 
-LikeOrDisLikeProfile = (element) => {
-	// debugger;
+function LikeOrDisLikeProfile(element) {
 	var model = new Member();
 	model.MemberID = element.name;
 	document.getElementById(element.id).classList.toggle("like");
 
-	// if ($("#"+element.id).hasClass("like")) {
-	//     $("#" +element.id).removeClass('like');
-	//     alert("A")
-
-	// }else{
-	//     $("#" +element.id).addClass('like');
-	//     alert("b")
-	// }
 
 	ajaxCall('Account/LikeOrDisLikeProfile', model, function (response) {
-		// debugger;
 		if (response.success == false) {
 			document.getElementById(element.id).classList.toggle("like");
 		}
