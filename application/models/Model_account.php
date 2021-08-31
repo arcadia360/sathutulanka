@@ -337,7 +337,7 @@ class Model_account extends CI_Model
             CASE WHEN M.intMotherTongueID IN (" . $myPreferencesDetails["PreferedMotherTongueID"] . ") THEN 7 ELSE 0 END+
             CASE WHEN P.intProvinceID IN (" . $myPreferencesDetails["PreferedLiveinSrilankaID"] . ") THEN 7 ELSE 0 END+
             CASE WHEN M.intEducationLevelID IN (" . $myPreferencesDetails["PreferedEducationLevelID"] . ") THEN 7 ELSE 0 END+
-            7+
+            CASE WHEN M.intWorkingWithID IN (" . $myPreferencesDetails["PreferedCareerID"] . ") THEN 7 ELSE 0 END + 
             CASE WHEN M.intMonthlyIncomeID IN (" . $myPreferencesDetails["PreferedMonthlyInComeID"] . ") THEN 7 ELSE 0 END+
             CASE WHEN M.intAssetValueID IN (" . $myPreferencesDetails["PreferedAssetValueID"] . ") THEN 7 ELSE 0 END+
             CASE WHEN M.intDisabilityID IN (" . $myPreferencesDetails["PreferedDisabilityID"] . ") THEN 7 ELSE 0 END+
@@ -367,6 +367,15 @@ class Model_account extends CI_Model
     return $query->result_array();
   }
 
+
+  public function getMemberMatchingDetailsByPartnerID($member_id, $partner_id)
+  {
+    $myPreferencesDetails = $this->getGetBasicPreferences_ID_WithSeparatorMemberDetailByID($member_id);
+
+    $sql = "
+    
+    ";
+  }
 
 
   public function getPartnerAndMemberMatchingPercentage($member_id, $partner_id)
@@ -398,7 +407,7 @@ class Model_account extends CI_Model
             CASE WHEN M.intMotherTongueID IN (" . $myPreferencesDetails["PreferedMotherTongueID"] . ") THEN 7 ELSE 0 END+
             CASE WHEN P.intProvinceID IN (" . $myPreferencesDetails["PreferedLiveinSrilankaID"] . ") THEN 7 ELSE 0 END+
             CASE WHEN M.intEducationLevelID IN (" . $myPreferencesDetails["PreferedEducationLevelID"] . ") THEN 7 ELSE 0 END+
-            7+
+            CASE WHEN M.intWorkingWithID IN (" . $myPreferencesDetails["PreferedCareerID"] . ") THEN 7 ELSE 0 END + 
             CASE WHEN M.intMonthlyIncomeID IN (" . $myPreferencesDetails["PreferedMonthlyInComeID"] . ") THEN 7 ELSE 0 END+
             CASE WHEN M.intAssetValueID IN (" . $myPreferencesDetails["PreferedAssetValueID"] . ") THEN 7 ELSE 0 END+
             CASE WHEN M.intDisabilityID IN (" . $myPreferencesDetails["PreferedDisabilityID"] . ") THEN 7 ELSE 0 END+
@@ -549,7 +558,7 @@ class Model_account extends CI_Model
           CASE WHEN M.intMotherTongueID IN (" . $myPreferencesDetails["PreferedMotherTongueID"] . ") THEN 7 ELSE 0 END+
           CASE WHEN P.intProvinceID IN (" . $myPreferencesDetails["PreferedLiveinSrilankaID"] . ") THEN 7 ELSE 0 END+
           CASE WHEN M.intEducationLevelID IN (" . $myPreferencesDetails["PreferedEducationLevelID"] . ") THEN 7 ELSE 0 END+
-          7+
+          CASE WHEN M.intWorkingWithID IN (" . $myPreferencesDetails["PreferedCareerID"] . ") THEN 7 ELSE 0 END + 
           CASE WHEN M.intMonthlyIncomeID IN (" . $myPreferencesDetails["PreferedMonthlyInComeID"] . ") THEN 7 ELSE 0 END+
           CASE WHEN M.intAssetValueID IN (" . $myPreferencesDetails["PreferedAssetValueID"] . ") THEN 7 ELSE 0 END+
           CASE WHEN M.intDisabilityID IN (" . $myPreferencesDetails["PreferedDisabilityID"] . ") THEN 7 ELSE 0 END+
@@ -610,7 +619,7 @@ class Model_account extends CI_Model
           CASE WHEN M.intMotherTongueID IN (" . $myPreferencesDetails["PreferedMotherTongueID"] . ") THEN 7 ELSE 0 END+
           CASE WHEN P.intProvinceID IN (" . $myPreferencesDetails["PreferedLiveinSrilankaID"] . ") THEN 7 ELSE 0 END+
           CASE WHEN M.intEducationLevelID IN (" . $myPreferencesDetails["PreferedEducationLevelID"] . ") THEN 7 ELSE 0 END+
-          7+
+          CASE WHEN M.intWorkingWithID IN (" . $myPreferencesDetails["PreferedCareerID"] . ") THEN 7 ELSE 0 END + 
           CASE WHEN M.intMonthlyIncomeID IN (" . $myPreferencesDetails["PreferedMonthlyInComeID"] . ") THEN 7 ELSE 0 END+
           CASE WHEN M.intAssetValueID IN (" . $myPreferencesDetails["PreferedAssetValueID"] . ") THEN 7 ELSE 0 END+
           CASE WHEN M.intDisabilityID IN (" . $myPreferencesDetails["PreferedDisabilityID"] . ") THEN 7 ELSE 0 END+
