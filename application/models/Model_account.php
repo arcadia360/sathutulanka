@@ -370,11 +370,41 @@ class Model_account extends CI_Model
 
   public function getMemberMatchingDetailsByPartnerID($member_id, $partner_id)
   {
+    $myDetails = $this->getMemberData($member_id);
     $myPreferencesDetails = $this->getGetBasicPreferences_ID_WithSeparatorMemberDetailByID($member_id);
 
     $sql = "
-    
-    ";
+            SELECT  
+              CASE WHEN  TIMESTAMPDIFF(year,M.dtDOB, now())  >= " . (int)$myDetails['intMemberPreferedAgeFrom'] . " AND  TIMESTAMPDIFF(year,M.dtDOB, now())  <= " . (int)$myDetails['intMemberPreferedAgeTo'] . " THEN 1 ELSE 0 END AS Age,
+              CASE WHEN M.intHeight >= " . (int)$myDetails['intMemberPreferedHeightFrom'] . " AND M.intHeight <= " . (int)$myDetails['intMemberPreferedHeightTo'] . " THEN 1 ELSE 0 END AS Height, 
+              CASE WHEN M.intMaritalStatusID IN (" . $myPreferencesDetails['PreferedMaritalStatusID'] . ") THEN 1 ELSE 0 END AS MaritalStatus, 
+              CASE WHEN M.intNoOfChildrenID IN (" . $myPreferencesDetails["PreferednoofchildrenID"] . ") THEN 1 ELSE 0 END AS NoOfChildren, 
+              CASE WHEN M.intReligionID IN (" . $myPreferencesDetails["PreferedReligionID"] . ") THEN 1 ELSE 0 END AS Religion, 
+              CASE WHEN M.intEthnicityID IN (" . $myPreferencesDetails["PreferedEthnicityID"] . ") THEN 1 ELSE 0 END AS Ethnicity, 
+              CASE WHEN M.intMotherTongueID IN (" . $myPreferencesDetails["PreferedMotherTongueID"] . ") THEN 1 ELSE 0 END AS MotherTongue,
+              CASE WHEN P.intProvinceID IN (" . $myPreferencesDetails["PreferedLiveinSrilankaID"] . ") THEN 1 ELSE 0 END AS Province, 
+              CASE WHEN M.intEducationLevelID IN (" . $myPreferencesDetails["PreferedEducationLevelID"] . ") THEN 1 ELSE 0 END AS EducationLevel,
+              CASE WHEN M.intWorkingWithID IN (" . $myPreferencesDetails["PreferedCareerID"] . ") THEN 1 ELSE 0 END AS CareerLevel, 
+              CASE WHEN M.intMonthlyIncomeID IN (" . $myPreferencesDetails["PreferedMonthlyInComeID"] . ") THEN 1 ELSE 0 END AS MonthlyIncome,
+              CASE WHEN M.intAssetValueID IN (" . $myPreferencesDetails["PreferedAssetValueID"] . ") THEN 1 ELSE 0 END AS AssetValue,
+              CASE WHEN M.intDisabilityID IN (" . $myPreferencesDetails["PreferedDisabilityID"] . ") THEN 1 ELSE 0 END AS Disability,
+              CASE WHEN M.intDietID IN (" . $myPreferencesDetails["PreferedDietID"] . ") THEN 1 ELSE 0 END AS Diet
+            FROM
+              Member AS M
+              INNER JOIN City AS C ON M.intCityIdIfLiveInSL = C.intCityID 
+              INNER JOIN District AS D ON C.intDistrictID = D.intDistrictID 
+              INNER JOIN Province AS P ON D.intProvinceID = P.intProvinceID 
+              INNER JOIN WorkingWith AS WW ON M.intWorkingWithId = WW.intWorkingWithId 
+              LEFT OUTER JOIN WorkingAs AS WA ON M.intWorkingAsID = WA.intWorkingAsID 
+              INNER JOIN Ethnicity AS E ON M.intEthnicityID = E.intEthnicityID 
+              INNER JOIN Religion AS R ON M.intReligionID = R.intReligionID 
+              INNER JOIN MaritalStatus AS MS ON M.intMaritalStatusID = MS.intMaritalStatusID 
+              INNER JOIN EducationLevel AS EL ON M.intEducationLevelID = EL.intEducationLevelID  
+            WHERE 
+              M.intMemberID = ?";
+
+    $query = $this->db->query($sql, array($partner_id));
+    return $query->row_array();
   }
 
 
@@ -385,19 +415,7 @@ class Model_account extends CI_Model
     $myPreferencesDetails = $this->getGetBasicPreferences_ID_WithSeparatorMemberDetailByID($member_id);
 
     $sql = "SELECT 
-            M.intMemberID,
-            M.vcMemberCode,
-            CONCAT(UPPER(SUBSTRING(M.vcNickName,1,1)),LOWER(SUBSTRING(M.vcNickName,2))) AS vcNickName,  
-            WW.vcWorkingWith, 
-            IFNULL(WA.vcWorkingAS,WW.vcWorkingWith) AS MiniProfileDesignation,
-            M.intMemberAccountTypeID,
-            TIMESTAMPDIFF(year,M.dtDOB, now())  AS Age,
-            M.intHeight,
-            fnCmToFeet(M.intHeight) AS vcHightFeet,
-            E.vcEthnicityName,
-            R.vcReligion,
-            MS.vcMaritalStatus_en AS vcMaritalStatus,
-            EL.vcEducationLevel,    
+            M.intMemberID,    
             (CASE WHEN  TIMESTAMPDIFF(year,M.dtDOB, now())  >= " . (int)$myDetails['intMemberPreferedAgeFrom'] . " AND  TIMESTAMPDIFF(year,M.dtDOB, now())  <= " . (int)$myDetails['intMemberPreferedAgeTo'] . " THEN 7 ELSE 0 END +
             CASE WHEN M.intHeight >= " . (int)$myDetails['intMemberPreferedHeightFrom'] . " AND M.intHeight <= " . (int)$myDetails['intMemberPreferedHeightTo'] . " THEN 7 ELSE 0 END +
             CASE WHEN M.intMaritalStatusID IN (" . $myPreferencesDetails['PreferedMaritalStatusID'] . ") THEN 7 ELSE 0 END +
@@ -412,10 +430,9 @@ class Model_account extends CI_Model
             CASE WHEN M.intAssetValueID IN (" . $myPreferencesDetails["PreferedAssetValueID"] . ") THEN 7 ELSE 0 END+
             CASE WHEN M.intDisabilityID IN (" . $myPreferencesDetails["PreferedDisabilityID"] . ") THEN 7 ELSE 0 END+
             CASE WHEN M.intDietID IN (" . $myPreferencesDetails["PreferedDietID"] . ") THEN 7 ELSE 0 END) AS ForMe,
-            IFNULL(fnGetPercentageForPartner(M.intMemberID," . $myDetails["intAge"] . "," . $myDetails["intHeight"] . "," . $myDetails["intMaritalStatusID"] . "," . $myDetails["intNoOfChildrenID"] . "," . $myDetails["intReligionID"] . "," . $myDetails["intEthnicityID"] . "," . $myDetails["intMotherTongueID"] . "," . $myDetails["intProvinceID"] . "," . $myDetails["intEducationLevelID"] . ",1," . $myDetails["intMonthlyIncomeID"] . "," . $myDetails["intAssetValueID"] . "," . $myDetails["intDisabilityID"] . "," . $myDetails["intDietID"] . "),0) AS ForPartner,
+            IFNULL(fnGetPercentageForPartner(M.intMemberID," . $myDetails["intAge"] . "," . $myDetails["intHeight"] . "," . $myDetails["intMaritalStatusID"] . "," . $myDetails["intNoOfChildrenID"] . "," . $myDetails["intReligionID"] . "," . $myDetails["intEthnicityID"] . "," . $myDetails["intMotherTongueID"] . "," . $myDetails["intProvinceID"] . "," . $myDetails["intEducationLevelID"] . ",". $myDetails["intWorkingWithID"] ."," . $myDetails["intMonthlyIncomeID"] . "," . $myDetails["intAssetValueID"] . "," . $myDetails["intDisabilityID"] . "," . $myDetails["intDietID"] . "),0) AS ForPartner,
             CONCAT(MI.intImageName,MI.vcImageType) AS vcProfilePicture,
-            CASE WHEN MLP.intMemberID IS NULL THEN 0 ELSE 1 END AS IsLiked,
-            (SELECT COUNT(*) FROM MemberImage AS MI WHERE MI.intMemberID = M.intMemberID) AS intImageCount
+            CASE WHEN MLP.intMemberID IS NULL THEN 0 ELSE 1 END AS IsLiked
           FROM 
           Member AS M
           INNER JOIN City 									  AS C 		ON M.intCityIdIfLiveInSL = C.intCityID
