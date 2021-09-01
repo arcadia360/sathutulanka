@@ -75,19 +75,23 @@ class Account extends Admin_Controller
 		$partnerData = $this->Model_account->getMemberData($PartnerID);
 		$memberPhotosData = $this->Model_account->getMemberPhotosData($PartnerID);
 		$matchingPercentageData = $this->Model_account->getPartnerAndMemberMatchingPercentage($member_id, $PartnerID);
+		$myBasicPreferencesData = $this->Model_account->getGetBasicPreferencesWithSeparatorMemberDetailByID($member_id);
+		$partnerBasicPreferencesData = $this->Model_account->getGetBasicPreferencesWithSeparatorMemberDetailByID($PartnerID);
+		$memberMatchingData =  $this->Model_account->getMemberMatchingDetailsByPartnerID($member_id, $PartnerID);
+		$partnerMatchingData =  $this->Model_account->getMemberMatchingDetailsByPartnerID($PartnerID, $member_id);
+
 
 		$this->data['myData'] = $myData;
 		$this->data['partnerData'] = $partnerData;
 		$this->data['partnerPhotosData'] = $memberPhotosData;
 		$this->data['matchingPercentageData'] = $matchingPercentageData;
-
-
-		$myBasicPreferencesData = $this->Model_account->getGetBasicPreferencesWithSeparatorMemberDetailByID($member_id);
-		$partnerBasicPreferencesData = $this->Model_account->getGetBasicPreferencesWithSeparatorMemberDetailByID($PartnerID);
-		$this->Model_account->updateVisitedProfile($member_id, $PartnerID); //update member visited profile - dk added 2021-7-11
 		$this->data['myBasicPreferencesData'] = $myBasicPreferencesData;
 		$this->data['partnerBasicPreferencesData'] = $partnerBasicPreferencesData;
+		$this->data['memberMatchingData'] = $memberMatchingData;
+		$this->data['partnerMatchingData'] = $partnerMatchingData;
 
+		$this->Model_account->updateVisitedProfile($member_id, $PartnerID); //update member visited profile - dk added 2021-7-11
+		
 		$this->render_template('account/match_profile', 'Match Profile',  $this->data);
 	}
 
@@ -99,6 +103,11 @@ class Account extends Admin_Controller
 		$response['result'] = $this->Model_account->getAllSingles_ByMemberID($member_id, $gender);
 		$response['token'] = $this->security->get_csrf_hash();
 		echo json_encode($response);
+	}
+
+	public function GetMemberMatchingDetailsByPartnerID($MemberID,$PartnerID)
+	{
+		return $this->Model_account->getMemberMatchingDetailsByPartnerID($MemberID, $PartnerID);
 	}
 
 	// DK Start
