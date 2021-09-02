@@ -30,7 +30,7 @@ a, button, .myelements {
 
 .bg-red {
     /* background-color: #d73333; */
-    background-color: #b52b4a;
+    background-color: #ff5a60;
 }
 
 .form-control:focus {
@@ -44,12 +44,12 @@ input {
 }
 
 input[type=text]:focus, input[type=password]:focus, select:focus, textarea:focus {
-    outline: 1px solid #b52b4a !important;
+    outline: 1px solid #ff5a60 !important;
     border: 1px solid transparent !important;
 }
 
 input[type="checkbox"]:checked+label:before {
-    background: #b52b4a !important;
+    background: #ff5a60 !important;
 }
 
 /* Model */
@@ -59,7 +59,7 @@ input[type="checkbox"]:checked+label:before {
 }
 
 .angle-div {
-    background-color: #b52b4a;
+    background-color: #ff5a60;
     height: 100px;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 36%, 0 100%);
@@ -87,13 +87,13 @@ input[type="checkbox"]:checked+label:before {
 }
 
 #userNavbarItems ul li a:hover {
-    background-color: #A12744 !important;
+    background-color: #e34e54 !important;
     border-radius: 20px !important;
     color: #FFFFFF;
 }
 
 #userNavbarItems .active {
-    background-color: #A12744 !important;
+    background-color: #e34e54 !important;
     border-radius: 20px !important;
 }
 
@@ -113,7 +113,7 @@ input[type="checkbox"]:checked+label:before {
 }
 
 #mobile-navbar .active {
-    color: #b52b4a !important;
+    color: #ff5a60 !important;
     -webkit-text-stroke: 0;
 }
 
@@ -210,7 +210,7 @@ input[type="checkbox"]:checked+label:before {
 }
 
 .like {
-    color: #e91e63 !important;
+    color: #ff5a60 !important;
 }
 
 /* Search Fields */
@@ -258,14 +258,14 @@ input[type="checkbox"]:checked+label:before {
     font-weight: 600;
     color: #fff;
     text-transform: uppercase;
-    background: #b52b4a;
+    background: #ff5a60;
     -moz-border-radius: 0 20px 20px 0;
     -webkit-border-radius: 0 20px 20px 0;
     border-radius: 0 20px 20px 0;
 }
 
 .btn-search:hover {
-    background: #A12744;
+    background: #e34e54;
 }
 
 .btn-search:focus {
@@ -273,7 +273,7 @@ input[type="checkbox"]:checked+label:before {
 }
 
 .btn-search:active {
-    background: #A12744 !important;
+    background: #e34e54 !important;
 }
 
 .btn-search:before {
@@ -281,13 +281,13 @@ input[type="checkbox"]:checked+label:before {
     position: absolute;
     border-width: 8px 8px 8px 0;
     border-style: solid solid solid none;
-    border-color: transparent #b52b4a transparent;
+    border-color: transparent #ff5a60 transparent;
     top: 12px;
     left: -6px;
 }
 
 .btn-search:hover:before {
-    border-right-color: #A12744;
+    border-right-color: #e34e54;
 }
 
 .btn-advance-search {
