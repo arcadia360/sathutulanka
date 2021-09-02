@@ -34,13 +34,16 @@
       .member-menubar-row a {
           flex-wrap: nowrap !important;
           border-radius: 0;
-          background-color: #559FF8 !important;
+          /* background-color: #559FF8 !important; */
+          background-image: linear-gradient( 180deg, #60ced4 0, #00bcd5 100%);
           color: #FFFFFF !important;
       }
 
       .member-menubar-row .active {
-          background-color: #46659e !important;
+          /* background-color: #46659e !important; */
           color: #FFFFFF !important;
+          background: #0194a8 !important;
+          /* border: 1px solid #0194a8 !important; */
       }
 
       .card {
@@ -154,9 +157,7 @@
           /* top: 10px; */
       }
 
-
-  
-/* 
+      /* 
       .badge-trustVerified {
           color: #e8f5e9;
           background-color: #2e7d32 !important;
@@ -174,8 +175,6 @@
           background-color: #607d8b !important;
           text-transform: uppercase;
       } */
-
- 
 
       .profile-card .premium_badge {
           background-color: #ffca28;
