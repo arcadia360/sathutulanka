@@ -36,8 +36,8 @@
 
 .btn-login:hover {
     background-color: #FFFFFF !important;
-    color: #b52b4a !important;
-    border: 2px solid #b52b4a;
+    color: #ff5a60 !important;
+    border: 2px solid #ff5a60;
     border-radius: 0;
 }
 
@@ -65,9 +65,19 @@
 }
 
 .btn-signin {
-    background-color: #b52b4a !important;
+    background-color: #ff5a60 !important;
     color: #FFFFFF;
     font-size: 1.4em;
+    border-radius: 0;
+    border: 2px solid #ff5a60 !important;
+}
+
+.btn-signin:hover {
+    background-color: #FFFFFF !important;
+    color: #ff5a60 !important;
+    font-size: 1.4em;
+    border-radius: 0;
+    border: 2px solid #ff5a60 !important;
 }
 
 .btn-forget-password, .lbl-remember-me {
@@ -76,18 +86,18 @@
 }
 
 .btn-forget-password:hover, .lbl-remember-me:hover {
-    color: #b52b4a;
+    color: #ff5a60;
     text-decoration: none;
 }
 
 .btn-register-free {
-    color: #b52b4a;
+    color: #ff5a60;
     font-weight: 600;
 }
 
 .btn-register-free:hover {
     text-decoration: none !important;
-    color: #b52b4a;
+    color: #ff5a60;
 }
 
 .navbar-expand-lg .navbar-nav .dropdown-menu {
