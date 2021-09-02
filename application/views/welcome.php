@@ -165,7 +165,8 @@
         color: #55595c;
         background-color: #fff;
         background-image: none;
-        border: 1px solid #ccc;
+        /* border: 1px solid #ccc; */
+        border: 1px solid #fff;
         height: 3.2rem !important;
         border-radius: 0;
         background-clip: inherit;
@@ -222,7 +223,7 @@
         position: relative;
         z-index: 0;
         border-radius: 50%;
-        /* background: #b52b4a; */
+        /* background: #ff5a60; */
         background: #FFFFFF;
 
         -webkit-box-shadow: 0px 10px 30px -4px rgb(0 0 0 / 15%);
@@ -259,7 +260,7 @@
         position: relative;
         z-index: 0;
         border-radius: 50%;
-        /* background: #b52b4a; */
+        /* background: #ff5a60; */
         background: #FFFFFF;
 
         -webkit-box-shadow: 0px 10px 30px -4px rgb(0 0 0 / 15%);
