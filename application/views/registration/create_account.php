@@ -840,7 +840,7 @@
             dataType: 'json',
             success: function(response) {
                 if (response.success == true) {
-                    swal("<?= lang('successful')?>", response.messages, "success")
+                    swal("<?= lang('successful')?>","<?= lang('please_check_your_email')?>" , "success")
                         .then((value) => {
                             window.location.href = "<?= base_url() ?>"
                         });
@@ -858,7 +858,7 @@
                             $("#btnSaveUser").prop('disabled', false)
                         });
                     } else {
-                        toastr["error"](response.messages);
+                        toastr["error"]("<?= lang('email_sent_error')?>" );
                         $("#btnSaveUser").prop('disabled', false)
                     }
                 }
