@@ -88,15 +88,15 @@
 			padding-right: 30px;
 			border-radius: 0 !important;
 			background-color: #FFFFFF;
-			border: 2px solid #b52b4a;
-			color: #b52b4a;
+			border: 2px solid #ff5a60;
+			color: #ff5a60;
 			font-weight: 500;
 		}
 
 		#btnSubmit:hover,
 		#btnBack:hover,
 		#btnSkip:hover {
-			background-color: #b52b4a;
+			background-color: #ff5a60;
 			color: #FFFFFF;
 		}
 
