@@ -210,7 +210,7 @@
         .mini-percentage {
             text-align: center;
             font-weight: 600;
-            color: #b52b4a;
+            color: #ff5a60;
         }
 
         /* UI Kit Components */
