@@ -103,8 +103,8 @@
       }
 
       .profile-card .btn-primary {
-          background-color: #b52b4a;
-          border: 2px solid #b52b4a;
+          background-color: #ff5a60;
+          border: 2px solid #ff5a60;
           font-size: 1em;
           margin-top: 10px;
           width: 100%;
@@ -113,7 +113,7 @@
 
       .profile-card .btn-primary:hover {
           background-color: #FFFFFF;
-          color: #b52b4a;
+          color: #ff5a60;
           font-size: 1em;
           width: 100%;
       }
@@ -123,13 +123,13 @@
       }
 
       .profile-card .btn-primary:active {
-          background-color: #b52b4a !important;
-          border: 2px solid #b52b4a !important;
+          background-color: #ff5a60 !important;
+          border: 2px solid #ff5a60 !important;
           box-shadow: none !important;
       }
 
       .profile-card .card-percentage {
-          color: #b52b4a;
+          color: #ff5a60;
           position: relative;
       }
 
