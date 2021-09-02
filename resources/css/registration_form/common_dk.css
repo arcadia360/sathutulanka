@@ -98,7 +98,7 @@
 }
 
 input[type="radio"]:checked+label:before {
-	background: #b52b4a !important;
+	background: #ff5a60 !important;
 }
 
 /* input[type='checkbox']:after {
@@ -106,7 +106,7 @@ input[type="radio"]:checked+label:before {
 } */
 
 input[type='checkbox']:checked:after {
-	background-color: #b52b4a !important;
+	background-color: #ff5a60 !important;
 }
 
 
