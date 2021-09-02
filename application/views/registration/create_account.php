@@ -63,9 +63,9 @@
         .btn-primary:not(:disabled):not(.disabled).active,
         .btn-primary:not(:disabled):not(.disabled):active,
         .show>.btn-primary.dropdown-toggle {
-            color: #b52b4a !important;
+            color: #ff5a60 !important;
             background-color: #FFFFFF !important;
-            border-color: #b52b4a !important;
+            border-color: #ff5a60 !important;
         }
 
         .agreement_label,
@@ -75,14 +75,14 @@
         }
 
         .sbmitBtn {
-            background-color: #b52b4a;
-            border: 2px #b52b4a solid;
+            background-color: #ff5a60;
+            border: 2px #ff5a60 solid;
         }
 
         .sbmitBtn:hover {
             background-color: #FFFFFF;
-            color: #b52b4a;
-            border: 2px #b52b4a solid;
+            color: #ff5a60;
+            border: 2px #ff5a60 solid;
             cursor: pointer;
         }
 
@@ -578,7 +578,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" name="btnEdit" id="btnEdit" class="btn btn-light" data-dismiss="modal">Edit</button>
-                                    <button type="button" name="btnSaveUser" id="btnSaveUser" class="btn" style="background-color: #b52b4a; color:#FFFFFF;">&nbsp;&nbsp;OK&nbsp;&nbsp;</button>
+                                    <button type="button" name="btnSaveUser" id="btnSaveUser" class="btn" style="background-color: #ff5a60; color:#FFFFFF;">&nbsp;&nbsp;OK&nbsp;&nbsp;</button>
                                 </div>
                             </div>
                         </div>
@@ -598,7 +598,7 @@
                                     <?= lang('t_and_c_section') ?>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn" data-dismiss="modal" style="background-color: #b52b4a; color:#FFFFFF;">&nbsp;&nbsp;OK&nbsp;&nbsp;</button>
+                                    <button type="button" class="btn" data-dismiss="modal" style="background-color: #ff5a60; color:#FFFFFF;">&nbsp;&nbsp;OK&nbsp;&nbsp;</button>
                                 </div>
                             </div>
                         </div>
