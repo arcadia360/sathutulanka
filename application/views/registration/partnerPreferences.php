@@ -483,7 +483,6 @@
               <button class="btn btn-info float-right" type="button" id="btnSubmit">Next &nbsp; <i class="fas fa-angle-double-right"></i>&nbsp; <i class="" id="btnSubmitLoading"></i></button>
             </div>
           </div>
-
       </div>
       </form>
     </div>
