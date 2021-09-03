@@ -238,7 +238,7 @@
          position: relative;
          z-index: 0;
          border-radius: 50%;
-         background: #ff5a60;
+         background: #EA3C53;
          -webkit-box-shadow: 0px 10px 30px -4px rgb(0 0 0 / 15%);
          -moz-box-shadow: 0px 10px 30px -4px rgba(0, 0, 0, 0.15);
          box-shadow: 0px 10px 30px -4px rgb(0 0 0 / 15%);

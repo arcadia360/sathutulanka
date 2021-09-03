@@ -30,7 +30,7 @@ a, button, .myelements {
 
 .bg-red {
     /* background-color: #d73333; */
-    background-color: #ff5a60;
+    background-color: #EA3C53;
 }
 
 .form-control:focus {
@@ -44,12 +44,12 @@ input {
 }
 
 input[type=text]:focus, input[type=password]:focus, select:focus, textarea:focus {
-    outline: 1px solid #ff5a60 !important;
+    outline: 1px solid #EA3C53 !important;
     border: 1px solid transparent !important;
 }
 
 input[type="checkbox"]:checked+label:before {
-    background: #ff5a60 !important;
+    background: #EA3C53 !important;
 }
 
 /* Model */
@@ -59,7 +59,7 @@ input[type="checkbox"]:checked+label:before {
 }
 
 .angle-div {
-    background-color: #ff5a60;
+    background-color: #EA3C53;
     height: 100px;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 36%, 0 100%);
@@ -113,7 +113,7 @@ input[type="checkbox"]:checked+label:before {
 }
 
 #mobile-navbar .active {
-    color: #ff5a60 !important;
+    color: #EA3C53 !important;
     -webkit-text-stroke: 0;
 }
 
@@ -210,7 +210,7 @@ input[type="checkbox"]:checked+label:before {
 }
 
 .like {
-    color: #ff5a60 !important;
+    color: #EA3C53 !important;
 }
 
 /* Search Fields */
@@ -258,7 +258,7 @@ input[type="checkbox"]:checked+label:before {
     font-weight: 600;
     color: #fff;
     text-transform: uppercase;
-    background: #ff5a60;
+    background: #EA3C53;
     -moz-border-radius: 0 20px 20px 0;
     -webkit-border-radius: 0 20px 20px 0;
     border-radius: 0 20px 20px 0;
@@ -281,7 +281,7 @@ input[type="checkbox"]:checked+label:before {
     position: absolute;
     border-width: 8px 8px 8px 0;
     border-style: solid solid solid none;
-    border-color: transparent #ff5a60 transparent;
+    border-color: transparent #EA3C53 transparent;
     top: 12px;
     left: -6px;
 }

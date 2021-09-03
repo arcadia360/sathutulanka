@@ -13,13 +13,13 @@
     }
 
     input[type=text] {
-        outline: 1px solid #ff5a60;
+        outline: 1px solid #EA3C53;
         border: 1px solid transparent;
     }
 
     input[type=text]:focus {
-        border-color: #ff5a60;
-        box-shadow: 0 0 5px #ff5a60 inset;
+        border-color: #EA3C53;
+        box-shadow: 0 0 5px #EA3C53 inset;
         border-radius: 0;
     }
 </style>
