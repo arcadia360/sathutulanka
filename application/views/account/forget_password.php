@@ -42,7 +42,7 @@
 		.form-control:focus {
 			color: #2C3E50 !important;
 			/* font-size: 14px; */
-			border-color: #ff5a60 !important;
+			border-color: #EA3C53 !important;
 			/* background-color: #000;
 	        border-color: #76b7e9;*/
 			outline: 0;
