@@ -343,7 +343,8 @@
 
                                     <div class="card">
                                         <div class="card-header" id="headingBasic" style="padding: 0px 0 20px 0;">
-                                            <h5 class="mb-0" style="background-color: #559FF8; padding: 10px; width: 100%;">
+                                            <!-- <h5 class="mb-0" style="background-color: #559FF8; padding: 10px; width: 100%;"> -->
+                                            <h5 class="mb-0" style="background-color: #29b5a8; padding: 10px; width: 100%;">
                                                 <button class="btn btn-link text-primary" style="color: #FFFFFF !important;" data-toggle="collapse" data-target="#collapseBasic" aria-expanded="true" aria-controls="collapseBasic">
                                                     Basic Preferences
                                                 </button>
