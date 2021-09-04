@@ -28,6 +28,12 @@ a, button, .myelements {
     /* IE11+ */
 }
 
+.btn-danger {
+    color: #fff;
+    background-color: #EA3C53 !important;
+    border-color: #EA3C53 !important;
+}
+
 .bg-red {
     /* background-color: #d73333; */
     background-color: #EA3C53;
@@ -87,13 +93,13 @@ input[type="checkbox"]:checked+label:before {
 }
 
 #userNavbarItems ul li a:hover {
-    background-color: #e34e54 !important;
+    background-color: #d9243c !important;
     border-radius: 20px !important;
     color: #FFFFFF;
 }
 
 #userNavbarItems .active {
-    background-color: #e34e54 !important;
+    background-color: #d9243c !important;
     border-radius: 20px !important;
 }
 
