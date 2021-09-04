@@ -649,7 +649,7 @@
         for (var m = 0; m < 12; m++) {
             let month = monthNames[m];
             let monthElem = document.createElement("option");
-            monthElem.value = m;
+            monthElem.value = m + 1;
             monthElem.textContent = month;
             $("#birth_month").append(monthElem);
         }
@@ -840,7 +840,7 @@
             dataType: 'json',
             success: function(response) {
                 if (response.success == true) {
-                    swal("<?= lang('successful')?>","<?= lang('please_check_your_email')?>" , "success")
+                    swal("<?= lang('successful') ?>", "<?= lang('please_check_your_email') ?>", "success")
                         .then((value) => {
                             window.location.href = "<?= base_url() ?>"
                         });
@@ -858,7 +858,7 @@
                             $("#btnSaveUser").prop('disabled', false)
                         });
                     } else {
-                        toastr["error"]("<?= lang('email_sent_error')?>" );
+                        toastr["error"]("<?= lang('email_sent_error') ?>");
                         $("#btnSaveUser").prop('disabled', false)
                     }
                 }
