@@ -91,7 +91,7 @@ class Account extends Admin_Controller
 		$this->data['partnerMatchingData'] = $partnerMatchingData;
 
 		$this->Model_account->updateVisitedProfile($member_id, $PartnerID); //update member visited profile - dk added 2021-7-11
-		
+
 		$this->render_template('account/match_profile', 'Match Profile',  $this->data);
 	}
 
@@ -105,12 +105,13 @@ class Account extends Admin_Controller
 		echo json_encode($response);
 	}
 
-	public function GetMemberMatchingDetailsByPartnerID($MemberID,$PartnerID)
+	public function GetMemberMatchingDetailsByPartnerID($MemberID, $PartnerID)
 	{
 		return $this->Model_account->getMemberMatchingDetailsByPartnerID($MemberID, $PartnerID);
 	}
 
 	// DK Start
+	//visited profile started
 	public function VisitedProfiles()
 	{
 		$member_id = $this->session->userdata('member_id');
@@ -136,6 +137,35 @@ class Account extends Admin_Controller
 		$result = $this->Model_account->getMyProfileVisitedByOthers($member_id, $gender);
 		echo json_encode($result);
 	}
+	//visited profile end
+
+	//My Favourites start
+	public function myFavourites()
+	{
+		$this->render_template('account/my_favourites', 'My Favourites');
+	}
+
+	public function GetMyFavouriteProfiles()
+	{
+		$member_id = $this->session->userdata('member_id');
+		$gender = $this->session->userdata('gender');
+
+		$result = $this->Model_account->GetMyFavouriteProfiles($member_id, $gender);
+		echo json_encode($result);
+	}
+
+	public function GetMyProfileFavouriteByOthers()
+	{
+		$member_id = $this->session->userdata('member_id');
+		$gender = $this->session->userdata('gender');
+
+		$result = $this->Model_account->GetMyProfileFavouriteByOthers($member_id, $gender);
+		echo json_encode($result);
+	}
+
+
+
+	// Myfavourites end
 	// DK End
 }
 
