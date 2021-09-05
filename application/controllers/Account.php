@@ -162,10 +162,34 @@ class Account extends Admin_Controller
 		$result = $this->Model_account->GetMyProfileFavouriteByOthers($member_id, $gender);
 		echo json_encode($result);
 	}
-
-
-
 	// Myfavourites end
+	
+	// blocked Profile start
+	public function blockedProfile()
+	{
+		$this->render_template('account/blocked_profiles', 'Blocked Profiles');
+	}
+
+	public function GetblockedProfileByMe()
+	{
+		$member_id = $this->session->userdata('member_id');
+		$gender = $this->session->userdata('gender');
+
+		$result = $this->Model_account->GetblockedProfileByMe($member_id, $gender);
+		echo json_encode($result);
+	}
+
+	public function GetMyProfileBlockedOthers()
+	{
+		$member_id = $this->session->userdata('member_id');
+		$gender = $this->session->userdata('gender');
+
+		$result = $this->Model_account->GetMyProfileBlockedOthers($member_id, $gender);
+		echo json_encode($result);
+	}
+
+	// blocked Profile start
+	
 	// DK End
 }
 
