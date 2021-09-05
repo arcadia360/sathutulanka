@@ -152,6 +152,6 @@ GetMyProfileFavouriteByOthers = () => {
 		}
 
 		$('#MyProfileFavouriteByOthers').empty();
-		$('#MyProfileFavouriteByOthers').append(element);
+		$('#MyProfileFavouriteByOthers').append(element);  
 	});
 }
