@@ -50,7 +50,7 @@
                   <a href="<?= base_url('Account/myFavourites') ?>" class="btn btn-sm btn-light col-md-3 pt-2 pb-2">My Favourites <span class="float-right uk-badge">1</span></a>
                   <a class="btn btn-sm btn-light col-md-3 pt-2 pb-2">Members Intrusted In Me <span class="float-right uk-badge">1</span></a>
                   <a href="<?= base_url('Account/VisitedProfiles') ?>" class="btn btn-sm btn-light col-md-3 pt-2 pb-2">Visited Profiles <span class="float-right uk-badge"><?= $visitedProfileCountCount ?></span></a>
-                  <a class="btn btn-sm btn-light col-md-3 pt-2 pb-2">Blocked Profiles <span class="float-right uk-badge">1</span></a>
+                  <a href="<?= base_url('Account/blockedProfile') ?>" class="btn btn-sm btn-light col-md-3 pt-2 pb-2">Blocked Profiles <span class="float-right uk-badge">1</span></a>
               </div>
           </div>
 
