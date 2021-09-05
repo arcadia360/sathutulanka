@@ -50,5 +50,4 @@
          </div>
      </div>
  </div>
-
  <script src="<?= base_url("resources/js/pageJS/myFavourites.js") ?>"></script>
