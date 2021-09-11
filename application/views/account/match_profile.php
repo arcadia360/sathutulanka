@@ -592,78 +592,92 @@
                                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 offset-2 partner-detail">
                                                         <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-male"></i> His Details</h5>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-female"></i> My Details</h5>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-2">
+                                                        <label for="nickName">Nick Name</label>
+                                                    </div>
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
-                                                            <label for="nickName">Nick Name</label>
-                                                            <input type="text" class="form-control" id="partnerNickName" value="<?= $partnerData['vcNickName'] ?>" placeholder="N/A" disabled>
+                                                            <!-- <label for="nickName">Nick Name</label> -->
+                                                            <label for="nickName"><?= $partnerData['vcNickName'] ?></label>
+                                                            <!-- <input type="text" class="form-control" id="partnerNickName" value="<?= $partnerData['vcNickName'] ?>" placeholder="N/A" disabled> -->
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Nick Name</label>
-                                                            <input type="text" class="form-control" id="myNickName" value="<?= $myData['vcNickName'] ?>" placeholder="N/A" disabled>
+                                                            <!-- <label for="website" style="color: #FFFFFF;">Nick Name</label> -->
+                                                            <label for="nickName"><?= $myData['vcNickName'] ?></label>
+                                                            <!-- <input type="text" class="form-control" id="myNickName" value="<?= $myData['vcNickName'] ?>" placeholder="N/A" disabled> -->
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-2">
+                                                        <label for="partnerGender">Gender</label>
+                                                    </div>
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
-                                                            <label for="phone">Gender</label>
+                                                            <!-- <label for="phone">Gender</label> -->
                                                             <input type="text" class="form-control" id="partnerGender" value="<?= $partnerData['vcGender'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Gender</label>
+                                                            <!-- <label for="website" style="color: #FFFFFF;">Gender</label> -->
                                                             <input type="text" class="form-control" id="myGender" value="<?= $myData['vcGender'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-2">
+                                                        <label for="partnerAge">Age</label>
+                                                    </div>
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
-                                                            <label for="phone">Age</label>
+                                                            <!-- <label for="phone">Age</label> -->
                                                             <input type="text" class="form-control" id="partnerAge" value="<?= $partnerData['intAge'] ?> Years" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Age</label>
+                                                            <!-- <label for="website" style="color: #FFFFFF;">Age</label> -->
                                                             <input type="text" class="form-control" id="myAge" value="<?= $myData['intAge'] ?> Years" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-2">
+                                                        <label for="partnerAge">Marital Status</label>
+                                                    </div>
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
-                                                            <label for="website">Marital Status</label>
+                                                            <!-- <label for="website">Marital Status</label> -->
                                                             <input type="text" class="form-control" id="partnerMaritalStatus" value="<?= $partnerData['vcMaritalStatus'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <!-- <label for="shortName" class="float-right"><a class="descriptive-information-model" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('MaritalStatus')"><i class="fas fa-info-circle"></i></a></label> -->
-                                                            <label for="website" style="color: #FFFFFF;">Marital Status</label>
+                                                            <!-- <label for="website" style="color: #FFFFFF;">Marital Status</label> -->
                                                             <input type="text" class="form-control" id="myMaritalStatus" value="<?= $myData['vcMaritalStatus'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">No Of Children(s)</label>
                                                             <input type="text" class="form-control" id="partnerNoOfChildren" value="<?= $partnerData['vcNoOfChildren'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <!-- <label for="shortName" class="float-right" style="color: #FFFFFF;">No Of Children(s)<a class="descriptive-information-model float-right" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('NoOfChildren')"><i class="fas fa-info-circle"></i></a></label> -->
                                                             <label for="website" style="color: #FFFFFF;">No Of Children(s)</label>
@@ -672,13 +686,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Prof: Manage</label>
                                                             <input type="text" class="form-control" id="partnerMarryBy" value="<?= $partnerData['vcProvidingInformationType'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Prof: Manage</label>
                                                             <input type="text" class="form-control" id="myMarryBy" value="<?= $myData['vcProvidingInformationType'] ?>" placeholder="N/A" disabled>
@@ -686,13 +700,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Marry By</label>
                                                             <input type="text" class="form-control" id="partnerMarryBy" value="<?= $partnerData['vcMarriageType'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Marry By</label>
                                                             <input type="text" class="form-control" id="myMarryBy" value="<?= $myData['vcMarriageType'] ?>" placeholder="N/A" disabled>
@@ -723,13 +737,13 @@
                                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="shortName">Height</label>
                                                             <input type="text" class="form-control" id="partnerHeight" value="<?= $partnerData['intHeight'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Height</label>
                                                             <input type="text" class="form-control" id="myHeight" value="<?= $myData['intHeight'] ?>" placeholder="N/A" disabled>
@@ -737,13 +751,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Weight</label>
                                                             <input type="text" class="form-control" id="partnerWeight" value="<?= $partnerData['Weight_Customised'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Weight</label>
                                                             <input type="text" class="form-control" id="myWeight" value="<?= $myData['Weight_Customised'] ?>" placeholder="N/A" disabled>
@@ -751,13 +765,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Body Shape</label>
                                                             <input type="text" class="form-control" id="partnerBodyShape" value="<?= $partnerData['vcBodyType'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Body Shape</label>
                                                             <input type="text" class="form-control" id="myBodyShape" value="<?= $myData['vcBodyType'] ?>" placeholder="N/A" disabled>
@@ -765,13 +779,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Skin Color</label>
                                                             <input type="text" class="form-control" id="partnerSkinColor" value="<?= $partnerData['vcSkinColour'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Skin Color</label>
                                                             <input type="text" class="form-control" id="mySkinColor" value="<?= $myData['vcSkinColour'] ?>" placeholder="N/A" disabled>
@@ -779,13 +793,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Disability</label>
                                                             <input type="text" class="form-control" id="partnerDisability" value="<?= $partnerData['vcDisability'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Disability</label>
                                                             <input type="text" class="form-control" id="myDisability" value="<?= $myData['vcDisability'] ?>" placeholder="N/A" disabled>
@@ -793,13 +807,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Blood Group</label>
                                                             <input type="text" class="form-control" id="partnerBloodGroup" value="<?= $partnerData['vcBloodGroup'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Blood Group</label>
                                                             <input type="text" class="form-control" id="myBloodGroup" value="<?= $myData['vcBloodGroup'] ?>" placeholder="N/A" disabled>
@@ -807,13 +821,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Health Information</label>
                                                             <input type="text" class="form-control" id="partnerHealthInformation" value="<?= $partnerData['vcHealthInfo'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Health Information</label>
                                                             <input type="text" class="form-control" id="myHealthInformation" value="<?= $myData['vcHealthInfo'] ?>" placeholder="N/A" disabled>
@@ -834,13 +848,13 @@
                                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="shortName">Current Residence</label>
                                                             <input type="text" class="form-control" id="partnerCurrentResidence" value="<?= $partnerData['vcLiveIn'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Current Residence</label>
                                                             <input type="text" class="form-control" id="myCurrentResidence" value="<?= $myData['vcLiveIn'] ?>" placeholder="N/A" disabled>
@@ -848,13 +862,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Residence Status</label>
                                                             <input type="text" class="form-control" id="partnerResidenceStatus" value="<?= $partnerData['vcResidenceStatus'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Residence Status</label>
                                                             <input type="text" class="form-control" id="myResidenceStatus" value="<?= $myData['vcResidenceStatus'] ?>" placeholder="N/A" disabled>
@@ -862,13 +876,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Live in Srilanka</label>
                                                             <input type="text" class="form-control" id="partnerLiveinSriLanka" value="<?= $partnerData['vcLiveIn'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Live in Sri Lanka</label>
                                                             <input type="text" class="form-control" id="myLiveinSriLanka" value="<?= $myData['vcLiveIn'] ?>" placeholder="N/A" disabled>
@@ -876,13 +890,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">District</label>
                                                             <input type="text" class="form-control" id="partnerDistrict" value="<?= $partnerData['Test'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">District</label>
                                                             <input type="text" class="form-control" id="myDistrict" value="<?= $myData['Test'] ?>" placeholder="N/A" disabled>
@@ -890,13 +904,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">City</label>
                                                             <input type="text" class="form-control" id="partnerCity" value="<?= $partnerData['vcCityName'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">City</label>
                                                             <input type="text" class="form-control" id="myCity" value="<?= $myData['vcCityName'] ?>" placeholder="N/A" disabled>
@@ -904,13 +918,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Ownership of the Address</label>
                                                             <input type="text" class="form-control" id="partnerOwnerShipOfTheAddress" value="<?= $partnerData['vcAddOfSriLanka'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Ownership of the Address</label>
                                                             <input type="text" class="form-control" id="myOwnerShipOfTheAddress" value="<?= $myData['vcAddOfSriLanka'] ?>" placeholder="N/A" disabled>
@@ -918,13 +932,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Native District</label>
                                                             <input type="text" class="form-control" id="partnerNativeDistrict" value="<?= $partnerData['Test'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Native District</label>
                                                             <input type="text" class="form-control" id="myNativeDistrict" value="<?= $myData['Test'] ?>" placeholder="N/A" disabled>
@@ -945,13 +959,13 @@
                                         <div id="collapseBackground" class="collapse" aria-labelledby="headingBackground" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="shortName">Mother Tongue</label>
                                                             <input type="text" class="form-control" id="partnerMotherTongue" value="<?= $partnerData['vcMotherTounge'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Mother Tongue</label>
                                                             <input type="text" class="form-control" id="myMotherTongue" value="<?= $myData['vcMotherTounge'] ?>" placeholder="N/A" disabled>
@@ -959,13 +973,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Ethnicity</label>
                                                             <input type="text" class="form-control" id="partnerEthnicity" value="<?= $partnerData['vcEthnicity'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Ethnicity</label>
                                                             <input type="text" class="form-control" id="myEthnicity" value="<?= $myData['vcEthnicity'] ?>" placeholder="N/A" disabled>
@@ -973,13 +987,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Religion</label>
                                                             <input type="text" class="form-control" id="partnerReligion" value="<?= $partnerData['vcReligion'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Religion</label>
                                                             <input type="text" class="form-control" id="myReligion" value="<?= $myData['vcReligion'] ?>" placeholder="N/A" disabled>
@@ -987,13 +1001,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Caste</label>
                                                             <input type="text" class="form-control" id="partnerCaste" value="<?= $partnerData['vcReligion'] ?><?= $partnerData['vcReligion'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Caste</label>
                                                             <input type="text" class="form-control" id="myCaste" value="<?= $myData['vcReligion'] ?>" placeholder="N/A" disabled>
@@ -1001,13 +1015,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Sub Caste</label>
                                                             <input type="text" class="form-control" id="partnerSubCaste" value="<?= $partnerData['vcSubCasteName'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Sub Caste</label>
                                                             <input type="text" class="form-control" id="mySubCaste" value="<?= $myData['vcSubCasteName'] ?>" placeholder="N/A" disabled>
@@ -1015,13 +1029,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Police Report</label>
                                                             <input type="text" class="form-control" id="partnerPoliceReport" value="<?= $partnerData['vcPoliceReportCanProvide'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Police Report</label>
                                                             <input type="text" class="form-control" id="myPoliceReport" value="<?= $myData['vcPoliceReportCanProvide'] ?>" placeholder="N/A" disabled>
@@ -1042,13 +1056,13 @@
                                         <div id="collapseLifeStyle" class="collapse" aria-labelledby="headingLifeStyle" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="shortName">Diet</label>
                                                             <input type="text" class="form-control" id="partnerDiet" value="<?= $partnerData['vcDiet'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Diet</label>
                                                             <input type="text" class="form-control" id="myDiet" value="<?= $myData['vcDiet'] ?>" placeholder="N/A" disabled>
@@ -1056,13 +1070,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Drink</label>
                                                             <input type="text" class="form-control" id="partnerDrink" value="<?= $partnerData['vcDrink'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Drink</label>
                                                             <input type="text" class="form-control" id="myDrink" value="<?= $myData['vcDrink'] ?>" placeholder="N/A" disabled>
@@ -1070,13 +1084,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Smoke</label>
                                                             <input type="text" class="form-control" id="partnerSmoke" value="<?= $partnerData['vcSmoke'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Smoke</label>
                                                             <input type="text" class="form-control" id="mySmoke" value="<?= $myData['vcSmoke'] ?>" placeholder="N/A" disabled>
@@ -1084,13 +1098,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Languages, Speak</label>
                                                             <input type="text" class="form-control" id="partnerLanguages" value="<?= $partnerData['vcLanguageSpeakWithSeparator'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Languages, Speak</label>
                                                             <input type="text" class="form-control" id="myLanguages" value="<?= $myData['vcLanguageSpeakWithSeparator'] ?>" placeholder="N/A" disabled>
@@ -1098,13 +1112,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Dress & Makeup</label>
                                                             <input type="text" class="form-control" id="partnerDress&Makeup" value="<?= $partnerData['vcDressAndMakeup'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Dress & Makeup</label>
                                                             <input type="text" class="form-control" id="myDress&Makeup" value="<?= $myData['vcDressAndMakeup'] ?>" placeholder="N/A" disabled>
@@ -1112,13 +1126,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Used to Travel</label>
                                                             <input type="text" class="form-control" id="partnerUsedtoTravel" value="<?= $partnerData['vcUsedToTravel'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Used to Travel</label>
                                                             <input type="text" class="form-control" id="myUsedtoTravel" value="<?= $myData['vcUsedToTravel'] ?>" placeholder="N/A" disabled>
@@ -1126,13 +1140,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Call to Parents</label>
                                                             <input type="text" class="form-control" id="partnerCalltoParents" value="<?= $partnerData['vcCalToParent'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Call to Parents</label>
                                                             <input type="text" class="form-control" id="myCalltoParents" value="<?= $myData['vcCalToParent'] ?>" placeholder="N/A" disabled>
@@ -1140,13 +1154,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Customs</label>
                                                             <input type="text" class="form-control" id="partnerCustoms" value="<?= $partnerData['vcCustoms'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Customs</label>
                                                             <input type="text" class="form-control" id="myCustoms" value="<?= $myData['vcCustoms'] ?>" placeholder="N/A" disabled>
@@ -1154,13 +1168,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Live In</label>
                                                             <input type="text" class="form-control" id="partnerLiveIn" value="<?= $partnerData['vcLiveIn'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Live In</label>
                                                             <input type="text" class="form-control" id="myLiveIn" value="<?= $myData['vcLiveIn'] ?>" placeholder="N/A" disabled>
@@ -1181,13 +1195,13 @@
                                         <div id="collapseWhoAmI" class="collapse" aria-labelledby="headingWhoAmI" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="shortName">Openness to Experience</label>
                                                             <input type="text" class="form-control" id="partnerOpennessToExperience" value="<?= $partnerData['intOpennessToExperience'] ?>%" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Openness to Experience</label>
                                                             <input type="text" class="form-control" id="myOpennessToExperience" value="<?= $myData['intOpennessToExperience'] ?>%" placeholder="N/A" disabled>
@@ -1195,13 +1209,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Conscientiousness</label>
                                                             <input type="text" class="form-control" id="partnerConscientiousness" value="<?= $partnerData['intConscientiousness'] ?>%" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Conscientiousness</label>
                                                             <input type="text" class="form-control" id="myConscientiousness" value="<?= $myData['intConscientiousness'] ?>%" placeholder="N/A" disabled>
@@ -1209,13 +1223,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Extrovert Personality</label>
                                                             <input type="text" class="form-control" id="partnerExtrovertPersonality" value="<?= $partnerData['intExtrovertPersonality'] ?>%" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Extrovert Personality</label>
                                                             <input type="text" class="form-control" id="myExtrovertPersonality" value="<?= $myData['intExtrovertPersonality'] ?>%" placeholder="N/A" disabled>
@@ -1223,13 +1237,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Introvert Personality</label>
                                                             <input type="text" class="form-control" id="partnerIntrovertPersonality" value="<?= $partnerData['intIntrovertPersonality'] ?>%" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Introvert Personality</label>
                                                             <input type="text" class="form-control" id="myIntrovertPersonality" value="<?= $myData['intIntrovertPersonality'] ?>%" placeholder="N/A" disabled>
@@ -1237,13 +1251,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Agreeableness</label>
                                                             <input type="text" class="form-control" id="partnerAgreeableness" value="<?= $partnerData['intAgreeableness'] ?>%" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Agreeableness</label>
                                                             <input type="text" class="form-control" id="myAgreeableness" value="<?= $myData['intAgreeableness'] ?>%" placeholder="N/A" disabled>
@@ -1251,13 +1265,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Neuroticism</label>
                                                             <input type="text" class="form-control" id="partnerNeuroticism" value="<?= $partnerData['intNeuroticism'] ?>%" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Neuroticism</label>
                                                             <input type="text" class="form-control" id="myNeuroticism" value="<?= $myData['intNeuroticism'] ?>%" placeholder="N/A" disabled>
@@ -1265,13 +1279,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Family Bond</label>
                                                             <input type="text" class="form-control" id="partnerFamilyBond" value="<?= $partnerData['intFamilyBond'] ?>%" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Family Bond</label>
                                                             <input type="text" class="form-control" id="myFamilyBond" value="<?= $myData['intFamilyBond'] ?>%" placeholder="N/A" disabled>
@@ -1279,13 +1293,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Money</label>
                                                             <input type="text" class="form-control" id="partnerMoney" value="<?= $partnerData['intMoney'] ?>%" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Money</label>
                                                             <input type="text" class="form-control" id="myMoney" value="<?= $myData['intMoney'] ?>%" placeholder="N/A" disabled>
@@ -1293,13 +1307,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Religious</label>
                                                             <input type="text" class="form-control" id="partnerReligious" value="<?= $partnerData['intReligious'] ?>%" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Religious</label>
                                                             <input type="text" class="form-control" id="myReligious" value="<?= $myData['intReligious'] ?>%" placeholder="N/A" disabled>
@@ -1307,13 +1321,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Physically Active</label>
                                                             <input type="text" class="form-control" id="partnerPhysicallyActive" value="<?= $partnerData['intPhysicallyActive'] ?>%" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Physically Active</label>
                                                             <input type="text" class="form-control" id="myPhysicallyActive" value="<?= $myData['intPhysicallyActive'] ?>%" placeholder="N/A" disabled>
@@ -1321,13 +1335,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Politics</label>
                                                             <input type="text" class="form-control" id="partnerPolitics" value="<?= $partnerData['IntPolitics'] ?>%" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Politics</label>
                                                             <input type="text" class="form-control" id="myPolitics" value="<?= $myData['IntPolitics'] ?>%" placeholder="N/A" disabled>
@@ -1335,13 +1349,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Knowledge</label>
                                                             <input type="text" class="form-control" id="partnerKnowledge" value="<?= $partnerData['intKnowledge'] ?>%" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Knowledge</label>
                                                             <input type="text" class="form-control" id="myKnowledge" value="<?= $myData['intKnowledge'] ?>%" placeholder="N/A" disabled>
@@ -1349,13 +1363,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">Love Affairs</label>
                                                             <input type="text" class="form-control" id="partnerLoveAffairs" value="<?= $partnerData['intLoveAffairs'] ?>%" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Love Affairs</label>
                                                             <input type="text" class="form-control" id="myLoveAffairs" value="<?= $myData['intLoveAffairs'] ?>%" placeholder="N/A" disabled>
@@ -1363,13 +1377,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">The Importance of Male & Female Virginity.</label>
                                                             <input type="text" class="form-control" id="partnerFemaleVirginity" value="<?= $partnerData['intimportanceVirginity'] ?>%" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">The Importance of Male & Female Virginity.</label>
                                                             <input type="text" class="form-control" id="myFemaleVirginity" value="<?= $myData['intimportanceVirginity'] ?>%" placeholder="N/A" disabled>
@@ -1377,13 +1391,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="website">My Interests & Hobbies</label>
                                                             <button class="btn btn-info btn-block">View Details</button>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">My Interests & Hobbies</label>
                                                             <button class="btn btn-info btn-block">View Details</button>
@@ -1404,13 +1418,13 @@
                                         <div id="collapseEducation" class="collapse" aria-labelledby="headingEducation" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="shortName">Education Level</label>
                                                             <input type="text" class="form-control" id="partnerEducationLevel" value="<?= $partnerData['vcEducationLevel'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Education Level</label>
                                                             <input type="text" class="form-control" id="myEducationLevel" value="<?= $myData['vcEducationLevel'] ?>" placeholder="N/A" disabled>
@@ -1418,13 +1432,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Education Field</label>
                                                             <input type="text" class="form-control" id="partnerEducationField" value="<?= $partnerData['vcEducationField'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Education Field</label>
                                                             <input type="text" class="form-control" id="myEducationField" value="<?= $myData['vcEducationField'] ?>" placeholder="N/A" disabled>
@@ -1432,13 +1446,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">School / University</label>
                                                             <input type="text" class="form-control" id="partnerSchoolUniversity" value="<?= $partnerData['vcSclUniDescription'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">School / University</label>
                                                             <input type="text" class="form-control" id="mySchoolUniversity" value="<?= $myData['vcSclUniDescription'] ?>" placeholder="N/A" disabled>
@@ -1459,13 +1473,13 @@
                                         <div id="collapseCareer" class="collapse" aria-labelledby="headingCareer" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="shortName">Working With</label>
                                                             <input type="text" class="form-control" id="shortName" value="<?= $partnerData['vcWorkingWith'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Working With</label>
                                                             <input type="text" class="form-control" id="shortName" value="<?= $myData['vcWorkingWith'] ?>" placeholder="N/A" disabled>
@@ -1473,13 +1487,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Working As</label>
                                                             <input type="text" class="form-control" id="gender" value="<?= $partnerData['vcWorkingAs'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Working As</label>
                                                             <input type="text" class="form-control" id="gender" value="<?= $myData['vcWorkingAs'] ?>" placeholder="N/A" disabled>
@@ -1487,13 +1501,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Working Country</label>
                                                             <input type="text" class="form-control" id="gender" value="<?= $partnerData['vcWorkingCountry'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Working Country</label>
                                                             <input type="text" class="form-control" id="gender" value="<?= $myData['vcWorkingCountry'] ?>" placeholder="N/A" disabled>
@@ -1501,13 +1515,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Working District</label>
                                                             <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Working District</label>
                                                             <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
@@ -1515,13 +1529,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Working City</label>
                                                             <input type="text" class="form-control" id="gender" value="<?= $partnerData['vcWorkingCity'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Working City</label>
                                                             <input type="text" class="form-control" id="gender" value="<?= $myData['vcWorkingCity'] ?>" placeholder="N/A" disabled>
@@ -1529,13 +1543,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Describe Career</label>
                                                             <input type="text" class="form-control" id="describeCareer" value="<?= $partnerData['vcDescribeCareer'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Describe Career</label>
                                                             <input type="text" class="form-control" id="describeCareer" value="<?= $myData['vcDescribeCareer'] ?>" placeholder="N/A" disabled>
@@ -1556,13 +1570,13 @@
                                         <div id="collapsePersonalAssets" class="collapse" aria-labelledby="headingPersonalAssets" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="shortName">Monthly Income</label>
                                                             <input type="text" class="form-control" id="partnerMonthlyIncome" value="<?= $partnerData['vcMonthlyIncome'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Monthly Income</label>
                                                             <input type="text" class="form-control" id="myMonthlyIncome" value="<?= $myData['vcMonthlyIncome'] ?>" placeholder="N/A" disabled>
@@ -1570,13 +1584,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Monthly Income Routes</label>
                                                             <input type="text" class="form-control" id="partnerMonthlyIncomeRoutes" value="<?= $partnerData['vcMonthlyIncomeRouteSeparator'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Monthly Income Routes</label>
                                                             <input type="text" class="form-control" id="myMonthlyIncomeRoutes" value="<?= $myData['vcMonthlyIncomeRouteSeparator'] ?>" placeholder="N/A" disabled>
@@ -1584,13 +1598,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Asset Value</label>
                                                             <input type="text" class="form-control" id="partnerAssetValue" value="<?= $partnerData['vcAssetValue'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="website" style="color: #FFFFFF;">Asset Value</label>
                                                             <input type="text" class="form-control" id="myAssetValue" value="<?= $myData['vcAssetValue'] ?>" placeholder="N/A" disabled>
@@ -1598,13 +1612,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Asset Routes</label>
                                                             <input type="text" class="form-control" id="partnerAssetRoutes" value="" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Asset Routes</label>
                                                             <input type="text" class="form-control" id="myAssetRoutes" value="" placeholder="N/A" disabled>
@@ -1612,13 +1626,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Ownership of Assets</label>
                                                             <input type="text" class="form-control" id="partnerOwnershipOfAssets" value="<?= $partnerData['vcOwnershipOfAssets'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Ownership of Assets</label>
                                                             <input type="text" class="form-control" id="myOwnershipOfAssets" value="<?= $myData['vcOwnershipOfAssets'] ?>" placeholder="N/A" disabled>
@@ -1639,13 +1653,13 @@
                                         <div id="collapseFamily" class="collapse" aria-labelledby="headingFamily" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="shortName">Family Location</label>
                                                             <input type="text" class="form-control" id="partnerFamilyLocation" value="" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Family Location</label>
                                                             <input type="text" class="form-control" id="myFamilyLocation" value="" placeholder="N/A" disabled>
@@ -1653,13 +1667,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Family Type</label>
                                                             <input type="text" class="form-control" id="partnerFamilyType" value="<?= $partnerData['vcFamilyType'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Family Type</label>
                                                             <input type="text" class="form-control" id="myFamilyType" value="<?= $myData['vcFamilyType'] ?>" placeholder="N/A" disabled>
@@ -1667,13 +1681,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Family Values</label>
                                                             <input type="text" class="form-control" id="partnerFamilyValues" value="<?= $partnerData['vcFamilyValues'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Family Values</label>
                                                             <input type="text" class="form-control" id="myFamilyValues" value="<?= $myData['vcFamilyValues'] ?>" placeholder="N/A" disabled>
@@ -1681,13 +1695,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Family Class</label>
                                                             <input type="text" class="form-control" id="partnerFamilyClass" value="<?= $partnerData['vcFamilyClass'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Family Class</label>
                                                             <input type="text" class="form-control" id="myFamilyClass" value="<?= $myData['vcFamilyClass'] ?>" placeholder="N/A" disabled>
@@ -1695,13 +1709,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Family Culture</label>
                                                             <input type="text" class="form-control" id="partnerFamilyCulture" value="<?= $partnerData['vcFamilyCulture'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Family Culture</label>
                                                             <input type="text" class="form-control" id="myFamilyCulture" value="<?= $myData['vcFamilyCulture'] ?>" placeholder="N/A" disabled>
@@ -1709,13 +1723,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Father Status</label>
                                                             <input type="text" class="form-control" id="partnerFatherStatus" value="<?= $partnerData['vcFatherStatus'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Father Status</label>
                                                             <input type="text" class="form-control" id="myFatherStatus" value="<?= $myData['vcFatherStatus'] ?>" placeholder="N/A" disabled>
@@ -1723,13 +1737,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Mother Status</label>
                                                             <input type="text" class="form-control" id="partnerMotherStatus" value="<?= $partnerData['vcMotherStatus'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Mother Status</label>
                                                             <input type="text" class="form-control" id="myMotherStatus" value="<?= $myData['vcMotherStatus'] ?>" placeholder="N/A" disabled>
@@ -1737,13 +1751,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Family Details</label>
                                                             <button class="btn btn-info btn-block">View Details</button>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Family Details</label>
                                                             <button class="btn btn-info btn-block">View Details</button>
@@ -1818,13 +1832,13 @@
                                         <div id="collapseAfterMarriage" class="collapse" aria-labelledby="headingAfterMarriage" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="shortName">Prefer to Live</label>
                                                             <input type="text" class="form-control" id="partnerPreferToLive" value="<?= $partnerData['vcPrefferToLive'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Prefer to Live</label>
                                                             <input type="text" class="form-control" id="myPreferToLive" value="<?= $myData['vcPrefferToLive'] ?>" placeholder="N/A" disabled>
@@ -1832,13 +1846,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Job</label>
                                                             <input type="text" class="form-control" id="partnerJob" value="<?= $partnerData['vcJobAfterMarriage'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Job</label>
                                                             <input type="text" class="form-control" id="myJob" value="<?= $myData['vcJobAfterMarriage'] ?>" placeholder="N/A" disabled>
@@ -1846,13 +1860,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Education</label>
                                                             <input type="text" class="form-control" id="partnerEducation" value="<?= $partnerData['vcEducationAfterMarriage'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Education</label>
                                                             <input type="text" class="form-control" id="myEducation" value="<?= $myData['vcEducationAfterMarriage'] ?>" placeholder="N/A" disabled>
@@ -1860,13 +1874,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Children Likes</label>
                                                             <input type="text" class="form-control" id="partnerChildrenLikes" value="<?= $partnerData['vcChildrenLikes'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Children Likes</label>
                                                             <input type="text" class="form-control" id="myChildrenLikes" value="<?= $myData['vcChildrenLikes'] ?>" placeholder="N/A" disabled>
@@ -1874,13 +1888,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Help Family</label>
                                                             <input type="text" class="form-control" id="partnerHelpFamily" value="<?= $partnerData['vcHelpFamily'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Help Family</label>
                                                             <input type="text" class="form-control" id="myHelpFamily" value="<?= $myData['vcHelpFamily'] ?>" placeholder="N/A" disabled>
@@ -1888,13 +1902,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Other Needs</label>
                                                             <button class="btn btn-info btn-block">View Details</button>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Other Needs</label>
                                                             <button class="btn btn-info btn-block">View Details</button>
@@ -1915,13 +1929,13 @@
                                         <div id="collapseHoroscope" class="collapse" aria-labelledby="headingHoroscope" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="shortName">Matching Horoscope</label>
                                                             <input type="text" class="form-control" id="partnerMatchingHoroscope" value="<?= $partnerData['vcMatchingHoroscope'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Matching Horoscope</label>
                                                             <input type="text" class="form-control" id="myMatchingHoroscope" value="<?= $myData['vcMatchingHoroscope'] ?>" placeholder="N/A" disabled>
@@ -1929,13 +1943,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Papa Kendara</label>
                                                             <input type="text" class="form-control" id="partnerPapaKendara" value="<?= $partnerData['vcPapaKendara'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Papa Kendara</label>
                                                             <input type="text" class="form-control" id="myPapaKendara" value="<?= $myData['vcPapaKendara'] ?>" placeholder="N/A" disabled>
@@ -1943,13 +1957,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Zodiac Sign</label>
                                                             <input type="text" class="form-control" id="partnerZodiacSign" value="<?= $partnerData['vcZodiacSign'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Zodiac Sign</label>
                                                             <input type="text" class="form-control" id="myZodiacSign" value="<?= $myData['vcZodiacSign'] ?>" placeholder="N/A" disabled>
@@ -1957,13 +1971,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Nekatha</label>
                                                             <input type="text" class="form-control" id="partnerNekatha" value="<?= $partnerData['vcNekatha'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Nekatha</label>
                                                             <input type="text" class="form-control" id="myNekatha" value="<?= $myData['vcNekatha'] ?>" placeholder="N/A" disabled>
@@ -1971,13 +1985,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Ganaya</label>
                                                             <input type="text" class="form-control" id="partnerGanaya" value="<?= $partnerData['vcGanaya'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Ganaya</label>
                                                             <input type="text" class="form-control" id="myGanaya" value="<?= $myData['vcGanaya'] ?>" placeholder="N/A" disabled>
@@ -1985,13 +1999,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Moon</label>
                                                             <input type="text" class="form-control" id="partnerMoon" value="<?= $partnerData['intMoon'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Moon</label>
                                                             <input type="text" class="form-control" id="myMoon" value="<?= $myData['intMoon'] ?>" placeholder="N/A" disabled>
@@ -1999,13 +2013,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Mars</label>
                                                             <input type="text" class="form-control" id="partnerMars" value="<?= $partnerData['intMars'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Mars</label>
                                                             <input type="text" class="form-control" id="myMars" value="<?= $myData['intMars'] ?>" placeholder="N/A" disabled>
@@ -2013,13 +2027,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Mercury</label>
                                                             <input type="text" class="form-control" id="partnerMercury" value="<?= $partnerData['intMercury'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Mercury</label>
                                                             <input type="text" class="form-control" id="myMercury" value="<?= $myData['intMercury'] ?>" placeholder="N/A" disabled>
@@ -2027,13 +2041,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Jupiter</label>
                                                             <input type="text" class="form-control" id="partnerJupiter" value="<?= $partnerData['intJupiter'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Jupiter</label>
                                                             <input type="text" class="form-control" id="myJupiter" value="<?= $myData['intJupiter'] ?>" placeholder="N/A" disabled>
@@ -2041,13 +2055,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Venus</label>
                                                             <input type="text" class="form-control" id="partnerVenus" value="<?= $partnerData['intVenus'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Venus</label>
                                                             <input type="text" class="form-control" id="myVenus" value="<?= $myData['intVenus'] ?>" placeholder="N/A" disabled>
@@ -2055,13 +2069,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Saturn</label>
                                                             <input type="text" class="form-control" id="partnerSaturn" value="<?= $partnerData['intSaturn'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Saturn</label>
                                                             <input type="text" class="form-control" id="mySaturn" value="<?= $myData['intSaturn'] ?>" placeholder="N/A" disabled>
@@ -2069,13 +2083,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Rahu</label>
                                                             <input type="text" class="form-control" id="partnerRahu" value="<?= $partnerData['intRahu'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Rahu</label>
                                                             <input type="text" class="form-control" id="myRahu" value="<?= $myData['intRahu'] ?>" placeholder="N/A" disabled>
@@ -2083,13 +2097,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-6 partner-detail">
+                                                    <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <label for="phone">Kethu</label>
                                                             <input type="text" class="form-control" id="partnerKethu" value="<?= $partnerData['intKethu'] ?>" placeholder="N/A" disabled>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6 my-detail">
+                                                    <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <label for="shortName" style="color: #FFFFFF;">Kethu</label>
                                                             <input type="text" class="form-control" id="myKethu" value="<?= $myData['intKethu'] ?>" placeholder="N/A" disabled>
