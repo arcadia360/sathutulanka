@@ -606,14 +606,14 @@
                                                     <div class="col-5 partner-detail">
                                                         <div class="form-group">
                                                             <!-- <label for="nickName">Nick Name</label> -->
-                                                            <label for="nickName"><?= $partnerData['vcNickName'] ?></label>
+                                                            <p><?= $partnerData['vcNickName'] ?></p>
                                                             <!-- <input type="text" class="form-control" id="partnerNickName" value="<?= $partnerData['vcNickName'] ?>" placeholder="N/A" disabled> -->
                                                         </div>
                                                     </div>
                                                     <div class="col-5 my-detail">
                                                         <div class="form-group">
                                                             <!-- <label for="website" style="color: #FFFFFF;">Nick Name</label> -->
-                                                            <label for="nickName"><?= $myData['vcNickName'] ?></label>
+                                                            <p><?= $myData['vcNickName'] ?></p>
                                                             <!-- <input type="text" class="form-control" id="myNickName" value="<?= $myData['vcNickName'] ?>" placeholder="N/A" disabled> -->
                                                         </div>
                                                     </div>
