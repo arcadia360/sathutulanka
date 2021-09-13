@@ -58,10 +58,10 @@ function getAllSingles_ByMemberID() {
                 } else if ((response.result[index].intMemberAccountTypeID) == 2) {
                 verifyBadge = "<span class='badge badge-trustProving'>Trust Proving</span>";
             }
-                else if ((response.result[index].intMemberAccountTypeID) == 2) {
+                else if ((response.result[index].intMemberAccountTypeID) == 3) {
                 verifyBadge = "<span class='badge badge-trustVerified'>Trust Verified</span>";
             }
-                else if ((response.result[index].intMemberAccountTypeID) == 2) {
+                else if ((response.result[index].intMemberAccountTypeID) == 4) {
                 verifyBadge = "<span class='badge badge-trustVerified'>Trust Verified</span>";
             }
 
