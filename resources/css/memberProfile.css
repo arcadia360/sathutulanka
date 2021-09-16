@@ -15,6 +15,11 @@ label {
     font-size: 0.9em;
 }
 
+.my-detail label,
+.partner-detail label{ 
+    font-weight: lighter !important;
+}
+
 .btn-link {
     text-decoration: none !important;
 }
