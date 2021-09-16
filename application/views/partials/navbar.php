@@ -212,7 +212,7 @@
                     <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Suggesitions") {
                                             echo 'active';
                                         } ?>">
-                        <a class="nav-link" href="#">&nbsp;Suggesitions&nbsp;</a>
+                        <a class="nav-link" href="#">&nbsp;Interests/Requests&nbsp;</a>
                     </li>
                     <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Notifications") {
                                             echo 'active';
