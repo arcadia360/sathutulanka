@@ -16,6 +16,24 @@
             border: none !important;
         }
 
+        .collapse-area .card .row {
+            min-height: 35px !important;
+        }
+
+        .collapse-area label {
+            margin: 0 !important;
+        }
+
+        .profile-card {
+            height: auto !important;
+            margin-top: 20px !important;
+
+        }
+
+        .profile-card .overlay {
+            bottom: 0 !important;
+        }
+
         .profile-card,
         .content-area {
 
@@ -213,6 +231,22 @@
             color: #EA3C53;
         }
 
+        .partner-detail,
+        .my-detail {
+            text-transform: capitalize;
+            width: CALC((100% - 150px) / 2);
+            padding-right: 15px;
+            float: left;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .title-column {
+            width: 150px;
+            float: left;
+            position: relative;
+        }
+
         /* UI Kit Components */
 
         .uk-panel img {
@@ -238,6 +272,17 @@
                 padding-left: 10px !important;
             }
         }
+
+        /* Mobile Support */
+
+        @media (max-width: 576px) {
+
+            .partner-detail,
+            .my-detail { 
+                width: CALC(100% - 150px); 
+            }
+
+        }
     </style>
 
 
@@ -248,7 +293,7 @@
 
 
             <div class="row">
-                <div class="col-md-3 padding-mobile-left-0 padding-mobile-right-0">
+                <div class="col-md-12 col-lg-3 padding-mobile-left-0 padding-mobile-right-0">
                     <div class="card profile-card">
                         <div class="row">
                             <!-- <a href="" class="profile-heart like"><i class="fas fa-heart"></i></a> -->
@@ -304,7 +349,7 @@
 
 
                 </div>
-                <div class="col-md-6 padding-mobile-left-0 padding-mobile-right-0">
+                <div class="col-md-12 col-lg-8 padding-mobile-left-0 padding-mobile-right-0">
 
                     <div class="card mb-3">
                         <div class="card-body content-areaX">
@@ -581,9 +626,9 @@
 
 
                                     <div class="card">
-                                        <div class="card-header" id="headingOne">
+                                        <div class="card-header pl-0" id="headingOne">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                <button class="btn btn-link collapsed text-primary p-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                     Basic Information
                                                 </button>
                                             </h5>
@@ -592,125 +637,89 @@
                                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="col-5 offset-2 partner-detail">
+                                                    <div class="title-column"></div>
+                                                    <div class="my-detail">
                                                         <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-male"></i> His Details</h5>
                                                     </div>
-                                                    <div class="col-5 my-detail">
+                                                    <div class="my-detail">
                                                         <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-female"></i> My Details</h5>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-2">
+                                                <div class="row border-bottom align-items-center">
+                                                    <div class="title-column">
                                                         <label for="nickName">Nick Name</label>
                                                     </div>
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <!-- <label for="nickName">Nick Name</label> -->
-                                                            <p><?= $partnerData['vcNickName'] ?></p>
-                                                            <!-- <input type="text" class="form-control" id="partnerNickName" value="<?= $partnerData['vcNickName'] ?>" placeholder="N/A" disabled> -->
-                                                        </div>
+                                                    <div class="partner-detail">
+                                                        <label><?= $partnerData['vcNickName'] ?></label>
                                                     </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <!-- <label for="website" style="color: #FFFFFF;">Nick Name</label> -->
-                                                            <p><?= $myData['vcNickName'] ?></p>
-                                                            <!-- <input type="text" class="form-control" id="myNickName" value="<?= $myData['vcNickName'] ?>" placeholder="N/A" disabled> -->
-                                                        </div>
+                                                    <div class="my-detail">
+                                                        <label><?= $myData['vcNickName'] ?></label>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                        <label for="partnerGender">Gender</label>
+                                                <div class="row border-bottom justify-content-center align-items-center">
+                                                    <div class="title-column">
+                                                        <label for="partnerGender" style="margin: 0 !important;">Gender</label>
                                                     </div>
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <!-- <label for="phone">Gender</label> -->
-                                                            <input type="text" class="form-control" id="partnerGender" value="<?= $partnerData['vcGender'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="partner-detail">
+                                                        <label><?= $partnerData['vcGender'] ?></label>
                                                     </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <!-- <label for="website" style="color: #FFFFFF;">Gender</label> -->
-                                                            <input type="text" class="form-control" id="myGender" value="<?= $myData['vcGender'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="my-detail">
+                                                        <label><?= $myData['vcGender'] ?></label>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-2">
+                                                <div class="row border-bottom justify-content-center align-items-center">
+                                                    <div class="title-column">
                                                         <label for="partnerAge">Age</label>
                                                     </div>
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <!-- <label for="phone">Age</label> -->
-                                                            <input type="text" class="form-control" id="partnerAge" value="<?= $partnerData['intAge'] ?> Years" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="partner-detail">
+                                                        <label><?= $partnerData['intAge'] ?> Years</label>
                                                     </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <!-- <label for="website" style="color: #FFFFFF;">Age</label> -->
-                                                            <input type="text" class="form-control" id="myAge" value="<?= $myData['intAge'] ?> Years" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="my-detail">
+                                                        <label><?= $myData['intAge'] ?> Years</label>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                        <label for="partnerAge">Marital Status</label>
+                                                <div class="row border-bottom justify-content-center align-items-center">
+                                                    <div class="title-column">
+                                                        <label>Marital Status</label>
                                                     </div>
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <!-- <label for="website">Marital Status</label> -->
-                                                            <input type="text" class="form-control" id="partnerMaritalStatus" value="<?= $partnerData['vcMaritalStatus'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="partner-detail">
+                                                        <label><?= $partnerData['vcMaritalStatus'] ?></label>
                                                     </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <!-- <label for="shortName" class="float-right"><a class="descriptive-information-model" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('MaritalStatus')"><i class="fas fa-info-circle"></i></a></label> -->
-                                                            <!-- <label for="website" style="color: #FFFFFF;">Marital Status</label> -->
-                                                            <input type="text" class="form-control" id="myMaritalStatus" value="<?= $myData['vcMaritalStatus'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="my-detail">
+                                                        <label><?= $myData['vcMaritalStatus'] ?></label>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">No Of Children(s)</label>
-                                                            <input type="text" class="form-control" id="partnerNoOfChildren" value="<?= $partnerData['vcNoOfChildren'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                <div class="row border-bottom justify-content-center align-items-center">
+                                                    <div class="title-column">
+                                                        <label>No Of Children(s)</label>
                                                     </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <!-- <label for="shortName" class="float-right" style="color: #FFFFFF;">No Of Children(s)<a class="descriptive-information-model float-right" href="#" data-toggle="tooltip" title="Descriptive Information" onclick="ShowDescriptiveInformation('NoOfChildren')"><i class="fas fa-info-circle"></i></a></label> -->
-                                                            <label for="website" style="color: #FFFFFF;">No Of Children(s)</label>
-                                                            <input type="text" class="form-control" id="myNoOfChildren" value="<?= $myData['vcNoOfChildren'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="partner-detail">
+                                                        <label><?= $partnerData['vcNoOfChildren'] ?></label>
+                                                    </div>
+                                                    <div class="my-detail">
+                                                        <label><?= $myData['vcNoOfChildren'] ?></label>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Prof: Manage</label>
-                                                            <input type="text" class="form-control" id="partnerMarryBy" value="<?= $partnerData['vcProvidingInformationType'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                <div class="row border-bottom justify-content-center align-items-center">
+                                                    <div class="title-column">
+                                                        <label>Profile Manage By</label>
                                                     </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Prof: Manage</label>
-                                                            <input type="text" class="form-control" id="myMarryBy" value="<?= $myData['vcProvidingInformationType'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="partner-detail">
+                                                        <label><?= $partnerData['vcProvidingInformationType'] ?></label>
+                                                    </div>
+                                                    <div class="my-detail">
+                                                        <label><?= $myData['vcProvidingInformationType'] ?></label>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Marry By</label>
-                                                            <input type="text" class="form-control" id="partnerMarryBy" value="<?= $partnerData['vcMarriageType'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                <div class="row justify-content-center align-items-center">
+                                                    <div class="title-column">
+                                                        <label>Marry By</label>
                                                     </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Marry By</label>
-                                                            <input type="text" class="form-control" id="myMarryBy" value="<?= $myData['vcMarriageType'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="partner-detail">
+                                                        <label><?= $partnerData['vcMarriageType'] ?></label>
+                                                    </div>
+                                                    <div class="my-detail">
+                                                        <label><?= $myData['vcMarriageType'] ?></label>
                                                     </div>
                                                 </div>
                                                 <!-- <div class="col-6">
@@ -2214,13 +2223,13 @@
 
         function ShowMyDetails(value) {
             if (value) { // Show My Details
-                $(".partner-detail").removeClass("col-12");
-                $(".partner-detail").addClass("col-6");
+                $(".partner-detail").removeClass("col-10");
+                $(".partner-detail").addClass("col-5");
                 $(".my-detail").removeClass("hide-my-detail");
 
             } else { // Hide My Details
-                $(".partner-detail").removeClass("col-6");
-                $(".partner-detail").addClass("col-12");
+                $(".partner-detail").removeClass("col-5");
+                $(".partner-detail").addClass("col-10");
                 $(".my-detail").addClass("hide-my-detail");
             }
         }
