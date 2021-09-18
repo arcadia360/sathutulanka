@@ -311,6 +311,8 @@
                 overflow-x: scroll;
                 overflow-y: visible;
             }
+
+
         }
     </style>
 
@@ -727,10 +729,10 @@
                                                     <div class="outer">
                                                         <div class="inner">
                                                             <table>
-                                                                <tr>
+                                                                <tr class="header">
                                                                     <td class="fixed_left"></td>
-                                                                    <td class="partner-detail" style="background-color: #ffe082; color: #795548; padding: 10px; font-weight: 600; text-align: center; border-right: 2px solid #FFFFFF;"><i class="fas fa-male"></i> His Details</td>
-                                                                    <td class="my-detail" style="background-color: #ffe082; color: #795548; padding: 10px; font-weight: 600; text-align: center;"><i class="fas fa-female"></i> My Details</td>
+                                                                    <td class="partner-detail" style="background-color: #ffe082; color: #795548; padding: 3px; font-weight: 600; text-align: center; border-right: 2px solid #FFFFFF;"><i class="fas fa-male"></i> His Details</td>
+                                                                    <td class="my-detail" style="background-color: #ffe082; color: #795548; padding: 3px; font-weight: 600; text-align: center;"><i class="fas fa-female"></i> My Details</td>
                                                                     <td class="col-idle my-detail"></td>
                                                                 </tr>
                                                                 <tr>
@@ -2366,13 +2368,13 @@
 
         function ShowMyDetails(value) {
             if (value) { // Show My Details
-                // $(".partner-detail").removeClass("col-10");
+                $(".header .partner-detail").removeClass("border-0");
                 // $(".partner-detail").addClass("col-5");
                 $(".my-detail").removeClass("hide-my-detail");
 
             } else { // Hide My Details
                 // $(".partner-detail").removeClass("col-5");
-                // $(".partner-detail").addClass("col-10");
+                $(".header .partner-detail").addClass("border-0");
                 $(".my-detail").addClass("hide-my-detail");
             }
         }
