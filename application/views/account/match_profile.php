@@ -233,12 +233,13 @@
 
         .partner-detail,
         .my-detail {
-            text-transform: capitalize;
-            width: CALC((100% - 150px) / 2);
-            padding-right: 15px;
-            float: left;
-            position: relative;
-            padding-left: 15px;
+            /* text-transform: capitalize; */
+            /* width: CALC((100% - 150px) / 2); */
+            /* padding-right: 15px; */
+            /* float: left;
+            position: relative; */
+            /* padding-left: 15px; */
+            width: 100%;
         }
 
         .title-column {
@@ -277,15 +278,86 @@
 
         @media (max-width: 576px) {
 
-            .partner-detail,
+            /* .partner-detail,
             .my-detail { 
                 width: CALC(100% - 150px); 
+            } */
+
+            table {
+                width: 50% !important;
             }
 
+            .scroll-onMobile {
+                overflow: scroll;
+                width: CALC(100% - 150px);
+                display: flex;
+
+                background-color: green;
+            }
+
+            td {
+                width: 200px !important;
+            }
+
+            .inner {
+                width: 400px;
+            }
+
+            .col-idle {
+                display: block !important;
+            }
+
+            .inner {
+                overflow-x: scroll;
+                overflow-y: visible;
+            }
         }
     </style>
 
+    <style>
+        table {
+            table-layout: fixed;
+            width: 100%;
+        }
 
+        td {
+            vertical-align: top;
+            /* border-top: 1px solid #ccc; */
+            padding: 10px;
+            /* width: 100%; */
+            cursor: default;
+            text-transform: capitalize;
+            font-size: 0.9em;
+        }
+
+
+
+        .fixed_left {
+            position: absolute;
+            /*ie7*/
+            left: 0;
+            width: 150px;
+            font-weight: 600;
+        }
+
+
+
+        .outer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .inner {
+            /* overflow-x: scroll;
+            overflow-y: visible; */
+            /* width: 400px; */
+            margin-left: 150px;
+        }
+
+        .col-idle {
+            display: none;
+        }
+    </style>
 
     <div class="container-fluid">
         <div class="main-body">
@@ -636,7 +708,7 @@
 
                                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                             <div class="card-body">
-                                                <div class="row">
+                                                <!-- <div class="row">
                                                     <div class="title-column"></div>
                                                     <div class="my-detail">
                                                         <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-male"></i> His Details</h5>
@@ -644,19 +716,90 @@
                                                     <div class="my-detail">
                                                         <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-female"></i> My Details</h5>
                                                     </div>
+                                                </div> -->
+
+
+
+
+                                                <!-- Test -->
+                                                <div class="row">
+
+                                                    <div class="outer">
+                                                        <div class="inner">
+                                                            <table>
+                                                                <tr>
+                                                                    <td class="fixed_left"></td>
+                                                                    <td class="partner-detail" style="background-color: #ffe082; color: #795548; padding: 10px; font-weight: 600; text-align: center; border-right: 2px solid #FFFFFF;"><i class="fas fa-male"></i> His Details</td>
+                                                                    <td class="my-detail" style="background-color: #ffe082; color: #795548; padding: 10px; font-weight: 600; text-align: center;"><i class="fas fa-female"></i> My Details</td>
+                                                                    <td class="col-idle my-detail"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="fixed_left">Nick Name</td>
+                                                                    <td class="partner-detail border-bottom"><?= $partnerData['vcNickName'] ?></td>
+                                                                    <td class="my-detail border-bottom"><?= $myData['vcNickName'] ?></td>
+                                                                    <td class="col-idle my-detail border-bottom"></td>
+                                                                </tr>
+                                                                <tr>
+
+                                                                    <td class="fixed_left">Gender</td>
+                                                                    <td class="partner-detail border-bottom"><?= $partnerData['vcGender'] ?></td>
+                                                                    <td class="my-detail border-bottom"><?= $myData['vcGender'] ?></td>
+                                                                    <td class="col-idle my-detail border-bottom"></td>
+                                                                </tr>
+                                                                <tr>
+
+                                                                    <td class="fixed_left">Age</td>
+                                                                    <td class="partner-detail border-bottom"><?= $partnerData['intAge'] ?> Years</td>
+                                                                    <td class="my-detail border-bottom"><?= $myData['intAge'] ?> Years</td>
+                                                                    <td class="col-idle my-detail border-bottom"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="fixed_left">Marital Status</td>
+                                                                    <td class="partner-detail border-bottom"><?= $partnerData['vcMaritalStatus'] ?></td>
+                                                                    <td class="my-detail border-bottom"><?= $myData['vcMaritalStatus'] ?></td>
+                                                                    <td class="col-idle my-detail border-bottom"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="fixed_left">No Of Children(s)</td>
+                                                                    <td class="partner-detail border-bottom"><?= $partnerData['vcNoOfChildren'] ?></td>
+                                                                    <td class="my-detail border-bottom"><?= $myData['vcNoOfChildren'] ?></td>
+                                                                    <td class="col-idle my-detail border-bottom"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="fixed_left">Manage By</td>
+                                                                    <td class="partner-detail border-bottom"><?= $partnerData['vcProvidingInformationType'] ?></td>
+                                                                    <td class="my-detail border-bottom"><?= $myData['vcProvidingInformationType'] ?></td>
+                                                                    <td class="col-idle my-detail border-bottom"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="fixed_left">Marry By</td>
+                                                                    <td class="partner-detail"><?= $partnerData['vcMarriageType'] ?></td>
+                                                                    <td class="my-detail"><?= $myData['vcMarriageType'] ?></td>
+                                                                    <td class="col-idle my-detail"></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
-                                                <div class="row border-bottom align-items-center">
+
+
+                                                <!-- <div class="row border-bottom align-items-center">
                                                     <div class="title-column">
                                                         <label for="nickName">Nick Name</label>
                                                     </div>
-                                                    <div class="partner-detail">
-                                                        <label><?= $partnerData['vcNickName'] ?></label>
+
+                                                    <div class="scroll-onMobile">
+                                                        <div class="partner-detail" style="background-color: red; width: 300px;">
+                                                            <label><?= $partnerData['vcNickName'] ?></label>
+                                                        </div>
+                                                        <div class="my-detail" style="background-color: yellow; width: 300px;">
+                                                            <label><?= $myData['vcNickName'] ?></label>
+                                                        </div>
                                                     </div>
-                                                    <div class="my-detail">
-                                                        <label><?= $myData['vcNickName'] ?></label>
-                                                    </div>
-                                                </div>
-                                                <div class="row border-bottom justify-content-center align-items-center">
+
+                                                </div> -->
+                                                <!-- <div class="row border-bottom justify-content-center align-items-center">
                                                     <div class="title-column">
                                                         <label for="partnerGender" style="margin: 0 !important;">Gender</label>
                                                     </div>
@@ -666,8 +809,8 @@
                                                     <div class="my-detail">
                                                         <label><?= $myData['vcGender'] ?></label>
                                                     </div>
-                                                </div>
-                                                <div class="row border-bottom justify-content-center align-items-center">
+                                                </div> -->
+                                                <!-- <div class="row border-bottom justify-content-center align-items-center">
                                                     <div class="title-column">
                                                         <label for="partnerAge">Age</label>
                                                     </div>
@@ -677,8 +820,8 @@
                                                     <div class="my-detail">
                                                         <label><?= $myData['intAge'] ?> Years</label>
                                                     </div>
-                                                </div>
-                                                <div class="row border-bottom justify-content-center align-items-center">
+                                                </div> -->
+                                                <!-- <div class="row border-bottom justify-content-center align-items-center">
                                                     <div class="title-column">
                                                         <label>Marital Status</label>
                                                     </div>
@@ -688,8 +831,8 @@
                                                     <div class="my-detail">
                                                         <label><?= $myData['vcMaritalStatus'] ?></label>
                                                     </div>
-                                                </div>
-                                                <div class="row border-bottom justify-content-center align-items-center">
+                                                </div> -->
+                                                <!-- <div class="row border-bottom justify-content-center align-items-center">
                                                     <div class="title-column">
                                                         <label>No Of Children(s)</label>
                                                     </div>
@@ -699,8 +842,8 @@
                                                     <div class="my-detail">
                                                         <label><?= $myData['vcNoOfChildren'] ?></label>
                                                     </div>
-                                                </div>
-                                                <div class="row border-bottom justify-content-center align-items-center">
+                                                </div> -->
+                                                <!-- <div class="row border-bottom justify-content-center align-items-center">
                                                     <div class="title-column">
                                                         <label>Profile Manage By</label>
                                                     </div>
@@ -710,8 +853,8 @@
                                                     <div class="my-detail">
                                                         <label><?= $myData['vcProvidingInformationType'] ?></label>
                                                     </div>
-                                                </div>
-                                                <div class="row justify-content-center align-items-center">
+                                                </div> -->
+                                                <!-- <div class="row justify-content-center align-items-center">
                                                     <div class="title-column">
                                                         <label>Marry By</label>
                                                     </div>
@@ -721,7 +864,7 @@
                                                     <div class="my-detail">
                                                         <label><?= $myData['vcMarriageType'] ?></label>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <!-- <div class="col-6">
                                             <div class="form-group">
                                                 <label for="website">Date Of Birth</label>
@@ -2223,13 +2366,13 @@
 
         function ShowMyDetails(value) {
             if (value) { // Show My Details
-                $(".partner-detail").removeClass("col-10");
-                $(".partner-detail").addClass("col-5");
+                // $(".partner-detail").removeClass("col-10");
+                // $(".partner-detail").addClass("col-5");
                 $(".my-detail").removeClass("hide-my-detail");
 
             } else { // Hide My Details
-                $(".partner-detail").removeClass("col-5");
-                $(".partner-detail").addClass("col-10");
+                // $(".partner-detail").removeClass("col-5");
+                // $(".partner-detail").addClass("col-10");
                 $(".my-detail").addClass("hide-my-detail");
             }
         }
