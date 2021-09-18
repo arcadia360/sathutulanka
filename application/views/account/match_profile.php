@@ -707,7 +707,7 @@
                                         </div>
 
                                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                            <div class="card-body">
+                                            <div class="card-body pt-0">
                                                 <!-- <div class="row">
                                                     <div class="title-column"></div>
                                                     <div class="my-detail">
