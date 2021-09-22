@@ -278,12 +278,16 @@
 
         @media (max-width: 576px) {
 
-            /* .partner-detail,
-            .my-detail { 
-                width: CALC(100% - 150px); 
-            } */
-
             table {
+                width: 150%;
+            }
+
+            .overflowX {
+                width: 100%;
+                overflow-X: scroll;
+            }
+
+            /* table {
                 width: 50% !important;
             }
 
@@ -297,9 +301,9 @@
 
             td {
                 width: 200px !important;
-            }
+            } */
 
-            .inner {
+            /* .inner {
                 width: 400px;
             }
 
@@ -310,7 +314,7 @@
             .inner {
                 overflow-x: scroll;
                 overflow-y: visible;
-            }
+            } */
 
 
         }
@@ -322,7 +326,7 @@
             width: 100%;
         }
 
-        td {
+        .overflowX td {
             vertical-align: top;
             /* border-top: 1px solid #ccc; */
             padding: 10px;
@@ -330,35 +334,35 @@
             cursor: default;
             text-transform: capitalize;
             font-size: 0.9em;
+            width: 50%;
         }
 
 
 
-        .fixed_left {
-            position: absolute;
-            /*ie7*/
+        /* .fixed_left {
+            position: absolute; 
             left: 0;
             width: 150px;
             font-weight: 600;
-        }
+        } */
 
 
-
+        /* 
         .outer {
             position: relative;
             overflow: hidden;
-        }
+        } */
 
-        .inner {
-            /* overflow-x: scroll;
+        /* .inner { */
+        /* overflow-x: scroll;
             overflow-y: visible; */
-            /* width: 400px; */
-            margin-left: 150px;
-        }
-
+        /* width: 400px; */
+        /* margin-left: 150px; */
+        /* } */
+        /* 
         .col-idle {
             display: none;
-        }
+        } */
     </style>
 
     <div class="container-fluid">
@@ -725,8 +729,24 @@
 
                                                 <!-- Test -->
                                                 <div class="row">
+                                                    <div class="overflowX">
+                                                        <table>
+                                                            <tr class="border-bottom">
+                                                                <td></td>
+                                                                <td class="partner-detail" style="background-color: #ffe082; color: #795548; padding: 3px; font-weight: 600; text-align: center; border-right: 2px solid #FFFFFF;"><i class="fas fa-male"></i> His Details</td>
+                                                                <td class="my-detail" style="background-color: #ffe082; color: #795548; padding: 3px; font-weight: 600; text-align: center;"><i class="fas fa-female"></i> My Details</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Nick Name</td>
+                                                                <td class="partner-detail border-bottom"><?= $partnerData['vcNickName'] ?></td>
+                                                                <td class="my-detail border-bottom"><?= $myData['vcNickName'] ?></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
 
-                                                    <div class="outer">
+
+
+                                                    <!-- <div class="outer">
                                                         <div class="inner">
                                                             <table>
                                                                 <tr class="header">
@@ -781,7 +801,7 @@
                                                                 </tr>
                                                             </table>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
 
                                                 </div>
 
