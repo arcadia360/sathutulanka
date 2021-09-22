@@ -188,7 +188,14 @@ class Account extends Admin_Controller
 		echo json_encode($result);
 	}
 
-	// blocked Profile start
+	// blocked Profile end
+
+	//interest/requst start
+	public function InterestsAndRequests(){
+		$this->render_template('account/interests_and_requests', 'Interests/Requests');
+	}	
+	//interest/requst end
+
 	
 	// DK End
 }
