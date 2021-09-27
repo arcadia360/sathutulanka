@@ -279,12 +279,12 @@
         @media (max-width: 576px) {
 
             table {
-                width: 150%;
+                width: 150% !important;
             }
 
             .overflowX {
-                width: 100%;
-                overflow-X: scroll;
+                width: 100% !important;
+                overflow-X: scroll !important;
             }
 
             /* table {
@@ -731,15 +731,45 @@
                                                 <div class="row">
                                                     <div class="overflowX">
                                                         <table>
-                                                            <tr class="border-bottom">
+                                                            <tr>
                                                                 <td></td>
                                                                 <td class="partner-detail" style="background-color: #ffe082; color: #795548; padding: 3px; font-weight: 600; text-align: center; border-right: 2px solid #FFFFFF;"><i class="fas fa-male"></i> His Details</td>
                                                                 <td class="my-detail" style="background-color: #ffe082; color: #795548; padding: 3px; font-weight: 600; text-align: center;"><i class="fas fa-female"></i> My Details</td>
                                                             </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Nick Name</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcNickName'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcNickName'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Gender</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcGender'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcGender'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Age</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['intAge'] ?> Years</td>
+                                                                <td class="my-detail"><?= $myData['intAge'] ?> Years</td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Marital Status</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcMaritalStatus'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcMaritalStatus'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>No Of Children(s)</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcNoOfChildren'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcNoOfChildren'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Manage By</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcProvidingInformationType'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcProvidingInformationType'] ?></td>
+                                                            </tr>
                                                             <tr>
-                                                                <td>Nick Name</td>
-                                                                <td class="partner-detail border-bottom"><?= $partnerData['vcNickName'] ?></td>
-                                                                <td class="my-detail border-bottom"><?= $myData['vcNickName'] ?></td>
+                                                                <td><strong>Marry By</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcMarriageType'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcMarriageType'] ?></td>
                                                             </tr>
                                                         </table>
                                                     </div>
