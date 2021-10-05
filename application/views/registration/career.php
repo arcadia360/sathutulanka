@@ -11,7 +11,7 @@
           </select>
         </div>
       </div>
-    </div>
+    </div>  
     <div id="not-working-or-education">
 
       <div id="workingAsWorkingSector">
