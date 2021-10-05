@@ -258,6 +258,114 @@ class Admin extends Admin_Controller
 		echo json_encode($result);
 	}
 
+	public function GetMarkAsTrustProving($FromDate, $ToDate)
+	{
+		$result = array('data' => array());
+		$member_data = $this->model_admin->GetMarkAsTrustProving($FromDate, $ToDate);
+		foreach ($member_data as $key => $value) {
+			$buttons = '';
+			$time = '';
+			$time = $value['Days'] . ' Days &nbsp;&nbsp;';
+
+			if ($value['Months'] > 0) {
+				$time .= $value['Months'] . ' Months &nbsp;&nbsp;';
+			}
+			if ($value['Years'] > 0) {
+				$time .= $value['Years'] . ' Years &nbsp;&nbsp;';
+			}
+
+			$buttons .= '<a class="button btn btn-default" href="' . base_url("admin/manageMemberList/" . $value['intMemberID']) . '" style="margin:0 !important;"><i class="fas fa-edit"></i></a>';
+
+			$result['data'][$key] = array(
+				$value['vcMemberCode'],
+				$value['vcNickName'],
+				$value['vcEmail'],
+				$value['vcMobileNo'],
+				$value['vcGender'],
+				$value['dtDOB'],
+				// $value['vcMaritalStatus'],
+				$value['createdDate'],
+				$time,
+				$value['vcMemberAccountStatus'],
+				$buttons
+			);
+		}
+
+		echo json_encode($result);
+	}
+
+	public function GetMarkAsPremiumMembers($FromDate, $ToDate)
+	{
+		$result = array('data' => array());
+		$member_data = $this->model_admin->GetMarkAsPremiumMembers($FromDate, $ToDate);
+		foreach ($member_data as $key => $value) {
+			$buttons = '';
+			$time = '';
+			$time = $value['Days'] . ' Days &nbsp;&nbsp;';
+
+			if ($value['Months'] > 0) {
+				$time .= $value['Months'] . ' Months &nbsp;&nbsp;';
+			}
+			if ($value['Years'] > 0) {
+				$time .= $value['Years'] . ' Years &nbsp;&nbsp;';
+			}
+
+			$buttons .= '<a class="button btn btn-default" href="' . base_url("admin/manageMemberList/" . $value['intMemberID']) . '" style="margin:0 !important;"><i class="fas fa-edit"></i></a>';
+
+			$result['data'][$key] = array(
+				$value['vcMemberCode'],
+				$value['vcNickName'],
+				$value['vcEmail'],
+				$value['vcMobileNo'],
+				$value['vcGender'],
+				$value['dtDOB'],
+				// $value['vcMaritalStatus'],
+				$value['createdDate'],
+				$time,
+				$value['vcMemberAccountStatus'],
+				$buttons
+			);
+		}
+
+		echo json_encode($result);
+	}
+
+	public function GetTrustVerifiedMembers($FromDate, $ToDate)
+	{
+		$result = array('data' => array());
+		$member_data = $this->model_admin->GetTrustVerifiedMembers($FromDate, $ToDate);
+		foreach ($member_data as $key => $value) {
+			$buttons = '';
+			$time = '';
+			$time = $value['Days'] . ' Days &nbsp;&nbsp;';
+
+			if ($value['Months'] > 0) {
+				$time .= $value['Months'] . ' Months &nbsp;&nbsp;';
+			}
+			if ($value['Years'] > 0) {
+				$time .= $value['Years'] . ' Years &nbsp;&nbsp;';
+			}
+
+			$buttons .= '<a class="button btn btn-default" href="' . base_url("admin/manageMemberList/" . $value['intMemberID']) . '" style="margin:0 !important;"><i class="fas fa-edit"></i></a>';
+
+			$result['data'][$key] = array(
+				$value['vcMemberCode'],
+				$value['vcNickName'],
+				$value['vcEmail'],
+				$value['vcMobileNo'],
+				$value['vcGender'],
+				$value['dtDOB'],
+				// $value['vcMaritalStatus'],
+				$value['createdDate'],
+				$time,
+				$value['vcMemberAccountStatus'],
+				$buttons
+			);
+		}
+
+		echo json_encode($result);
+	}
+
 	public function manageMemberList($MemberID)
 	{
 		$member_data = $this->model_account->getMemberData($MemberID);

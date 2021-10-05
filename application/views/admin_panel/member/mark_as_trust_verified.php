@@ -53,7 +53,7 @@
                         <!-- <div>
                             Toggle column: <a class="toggle-vis" data-column="0">ID</a> - <a class="toggle-vis" data-column="1">GRN No</a> - <a class="toggle-vis" data-column="2">Office</a> - <a class="toggle-vis" data-column="3">Age</a> - <a class="toggle-vis" data-column="4">Start date</a> - <a class="toggle-vis" data-column="5">Salary</a>
                         </div> -->
-                        <table id="tblTrustProvingMembers" class="table table-bordered table-striped">
+                        <table id="tblTrustVerifiedMembers" class="table table-bordered table-striped">
                             <!-- style="display:block !important;" -->
                             <thead>
                                 <tr>
@@ -100,10 +100,10 @@
         var selectedFromDate = "";
         var selectedToDate = "";
 
-        $('#tblTrustProvingMembers').DataTable({
-            // 'ajax': 'GetPendingApprovalMember/' + convertToShortDate(monthStartDate) + '/' + convertToShortDate(date),
-            // 'order': [],
-            // "bDestroy": true
+        $('#tblTrustVerifiedMembers').DataTable({
+            'ajax': 'GetTrustVerifiedMembers/' + convertToShortDate(monthStartDate) + '/' + convertToShortDate(date),
+            'order': [],
+            "bDestroy": true
         });
 
         $('input[name="daterange"]').daterangepicker({
@@ -116,8 +116,8 @@
             selectedToDate = end.format('YYYY-MM-DD');
             // FilterItems(start.format('YYYY-MM-DD'), end.format('YYYY-MM-DD'))
 
-            $('#tblPendingApprovalMember').DataTable({
-                'ajax': 'GetPendingApprovalMember/' + selectedFromDate + '/' + selectedToDate,
+            $('#tblTrustVerifiedMembers').DataTable({
+                'ajax': 'GetTrustVerifiedMembers/' + selectedFromDate + '/' + selectedToDate,
                 'order': [],
                 "bDestroy": true
             });

@@ -101,9 +101,9 @@
         var selectedToDate = "";
 
         $('#tblTrustProvingMembers').DataTable({
-            // 'ajax': 'GetPendingApprovalMember/' + convertToShortDate(monthStartDate) + '/' + convertToShortDate(date),
-            // 'order': [],
-            // "bDestroy": true
+            'ajax': 'GetMarkAsTrustProving/' + convertToShortDate(monthStartDate) + '/' + convertToShortDate(date),
+            'order': [],
+            "bDestroy": true
         });
 
         $('input[name="daterange"]').daterangepicker({
@@ -116,8 +116,8 @@
             selectedToDate = end.format('YYYY-MM-DD');
             // FilterItems(start.format('YYYY-MM-DD'), end.format('YYYY-MM-DD'))
 
-            $('#tblPendingApprovalMember').DataTable({
-                'ajax': 'GetPendingApprovalMember/' + selectedFromDate + '/' + selectedToDate,
+            $('#tblTrustProvingMembers').DataTable({
+                'ajax': 'GetMarkAsTrustProving/' + selectedFromDate + '/' + selectedToDate,
                 'order': [],
                 "bDestroy": true
             });

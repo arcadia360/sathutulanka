@@ -185,7 +185,7 @@
                                                     <?php } ?>
 
 
-                                                    <?php if ($member_data['intMemberAccountStatusID'] != 6) { ?>
+                                                    <?php if (($member_data['intMemberAccountStatusID'] != 6) && ($member_data['intMemberAccountStatusID'] != 1)) { ?>
                                                         <button class="btn btn-sm btn-success float-right" id="btnApproval" onclick=btnApprovalMember(<?= $member_data['intMemberID'] ?>)><i class="fa fa-check"></i> Approval</button>
                                                     <?php } ?>
 

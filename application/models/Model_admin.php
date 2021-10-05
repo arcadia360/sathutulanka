@@ -128,6 +128,105 @@ class Model_admin extends CI_Model
         return $query->result_array();
     }
 
+    public function GetMarkAsTrustProving($FromDate, $ToDate)
+    {
+        $sql = "SELECT 
+        m.intMemberID, 
+        m.vcMemberCode, 
+        m.vcNickName, 
+        m.vcCountryCode, 
+        m.vcMobileNo, 
+        m.vcEmail, 
+        m.vcGender, 
+        m.dtDOB, 
+        ms.vcMaritalStatus_en, 
+        m.vcMarriageType,
+        re.vcReligion, 
+        m.vcCurrentlyLiveIn, 
+        m.intCityIdIfLiveInSL,
+        mt.vcMemberAccountStatus,
+        CONCAT(CAST(r.dtEmailCodeSentDate AS DATE),'  ',DATE_FORMAT(r.dtEmailCodeSentDate, '%r')) as createdDate,
+        FLOOR( TIMESTAMPDIFF( DAY, cast(r.dtEmailCodeSentDate as date), now() ) % 30.4375 ) AS Days,
+        TIMESTAMPDIFF( MONTH, cast(r.dtEmailCodeSentDate as date), now()) % 12 as Months ,
+        TIMESTAMPDIFF( YEAR, cast(r.dtEmailCodeSentDate as date), now()) as Years 
+        from
+        member as m
+        INNER JOIN registerverification as r on m.intMemberID = r.intMemberID
+        INNER JOIN memberaccountstatus as mt on m.intMemberAccountStatusID = mt.intMemberAccountStatusID
+        INNER JOIN MaritalStatus   AS ms   ON m.intMaritalStatusID = ms.intMaritalStatusID
+        LEFT OUTER JOIN religion as re ON m.intReligionID = re.intReligionID
+        WHERE m.intMemberAccountTypeID = 2 AND CAST(r.dtEmailCodeSentDate AS DATE) BETWEEN ? AND ? ";
+
+        $query = $this->db->query($sql, array($FromDate, $ToDate));
+        return $query->result_array();
+    }
+
+    public function GetMarkAsPremiumMembers($FromDate, $ToDate)
+    {
+        $sql = "SELECT 
+        m.intMemberID, 
+        m.vcMemberCode, 
+        m.vcNickName, 
+        m.vcCountryCode, 
+        m.vcMobileNo, 
+        m.vcEmail, 
+        m.vcGender, 
+        m.dtDOB, 
+        ms.vcMaritalStatus_en, 
+        m.vcMarriageType,
+        re.vcReligion, 
+        m.vcCurrentlyLiveIn, 
+        m.intCityIdIfLiveInSL,
+        mt.vcMemberAccountStatus,
+        CONCAT(CAST(r.dtEmailCodeSentDate AS DATE),'  ',DATE_FORMAT(r.dtEmailCodeSentDate, '%r')) as createdDate,
+        FLOOR( TIMESTAMPDIFF( DAY, cast(r.dtEmailCodeSentDate as date), now() ) % 30.4375 ) AS Days,
+        TIMESTAMPDIFF( MONTH, cast(r.dtEmailCodeSentDate as date), now()) % 12 as Months ,
+        TIMESTAMPDIFF( YEAR, cast(r.dtEmailCodeSentDate as date), now()) as Years 
+        from
+        member as m
+        INNER JOIN registerverification as r on m.intMemberID = r.intMemberID
+        INNER JOIN memberaccountstatus as mt on m.intMemberAccountStatusID = mt.intMemberAccountStatusID
+        INNER JOIN MaritalStatus   AS ms   ON m.intMaritalStatusID = ms.intMaritalStatusID
+        LEFT OUTER JOIN religion as re ON m.intReligionID = re.intReligionID
+        WHERE m.intMemberAccountTypeID = 4 AND CAST(r.dtEmailCodeSentDate AS DATE) BETWEEN ? AND ? ";
+
+        $query = $this->db->query($sql, array($FromDate, $ToDate));
+        return $query->result_array();
+    }
+
+    public function GetTrustVerifiedMembers($FromDate, $ToDate)
+    {
+        $sql = "SELECT 
+        m.intMemberID, 
+        m.vcMemberCode, 
+        m.vcNickName, 
+        m.vcCountryCode, 
+        m.vcMobileNo, 
+        m.vcEmail, 
+        m.vcGender, 
+        m.dtDOB, 
+        ms.vcMaritalStatus_en, 
+        m.vcMarriageType,
+        re.vcReligion, 
+        m.vcCurrentlyLiveIn, 
+        m.intCityIdIfLiveInSL,
+        mt.vcMemberAccountStatus,
+        CONCAT(CAST(r.dtEmailCodeSentDate AS DATE),'  ',DATE_FORMAT(r.dtEmailCodeSentDate, '%r')) as createdDate,
+        FLOOR( TIMESTAMPDIFF( DAY, cast(r.dtEmailCodeSentDate as date), now() ) % 30.4375 ) AS Days,
+        TIMESTAMPDIFF( MONTH, cast(r.dtEmailCodeSentDate as date), now()) % 12 as Months ,
+        TIMESTAMPDIFF( YEAR, cast(r.dtEmailCodeSentDate as date), now()) as Years 
+        from
+        member as m
+        INNER JOIN registerverification as r on m.intMemberID = r.intMemberID
+        INNER JOIN memberaccountstatus as mt on m.intMemberAccountStatusID = mt.intMemberAccountStatusID
+        INNER JOIN MaritalStatus   AS ms   ON m.intMaritalStatusID = ms.intMaritalStatusID
+        LEFT OUTER JOIN religion as re ON m.intReligionID = re.intReligionID
+        WHERE m.intMemberAccountTypeID = 3 AND CAST(r.dtEmailCodeSentDate AS DATE) BETWEEN ? AND ? ";
+
+        $query = $this->db->query($sql, array($FromDate, $ToDate));
+        return $query->result_array();
+    }
+
     public function GetOTPResetData($FromDate, $ToDate)
     {
 
