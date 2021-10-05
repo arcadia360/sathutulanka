@@ -4,10 +4,10 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Ineterest <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Request</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+      <a class="nav-item nav-link active" href="#">Ineterest By Me <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Ineterest For Others</a>
+      <a class="nav-item nav-link" href="#">Request For Me</a>
+      <a class="nav-item nav-link disabled" href="#">Requset From Me</a>
     </div>
   </div>
 </nav>
