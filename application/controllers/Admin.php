@@ -88,9 +88,8 @@ class Admin extends Admin_Controller
 				$time .= $value['Years'] . ' Years &nbsp;&nbsp;';
 			}
 
-			if ($value['intMemberAccountStatusID'] != 3){
+			if ($value['intMemberAccountStatusID'] != 3) {
 				$buttons .= '<a class="button btn btn-default" href="' . base_url("admin/memberDetails/" . $value['intMemberID']) . '" style="margin:0 !important;"><i class="fas fa-edit"></i></a>';
-
 			}
 
 
@@ -174,6 +173,25 @@ class Admin extends Admin_Controller
 		echo json_encode($result);
 	}
 
+	public function GetAccountStatusHistoryData($MemberID)
+	{
+		$result = array('data' => array());
+		$remarkdata = $this->model_admin->GetAccountStatusHistoryData($MemberID);
+		foreach ($remarkdata as $key => $value) {
+
+			$result['data'][$key] = array(
+				$value['PreviousMemberAccountStatus'],
+				$value['CurrentMemberAccountStatus'],
+				$value['vcSuspendReason'],
+				$value['vcOtherReason'],
+				$value['EditedBy'],
+				$value['EditedOn']
+			);
+		}
+
+		echo json_encode($result);
+	}
+
 	public function suspendMemberAccount()
 	{
 		$intMemberID = $this->input->post('intMemberID');
@@ -188,7 +206,6 @@ class Admin extends Admin_Controller
 		}
 
 		echo json_encode($response);
-
 	}
 
 	public function updateMemberDetailsByAdmin()
@@ -366,6 +383,25 @@ class Admin extends Admin_Controller
 		echo json_encode($result);
 	}
 
+	public function updateMemberMainDataByUser()
+	{
+		$intMemberID = $this->input->post('intMemberID');
+		$nic = $this->input->post('nic');
+		$premanentAddress = $this->input->post('premanentAddress');
+		$guardianContact = $this->input->post('guardianContact');
+
+		$IsSuccess = $this->model_admin->updateMemberMainDataByUser($intMemberID, $nic, $premanentAddress, $guardianContact);
+		if ($IsSuccess == true) {
+			$response['success'] = true;
+			$response['messages'] = "Updated !";
+		} else {
+			$response['success'] = false;
+			$response['messages'] = "Error !";
+		}
+
+		echo json_encode($response);
+	}
+
 	public function manageMemberList($MemberID)
 	{
 		$member_data = $this->model_account->getMemberData($MemberID);
@@ -389,5 +425,4 @@ class Admin extends Admin_Controller
 	{
 		$this->render_template('admin_panel/member/mark_as_premium', 'Mark As Premium', NULL);
 	}
-
 }

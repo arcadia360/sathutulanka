@@ -95,6 +95,22 @@ class Model_admin extends CI_Model
         return $query->result_array();
     }
 
+    public function GetAccountStatusHistoryData($MemberID)
+    {
+        $sql = "SELECT MSP.vcMemberAccountStatus AS PreviousMemberAccountStatus,MSC.vcMemberAccountStatus AS CurrentMemberAccountStatus ,IFNULL(R.vcSuspendReason,'-') AS vcSuspendReason,
+        IFNULL(MAL.vcOtherReason,'-') AS  vcOtherReason, U.vcUserName AS EditedBy , MAL.dtEnteredDate AS EditedOn
+        FROM memberaccountstatuslog  AS MAL
+        INNER JOIN member AS M ON MAL.intMemberID = M.intMemberID
+        INNER JOIN memberaccountstatus AS MSP ON MAL.intPreviousMemberAccountStatusID = MSP.intMemberAccountStatusID
+        INNER JOIN memberaccountstatus AS MSC ON MAL.intCurrentMemberAccountStatusID = MSC.intMemberAccountStatusID
+        INNER JOIN user AS U ON MAL.intUserID = U.intUserID
+        LEFT OUTER JOIN membersuspendreasons AS R ON MAL.intMemberSuspendReasonID = R.intMemberSuspendReasonID
+        WHERE  MAL.intMemberID = ?";
+
+        $query = $this->db->query($sql, array($MemberID));
+        return $query->result_array();
+    }
+
     public function GetPendingApprovalMember($FromDate, $ToDate)
     {
         $sql = "SELECT 
@@ -307,8 +323,33 @@ class Model_admin extends CI_Model
         }
     }
 
-    public function updateMemberDetailsByAdmin($MemberID)
+    public function updateMemberMainDataByUser($intMemberID, $nic, $premanentAddress, $guardianContact)
     {
+        $this->db->trans_begin();
+
+        $Insertdata = array(
+            'intMemberID' => $intMemberID,
+            'vcNic' => $nic,
+            'vcPremanentAddress' => $premanentAddress,
+            'vcGuardianContact' => $guardianContact,
+            'intUserID' => 1,
+        );
+        $this->db->insert('membermaindetailsupdatedbyuser', $Insertdata);
+
+        $UpdateData = [
+            'vcNic' => $nic,
+            'vcPremanentAddress' => $premanentAddress,
+            'vcGuardianContact' => $guardianContact,
+        ];
+        $this->db->where('intMemberID', $intMemberID);
+        $update = $this->db->update('member', $UpdateData);
+
+        if ($this->db->trans_status() === FALSE) {
+            $this->db->trans_rollback();
+        } else {
+            $this->db->trans_commit();
+        }
+        return ($update == true) ? true : false;
     }
 
     public function suspendMemberAccount($MemberID)

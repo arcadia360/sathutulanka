@@ -1,9 +1,8 @@
-
-$(document).ready(function () {
+$(document).ready(function() {
 
 
     $('#Div_OtherReasonSuspend').hide();
-    $('#suspendReason').change(function () {
+    $('#suspendReason').change(function() {
         var sReason = $('#suspendReason').val();
         if (sReason == 10) {
             $('#Div_OtherReasonSuspend').show();
@@ -24,16 +23,25 @@ function RemarkHistoryTable() {
     });
 }
 
+function AccountStatusHistoryTable() {
+    var MemberID = +($("#intRemarkMemberID").val());
 
-$('#btnSubmitMemberRemark').click(function () {
+    $('#tblAccountStatuskHistory').DataTable({
+        'ajax': base_url + 'admin/GetAccountStatusHistoryData/' + MemberID,
+        'order': [],
+        "bDestroy": true
+    });
+}
+
+
+$('#btnSubmitMemberRemark').click(function() {
     if ($("#member_remark").val() == '') {
         toastr["error"]("Please Enter Reason !");
         $("#member_remark").focus();
         // return;
-    }
-    else {
+    } else {
         $("#addMemberRemark").modal('hide');
-        arcadiaConfirmAlert("You want to be able to Add this Remark !", function (button) {
+        arcadiaConfirmAlert("You want to be able to Add this Remark !", function(button) {
             var form = $("#addMemberRemarkForm");
             $.ajax({
                 async: false,
@@ -41,14 +49,14 @@ $('#btnSubmitMemberRemark').click(function () {
                 url: form.attr('action'),
                 data: form.serialize(),
                 dataType: 'json',
-                success: function (response) {
+                success: function(response) {
 
                     if (response.success == true) {
                         arcadiaSuccessMessage("Saved !");
                     } else {
 
                         if (response.messages instanceof Object) {
-                            $.each(response.messages, function (index, value) {
+                            $.each(response.messages, function(index, value) {
                                 var id = $("#" + index);
 
                                 id.closest('.form-group')
@@ -73,7 +81,7 @@ $('#btnSubmitMemberRemark').click(function () {
 
 
 function btnApprovalMember(MemberID) {
-    arcadiaConfirmAlert("You want to be able to Approve this Member !", function (button) {
+    arcadiaConfirmAlert("You want to be able to Approve this Member !", function(button) {
         $.ajax({
             async: true,
             url: base_url + 'admin/approvalMember',
@@ -82,34 +90,31 @@ function btnApprovalMember(MemberID) {
                 intMemberID: MemberID
             },
             dataType: 'json',
-            success: function (response) {
+            success: function(response) {
                 if (response.success == true) {
                     arcadiaSuccessMessage("Approved !");
                 } else {
                     toastr["error"](response.messages);
                 }
             },
-            error: function (request, status, error) {
+            error: function(request, status, error) {
                 arcadiaErrorMessage(error);
             }
         });
     }, this);
 }
 
-$('#btnSubmitMemberSuspend').click(function () {
+$('#btnSubmitMemberSuspend').click(function() {
 
     if ($("#suspendReason :selected").val() == 0) {
         toastr["error"]("Please select Reason !");
         $("#suspendReason").focus();
-    }
-    else if ($("#suspendReason :selected").val() == 10 && ($("#otherReasonSuspend").val() == '')) {
+    } else if ($("#suspendReason :selected").val() == 10 && ($("#otherReasonSuspend").val() == '')) {
         toastr["error"]("Please Enter Reason !");
         $("#otherReasonSuspend").focus();
-    }
-
-    else {
+    } else {
         $("#addSuspend").modal('hide');
-        arcadiaConfirmAlert("You want to be able to Suspend this Account !", function (button) {
+        arcadiaConfirmAlert("You want to be able to Suspend this Account !", function(button) {
             var form = $("#addSuspendForm");
             $.ajax({
                 async: false,
@@ -117,14 +122,14 @@ $('#btnSubmitMemberSuspend').click(function () {
                 url: form.attr('action'),
                 data: form.serialize(),
                 dataType: 'json',
-                success: function (response) {
+                success: function(response) {
 
                     if (response.success == true) {
                         arcadiaSuccessMessage("Saved !");
                     } else {
 
                         if (response.messages instanceof Object) {
-                            $.each(response.messages, function (index, value) {
+                            $.each(response.messages, function(index, value) {
                                 var id = $("#" + index);
 
                                 id.closest('.form-group')
@@ -147,7 +152,7 @@ $('#btnSubmitMemberSuspend').click(function () {
     }
 });
 
-$('#btnUpdateMemberDetailsByAdmin').click(function () {
+$('#btnUpdateMemberDetailsByAdmin').click(function() {
     if (jQuery.trim($("#nic").val()).length == 0) {
         toastr["error"]("Please Enter Nic !");
         $("#nic").focus();
@@ -157,25 +162,23 @@ $('#btnUpdateMemberDetailsByAdmin').click(function () {
     } else if (jQuery.trim($("#guardianContact").val()).length == 0) {
         toastr["error"]("Please Enter Guardian Contact !");
         $("#guardianContact").focus();
-    }
-
-    else {
-        arcadiaConfirmAlert("You want to be able to Add this !", function (button) {
-            var form = $("#---------------");
+    } else {
+        arcadiaConfirmAlert("You want to be able to Add this !", function(button) {
+            var form = $("#updateMemberDetailsByAdminForm");
             $.ajax({
                 async: false,
                 type: form.attr('method'),
                 url: form.attr('action'),
                 data: form.serialize(),
                 dataType: 'json',
-                success: function (response) {
+                success: function(response) {
 
                     if (response.success == true) {
                         arcadiaSuccessMessage("Saved !");
                     } else {
 
                         if (response.messages instanceof Object) {
-                            $.each(response.messages, function (index, value) {
+                            $.each(response.messages, function(index, value) {
                                 var id = $("#" + index);
 
                                 id.closest('.form-group')
@@ -197,4 +200,3 @@ $('#btnUpdateMemberDetailsByAdmin').click(function () {
         }, this);
     }
 });
-

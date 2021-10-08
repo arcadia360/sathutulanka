@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="<?= base_url("resources/css/memberProfile.css") ?>">
-<link rel="stylesheet" href="<?= base_url("resources/css/common.css") ?>">
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper arcadia-main-container ">
@@ -91,7 +90,7 @@
                                             <div class="d-flex flex-column align-items-center text-center">
                                                 <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150"> -->
                                                 <div class="image-margin-circle">
-                                                    <img src="https://manofmany.com/wp-content/uploads/2019/06/50-Long-Haircuts-Hairstyle-Tips-for-Men-5.jpg" class="profile-pic" />
+                                                    <img src="<?= base_url() . "resources/images/member/photos/" .  $member_data['vcMemberCode']  . "/" . $member_data['vcImage'] ?>" class="profile-pic" />
                                                 </div>
 
                                                 <div class="mt-3">
@@ -126,11 +125,11 @@
 
                                                     <p class="text-secondary p-0"><strong><?= $member_data['vcMemberCode'] ?></strong></p>
 
-                                                    <form role="form" action="<?php echo base_url('admin/updateMemberDetailsByAdmin') ?>" method="post" id="updateMemberDetailsByAdminForm">
+                                                    <form role="form" action="<?php echo base_url('admin/updateMemberMainDataByUser') ?>" method="post" id="updateMemberDetailsByAdminForm">
                                                         <div class="row" style="text-align: left !important;">
 
 
-                                                            <input type="hidden" class="form-control" id="intMemberID" value="<?= $member_data['intMemberID'] ?>" placeholder="N/A">
+                                                            <input type="hidden" class="form-control" name="intMemberID" id="intMemberID" value="<?= $member_data['intMemberID'] ?>" placeholder="N/A">
 
                                                             <div class="col-12">
                                                                 <div class="form-group">
@@ -147,7 +146,7 @@
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <label for="city">City</label>
-                                                                    <input type="text" class="form-control"  id="city" value="<?= $member_data['vcCityName'] ?>" placeholder="N/A" disabled>
+                                                                    <input type="text" class="form-control" id="city" value="<?= $member_data['vcCityName'] ?>" placeholder="N/A" disabled>
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
@@ -176,8 +175,7 @@
                                                             </div>
                                                         </div>
                                                     </form>
-                                                    <button class="btn btn-sm btn-primary float-right" id="btnUpdateMemberDetailsByAdmin"><i class="fas fa-edit"></i> Update Details</button>
-
+                                                    <button class="btn btn-sm btn-primary float-right" name="btnUpdateMemberDetailsByAdmin" id="btnUpdateMemberDetailsByAdmin"><i class="fas fa-edit"></i> Update Details</button>
                                                     <button class="btn btn-sm btn-info float-right" data-toggle="modal" data-target="#addMemberRemark" id="btnAddMemberRemark"><i class="fas fa-edit"></i> Add Remark</button>
 
                                                     <?php if ($member_data['intMemberAccountStatusID'] != 8) { ?>
@@ -600,7 +598,7 @@
                                                     </div>
 
                                                     <div class="tab-pane fade mt-3" id="education" role="tabpanel" aria-labelledby="education-tab">
-                                                         
+
                                                     </div>
 
 
@@ -674,6 +672,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" id="sub_1_5_6-tab" onclick="RemarkHistoryTable()" data-toggle="tab" href="#sub_1_5_6" role="tab" aria-controls="sub_1_5_6" aria-selected="false">Remark History</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="sub_1_5_7-tab" onclick="AccountStatusHistoryTable()" data-toggle="tab" href="#sub_1_5_7" role="tab" aria-controls="sub_1_5_7" aria-selected="false">Account Status History</a>
+                                    </li>
                                 </ul>
 
                                 <div class="tab-content mt-3">
@@ -700,6 +701,22 @@
                                                     <th>Remark</th>
                                                     <th>Admin</th>
                                                     <th>Date</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="sub_1_5_7">
+
+                                        <table id="tblAccountStatuskHistory" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Previous Account Status</th>
+                                                    <th>Current Account Status</th>
+                                                    <th>Suspend Reason</th>
+                                                    <th>Other Reason</th>
+                                                    <th>Edited By</th>
+                                                    <th>Edited On</th>
                                                 </tr>
                                             </thead>
                                         </table>
@@ -1444,7 +1461,7 @@
                         <select class="form-control" style="width: 100%;" id="suspendReason" name="suspendReason">
                             <option value="0" disabled selected hidden>Select Reason</option>
                             <?php foreach ($suspendReason as $row) { ?>
-                                <option value="<?= $row->intMemberSuspendReasons ?>"><?= $row->vcSuspendReason ?></option>
+                                <option value="<?= $row->intMemberSuspendReasonID ?>"><?= $row->vcSuspendReason ?></option>
                             <?php } ?>
                         </select>
                     </div>

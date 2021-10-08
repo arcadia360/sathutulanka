@@ -64,7 +64,6 @@
 	</script>
 
 
-
 </head>
 
 <body onload="Preloader()" class="hold-transition sidebar-mini" style="font-size: 0.8rem !important;">

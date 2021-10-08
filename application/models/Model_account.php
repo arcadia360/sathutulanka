@@ -503,7 +503,7 @@ class Model_account extends CI_Model
 
   public function getMemberSuspendReason()
   {
-    $this->db->select('intMemberSuspendReasons, vcSuspendReason');
+    $this->db->select('intMemberSuspendReasonID, vcSuspendReason');
     $this->db->from('membersuspendreasons');
     $query = $this->db->get();
 

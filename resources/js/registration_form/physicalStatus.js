@@ -30,8 +30,6 @@ function loadDisabilityDetails() {
 
 ajaxCall('registration/getMemberData', model, function(response) {
 
-    debugger;
-
     // $("#Supplier").val(response.intHeight);
     $("#height").val(response.intHeight);
     $("#weight").val(response.Weight_Customised);
@@ -94,7 +92,7 @@ $('#btnSubmit').click(function() {
     } else {
         var form = $("#addPyysicalStatus");
         $("#btnSubmitLoading").addClass("fa fa-spinner fa-spin");
-        $("#btnSubmit").attr("disabled","disabled");
+        $("#btnSubmit").attr("disabled", "disabled");
         $.ajax({
             type: form.attr('method'),
             url: form.attr('action'),
@@ -127,7 +125,7 @@ $('#btnSubmit').click(function() {
                         toastr["error"](response.messages);
                         $(button).prop('disabled', false);
                     }
-                    $("#btnSubmit").attr("disabled","enabled");
+                    $("#btnSubmit").attr("disabled", "enabled");
                 }
 
             }
@@ -137,9 +135,9 @@ $('#btnSubmit').click(function() {
 
 $('[data-toggle="popover"]').popover({
     trigger: 'focus'
-  });
+});
 
 $('[data-toggle="popover"]').on('click', function(e) {
     e.preventDefault();
-	return true; 
+    return true;
 });
