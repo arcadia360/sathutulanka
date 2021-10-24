@@ -283,16 +283,16 @@ class Model_account extends CI_Model
   //   return $query->row_array();
   // }
 
-  public function getAllSinglesCount()
+  public function getAllSinglesCount($member_id, $gender)
   {
-    $gender = $this->session->userdata('gender');
-
     $sql = "SELECT 
               COUNT(M.intMemberID) AS AllSinglesCount 
             FROM Member AS M 
-            WHERE M.vcGender <> ? AND M.intMemberAccountStatusID IN (4,5,6)";
+            WHERE M.vcGender <> ? 
+            AND M.intMemberAccountStatusID IN (4,5,6)
+            AND M.intMemberID NOT IN (SELECT DISTINCT intPartnerID FROM BlockedMembers WHERE intMemberID = ?)";
 
-    $query = $this->db->query($sql, array($gender));
+    $query = $this->db->query($sql, array($gender, $member_id));
     return $query->row_array();
   }
 
@@ -361,9 +361,10 @@ class Model_account extends CI_Model
           INNER JOIN MemberImage              AS MI   ON M.intMemberID = MI.intMemberID AND MI.isProfilePicture = 1    
         WHERE 
           M.vcGender <> ?
-          AND M.intMemberAccountStatusID IN (4,5,6)";
+          AND M.intMemberAccountStatusID IN (4,5,6)
+          AND M.intMemberID NOT IN (SELECT DISTINCT intPartnerID FROM BlockedMembers WHERE intMemberID = ?)";
 
-    $query = $this->db->query($sql, array($gender));
+    $query = $this->db->query($sql, array($gender, $member_id));
     return $query->result_array();
   }
 
@@ -601,7 +602,8 @@ class Model_account extends CI_Model
       WHERE 
       MVP.intMemberID = '.$member_id.'";
 
-    $query = $this->db->query($sql, array($gender));
+    // $query = $this->db->query($sql, array($gender));
+    $query = $this->db->query($sql);
     return $query->result_array();
   }
 
@@ -662,7 +664,9 @@ class Model_account extends CI_Model
       WHERE 
       MVP.intVisitedID = '.$member_id.'";
 
-    $query = $this->db->query($sql, array($gender));
+    // $query = $this->db->query($sql, array($gender));
+    $query = $this->db->query($sql);
+
     return $query->result_array();
   }
 
@@ -722,7 +726,8 @@ class Model_account extends CI_Model
       WHERE 
       MLP.intMemberID = '.$member_id.'";
 
-    $query = $this->db->query($sql, array($gender));
+    // $query = $this->db->query($sql, array($gender));
+    $query = $this->db->query($sql);
     return $query->result_array();
   }
 
@@ -782,7 +787,8 @@ class Model_account extends CI_Model
       WHERE 
       MLP.intMemberID_Partner = '.$member_id.'";
 
-    $query = $this->db->query($sql, array($gender));
+    // $query = $this->db->query($sql, array($gender));
+    $query = $this->db->query($sql);
     return $query->result_array();
   }
 
@@ -842,7 +848,8 @@ class Model_account extends CI_Model
         WHERE 
         BM.intMemberID = ".$member_id."";
 
-    $query = $this->db->query($sql, array($gender));
+    // $query = $this->db->query($sql, array($gender));
+    $query = $this->db->query($sql);
     return $query->result_array();
   }
 
@@ -902,7 +909,8 @@ class Model_account extends CI_Model
         WHERE 
         BM.intPartnerID = ".$member_id."";
 
-    $query = $this->db->query($sql, array($gender));
+    // $query = $this->db->query($sql, array($gender));
+    $query = $this->db->query($sql);
     return $query->result_array();
   }
 
