@@ -38,11 +38,9 @@
 
 
     <style>
-    
-        
         .form-control {
             border-radius: 0 !important;
-        } 
+        }
 
         .btn-signin:hover,
         .btn-signin:active {
@@ -212,7 +210,7 @@
                     <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Suggesitions") {
                                             echo 'active';
                                         } ?>">
-                        <a class="nav-link" href="<?=base_url('Account/InterestsAndRequests')?>">&nbsp;Interests/Requests&nbsp;</a>
+                        <a class="nav-link" href="<?= base_url('Account/InterestsAndRequests') ?>">&nbsp;Interests/Requests&nbsp;</a>
                     </li>
                     <li class="nav-item <?php if ($this->uri->segment(1) == "Account" && $this->uri->segment(2) == "Notifications") {
                                             echo 'active';
@@ -229,32 +227,32 @@
                 ?>
             </ul>
             <?php
-            if ($this->uri->segment(1) == "" || $this->uri->segment(1) == "Welcome"){
-            
-            if ($_SESSION['logged_in'] == TRUE) {
-            ?>
-                <ul class="navbar-nav mt-2 mt-lg-0">
-                    <li class="nav-item dropdown navbar-profile-pic">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="mini-profile-picture">
-                                <img src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/" . $this->session->userdata['profile_pic'] ?>" alt="Profile Photo">
-                            </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="<?= base_url('Auth/logout') ?>">Logout</a>
-                        </div>
-                    </li>
-                </ul>
+            if ($this->uri->segment(1) == "" || $this->uri->segment(1) == "Welcome") {
 
-            <?php
-            } else if ($this->uri->segment(1) == "Welcome" && $this->uri->segment(2) == "" || $this->uri->segment(1) == "") {
+                if ($_SESSION['logged_in'] == TRUE) {
             ?>
-                <button type="button" class="btn btn-login" data-toggle="modal" data-target="#exampleModal">
-                    <?= lang('login'); ?>
-                </button>
+                    <ul class="navbar-nav mt-2 mt-lg-0">
+                        <li class="nav-item dropdown navbar-profile-pic">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="mini-profile-picture">
+                                    <img src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/" . $this->session->userdata['profile_pic'] ?>" alt="Profile Photo">
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="<?= base_url('Auth/logout') ?>">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+
+                <?php
+                } else if ($this->uri->segment(1) == "Welcome" && $this->uri->segment(2) == "" || $this->uri->segment(1) == "") {
+                ?>
+                    <button type="button" class="btn btn-login" data-toggle="modal" data-target="#exampleModal">
+                        <?= lang('login'); ?>
+                    </button>
             <?php
+                }
             }
-        }
             ?>
         </div>
 
@@ -305,33 +303,33 @@
 
         <?php
         if ($this->uri->segment(1) != "Welcome" && $this->uri->segment(1) != "") {
-        if ($_SESSION['logged_in'] == TRUE) {
+            if ($_SESSION['logged_in'] == TRUE) {
         ?>
-            <ul class="navbar-nav mt-2 mt-lg-0">
-                <li class="nav-item dropdown navbar-profile-pic">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="mini-profile-picture">
-                            <img src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/" . $this->session->userdata['profile_pic'] ?>" alt="Profile Photo">
-                        </div>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <!-- <a class="dropdown-item" href="#">Action</a>
+                <ul class="navbar-nav mt-2 mt-lg-0">
+                    <li class="nav-item dropdown navbar-profile-pic">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="mini-profile-picture">
+                                <img src="<?= base_url() . "resources/images/member/photos/" . $this->session->userdata['member_code'] . "/" . $this->session->userdata['profile_pic'] ?>" alt="Profile Photo">
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <!-- <a class="dropdown-item" href="#">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <div class="dropdown-divider"></div> -->
-                        <a class="dropdown-item" href="<?= base_url('Auth/logout') ?>">Logout</a>
-                    </div>
-                </li>
-            </ul>
+                            <a class="dropdown-item" href="<?= base_url('Auth/logout') ?>">Logout</a>
+                        </div>
+                    </li>
+                </ul>
 
+            <?php
+            } else if ($this->uri->segment(1) == "Welcome" && $this->uri->segment(2) == "" || $this->uri->segment(1) == "") {
+            ?>
+                <button type="button" class="btn btn-login" data-toggle="modal" data-target="#exampleModal">
+                    <?= lang('login'); ?>
+                </button>
         <?php
-        } else if ($this->uri->segment(1) == "Welcome" && $this->uri->segment(2) == "" || $this->uri->segment(1) == "") {
-        ?>
-            <button type="button" class="btn btn-login" data-toggle="modal" data-target="#exampleModal">
-                <?= lang('login'); ?>
-            </button>
-        <?php
+            }
         }
-    }
         ?>
 
 
@@ -501,3 +499,154 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </html> -->
+
+
+
+
+    <!-- Not Trust Verified Modal -->
+
+    <div class="modal fade" id="modelNotTrustVerified" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #607d8b !important;">
+                    <h3 class="m-0 p-0 mx-auto" style="color: #FFFFFF">Not Trust Verified Member</h3>
+                </div>
+                <div class="modal-body">
+                    <p class="text-justify">
+                        Information of this member are not checked.
+                        Data such as, photos and marital status may be fake or pretended to come up with a good idea.
+                        Pay attention to the following matters until the member’s trust is verified.
+                        <br>
+                    </p>
+                    <ul>
+                        <li>
+                            <p class="text-justify">
+                                Do not ever leave your phone Numbers, (also Whatsapp, Viber, Imo, Facebook Messenger etc…..)
+                                or home address, working place, bank accounts and do not agree to communicate outside our chat box for any reason.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="text-justify">
+                                Do not be fooled by feelings and expressions such as,
+                                (Love means trust / Do not you believe me? / Cannot you understand people’s eyes? / If I inform home right now, Home can be displeased)
+                                Our effort is to stop cheaters from love.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="text-justify">
+                                Reject the invitations to come to their home directly. Do not be fooled by expressions such as,
+                                (You come and see our home and then you will understand who we are).
+                                There are so many problems can be covered from you without trust verification such as,
+                                (previously married / fake photos / status of hidden as a criminal)
+                            </p>
+                        </li>
+                        <li>
+                            <p class="text-justify">
+                                Always speak with your family about the relationships you are building.
+                                This service has been built up so that all family members can take clear decisions without any additional efforts and cost.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="text-justify">
+                                Be careful that there are enough photos, videos, and other information for clear decisions.
+                                If not, Ask them. Everyone is allowed to add all details with safe and unlimitedly.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="text-justify">
+                                Do not make quick decisions. Marriage is the second birth. It should be end with death. Your future is hidden in it.
+                                Do not you think that there should be a problem if anyone rejects to certify the information that affects entire lifetime of all?
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Not Trust Verified Modal - End -->
+
+    <!-- Trust Proving Modal -->
+
+    <div class="modal fade" id="modelTrustProving" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #9ccc65 !important;">
+                    <h3 class="m-0 p-0 mx-auto" style="color: #FFFFFF">Trust Proving Member</h3>
+                </div>
+                <div class="modal-body">
+                    <p class="text-justify">
+                        This member is working to verify the information. During this time, you should not trust this member for the following two reasons.
+                        <br>
+                    </p>
+                    <ul>
+                        <li>
+                            <p class="text-justify">
+                                Only a payment for verification has been done to our Company. We have not checked any details about him or her.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="text-justify">
+                                Although it looks like ensuring trust verification. It can be avoided later, since it takes minimum 50 days period for trust verification.
+                            </p>
+                        </li>
+                    </ul>
+                    <br>
+                    <p class="text-justify">
+                        So, please take decisions based on distrust until being a trust verified member. Follow the instructions mentioned in the Not Trust Verified Section. Don’t be fooled by false, simple stories.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trust Proving Modal - End -->
+
+    <!-- Trust Verified Modal -->
+
+    <div class="modal fade" id="modelTrustVerified" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #2e7d32 !important;">
+                    <h3 class="m-0 p-0 mx-auto" style="color: #FFFFFF">Trust Verified Member</h3>
+                </div>
+                <div class="modal-body">
+                    <p class="text-justify">
+                        This member has been trust verified. But, keep in the mind the following two matters and take decisions.
+                        <br>
+                    </p>
+                    <ul>
+                        <li>
+                            <p class="text-justify">
+                                All the certified facts are physical facts. This means these facts are visible to the eye. But there are also things
+                                that cannot be seen such as, <span class="font-weight-bold"> love /promises/ trust / good and bad thoughts / honesty / stability of ideas.</span> Be
+                                vigilant about those invisible things and get involved with family members until you get legal marriage. Meet at
+                                common places.
+                            </p>
+                        </li>
+                        <li>
+                            <p class="text-justify">
+                                When time passes, there may be some differences of some facts after the verification process. Take final
+                                decisions after checking again the facts such as marital status, ownership of assets, change of residence… etc.
+                            </p>
+                        </li>
+                    </ul>
+                    <p class="text-justify">
+                        Even if we offer this service in good intentions and trusted manner you should take the ultimate responsibility because
+                        of the <span class="font-weight-bold"> invisible and changeable facts.</span>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trust Verified Modal - End -->
