@@ -408,19 +408,19 @@
                                 <?php
                                 if ($partnerData['intMemberAccountTypeID'] == 1) { // Not Trust Verified
                                 ?>
-                                    <button class="btn btn-block badge-notTrustVerified" style="margin-top: 0px; border-radius: 20px; font-weight:600">Not Trust Verified</button>
+                                    <button class="btn btn-block badge-notTrustVerified" data-toggle="modal" data-target="#modelNotTrustVerified" style="margin-top: 0px; border-radius: 20px; font-weight:600">Not Trust Verified</button>
                                 <?php
                                 } else if ($partnerData['intMemberAccountTypeID'] == 2) { // Trust Proving
                                 ?>
-                                    <button class="btn btn-block badge-trustProving" style="margin-top: 0px; border-radius: 20px; font-weight:600">Trust Proving</button>
+                                    <button class="btn btn-block badge-trustProving" data-toggle="modal" data-target="#modelTrustProving" style="margin-top: 0px; border-radius: 20px; font-weight:600">Trust Proving</button>
                                 <?php
                                 } else if ($partnerData['intMemberAccountTypeID'] == 3) { // Trust Verified
                                 ?>
-                                    <button class="btn btn-block badge-trustVerified" style="margin-top: 0px; border-radius: 20px; font-weight:600">Trust Verified</button>
+                                    <button class="btn btn-block badge-trustVerified" data-toggle="modal" data-target="#modelTrustVerified" style="margin-top: 0px; border-radius: 20px; font-weight:600">Trust Verified</button>
                                 <?php
                                 } else if ($partnerData['intMemberAccountTypeID'] == 4) { // Premium
                                 ?>
-                                    <button class="btn btn-block badge-trustVerified" style="margin-top: 0px; border-radius: 20px; font-weight:600">Trust Verified</button>
+                                    <button class="btn btn-block badge-trustVerified" data-toggle="modal" data-target="#modelTrustVerified" style="margin-top: 0px; border-radius: 20px; font-weight:600">Trust Verified</button>
                                 <?php
                                 }
                                 ?>
@@ -432,8 +432,7 @@
 
                             </div>
                         </div>
-                    </div>
-
+                    </div> 
 
                 </div>
                 <div class="col-md-12 col-lg-8 padding-mobile-left-0 padding-mobile-right-0">
@@ -2056,7 +2055,7 @@
                                                                 if ($myData['intMemberAccountTypeID'] != 4) { // Without Premium Members
                                                                 ?>
                                                                     <br>
-                                                                    <p>(We provide this service to our <strong>Premium Members</strong> free of charge)</p>
+                                                                    <p>(We provide this service to our <strong style="color: #ff9800;">Premium Members</strong> free of charge)</p>
                                                                 <?php
                                                                 } else {
                                                                 ?>
