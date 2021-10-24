@@ -36,7 +36,7 @@ class Account extends Admin_Controller
 		$gender = $this->session->userdata('gender');
 		$member_id = $this->session->userdata('member_id');
 
-		$AllSinglesCount = $this->Model_account->getAllSinglesCount();
+		$AllSinglesCount = $this->Model_account->getAllSinglesCount($member_id, $gender);
 		$MyMatchesCount = $this->Model_account->getAllSingles_ByMemberID($member_id, $gender);
 
 		$visitedProfileCountCount = $this->Model_account->getVisitedProfileCount($member_id); //dk added 2021-7-11 
