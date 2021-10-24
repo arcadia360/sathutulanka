@@ -78,23 +78,29 @@ class Registration extends Admin_Controller
 		echo json_encode($data);
 	}
 
-	public function getEnrichmentHobbies()
+	public function getEnrichmentHobbies($MemberID = null) // Null parameter added by ViRAJ 2021-10-08
 	{
-		$MemberID =  $this->input->post('MemberID');
+		if ($MemberID == null) {
+			$MemberID =  $this->input->post('MemberID');
+		}
 		$data = $this->Model_registration->getEnrichmentHobbies($MemberID);
 		echo json_encode($data);
 	}
 
-	public function getSportsActivities()
+	public function getSportsActivities($MemberID = null) // Null parameter added by ViRAJ 2021-10-08
 	{
-		$MemberID =  $this->input->post('MemberID');
+		if ($MemberID == null) {
+			$MemberID =  $this->input->post('MemberID');
+		}
 		$data = $this->Model_registration->getSportsActivities($MemberID);
 		echo json_encode($data);
 	}
 
-	public function getCreativeHobbies()
+	public function getCreativeHobbies($MemberID = null) // Null parameter added by ViRAJ 2021-10-08
 	{
-		$MemberID =  $this->input->post('MemberID');
+		if ($MemberID == null) {
+			$MemberID =  $this->input->post('MemberID');
+		}
 		$data = $this->Model_registration->getCreativeHobbies($MemberID);
 		echo json_encode($data);
 	}
@@ -121,9 +127,11 @@ class Registration extends Admin_Controller
 	}
 
 
-	public function getSocialActivites()
+	public function getSocialActivites($MemberID = null) // Null parameter added by ViRAJ 2021-10-08
 	{
-		$MemberID =  $this->input->post('MemberID');
+		if ($MemberID == null) {
+			$MemberID =  $this->input->post('MemberID');
+		}
 		$data = $this->Model_registration->getSocialActivites($MemberID);
 		echo json_encode($data);
 	}
