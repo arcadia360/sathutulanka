@@ -6,6 +6,10 @@
 
 
     <style>
+        .modal {
+            padding-top: 0 !important;
+        }
+
         .tooltip-inner {
             white-space: pre-line;
             /* white-space: pre-wrap; */
@@ -268,6 +272,11 @@
             width: 5px;
         }
 
+        .progress {
+            font-size: 1em !important;
+            height: 1.3rem !important;
+        }
+
         @media (min-width: 1200px) {
             .uk-grid>* {
                 padding-left: 10px !important;
@@ -503,14 +512,20 @@
                                                                     <span class="basic-preference-title">Age</span>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($partnerMatchingData['Age'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" style="white-space: pre-line;" title="Tharu's Age :
-                                                                    20
-                                                                    -----------------
-                                                                    Partner Preference
-                                                                    <?= $partnerBasicPreferencesData['PreferedAge'] ?>"></i>
+                                                                    <i class="fas <?= ($partnerMatchingData['Age'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" style="white-space: pre-line;" title="<?= $partnerData['vcNickName'] ?>'s Age :
+                                                                    <?= $partnerData['intAge'] ?> Years
+                                                                    ----------------
+                                                                    <?= $partnerData['vcNickName'] ?>'s Preference :
+                                                                    <?= $partnerBasicPreferencesData['PreferedAge'] ?>">
+                                                                    </i>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($memberMatchingData['Age'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedAge'] ?>"></i>
+                                                                    <i class="fas <?= ($memberMatchingData['Age'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="My Age :
+                                                                    <?= $myData['intAge'] ?> Years
+                                                                    ----------------
+                                                                    My Preference :
+                                                                    <?= $myBasicPreferencesData['PreferedAge'] ?>">
+                                                                    </i>
                                                                 </div>
                                                             </div>
                                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -518,10 +533,20 @@
                                                                     <span class="basic-preference-title">Height</span>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($partnerMatchingData['Height'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedHeight'] ?>"></i>
+                                                                    <i class="fas <?= ($partnerMatchingData['Height'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerData['vcNickName'] ?>'s Height : 
+                                                                    <?= $partnerData['intHeight'] ?> 
+                                                                    ----------------
+                                                                    <?= $partnerData['vcNickName'] ?>'s Preference :
+                                                                    <?= $partnerBasicPreferencesData['PreferedHeight'] ?>">
+                                                                    </i>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($memberMatchingData['Height'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedHeight'] ?>"></i>
+                                                                    <i class="fas <?= ($memberMatchingData['Height'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="My Height :
+                                                                    <?= $myData['intHeight'] ?> 
+                                                                    ----------------
+                                                                    My Preference :
+                                                                    <?= $myBasicPreferencesData['PreferedHeight'] ?>">
+                                                                    </i>
                                                                 </div>
                                                             </div>
                                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -529,10 +554,20 @@
                                                                     <span class="basic-preference-title">Marital Status</span>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($partnerMatchingData['MaritalStatus'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedMaritalStatus'] ?>"></i>
+                                                                    <i class="fas <?= ($partnerMatchingData['MaritalStatus'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerData['vcNickName'] ?>'s Marital Status
+                                                                    <?= $partnerData['vcMaritalStatus'] ?> 
+                                                                    ----------------
+                                                                    <?= $partnerData['vcNickName'] ?>'s Preference :
+                                                                    <?= $partnerBasicPreferencesData['PreferedMaritalStatus'] ?>">
+                                                                    </i>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($memberMatchingData['MaritalStatus'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedMaritalStatus'] ?>"></i>
+                                                                    <i class="fas <?= ($memberMatchingData['MaritalStatus'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="My Marital Status
+                                                                    <?= $myData['vcMaritalStatus'] ?> 
+                                                                    ----------------
+                                                                    My Preference :
+                                                                    <?= $myBasicPreferencesData['PreferedMaritalStatus'] ?>">
+                                                                    </i>
                                                                 </div>
                                                             </div>
                                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -540,10 +575,20 @@
                                                                     <span class="basic-preference-title">Children</span>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($partnerMatchingData['NoOfChildren'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['Preferednoofchildren'] ?>"></i>
+                                                                    <i class="fas <?= ($partnerMatchingData['NoOfChildren'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerData['vcNickName'] ?>'s No Of Children(S)
+                                                                    <?= $partnerData['vcNoOfChildren'] ?> 
+                                                                    ----------------
+                                                                    <?= $partnerData['vcNickName'] ?>'s Preference :
+                                                                    <?= $partnerBasicPreferencesData['Preferednoofchildren'] ?>">
+                                                                    </i>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($memberMatchingData['NoOfChildren'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $myBasicPreferencesData['Preferednoofchildren'] ?>"></i>
+                                                                    <i class="fas <?= ($memberMatchingData['NoOfChildren'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="My No Of Children(S)
+                                                                    <?= $myData['vcNoOfChildren'] ?> 
+                                                                    ----------------
+                                                                    My Preference :
+                                                                    <?= $myBasicPreferencesData['Preferednoofchildren'] ?>">
+                                                                    </i>
                                                                 </div>
                                                             </div>
                                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -551,10 +596,20 @@
                                                                     <span class="basic-preference-title">Religion</span>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($partnerMatchingData['Religion'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedReligion'] ?>"></i>
+                                                                    <i class="fas <?= ($partnerMatchingData['Religion'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerData['vcNickName'] ?>'s Religion
+                                                                    <?= $partnerData['vcReligion'] ?> 
+                                                                    ----------------
+                                                                    <?= $partnerData['vcNickName'] ?>'s Preference :
+                                                                    <?= $partnerBasicPreferencesData['PreferedReligion'] ?>">
+                                                                    </i>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($memberMatchingData['Religion'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedReligion'] ?>"></i>
+                                                                    <i class="fas <?= ($memberMatchingData['Religion'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="My Religion
+                                                                    <?= $myData['vcReligion'] ?> 
+                                                                    ----------------
+                                                                    My Preference :
+                                                                    <?= $myBasicPreferencesData['PreferedReligion'] ?>">
+                                                                    </i>
                                                                 </div>
                                                             </div>
                                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -562,10 +617,20 @@
                                                                     <span class="basic-preference-title">Ethnicity</span>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($partnerMatchingData['Ethnicity'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedEthnicity'] ?>"></i>
+                                                                    <i class="fas <?= ($partnerMatchingData['Ethnicity'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerData['vcNickName'] ?>'s Ethnicity
+                                                                        <?= $partnerData['vcEthnicity'] ?> 
+                                                                    ----------------
+                                                                    <?= $partnerData['vcNickName'] ?>'s Preference :
+                                                                    <?= $partnerBasicPreferencesData['PreferedEthnicity'] ?>">
+                                                                    </i>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($memberMatchingData['Ethnicity'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedEthnicity'] ?>"></i>
+                                                                    <i class="fas <?= ($memberMatchingData['Ethnicity'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="My Ethnicity
+                                                                    <?= $myData['vcEthnicity'] ?> 
+                                                                    ----------------
+                                                                    My Preference :
+                                                                    <?= $myBasicPreferencesData['PreferedEthnicity'] ?>">
+                                                                    </i>
                                                                 </div>
                                                             </div>
                                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -573,10 +638,20 @@
                                                                     <span class="basic-preference-title">Mother Tongue</span>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($partnerMatchingData['MotherTongue'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedMotherTongue'] ?>"></i>
+                                                                    <i class="fas <?= ($partnerMatchingData['MotherTongue'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerData['vcNickName'] ?>'s Mother Tongue
+                                                                    <?= $partnerData['vcMotherTounge'] ?> 
+                                                                    ----------------
+                                                                    <?= $partnerData['vcNickName'] ?>'s Preference :
+                                                                    <?= $partnerBasicPreferencesData['PreferedMotherTongue'] ?>">
+                                                                    </i>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($memberMatchingData['MotherTongue'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedMotherTongue'] ?>"></i>
+                                                                    <i class="fas <?= ($memberMatchingData['MotherTongue'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="My Mother Tongue
+                                                                     <?= $myData['vcMotherTounge'] ?> 
+                                                                    ----------------
+                                                                    My Preference :
+                                                                    <?= $myBasicPreferencesData['PreferedMotherTongue'] ?>">
+                                                                    </i>
                                                                 </div>
                                                             </div>
                                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -584,10 +659,20 @@
                                                                     <span class="basic-preference-title">Live in Srilanka</span>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($partnerMatchingData['Province'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedLiveinSrilanka'] ?>"></i>
+                                                                    <i class="fas <?= ($partnerMatchingData['Province'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerData['vcNickName'] ?>'s Live in Srilanka
+                                                                    <?= $partnerData['vcProvinceName'] ?> 
+                                                                    ----------------
+                                                                    <?= $partnerData['vcNickName'] ?>'s Preference :
+                                                                    <?= $partnerBasicPreferencesData['PreferedLiveinSrilanka'] ?>">
+                                                                    </i>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($memberMatchingData['Province'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedLiveinSrilanka'] ?>"></i>
+                                                                    <i class="fas <?= ($memberMatchingData['Province'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="My Live in Srilanka
+                                                                    <?= $myData['vcProvinceName'] ?> 
+                                                                    ----------------
+                                                                    My Preference :
+                                                                    <?= $myBasicPreferencesData['PreferedLiveinSrilanka'] ?>">
+                                                                    </i>
                                                                 </div>
                                                             </div>
                                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -595,10 +680,20 @@
                                                                     <span class="basic-preference-title">Education</span>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($partnerMatchingData['EducationLevel'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedEducationLevel'] ?>"></i>
+                                                                    <i class="fas <?= ($partnerMatchingData['EducationLevel'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerData['vcNickName'] ?>'s Education
+                                                                    <?= $partnerData['vcEducationLevel'] ?> 
+                                                                    ----------------
+                                                                    <?= $partnerData['vcNickName'] ?>'s Preference :
+                                                                    <?= $partnerBasicPreferencesData['PreferedEducationLevel'] ?>">
+                                                                    </i>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($memberMatchingData['EducationLevel'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedEducationLevel'] ?>"></i>
+                                                                    <i class="fas <?= ($memberMatchingData['EducationLevel'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="My Education
+                                                                    <?= $myData['vcEducationLevel'] ?> 
+                                                                    ----------------
+                                                                    My Preference :
+                                                                    <?= $myBasicPreferencesData['PreferedEducationLevel'] ?>">
+                                                                    </i>
                                                                 </div>
                                                             </div>
                                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -606,10 +701,20 @@
                                                                     <span class="basic-preference-title">Career</span>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($partnerMatchingData['CareerLevel'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedCareer'] ?>"></i>
+                                                                    <i class="fas <?= ($partnerMatchingData['CareerLevel'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerData['vcNickName'] ?>'s Career
+                                                                    <?= $partnerData['vcWorkingWith'] ?> 
+                                                                    ----------------
+                                                                    <?= $partnerData['vcNickName'] ?>'s Preference :
+                                                                    <?= $partnerBasicPreferencesData['PreferedCareer'] ?>">
+                                                                    </i>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($memberMatchingData['CareerLevel'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedCareer'] ?>"></i>
+                                                                    <i class="fas <?= ($memberMatchingData['CareerLevel'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="My Career
+                                                                    <?= $myData['vcWorkingWith'] ?> 
+                                                                    ----------------
+                                                                    My Preference :
+                                                                    <?= $myBasicPreferencesData['PreferedCareer'] ?>">
+                                                                    </i>
                                                                 </div>
                                                             </div>
                                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -617,10 +722,20 @@
                                                                     <span class="basic-preference-title">Monthly Income</span>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($partnerMatchingData['MonthlyIncome'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedMonthlyInCome'] ?>"></i>
+                                                                    <i class="fas <?= ($partnerMatchingData['MonthlyIncome'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerData['vcNickName'] ?>'s Monthly Income
+                                                                    <?= $partnerData['vcMonthlyIncome'] ?> 
+                                                                    ----------------
+                                                                    <?= $partnerData['vcNickName'] ?>'s Preference :
+                                                                    <?= $partnerBasicPreferencesData['PreferedMonthlyInCome'] ?>">
+                                                                    </i>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($memberMatchingData['MonthlyIncome'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedMonthlyInCome'] ?>"></i>
+                                                                    <i class="fas <?= ($memberMatchingData['MonthlyIncome'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="My Monthly Income
+                                                                     <?= $myData['vcMonthlyIncome'] ?> 
+                                                                    ----------------
+                                                                    My Preference :
+                                                                    <?= $myBasicPreferencesData['PreferedMonthlyInCome'] ?>">
+                                                                    </i>
                                                                 </div>
                                                             </div>
                                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -628,15 +743,17 @@
                                                                     <span class="basic-preference-title">Asset Level</span>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($partnerMatchingData['AssetValue'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="Tharu's Asset Level :
-                                                                    -----------------
-                                                                    Partner Preference :
+                                                                    <i class="fas <?= ($partnerMatchingData['AssetValue'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerData['vcNickName'] ?>'s Asset Level
+                                                                    <?= $partnerData['vcAssetValue'] ?> 
+                                                                    ----------------
+                                                                    <?= $partnerData['vcNickName'] ?>'s Preference :
                                                                     <?= $partnerBasicPreferencesData['PreferedAssetValue'] ?>"></i>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($memberMatchingData['AssetValue'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="Viraj's Asset Level : 
-                                                                    -----------------
-                                                                    Partner Preference :
+                                                                    <i class="fas <?= ($memberMatchingData['AssetValue'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="My Asset Level : 
+                                                                    <?= $myData['vcAssetValue'] ?> 
+                                                                    ----------------
+                                                                    My Preference :
                                                                     <?= $myBasicPreferencesData['PreferedAssetValue'] ?>"></i>
                                                                 </div>
                                                             </div>
@@ -645,10 +762,20 @@
                                                                     <span class="basic-preference-title">Disability</span>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($partnerMatchingData['Disability'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedDisability'] ?>"></i>
+                                                                    <i class="fas <?= ($partnerMatchingData['Disability'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerData['vcNickName'] ?>'s Disability
+                                                                    <?= $partnerData['vcDisability'] ?> 
+                                                                    ----------------
+                                                                    <?= $partnerData['vcNickName'] ?>'s Preference :
+                                                                    <?= $partnerBasicPreferencesData['PreferedDisability'] ?>">
+                                                                    </i>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($memberMatchingData['Disability'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedDisability'] ?>"></i>
+                                                                    <i class="fas <?= ($memberMatchingData['Disability'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="My Disability
+                                                                    <?= $myData['vcDisability'] ?> 
+                                                                    ----------------
+                                                                    My Preference :
+                                                                    <?= $myBasicPreferencesData['PreferedDisability'] ?>">
+                                                                    </i>
                                                                 </div>
                                                             </div>
                                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -656,10 +783,20 @@
                                                                     <span class="basic-preference-title">Diet</span>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($partnerMatchingData['Diet'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerBasicPreferencesData['PreferedDiet'] ?>"></i>
+                                                                    <i class="fas <?= ($partnerMatchingData['Diet'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $partnerData['vcNickName'] ?>'s Diet
+                                                                     <?= $partnerData['vcDiet'] ?> 
+                                                                    ----------------
+                                                                    <?= $partnerData['vcNickName'] ?>'s Preference :
+                                                                    <?= $partnerBasicPreferencesData['PreferedDiet'] ?>">
+                                                                    </i>
                                                                 </div>
                                                                 <div class="col-3" style="text-align:center;">
-                                                                    <i class="fas <?= ($memberMatchingData['Diet'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="<?= $myBasicPreferencesData['PreferedDiet'] ?>"></i>
+                                                                    <i class="fas <?= ($memberMatchingData['Diet'] == 1) ? 'fa-check' : 'fa-times'; ?>" data-toggle="tooltip" title="My Diet
+                                                                    <?= $myData['vcDiet'] ?> 
+                                                                    ----------------
+                                                                    My Preference :
+                                                                    <?= $myBasicPreferencesData['PreferedDiet'] ?>">
+                                                                    </i>
                                                                 </div>
                                                             </div>
                                                             <div class="row justify-content-center align-items-center" style="padding: 10px 0 10px 0;">
@@ -700,9 +837,6 @@
                                 </div>
                                 <!-- </div> -->
                                 <div class="collapse-area">
-
-
-
                                     <div class="card">
                                         <div class="card-header pl-0" id="headingOne">
                                             <h5 class="mb-0">
@@ -714,20 +848,6 @@
 
                                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                                             <div class="card-body pt-0">
-                                                <!-- <div class="row">
-                                                    <div class="title-column"></div>
-                                                    <div class="my-detail">
-                                                        <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-male"></i> His Details</h5>
-                                                    </div>
-                                                    <div class="my-detail">
-                                                        <h5 style="background-color: #4C637C; padding: 10px; color: #FFFFFF; text-align: center;"><i class="fas fa-female"></i> My Details</h5>
-                                                    </div>
-                                                </div> -->
-
-
-
-
-                                                <!-- Test -->
                                                 <div class="row">
                                                     <div class="overflowX">
                                                         <table>
@@ -773,1204 +893,908 @@
                                                             </tr>
                                                         </table>
                                                     </div>
-
-
-
-                                                    <!-- <div class="outer">
-                                                        <div class="inner">
-                                                            <table>
-                                                                <tr class="header">
-                                                                    <td class="fixed_left"></td>
-                                                                    <td class="partner-detail" style="background-color: #ffe082; color: #795548; padding: 3px; font-weight: 600; text-align: center; border-right: 2px solid #FFFFFF;"><i class="fas fa-male"></i> His Details</td>
-                                                                    <td class="my-detail" style="background-color: #ffe082; color: #795548; padding: 3px; font-weight: 600; text-align: center;"><i class="fas fa-female"></i> My Details</td>
-                                                                    <td class="col-idle my-detail"></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="fixed_left">Nick Name</td>
-                                                                    <td class="partner-detail border-bottom"><?= $partnerData['vcNickName'] ?></td>
-                                                                    <td class="my-detail border-bottom"><?= $myData['vcNickName'] ?></td>
-                                                                    <td class="col-idle my-detail border-bottom"></td>
-                                                                </tr>
-                                                                <tr>
-
-                                                                    <td class="fixed_left">Gender</td>
-                                                                    <td class="partner-detail border-bottom"><?= $partnerData['vcGender'] ?></td>
-                                                                    <td class="my-detail border-bottom"><?= $myData['vcGender'] ?></td>
-                                                                    <td class="col-idle my-detail border-bottom"></td>
-                                                                </tr>
-                                                                <tr>
-
-                                                                    <td class="fixed_left">Age</td>
-                                                                    <td class="partner-detail border-bottom"><?= $partnerData['intAge'] ?> Years</td>
-                                                                    <td class="my-detail border-bottom"><?= $myData['intAge'] ?> Years</td>
-                                                                    <td class="col-idle my-detail border-bottom"></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="fixed_left">Marital Status</td>
-                                                                    <td class="partner-detail border-bottom"><?= $partnerData['vcMaritalStatus'] ?></td>
-                                                                    <td class="my-detail border-bottom"><?= $myData['vcMaritalStatus'] ?></td>
-                                                                    <td class="col-idle my-detail border-bottom"></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="fixed_left">No Of Children(s)</td>
-                                                                    <td class="partner-detail border-bottom"><?= $partnerData['vcNoOfChildren'] ?></td>
-                                                                    <td class="my-detail border-bottom"><?= $myData['vcNoOfChildren'] ?></td>
-                                                                    <td class="col-idle my-detail border-bottom"></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="fixed_left">Manage By</td>
-                                                                    <td class="partner-detail border-bottom"><?= $partnerData['vcProvidingInformationType'] ?></td>
-                                                                    <td class="my-detail border-bottom"><?= $myData['vcProvidingInformationType'] ?></td>
-                                                                    <td class="col-idle my-detail border-bottom"></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="fixed_left">Marry By</td>
-                                                                    <td class="partner-detail"><?= $partnerData['vcMarriageType'] ?></td>
-                                                                    <td class="my-detail"><?= $myData['vcMarriageType'] ?></td>
-                                                                    <td class="col-idle my-detail"></td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div> -->
-
                                                 </div>
-
-
-                                                <!-- <div class="row border-bottom align-items-center">
-                                                    <div class="title-column">
-                                                        <label for="nickName">Nick Name</label>
-                                                    </div>
-
-                                                    <div class="scroll-onMobile">
-                                                        <div class="partner-detail" style="background-color: red; width: 300px;">
-                                                            <label><?= $partnerData['vcNickName'] ?></label>
-                                                        </div>
-                                                        <div class="my-detail" style="background-color: yellow; width: 300px;">
-                                                            <label><?= $myData['vcNickName'] ?></label>
-                                                        </div>
-                                                    </div>
-
-                                                </div> -->
-                                                <!-- <div class="row border-bottom justify-content-center align-items-center">
-                                                    <div class="title-column">
-                                                        <label for="partnerGender" style="margin: 0 !important;">Gender</label>
-                                                    </div>
-                                                    <div class="partner-detail">
-                                                        <label><?= $partnerData['vcGender'] ?></label>
-                                                    </div>
-                                                    <div class="my-detail">
-                                                        <label><?= $myData['vcGender'] ?></label>
-                                                    </div>
-                                                </div> -->
-                                                <!-- <div class="row border-bottom justify-content-center align-items-center">
-                                                    <div class="title-column">
-                                                        <label for="partnerAge">Age</label>
-                                                    </div>
-                                                    <div class="partner-detail">
-                                                        <label><?= $partnerData['intAge'] ?> Years</label>
-                                                    </div>
-                                                    <div class="my-detail">
-                                                        <label><?= $myData['intAge'] ?> Years</label>
-                                                    </div>
-                                                </div> -->
-                                                <!-- <div class="row border-bottom justify-content-center align-items-center">
-                                                    <div class="title-column">
-                                                        <label>Marital Status</label>
-                                                    </div>
-                                                    <div class="partner-detail">
-                                                        <label><?= $partnerData['vcMaritalStatus'] ?></label>
-                                                    </div>
-                                                    <div class="my-detail">
-                                                        <label><?= $myData['vcMaritalStatus'] ?></label>
-                                                    </div>
-                                                </div> -->
-                                                <!-- <div class="row border-bottom justify-content-center align-items-center">
-                                                    <div class="title-column">
-                                                        <label>No Of Children(s)</label>
-                                                    </div>
-                                                    <div class="partner-detail">
-                                                        <label><?= $partnerData['vcNoOfChildren'] ?></label>
-                                                    </div>
-                                                    <div class="my-detail">
-                                                        <label><?= $myData['vcNoOfChildren'] ?></label>
-                                                    </div>
-                                                </div> -->
-                                                <!-- <div class="row border-bottom justify-content-center align-items-center">
-                                                    <div class="title-column">
-                                                        <label>Profile Manage By</label>
-                                                    </div>
-                                                    <div class="partner-detail">
-                                                        <label><?= $partnerData['vcProvidingInformationType'] ?></label>
-                                                    </div>
-                                                    <div class="my-detail">
-                                                        <label><?= $myData['vcProvidingInformationType'] ?></label>
-                                                    </div>
-                                                </div> -->
-                                                <!-- <div class="row justify-content-center align-items-center">
-                                                    <div class="title-column">
-                                                        <label>Marry By</label>
-                                                    </div>
-                                                    <div class="partner-detail">
-                                                        <label><?= $partnerData['vcMarriageType'] ?></label>
-                                                    </div>
-                                                    <div class="my-detail">
-                                                        <label><?= $myData['vcMarriageType'] ?></label>
-                                                    </div>
-                                                </div> -->
-                                                <!-- <div class="col-6">
-                                            <div class="form-group">
-                                                <label for="website">Date Of Birth</label>
-                                                <input type="text" class="form-control" id="bateOfBirth" value="" placeholder="N/A" disabled>
-                                            </div>
-                                        </div> -->
-
-
-
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="card">
-                                        <div class="card-header" id="headingTwo">
+                                        <div class="card-header pl-0" id="headingTwo">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                <button class="btn btn-link collapsed text-primary p-0" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                                     Physical Status
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                            <div class="card-body">
+                                            <div class="card-body pt-0">
                                                 <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName">Height</label>
-                                                            <input type="text" class="form-control" id="partnerHeight" value="<?= $partnerData['intHeight'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Height</label>
-                                                            <input type="text" class="form-control" id="myHeight" value="<?= $myData['intHeight'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Weight</label>
-                                                            <input type="text" class="form-control" id="partnerWeight" value="<?= $partnerData['Weight_Customised'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Weight</label>
-                                                            <input type="text" class="form-control" id="myWeight" value="<?= $myData['Weight_Customised'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Body Shape</label>
-                                                            <input type="text" class="form-control" id="partnerBodyShape" value="<?= $partnerData['vcBodyType'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Body Shape</label>
-                                                            <input type="text" class="form-control" id="myBodyShape" value="<?= $myData['vcBodyType'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Skin Color</label>
-                                                            <input type="text" class="form-control" id="partnerSkinColor" value="<?= $partnerData['vcSkinColour'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Skin Color</label>
-                                                            <input type="text" class="form-control" id="mySkinColor" value="<?= $myData['vcSkinColour'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Disability</label>
-                                                            <input type="text" class="form-control" id="partnerDisability" value="<?= $partnerData['vcDisability'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Disability</label>
-                                                            <input type="text" class="form-control" id="myDisability" value="<?= $myData['vcDisability'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Blood Group</label>
-                                                            <input type="text" class="form-control" id="partnerBloodGroup" value="<?= $partnerData['vcBloodGroup'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Blood Group</label>
-                                                            <input type="text" class="form-control" id="myBloodGroup" value="<?= $myData['vcBloodGroup'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Health Information</label>
-                                                            <input type="text" class="form-control" id="partnerHealthInformation" value="<?= $partnerData['vcHealthInfo'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Health Information</label>
-                                                            <input type="text" class="form-control" id="myHealthInformation" value="<?= $myData['vcHealthInfo'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="overflowX">
+                                                        <table>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Height</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['intHeight'] ?></td>
+                                                                <td class="my-detail"><?= $myData['intHeight'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Weight</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['Weight_Customised'] ?></td>
+                                                                <td class="my-detail"><?= $myData['Weight_Customised'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Body Shape</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcBodyType'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcBodyType'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Skin Color</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcSkinColour'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcSkinColour'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Disability</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcDisability'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcDisability'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Blood Group</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcBloodGroup'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcBloodGroup'] ?></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>Health Information</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcHealthInfo'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcHealthInfo'] ?></td>
+                                                            </tr>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingThree">
+                                        <div class="card-header pl-0" id="headingThree">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                <button class="btn btn-link collapsed text-primary p-0" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                                     Residence
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                            <div class="card-body">
+                                            <div class="card-body pt-0">
                                                 <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName">Current Residence</label>
-                                                            <input type="text" class="form-control" id="partnerCurrentResidence" value="<?= $partnerData['vcLiveIn'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Current Residence</label>
-                                                            <input type="text" class="form-control" id="myCurrentResidence" value="<?= $myData['vcLiveIn'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Residence Status</label>
-                                                            <input type="text" class="form-control" id="partnerResidenceStatus" value="<?= $partnerData['vcResidenceStatus'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Residence Status</label>
-                                                            <input type="text" class="form-control" id="myResidenceStatus" value="<?= $myData['vcResidenceStatus'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Live in Srilanka</label>
-                                                            <input type="text" class="form-control" id="partnerLiveinSriLanka" value="<?= $partnerData['vcLiveIn'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Live in Sri Lanka</label>
-                                                            <input type="text" class="form-control" id="myLiveinSriLanka" value="<?= $myData['vcLiveIn'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">District</label>
-                                                            <input type="text" class="form-control" id="partnerDistrict" value="<?= $partnerData['Test'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">District</label>
-                                                            <input type="text" class="form-control" id="myDistrict" value="<?= $myData['Test'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">City</label>
-                                                            <input type="text" class="form-control" id="partnerCity" value="<?= $partnerData['vcCityName'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">City</label>
-                                                            <input type="text" class="form-control" id="myCity" value="<?= $myData['vcCityName'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Ownership of the Address</label>
-                                                            <input type="text" class="form-control" id="partnerOwnerShipOfTheAddress" value="<?= $partnerData['vcAddOfSriLanka'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Ownership of the Address</label>
-                                                            <input type="text" class="form-control" id="myOwnerShipOfTheAddress" value="<?= $myData['vcAddOfSriLanka'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Native District</label>
-                                                            <input type="text" class="form-control" id="partnerNativeDistrict" value="<?= $partnerData['Test'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Native District</label>
-                                                            <input type="text" class="form-control" id="myNativeDistrict" value="<?= $myData['Test'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="overflowX">
+                                                        <table>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Current Residence</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcWorkingCountry'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcWorkingCountry'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Residence Status</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcResidenceStatus'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcResidenceStatus'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Live in Sri Lanka</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcProvinceName'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcProvinceName'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>District</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcDistrictName'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcDistrictName'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>City</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcCityName'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcCityName'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom" style="background-color: orange;">
+                                                                <td><strong>Ownership of the Address</strong></td>
+                                                                <td class="partner-detail"> </td>
+                                                                <td class="my-detail"> </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>Native District</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['NativeDistrictName'] ?></td>
+                                                                <td class="my-detail"><?= $myData['NativeDistrictName'] ?></td>
+                                                            </tr>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingBackground">
+                                        <div class="card-header pl-0" id="headingBackground">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseBackground" aria-expanded="false" aria-controls="collapseBackground">
+                                                <button class="btn btn-link collapsed text-primary p-0" data-toggle="collapse" data-target="#collapseBackground" aria-expanded="false" aria-controls="collapseBackground">
                                                     Background
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseBackground" class="collapse" aria-labelledby="headingBackground" data-parent="#accordion">
-                                            <div class="card-body">
+                                            <div class="card-body pt-0">
                                                 <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName">Mother Tongue</label>
-                                                            <input type="text" class="form-control" id="partnerMotherTongue" value="<?= $partnerData['vcMotherTounge'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Mother Tongue</label>
-                                                            <input type="text" class="form-control" id="myMotherTongue" value="<?= $myData['vcMotherTounge'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Ethnicity</label>
-                                                            <input type="text" class="form-control" id="partnerEthnicity" value="<?= $partnerData['vcEthnicity'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Ethnicity</label>
-                                                            <input type="text" class="form-control" id="myEthnicity" value="<?= $myData['vcEthnicity'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Religion</label>
-                                                            <input type="text" class="form-control" id="partnerReligion" value="<?= $partnerData['vcReligion'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Religion</label>
-                                                            <input type="text" class="form-control" id="myReligion" value="<?= $myData['vcReligion'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Caste</label>
-                                                            <input type="text" class="form-control" id="partnerCaste" value="<?= $partnerData['vcReligion'] ?><?= $partnerData['vcReligion'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Caste</label>
-                                                            <input type="text" class="form-control" id="myCaste" value="<?= $myData['vcReligion'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Sub Caste</label>
-                                                            <input type="text" class="form-control" id="partnerSubCaste" value="<?= $partnerData['vcSubCasteName'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Sub Caste</label>
-                                                            <input type="text" class="form-control" id="mySubCaste" value="<?= $myData['vcSubCasteName'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Police Report</label>
-                                                            <input type="text" class="form-control" id="partnerPoliceReport" value="<?= $partnerData['vcPoliceReportCanProvide'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Police Report</label>
-                                                            <input type="text" class="form-control" id="myPoliceReport" value="<?= $myData['vcPoliceReportCanProvide'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="overflowX">
+                                                        <table>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Mother Tongue</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcMotherTounge'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcMotherTounge'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Ethnicity</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcEthnicity'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcEthnicity'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Religion</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcReligion'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcReligion'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Caste</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcCasteName'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcCasteName'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Sub Caste</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcSubCasteName'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcSubCasteName'] ?></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>Police Report</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcPoliceReportCanProvide'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcPoliceReportCanProvide'] ?></td>
+                                                            </tr>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingLifeStyle">
+                                        <div class="card-header pl-0" id="headingLifeStyle">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseLifeStyle" aria-expanded="false" aria-controls="collapseLifeStyle">
+                                                <button class="btn btn-link collapsed text-primary p-0" data-toggle="collapse" data-target="#collapseLifeStyle" aria-expanded="false" aria-controls="collapseLifeStyle">
                                                     Life Style
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseLifeStyle" class="collapse" aria-labelledby="headingLifeStyle" data-parent="#accordion">
-                                            <div class="card-body">
+                                            <div class="card-body pt-0">
                                                 <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName">Diet</label>
-                                                            <input type="text" class="form-control" id="partnerDiet" value="<?= $partnerData['vcDiet'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Diet</label>
-                                                            <input type="text" class="form-control" id="myDiet" value="<?= $myData['vcDiet'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Drink</label>
-                                                            <input type="text" class="form-control" id="partnerDrink" value="<?= $partnerData['vcDrink'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Drink</label>
-                                                            <input type="text" class="form-control" id="myDrink" value="<?= $myData['vcDrink'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Smoke</label>
-                                                            <input type="text" class="form-control" id="partnerSmoke" value="<?= $partnerData['vcSmoke'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Smoke</label>
-                                                            <input type="text" class="form-control" id="mySmoke" value="<?= $myData['vcSmoke'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Languages, Speak</label>
-                                                            <input type="text" class="form-control" id="partnerLanguages" value="<?= $partnerData['vcLanguageSpeakWithSeparator'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Languages, Speak</label>
-                                                            <input type="text" class="form-control" id="myLanguages" value="<?= $myData['vcLanguageSpeakWithSeparator'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Dress & Makeup</label>
-                                                            <input type="text" class="form-control" id="partnerDress&Makeup" value="<?= $partnerData['vcDressAndMakeup'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Dress & Makeup</label>
-                                                            <input type="text" class="form-control" id="myDress&Makeup" value="<?= $myData['vcDressAndMakeup'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Used to Travel</label>
-                                                            <input type="text" class="form-control" id="partnerUsedtoTravel" value="<?= $partnerData['vcUsedToTravel'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Used to Travel</label>
-                                                            <input type="text" class="form-control" id="myUsedtoTravel" value="<?= $myData['vcUsedToTravel'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Call to Parents</label>
-                                                            <input type="text" class="form-control" id="partnerCalltoParents" value="<?= $partnerData['vcCalToParent'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Call to Parents</label>
-                                                            <input type="text" class="form-control" id="myCalltoParents" value="<?= $myData['vcCalToParent'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Customs</label>
-                                                            <input type="text" class="form-control" id="partnerCustoms" value="<?= $partnerData['vcCustoms'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Customs</label>
-                                                            <input type="text" class="form-control" id="myCustoms" value="<?= $myData['vcCustoms'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Live In</label>
-                                                            <input type="text" class="form-control" id="partnerLiveIn" value="<?= $partnerData['vcLiveIn'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Live In</label>
-                                                            <input type="text" class="form-control" id="myLiveIn" value="<?= $myData['vcLiveIn'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="overflowX">
+                                                        <table>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Diet</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcDiet'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcDiet'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Drink</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcDrink'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcDrink'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Smoke</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcSmoke'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcSmoke'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Languages, Speak</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcLanguageSpeakWithSeparator'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcLanguageSpeakWithSeparator'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Dress & Makeup</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcDressAndMakeup'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcDressAndMakeup'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Used to Travel</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcUsedToTravel'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcUsedToTravel'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Call to Parents</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcCalToParent'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcCalToParent'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Customs</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcCustoms'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcCustoms'] ?></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>Live In</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcLiveIn'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcLiveIn'] ?></td>
+                                                            </tr>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingWhoAmI">
+                                        <div class="card-header pl-0" id="headingWhoAmI">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseWhoAmI" aria-expanded="false" aria-controls="collapseWhoAmI">
+                                                <button class="btn btn-link collapsed text-primary p-0" data-toggle="collapse" data-target="#collapseWhoAmI" aria-expanded="false" aria-controls="collapseWhoAmI">
                                                     Who Am I
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseWhoAmI" class="collapse" aria-labelledby="headingWhoAmI" data-parent="#accordion">
-                                            <div class="card-body">
+                                            <div class="card-body pt-0">
                                                 <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName">Openness to Experience</label>
-                                                            <input type="text" class="form-control" id="partnerOpennessToExperience" value="<?= $partnerData['intOpennessToExperience'] ?>%" placeholder="N/A" disabled>
+                                                    <div class="overflowX">
+                                                        <table>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Openness to Experience</strong></td>
+                                                                <td class="partner-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $partnerData['intOpennessToExperience'] ?>%;" aria-valuenow="<?= $partnerData['intOpennessToExperience'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $partnerData['intOpennessToExperience'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="my-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $myData['intOpennessToExperience'] ?>%;" aria-valuenow="<?= $myData['intOpennessToExperience'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $myData['intOpennessToExperience'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Conscientiousness</strong></td>
+                                                                <td class="partner-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $partnerData['intConscientiousness'] ?>%;" aria-valuenow="<?= $partnerData['intConscientiousness'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $partnerData['intConscientiousness'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="my-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $myData['intConscientiousness'] ?>%;" aria-valuenow="<?= $myData['intConscientiousness'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $myData['intConscientiousness'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Extrovert Personality</strong></td>
+                                                                <td class="partner-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $partnerData['intExtrovertPersonality'] ?>%;" aria-valuenow="<?= $partnerData['intExtrovertPersonality'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $partnerData['intExtrovertPersonality'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="my-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $myData['intExtrovertPersonality'] ?>%;" aria-valuenow="<?= $myData['intExtrovertPersonality'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $myData['intExtrovertPersonality'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Introvert Personality</strong></td>
+                                                                <td class="partner-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $partnerData['intIntrovertPersonality'] ?>%;" aria-valuenow="<?= $partnerData['intIntrovertPersonality'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $partnerData['intIntrovertPersonality'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="my-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $myData['intIntrovertPersonality'] ?>%;" aria-valuenow="<?= $myData['intIntrovertPersonality'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $myData['intIntrovertPersonality'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Agreeableness</strong></td>
+                                                                <td class="partner-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $partnerData['intAgreeableness'] ?>%;" aria-valuenow="<?= $partnerData['intAgreeableness'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $partnerData['intAgreeableness'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="my-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $myData['intAgreeableness'] ?>%;" aria-valuenow="<?= $myData['intAgreeableness'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $myData['intAgreeableness'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Neuroticism</strong></td>
+                                                                <td class="partner-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $partnerData['intNeuroticism'] ?>%;" aria-valuenow="<?= $partnerData['intNeuroticism'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $partnerData['intNeuroticism'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="my-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $myData['intNeuroticism'] ?>%;" aria-valuenow="<?= $myData['intNeuroticism'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $myData['intNeuroticism'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Family Bond</strong></td>
+                                                                <td class="partner-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $partnerData['intFamilyBond'] ?>%;" aria-valuenow="<?= $partnerData['intFamilyBond'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $partnerData['intFamilyBond'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="my-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $myData['intFamilyBond'] ?>%;" aria-valuenow="<?= $myData['intFamilyBond'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $myData['intFamilyBond'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Money</strong></td>
+                                                                <td class="partner-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $partnerData['intMoney'] ?>%;" aria-valuenow="<?= $partnerData['intMoney'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $partnerData['intMoney'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="my-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $myData['intMoney'] ?>%;" aria-valuenow="<?= $myData['intMoney'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $myData['intMoney'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Religious</strong></td>
+                                                                <td class="partner-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $partnerData['intReligious'] ?>%;" aria-valuenow="<?= $partnerData['intReligious'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $partnerData['intReligious'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="my-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $myData['intReligious'] ?>%;" aria-valuenow="<?= $myData['intReligious'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $myData['intReligious'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Physically Active</strong></td>
+                                                                <td class="partner-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $partnerData['intPhysicallyActive'] ?>%;" aria-valuenow="<?= $partnerData['intPhysicallyActive'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $partnerData['intPhysicallyActive'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="my-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $myData['intPhysicallyActive'] ?>%;" aria-valuenow="<?= $myData['intPhysicallyActive'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $myData['intPhysicallyActive'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Politics</strong></td>
+                                                                <td class="partner-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $partnerData['IntPolitics'] ?>%;" aria-valuenow="<?= $partnerData['IntPolitics'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $partnerData['IntPolitics'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="my-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $myData['IntPolitics'] ?>%;" aria-valuenow="<?= $myData['IntPolitics'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $myData['IntPolitics'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Knowledge</strong></td>
+                                                                <td class="partner-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $partnerData['intKnowledge'] ?>%;" aria-valuenow="<?= $partnerData['intKnowledge'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $partnerData['intKnowledge'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="my-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $myData['intKnowledge'] ?>%;" aria-valuenow="<?= $myData['intKnowledge'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $myData['intKnowledge'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Love Affairs</strong></td>
+                                                                <td class="partner-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $partnerData['intLoveAffairs'] ?>%;" aria-valuenow="<?= $partnerData['intLoveAffairs'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $partnerData['intLoveAffairs'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="my-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $myData['intLoveAffairs'] ?>%;" aria-valuenow="<?= $myData['intLoveAffairs'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $myData['intLoveAffairs'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>The Importance of Male & Female Virginity.</strong></td>
+                                                                <td class="partner-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $partnerData['intimportanceVirginity'] ?>%;" aria-valuenow="<?= $partnerData['intimportanceVirginity'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $partnerData['intimportanceVirginity'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="my-detail">
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" style="width: <?= $myData['intimportanceVirginity'] ?>%;" aria-valuenow="<?= $myData['intimportanceVirginity'] ?>" aria-valuemin="0" aria-valuemax="100">
+                                                                            <?= $myData['intimportanceVirginity'] ?>%
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>My Interests & Hobbies</strong></td>
+                                                                <td class="partner-detail">
+                                                                    <button class="btn btn-info btn-block" data-toggle="modal" data-target="#modelPartnerInterest">View Details</button>
+                                                                </td>
+                                                                <td class="my-detail">
+                                                                    <button class="btn btn-info btn-block" data-toggle="modal" data-target="#modelMyInterest">View Details</button>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+
+                                                        <!-- Partner Interests & Hobbies Modal -->
+                                                        <div class="modal fade" id="modelPartnerInterest" tabindex="-1" role="dialog" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <h3 style="color: #37474f;"><strong><?= $partnerData['vcNickName'] ?>'s Interests & Hobbies</strong></h3>
+                                                                        <hr />
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <h4 style="color: #2196f3;"><strong>Enrichment Hobbies</strong></h4>
+                                                                                <?php
+                                                                                foreach ($partnerEnrichmentHobbies as $data) {
+                                                                                ?>
+                                                                                    <p style="color: #2196f3;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-circle"></i>&nbsp;<?= $data['vcEnrichmentHobby']; ?></p>
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <h4 style="color: #a86955;"><strong>Sports / Physical Activities</strong></h4>
+                                                                                <?php
+                                                                                foreach ($partnerSportsActivities as $data) {
+                                                                                ?>
+                                                                                    <p style="color: #a86955;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-circle"></i>&nbsp;<?= $data['vcSportsPhysicalActivities']; ?></p>
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <h4 style="color: #5738A6;"><strong>Social Activites</strong></h4>
+                                                                                <?php
+                                                                                foreach ($partnerSocialActivites as $data) {
+                                                                                ?>
+                                                                                    <p style="color: #5738A6;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-circle"></i>&nbsp;<?= $data['vcSocialActivities']; ?></p>
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <h4 style="color: #ff9800;"><strong>Creative Hobbies</strong></h4>
+                                                                                <?php
+                                                                                foreach ($partnerCreativeHobbies as $data) {
+                                                                                ?>
+                                                                                    <p style="color: #ff9800;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-circle"></i>&nbsp;<?= $data['vcCreativeHobbies']; ?></p>
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <h5 style="color: #00bcd4;"><strong>Collecting Hobbies</strong></h5>
+                                                                                <?php
+                                                                                foreach ($partnerCollectingHobbies as $data) {
+                                                                                ?>
+                                                                                    <p style="color: #00bcd4;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-circle"></i>&nbsp;<?= $data['vcCollectingHobby']; ?></p>
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <h5 style="color: #ec407a;"><strong>Outdoors hobbies</strong></h5>
+                                                                                <?php
+                                                                                foreach ($partnerOutdoorsHobbies as $data) {
+                                                                                ?>
+                                                                                    <p style="color: #ec407a;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-circle"></i>&nbsp;<?= $data['vcOutdoorHobies']; ?></p>
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <h5 style="color: #009688;"><strong>Domestic Hobbies</strong></h5>
+                                                                                <?php
+                                                                                foreach ($partnerDomesticHobbies as $data) {
+                                                                                ?>
+                                                                                    <p style="color: #009688;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-circle"></i>&nbsp;<?= $data['vcdomesticHobbies']; ?></p>
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Openness to Experience</label>
-                                                            <input type="text" class="form-control" id="myOpennessToExperience" value="<?= $myData['intOpennessToExperience'] ?>%" placeholder="N/A" disabled>
+                                                        <!-- Model End -->
+
+                                                        <!-- My Interests & Hobbies Modal -->
+                                                        <div class="modal fade" id="modelMyInterest" tabindex="-1" role="dialog" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <h3 style="color: #37474f;"><strong>My Interests & Hobbies</strong></h3>
+                                                                        <hr />
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <h4 style="color: #2196f3;"><strong>Enrichment Hobbies</strong></h4>
+                                                                                <?php
+                                                                                foreach ($myEnrichmentHobbies as $data) {
+                                                                                ?>
+                                                                                    <p style="color: #2196f3;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-circle"></i>&nbsp;<?= $data['vcEnrichmentHobby']; ?></p>
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <h4 style="color: #a86955;"><strong>Sports / Physical Activities</strong></h4>
+                                                                                <?php
+                                                                                foreach ($mySportsActivities as $data) {
+                                                                                ?>
+                                                                                    <p style="color: #a86955;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-circle"></i>&nbsp;<?= $data['vcSportsPhysicalActivities']; ?></p>
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <h4 style="color: #5738A6;"><strong>Social Activites</strong></h4>
+                                                                                <?php
+                                                                                foreach ($mySocialActivites as $data) {
+                                                                                ?>
+                                                                                    <p style="color: #5738A6;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-circle"></i>&nbsp;<?= $data['vcSocialActivities']; ?></p>
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <h4 style="color: #ff9800;"><strong>Creative Hobbies</strong></h4>
+                                                                                <?php
+                                                                                foreach ($myCreativeHobbies as $data) {
+                                                                                ?>
+                                                                                    <p style="color: #ff9800;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-circle"></i>&nbsp;<?= $data['vcCreativeHobbies']; ?></p>
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <h5 style="color: #00bcd4;"><strong>Collecting Hobbies</strong></h5>
+                                                                                <?php
+                                                                                foreach ($myCollectingHobbies as $data) {
+                                                                                ?>
+                                                                                    <p style="color: #00bcd4;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-circle"></i>&nbsp;<?= $data['vcCollectingHobby']; ?></p>
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <h5 style="color: #ec407a;"><strong>Outdoors hobbies</strong></h5>
+                                                                                <?php
+                                                                                foreach ($myOutdoorsHobbies as $data) {
+                                                                                ?>
+                                                                                    <p style="color: #ec407a;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-circle"></i>&nbsp;<?= $data['vcOutdoorHobies']; ?></p>
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <h5 style="color: #009688;"><strong>Domestic Hobbies</strong></h5>
+                                                                                <?php
+                                                                                foreach ($myDomesticHobbies as $data) {
+                                                                                ?>
+                                                                                    <p style="color: #009688;">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-circle"></i>&nbsp;<?= $data['vcdomesticHobbies']; ?></p>
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Conscientiousness</label>
-                                                            <input type="text" class="form-control" id="partnerConscientiousness" value="<?= $partnerData['intConscientiousness'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Conscientiousness</label>
-                                                            <input type="text" class="form-control" id="myConscientiousness" value="<?= $myData['intConscientiousness'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Extrovert Personality</label>
-                                                            <input type="text" class="form-control" id="partnerExtrovertPersonality" value="<?= $partnerData['intExtrovertPersonality'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Extrovert Personality</label>
-                                                            <input type="text" class="form-control" id="myExtrovertPersonality" value="<?= $myData['intExtrovertPersonality'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Introvert Personality</label>
-                                                            <input type="text" class="form-control" id="partnerIntrovertPersonality" value="<?= $partnerData['intIntrovertPersonality'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Introvert Personality</label>
-                                                            <input type="text" class="form-control" id="myIntrovertPersonality" value="<?= $myData['intIntrovertPersonality'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Agreeableness</label>
-                                                            <input type="text" class="form-control" id="partnerAgreeableness" value="<?= $partnerData['intAgreeableness'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Agreeableness</label>
-                                                            <input type="text" class="form-control" id="myAgreeableness" value="<?= $myData['intAgreeableness'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Neuroticism</label>
-                                                            <input type="text" class="form-control" id="partnerNeuroticism" value="<?= $partnerData['intNeuroticism'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Neuroticism</label>
-                                                            <input type="text" class="form-control" id="myNeuroticism" value="<?= $myData['intNeuroticism'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Family Bond</label>
-                                                            <input type="text" class="form-control" id="partnerFamilyBond" value="<?= $partnerData['intFamilyBond'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Family Bond</label>
-                                                            <input type="text" class="form-control" id="myFamilyBond" value="<?= $myData['intFamilyBond'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Money</label>
-                                                            <input type="text" class="form-control" id="partnerMoney" value="<?= $partnerData['intMoney'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Money</label>
-                                                            <input type="text" class="form-control" id="myMoney" value="<?= $myData['intMoney'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Religious</label>
-                                                            <input type="text" class="form-control" id="partnerReligious" value="<?= $partnerData['intReligious'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Religious</label>
-                                                            <input type="text" class="form-control" id="myReligious" value="<?= $myData['intReligious'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Physically Active</label>
-                                                            <input type="text" class="form-control" id="partnerPhysicallyActive" value="<?= $partnerData['intPhysicallyActive'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Physically Active</label>
-                                                            <input type="text" class="form-control" id="myPhysicallyActive" value="<?= $myData['intPhysicallyActive'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Politics</label>
-                                                            <input type="text" class="form-control" id="partnerPolitics" value="<?= $partnerData['IntPolitics'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Politics</label>
-                                                            <input type="text" class="form-control" id="myPolitics" value="<?= $myData['IntPolitics'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Knowledge</label>
-                                                            <input type="text" class="form-control" id="partnerKnowledge" value="<?= $partnerData['intKnowledge'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Knowledge</label>
-                                                            <input type="text" class="form-control" id="myKnowledge" value="<?= $myData['intKnowledge'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">Love Affairs</label>
-                                                            <input type="text" class="form-control" id="partnerLoveAffairs" value="<?= $partnerData['intLoveAffairs'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Love Affairs</label>
-                                                            <input type="text" class="form-control" id="myLoveAffairs" value="<?= $myData['intLoveAffairs'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">The Importance of Male & Female Virginity.</label>
-                                                            <input type="text" class="form-control" id="partnerFemaleVirginity" value="<?= $partnerData['intimportanceVirginity'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">The Importance of Male & Female Virginity.</label>
-                                                            <input type="text" class="form-control" id="myFemaleVirginity" value="<?= $myData['intimportanceVirginity'] ?>%" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="website">My Interests & Hobbies</label>
-                                                            <button class="btn btn-info btn-block">View Details</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">My Interests & Hobbies</label>
-                                                            <button class="btn btn-info btn-block">View Details</button>
-                                                        </div>
+                                                        <!-- Model End -->
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingEducation">
+                                        <div class="card-header pl-0" id="headingEducation">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseEducation" aria-expanded="false" aria-controls="collapseEducation">
+                                                <button class="btn btn-link collapsed text-primary p-0" data-toggle="collapse" data-target="#collapseEducation" aria-expanded="false" aria-controls="collapseEducation">
                                                     Education
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseEducation" class="collapse" aria-labelledby="headingEducation" data-parent="#accordion">
-                                            <div class="card-body">
+                                            <div class="card-body pt-0">
                                                 <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName">Education Level</label>
-                                                            <input type="text" class="form-control" id="partnerEducationLevel" value="<?= $partnerData['vcEducationLevel'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Education Level</label>
-                                                            <input type="text" class="form-control" id="myEducationLevel" value="<?= $myData['vcEducationLevel'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Education Field</label>
-                                                            <input type="text" class="form-control" id="partnerEducationField" value="<?= $partnerData['vcEducationField'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Education Field</label>
-                                                            <input type="text" class="form-control" id="myEducationField" value="<?= $myData['vcEducationField'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">School / University</label>
-                                                            <input type="text" class="form-control" id="partnerSchoolUniversity" value="<?= $partnerData['vcSclUniDescription'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">School / University</label>
-                                                            <input type="text" class="form-control" id="mySchoolUniversity" value="<?= $myData['vcSclUniDescription'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="overflowX">
+                                                        <table>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Education Level</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcEducationLevel'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcEducationLevel'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Education Field</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcEducationField'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcEducationField'] ?></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>School / University</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcSclUniDescription'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcSclUniDescription'] ?></td>
+                                                            </tr>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingCareer">
+                                        <div class="card-header pl-0" id="headingCareer">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseCareer" aria-expanded="false" aria-controls="collapseCareer">
+                                                <button class="btn btn-link collapsed text-primary p-0" data-toggle="collapse" data-target="#collapseCareer" aria-expanded="false" aria-controls="collapseCareer">
                                                     Career
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseCareer" class="collapse" aria-labelledby="headingCareer" data-parent="#accordion">
-                                            <div class="card-body">
+                                            <div class="card-body pt-0">
                                                 <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName">Working With</label>
-                                                            <input type="text" class="form-control" id="shortName" value="<?= $partnerData['vcWorkingWith'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Working With</label>
-                                                            <input type="text" class="form-control" id="shortName" value="<?= $myData['vcWorkingWith'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Working As</label>
-                                                            <input type="text" class="form-control" id="gender" value="<?= $partnerData['vcWorkingAs'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Working As</label>
-                                                            <input type="text" class="form-control" id="gender" value="<?= $myData['vcWorkingAs'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Working Country</label>
-                                                            <input type="text" class="form-control" id="gender" value="<?= $partnerData['vcWorkingCountry'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Working Country</label>
-                                                            <input type="text" class="form-control" id="gender" value="<?= $myData['vcWorkingCountry'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Working District</label>
-                                                            <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Working District</label>
-                                                            <input type="text" class="form-control" id="gender" value="" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Working City</label>
-                                                            <input type="text" class="form-control" id="gender" value="<?= $partnerData['vcWorkingCity'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Working City</label>
-                                                            <input type="text" class="form-control" id="gender" value="<?= $myData['vcWorkingCity'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Describe Career</label>
-                                                            <input type="text" class="form-control" id="describeCareer" value="<?= $partnerData['vcDescribeCareer'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Describe Career</label>
-                                                            <input type="text" class="form-control" id="describeCareer" value="<?= $myData['vcDescribeCareer'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="overflowX">
+                                                        <table>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Working With</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcWorkingWith'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcWorkingWith'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Working As</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcWorkingAs'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcWorkingAs'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Working Country</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcWorkingCountry'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcWorkingCountry'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Working District</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcWorkingDistrict'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcWorkingDistrict'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Working City</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcWorkingCity'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcWorkingCity'] ?></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>Describe Career</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcDescribeCareer'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcDescribeCareer'] ?></td>
+                                                            </tr>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingPersonalAssets">
+                                        <div class="card-header pl-0" id="headingPersonalAssets">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapsePersonalAssets" aria-expanded="false" aria-controls="collapsePersonalAssets">
+                                                <button class="btn btn-link collapsed text-primary p-0" data-toggle="collapse" data-target="#collapsePersonalAssets" aria-expanded="false" aria-controls="collapsePersonalAssets">
                                                     Personal Assets
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapsePersonalAssets" class="collapse" aria-labelledby="headingPersonalAssets" data-parent="#accordion">
-                                            <div class="card-body">
+                                            <div class="card-body pt-0">
                                                 <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName">Monthly Income</label>
-                                                            <input type="text" class="form-control" id="partnerMonthlyIncome" value="<?= $partnerData['vcMonthlyIncome'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Monthly Income</label>
-                                                            <input type="text" class="form-control" id="myMonthlyIncome" value="<?= $myData['vcMonthlyIncome'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Monthly Income Routes</label>
-                                                            <input type="text" class="form-control" id="partnerMonthlyIncomeRoutes" value="<?= $partnerData['vcMonthlyIncomeRouteSeparator'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Monthly Income Routes</label>
-                                                            <input type="text" class="form-control" id="myMonthlyIncomeRoutes" value="<?= $myData['vcMonthlyIncomeRouteSeparator'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Asset Value</label>
-                                                            <input type="text" class="form-control" id="partnerAssetValue" value="<?= $partnerData['vcAssetValue'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="website" style="color: #FFFFFF;">Asset Value</label>
-                                                            <input type="text" class="form-control" id="myAssetValue" value="<?= $myData['vcAssetValue'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Asset Routes</label>
-                                                            <input type="text" class="form-control" id="partnerAssetRoutes" value="" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Asset Routes</label>
-                                                            <input type="text" class="form-control" id="myAssetRoutes" value="" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Ownership of Assets</label>
-                                                            <input type="text" class="form-control" id="partnerOwnershipOfAssets" value="<?= $partnerData['vcOwnershipOfAssets'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Ownership of Assets</label>
-                                                            <input type="text" class="form-control" id="myOwnershipOfAssets" value="<?= $myData['vcOwnershipOfAssets'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="overflowX">
+                                                        <table>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Monthly Income</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcMonthlyIncome'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcMonthlyIncome'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Monthly Income Routes</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcMonthlyIncomeRouteSeparator'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcMonthlyIncomeRouteSeparator'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Asset Value</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcAssetValue'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcAssetValue'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom" style="background-color: orange;">
+                                                                <td><strong>Asset Routes</strong></td>
+                                                                <td class="partner-detail"></td>
+                                                                <td class="my-detail"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>Ownership of Assets</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcOwnershipOfAssets'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcOwnershipOfAssets'] ?></td>
+                                                            </tr>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingFamily">
+                                        <div class="card-header pl-0" id="headingFamily">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseFamily" aria-expanded="false" aria-controls="collapseFamily">
+                                                <button class="btn btn-link collapsed text-primary p-0" data-toggle="collapse" data-target="#collapseFamily" aria-expanded="false" aria-controls="collapseFamily">
                                                     Family
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseFamily" class="collapse" aria-labelledby="headingFamily" data-parent="#accordion">
-                                            <div class="card-body">
+                                            <div class="card-body pt-0">
                                                 <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName">Family Location</label>
-                                                            <input type="text" class="form-control" id="partnerFamilyLocation" value="" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Family Location</label>
-                                                            <input type="text" class="form-control" id="myFamilyLocation" value="" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Family Type</label>
-                                                            <input type="text" class="form-control" id="partnerFamilyType" value="<?= $partnerData['vcFamilyType'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Family Type</label>
-                                                            <input type="text" class="form-control" id="myFamilyType" value="<?= $myData['vcFamilyType'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Family Values</label>
-                                                            <input type="text" class="form-control" id="partnerFamilyValues" value="<?= $partnerData['vcFamilyValues'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Family Values</label>
-                                                            <input type="text" class="form-control" id="myFamilyValues" value="<?= $myData['vcFamilyValues'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Family Class</label>
-                                                            <input type="text" class="form-control" id="partnerFamilyClass" value="<?= $partnerData['vcFamilyClass'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Family Class</label>
-                                                            <input type="text" class="form-control" id="myFamilyClass" value="<?= $myData['vcFamilyClass'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Family Culture</label>
-                                                            <input type="text" class="form-control" id="partnerFamilyCulture" value="<?= $partnerData['vcFamilyCulture'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Family Culture</label>
-                                                            <input type="text" class="form-control" id="myFamilyCulture" value="<?= $myData['vcFamilyCulture'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Father Status</label>
-                                                            <input type="text" class="form-control" id="partnerFatherStatus" value="<?= $partnerData['vcFatherStatus'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Father Status</label>
-                                                            <input type="text" class="form-control" id="myFatherStatus" value="<?= $myData['vcFatherStatus'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Mother Status</label>
-                                                            <input type="text" class="form-control" id="partnerMotherStatus" value="<?= $partnerData['vcMotherStatus'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Mother Status</label>
-                                                            <input type="text" class="form-control" id="myMotherStatus" value="<?= $myData['vcMotherStatus'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Family Details</label>
-                                                            <button class="btn btn-info btn-block">View Details</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Family Details</label>
-                                                            <button class="btn btn-info btn-block">View Details</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                    <div class="overflowX">
+                                                        <table>
+                                                            <tr class="border-bottom" style="background-color: orange;">
+                                                                <td><strong>Family Location</strong></td>
+                                                                <td class="partner-detail"></td>
+                                                                <td class="my-detail"></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Family Type</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcFamilyType'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcFamilyType'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Family Values</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcFamilyValues'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcFamilyValues'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Family Class</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcFamilyClass'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcFamilyClass'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Family Culture</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcFamilyCulture'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcFamilyCulture'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Family Status</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcFatherStatus'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcFatherStatus'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Mother Status</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcMotherStatus'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcMotherStatus'] ?></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>Family Details</strong></td>
+                                                                <td class="partner-detail"><button class="btn btn-info btn-block" data-toggle="modal" data-target="#modelPartnerFamilyDetails">View Details</button></td>
+                                                                <td class="my-detail"><button class="btn btn-info btn-block" data-toggle="modal" data-target="#modelMyFamilyDetails">View Details</button></td>
+                                                            </tr>
+                                                        </table>
 
+
+                                                        <!-- Partner Family Details Modal -->
+                                                        <div class="modal fade" id="modelPartnerFamilyDetails" tabindex="-1" role="dialog" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <h3 style="color: #37474f;"><strong><?= $partnerData['vcNickName'] ?>'s Family Details</strong></h3>
+                                                                        <hr />
+                                                                        <p class="text-justify"><?= $partnerData['vcFamilyDetails'] ?></p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Modal End -->
+
+                                                        <!-- My Family Details Modal -->
+                                                        <div class="modal fade" id="modelMyFamilyDetails" tabindex="-1" role="dialog" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <h3 style="color: #37474f;"><strong>My Family Details</strong></h3>
+                                                                        <hr />
+                                                                        <p class="text-justify"><?= $myData['vcFamilyDetails'] ?></p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Modal End -->
+
+
+                                                    </div>
+                                                </div>
                                                 <!-- partial:index.partial.html -->
-                                                <div tabindex="-1" uk-slider="center: true">
+                                                <!-- <div tabindex="-1" uk-slider="center: true">
                                                     <div class="uk-position-relative uk-visible-toggle uk-light">
                                                         <ul class="uk-slider-items uk-grid" uk-lightbox>
                                                             <li>
@@ -2020,314 +1844,249 @@
                                                         <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
                                                     </div>
                                                     <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
-                                                </div>
+                                                </div> -->
 
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingAfterMarriage">
+                                        <div class="card-header pl-0" id="headingAfterMarriage">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseAfterMarriage" aria-expanded="false" aria-controls="collapseAfterMarriage">
+                                                <button class="btn btn-link collapsed text-primary p-0" data-toggle="collapse" data-target="#collapseAfterMarriage" aria-expanded="false" aria-controls="collapseAfterMarriage">
                                                     After Marriage
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseAfterMarriage" class="collapse" aria-labelledby="headingAfterMarriage" data-parent="#accordion">
-                                            <div class="card-body">
+                                            <div class="card-body pt-0">
                                                 <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName">Prefer to Live</label>
-                                                            <input type="text" class="form-control" id="partnerPreferToLive" value="<?= $partnerData['vcPrefferToLive'] ?>" placeholder="N/A" disabled>
+                                                    <div class="overflowX">
+                                                        <table>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Prefer to Live</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcPrefferToLive'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcPrefferToLive'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Job</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcJobAfterMarriage'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcJobAfterMarriage'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Education</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcEducationAfterMarriage'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcEducationAfterMarriage'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Children Likes</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcChildrenLikes'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcChildrenLikes'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Help Family</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcHelpFamily'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcHelpFamily'] ?></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>Other Needs</strong></td>
+                                                                <td class="partner-detail"><button class="btn btn-info btn-block" data-toggle="modal" data-target="#modelPartnerOtherNeeds">View Details</button></td>
+                                                                <td class="my-detail"><button class="btn btn-info btn-block" data-toggle="modal" data-target="#modelMyOtherNeeds">View Details</button></td>
+                                                            </tr>
+                                                        </table>
+
+                                                        <!-- Partner Other Needs Modal -->
+                                                        <div class="modal fade" id="modelPartnerOtherNeeds" tabindex="-1" role="dialog" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <h3 style="color: #37474f;"><strong><?= $partnerData['vcNickName'] ?>'s Other Needs</strong></h3>
+                                                                        <hr />
+                                                                        <p class="text-justify"><?= $partnerData['vcOtherNeeds'] ?></p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Prefer to Live</label>
-                                                            <input type="text" class="form-control" id="myPreferToLive" value="<?= $myData['vcPrefferToLive'] ?>" placeholder="N/A" disabled>
+                                                        <!-- Modal End -->
+
+                                                        <!-- My Other Needs Modal -->
+                                                        <div class="modal fade" id="modelMyOtherNeeds" tabindex="-1" role="dialog" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <h3 style="color: #37474f;"><strong>My Other Needs</strong></h3>
+                                                                        <hr />
+                                                                        <p class="text-justify"><?= $myData['vcOtherNeeds'] ?></p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Job</label>
-                                                            <input type="text" class="form-control" id="partnerJob" value="<?= $partnerData['vcJobAfterMarriage'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Job</label>
-                                                            <input type="text" class="form-control" id="myJob" value="<?= $myData['vcJobAfterMarriage'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Education</label>
-                                                            <input type="text" class="form-control" id="partnerEducation" value="<?= $partnerData['vcEducationAfterMarriage'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Education</label>
-                                                            <input type="text" class="form-control" id="myEducation" value="<?= $myData['vcEducationAfterMarriage'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Children Likes</label>
-                                                            <input type="text" class="form-control" id="partnerChildrenLikes" value="<?= $partnerData['vcChildrenLikes'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Children Likes</label>
-                                                            <input type="text" class="form-control" id="myChildrenLikes" value="<?= $myData['vcChildrenLikes'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Help Family</label>
-                                                            <input type="text" class="form-control" id="partnerHelpFamily" value="<?= $partnerData['vcHelpFamily'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Help Family</label>
-                                                            <input type="text" class="form-control" id="myHelpFamily" value="<?= $myData['vcHelpFamily'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Other Needs</label>
-                                                            <button class="btn btn-info btn-block">View Details</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Other Needs</label>
-                                                            <button class="btn btn-info btn-block">View Details</button>
-                                                        </div>
+                                                        <!-- Modal End -->
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card">
-                                        <div class="card-header" id="headingHoroscope">
+                                        <div class="card-header pl-0" id="headingHoroscope">
                                             <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed text-primary" data-toggle="collapse" data-target="#collapseHoroscope" aria-expanded="false" aria-controls="collapseHoroscope">
+                                                <button class="btn btn-link collapsed text-primary p-0" data-toggle="collapse" data-target="#collapseHoroscope" aria-expanded="false" aria-controls="collapseHoroscope">
                                                     Horoscope
                                                 </button>
                                             </h5>
                                         </div>
                                         <div id="collapseHoroscope" class="collapse" aria-labelledby="headingHoroscope" data-parent="#accordion">
-                                            <div class="card-body">
+                                            <div class="card-body pt-0">
                                                 <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName">Matching Horoscope</label>
-                                                            <input type="text" class="form-control" id="partnerMatchingHoroscope" value="<?= $partnerData['vcMatchingHoroscope'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Matching Horoscope</label>
-                                                            <input type="text" class="form-control" id="myMatchingHoroscope" value="<?= $myData['vcMatchingHoroscope'] ?>" placeholder="N/A" disabled>
-                                                        </div>
+                                                    <div class="overflowX">
+                                                        <table>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Matching Horoscope</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcMatchingHoroscope'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcMatchingHoroscope'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Papa Kendara</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcPapaKendara'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcPapaKendara'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Zodiac Sign</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcZodiacSign'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcZodiacSign'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Nekatha</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcNekatha'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcNekatha'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Ganaya</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['vcGanaya'] ?></td>
+                                                                <td class="my-detail"><?= $myData['vcGanaya'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Ganaya</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['intMoon'] ?></td>
+                                                                <td class="my-detail"><?= $myData['intMoon'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Mars</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['intMars'] ?></td>
+                                                                <td class="my-detail"><?= $myData['intMars'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Mercury</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['intMercury'] ?></td>
+                                                                <td class="my-detail"><?= $myData['intMercury'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Jupiter</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['intJupiter'] ?></td>
+                                                                <td class="my-detail"><?= $myData['intJupiter'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Venus</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['intVenus'] ?></td>
+                                                                <td class="my-detail"><?= $myData['intVenus'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Saturn</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['intSaturn'] ?></td>
+                                                                <td class="my-detail"><?= $myData['intSaturn'] ?></td>
+                                                            </tr>
+                                                            <tr class="border-bottom">
+                                                                <td><strong>Rahu</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['intRahu'] ?></td>
+                                                                <td class="my-detail"><?= $myData['intRahu'] ?></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><strong>Kethu</strong></td>
+                                                                <td class="partner-detail"><?= $partnerData['intKethu'] ?></td>
+                                                                <td class="my-detail"><?= $myData['intKethu'] ?></td>
+                                                            </tr>
+                                                        </table>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-5 partner-detail">
+                                                    <div class="my-detail">
                                                         <div class="form-group">
-                                                            <label for="phone">Papa Kendara</label>
-                                                            <input type="text" class="form-control" id="partnerPapaKendara" value="<?= $partnerData['vcPapaKendara'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Papa Kendara</label>
-                                                            <input type="text" class="form-control" id="myPapaKendara" value="<?= $myData['vcPapaKendara'] ?>" placeholder="N/A" disabled>
+                                                            <button class="btn btn-info btn-block" data-toggle="modal" data-target="#modelMatchHoroscope">Match Horoscope</button>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Zodiac Sign</label>
-                                                            <input type="text" class="form-control" id="partnerZodiacSign" value="<?= $partnerData['vcZodiacSign'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Zodiac Sign</label>
-                                                            <input type="text" class="form-control" id="myZodiacSign" value="<?= $myData['vcZodiacSign'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Nekatha</label>
-                                                            <input type="text" class="form-control" id="partnerNekatha" value="<?= $partnerData['vcNekatha'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Nekatha</label>
-                                                            <input type="text" class="form-control" id="myNekatha" value="<?= $myData['vcNekatha'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Ganaya</label>
-                                                            <input type="text" class="form-control" id="partnerGanaya" value="<?= $partnerData['vcGanaya'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Ganaya</label>
-                                                            <input type="text" class="form-control" id="myGanaya" value="<?= $myData['vcGanaya'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Moon</label>
-                                                            <input type="text" class="form-control" id="partnerMoon" value="<?= $partnerData['intMoon'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Moon</label>
-                                                            <input type="text" class="form-control" id="myMoon" value="<?= $myData['intMoon'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Mars</label>
-                                                            <input type="text" class="form-control" id="partnerMars" value="<?= $partnerData['intMars'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Mars</label>
-                                                            <input type="text" class="form-control" id="myMars" value="<?= $myData['intMars'] ?>" placeholder="N/A" disabled>
+
+
+                                                <!-- Match Horoscope Modal -->
+                                                <div class="modal fade" id="modelMatchHoroscope" tabindex="-1" role="dialog" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-body">
+                                                                <h3 style="color: #37474f;"><strong>Match Horoscope</strong></h3>
+                                                                <hr />
+                                                                <p class="text-justify">
+                                                                    Obtain the service of a talented and experienced astrologer to match the horoscopes.
+                                                                    Never match your horoscopes via computer and internet.
+                                                                    Not only the horoscopes but also the planetary influence also must be considered.
+                                                                    A computer programme only shows you the percentage of horoscope matching.
+                                                                    If any programme states that it can provide information based on your planetary powers that programme must be designed based on your horoscope.
+                                                                    There are no equal individuals in the world. Although individuals resemble physically,
+                                                                    they are different according to the way they think and the effect of Karma. Therefore, we do not find similar horoscopes.
+                                                                    Matching horoscopes via computers can be roughly accurate concerning the programmes based on the mathematical functions of astrology.
+                                                                    But the planetary predictions provided by the computers are wrong.
+                                                                    The most pressing matter is that computers may indicate non-matching horoscopes as matching.
+                                                                    Similarly, matching horoscopes are indicated by computers as non-matching.
+                                                                    Therefore, always get your horoscope personally ready by an experienced astrologer.
+                                                                </p>
+
+
+                                                                <h5 class="text-center font-weight-bold">Your Profile</h5>
+                                                                <h5 class="text-center mt-0"><?= $myData['vcNickName'] ?> - <?= $myData['vcMemberCode'] ?></h5>
+
+
+                                                                <h5 class="text-center font-weight-bold">Partner Profile</h5>
+                                                                <h5 class="text-center mt-0"><?= $partnerData['vcNickName'] ?> - <?= $partnerData['vcMemberCode'] ?></h5>
+
+                                                                <?php
+                                                                if ($myData['intMemberAccountTypeID'] != 4) { // Without Premium Members
+                                                                ?>
+                                                                    <br>
+                                                                    <p>(We provide this service to our <strong>Premium Members</strong> free of charge)</p>
+                                                                <?php
+                                                                } else {
+                                                                ?>
+                                                                    <div class="row">
+                                                                        <div class="col text-center">
+                                                                            <button type="button" class="btn btn-success">Request Match the Horoscope</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <p class="text-center font-weight-bold" style="color: #455a64;">This facility is completely free. Because you are a <span style="color: #ff9800;">Premium Member</span> of our web site.</p>
+                                                                <?php
+                                                                }
+                                                                ?>
+
+
+
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Mercury</label>
-                                                            <input type="text" class="form-control" id="partnerMercury" value="<?= $partnerData['intMercury'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Mercury</label>
-                                                            <input type="text" class="form-control" id="myMercury" value="<?= $myData['intMercury'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Jupiter</label>
-                                                            <input type="text" class="form-control" id="partnerJupiter" value="<?= $partnerData['intJupiter'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Jupiter</label>
-                                                            <input type="text" class="form-control" id="myJupiter" value="<?= $myData['intJupiter'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Venus</label>
-                                                            <input type="text" class="form-control" id="partnerVenus" value="<?= $partnerData['intVenus'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Venus</label>
-                                                            <input type="text" class="form-control" id="myVenus" value="<?= $myData['intVenus'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Saturn</label>
-                                                            <input type="text" class="form-control" id="partnerSaturn" value="<?= $partnerData['intSaturn'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Saturn</label>
-                                                            <input type="text" class="form-control" id="mySaturn" value="<?= $myData['intSaturn'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Rahu</label>
-                                                            <input type="text" class="form-control" id="partnerRahu" value="<?= $partnerData['intRahu'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Rahu</label>
-                                                            <input type="text" class="form-control" id="myRahu" value="<?= $myData['intRahu'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-5 partner-detail">
-                                                        <div class="form-group">
-                                                            <label for="phone">Kethu</label>
-                                                            <input type="text" class="form-control" id="partnerKethu" value="<?= $partnerData['intKethu'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-5 my-detail">
-                                                        <div class="form-group">
-                                                            <label for="shortName" style="color: #FFFFFF;">Kethu</label>
-                                                            <input type="text" class="form-control" id="myKethu" value="<?= $myData['intKethu'] ?>" placeholder="N/A" disabled>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-12 partner-detail">
-                                                        <div class="form-group">
-                                                            <button class="btn btn-info btn-block">Match Horoscope</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <!-- Modal End -->
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!--  <a href="#" uk-totop uk-scroll style="float: right; background-color: yellow; padding: 10px;"></a>< -->
 
 
                         </div>
@@ -2418,14 +2177,16 @@
 
         function ShowMyDetails(value) {
             if (value) { // Show My Details
-                $(".header .partner-detail").removeClass("border-0");
+                // $(".header .partner-detail").removeClass("border-0");
                 // $(".partner-detail").addClass("col-5");
                 $(".my-detail").removeClass("hide-my-detail");
+                $("table").removeClass("w-100");
 
             } else { // Hide My Details
                 // $(".partner-detail").removeClass("col-5");
-                $(".header .partner-detail").addClass("border-0");
+                // $(".header .partner-detail").addClass("border-0");
                 $(".my-detail").addClass("hide-my-detail");
+                $("table").addClass("w-100");
             }
         }
 
