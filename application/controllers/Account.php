@@ -7,6 +7,8 @@ class Account extends Admin_Controller
 		parent::__construct();
 		$this->not_logged_in();
 		$this->load->model('Model_account');
+		$this->load->model('Model_registration');
+
 		// header("Cache-Control: no-cache, must-revalidate"); // HTTP 1.1.
 		// header("Pragma: no-cache"); // HTTP 1.0.
 		// header("Expires: 0"); // Proxies.
@@ -71,24 +73,66 @@ class Account extends Admin_Controller
 	{
 
 		$member_id = $this->session->userdata('member_id');
+
 		$myData = $this->Model_account->getMemberData($member_id);
 		$partnerData = $this->Model_account->getMemberData($PartnerID);
-		$memberPhotosData = $this->Model_account->getMemberPhotosData($PartnerID);
+
+		$partnerPhotosData = $this->Model_account->getMemberPhotosData($PartnerID);
+		
 		$matchingPercentageData = $this->Model_account->getPartnerAndMemberMatchingPercentage($member_id, $PartnerID);
+
 		$myBasicPreferencesData = $this->Model_account->getGetBasicPreferencesWithSeparatorMemberDetailByID($member_id);
 		$partnerBasicPreferencesData = $this->Model_account->getGetBasicPreferencesWithSeparatorMemberDetailByID($PartnerID);
+
 		$memberMatchingData =  $this->Model_account->getMemberMatchingDetailsByPartnerID($member_id, $PartnerID);
 		$partnerMatchingData =  $this->Model_account->getMemberMatchingDetailsByPartnerID($PartnerID, $member_id);
+
+		$myEnrichmentHobbies = $this->Model_registration->getEnrichmentHobbies($member_id);
+		$partnerEnrichmentHobbies = $this->Model_registration->getEnrichmentHobbies($PartnerID);
+		
+		$mySportsActivities = $this->Model_registration->getSportsActivities($member_id);
+		$partnerSportsActivities = $this->Model_registration->getSportsActivities($PartnerID);
+
+		$mySocialActivites = $this->Model_registration->getSocialActivites($member_id);
+		$partnerSocialActivites = $this->Model_registration->getSocialActivites($PartnerID);
+
+		$myCreativeHobbies = $this->Model_registration->getCreativeHobbies($member_id);
+		$partnerCreativeHobbies = $this->Model_registration->getCreativeHobbies($PartnerID);
+
+		$myCollectingHobbies = $this->Model_registration->getCollectingHobbies($member_id);
+		$partnerCollectingHobbies = $this->Model_registration->getCollectingHobbies($PartnerID);
+
+		$myOutdoorsHobbies = $this->Model_registration->getOutdoorsHobbies($member_id);
+		$partnerOutdoorsHobbies = $this->Model_registration->getOutdoorsHobbies($PartnerID);
+
+		$myDomesticHobbies = $this->Model_registration->getDomesticHobbies($member_id);
+		$partnerDomesticHobbies = $this->Model_registration->getDomesticHobbies($PartnerID);
+
 
 
 		$this->data['myData'] = $myData;
 		$this->data['partnerData'] = $partnerData;
-		$this->data['partnerPhotosData'] = $memberPhotosData;
+		$this->data['partnerPhotosData'] = $partnerPhotosData;
 		$this->data['matchingPercentageData'] = $matchingPercentageData;
 		$this->data['myBasicPreferencesData'] = $myBasicPreferencesData;
 		$this->data['partnerBasicPreferencesData'] = $partnerBasicPreferencesData;
 		$this->data['memberMatchingData'] = $memberMatchingData;
 		$this->data['partnerMatchingData'] = $partnerMatchingData;
+		$this->data['myEnrichmentHobbies'] = $myEnrichmentHobbies;
+		$this->data['partnerEnrichmentHobbies'] = $partnerEnrichmentHobbies;
+		$this->data['mySportsActivities'] = $mySportsActivities;
+		$this->data['partnerSportsActivities'] = $partnerSportsActivities;
+		$this->data['mySocialActivites'] = $mySocialActivites;
+		$this->data['partnerSocialActivites'] = $partnerSocialActivites;
+		$this->data['myCreativeHobbies'] = $myCreativeHobbies;
+		$this->data['partnerCreativeHobbies'] = $partnerCreativeHobbies;
+		$this->data['myCollectingHobbies'] = $myCollectingHobbies;
+		$this->data['partnerCollectingHobbies'] = $partnerCollectingHobbies;
+		$this->data['myOutdoorsHobbies'] = $myOutdoorsHobbies;
+		$this->data['partnerOutdoorsHobbies'] = $partnerOutdoorsHobbies;
+		$this->data['myDomesticHobbies'] = $myDomesticHobbies;
+		$this->data['partnerDomesticHobbies'] = $partnerDomesticHobbies;
+
 
 		$this->Model_account->updateVisitedProfile($member_id, $PartnerID); //update member visited profile - dk added 2021-7-11
 
